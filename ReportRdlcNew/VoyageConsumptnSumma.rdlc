@@ -1,0 +1,260 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="DataSource">
+      <ConnectionProperties>
+        <DataProvider>SQL</DataProvider>
+        <ConnectString />
+      </ConnectionProperties>
+      <rd:SecurityType>None</rd:SecurityType>
+    </DataSource>
+  </DataSources>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <Height>2in</Height>
+        <Style />
+      </Body>
+      <Width>6.5in</Width>
+      <Page>
+        <Style />
+      </Page>
+    </ReportSection>
+  </ReportSections>
+  <Code>Public Function BlankZero(ByVal Value As Decimal)
+    if Value = 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankPos(ByVal Value As Decimal)
+    if Value &gt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankZeroAndPos(ByVal Value As Decimal)
+    if Value &gt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNeg(ByVal Value As Decimal)
+    if Value &lt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNegAndZero(ByVal Value As Decimal)
+    if Value &lt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+</Code>
+  <Language>=User!Language</Language>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="Job_No_">
+          <DataField>Job_No_</DataField>
+        </Field>
+        <Field Name="FORMAT_TODAY_0_4_">
+          <DataField>FORMAT_TODAY_0_4_</DataField>
+        </Field>
+        <Field Name="COMPANYNAME">
+          <DataField>COMPANYNAME</DataField>
+        </Field>
+        <Field Name="CurrReport_PAGENO">
+          <DataField>CurrReport_PAGENO</DataField>
+        </Field>
+        <Field Name="USERID">
+          <DataField>USERID</DataField>
+        </Field>
+        <Field Name="Item_Ledger_Entry__Entry_Type_">
+          <DataField>Item_Ledger_Entry__Entry_Type_</DataField>
+        </Field>
+        <Field Name="Item_Ledger_Entry__Item_No__">
+          <DataField>Item_Ledger_Entry__Item_No__</DataField>
+        </Field>
+        <Field Name="Item_Ledger_Entry__Item_No___Control14">
+          <DataField>Item_Ledger_Entry__Item_No___Control14</DataField>
+        </Field>
+        <Field Name="Item_Ledger_Entry_Description">
+          <DataField>Item_Ledger_Entry_Description</DataField>
+        </Field>
+        <Field Name="Item_Ledger_Entry__Remaining_Quantity_">
+          <DataField>Item_Ledger_Entry__Remaining_Quantity_</DataField>
+        </Field>
+        <Field Name="Item_Ledger_Entry__Remaining_Quantity_Format">
+          <DataField>Item_Ledger_Entry__Remaining_Quantity_Format</DataField>
+        </Field>
+        <Field Name="Cost_Amount__Actual___Quantity">
+          <DataField>Cost_Amount__Actual___Quantity</DataField>
+        </Field>
+        <Field Name="Cost_Amount__Actual___QuantityFormat">
+          <DataField>Cost_Amount__Actual___QuantityFormat</DataField>
+        </Field>
+        <Field Name="Item_Ledger_Entry_Quantity">
+          <DataField>Item_Ledger_Entry_Quantity</DataField>
+        </Field>
+        <Field Name="Item_Ledger_Entry_QuantityFormat">
+          <DataField>Item_Ledger_Entry_QuantityFormat</DataField>
+        </Field>
+        <Field Name="Item_Ledger_Entry__Remaining_Quantity__Control29">
+          <DataField>Item_Ledger_Entry__Remaining_Quantity__Control29</DataField>
+        </Field>
+        <Field Name="Item_Ledger_Entry__Remaining_Quantity__Control29Format">
+          <DataField>Item_Ledger_Entry__Remaining_Quantity__Control29Format</DataField>
+        </Field>
+        <Field Name="Item_Ledger_Entry__Cost_Amount__Actual__">
+          <DataField>Item_Ledger_Entry__Cost_Amount__Actual__</DataField>
+        </Field>
+        <Field Name="Item_Ledger_Entry__Cost_Amount__Actual__Format">
+          <DataField>Item_Ledger_Entry__Cost_Amount__Actual__Format</DataField>
+        </Field>
+        <Field Name="Item_Ledger_Entry_Quantity_Control31">
+          <DataField>Item_Ledger_Entry_Quantity_Control31</DataField>
+        </Field>
+        <Field Name="Item_Ledger_Entry_Quantity_Control31Format">
+          <DataField>Item_Ledger_Entry_Quantity_Control31Format</DataField>
+        </Field>
+        <Field Name="Item_Ledger_Entry_Description_Control1000000000">
+          <DataField>Item_Ledger_Entry_Description_Control1000000000</DataField>
+        </Field>
+        <Field Name="Item_Ledger_Entry__Item_No___Control1000000001">
+          <DataField>Item_Ledger_Entry__Item_No___Control1000000001</DataField>
+        </Field>
+        <Field Name="Remaining_Quantity___Cost_Amount__Actual____Quantity">
+          <DataField>Remaining_Quantity___Cost_Amount__Actual____Quantity</DataField>
+        </Field>
+        <Field Name="Remaining_Quantity___Cost_Amount__Actual____QuantityFormat">
+          <DataField>Remaining_Quantity___Cost_Amount__Actual____QuantityFormat</DataField>
+        </Field>
+        <Field Name="Cost_Amount__Actual___Quantity_Control1000000003">
+          <DataField>Cost_Amount__Actual___Quantity_Control1000000003</DataField>
+        </Field>
+        <Field Name="Cost_Amount__Actual___Quantity_Control1000000003Format">
+          <DataField>Cost_Amount__Actual___Quantity_Control1000000003Format</DataField>
+        </Field>
+        <Field Name="Amount">
+          <DataField>Amount</DataField>
+        </Field>
+        <Field Name="AmountFormat">
+          <DataField>AmountFormat</DataField>
+        </Field>
+        <Field Name="UnitC">
+          <DataField>UnitC</DataField>
+        </Field>
+        <Field Name="UnitCFormat">
+          <DataField>UnitCFormat</DataField>
+        </Field>
+        <Field Name="TotalFor___FIELDCAPTION__Entry_Type__">
+          <DataField>TotalFor___FIELDCAPTION__Entry_Type__</DataField>
+        </Field>
+        <Field Name="Item_Ledger_Entry__Remaining_Quantity__Control33">
+          <DataField>Item_Ledger_Entry__Remaining_Quantity__Control33</DataField>
+        </Field>
+        <Field Name="Item_Ledger_Entry__Remaining_Quantity__Control33Format">
+          <DataField>Item_Ledger_Entry__Remaining_Quantity__Control33Format</DataField>
+        </Field>
+        <Field Name="Item_Ledger_Entry__Cost_Amount__Actual___Control34">
+          <DataField>Item_Ledger_Entry__Cost_Amount__Actual___Control34</DataField>
+        </Field>
+        <Field Name="Item_Ledger_Entry__Cost_Amount__Actual___Control34Format">
+          <DataField>Item_Ledger_Entry__Cost_Amount__Actual___Control34Format</DataField>
+        </Field>
+        <Field Name="Item_Ledger_Entry_Quantity_Control35">
+          <DataField>Item_Ledger_Entry_Quantity_Control35</DataField>
+        </Field>
+        <Field Name="Item_Ledger_Entry_Quantity_Control35Format">
+          <DataField>Item_Ledger_Entry_Quantity_Control35Format</DataField>
+        </Field>
+        <Field Name="Amount_Control1000000006">
+          <DataField>Amount_Control1000000006</DataField>
+        </Field>
+        <Field Name="Amount_Control1000000006Format">
+          <DataField>Amount_Control1000000006Format</DataField>
+        </Field>
+        <Field Name="Remaining_Quantity___Cost_Amount__Actual____Quantity_Control1000000007">
+          <DataField>Remaining_Quantity___Cost_Amount__Actual____Quantity_Control1000000007</DataField>
+        </Field>
+        <Field Name="Remaining_Quantity___Cost_Amount__Actual____Quantity_Control1000000007Format">
+          <DataField>Remaining_Quantity___Cost_Amount__Actual____Quantity_Control1000000007Format</DataField>
+        </Field>
+        <Field Name="Cost_Amount__Actual___Quantity_Control1000000008">
+          <DataField>Cost_Amount__Actual___Quantity_Control1000000008</DataField>
+        </Field>
+        <Field Name="Cost_Amount__Actual___Quantity_Control1000000008Format">
+          <DataField>Cost_Amount__Actual___Quantity_Control1000000008Format</DataField>
+        </Field>
+        <Field Name="Item_Ledger_Entry_Quantity_Control1000000009">
+          <DataField>Item_Ledger_Entry_Quantity_Control1000000009</DataField>
+        </Field>
+        <Field Name="Item_Ledger_Entry_Quantity_Control1000000009Format">
+          <DataField>Item_Ledger_Entry_Quantity_Control1000000009Format</DataField>
+        </Field>
+        <Field Name="Item_Ledger_Entry__Cost_Amount__Actual___Control1000000010">
+          <DataField>Item_Ledger_Entry__Cost_Amount__Actual___Control1000000010</DataField>
+        </Field>
+        <Field Name="Item_Ledger_Entry__Cost_Amount__Actual___Control1000000010Format">
+          <DataField>Item_Ledger_Entry__Cost_Amount__Actual___Control1000000010Format</DataField>
+        </Field>
+        <Field Name="UnitC_Control1000000011">
+          <DataField>UnitC_Control1000000011</DataField>
+        </Field>
+        <Field Name="UnitC_Control1000000011Format">
+          <DataField>UnitC_Control1000000011Format</DataField>
+        </Field>
+        <Field Name="Item_Ledger_Entry__Remaining_Quantity__Control1000000012">
+          <DataField>Item_Ledger_Entry__Remaining_Quantity__Control1000000012</DataField>
+        </Field>
+        <Field Name="Item_Ledger_Entry__Remaining_Quantity__Control1000000012Format">
+          <DataField>Item_Ledger_Entry__Remaining_Quantity__Control1000000012Format</DataField>
+        </Field>
+        <Field Name="Item_Ledger_EntryCaption">
+          <DataField>Item_Ledger_EntryCaption</DataField>
+        </Field>
+        <Field Name="CurrReport_PAGENOCaption">
+          <DataField>CurrReport_PAGENOCaption</DataField>
+        </Field>
+        <Field Name="Item_Ledger_Entry__Item_No___Control14Caption">
+          <DataField>Item_Ledger_Entry__Item_No___Control14Caption</DataField>
+        </Field>
+        <Field Name="Item_Ledger_Entry_DescriptionCaption">
+          <DataField>Item_Ledger_Entry_DescriptionCaption</DataField>
+        </Field>
+        <Field Name="Item_Ledger_Entry__Remaining_Quantity_Caption">
+          <DataField>Item_Ledger_Entry__Remaining_Quantity_Caption</DataField>
+        </Field>
+        <Field Name="Unit_CostCaption">
+          <DataField>Unit_CostCaption</DataField>
+        </Field>
+        <Field Name="Item_Ledger_Entry_QuantityCaption">
+          <DataField>Item_Ledger_Entry_QuantityCaption</DataField>
+        </Field>
+        <Field Name="Item_Ledger_Entry__Entry_Type_Caption">
+          <DataField>Item_Ledger_Entry__Entry_Type_Caption</DataField>
+        </Field>
+        <Field Name="Item_Ledger_Entry__Item_No__Caption">
+          <DataField>Item_Ledger_Entry__Item_No__Caption</DataField>
+        </Field>
+        <Field Name="Item_Ledger_Entry_Entry_No_">
+          <DataField>Item_Ledger_Entry_Entry_No_</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
+</Report>

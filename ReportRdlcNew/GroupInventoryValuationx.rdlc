@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="DataSource">
+      <ConnectionProperties>
+        <DataProvider>SQL</DataProvider>
+        <ConnectString />
+      </ConnectionProperties>
+      <rd:SecurityType>None</rd:SecurityType>
+    </DataSource>
+  </DataSources>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <Height>2in</Height>
+        <Style />
+      </Body>
+      <Width>6.5in</Width>
+      <Page>
+        <Style />
+      </Page>
+    </ReportSection>
+  </ReportSections>
+  <Code>Public Function BlankZero(ByVal Value As Decimal)
+    if Value = 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankPos(ByVal Value As Decimal)
+    if Value &gt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankZeroAndPos(ByVal Value As Decimal)
+    if Value &gt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNeg(ByVal Value As Decimal)
+    if Value &lt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNegAndZero(ByVal Value As Decimal)
+    if Value &lt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+</Code>
+  <Language>=User!Language</Language>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="FORMAT_TODAY_0_4_">
+          <DataField>FORMAT_TODAY_0_4_</DataField>
+        </Field>
+        <Field Name="COMPANYNAME">
+          <DataField>COMPANYNAME</DataField>
+        </Field>
+        <Field Name="CurrReport_PAGENO">
+          <DataField>CurrReport_PAGENO</DataField>
+        </Field>
+        <Field Name="USERID">
+          <DataField>USERID</DataField>
+        </Field>
+        <Field Name="As_On_______GETFILTER__Date_Filter__">
+          <DataField>As_On_______GETFILTER__Date_Filter__</DataField>
+        </Field>
+        <Field Name="Gen__Product_Posting_Group_Description">
+          <DataField>Gen__Product_Posting_Group_Description</DataField>
+        </Field>
+        <Field Name="StoresValue">
+          <DataField>StoresValue</DataField>
+        </Field>
+        <Field Name="StoresValueFormat">
+          <DataField>StoresValueFormat</DataField>
+        </Field>
+        <Field Name="VesselValue">
+          <DataField>VesselValue</DataField>
+        </Field>
+        <Field Name="VesselValueFormat">
+          <DataField>VesselValueFormat</DataField>
+        </Field>
+        <Field Name="LineTotal">
+          <DataField>LineTotal</DataField>
+        </Field>
+        <Field Name="LineTotalFormat">
+          <DataField>LineTotalFormat</DataField>
+        </Field>
+        <Field Name="GRAND_TOTAL_">
+          <DataField>GRAND_TOTAL_</DataField>
+        </Field>
+        <Field Name="StoresValue_Control1000000006">
+          <DataField>StoresValue_Control1000000006</DataField>
+        </Field>
+        <Field Name="StoresValue_Control1000000006Format">
+          <DataField>StoresValue_Control1000000006Format</DataField>
+        </Field>
+        <Field Name="VesselValue_Control1000000007">
+          <DataField>VesselValue_Control1000000007</DataField>
+        </Field>
+        <Field Name="VesselValue_Control1000000007Format">
+          <DataField>VesselValue_Control1000000007Format</DataField>
+        </Field>
+        <Field Name="LineTotal_Control1000000008">
+          <DataField>LineTotal_Control1000000008</DataField>
+        </Field>
+        <Field Name="LineTotal_Control1000000008Format">
+          <DataField>LineTotal_Control1000000008Format</DataField>
+        </Field>
+        <Field Name="INVENTORY_VALUATION_PER_PRODUCT_GROUPCaption">
+          <DataField>INVENTORY_VALUATION_PER_PRODUCT_GROUPCaption</DataField>
+        </Field>
+        <Field Name="CurrReport_PAGENOCaption">
+          <DataField>CurrReport_PAGENOCaption</DataField>
+        </Field>
+        <Field Name="DESCRIPTIONCaption">
+          <DataField>DESCRIPTIONCaption</DataField>
+        </Field>
+        <Field Name="TOTALCaption">
+          <DataField>TOTALCaption</DataField>
+        </Field>
+        <Field Name="VESSELSCaption">
+          <DataField>VESSELSCaption</DataField>
+        </Field>
+        <Field Name="STORESCaption">
+          <DataField>STORESCaption</DataField>
+        </Field>
+        <Field Name="Gen__Product_Posting_Group_Code">
+          <DataField>Gen__Product_Posting_Group_Code</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
+</Report>

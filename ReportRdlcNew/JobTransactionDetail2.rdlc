@@ -1,0 +1,236 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="DataSource">
+      <ConnectionProperties>
+        <DataProvider>SQL</DataProvider>
+        <ConnectString />
+      </ConnectionProperties>
+      <rd:SecurityType>None</rd:SecurityType>
+    </DataSource>
+  </DataSources>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <Height>2in</Height>
+        <Style />
+      </Body>
+      <Width>6.5in</Width>
+      <Page>
+        <Style />
+      </Page>
+    </ReportSection>
+  </ReportSections>
+  <Code>Public Function BlankZero(ByVal Value As Decimal)
+    if Value = 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankPos(ByVal Value As Decimal)
+    if Value &gt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankZeroAndPos(ByVal Value As Decimal)
+    if Value &gt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNeg(ByVal Value As Decimal)
+    if Value &lt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNegAndZero(ByVal Value As Decimal)
+    if Value &lt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+</Code>
+  <Language>=User!Language</Language>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="FORMAT_TODAY_0_4_">
+          <DataField>FORMAT_TODAY_0_4_</DataField>
+        </Field>
+        <Field Name="CurrReport_PAGENO">
+          <DataField>CurrReport_PAGENO</DataField>
+        </Field>
+        <Field Name="COMPANYNAME">
+          <DataField>COMPANYNAME</DataField>
+        </Field>
+        <Field Name="USERID">
+          <DataField>USERID</DataField>
+        </Field>
+        <Field Name="Job_TABLECAPTION__________JobFilter">
+          <DataField>Job_TABLECAPTION__________JobFilter</DataField>
+        </Field>
+        <Field Name="Value_Entry__TABLECAPTION__________JobLedgEntryFilter">
+          <DataField>Value_Entry__TABLECAPTION__________JobLedgEntryFilter</DataField>
+        </Field>
+        <Field Name="GTot">
+          <DataField>GTot</DataField>
+        </Field>
+        <Field Name="T_3_">
+          <DataField>T_3_</DataField>
+        </Field>
+        <Field Name="T_3_Format">
+          <DataField>T_3_Format</DataField>
+        </Field>
+        <Field Name="Job__No__">
+          <DataField>Job__No__</DataField>
+        </Field>
+        <Field Name="Job_Description">
+          <DataField>Job_Description</DataField>
+        </Field>
+        <Field Name="Job___Transaction_DetailCaption">
+          <DataField>Job___Transaction_DetailCaption</DataField>
+        </Field>
+        <Field Name="CurrReport_PAGENOCaption">
+          <DataField>CurrReport_PAGENOCaption</DataField>
+        </Field>
+        <Field Name="Value_Entry__Item_No__Caption">
+          <DataField>Value_Entry__Item_No__Caption</DataField>
+        </Field>
+        <Field Name="Valued_Quantity_Caption">
+          <DataField>Valued_Quantity_Caption</DataField>
+        </Field>
+        <Field Name="Value_Entry__Document_No__Caption">
+          <DataField>Value_Entry__Document_No__Caption</DataField>
+        </Field>
+        <Field Name="Value_Entry__Posting_Date_Caption">
+          <DataField>Value_Entry__Posting_Date_Caption</DataField>
+        </Field>
+        <Field Name="ItemNameCaption">
+          <DataField>ItemNameCaption</DataField>
+        </Field>
+        <Field Name="Cost_Posted_to_G_L_Caption">
+          <DataField>Cost_Posted_to_G_L_Caption</DataField>
+        </Field>
+        <Field Name="Value_Entry__Value_Entry___Gen__Prod__Posting_Group_">
+          <DataField>Value_Entry__Value_Entry___Gen__Prod__Posting_Group_</DataField>
+        </Field>
+        <Field Name="Value_Entry__Posting_Date_">
+          <DataField>Value_Entry__Posting_Date_</DataField>
+        </Field>
+        <Field Name="Value_Entry__Document_No__">
+          <DataField>Value_Entry__Document_No__</DataField>
+        </Field>
+        <Field Name="Value_Entry__Item_No__">
+          <DataField>Value_Entry__Item_No__</DataField>
+        </Field>
+        <Field Name="Valued_Quantity_">
+          <DataField>Valued_Quantity_</DataField>
+        </Field>
+        <Field Name="Valued_Quantity_Format">
+          <DataField>Valued_Quantity_Format</DataField>
+        </Field>
+        <Field Name="ItemName">
+          <DataField>ItemName</DataField>
+        </Field>
+        <Field Name="LocationCode_ValueEntry">
+          <DataField>LocationCode_ValueEntry</DataField>
+        </Field>
+        <Field Name="ItemLedgerEntryQuantity_ValueEntry">
+          <DataField>ItemLedgerEntryQuantity_ValueEntry</DataField>
+        </Field>
+        <Field Name="ItemLedgerEntryQuantity_ValueEntryFormat">
+          <DataField>ItemLedgerEntryQuantity_ValueEntryFormat</DataField>
+        </Field>
+        <Field Name="Cost_Posted_to_G_L_">
+          <DataField>Cost_Posted_to_G_L_</DataField>
+        </Field>
+        <Field Name="Cost_Posted_to_G_L_Format">
+          <DataField>Cost_Posted_to_G_L_Format</DataField>
+        </Field>
+        <Field Name="Cost_Posted_to_G_L__Control1000000011">
+          <DataField>Cost_Posted_to_G_L__Control1000000011</DataField>
+        </Field>
+        <Field Name="Cost_Posted_to_G_L__Control1000000011Format">
+          <DataField>Cost_Posted_to_G_L__Control1000000011Format</DataField>
+        </Field>
+        <Field Name="GrpTot________Value_Entry___Gen__Prod__Posting_Group_">
+          <DataField>GrpTot________Value_Entry___Gen__Prod__Posting_Group_</DataField>
+        </Field>
+        <Field Name="Cost_Posted_to_G_L__Control1000000001">
+          <DataField>Cost_Posted_to_G_L__Control1000000001</DataField>
+        </Field>
+        <Field Name="Cost_Posted_to_G_L__Control1000000001Format">
+          <DataField>Cost_Posted_to_G_L__Control1000000001Format</DataField>
+        </Field>
+        <Field Name="OTot">
+          <DataField>OTot</DataField>
+        </Field>
+        <Field Name="Value_Entry_Entry_No_">
+          <DataField>Value_Entry_Entry_No_</DataField>
+        </Field>
+        <Field Name="Value_Entry_Source_No_">
+          <DataField>Value_Entry_Source_No_</DataField>
+        </Field>
+        <Field Name="Job_Ledger_Entry__Amt__Posted_to_G_L_">
+          <DataField>Job_Ledger_Entry__Amt__Posted_to_G_L_</DataField>
+        </Field>
+        <Field Name="Job_Ledger_Entry__Amt__Posted_to_G_L_Format">
+          <DataField>Job_Ledger_Entry__Amt__Posted_to_G_L_Format</DataField>
+        </Field>
+        <Field Name="Job_Ledger_Entry_Description">
+          <DataField>Job_Ledger_Entry_Description</DataField>
+        </Field>
+        <Field Name="Job_Ledger_Entry__Total_Cost_">
+          <DataField>Job_Ledger_Entry__Total_Cost_</DataField>
+        </Field>
+        <Field Name="Job_Ledger_Entry__Total_Cost_Format">
+          <DataField>Job_Ledger_Entry__Total_Cost_Format</DataField>
+        </Field>
+        <Field Name="Job_Ledger_Entry__Unit_of_Measure_Code_">
+          <DataField>Job_Ledger_Entry__Unit_of_Measure_Code_</DataField>
+        </Field>
+        <Field Name="Job_Ledger_Entry_Quantity">
+          <DataField>Job_Ledger_Entry_Quantity</DataField>
+        </Field>
+        <Field Name="Job_Ledger_Entry_QuantityFormat">
+          <DataField>Job_Ledger_Entry_QuantityFormat</DataField>
+        </Field>
+        <Field Name="Job_Ledger_Entry__No__">
+          <DataField>Job_Ledger_Entry__No__</DataField>
+        </Field>
+        <Field Name="Job_Ledger_Entry__Document_No__">
+          <DataField>Job_Ledger_Entry__Document_No__</DataField>
+        </Field>
+        <Field Name="Job_Ledger_Entry__Posting_Date_">
+          <DataField>Job_Ledger_Entry__Posting_Date_</DataField>
+        </Field>
+        <Field Name="Job_Ledger_Entry__Total_Cost__Control1000000024">
+          <DataField>Job_Ledger_Entry__Total_Cost__Control1000000024</DataField>
+        </Field>
+        <Field Name="Job_Ledger_Entry__Total_Cost__Control1000000024Format">
+          <DataField>Job_Ledger_Entry__Total_Cost__Control1000000024Format</DataField>
+        </Field>
+        <Field Name="Purchases_to_JobCaption">
+          <DataField>Purchases_to_JobCaption</DataField>
+        </Field>
+        <Field Name="Job_Ledger_Entry_Job_No_">
+          <DataField>Job_Ledger_Entry_Job_No_</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
+</Report>

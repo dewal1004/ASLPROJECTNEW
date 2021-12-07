@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="DataSource">
+      <ConnectionProperties>
+        <DataProvider>SQL</DataProvider>
+        <ConnectString />
+      </ConnectionProperties>
+      <rd:SecurityType>None</rd:SecurityType>
+    </DataSource>
+  </DataSources>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <Height>2in</Height>
+        <Style />
+      </Body>
+      <Width>6.5in</Width>
+      <Page>
+        <Style />
+      </Page>
+    </ReportSection>
+  </ReportSections>
+  <Code>Public Function BlankZero(ByVal Value As Decimal)
+    if Value = 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankPos(ByVal Value As Decimal)
+    if Value &gt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankZeroAndPos(ByVal Value As Decimal)
+    if Value &gt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNeg(ByVal Value As Decimal)
+    if Value &lt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNegAndZero(ByVal Value As Decimal)
+    if Value &lt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+</Code>
+  <Language>=User!Language</Language>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="FORMAT_TODAY_0_4_">
+          <DataField>FORMAT_TODAY_0_4_</DataField>
+        </Field>
+        <Field Name="COMPANYNAME">
+          <DataField>COMPANYNAME</DataField>
+        </Field>
+        <Field Name="CurrReport_PAGENO">
+          <DataField>CurrReport_PAGENO</DataField>
+        </Field>
+        <Field Name="USERID">
+          <DataField>USERID</DataField>
+        </Field>
+        <Field Name="Job_Vessel">
+          <DataField>Job_Vessel</DataField>
+        </Field>
+        <Field Name="Job__Cycle_Day__Manual__">
+          <DataField>Job__Cycle_Day__Manual__</DataField>
+        </Field>
+        <Field Name="Job__Cycle_Day__Manual__Format">
+          <DataField>Job__Cycle_Day__Manual__Format</DataField>
+        </Field>
+        <Field Name="Job__Fishing_Day__Manual__">
+          <DataField>Job__Fishing_Day__Manual__</DataField>
+        </Field>
+        <Field Name="Job__Fishing_Day__Manual__Format">
+          <DataField>Job__Fishing_Day__Manual__Format</DataField>
+        </Field>
+        <Field Name="Job__Lost_At_Sea__Manual__">
+          <DataField>Job__Lost_At_Sea__Manual__</DataField>
+        </Field>
+        <Field Name="Job__Lost_At_Sea__Manual__Format">
+          <DataField>Job__Lost_At_Sea__Manual__Format</DataField>
+        </Field>
+        <Field Name="Job__Port_Day__Manual__">
+          <DataField>Job__Port_Day__Manual__</DataField>
+        </Field>
+        <Field Name="Job__Port_Day__Manual__Format">
+          <DataField>Job__Port_Day__Manual__Format</DataField>
+        </Field>
+        <Field Name="Job__Cycle_Day__Manual___Control1000000026">
+          <DataField>Job__Cycle_Day__Manual___Control1000000026</DataField>
+        </Field>
+        <Field Name="Job__Cycle_Day__Manual___Control1000000026Format">
+          <DataField>Job__Cycle_Day__Manual___Control1000000026Format</DataField>
+        </Field>
+        <Field Name="Job__Fishing_Day__Manual___Control1000000027">
+          <DataField>Job__Fishing_Day__Manual___Control1000000027</DataField>
+        </Field>
+        <Field Name="Job__Fishing_Day__Manual___Control1000000027Format">
+          <DataField>Job__Fishing_Day__Manual___Control1000000027Format</DataField>
+        </Field>
+        <Field Name="Job__Lost_At_Sea__Manual___Control1000000028">
+          <DataField>Job__Lost_At_Sea__Manual___Control1000000028</DataField>
+        </Field>
+        <Field Name="Job__Lost_At_Sea__Manual___Control1000000028Format">
+          <DataField>Job__Lost_At_Sea__Manual___Control1000000028Format</DataField>
+        </Field>
+        <Field Name="Job__Port_Day__Manual___Control1000000029">
+          <DataField>Job__Port_Day__Manual___Control1000000029</DataField>
+        </Field>
+        <Field Name="Job__Port_Day__Manual___Control1000000029Format">
+          <DataField>Job__Port_Day__Manual___Control1000000029Format</DataField>
+        </Field>
+        <Field Name="Job_Vessel_Control1000000008">
+          <DataField>Job_Vessel_Control1000000008</DataField>
+        </Field>
+        <Field Name="JobCaption">
+          <DataField>JobCaption</DataField>
+        </Field>
+        <Field Name="CurrReport_PAGENOCaption">
+          <DataField>CurrReport_PAGENOCaption</DataField>
+        </Field>
+        <Field Name="Job_VesselCaption">
+          <DataField>Job_VesselCaption</DataField>
+        </Field>
+        <Field Name="Job__Cycle_Day__Manual__Caption">
+          <DataField>Job__Cycle_Day__Manual__Caption</DataField>
+        </Field>
+        <Field Name="Job__Fishing_Day__Manual__Caption">
+          <DataField>Job__Fishing_Day__Manual__Caption</DataField>
+        </Field>
+        <Field Name="Job__Lost_At_Sea__Manual__Caption">
+          <DataField>Job__Lost_At_Sea__Manual__Caption</DataField>
+        </Field>
+        <Field Name="Job__Port_Day__Manual__Caption">
+          <DataField>Job__Port_Day__Manual__Caption</DataField>
+        </Field>
+        <Field Name="Job_No_">
+          <DataField>Job_No_</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
+</Report>

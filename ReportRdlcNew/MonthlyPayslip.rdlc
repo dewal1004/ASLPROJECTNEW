@@ -1,0 +1,287 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="DataSource">
+      <ConnectionProperties>
+        <DataProvider>SQL</DataProvider>
+        <ConnectString />
+      </ConnectionProperties>
+      <rd:SecurityType>None</rd:SecurityType>
+    </DataSource>
+  </DataSources>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <Height>2in</Height>
+        <Style />
+      </Body>
+      <Width>6.5in</Width>
+      <Page>
+        <Style />
+      </Page>
+    </ReportSection>
+  </ReportSections>
+  <Code>Public Function BlankZero(ByVal Value As Decimal)
+    if Value = 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankPos(ByVal Value As Decimal)
+    if Value &gt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankZeroAndPos(ByVal Value As Decimal)
+    if Value &gt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNeg(ByVal Value As Decimal)
+    if Value &lt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNegAndZero(ByVal Value As Decimal)
+    if Value &lt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+</Code>
+  <Language>=User!Language</Language>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="Employee_No_">
+          <DataField>Employee_No_</DataField>
+        </Field>
+        <Field Name="Employee_Global_Dimension_1_Code">
+          <DataField>Employee_Global_Dimension_1_Code</DataField>
+        </Field>
+        <Field Name="Employee_Global_Dimension_2_Code">
+          <DataField>Employee_Global_Dimension_2_Code</DataField>
+        </Field>
+        <Field Name="Employee_Period_Filter">
+          <DataField>Employee_Period_Filter</DataField>
+        </Field>
+        <Field Name="EDTextTablei_1">
+          <DataField>EDTextTablei_1</DataField>
+        </Field>
+        <Field Name="EDTextTablei_2">
+          <DataField>EDTextTablei_2</DataField>
+        </Field>
+        <Field Name="Employee__Bank_Account_">
+          <DataField>Employee__Bank_Account_</DataField>
+        </Field>
+        <Field Name="Employee__NSITF_Number_">
+          <DataField>Employee__NSITF_Number_</DataField>
+        </Field>
+        <Field Name="Employee__Posting_Group_">
+          <DataField>Employee__Posting_Group_</DataField>
+        </Field>
+        <Field Name="Employee_Bank">
+          <DataField>Employee_Bank</DataField>
+        </Field>
+        <Field Name="EmployeeNo">
+          <DataField>EmployeeNo</DataField>
+        </Field>
+        <Field Name="EmployeeFirstName">
+          <DataField>EmployeeFirstName</DataField>
+        </Field>
+        <Field Name="LastName_Employee">
+          <DataField>LastName_Employee</DataField>
+        </Field>
+        <Field Name="Payroll_Payslip_Header__Payroll_Period">
+          <DataField>Payroll_Payslip_Header__Payroll_Period</DataField>
+        </Field>
+        <Field Name="Payroll_Payslip_Header__Employee_No">
+          <DataField>Payroll_Payslip_Header__Employee_No</DataField>
+        </Field>
+        <Field Name="PayAdviceTitle">
+          <DataField>PayAdviceTitle</DataField>
+        </Field>
+        <Field Name="Payslipappearance">
+          <DataField>Payslipappearance</DataField>
+        </Field>
+        <Field Name="wrkday">
+          <DataField>wrkday</DataField>
+        </Field>
+        <Field Name="DELCHR__Payroll_Payslip_Header____Employee_No____________________Payroll_Payslip_Header____Employee_Name__">
+          <DataField>DELCHR__Payroll_Payslip_Header____Employee_No____________________Payroll_Payslip_Header____Employee_Name__</DataField>
+        </Field>
+        <Field Name="Employee__Global_Dimension_1_Code_">
+          <DataField>Employee__Global_Dimension_1_Code_</DataField>
+        </Field>
+        <Field Name="CompanyData_Name">
+          <DataField>CompanyData_Name</DataField>
+        </Field>
+        <Field Name="Employee__Global_Dimension_2_Code_">
+          <DataField>Employee__Global_Dimension_2_Code_</DataField>
+        </Field>
+        <Field Name="FORMAT_TODAY_0_4_">
+          <DataField>FORMAT_TODAY_0_4_</DataField>
+        </Field>
+        <Field Name="Employee__Bank_Account_1">
+          <DataField>Employee__Bank_Account_1</DataField>
+        </Field>
+        <Field Name="Employee__NSITF_Number_1">
+          <DataField>Employee__NSITF_Number_1</DataField>
+        </Field>
+        <Field Name="Employee__Posting_Group_1">
+          <DataField>Employee__Posting_Group_1</DataField>
+        </Field>
+        <Field Name="Employee_Bank1">
+          <DataField>Employee_Bank1</DataField>
+        </Field>
+        <Field Name="latehr">
+          <DataField>latehr</DataField>
+        </Field>
+        <Field Name="EARNINGS___ALLOWANCESCaption">
+          <DataField>EARNINGS___ALLOWANCESCaption</DataField>
+        </Field>
+        <Field Name="DEDUCTIONSCaption">
+          <DataField>DEDUCTIONSCaption</DataField>
+        </Field>
+        <Field Name="DEPARTMENTCaption">
+          <DataField>DEPARTMENTCaption</DataField>
+        </Field>
+        <Field Name="BUSINESS_UNITCaption">
+          <DataField>BUSINESS_UNITCaption</DataField>
+        </Field>
+        <Field Name="STAFF_No__NAMECaption">
+          <DataField>STAFF_No__NAMECaption</DataField>
+        </Field>
+        <Field Name="W_DaysCaption">
+          <DataField>W_DaysCaption</DataField>
+        </Field>
+        <Field Name="P_DaysCaption">
+          <DataField>P_DaysCaption</DataField>
+        </Field>
+        <Field Name="Bank_A_C_No_Caption">
+          <DataField>Bank_A_C_No_Caption</DataField>
+        </Field>
+        <Field Name="NSITF_NoCaption">
+          <DataField>NSITF_NoCaption</DataField>
+        </Field>
+        <Field Name="Employee_TypeCaption">
+          <DataField>Employee_TypeCaption</DataField>
+        </Field>
+        <Field Name="BankCaption">
+          <DataField>BankCaption</DataField>
+        </Field>
+        <Field Name="V30Caption">
+          <DataField>V30Caption</DataField>
+        </Field>
+        <Field Name="Late_HRCaption">
+          <DataField>Late_HRCaption</DataField>
+        </Field>
+        <Field Name="PaySlipPage_Number">
+          <DataField>PaySlipPage_Number</DataField>
+        </Field>
+        <Field Name="EDTextTable_i_1_">
+          <DataField>EDTextTable_i_1_</DataField>
+        </Field>
+        <Field Name="EDamtTable_i_1_">
+          <DataField>EDamtTable_i_1_</DataField>
+        </Field>
+        <Field Name="EDamtTable_i_1_Format">
+          <DataField>EDamtTable_i_1_Format</DataField>
+        </Field>
+        <Field Name="EDTextTable_i_2_">
+          <DataField>EDTextTable_i_2_</DataField>
+        </Field>
+        <Field Name="EDamtTable_i_2_">
+          <DataField>EDamtTable_i_2_</DataField>
+        </Field>
+        <Field Name="EDamtTable_i_2_Format">
+          <DataField>EDamtTable_i_2_Format</DataField>
+        </Field>
+        <Field Name="EDTextTable_i_1__Control8">
+          <DataField>EDTextTable_i_1__Control8</DataField>
+        </Field>
+        <Field Name="EDamtTable_i_1__Control9">
+          <DataField>EDamtTable_i_1__Control9</DataField>
+        </Field>
+        <Field Name="EDamtTable_i_1__Control9Format">
+          <DataField>EDamtTable_i_1__Control9Format</DataField>
+        </Field>
+        <Field Name="EDTextTable_i_2__Control66">
+          <DataField>EDTextTable_i_2__Control66</DataField>
+        </Field>
+        <Field Name="EDamtTable_i_2__Control67">
+          <DataField>EDamtTable_i_2__Control67</DataField>
+        </Field>
+        <Field Name="EDamtTable_i_2__Control67Format">
+          <DataField>EDamtTable_i_2__Control67Format</DataField>
+        </Field>
+        <Field Name="EDTextTable_i_2__Control50">
+          <DataField>EDTextTable_i_2__Control50</DataField>
+        </Field>
+        <Field Name="EDamtTable_i_2__Control51">
+          <DataField>EDamtTable_i_2__Control51</DataField>
+        </Field>
+        <Field Name="EDamtTable_i_2__Control51Format">
+          <DataField>EDamtTable_i_2__Control51Format</DataField>
+        </Field>
+        <Field Name="EDTextTable_i_1__Control48">
+          <DataField>EDTextTable_i_1__Control48</DataField>
+        </Field>
+        <Field Name="EDamtTable_i_1__Control49">
+          <DataField>EDamtTable_i_1__Control49</DataField>
+        </Field>
+        <Field Name="EDamtTable_i_1__Control49Format">
+          <DataField>EDamtTable_i_1__Control49Format</DataField>
+        </Field>
+        <Field Name="TDeduction">
+          <DataField>TDeduction</DataField>
+        </Field>
+        <Field Name="TDeductionFormat">
+          <DataField>TDeductionFormat</DataField>
+        </Field>
+        <Field Name="DeductionText">
+          <DataField>DeductionText</DataField>
+        </Field>
+        <Field Name="Gross">
+          <DataField>Gross</DataField>
+        </Field>
+        <Field Name="GrossFormat">
+          <DataField>GrossFormat</DataField>
+        </Field>
+        <Field Name="GrossText">
+          <DataField>GrossText</DataField>
+        </Field>
+        <Field Name="NetText____N______FORMAT_NetPay_">
+          <DataField>NetText____N______FORMAT_NetPay_</DataField>
+        </Field>
+        <Field Name="NCaption">
+          <DataField>NCaption</DataField>
+        </Field>
+        <Field Name="NCaption_Control1000000003">
+          <DataField>NCaption_Control1000000003</DataField>
+        </Field>
+        <Field Name="The_Net_Salary_stated_above_is_due_to_you_at_the_end_of_this_month_Caption">
+          <DataField>The_Net_Salary_stated_above_is_due_to_you_at_the_end_of_this_month_Caption</DataField>
+        </Field>
+        <Field Name="PaySlipLoop_Number">
+          <DataField>PaySlipLoop_Number</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
+</Report>

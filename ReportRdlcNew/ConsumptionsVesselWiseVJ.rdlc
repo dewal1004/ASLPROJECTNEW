@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="DataSource">
+      <ConnectionProperties>
+        <DataProvider>SQL</DataProvider>
+        <ConnectString />
+      </ConnectionProperties>
+      <rd:SecurityType>None</rd:SecurityType>
+    </DataSource>
+  </DataSources>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <Height>2in</Height>
+        <Style />
+      </Body>
+      <Width>6.5in</Width>
+      <Page>
+        <Style />
+      </Page>
+    </ReportSection>
+  </ReportSections>
+  <Code>Public Function BlankZero(ByVal Value As Decimal)
+    if Value = 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankPos(ByVal Value As Decimal)
+    if Value &gt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankZeroAndPos(ByVal Value As Decimal)
+    if Value &gt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNeg(ByVal Value As Decimal)
+    if Value &lt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNegAndZero(ByVal Value As Decimal)
+    if Value &lt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+</Code>
+  <Language>=User!Language</Language>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="FORMAT_TODAY_0_4_">
+          <DataField>FORMAT_TODAY_0_4_</DataField>
+        </Field>
+        <Field Name="COMPANYNAME">
+          <DataField>COMPANYNAME</DataField>
+        </Field>
+        <Field Name="CurrReport_PAGENO">
+          <DataField>CurrReport_PAGENO</DataField>
+        </Field>
+        <Field Name="USERID">
+          <DataField>USERID</DataField>
+        </Field>
+        <Field Name="Value_Entry__GETFILTERS">
+          <DataField>Value_Entry__GETFILTERS</DataField>
+        </Field>
+        <Field Name="Value_Entry__Location_Code_">
+          <DataField>Value_Entry__Location_Code_</DataField>
+        </Field>
+        <Field Name="Value_Entry__Item_Ledger_Entry_Type_">
+          <DataField>Value_Entry__Item_Ledger_Entry_Type_</DataField>
+        </Field>
+        <Field Name="Value_Entry__Item_No__">
+          <DataField>Value_Entry__Item_No__</DataField>
+        </Field>
+        <Field Name="Value_Entry_Description">
+          <DataField>Value_Entry_Description</DataField>
+        </Field>
+        <Field Name="Value_Entry__Cost_Amount__Actual___ACY__">
+          <DataField>Value_Entry__Cost_Amount__Actual___ACY__</DataField>
+        </Field>
+        <Field Name="Value_Entry__Cost_Amount__Actual___ACY__Format">
+          <DataField>Value_Entry__Cost_Amount__Actual___ACY__Format</DataField>
+        </Field>
+        <Field Name="Value_Entry__Cost_Posted_to_G_L__ACY__">
+          <DataField>Value_Entry__Cost_Posted_to_G_L__ACY__</DataField>
+        </Field>
+        <Field Name="Value_Entry__Cost_Posted_to_G_L__ACY__Format">
+          <DataField>Value_Entry__Cost_Posted_to_G_L__ACY__Format</DataField>
+        </Field>
+        <Field Name="TotalFor___FIELDCAPTION__Item_Ledger_Entry_Type__">
+          <DataField>TotalFor___FIELDCAPTION__Item_Ledger_Entry_Type__</DataField>
+        </Field>
+        <Field Name="Value_Entry__Cost_Amount__Actual___ACY___Control1000000037">
+          <DataField>Value_Entry__Cost_Amount__Actual___ACY___Control1000000037</DataField>
+        </Field>
+        <Field Name="Value_Entry__Cost_Amount__Actual___ACY___Control1000000037Format">
+          <DataField>Value_Entry__Cost_Amount__Actual___ACY___Control1000000037Format</DataField>
+        </Field>
+        <Field Name="Value_Entry__Cost_Posted_to_G_L__ACY___Control1000000038">
+          <DataField>Value_Entry__Cost_Posted_to_G_L__ACY___Control1000000038</DataField>
+        </Field>
+        <Field Name="Value_Entry__Cost_Posted_to_G_L__ACY___Control1000000038Format">
+          <DataField>Value_Entry__Cost_Posted_to_G_L__ACY___Control1000000038Format</DataField>
+        </Field>
+        <Field Name="VQtyCost_3_">
+          <DataField>VQtyCost_3_</DataField>
+        </Field>
+        <Field Name="VQtyCost_3_Format">
+          <DataField>VQtyCost_3_Format</DataField>
+        </Field>
+        <Field Name="VQtyCost2_3_">
+          <DataField>VQtyCost2_3_</DataField>
+        </Field>
+        <Field Name="VQtyCost2_3_Format">
+          <DataField>VQtyCost2_3_Format</DataField>
+        </Field>
+        <Field Name="Value_Entry__Item_No___Control1000000011">
+          <DataField>Value_Entry__Item_No___Control1000000011</DataField>
+        </Field>
+        <Field Name="ITEM_REC_Description">
+          <DataField>ITEM_REC_Description</DataField>
+        </Field>
+        <Field Name="Vessel_Consumption_ReportCaption">
+          <DataField>Vessel_Consumption_ReportCaption</DataField>
+        </Field>
+        <Field Name="CurrReport_PAGENOCaption">
+          <DataField>CurrReport_PAGENOCaption</DataField>
+        </Field>
+        <Field Name="Value_Entry__Item_No__Caption">
+          <DataField>Value_Entry__Item_No__Caption</DataField>
+        </Field>
+        <Field Name="Value_Entry_DescriptionCaption">
+          <DataField>Value_Entry_DescriptionCaption</DataField>
+        </Field>
+        <Field Name="Value_Entry__Cost_Amount__Actual___ACY__Caption">
+          <DataField>Value_Entry__Cost_Amount__Actual___ACY__Caption</DataField>
+        </Field>
+        <Field Name="Value_Entry__Cost_Posted_to_G_L__ACY__Caption">
+          <DataField>Value_Entry__Cost_Posted_to_G_L__ACY__Caption</DataField>
+        </Field>
+        <Field Name="Value_Entry__Location_Code_Caption">
+          <DataField>Value_Entry__Location_Code_Caption</DataField>
+        </Field>
+        <Field Name="Value_Entry__Item_No___Control1000000011Caption">
+          <DataField>Value_Entry__Item_No___Control1000000011Caption</DataField>
+        </Field>
+        <Field Name="Value_Entry__Item_Ledger_Entry_Type_Caption">
+          <DataField>Value_Entry__Item_Ledger_Entry_Type_Caption</DataField>
+        </Field>
+        <Field Name="Value_Entry_Entry_No_">
+          <DataField>Value_Entry_Entry_No_</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
+</Report>

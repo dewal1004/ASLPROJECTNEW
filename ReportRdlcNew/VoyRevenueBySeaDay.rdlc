@@ -1,0 +1,500 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="DataSource">
+      <ConnectionProperties>
+        <DataProvider>SQL</DataProvider>
+        <ConnectString />
+      </ConnectionProperties>
+      <rd:SecurityType>None</rd:SecurityType>
+    </DataSource>
+  </DataSources>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <Height>2in</Height>
+        <Style />
+      </Body>
+      <Width>6.5in</Width>
+      <Page>
+        <Style />
+      </Page>
+    </ReportSection>
+  </ReportSections>
+  <Code>Public Function BlankZero(ByVal Value As Decimal)
+    if Value = 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankPos(ByVal Value As Decimal)
+    if Value &gt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankZeroAndPos(ByVal Value As Decimal)
+    if Value &gt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNeg(ByVal Value As Decimal)
+    if Value &lt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNegAndZero(ByVal Value As Decimal)
+    if Value &lt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+</Code>
+  <Language>=User!Language</Language>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="FORMAT_TODAY_0_4_">
+          <DataField>FORMAT_TODAY_0_4_</DataField>
+        </Field>
+        <Field Name="COMPANYNAME">
+          <DataField>COMPANYNAME</DataField>
+        </Field>
+        <Field Name="CurrReport_PAGENO">
+          <DataField>CurrReport_PAGENO</DataField>
+        </Field>
+        <Field Name="USERID">
+          <DataField>USERID</DataField>
+        </Field>
+        <Field Name="HdrStore_Description">
+          <DataField>HdrStore_Description</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day__Voyage_Sea_Days_">
+          <DataField>Vessel_Performance_By_Sea_Day__Voyage_Sea_Days_</DataField>
+        </Field>
+        <Field Name="CountZ">
+          <DataField>CountZ</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day_Vess">
+          <DataField>Vessel_Performance_By_Sea_Day_Vess</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day__Cycle_Day_">
+          <DataField>Vessel_Performance_By_Sea_Day__Cycle_Day_</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day__Cycle_Day_Format">
+          <DataField>Vessel_Performance_By_Sea_Day__Cycle_Day_Format</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day__Fishing_Days_">
+          <DataField>Vessel_Performance_By_Sea_Day__Fishing_Days_</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day__Fishing_Days_Format">
+          <DataField>Vessel_Performance_By_Sea_Day__Fishing_Days_Format</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day__Lost_Days_">
+          <DataField>Vessel_Performance_By_Sea_Day__Lost_Days_</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day__Lost_Days_Format">
+          <DataField>Vessel_Performance_By_Sea_Day__Lost_Days_Format</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day__Port_Days_">
+          <DataField>Vessel_Performance_By_Sea_Day__Port_Days_</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day__Port_Days_Format">
+          <DataField>Vessel_Performance_By_Sea_Day__Port_Days_Format</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day__Fish_Perct_">
+          <DataField>Vessel_Performance_By_Sea_Day__Fish_Perct_</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day__Fish_Perct_Format">
+          <DataField>Vessel_Performance_By_Sea_Day__Fish_Perct_Format</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day__Export_Val__N__">
+          <DataField>Vessel_Performance_By_Sea_Day__Export_Val__N__</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day__Export_Val__N__Format">
+          <DataField>Vessel_Performance_By_Sea_Day__Export_Val__N__Format</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day__Local_Val__N__">
+          <DataField>Vessel_Performance_By_Sea_Day__Local_Val__N__</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day__Local_Val__N__Format">
+          <DataField>Vessel_Performance_By_Sea_Day__Local_Val__N__Format</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day_Revenue">
+          <DataField>Vessel_Performance_By_Sea_Day_Revenue</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day_RevenueFormat">
+          <DataField>Vessel_Performance_By_Sea_Day_RevenueFormat</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day__Rev_SD_">
+          <DataField>Vessel_Performance_By_Sea_Day__Rev_SD_</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day__Rev_SD_Format">
+          <DataField>Vessel_Performance_By_Sea_Day__Rev_SD_Format</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day__Rev_FD_">
+          <DataField>Vessel_Performance_By_Sea_Day__Rev_FD_</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day__Rev_FD_Format">
+          <DataField>Vessel_Performance_By_Sea_Day__Rev_FD_Format</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day_AGO">
+          <DataField>Vessel_Performance_By_Sea_Day_AGO</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day_AGOFormat">
+          <DataField>Vessel_Performance_By_Sea_Day_AGOFormat</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day__AGO_Perct_">
+          <DataField>Vessel_Performance_By_Sea_Day__AGO_Perct_</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day__AGO_Perct_Format">
+          <DataField>Vessel_Performance_By_Sea_Day__AGO_Perct_Format</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day_Direct">
+          <DataField>Vessel_Performance_By_Sea_Day_Direct</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day_DirectFormat">
+          <DataField>Vessel_Performance_By_Sea_Day_DirectFormat</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day_Margin">
+          <DataField>Vessel_Performance_By_Sea_Day_Margin</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day_MarginFormat">
+          <DataField>Vessel_Performance_By_Sea_Day_MarginFormat</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day__Gross_Margin_Perc_">
+          <DataField>Vessel_Performance_By_Sea_Day__Gross_Margin_Perc_</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day__Gross_Margin_Perc_Format">
+          <DataField>Vessel_Performance_By_Sea_Day__Gross_Margin_Perc_Format</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day_Indirect">
+          <DataField>Vessel_Performance_By_Sea_Day_Indirect</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day_IndirectFormat">
+          <DataField>Vessel_Performance_By_Sea_Day_IndirectFormat</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day_Profit">
+          <DataField>Vessel_Performance_By_Sea_Day_Profit</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day_ProfitFormat">
+          <DataField>Vessel_Performance_By_Sea_Day_ProfitFormat</DataField>
+        </Field>
+        <Field Name="Direct_SD_">
+          <DataField>Direct_SD_</DataField>
+        </Field>
+        <Field Name="Direct_SD_Format">
+          <DataField>Direct_SD_Format</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day_Profit_Control1000000084">
+          <DataField>Vessel_Performance_By_Sea_Day_Profit_Control1000000084</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day_Profit_Control1000000084Format">
+          <DataField>Vessel_Performance_By_Sea_Day_Profit_Control1000000084Format</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day_Indirect_Control1000000085">
+          <DataField>Vessel_Performance_By_Sea_Day_Indirect_Control1000000085</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day_Indirect_Control1000000085Format">
+          <DataField>Vessel_Performance_By_Sea_Day_Indirect_Control1000000085Format</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day__Gross_Margin_Perc__Control1000000086">
+          <DataField>Vessel_Performance_By_Sea_Day__Gross_Margin_Perc__Control1000000086</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day__Gross_Margin_Perc__Control1000000086Format">
+          <DataField>Vessel_Performance_By_Sea_Day__Gross_Margin_Perc__Control1000000086Format</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day_Margin_Control1000000087">
+          <DataField>Vessel_Performance_By_Sea_Day_Margin_Control1000000087</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day_Margin_Control1000000087Format">
+          <DataField>Vessel_Performance_By_Sea_Day_Margin_Control1000000087Format</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day_Direct_Control1000000088">
+          <DataField>Vessel_Performance_By_Sea_Day_Direct_Control1000000088</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day_Direct_Control1000000088Format">
+          <DataField>Vessel_Performance_By_Sea_Day_Direct_Control1000000088Format</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day__AGO_Perct__Control1000000089">
+          <DataField>Vessel_Performance_By_Sea_Day__AGO_Perct__Control1000000089</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day__AGO_Perct__Control1000000089Format">
+          <DataField>Vessel_Performance_By_Sea_Day__AGO_Perct__Control1000000089Format</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day_AGO_Control1000000090">
+          <DataField>Vessel_Performance_By_Sea_Day_AGO_Control1000000090</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day_AGO_Control1000000090Format">
+          <DataField>Vessel_Performance_By_Sea_Day_AGO_Control1000000090Format</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day__Rev_FD__Control1000000091">
+          <DataField>Vessel_Performance_By_Sea_Day__Rev_FD__Control1000000091</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day__Rev_FD__Control1000000091Format">
+          <DataField>Vessel_Performance_By_Sea_Day__Rev_FD__Control1000000091Format</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day__Rev_SD__Control1000000092">
+          <DataField>Vessel_Performance_By_Sea_Day__Rev_SD__Control1000000092</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day__Rev_SD__Control1000000092Format">
+          <DataField>Vessel_Performance_By_Sea_Day__Rev_SD__Control1000000092Format</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day_Revenue_Control1000000093">
+          <DataField>Vessel_Performance_By_Sea_Day_Revenue_Control1000000093</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day_Revenue_Control1000000093Format">
+          <DataField>Vessel_Performance_By_Sea_Day_Revenue_Control1000000093Format</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day__Cycle_Day__Control1000000095">
+          <DataField>Vessel_Performance_By_Sea_Day__Cycle_Day__Control1000000095</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day__Cycle_Day__Control1000000095Format">
+          <DataField>Vessel_Performance_By_Sea_Day__Cycle_Day__Control1000000095Format</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day__Fishing_Days__Control1000000096">
+          <DataField>Vessel_Performance_By_Sea_Day__Fishing_Days__Control1000000096</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day__Fishing_Days__Control1000000096Format">
+          <DataField>Vessel_Performance_By_Sea_Day__Fishing_Days__Control1000000096Format</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day__Lost_Days__Control1000000097">
+          <DataField>Vessel_Performance_By_Sea_Day__Lost_Days__Control1000000097</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day__Lost_Days__Control1000000097Format">
+          <DataField>Vessel_Performance_By_Sea_Day__Lost_Days__Control1000000097Format</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day__Port_Days__Control1000000098">
+          <DataField>Vessel_Performance_By_Sea_Day__Port_Days__Control1000000098</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day__Port_Days__Control1000000098Format">
+          <DataField>Vessel_Performance_By_Sea_Day__Port_Days__Control1000000098Format</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day__Fish_Perct__Control1000000099">
+          <DataField>Vessel_Performance_By_Sea_Day__Fish_Perct__Control1000000099</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day__Fish_Perct__Control1000000099Format">
+          <DataField>Vessel_Performance_By_Sea_Day__Fish_Perct__Control1000000099Format</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day__Export_Val__N___Control1000000100">
+          <DataField>Vessel_Performance_By_Sea_Day__Export_Val__N___Control1000000100</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day__Export_Val__N___Control1000000100Format">
+          <DataField>Vessel_Performance_By_Sea_Day__Export_Val__N___Control1000000100Format</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day__Local_Val__N___Control1000000101">
+          <DataField>Vessel_Performance_By_Sea_Day__Local_Val__N___Control1000000101</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day__Local_Val__N___Control1000000101Format">
+          <DataField>Vessel_Performance_By_Sea_Day__Local_Val__N___Control1000000101Format</DataField>
+        </Field>
+        <Field Name="Direct_SD__Control1000000052">
+          <DataField>Direct_SD__Control1000000052</DataField>
+        </Field>
+        <Field Name="Direct_SD__Control1000000052Format">
+          <DataField>Direct_SD__Control1000000052Format</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day_Profit_Control1000000022">
+          <DataField>Vessel_Performance_By_Sea_Day_Profit_Control1000000022</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day_Profit_Control1000000022Format">
+          <DataField>Vessel_Performance_By_Sea_Day_Profit_Control1000000022Format</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day_Indirect_Control1000000025">
+          <DataField>Vessel_Performance_By_Sea_Day_Indirect_Control1000000025</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day_Indirect_Control1000000025Format">
+          <DataField>Vessel_Performance_By_Sea_Day_Indirect_Control1000000025Format</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day__Gross_Margin_Perc__Control1000000028">
+          <DataField>Vessel_Performance_By_Sea_Day__Gross_Margin_Perc__Control1000000028</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day__Gross_Margin_Perc__Control1000000028Format">
+          <DataField>Vessel_Performance_By_Sea_Day__Gross_Margin_Perc__Control1000000028Format</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day_Margin_Control1000000031">
+          <DataField>Vessel_Performance_By_Sea_Day_Margin_Control1000000031</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day_Margin_Control1000000031Format">
+          <DataField>Vessel_Performance_By_Sea_Day_Margin_Control1000000031Format</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day_Direct_Control1000000034">
+          <DataField>Vessel_Performance_By_Sea_Day_Direct_Control1000000034</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day_Direct_Control1000000034Format">
+          <DataField>Vessel_Performance_By_Sea_Day_Direct_Control1000000034Format</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day__AGO_Perct__Control1000000037">
+          <DataField>Vessel_Performance_By_Sea_Day__AGO_Perct__Control1000000037</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day__AGO_Perct__Control1000000037Format">
+          <DataField>Vessel_Performance_By_Sea_Day__AGO_Perct__Control1000000037Format</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day_AGO_Control1000000040">
+          <DataField>Vessel_Performance_By_Sea_Day_AGO_Control1000000040</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day_AGO_Control1000000040Format">
+          <DataField>Vessel_Performance_By_Sea_Day_AGO_Control1000000040Format</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day__Rev_FD__Control1000000043">
+          <DataField>Vessel_Performance_By_Sea_Day__Rev_FD__Control1000000043</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day__Rev_FD__Control1000000043Format">
+          <DataField>Vessel_Performance_By_Sea_Day__Rev_FD__Control1000000043Format</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day__Rev_SD__Control1000000046">
+          <DataField>Vessel_Performance_By_Sea_Day__Rev_SD__Control1000000046</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day__Rev_SD__Control1000000046Format">
+          <DataField>Vessel_Performance_By_Sea_Day__Rev_SD__Control1000000046Format</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day_Revenue_Control1000000049">
+          <DataField>Vessel_Performance_By_Sea_Day_Revenue_Control1000000049</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day_Revenue_Control1000000049Format">
+          <DataField>Vessel_Performance_By_Sea_Day_Revenue_Control1000000049Format</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day__Cycle_Day__Control1000000055">
+          <DataField>Vessel_Performance_By_Sea_Day__Cycle_Day__Control1000000055</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day__Cycle_Day__Control1000000055Format">
+          <DataField>Vessel_Performance_By_Sea_Day__Cycle_Day__Control1000000055Format</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day__Fishing_Days__Control1000000058">
+          <DataField>Vessel_Performance_By_Sea_Day__Fishing_Days__Control1000000058</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day__Fishing_Days__Control1000000058Format">
+          <DataField>Vessel_Performance_By_Sea_Day__Fishing_Days__Control1000000058Format</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day__Lost_Days__Control1000000061">
+          <DataField>Vessel_Performance_By_Sea_Day__Lost_Days__Control1000000061</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day__Lost_Days__Control1000000061Format">
+          <DataField>Vessel_Performance_By_Sea_Day__Lost_Days__Control1000000061Format</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day__Port_Days__Control1000000064">
+          <DataField>Vessel_Performance_By_Sea_Day__Port_Days__Control1000000064</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day__Port_Days__Control1000000064Format">
+          <DataField>Vessel_Performance_By_Sea_Day__Port_Days__Control1000000064Format</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day__Fish_Perct__Control1000000081">
+          <DataField>Vessel_Performance_By_Sea_Day__Fish_Perct__Control1000000081</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day__Fish_Perct__Control1000000081Format">
+          <DataField>Vessel_Performance_By_Sea_Day__Fish_Perct__Control1000000081Format</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day__Export_Val__N___Control1000000082">
+          <DataField>Vessel_Performance_By_Sea_Day__Export_Val__N___Control1000000082</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day__Export_Val__N___Control1000000082Format">
+          <DataField>Vessel_Performance_By_Sea_Day__Export_Val__N___Control1000000082Format</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day__Local_Val__N___Control1000000083">
+          <DataField>Vessel_Performance_By_Sea_Day__Local_Val__N___Control1000000083</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day__Local_Val__N___Control1000000083Format">
+          <DataField>Vessel_Performance_By_Sea_Day__Local_Val__N___Control1000000083Format</DataField>
+        </Field>
+        <Field Name="Direct_SD__Control1000000067">
+          <DataField>Direct_SD__Control1000000067</DataField>
+        </Field>
+        <Field Name="Direct_SD__Control1000000067Format">
+          <DataField>Direct_SD__Control1000000067Format</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_DayCaption">
+          <DataField>Vessel_Performance_By_Sea_DayCaption</DataField>
+        </Field>
+        <Field Name="CurrReport_PAGENOCaption">
+          <DataField>CurrReport_PAGENOCaption</DataField>
+        </Field>
+        <Field Name="CountZCaption">
+          <DataField>CountZCaption</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day_VessCaption">
+          <DataField>Vessel_Performance_By_Sea_Day_VessCaption</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day__Cycle_Day_Caption">
+          <DataField>Vessel_Performance_By_Sea_Day__Cycle_Day_Caption</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day__Fishing_Days_Caption">
+          <DataField>Vessel_Performance_By_Sea_Day__Fishing_Days_Caption</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day__Lost_Days_Caption">
+          <DataField>Vessel_Performance_By_Sea_Day__Lost_Days_Caption</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day__Port_Days_Caption">
+          <DataField>Vessel_Performance_By_Sea_Day__Port_Days_Caption</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day__Fish_Perct_Caption">
+          <DataField>Vessel_Performance_By_Sea_Day__Fish_Perct_Caption</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day__Export_Val__N__Caption">
+          <DataField>Vessel_Performance_By_Sea_Day__Export_Val__N__Caption</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day__Local_Val__N__Caption">
+          <DataField>Vessel_Performance_By_Sea_Day__Local_Val__N__Caption</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day_RevenueCaption">
+          <DataField>Vessel_Performance_By_Sea_Day_RevenueCaption</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day__Rev_SD_Caption">
+          <DataField>Vessel_Performance_By_Sea_Day__Rev_SD_Caption</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day_AGOCaption">
+          <DataField>Vessel_Performance_By_Sea_Day_AGOCaption</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day__AGO_Perct_Caption">
+          <DataField>Vessel_Performance_By_Sea_Day__AGO_Perct_Caption</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day_DirectCaption">
+          <DataField>Vessel_Performance_By_Sea_Day_DirectCaption</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day_MarginCaption">
+          <DataField>Vessel_Performance_By_Sea_Day_MarginCaption</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day__Gross_Margin_Perc_Caption">
+          <DataField>Vessel_Performance_By_Sea_Day__Gross_Margin_Perc_Caption</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day_IndirectCaption">
+          <DataField>Vessel_Performance_By_Sea_Day_IndirectCaption</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day_ProfitCaption">
+          <DataField>Vessel_Performance_By_Sea_Day_ProfitCaption</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day__Rev_FD_Caption">
+          <DataField>Vessel_Performance_By_Sea_Day__Rev_FD_Caption</DataField>
+        </Field>
+        <Field Name="Direct_SD_Caption">
+          <DataField>Direct_SD_Caption</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day__Voyage_Sea_Days_Caption">
+          <DataField>Vessel_Performance_By_Sea_Day__Voyage_Sea_Days_Caption</DataField>
+        </Field>
+        <Field Name="AvgCaption">
+          <DataField>AvgCaption</DataField>
+        </Field>
+        <Field Name="TotalCaption">
+          <DataField>TotalCaption</DataField>
+        </Field>
+        <Field Name="Vessel_Performance_By_Sea_Day_No_">
+          <DataField>Vessel_Performance_By_Sea_Day_No_</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
+</Report>

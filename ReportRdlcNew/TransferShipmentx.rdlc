@@ -1,0 +1,218 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="DataSource">
+      <ConnectionProperties>
+        <DataProvider>SQL</DataProvider>
+        <ConnectString />
+      </ConnectionProperties>
+      <rd:SecurityType>None</rd:SecurityType>
+    </DataSource>
+  </DataSources>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <Height>2in</Height>
+        <Style />
+      </Body>
+      <Width>6.5in</Width>
+      <Page>
+        <Style />
+      </Page>
+    </ReportSection>
+  </ReportSections>
+  <Code>Public Function BlankZero(ByVal Value As Decimal)
+    if Value = 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankPos(ByVal Value As Decimal)
+    if Value &gt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankZeroAndPos(ByVal Value As Decimal)
+    if Value &gt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNeg(ByVal Value As Decimal)
+    if Value &lt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNegAndZero(ByVal Value As Decimal)
+    if Value &lt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+</Code>
+  <Language>=User!Language</Language>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="Transfer_Shipment_Header_No_">
+          <DataField>Transfer_Shipment_Header_No_</DataField>
+        </Field>
+        <Field Name="STRSUBSTNO_Text001_CopyText_">
+          <DataField>STRSUBSTNO_Text001_CopyText_</DataField>
+        </Field>
+        <Field Name="STRSUBSTNO_Text002_FORMAT_CurrReport_PAGENO__">
+          <DataField>STRSUBSTNO_Text002_FORMAT_CurrReport_PAGENO__</DataField>
+        </Field>
+        <Field Name="TransferToAddr_1_">
+          <DataField>TransferToAddr_1_</DataField>
+        </Field>
+        <Field Name="TransferFromAddr_1_">
+          <DataField>TransferFromAddr_1_</DataField>
+        </Field>
+        <Field Name="TransferToAddr_2_">
+          <DataField>TransferToAddr_2_</DataField>
+        </Field>
+        <Field Name="TransferFromAddr_2_">
+          <DataField>TransferFromAddr_2_</DataField>
+        </Field>
+        <Field Name="TransferToAddr_3_">
+          <DataField>TransferToAddr_3_</DataField>
+        </Field>
+        <Field Name="TransferFromAddr_3_">
+          <DataField>TransferFromAddr_3_</DataField>
+        </Field>
+        <Field Name="TransferToAddr_4_">
+          <DataField>TransferToAddr_4_</DataField>
+        </Field>
+        <Field Name="TransferFromAddr_4_">
+          <DataField>TransferFromAddr_4_</DataField>
+        </Field>
+        <Field Name="TransferToAddr_5_">
+          <DataField>TransferToAddr_5_</DataField>
+        </Field>
+        <Field Name="TransferToAddr_6_">
+          <DataField>TransferToAddr_6_</DataField>
+        </Field>
+        <Field Name="Transfer_Shipment_Header___In_Transit_Code_">
+          <DataField>Transfer_Shipment_Header___In_Transit_Code_</DataField>
+        </Field>
+        <Field Name="FORMAT__Transfer_Shipment_Header___Posting_Date__0_4_">
+          <DataField>FORMAT__Transfer_Shipment_Header___Posting_Date__0_4_</DataField>
+        </Field>
+        <Field Name="Transfer_Shipment_Header___No__">
+          <DataField>Transfer_Shipment_Header___No__</DataField>
+        </Field>
+        <Field Name="TransferToAddr_7_">
+          <DataField>TransferToAddr_7_</DataField>
+        </Field>
+        <Field Name="TransferToAddr_8_">
+          <DataField>TransferToAddr_8_</DataField>
+        </Field>
+        <Field Name="TransferFromAddr_5_">
+          <DataField>TransferFromAddr_5_</DataField>
+        </Field>
+        <Field Name="TransferFromAddr_6_">
+          <DataField>TransferFromAddr_6_</DataField>
+        </Field>
+        <Field Name="Transfer_Shipment_Header___Shipment_Date_">
+          <DataField>Transfer_Shipment_Header___Shipment_Date_</DataField>
+        </Field>
+        <Field Name="TransferFromAddr_7_">
+          <DataField>TransferFromAddr_7_</DataField>
+        </Field>
+        <Field Name="TransferFromAddr_8_">
+          <DataField>TransferFromAddr_8_</DataField>
+        </Field>
+        <Field Name="Transfer_Shipment_Header___In_Transit_Code_Caption">
+          <DataField>Transfer_Shipment_Header___In_Transit_Code_Caption</DataField>
+        </Field>
+        <Field Name="Transfer_Shipment_Header___No__Caption">
+          <DataField>Transfer_Shipment_Header___No__Caption</DataField>
+        </Field>
+        <Field Name="Transfer_Shipment_Header___Shipment_Date_Caption">
+          <DataField>Transfer_Shipment_Header___Shipment_Date_Caption</DataField>
+        </Field>
+        <Field Name="PageLoop_Number">
+          <DataField>PageLoop_Number</DataField>
+        </Field>
+        <Field Name="DimText">
+          <DataField>DimText</DataField>
+        </Field>
+        <Field Name="DimText_Control53">
+          <DataField>DimText_Control53</DataField>
+        </Field>
+        <Field Name="Header_DimensionsCaption">
+          <DataField>Header_DimensionsCaption</DataField>
+        </Field>
+        <Field Name="DimensionLoop1_Number">
+          <DataField>DimensionLoop1_Number</DataField>
+        </Field>
+        <Field Name="Transfer_Shipment_Line__Item_No__">
+          <DataField>Transfer_Shipment_Line__Item_No__</DataField>
+        </Field>
+        <Field Name="Transfer_Shipment_Line_Description">
+          <DataField>Transfer_Shipment_Line_Description</DataField>
+        </Field>
+        <Field Name="Transfer_Shipment_Line_Quantity">
+          <DataField>Transfer_Shipment_Line_Quantity</DataField>
+        </Field>
+        <Field Name="Transfer_Shipment_Line_QuantityFormat">
+          <DataField>Transfer_Shipment_Line_QuantityFormat</DataField>
+        </Field>
+        <Field Name="Transfer_Shipment_Line__Unit_of_Measure_">
+          <DataField>Transfer_Shipment_Line__Unit_of_Measure_</DataField>
+        </Field>
+        <Field Name="ShipmentMethod_Description">
+          <DataField>ShipmentMethod_Description</DataField>
+        </Field>
+        <Field Name="Transfer_Shipment_Line__Unit_of_Measure_Caption">
+          <DataField>Transfer_Shipment_Line__Unit_of_Measure_Caption</DataField>
+        </Field>
+        <Field Name="Transfer_Shipment_Line_QuantityCaption">
+          <DataField>Transfer_Shipment_Line_QuantityCaption</DataField>
+        </Field>
+        <Field Name="Transfer_Shipment_Line_DescriptionCaption">
+          <DataField>Transfer_Shipment_Line_DescriptionCaption</DataField>
+        </Field>
+        <Field Name="Transfer_Shipment_Line__Item_No__Caption">
+          <DataField>Transfer_Shipment_Line__Item_No__Caption</DataField>
+        </Field>
+        <Field Name="ShipmentMethod_DescriptionCaption">
+          <DataField>ShipmentMethod_DescriptionCaption</DataField>
+        </Field>
+        <Field Name="Transfer_Shipment_Line_Document_No_">
+          <DataField>Transfer_Shipment_Line_Document_No_</DataField>
+        </Field>
+        <Field Name="Transfer_Shipment_Line_Line_No_">
+          <DataField>Transfer_Shipment_Line_Line_No_</DataField>
+        </Field>
+        <Field Name="DimText_Control71">
+          <DataField>DimText_Control71</DataField>
+        </Field>
+        <Field Name="DimText_Control73">
+          <DataField>DimText_Control73</DataField>
+        </Field>
+        <Field Name="Line_DimensionsCaption">
+          <DataField>Line_DimensionsCaption</DataField>
+        </Field>
+        <Field Name="DimensionLoop2_Number">
+          <DataField>DimensionLoop2_Number</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
+</Report>

@@ -1,0 +1,200 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="DataSource">
+      <ConnectionProperties>
+        <DataProvider>SQL</DataProvider>
+        <ConnectString />
+      </ConnectionProperties>
+      <rd:SecurityType>None</rd:SecurityType>
+    </DataSource>
+  </DataSources>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <Height>2in</Height>
+        <Style />
+      </Body>
+      <Width>6.5in</Width>
+      <Page>
+        <Style />
+      </Page>
+    </ReportSection>
+  </ReportSections>
+  <Code>Public Function BlankZero(ByVal Value As Decimal)
+    if Value = 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankPos(ByVal Value As Decimal)
+    if Value &gt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankZeroAndPos(ByVal Value As Decimal)
+    if Value &gt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNeg(ByVal Value As Decimal)
+    if Value &lt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNegAndZero(ByVal Value As Decimal)
+    if Value &lt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+</Code>
+  <Language>=User!Language</Language>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="FORMAT_TODAY_0_4_">
+          <DataField>FORMAT_TODAY_0_4_</DataField>
+        </Field>
+        <Field Name="COMPANYNAME">
+          <DataField>COMPANYNAME</DataField>
+        </Field>
+        <Field Name="CurrReport_PAGENO">
+          <DataField>CurrReport_PAGENO</DataField>
+        </Field>
+        <Field Name="USERID">
+          <DataField>USERID</DataField>
+        </Field>
+        <Field Name="Loan___Loan_Amount_">
+          <DataField>Loan___Loan_Amount_</DataField>
+        </Field>
+        <Field Name="Loan___Loan_Amount_Format">
+          <DataField>Loan___Loan_Amount_Format</DataField>
+        </Field>
+        <Field Name="Loan__Department">
+          <DataField>Loan__Department</DataField>
+        </Field>
+        <Field Name="Loan___Date_of_Joining_">
+          <DataField>Loan___Date_of_Joining_</DataField>
+        </Field>
+        <Field Name="Loan__EmployeeGrp">
+          <DataField>Loan__EmployeeGrp</DataField>
+        </Field>
+        <Field Name="Loan___Emp__Status_">
+          <DataField>Loan___Emp__Status_</DataField>
+        </Field>
+        <Field Name="Loan___AnnualBasic_1_2__">
+          <DataField>Loan___AnnualBasic_1_2__</DataField>
+        </Field>
+        <Field Name="Loan___AnnualBasic_1_2__Format">
+          <DataField>Loan___AnnualBasic_1_2__Format</DataField>
+        </Field>
+        <Field Name="Loan___Loan_ID_">
+          <DataField>Loan___Loan_ID_</DataField>
+        </Field>
+        <Field Name="Loan___Staff_No__">
+          <DataField>Loan___Staff_No__</DataField>
+        </Field>
+        <Field Name="Loan___Staff_Name_">
+          <DataField>Loan___Staff_Name_</DataField>
+        </Field>
+        <Field Name="Loan_Type">
+          <DataField>Loan_Type</DataField>
+        </Field>
+        <Field Name="Loan___Start_Period_">
+          <DataField>Loan___Start_Period_</DataField>
+        </Field>
+        <Field Name="Loan___Number_of_Payments_">
+          <DataField>Loan___Number_of_Payments_</DataField>
+        </Field>
+        <Field Name="Loan___Monthly_Repayment_">
+          <DataField>Loan___Monthly_Repayment_</DataField>
+        </Field>
+        <Field Name="Loan___Monthly_Repayment_Format">
+          <DataField>Loan___Monthly_Repayment_Format</DataField>
+        </Field>
+        <Field Name="Loan___Voucher_No__for_Loan_">
+          <DataField>Loan___Voucher_No__for_Loan_</DataField>
+        </Field>
+        <Field Name="Loan___Posting_Date_for_Loan_">
+          <DataField>Loan___Posting_Date_for_Loan_</DataField>
+        </Field>
+        <Field Name="Loan_Caption">
+          <DataField>Loan_Caption</DataField>
+        </Field>
+        <Field Name="CurrReport_PAGENOCaption">
+          <DataField>CurrReport_PAGENOCaption</DataField>
+        </Field>
+        <Field Name="LOAN_APPROVALCaption">
+          <DataField>LOAN_APPROVALCaption</DataField>
+        </Field>
+        <Field Name="Loan___Loan_Amount_Caption">
+          <DataField>Loan___Loan_Amount_Caption</DataField>
+        </Field>
+        <Field Name="Loan__DepartmentCaption">
+          <DataField>Loan__DepartmentCaption</DataField>
+        </Field>
+        <Field Name="Loan___Date_of_Joining_Caption">
+          <DataField>Loan___Date_of_Joining_Caption</DataField>
+        </Field>
+        <Field Name="Loan__EmployeeGrpCaption">
+          <DataField>Loan__EmployeeGrpCaption</DataField>
+        </Field>
+        <Field Name="Loan___Emp__Status_Caption">
+          <DataField>Loan___Emp__Status_Caption</DataField>
+        </Field>
+        <Field Name="V50____Of_Annual_BasicCaption">
+          <DataField>V50____Of_Annual_BasicCaption</DataField>
+        </Field>
+        <Field Name="Loan___Loan_ID_Caption">
+          <DataField>Loan___Loan_ID_Caption</DataField>
+        </Field>
+        <Field Name="Loan___Staff_No__Caption">
+          <DataField>Loan___Staff_No__Caption</DataField>
+        </Field>
+        <Field Name="Loan___Staff_Name_Caption">
+          <DataField>Loan___Staff_Name_Caption</DataField>
+        </Field>
+        <Field Name="Loan___Loan_Type_Caption">
+          <DataField>Loan___Loan_Type_Caption</DataField>
+        </Field>
+        <Field Name="Loan___Start_Period_Caption">
+          <DataField>Loan___Start_Period_Caption</DataField>
+        </Field>
+        <Field Name="Loan___Number_of_Payments_Caption">
+          <DataField>Loan___Number_of_Payments_Caption</DataField>
+        </Field>
+        <Field Name="Loan___Monthly_Repayment_Caption">
+          <DataField>Loan___Monthly_Repayment_Caption</DataField>
+        </Field>
+        <Field Name="Loan___Voucher_No__for_Loan_Caption">
+          <DataField>Loan___Voucher_No__for_Loan_Caption</DataField>
+        </Field>
+        <Field Name="Loan___Posting_Date_for_Loan_Caption">
+          <DataField>Loan___Posting_Date_for_Loan_Caption</DataField>
+        </Field>
+        <Field Name="Loan_Recommended_by_HOD__Caption">
+          <DataField>Loan_Recommended_by_HOD__Caption</DataField>
+        </Field>
+        <Field Name="Loan_Recommended_by_HR_Caption">
+          <DataField>Loan_Recommended_by_HR_Caption</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
+</Report>
