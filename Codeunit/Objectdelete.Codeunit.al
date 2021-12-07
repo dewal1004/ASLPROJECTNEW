@@ -4,7 +4,7 @@ codeunit 51101 "Object delete"
     trigger OnRun()
     begin
         object.DeleteAll;
-        Message('Deleted');
+        Message('Deleted'); //
     end;
 
     var
