@@ -1,0 +1,3887 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="DataSource">
+      <ConnectionProperties>
+        <DataProvider>SQL</DataProvider>
+        <ConnectString />
+      </ConnectionProperties>
+      <rd:SecurityType>None</rd:SecurityType>
+    </DataSource>
+  </DataSources>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+      <Fields>
+        <Field Name="JLEClr__Entry_No__">
+          <DataField>JLEClr__Entry_No__</DataField>
+        </Field>
+        <Field Name="JCDClr__Table_Name_">
+          <DataField>JCDClr__Table_Name_</DataField>
+        </Field>
+        <Field Name="JCDClr__No__">
+          <DataField>JCDClr__No__</DataField>
+        </Field>
+        <Field Name="JCDClr_Code">
+          <DataField>JCDClr_Code</DataField>
+        </Field>
+        <Field Name="JCDClr_Description">
+          <DataField>JCDClr_Description</DataField>
+        </Field>
+        <Field Name="JCDClr_Pack_Size">
+          <DataField>JCDClr_Pack_Size</DataField>
+        </Field>
+        <Field Name="VEClr__Entry_No__">
+          <DataField>VEClr__Entry_No__</DataField>
+        </Field>
+        <Field Name="FORMAT_TODAY_0_4_">
+          <DataField>FORMAT_TODAY_0_4_</DataField>
+        </Field>
+        <Field Name="COMPANYNAME">
+          <DataField>COMPANYNAME</DataField>
+        </Field>
+        <Field Name="CurrReport_PAGENO">
+          <DataField>CurrReport_PAGENO</DataField>
+        </Field>
+        <Field Name="USERID">
+          <DataField>USERID</DataField>
+        </Field>
+        <Field Name="Text18">
+          <DataField>Text18</DataField>
+        </Field>
+        <Field Name="GETFILTERS__">
+          <DataField>GETFILTERS__</DataField>
+        </Field>
+        <Field Name="Text27">
+          <DataField>Text27</DataField>
+        </Field>
+        <Field Name="Text26">
+          <DataField>Text26</DataField>
+        </Field>
+        <Field Name="Text25">
+          <DataField>Text25</DataField>
+        </Field>
+        <Field Name="Text24">
+          <DataField>Text24</DataField>
+        </Field>
+        <Field Name="Text23">
+          <DataField>Text23</DataField>
+        </Field>
+        <Field Name="Text22">
+          <DataField>Text22</DataField>
+        </Field>
+        <Field Name="Text21">
+          <DataField>Text21</DataField>
+        </Field>
+        <Field Name="Jobss_Vessel">
+          <DataField>Jobss_Vessel</DataField>
+        </Field>
+        <Field Name="PntStor_7_">
+          <DataField>PntStor_7_</DataField>
+        </Field>
+        <Field Name="PntStor_7_Format">
+          <DataField>PntStor_7_Format</DataField>
+        </Field>
+        <Field Name="PntStor_6_">
+          <DataField>PntStor_6_</DataField>
+        </Field>
+        <Field Name="PntStor_6_Format">
+          <DataField>PntStor_6_Format</DataField>
+        </Field>
+        <Field Name="PntStor_5_">
+          <DataField>PntStor_5_</DataField>
+        </Field>
+        <Field Name="PntStor_5_Format">
+          <DataField>PntStor_5_Format</DataField>
+        </Field>
+        <Field Name="PntStor_4_">
+          <DataField>PntStor_4_</DataField>
+        </Field>
+        <Field Name="PntStor_4_Format">
+          <DataField>PntStor_4_Format</DataField>
+        </Field>
+        <Field Name="PntStor_3_">
+          <DataField>PntStor_3_</DataField>
+        </Field>
+        <Field Name="PntStor_3_Format">
+          <DataField>PntStor_3_Format</DataField>
+        </Field>
+        <Field Name="PntStor_2_">
+          <DataField>PntStor_2_</DataField>
+        </Field>
+        <Field Name="PntStor_2_Format">
+          <DataField>PntStor_2_Format</DataField>
+        </Field>
+        <Field Name="PntStor_1_">
+          <DataField>PntStor_1_</DataField>
+        </Field>
+        <Field Name="PntStor_1_Format">
+          <DataField>PntStor_1_Format</DataField>
+        </Field>
+        <Field Name="PortDay">
+          <DataField>PortDay</DataField>
+        </Field>
+        <Field Name="PortDayFormat">
+          <DataField>PortDayFormat</DataField>
+        </Field>
+        <Field Name="LostDay">
+          <DataField>LostDay</DataField>
+        </Field>
+        <Field Name="LostDayFormat">
+          <DataField>LostDayFormat</DataField>
+        </Field>
+        <Field Name="FishgDay">
+          <DataField>FishgDay</DataField>
+        </Field>
+        <Field Name="FishgDayFormat">
+          <DataField>FishgDayFormat</DataField>
+        </Field>
+        <Field Name="CycleDay">
+          <DataField>CycleDay</DataField>
+        </Field>
+        <Field Name="CycleDayFormat">
+          <DataField>CycleDayFormat</DataField>
+        </Field>
+        <Field Name="Jobss__Ending_Date_">
+          <DataField>Jobss__Ending_Date_</DataField>
+        </Field>
+        <Field Name="Jobss__Starting_Date_">
+          <DataField>Jobss__Starting_Date_</DataField>
+        </Field>
+        <Field Name="Jobss__No__">
+          <DataField>Jobss__No__</DataField>
+        </Field>
+        <Field Name="PntStor_7__Countrs">
+          <DataField>PntStor_7__Countrs</DataField>
+        </Field>
+        <Field Name="PntStor_7__CountrsFormat">
+          <DataField>PntStor_7__CountrsFormat</DataField>
+        </Field>
+        <Field Name="PntStor_6__Control1000000233">
+          <DataField>PntStor_6__Control1000000233</DataField>
+        </Field>
+        <Field Name="PntStor_6__Control1000000233Format">
+          <DataField>PntStor_6__Control1000000233Format</DataField>
+        </Field>
+        <Field Name="PntStor_5__Control1000000234">
+          <DataField>PntStor_5__Control1000000234</DataField>
+        </Field>
+        <Field Name="PntStor_5__Control1000000234Format">
+          <DataField>PntStor_5__Control1000000234Format</DataField>
+        </Field>
+        <Field Name="PntStor_4__Control1000000235">
+          <DataField>PntStor_4__Control1000000235</DataField>
+        </Field>
+        <Field Name="PntStor_4__Control1000000235Format">
+          <DataField>PntStor_4__Control1000000235Format</DataField>
+        </Field>
+        <Field Name="PntStor_3__Control1000000236">
+          <DataField>PntStor_3__Control1000000236</DataField>
+        </Field>
+        <Field Name="PntStor_3__Control1000000236Format">
+          <DataField>PntStor_3__Control1000000236Format</DataField>
+        </Field>
+        <Field Name="PntStor_2__Control1000000237">
+          <DataField>PntStor_2__Control1000000237</DataField>
+        </Field>
+        <Field Name="PntStor_2__Control1000000237Format">
+          <DataField>PntStor_2__Control1000000237Format</DataField>
+        </Field>
+        <Field Name="PntStor_1__Control1000000238">
+          <DataField>PntStor_1__Control1000000238</DataField>
+        </Field>
+        <Field Name="PntStor_1__Control1000000238Format">
+          <DataField>PntStor_1__Control1000000238Format</DataField>
+        </Field>
+        <Field Name="PortDay_Control1000000239">
+          <DataField>PortDay_Control1000000239</DataField>
+        </Field>
+        <Field Name="PortDay_Control1000000239Format">
+          <DataField>PortDay_Control1000000239Format</DataField>
+        </Field>
+        <Field Name="LostDay_Control1000000240">
+          <DataField>LostDay_Control1000000240</DataField>
+        </Field>
+        <Field Name="LostDay_Control1000000240Format">
+          <DataField>LostDay_Control1000000240Format</DataField>
+        </Field>
+        <Field Name="FishgDay_Control1000000241">
+          <DataField>FishgDay_Control1000000241</DataField>
+        </Field>
+        <Field Name="FishgDay_Control1000000241Format">
+          <DataField>FishgDay_Control1000000241Format</DataField>
+        </Field>
+        <Field Name="CycleDay_Control1000000242">
+          <DataField>CycleDay_Control1000000242</DataField>
+        </Field>
+        <Field Name="CycleDay_Control1000000242Format">
+          <DataField>CycleDay_Control1000000242Format</DataField>
+        </Field>
+        <Field Name="TotalFor___FIELDCAPTION_Vessel_">
+          <DataField>TotalFor___FIELDCAPTION_Vessel_</DataField>
+        </Field>
+        <Field Name="PntStor_7__Countrs_Control1000000221">
+          <DataField>PntStor_7__Countrs_Control1000000221</DataField>
+        </Field>
+        <Field Name="PntStor_7__Countrs_Control1000000221Format">
+          <DataField>PntStor_7__Countrs_Control1000000221Format</DataField>
+        </Field>
+        <Field Name="PntStor_6__Control1000000222">
+          <DataField>PntStor_6__Control1000000222</DataField>
+        </Field>
+        <Field Name="PntStor_6__Control1000000222Format">
+          <DataField>PntStor_6__Control1000000222Format</DataField>
+        </Field>
+        <Field Name="PntStor_5__Control1000000223">
+          <DataField>PntStor_5__Control1000000223</DataField>
+        </Field>
+        <Field Name="PntStor_5__Control1000000223Format">
+          <DataField>PntStor_5__Control1000000223Format</DataField>
+        </Field>
+        <Field Name="PntStor_4__Control1000000224">
+          <DataField>PntStor_4__Control1000000224</DataField>
+        </Field>
+        <Field Name="PntStor_4__Control1000000224Format">
+          <DataField>PntStor_4__Control1000000224Format</DataField>
+        </Field>
+        <Field Name="PntStor_3__Control1000000225">
+          <DataField>PntStor_3__Control1000000225</DataField>
+        </Field>
+        <Field Name="PntStor_3__Control1000000225Format">
+          <DataField>PntStor_3__Control1000000225Format</DataField>
+        </Field>
+        <Field Name="PntStor_2__Control1000000226">
+          <DataField>PntStor_2__Control1000000226</DataField>
+        </Field>
+        <Field Name="PntStor_2__Control1000000226Format">
+          <DataField>PntStor_2__Control1000000226Format</DataField>
+        </Field>
+        <Field Name="PntStor_1__Control1000000227">
+          <DataField>PntStor_1__Control1000000227</DataField>
+        </Field>
+        <Field Name="PntStor_1__Control1000000227Format">
+          <DataField>PntStor_1__Control1000000227Format</DataField>
+        </Field>
+        <Field Name="PortDay_Control1000000228">
+          <DataField>PortDay_Control1000000228</DataField>
+        </Field>
+        <Field Name="PortDay_Control1000000228Format">
+          <DataField>PortDay_Control1000000228Format</DataField>
+        </Field>
+        <Field Name="LostDay_Control1000000229">
+          <DataField>LostDay_Control1000000229</DataField>
+        </Field>
+        <Field Name="LostDay_Control1000000229Format">
+          <DataField>LostDay_Control1000000229Format</DataField>
+        </Field>
+        <Field Name="FishgDay_Control1000000230">
+          <DataField>FishgDay_Control1000000230</DataField>
+        </Field>
+        <Field Name="FishgDay_Control1000000230Format">
+          <DataField>FishgDay_Control1000000230Format</DataField>
+        </Field>
+        <Field Name="CycleDay_Control1000000231">
+          <DataField>CycleDay_Control1000000231</DataField>
+        </Field>
+        <Field Name="CycleDay_Control1000000231Format">
+          <DataField>CycleDay_Control1000000231Format</DataField>
+        </Field>
+        <Field Name="Coutry_Name">
+          <DataField>Coutry_Name</DataField>
+        </Field>
+        <Field Name="Res_Name">
+          <DataField>Res_Name</DataField>
+        </Field>
+        <Field Name="Vess">
+          <DataField>Vess</DataField>
+        </Field>
+        <Field Name="CurrReport_PAGENOCaption">
+          <DataField>CurrReport_PAGENOCaption</DataField>
+        </Field>
+        <Field Name="FILTERSCaption">
+          <DataField>FILTERSCaption</DataField>
+        </Field>
+        <Field Name="Control1000000167Caption">
+          <DataField>Control1000000167Caption</DataField>
+        </Field>
+        <Field Name="Control1000000168Caption">
+          <DataField>Control1000000168Caption</DataField>
+        </Field>
+        <Field Name="Control1000000169Caption">
+          <DataField>Control1000000169Caption</DataField>
+        </Field>
+        <Field Name="Control1000000170Caption">
+          <DataField>Control1000000170Caption</DataField>
+        </Field>
+        <Field Name="Control1000000171Caption">
+          <DataField>Control1000000171Caption</DataField>
+        </Field>
+        <Field Name="Control1000000172Caption">
+          <DataField>Control1000000172Caption</DataField>
+        </Field>
+        <Field Name="Control1000000173Caption">
+          <DataField>Control1000000173Caption</DataField>
+        </Field>
+        <Field Name="Jobss_VesselCaption">
+          <DataField>Jobss_VesselCaption</DataField>
+        </Field>
+        <Field Name="JLEMark__Entry_No__">
+          <DataField>JLEMark__Entry_No__</DataField>
+        </Field>
+        <Field Name="JLEMark_Job_No_">
+          <DataField>JLEMark_Job_No_</DataField>
+        </Field>
+        <Field Name="JCDMark_Description">
+          <DataField>JCDMark_Description</DataField>
+        </Field>
+        <Field Name="JCDMark_Code">
+          <DataField>JCDMark_Code</DataField>
+        </Field>
+        <Field Name="JCDMark__No__">
+          <DataField>JCDMark__No__</DataField>
+        </Field>
+        <Field Name="JCDMark__Table_Name_">
+          <DataField>JCDMark__Table_Name_</DataField>
+        </Field>
+        <Field Name="JCDMark_Pack_Size">
+          <DataField>JCDMark_Pack_Size</DataField>
+        </Field>
+        <Field Name="Jb__No__">
+          <DataField>Jb__No__</DataField>
+        </Field>
+        <Field Name="Jb__Search_Description_">
+          <DataField>Jb__Search_Description_</DataField>
+        </Field>
+        <Field Name="Jb_Description">
+          <DataField>Jb_Description</DataField>
+        </Field>
+        <Field Name="Jb__Description_2_">
+          <DataField>Jb__Description_2_</DataField>
+        </Field>
+        <Field Name="Jb__Bill_to_Customer_No__">
+          <DataField>Jb__Bill_to_Customer_No__</DataField>
+        </Field>
+        <Field Name="Jb__Creation_Date_">
+          <DataField>Jb__Creation_Date_</DataField>
+        </Field>
+        <Field Name="SeaRange_1_">
+          <DataField>SeaRange_1_</DataField>
+        </Field>
+        <Field Name="SeaRange_2_">
+          <DataField>SeaRange_2_</DataField>
+        </Field>
+        <Field Name="SeaRange_3_">
+          <DataField>SeaRange_3_</DataField>
+        </Field>
+        <Field Name="SeaRange_4_">
+          <DataField>SeaRange_4_</DataField>
+        </Field>
+        <Field Name="SeaRange_5_">
+          <DataField>SeaRange_5_</DataField>
+        </Field>
+        <Field Name="SeaRange_6_">
+          <DataField>SeaRange_6_</DataField>
+        </Field>
+        <Field Name="SeaRange_7_">
+          <DataField>SeaRange_7_</DataField>
+        </Field>
+        <Field Name="SeaRange_8_">
+          <DataField>SeaRange_8_</DataField>
+        </Field>
+        <Field Name="SeaRange_9_">
+          <DataField>SeaRange_9_</DataField>
+        </Field>
+        <Field Name="SeaRange_10_">
+          <DataField>SeaRange_10_</DataField>
+        </Field>
+        <Field Name="SeaRange_11_">
+          <DataField>SeaRange_11_</DataField>
+        </Field>
+        <Field Name="SeaRange_12_">
+          <DataField>SeaRange_12_</DataField>
+        </Field>
+        <Field Name="SeaRange_13_">
+          <DataField>SeaRange_13_</DataField>
+        </Field>
+        <Field Name="SeaRange_14_">
+          <DataField>SeaRange_14_</DataField>
+        </Field>
+        <Field Name="SeaRange_15_">
+          <DataField>SeaRange_15_</DataField>
+        </Field>
+        <Field Name="SeaRange_16_">
+          <DataField>SeaRange_16_</DataField>
+        </Field>
+        <Field Name="SeaRange_17_">
+          <DataField>SeaRange_17_</DataField>
+        </Field>
+        <Field Name="SeaRange_18_">
+          <DataField>SeaRange_18_</DataField>
+        </Field>
+        <Field Name="SeaRange_19_">
+          <DataField>SeaRange_19_</DataField>
+        </Field>
+        <Field Name="SeaRange_20_">
+          <DataField>SeaRange_20_</DataField>
+        </Field>
+        <Field Name="SubHdr3A_5_">
+          <DataField>SubHdr3A_5_</DataField>
+        </Field>
+        <Field Name="SubHdr2A_5_">
+          <DataField>SubHdr2A_5_</DataField>
+        </Field>
+        <Field Name="SubHdr2A_5_Format">
+          <DataField>SubHdr2A_5_Format</DataField>
+        </Field>
+        <Field Name="SubHdr1A_5_">
+          <DataField>SubHdr1A_5_</DataField>
+        </Field>
+        <Field Name="SubHdr4A_5_">
+          <DataField>SubHdr4A_5_</DataField>
+        </Field>
+        <Field Name="SubHdr4A_5_Format">
+          <DataField>SubHdr4A_5_Format</DataField>
+        </Field>
+        <Field Name="SubHdr5A_5_">
+          <DataField>SubHdr5A_5_</DataField>
+        </Field>
+        <Field Name="SubHdr5A_5_Format">
+          <DataField>SubHdr5A_5_Format</DataField>
+        </Field>
+        <Field Name="SubHdr6A_5_">
+          <DataField>SubHdr6A_5_</DataField>
+        </Field>
+        <Field Name="SubHdr6A_5_Format">
+          <DataField>SubHdr6A_5_Format</DataField>
+        </Field>
+        <Field Name="SubHdr2A_4_">
+          <DataField>SubHdr2A_4_</DataField>
+        </Field>
+        <Field Name="SubHdr2A_4_Format">
+          <DataField>SubHdr2A_4_Format</DataField>
+        </Field>
+        <Field Name="SubHdr3A_4_">
+          <DataField>SubHdr3A_4_</DataField>
+        </Field>
+        <Field Name="SubHdr4A_4_">
+          <DataField>SubHdr4A_4_</DataField>
+        </Field>
+        <Field Name="SubHdr4A_4_Format">
+          <DataField>SubHdr4A_4_Format</DataField>
+        </Field>
+        <Field Name="SubHdr5A_4_">
+          <DataField>SubHdr5A_4_</DataField>
+        </Field>
+        <Field Name="SubHdr5A_4_Format">
+          <DataField>SubHdr5A_4_Format</DataField>
+        </Field>
+        <Field Name="SubHdr6A_4_">
+          <DataField>SubHdr6A_4_</DataField>
+        </Field>
+        <Field Name="SubHdr6A_4_Format">
+          <DataField>SubHdr6A_4_Format</DataField>
+        </Field>
+        <Field Name="SubHdr1A_4_">
+          <DataField>SubHdr1A_4_</DataField>
+        </Field>
+        <Field Name="SubHdr1A_3_">
+          <DataField>SubHdr1A_3_</DataField>
+        </Field>
+        <Field Name="SubHdr2A_3_">
+          <DataField>SubHdr2A_3_</DataField>
+        </Field>
+        <Field Name="SubHdr2A_3_Format">
+          <DataField>SubHdr2A_3_Format</DataField>
+        </Field>
+        <Field Name="SubHdr3A_3_">
+          <DataField>SubHdr3A_3_</DataField>
+        </Field>
+        <Field Name="SubHdr4A_3_">
+          <DataField>SubHdr4A_3_</DataField>
+        </Field>
+        <Field Name="SubHdr4A_3_Format">
+          <DataField>SubHdr4A_3_Format</DataField>
+        </Field>
+        <Field Name="SubHdr5A_3_">
+          <DataField>SubHdr5A_3_</DataField>
+        </Field>
+        <Field Name="SubHdr5A_3_Format">
+          <DataField>SubHdr5A_3_Format</DataField>
+        </Field>
+        <Field Name="SubHdr6A_3_">
+          <DataField>SubHdr6A_3_</DataField>
+        </Field>
+        <Field Name="SubHdr6A_3_Format">
+          <DataField>SubHdr6A_3_Format</DataField>
+        </Field>
+        <Field Name="SubHdr1A_2_">
+          <DataField>SubHdr1A_2_</DataField>
+        </Field>
+        <Field Name="SubHdr2A_2_">
+          <DataField>SubHdr2A_2_</DataField>
+        </Field>
+        <Field Name="SubHdr2A_2_Format">
+          <DataField>SubHdr2A_2_Format</DataField>
+        </Field>
+        <Field Name="SubHdr3A_2_">
+          <DataField>SubHdr3A_2_</DataField>
+        </Field>
+        <Field Name="SubHdr5A_2_">
+          <DataField>SubHdr5A_2_</DataField>
+        </Field>
+        <Field Name="SubHdr5A_2_Format">
+          <DataField>SubHdr5A_2_Format</DataField>
+        </Field>
+        <Field Name="SubHdr4A_2_">
+          <DataField>SubHdr4A_2_</DataField>
+        </Field>
+        <Field Name="SubHdr4A_2_Format">
+          <DataField>SubHdr4A_2_Format</DataField>
+        </Field>
+        <Field Name="SubHdr6A_2_">
+          <DataField>SubHdr6A_2_</DataField>
+        </Field>
+        <Field Name="SubHdr6A_2_Format">
+          <DataField>SubHdr6A_2_Format</DataField>
+        </Field>
+        <Field Name="HDT_6_">
+          <DataField>HDT_6_</DataField>
+        </Field>
+        <Field Name="HDT_6_Format">
+          <DataField>HDT_6_Format</DataField>
+        </Field>
+        <Field Name="HDT_5_">
+          <DataField>HDT_5_</DataField>
+        </Field>
+        <Field Name="HDT_5_Format">
+          <DataField>HDT_5_Format</DataField>
+        </Field>
+        <Field Name="HDT_4_">
+          <DataField>HDT_4_</DataField>
+        </Field>
+        <Field Name="HDT_4_Format">
+          <DataField>HDT_4_Format</DataField>
+        </Field>
+        <Field Name="ETACons">
+          <DataField>ETACons</DataField>
+        </Field>
+        <Field Name="HDT_2_">
+          <DataField>HDT_2_</DataField>
+        </Field>
+        <Field Name="HDT_2_Format">
+          <DataField>HDT_2_Format</DataField>
+        </Field>
+        <Field Name="Jb__No__Caption">
+          <DataField>Jb__No__Caption</DataField>
+        </Field>
+        <Field Name="Jb__Search_Description_Caption">
+          <DataField>Jb__Search_Description_Caption</DataField>
+        </Field>
+        <Field Name="Jb_DescriptionCaption">
+          <DataField>Jb_DescriptionCaption</DataField>
+        </Field>
+        <Field Name="Jb__Description_2_Caption">
+          <DataField>Jb__Description_2_Caption</DataField>
+        </Field>
+        <Field Name="Jb__Bill_to_Customer_No__Caption">
+          <DataField>Jb__Bill_to_Customer_No__Caption</DataField>
+        </Field>
+        <Field Name="Jb__Creation_Date_Caption">
+          <DataField>Jb__Creation_Date_Caption</DataField>
+        </Field>
+        <Field Name="BudgetCaption">
+          <DataField>BudgetCaption</DataField>
+        </Field>
+        <Field Name="ActualCaption">
+          <DataField>ActualCaption</DataField>
+        </Field>
+        <Field Name="VarianceCaption">
+          <DataField>VarianceCaption</DataField>
+        </Field>
+        <Field Name="VarianceCaption_Control1000000760">
+          <DataField>VarianceCaption_Control1000000760</DataField>
+        </Field>
+        <Field Name="ActualCaption_Control1000000761">
+          <DataField>ActualCaption_Control1000000761</DataField>
+        </Field>
+        <Field Name="BudgetCaption_Control1000000762">
+          <DataField>BudgetCaption_Control1000000762</DataField>
+        </Field>
+        <Field Name="VarianceCaption_Control1000000763">
+          <DataField>VarianceCaption_Control1000000763</DataField>
+        </Field>
+        <Field Name="ActualCaption_Control1000000764">
+          <DataField>ActualCaption_Control1000000764</DataField>
+        </Field>
+        <Field Name="BudgetCaption_Control1000000765">
+          <DataField>BudgetCaption_Control1000000765</DataField>
+        </Field>
+        <Field Name="VarianceCaption_Control1000000766">
+          <DataField>VarianceCaption_Control1000000766</DataField>
+        </Field>
+        <Field Name="ActualCaption_Control1000000767">
+          <DataField>ActualCaption_Control1000000767</DataField>
+        </Field>
+        <Field Name="BudgetCaption_Control1000000768">
+          <DataField>BudgetCaption_Control1000000768</DataField>
+        </Field>
+        <Field Name="VarianceCaption_Control1000000769">
+          <DataField>VarianceCaption_Control1000000769</DataField>
+        </Field>
+        <Field Name="ActualCaption_Control1000000770">
+          <DataField>ActualCaption_Control1000000770</DataField>
+        </Field>
+        <Field Name="BudgetCaption_Control1000000771">
+          <DataField>BudgetCaption_Control1000000771</DataField>
+        </Field>
+        <Field Name="VarianceCaption_Control1000000772">
+          <DataField>VarianceCaption_Control1000000772</DataField>
+        </Field>
+        <Field Name="ActualCaption_Control1000000773">
+          <DataField>ActualCaption_Control1000000773</DataField>
+        </Field>
+        <Field Name="BudgetCaption_Control1000000774">
+          <DataField>BudgetCaption_Control1000000774</DataField>
+        </Field>
+        <Field Name="VarianceCaption_Control1000000775">
+          <DataField>VarianceCaption_Control1000000775</DataField>
+        </Field>
+        <Field Name="ActualCaption_Control1000000776">
+          <DataField>ActualCaption_Control1000000776</DataField>
+        </Field>
+        <Field Name="BudgetCaption_Control1000000777">
+          <DataField>BudgetCaption_Control1000000777</DataField>
+        </Field>
+        <Field Name="VarianceCaption_Control1000000778">
+          <DataField>VarianceCaption_Control1000000778</DataField>
+        </Field>
+        <Field Name="ActualCaption_Control1000000779">
+          <DataField>ActualCaption_Control1000000779</DataField>
+        </Field>
+        <Field Name="BudgetCaption_Control1000000780">
+          <DataField>BudgetCaption_Control1000000780</DataField>
+        </Field>
+        <Field Name="VarianceCaption_Control1000000781">
+          <DataField>VarianceCaption_Control1000000781</DataField>
+        </Field>
+        <Field Name="ActualCaption_Control1000000782">
+          <DataField>ActualCaption_Control1000000782</DataField>
+        </Field>
+        <Field Name="BudgetCaption_Control1000000783">
+          <DataField>BudgetCaption_Control1000000783</DataField>
+        </Field>
+        <Field Name="VarianceCaption_Control1000000784">
+          <DataField>VarianceCaption_Control1000000784</DataField>
+        </Field>
+        <Field Name="ActualCaption_Control1000000785">
+          <DataField>ActualCaption_Control1000000785</DataField>
+        </Field>
+        <Field Name="BudgetCaption_Control1000000786">
+          <DataField>BudgetCaption_Control1000000786</DataField>
+        </Field>
+        <Field Name="VarianceCaption_Control1000000787">
+          <DataField>VarianceCaption_Control1000000787</DataField>
+        </Field>
+        <Field Name="ActualCaption_Control1000000788">
+          <DataField>ActualCaption_Control1000000788</DataField>
+        </Field>
+        <Field Name="BudgetCaption_Control1000000789">
+          <DataField>BudgetCaption_Control1000000789</DataField>
+        </Field>
+        <Field Name="VarianceCaption_Control1000000790">
+          <DataField>VarianceCaption_Control1000000790</DataField>
+        </Field>
+        <Field Name="ActualCaption_Control1000000791">
+          <DataField>ActualCaption_Control1000000791</DataField>
+        </Field>
+        <Field Name="BudgetCaption_Control1000000792">
+          <DataField>BudgetCaption_Control1000000792</DataField>
+        </Field>
+        <Field Name="VarianceCaption_Control1000000793">
+          <DataField>VarianceCaption_Control1000000793</DataField>
+        </Field>
+        <Field Name="ActualCaption_Control1000000794">
+          <DataField>ActualCaption_Control1000000794</DataField>
+        </Field>
+        <Field Name="BudgetCaption_Control1000000795">
+          <DataField>BudgetCaption_Control1000000795</DataField>
+        </Field>
+        <Field Name="VarianceCaption_Control1000000796">
+          <DataField>VarianceCaption_Control1000000796</DataField>
+        </Field>
+        <Field Name="ActualCaption_Control1000000797">
+          <DataField>ActualCaption_Control1000000797</DataField>
+        </Field>
+        <Field Name="BudgetCaption_Control1000000798">
+          <DataField>BudgetCaption_Control1000000798</DataField>
+        </Field>
+        <Field Name="VarianceCaption_Control1000000799">
+          <DataField>VarianceCaption_Control1000000799</DataField>
+        </Field>
+        <Field Name="ActualCaption_Control1000000800">
+          <DataField>ActualCaption_Control1000000800</DataField>
+        </Field>
+        <Field Name="BudgetCaption_Control1000000801">
+          <DataField>BudgetCaption_Control1000000801</DataField>
+        </Field>
+        <Field Name="VarianceCaption_Control1000000802">
+          <DataField>VarianceCaption_Control1000000802</DataField>
+        </Field>
+        <Field Name="ActualCaption_Control1000000803">
+          <DataField>ActualCaption_Control1000000803</DataField>
+        </Field>
+        <Field Name="BudgetCaption_Control1000000804">
+          <DataField>BudgetCaption_Control1000000804</DataField>
+        </Field>
+        <Field Name="VarianceCaption_Control1000000805">
+          <DataField>VarianceCaption_Control1000000805</DataField>
+        </Field>
+        <Field Name="ActualCaption_Control1000000806">
+          <DataField>ActualCaption_Control1000000806</DataField>
+        </Field>
+        <Field Name="BudgetCaption_Control1000000807">
+          <DataField>BudgetCaption_Control1000000807</DataField>
+        </Field>
+        <Field Name="VarianceCaption_Control1000000808">
+          <DataField>VarianceCaption_Control1000000808</DataField>
+        </Field>
+        <Field Name="ActualCaption_Control1000000809">
+          <DataField>ActualCaption_Control1000000809</DataField>
+        </Field>
+        <Field Name="BudgetCaption_Control1000000810">
+          <DataField>BudgetCaption_Control1000000810</DataField>
+        </Field>
+        <Field Name="VarianceCaption_Control1000000811">
+          <DataField>VarianceCaption_Control1000000811</DataField>
+        </Field>
+        <Field Name="ActualCaption_Control1000000812">
+          <DataField>ActualCaption_Control1000000812</DataField>
+        </Field>
+        <Field Name="BudgetCaption_Control1000000813">
+          <DataField>BudgetCaption_Control1000000813</DataField>
+        </Field>
+        <Field Name="VarianceCaption_Control1000000814">
+          <DataField>VarianceCaption_Control1000000814</DataField>
+        </Field>
+        <Field Name="ActualCaption_Control1000000815">
+          <DataField>ActualCaption_Control1000000815</DataField>
+        </Field>
+        <Field Name="BudgetCaption_Control1000000816">
+          <DataField>BudgetCaption_Control1000000816</DataField>
+        </Field>
+        <Field Name="QuantityCaption">
+          <DataField>QuantityCaption</DataField>
+        </Field>
+        <Field Name="HDT_6_Caption">
+          <DataField>HDT_6_Caption</DataField>
+        </Field>
+        <Field Name="HDT_5_Caption">
+          <DataField>HDT_5_Caption</DataField>
+        </Field>
+        <Field Name="HDT_4_Caption">
+          <DataField>HDT_4_Caption</DataField>
+        </Field>
+        <Field Name="ETAConsCaption">
+          <DataField>ETAConsCaption</DataField>
+        </Field>
+        <Field Name="HDT_2_Caption">
+          <DataField>HDT_2_Caption</DataField>
+        </Field>
+        <Field Name="SkipperCaption">
+          <DataField>SkipperCaption</DataField>
+        </Field>
+        <Field Name="Sea_Food_categories__Sea_food_code_">
+          <DataField>Sea_Food_categories__Sea_food_code_</DataField>
+        </Field>
+        <Field Name="A2_4_">
+          <DataField>A2_4_</DataField>
+        </Field>
+        <Field Name="A2_4_Format">
+          <DataField>A2_4_Format</DataField>
+        </Field>
+        <Field Name="A2_3_">
+          <DataField>A2_3_</DataField>
+        </Field>
+        <Field Name="A2_3_Format">
+          <DataField>A2_3_Format</DataField>
+        </Field>
+        <Field Name="A2_2_">
+          <DataField>A2_2_</DataField>
+        </Field>
+        <Field Name="A2_2_Format">
+          <DataField>A2_2_Format</DataField>
+        </Field>
+        <Field Name="A2_1_">
+          <DataField>A2_1_</DataField>
+        </Field>
+        <Field Name="A2_1_Format">
+          <DataField>A2_1_Format</DataField>
+        </Field>
+        <Field Name="A1_4__1000">
+          <DataField>A1_4__1000</DataField>
+        </Field>
+        <Field Name="A1_4__1000Format">
+          <DataField>A1_4__1000Format</DataField>
+        </Field>
+        <Field Name="A1_3_">
+          <DataField>A1_3_</DataField>
+        </Field>
+        <Field Name="A1_3_Format">
+          <DataField>A1_3_Format</DataField>
+        </Field>
+        <Field Name="A1_2_">
+          <DataField>A1_2_</DataField>
+        </Field>
+        <Field Name="A1_2_Format">
+          <DataField>A1_2_Format</DataField>
+        </Field>
+        <Field Name="A1_1_">
+          <DataField>A1_1_</DataField>
+        </Field>
+        <Field Name="A1_1_Format">
+          <DataField>A1_1_Format</DataField>
+        </Field>
+        <Field Name="COPYSTR___Sea_food_code__5_">
+          <DataField>COPYSTR___Sea_food_code__5_</DataField>
+        </Field>
+        <Field Name="A1_1__Control1000000323">
+          <DataField>A1_1__Control1000000323</DataField>
+        </Field>
+        <Field Name="A1_1__Control1000000323Format">
+          <DataField>A1_1__Control1000000323Format</DataField>
+        </Field>
+        <Field Name="A2_1__Control1000000316">
+          <DataField>A2_1__Control1000000316</DataField>
+        </Field>
+        <Field Name="A2_1__Control1000000316Format">
+          <DataField>A2_1__Control1000000316Format</DataField>
+        </Field>
+        <Field Name="COPYSTR___Sea_food_code__5__Control1000000324">
+          <DataField>COPYSTR___Sea_food_code__5__Control1000000324</DataField>
+        </Field>
+        <Field Name="SeaRangeC_20_">
+          <DataField>SeaRangeC_20_</DataField>
+        </Field>
+        <Field Name="SeaRangeC_20_Format">
+          <DataField>SeaRangeC_20_Format</DataField>
+        </Field>
+        <Field Name="SeaRangeC_19_">
+          <DataField>SeaRangeC_19_</DataField>
+        </Field>
+        <Field Name="SeaRangeC_19_Format">
+          <DataField>SeaRangeC_19_Format</DataField>
+        </Field>
+        <Field Name="SeaRangeC_18_">
+          <DataField>SeaRangeC_18_</DataField>
+        </Field>
+        <Field Name="SeaRangeC_18_Format">
+          <DataField>SeaRangeC_18_Format</DataField>
+        </Field>
+        <Field Name="SeaRangeC_17_">
+          <DataField>SeaRangeC_17_</DataField>
+        </Field>
+        <Field Name="SeaRangeC_17_Format">
+          <DataField>SeaRangeC_17_Format</DataField>
+        </Field>
+        <Field Name="SeaRangeC_16_">
+          <DataField>SeaRangeC_16_</DataField>
+        </Field>
+        <Field Name="SeaRangeC_16_Format">
+          <DataField>SeaRangeC_16_Format</DataField>
+        </Field>
+        <Field Name="SeaRangeC_15_">
+          <DataField>SeaRangeC_15_</DataField>
+        </Field>
+        <Field Name="SeaRangeC_15_Format">
+          <DataField>SeaRangeC_15_Format</DataField>
+        </Field>
+        <Field Name="SeaRangeC_14_">
+          <DataField>SeaRangeC_14_</DataField>
+        </Field>
+        <Field Name="SeaRangeC_14_Format">
+          <DataField>SeaRangeC_14_Format</DataField>
+        </Field>
+        <Field Name="SeaRangeC_13_">
+          <DataField>SeaRangeC_13_</DataField>
+        </Field>
+        <Field Name="SeaRangeC_13_Format">
+          <DataField>SeaRangeC_13_Format</DataField>
+        </Field>
+        <Field Name="SeaRangeC_12_">
+          <DataField>SeaRangeC_12_</DataField>
+        </Field>
+        <Field Name="SeaRangeC_12_Format">
+          <DataField>SeaRangeC_12_Format</DataField>
+        </Field>
+        <Field Name="SeaRangeC_11_">
+          <DataField>SeaRangeC_11_</DataField>
+        </Field>
+        <Field Name="SeaRangeC_11_Format">
+          <DataField>SeaRangeC_11_Format</DataField>
+        </Field>
+        <Field Name="SeaRangeC_10_">
+          <DataField>SeaRangeC_10_</DataField>
+        </Field>
+        <Field Name="SeaRangeC_10_Format">
+          <DataField>SeaRangeC_10_Format</DataField>
+        </Field>
+        <Field Name="SeaRangeC_9_">
+          <DataField>SeaRangeC_9_</DataField>
+        </Field>
+        <Field Name="SeaRangeC_9_Format">
+          <DataField>SeaRangeC_9_Format</DataField>
+        </Field>
+        <Field Name="SeaRangeC_8_">
+          <DataField>SeaRangeC_8_</DataField>
+        </Field>
+        <Field Name="SeaRangeC_8_Format">
+          <DataField>SeaRangeC_8_Format</DataField>
+        </Field>
+        <Field Name="SeaRangeC_7_">
+          <DataField>SeaRangeC_7_</DataField>
+        </Field>
+        <Field Name="SeaRangeC_7_Format">
+          <DataField>SeaRangeC_7_Format</DataField>
+        </Field>
+        <Field Name="SeaRangeC_6_">
+          <DataField>SeaRangeC_6_</DataField>
+        </Field>
+        <Field Name="SeaRangeC_6_Format">
+          <DataField>SeaRangeC_6_Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_20_">
+          <DataField>SeaRangeCBud_20_</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_20_Format">
+          <DataField>SeaRangeCBud_20_Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_19_">
+          <DataField>SeaRangeCBud_19_</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_19_Format">
+          <DataField>SeaRangeCBud_19_Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_18_">
+          <DataField>SeaRangeCBud_18_</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_18_Format">
+          <DataField>SeaRangeCBud_18_Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_17_">
+          <DataField>SeaRangeCBud_17_</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_17_Format">
+          <DataField>SeaRangeCBud_17_Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_16_">
+          <DataField>SeaRangeCBud_16_</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_16_Format">
+          <DataField>SeaRangeCBud_16_Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_15_">
+          <DataField>SeaRangeCBud_15_</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_15_Format">
+          <DataField>SeaRangeCBud_15_Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_14_">
+          <DataField>SeaRangeCBud_14_</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_14_Format">
+          <DataField>SeaRangeCBud_14_Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_13_">
+          <DataField>SeaRangeCBud_13_</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_13_Format">
+          <DataField>SeaRangeCBud_13_Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_12_">
+          <DataField>SeaRangeCBud_12_</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_12_Format">
+          <DataField>SeaRangeCBud_12_Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_11_">
+          <DataField>SeaRangeCBud_11_</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_11_Format">
+          <DataField>SeaRangeCBud_11_Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_10_">
+          <DataField>SeaRangeCBud_10_</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_10_Format">
+          <DataField>SeaRangeCBud_10_Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_9_">
+          <DataField>SeaRangeCBud_9_</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_9_Format">
+          <DataField>SeaRangeCBud_9_Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_8_">
+          <DataField>SeaRangeCBud_8_</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_8_Format">
+          <DataField>SeaRangeCBud_8_Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_7_">
+          <DataField>SeaRangeCBud_7_</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_7_Format">
+          <DataField>SeaRangeCBud_7_Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_6_">
+          <DataField>SeaRangeCBud_6_</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_6_Format">
+          <DataField>SeaRangeCBud_6_Format</DataField>
+        </Field>
+        <Field Name="SeaRangeC_5_">
+          <DataField>SeaRangeC_5_</DataField>
+        </Field>
+        <Field Name="SeaRangeC_5_Format">
+          <DataField>SeaRangeC_5_Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_4_">
+          <DataField>SeaRangeCBud_4_</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_4_Format">
+          <DataField>SeaRangeCBud_4_Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_3_">
+          <DataField>SeaRangeCBud_3_</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_3_Format">
+          <DataField>SeaRangeCBud_3_Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_2_">
+          <DataField>SeaRangeCBud_2_</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_2_Format">
+          <DataField>SeaRangeCBud_2_Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_20_">
+          <DataField>SeaRangeCVar_20_</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_20_Format">
+          <DataField>SeaRangeCVar_20_Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_19_">
+          <DataField>SeaRangeCVar_19_</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_19_Format">
+          <DataField>SeaRangeCVar_19_Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_18_">
+          <DataField>SeaRangeCVar_18_</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_18_Format">
+          <DataField>SeaRangeCVar_18_Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_17_">
+          <DataField>SeaRangeCVar_17_</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_17_Format">
+          <DataField>SeaRangeCVar_17_Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_16_">
+          <DataField>SeaRangeCVar_16_</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_16_Format">
+          <DataField>SeaRangeCVar_16_Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_15_">
+          <DataField>SeaRangeCVar_15_</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_15_Format">
+          <DataField>SeaRangeCVar_15_Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_14_">
+          <DataField>SeaRangeCVar_14_</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_14_Format">
+          <DataField>SeaRangeCVar_14_Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_13_">
+          <DataField>SeaRangeCVar_13_</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_13_Format">
+          <DataField>SeaRangeCVar_13_Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_12_">
+          <DataField>SeaRangeCVar_12_</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_12_Format">
+          <DataField>SeaRangeCVar_12_Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_11_">
+          <DataField>SeaRangeCVar_11_</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_11_Format">
+          <DataField>SeaRangeCVar_11_Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_10_">
+          <DataField>SeaRangeCVar_10_</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_10_Format">
+          <DataField>SeaRangeCVar_10_Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_9_">
+          <DataField>SeaRangeCVar_9_</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_9_Format">
+          <DataField>SeaRangeCVar_9_Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_8_">
+          <DataField>SeaRangeCVar_8_</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_8_Format">
+          <DataField>SeaRangeCVar_8_Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_7_">
+          <DataField>SeaRangeCVar_7_</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_7_Format">
+          <DataField>SeaRangeCVar_7_Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_6_">
+          <DataField>SeaRangeCVar_6_</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_6_Format">
+          <DataField>SeaRangeCVar_6_Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_5_">
+          <DataField>SeaRangeCVar_5_</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_5_Format">
+          <DataField>SeaRangeCVar_5_Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_4_">
+          <DataField>SeaRangeCVar_4_</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_4_Format">
+          <DataField>SeaRangeCVar_4_Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_3_">
+          <DataField>SeaRangeCVar_3_</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_3_Format">
+          <DataField>SeaRangeCVar_3_Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_2_">
+          <DataField>SeaRangeCVar_2_</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_2_Format">
+          <DataField>SeaRangeCVar_2_Format</DataField>
+        </Field>
+        <Field Name="A1_1__A2_1_">
+          <DataField>A1_1__A2_1_</DataField>
+        </Field>
+        <Field Name="A1_1__A2_1_Format">
+          <DataField>A1_1__A2_1_Format</DataField>
+        </Field>
+        <Field Name="SeaRangeC_2_">
+          <DataField>SeaRangeC_2_</DataField>
+        </Field>
+        <Field Name="SeaRangeC_2_Format">
+          <DataField>SeaRangeC_2_Format</DataField>
+        </Field>
+        <Field Name="SeaRangeC_3_">
+          <DataField>SeaRangeC_3_</DataField>
+        </Field>
+        <Field Name="SeaRangeC_3_Format">
+          <DataField>SeaRangeC_3_Format</DataField>
+        </Field>
+        <Field Name="SeaRangeC_4_">
+          <DataField>SeaRangeC_4_</DataField>
+        </Field>
+        <Field Name="SeaRangeC_4_Format">
+          <DataField>SeaRangeC_4_Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_5_">
+          <DataField>SeaRangeCBud_5_</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_5_Format">
+          <DataField>SeaRangeCBud_5_Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_1_">
+          <DataField>SeaRangeCBud_1_</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_1_Format">
+          <DataField>SeaRangeCBud_1_Format</DataField>
+        </Field>
+        <Field Name="SeaRangeC_1_">
+          <DataField>SeaRangeC_1_</DataField>
+        </Field>
+        <Field Name="SeaRangeC_1_Format">
+          <DataField>SeaRangeC_1_Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_1_">
+          <DataField>SeaRangeCVar_1_</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_1_Format">
+          <DataField>SeaRangeCVar_1_Format</DataField>
+        </Field>
+        <Field Name="A1_1__A2_1__Control1000000687">
+          <DataField>A1_1__A2_1__Control1000000687</DataField>
+        </Field>
+        <Field Name="A1_1__A2_1__Control1000000687Format">
+          <DataField>A1_1__A2_1__Control1000000687Format</DataField>
+        </Field>
+        <Field Name="A1_1__Control1000000688">
+          <DataField>A1_1__Control1000000688</DataField>
+        </Field>
+        <Field Name="A1_1__Control1000000688Format">
+          <DataField>A1_1__Control1000000688Format</DataField>
+        </Field>
+        <Field Name="A2_1__Control1000000689">
+          <DataField>A2_1__Control1000000689</DataField>
+        </Field>
+        <Field Name="A2_1__Control1000000689Format">
+          <DataField>A2_1__Control1000000689Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_5__Control1000000335">
+          <DataField>SeaRangeCBud_5__Control1000000335</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_5__Control1000000335Format">
+          <DataField>SeaRangeCBud_5__Control1000000335Format</DataField>
+        </Field>
+        <Field Name="SeaRangeC_5__Control1000000336">
+          <DataField>SeaRangeC_5__Control1000000336</DataField>
+        </Field>
+        <Field Name="SeaRangeC_5__Control1000000336Format">
+          <DataField>SeaRangeC_5__Control1000000336Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_5__Control1000000337">
+          <DataField>SeaRangeCVar_5__Control1000000337</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_5__Control1000000337Format">
+          <DataField>SeaRangeCVar_5__Control1000000337Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_6__Control1000000338">
+          <DataField>SeaRangeCBud_6__Control1000000338</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_6__Control1000000338Format">
+          <DataField>SeaRangeCBud_6__Control1000000338Format</DataField>
+        </Field>
+        <Field Name="SeaRangeC_6__Control1000000339">
+          <DataField>SeaRangeC_6__Control1000000339</DataField>
+        </Field>
+        <Field Name="SeaRangeC_6__Control1000000339Format">
+          <DataField>SeaRangeC_6__Control1000000339Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_6__Control1000000340">
+          <DataField>SeaRangeCVar_6__Control1000000340</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_6__Control1000000340Format">
+          <DataField>SeaRangeCVar_6__Control1000000340Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_7__Control1000000341">
+          <DataField>SeaRangeCBud_7__Control1000000341</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_7__Control1000000341Format">
+          <DataField>SeaRangeCBud_7__Control1000000341Format</DataField>
+        </Field>
+        <Field Name="SeaRangeC_7__Control1000000368">
+          <DataField>SeaRangeC_7__Control1000000368</DataField>
+        </Field>
+        <Field Name="SeaRangeC_7__Control1000000368Format">
+          <DataField>SeaRangeC_7__Control1000000368Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_7__Control1000000369">
+          <DataField>SeaRangeCVar_7__Control1000000369</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_7__Control1000000369Format">
+          <DataField>SeaRangeCVar_7__Control1000000369Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_8__Control1000000370">
+          <DataField>SeaRangeCBud_8__Control1000000370</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_8__Control1000000370Format">
+          <DataField>SeaRangeCBud_8__Control1000000370Format</DataField>
+        </Field>
+        <Field Name="SeaRangeC_8__Control1000000371">
+          <DataField>SeaRangeC_8__Control1000000371</DataField>
+        </Field>
+        <Field Name="SeaRangeC_8__Control1000000371Format">
+          <DataField>SeaRangeC_8__Control1000000371Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_8__Control1000000372">
+          <DataField>SeaRangeCVar_8__Control1000000372</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_8__Control1000000372Format">
+          <DataField>SeaRangeCVar_8__Control1000000372Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_9__Control1000000404">
+          <DataField>SeaRangeCBud_9__Control1000000404</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_9__Control1000000404Format">
+          <DataField>SeaRangeCBud_9__Control1000000404Format</DataField>
+        </Field>
+        <Field Name="SeaRangeC_9__Control1000000405">
+          <DataField>SeaRangeC_9__Control1000000405</DataField>
+        </Field>
+        <Field Name="SeaRangeC_9__Control1000000405Format">
+          <DataField>SeaRangeC_9__Control1000000405Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_9__Control1000000406">
+          <DataField>SeaRangeCVar_9__Control1000000406</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_9__Control1000000406Format">
+          <DataField>SeaRangeCVar_9__Control1000000406Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_10__Control1000000407">
+          <DataField>SeaRangeCBud_10__Control1000000407</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_10__Control1000000407Format">
+          <DataField>SeaRangeCBud_10__Control1000000407Format</DataField>
+        </Field>
+        <Field Name="SeaRangeC_10__Control1000000408">
+          <DataField>SeaRangeC_10__Control1000000408</DataField>
+        </Field>
+        <Field Name="SeaRangeC_10__Control1000000408Format">
+          <DataField>SeaRangeC_10__Control1000000408Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_10__Control1000000409">
+          <DataField>SeaRangeCVar_10__Control1000000409</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_10__Control1000000409Format">
+          <DataField>SeaRangeCVar_10__Control1000000409Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_11__Control1000000410">
+          <DataField>SeaRangeCBud_11__Control1000000410</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_11__Control1000000410Format">
+          <DataField>SeaRangeCBud_11__Control1000000410Format</DataField>
+        </Field>
+        <Field Name="SeaRangeC_11__Control1000000411">
+          <DataField>SeaRangeC_11__Control1000000411</DataField>
+        </Field>
+        <Field Name="SeaRangeC_11__Control1000000411Format">
+          <DataField>SeaRangeC_11__Control1000000411Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_11__Control1000000412">
+          <DataField>SeaRangeCVar_11__Control1000000412</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_11__Control1000000412Format">
+          <DataField>SeaRangeCVar_11__Control1000000412Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_12__Control1000000413">
+          <DataField>SeaRangeCBud_12__Control1000000413</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_12__Control1000000413Format">
+          <DataField>SeaRangeCBud_12__Control1000000413Format</DataField>
+        </Field>
+        <Field Name="SeaRangeC_12__Control1000000414">
+          <DataField>SeaRangeC_12__Control1000000414</DataField>
+        </Field>
+        <Field Name="SeaRangeC_12__Control1000000414Format">
+          <DataField>SeaRangeC_12__Control1000000414Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_12__Control1000000415">
+          <DataField>SeaRangeCVar_12__Control1000000415</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_12__Control1000000415Format">
+          <DataField>SeaRangeCVar_12__Control1000000415Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_13__Control1000000416">
+          <DataField>SeaRangeCBud_13__Control1000000416</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_13__Control1000000416Format">
+          <DataField>SeaRangeCBud_13__Control1000000416Format</DataField>
+        </Field>
+        <Field Name="SeaRangeC_13__Control1000000417">
+          <DataField>SeaRangeC_13__Control1000000417</DataField>
+        </Field>
+        <Field Name="SeaRangeC_13__Control1000000417Format">
+          <DataField>SeaRangeC_13__Control1000000417Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_13__Control1000000418">
+          <DataField>SeaRangeCVar_13__Control1000000418</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_13__Control1000000418Format">
+          <DataField>SeaRangeCVar_13__Control1000000418Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_14__Control1000000419">
+          <DataField>SeaRangeCBud_14__Control1000000419</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_14__Control1000000419Format">
+          <DataField>SeaRangeCBud_14__Control1000000419Format</DataField>
+        </Field>
+        <Field Name="SeaRangeC_14__Control1000000420">
+          <DataField>SeaRangeC_14__Control1000000420</DataField>
+        </Field>
+        <Field Name="SeaRangeC_14__Control1000000420Format">
+          <DataField>SeaRangeC_14__Control1000000420Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_14__Control1000000421">
+          <DataField>SeaRangeCVar_14__Control1000000421</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_14__Control1000000421Format">
+          <DataField>SeaRangeCVar_14__Control1000000421Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_15__Control1000000422">
+          <DataField>SeaRangeCBud_15__Control1000000422</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_15__Control1000000422Format">
+          <DataField>SeaRangeCBud_15__Control1000000422Format</DataField>
+        </Field>
+        <Field Name="SeaRangeC_15__Control1000000423">
+          <DataField>SeaRangeC_15__Control1000000423</DataField>
+        </Field>
+        <Field Name="SeaRangeC_15__Control1000000423Format">
+          <DataField>SeaRangeC_15__Control1000000423Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_15__Control1000000424">
+          <DataField>SeaRangeCVar_15__Control1000000424</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_15__Control1000000424Format">
+          <DataField>SeaRangeCVar_15__Control1000000424Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_16__Control1000000425">
+          <DataField>SeaRangeCBud_16__Control1000000425</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_16__Control1000000425Format">
+          <DataField>SeaRangeCBud_16__Control1000000425Format</DataField>
+        </Field>
+        <Field Name="SeaRangeC_16__Control1000000426">
+          <DataField>SeaRangeC_16__Control1000000426</DataField>
+        </Field>
+        <Field Name="SeaRangeC_16__Control1000000426Format">
+          <DataField>SeaRangeC_16__Control1000000426Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_16__Control1000000427">
+          <DataField>SeaRangeCVar_16__Control1000000427</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_16__Control1000000427Format">
+          <DataField>SeaRangeCVar_16__Control1000000427Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_17__Control1000000428">
+          <DataField>SeaRangeCBud_17__Control1000000428</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_17__Control1000000428Format">
+          <DataField>SeaRangeCBud_17__Control1000000428Format</DataField>
+        </Field>
+        <Field Name="SeaRangeC_17__Control1000000429">
+          <DataField>SeaRangeC_17__Control1000000429</DataField>
+        </Field>
+        <Field Name="SeaRangeC_17__Control1000000429Format">
+          <DataField>SeaRangeC_17__Control1000000429Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_17__Control1000000430">
+          <DataField>SeaRangeCVar_17__Control1000000430</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_17__Control1000000430Format">
+          <DataField>SeaRangeCVar_17__Control1000000430Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_18__Control1000000431">
+          <DataField>SeaRangeCBud_18__Control1000000431</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_18__Control1000000431Format">
+          <DataField>SeaRangeCBud_18__Control1000000431Format</DataField>
+        </Field>
+        <Field Name="SeaRangeC_18__Control1000000432">
+          <DataField>SeaRangeC_18__Control1000000432</DataField>
+        </Field>
+        <Field Name="SeaRangeC_18__Control1000000432Format">
+          <DataField>SeaRangeC_18__Control1000000432Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_18__Control1000000433">
+          <DataField>SeaRangeCVar_18__Control1000000433</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_18__Control1000000433Format">
+          <DataField>SeaRangeCVar_18__Control1000000433Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_19__Control1000000434">
+          <DataField>SeaRangeCBud_19__Control1000000434</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_19__Control1000000434Format">
+          <DataField>SeaRangeCBud_19__Control1000000434Format</DataField>
+        </Field>
+        <Field Name="SeaRangeC_19__Control1000000435">
+          <DataField>SeaRangeC_19__Control1000000435</DataField>
+        </Field>
+        <Field Name="SeaRangeC_19__Control1000000435Format">
+          <DataField>SeaRangeC_19__Control1000000435Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_19__Control1000000436">
+          <DataField>SeaRangeCVar_19__Control1000000436</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_19__Control1000000436Format">
+          <DataField>SeaRangeCVar_19__Control1000000436Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_20__Control1000000437">
+          <DataField>SeaRangeCBud_20__Control1000000437</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_20__Control1000000437Format">
+          <DataField>SeaRangeCBud_20__Control1000000437Format</DataField>
+        </Field>
+        <Field Name="SeaRangeC_20__Control1000000438">
+          <DataField>SeaRangeC_20__Control1000000438</DataField>
+        </Field>
+        <Field Name="SeaRangeC_20__Control1000000438Format">
+          <DataField>SeaRangeC_20__Control1000000438Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_20__Control1000000439">
+          <DataField>SeaRangeCVar_20__Control1000000439</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_20__Control1000000439Format">
+          <DataField>SeaRangeCVar_20__Control1000000439Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_2__Control1000000000">
+          <DataField>SeaRangeCBud_2__Control1000000000</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_2__Control1000000000Format">
+          <DataField>SeaRangeCBud_2__Control1000000000Format</DataField>
+        </Field>
+        <Field Name="SeaRangeC_2__Control1000000001">
+          <DataField>SeaRangeC_2__Control1000000001</DataField>
+        </Field>
+        <Field Name="SeaRangeC_2__Control1000000001Format">
+          <DataField>SeaRangeC_2__Control1000000001Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_2__Control1000000002">
+          <DataField>SeaRangeCVar_2__Control1000000002</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_2__Control1000000002Format">
+          <DataField>SeaRangeCVar_2__Control1000000002Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_3__Control1000000003">
+          <DataField>SeaRangeCBud_3__Control1000000003</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_3__Control1000000003Format">
+          <DataField>SeaRangeCBud_3__Control1000000003Format</DataField>
+        </Field>
+        <Field Name="SeaRangeC_3__Control1000000194">
+          <DataField>SeaRangeC_3__Control1000000194</DataField>
+        </Field>
+        <Field Name="SeaRangeC_3__Control1000000194Format">
+          <DataField>SeaRangeC_3__Control1000000194Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_3__Control1000000196">
+          <DataField>SeaRangeCVar_3__Control1000000196</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_3__Control1000000196Format">
+          <DataField>SeaRangeCVar_3__Control1000000196Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_4__Control1000000202">
+          <DataField>SeaRangeCBud_4__Control1000000202</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_4__Control1000000202Format">
+          <DataField>SeaRangeCBud_4__Control1000000202Format</DataField>
+        </Field>
+        <Field Name="SeaRangeC_4__Control1000000203">
+          <DataField>SeaRangeC_4__Control1000000203</DataField>
+        </Field>
+        <Field Name="SeaRangeC_4__Control1000000203Format">
+          <DataField>SeaRangeC_4__Control1000000203Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_4__Control1000000206">
+          <DataField>SeaRangeCVar_4__Control1000000206</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_4__Control1000000206Format">
+          <DataField>SeaRangeCVar_4__Control1000000206Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_1__Control1000000287">
+          <DataField>SeaRangeCBud_1__Control1000000287</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_1__Control1000000287Format">
+          <DataField>SeaRangeCBud_1__Control1000000287Format</DataField>
+        </Field>
+        <Field Name="SeaRangeC_1__Control1000000288">
+          <DataField>SeaRangeC_1__Control1000000288</DataField>
+        </Field>
+        <Field Name="SeaRangeC_1__Control1000000288Format">
+          <DataField>SeaRangeC_1__Control1000000288Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_1__Control1000000289">
+          <DataField>SeaRangeCVar_1__Control1000000289</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_1__Control1000000289Format">
+          <DataField>SeaRangeCVar_1__Control1000000289Format</DataField>
+        </Field>
+        <Field Name="NairaVal2X_NairaValBX">
+          <DataField>NairaVal2X_NairaValBX</DataField>
+        </Field>
+        <Field Name="NairaVal2X_NairaValBXFormat">
+          <DataField>NairaVal2X_NairaValBXFormat</DataField>
+        </Field>
+        <Field Name="NairaValBX">
+          <DataField>NairaValBX</DataField>
+        </Field>
+        <Field Name="NairaValBXFormat">
+          <DataField>NairaValBXFormat</DataField>
+        </Field>
+        <Field Name="PrdPrcBX">
+          <DataField>PrdPrcBX</DataField>
+        </Field>
+        <Field Name="PrdPrcBXFormat">
+          <DataField>PrdPrcBXFormat</DataField>
+        </Field>
+        <Field Name="QtyBX">
+          <DataField>QtyBX</DataField>
+        </Field>
+        <Field Name="QtyBXFormat">
+          <DataField>QtyBXFormat</DataField>
+        </Field>
+        <Field Name="NairaVal2X">
+          <DataField>NairaVal2X</DataField>
+        </Field>
+        <Field Name="NairaVal2XFormat">
+          <DataField>NairaVal2XFormat</DataField>
+        </Field>
+        <Field Name="PrdPrc2X">
+          <DataField>PrdPrc2X</DataField>
+        </Field>
+        <Field Name="PrdPrc2XFormat">
+          <DataField>PrdPrc2XFormat</DataField>
+        </Field>
+        <Field Name="QtyX">
+          <DataField>QtyX</DataField>
+        </Field>
+        <Field Name="QtyXFormat">
+          <DataField>QtyXFormat</DataField>
+        </Field>
+        <Field Name="TotalForX">
+          <DataField>TotalForX</DataField>
+        </Field>
+        <Field Name="TotalFor">
+          <DataField>TotalFor</DataField>
+        </Field>
+        <Field Name="Qty">
+          <DataField>Qty</DataField>
+        </Field>
+        <Field Name="QtyFormat">
+          <DataField>QtyFormat</DataField>
+        </Field>
+        <Field Name="PrdPrc2">
+          <DataField>PrdPrc2</DataField>
+        </Field>
+        <Field Name="PrdPrc2Format">
+          <DataField>PrdPrc2Format</DataField>
+        </Field>
+        <Field Name="NairaVal2">
+          <DataField>NairaVal2</DataField>
+        </Field>
+        <Field Name="NairaVal2Format">
+          <DataField>NairaVal2Format</DataField>
+        </Field>
+        <Field Name="QtyB">
+          <DataField>QtyB</DataField>
+        </Field>
+        <Field Name="QtyBFormat">
+          <DataField>QtyBFormat</DataField>
+        </Field>
+        <Field Name="PrdPrcB">
+          <DataField>PrdPrcB</DataField>
+        </Field>
+        <Field Name="PrdPrcBFormat">
+          <DataField>PrdPrcBFormat</DataField>
+        </Field>
+        <Field Name="NairaValB">
+          <DataField>NairaValB</DataField>
+        </Field>
+        <Field Name="NairaValBFormat">
+          <DataField>NairaValBFormat</DataField>
+        </Field>
+        <Field Name="NairaVal2_NairaValB">
+          <DataField>NairaVal2_NairaValB</DataField>
+        </Field>
+        <Field Name="NairaVal2_NairaValBFormat">
+          <DataField>NairaVal2_NairaValBFormat</DataField>
+        </Field>
+        <Field Name="NairaVal2_NairaValB___NairaVal2X_NairaValBX_">
+          <DataField>NairaVal2_NairaValB___NairaVal2X_NairaValBX_</DataField>
+        </Field>
+        <Field Name="NairaVal2_NairaValB___NairaVal2X_NairaValBX_Format">
+          <DataField>NairaVal2_NairaValB___NairaVal2X_NairaValBX_Format</DataField>
+        </Field>
+        <Field Name="NairaValB_NairaValBX">
+          <DataField>NairaValB_NairaValBX</DataField>
+        </Field>
+        <Field Name="NairaValB_NairaValBXFormat">
+          <DataField>NairaValB_NairaValBXFormat</DataField>
+        </Field>
+        <Field Name="PrdPrcB_PrdPrcBX">
+          <DataField>PrdPrcB_PrdPrcBX</DataField>
+        </Field>
+        <Field Name="PrdPrcB_PrdPrcBXFormat">
+          <DataField>PrdPrcB_PrdPrcBXFormat</DataField>
+        </Field>
+        <Field Name="QtyB_QtyBX">
+          <DataField>QtyB_QtyBX</DataField>
+        </Field>
+        <Field Name="QtyB_QtyBXFormat">
+          <DataField>QtyB_QtyBXFormat</DataField>
+        </Field>
+        <Field Name="NairaVal2_NairaVal2X">
+          <DataField>NairaVal2_NairaVal2X</DataField>
+        </Field>
+        <Field Name="NairaVal2_NairaVal2XFormat">
+          <DataField>NairaVal2_NairaVal2XFormat</DataField>
+        </Field>
+        <Field Name="PrdPrc2_PrdPrc2X">
+          <DataField>PrdPrc2_PrdPrc2X</DataField>
+        </Field>
+        <Field Name="PrdPrc2_PrdPrc2XFormat">
+          <DataField>PrdPrc2_PrdPrc2XFormat</DataField>
+        </Field>
+        <Field Name="Qty_QtyX">
+          <DataField>Qty_QtyX</DataField>
+        </Field>
+        <Field Name="Qty_QtyXFormat">
+          <DataField>Qty_QtyXFormat</DataField>
+        </Field>
+        <Field Name="TotalFory">
+          <DataField>TotalFory</DataField>
+        </Field>
+        <Field Name="Sea_Food_categories__Sea_food_code_Caption">
+          <DataField>Sea_Food_categories__Sea_food_code_Caption</DataField>
+        </Field>
+        <Field Name="Job_Ledger_Entry_GroupSort">
+          <DataField>Job_Ledger_Entry_GroupSort</DataField>
+        </Field>
+        <Field Name="Job_Ledger_Entry__No__">
+          <DataField>Job_Ledger_Entry__No__</DataField>
+        </Field>
+        <Field Name="NairaVal2_Control1000000066">
+          <DataField>NairaVal2_Control1000000066</DataField>
+        </Field>
+        <Field Name="NairaVal2_Control1000000066Format">
+          <DataField>NairaVal2_Control1000000066Format</DataField>
+        </Field>
+        <Field Name="PrdPrc2_Control1000000067">
+          <DataField>PrdPrc2_Control1000000067</DataField>
+        </Field>
+        <Field Name="PrdPrc2_Control1000000067Format">
+          <DataField>PrdPrc2_Control1000000067Format</DataField>
+        </Field>
+        <Field Name="Qty_Control1000000068">
+          <DataField>Qty_Control1000000068</DataField>
+        </Field>
+        <Field Name="Qty_Control1000000068Format">
+          <DataField>Qty_Control1000000068Format</DataField>
+        </Field>
+        <Field Name="Job_Ledger_Entry_GroupSort_Control1000000069">
+          <DataField>Job_Ledger_Entry_GroupSort_Control1000000069</DataField>
+        </Field>
+        <Field Name="NairaVal2_Control1000000071">
+          <DataField>NairaVal2_Control1000000071</DataField>
+        </Field>
+        <Field Name="NairaVal2_Control1000000071Format">
+          <DataField>NairaVal2_Control1000000071Format</DataField>
+        </Field>
+        <Field Name="PrdPrc2_Control1000000072">
+          <DataField>PrdPrc2_Control1000000072</DataField>
+        </Field>
+        <Field Name="PrdPrc2_Control1000000072Format">
+          <DataField>PrdPrc2_Control1000000072Format</DataField>
+        </Field>
+        <Field Name="Qty_Control1000000073">
+          <DataField>Qty_Control1000000073</DataField>
+        </Field>
+        <Field Name="Qty_Control1000000073Format">
+          <DataField>Qty_Control1000000073Format</DataField>
+        </Field>
+        <Field Name="COPYSTR_GroupSort_5_">
+          <DataField>COPYSTR_GroupSort_5_</DataField>
+        </Field>
+        <Field Name="NairaVal2_Control1000000075">
+          <DataField>NairaVal2_Control1000000075</DataField>
+        </Field>
+        <Field Name="NairaVal2_Control1000000075Format">
+          <DataField>NairaVal2_Control1000000075Format</DataField>
+        </Field>
+        <Field Name="PrdPrc2_Control1000000076">
+          <DataField>PrdPrc2_Control1000000076</DataField>
+        </Field>
+        <Field Name="PrdPrc2_Control1000000076Format">
+          <DataField>PrdPrc2_Control1000000076Format</DataField>
+        </Field>
+        <Field Name="Qty_Control1000000077">
+          <DataField>Qty_Control1000000077</DataField>
+        </Field>
+        <Field Name="Qty_Control1000000077Format">
+          <DataField>Qty_Control1000000077Format</DataField>
+        </Field>
+        <Field Name="TotalFor_Control1000000078">
+          <DataField>TotalFor_Control1000000078</DataField>
+        </Field>
+        <Field Name="Job_Ledger_Entry_Entry_No_">
+          <DataField>Job_Ledger_Entry_Entry_No_</DataField>
+        </Field>
+        <Field Name="Job_Ledger_Entry_Job_No_">
+          <DataField>Job_Ledger_Entry_Job_No_</DataField>
+        </Field>
+        <Field Name="No_B_">
+          <DataField>No_B_</DataField>
+        </Field>
+        <Field Name="NairaValB_Control1000000115">
+          <DataField>NairaValB_Control1000000115</DataField>
+        </Field>
+        <Field Name="NairaValB_Control1000000115Format">
+          <DataField>NairaValB_Control1000000115Format</DataField>
+        </Field>
+        <Field Name="PrdPrcB_Control1000000116">
+          <DataField>PrdPrcB_Control1000000116</DataField>
+        </Field>
+        <Field Name="PrdPrcB_Control1000000116Format">
+          <DataField>PrdPrcB_Control1000000116Format</DataField>
+        </Field>
+        <Field Name="QtyB_Control1000000117">
+          <DataField>QtyB_Control1000000117</DataField>
+        </Field>
+        <Field Name="QtyB_Control1000000117Format">
+          <DataField>QtyB_Control1000000117Format</DataField>
+        </Field>
+        <Field Name="Job_catch_Default_GroupSort">
+          <DataField>Job_catch_Default_GroupSort</DataField>
+        </Field>
+        <Field Name="Job_catch_Default_Table_Name">
+          <DataField>Job_catch_Default_Table_Name</DataField>
+        </Field>
+        <Field Name="Job_catch_Default_No_">
+          <DataField>Job_catch_Default_No_</DataField>
+        </Field>
+        <Field Name="Job_catch_Default_Code">
+          <DataField>Job_catch_Default_Code</DataField>
+        </Field>
+        <Field Name="Job_catch_Default_Pack_Size">
+          <DataField>Job_catch_Default_Pack_Size</DataField>
+        </Field>
+        <Field Name="Sea_Food_categories1__Sea_food_code_">
+          <DataField>Sea_Food_categories1__Sea_food_code_</DataField>
+        </Field>
+        <Field Name="A2_4__Control1000000060">
+          <DataField>A2_4__Control1000000060</DataField>
+        </Field>
+        <Field Name="A2_4__Control1000000060Format">
+          <DataField>A2_4__Control1000000060Format</DataField>
+        </Field>
+        <Field Name="A2_3__Control1000000061">
+          <DataField>A2_3__Control1000000061</DataField>
+        </Field>
+        <Field Name="A2_3__Control1000000061Format">
+          <DataField>A2_3__Control1000000061Format</DataField>
+        </Field>
+        <Field Name="A2_2__Control1000000062">
+          <DataField>A2_2__Control1000000062</DataField>
+        </Field>
+        <Field Name="A2_2__Control1000000062Format">
+          <DataField>A2_2__Control1000000062Format</DataField>
+        </Field>
+        <Field Name="A2_1__Control1000000063">
+          <DataField>A2_1__Control1000000063</DataField>
+        </Field>
+        <Field Name="A2_1__Control1000000063Format">
+          <DataField>A2_1__Control1000000063Format</DataField>
+        </Field>
+        <Field Name="A1_4__1000_Control1000000064">
+          <DataField>A1_4__1000_Control1000000064</DataField>
+        </Field>
+        <Field Name="A1_4__1000_Control1000000064Format">
+          <DataField>A1_4__1000_Control1000000064Format</DataField>
+        </Field>
+        <Field Name="A1_3__Control1000000079">
+          <DataField>A1_3__Control1000000079</DataField>
+        </Field>
+        <Field Name="A1_3__Control1000000079Format">
+          <DataField>A1_3__Control1000000079Format</DataField>
+        </Field>
+        <Field Name="A1_2__Control1000000086">
+          <DataField>A1_2__Control1000000086</DataField>
+        </Field>
+        <Field Name="A1_2__Control1000000086Format">
+          <DataField>A1_2__Control1000000086Format</DataField>
+        </Field>
+        <Field Name="A1_1__Control1000000087">
+          <DataField>A1_1__Control1000000087</DataField>
+        </Field>
+        <Field Name="A1_1__Control1000000087Format">
+          <DataField>A1_1__Control1000000087Format</DataField>
+        </Field>
+        <Field Name="COPYSTR___Sea_food_code__5__Control1000000088">
+          <DataField>COPYSTR___Sea_food_code__5__Control1000000088</DataField>
+        </Field>
+        <Field Name="A2_2__Control1000000021">
+          <DataField>A2_2__Control1000000021</DataField>
+        </Field>
+        <Field Name="A2_2__Control1000000021Format">
+          <DataField>A2_2__Control1000000021Format</DataField>
+        </Field>
+        <Field Name="A1_2__Control1000000309">
+          <DataField>A1_2__Control1000000309</DataField>
+        </Field>
+        <Field Name="A1_2__Control1000000309Format">
+          <DataField>A1_2__Control1000000309Format</DataField>
+        </Field>
+        <Field Name="COPYSTR___Sea_food_code__5__Control1000000312">
+          <DataField>COPYSTR___Sea_food_code__5__Control1000000312</DataField>
+        </Field>
+        <Field Name="A1_2__A2_2_">
+          <DataField>A1_2__A2_2_</DataField>
+        </Field>
+        <Field Name="A1_2__A2_2_Format">
+          <DataField>A1_2__A2_2_Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_2__Control1000000562">
+          <DataField>SeaRangeCBud_2__Control1000000562</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_2__Control1000000562Format">
+          <DataField>SeaRangeCBud_2__Control1000000562Format</DataField>
+        </Field>
+        <Field Name="SeaRangeC_2__Control1000000563">
+          <DataField>SeaRangeC_2__Control1000000563</DataField>
+        </Field>
+        <Field Name="SeaRangeC_2__Control1000000563Format">
+          <DataField>SeaRangeC_2__Control1000000563Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_2__Control1000000564">
+          <DataField>SeaRangeCVar_2__Control1000000564</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_2__Control1000000564Format">
+          <DataField>SeaRangeCVar_2__Control1000000564Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_3__Control1000000627">
+          <DataField>SeaRangeCBud_3__Control1000000627</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_3__Control1000000627Format">
+          <DataField>SeaRangeCBud_3__Control1000000627Format</DataField>
+        </Field>
+        <Field Name="SeaRangeC_3__Control1000000628">
+          <DataField>SeaRangeC_3__Control1000000628</DataField>
+        </Field>
+        <Field Name="SeaRangeC_3__Control1000000628Format">
+          <DataField>SeaRangeC_3__Control1000000628Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_3__Control1000000629">
+          <DataField>SeaRangeCVar_3__Control1000000629</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_3__Control1000000629Format">
+          <DataField>SeaRangeCVar_3__Control1000000629Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_4__Control1000000630">
+          <DataField>SeaRangeCBud_4__Control1000000630</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_4__Control1000000630Format">
+          <DataField>SeaRangeCBud_4__Control1000000630Format</DataField>
+        </Field>
+        <Field Name="SeaRangeC_4__Control1000000631">
+          <DataField>SeaRangeC_4__Control1000000631</DataField>
+        </Field>
+        <Field Name="SeaRangeC_4__Control1000000631Format">
+          <DataField>SeaRangeC_4__Control1000000631Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_4__Control1000000632">
+          <DataField>SeaRangeCVar_4__Control1000000632</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_4__Control1000000632Format">
+          <DataField>SeaRangeCVar_4__Control1000000632Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_5__Control1000000633">
+          <DataField>SeaRangeCBud_5__Control1000000633</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_5__Control1000000633Format">
+          <DataField>SeaRangeCBud_5__Control1000000633Format</DataField>
+        </Field>
+        <Field Name="SeaRangeC_5__Control1000000634">
+          <DataField>SeaRangeC_5__Control1000000634</DataField>
+        </Field>
+        <Field Name="SeaRangeC_5__Control1000000634Format">
+          <DataField>SeaRangeC_5__Control1000000634Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_5__Control1000000635">
+          <DataField>SeaRangeCVar_5__Control1000000635</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_5__Control1000000635Format">
+          <DataField>SeaRangeCVar_5__Control1000000635Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_6__Control1000000636">
+          <DataField>SeaRangeCBud_6__Control1000000636</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_6__Control1000000636Format">
+          <DataField>SeaRangeCBud_6__Control1000000636Format</DataField>
+        </Field>
+        <Field Name="SeaRangeC_6__Control1000000637">
+          <DataField>SeaRangeC_6__Control1000000637</DataField>
+        </Field>
+        <Field Name="SeaRangeC_6__Control1000000637Format">
+          <DataField>SeaRangeC_6__Control1000000637Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_6__Control1000000638">
+          <DataField>SeaRangeCVar_6__Control1000000638</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_6__Control1000000638Format">
+          <DataField>SeaRangeCVar_6__Control1000000638Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_7__Control1000000639">
+          <DataField>SeaRangeCBud_7__Control1000000639</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_7__Control1000000639Format">
+          <DataField>SeaRangeCBud_7__Control1000000639Format</DataField>
+        </Field>
+        <Field Name="SeaRangeC_7__Control1000000640">
+          <DataField>SeaRangeC_7__Control1000000640</DataField>
+        </Field>
+        <Field Name="SeaRangeC_7__Control1000000640Format">
+          <DataField>SeaRangeC_7__Control1000000640Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_7__Control1000000641">
+          <DataField>SeaRangeCVar_7__Control1000000641</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_7__Control1000000641Format">
+          <DataField>SeaRangeCVar_7__Control1000000641Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_8__Control1000000642">
+          <DataField>SeaRangeCBud_8__Control1000000642</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_8__Control1000000642Format">
+          <DataField>SeaRangeCBud_8__Control1000000642Format</DataField>
+        </Field>
+        <Field Name="SeaRangeC_8__Control1000000643">
+          <DataField>SeaRangeC_8__Control1000000643</DataField>
+        </Field>
+        <Field Name="SeaRangeC_8__Control1000000643Format">
+          <DataField>SeaRangeC_8__Control1000000643Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_8__Control1000000644">
+          <DataField>SeaRangeCVar_8__Control1000000644</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_8__Control1000000644Format">
+          <DataField>SeaRangeCVar_8__Control1000000644Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_9__Control1000000645">
+          <DataField>SeaRangeCBud_9__Control1000000645</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_9__Control1000000645Format">
+          <DataField>SeaRangeCBud_9__Control1000000645Format</DataField>
+        </Field>
+        <Field Name="SeaRangeC_9__Control1000000646">
+          <DataField>SeaRangeC_9__Control1000000646</DataField>
+        </Field>
+        <Field Name="SeaRangeC_9__Control1000000646Format">
+          <DataField>SeaRangeC_9__Control1000000646Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_9__Control1000000647">
+          <DataField>SeaRangeCVar_9__Control1000000647</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_9__Control1000000647Format">
+          <DataField>SeaRangeCVar_9__Control1000000647Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_10__Control1000000648">
+          <DataField>SeaRangeCBud_10__Control1000000648</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_10__Control1000000648Format">
+          <DataField>SeaRangeCBud_10__Control1000000648Format</DataField>
+        </Field>
+        <Field Name="SeaRangeC_10__Control1000000649">
+          <DataField>SeaRangeC_10__Control1000000649</DataField>
+        </Field>
+        <Field Name="SeaRangeC_10__Control1000000649Format">
+          <DataField>SeaRangeC_10__Control1000000649Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_10__Control1000000650">
+          <DataField>SeaRangeCVar_10__Control1000000650</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_10__Control1000000650Format">
+          <DataField>SeaRangeCVar_10__Control1000000650Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_11__Control1000000651">
+          <DataField>SeaRangeCBud_11__Control1000000651</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_11__Control1000000651Format">
+          <DataField>SeaRangeCBud_11__Control1000000651Format</DataField>
+        </Field>
+        <Field Name="SeaRangeC_11__Control1000000652">
+          <DataField>SeaRangeC_11__Control1000000652</DataField>
+        </Field>
+        <Field Name="SeaRangeC_11__Control1000000652Format">
+          <DataField>SeaRangeC_11__Control1000000652Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_11__Control1000000653">
+          <DataField>SeaRangeCVar_11__Control1000000653</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_11__Control1000000653Format">
+          <DataField>SeaRangeCVar_11__Control1000000653Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_12__Control1000000654">
+          <DataField>SeaRangeCBud_12__Control1000000654</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_12__Control1000000654Format">
+          <DataField>SeaRangeCBud_12__Control1000000654Format</DataField>
+        </Field>
+        <Field Name="SeaRangeC_12__Control1000000655">
+          <DataField>SeaRangeC_12__Control1000000655</DataField>
+        </Field>
+        <Field Name="SeaRangeC_12__Control1000000655Format">
+          <DataField>SeaRangeC_12__Control1000000655Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_12__Control1000000656">
+          <DataField>SeaRangeCVar_12__Control1000000656</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_12__Control1000000656Format">
+          <DataField>SeaRangeCVar_12__Control1000000656Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_13__Control1000000657">
+          <DataField>SeaRangeCBud_13__Control1000000657</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_13__Control1000000657Format">
+          <DataField>SeaRangeCBud_13__Control1000000657Format</DataField>
+        </Field>
+        <Field Name="SeaRangeC_13__Control1000000658">
+          <DataField>SeaRangeC_13__Control1000000658</DataField>
+        </Field>
+        <Field Name="SeaRangeC_13__Control1000000658Format">
+          <DataField>SeaRangeC_13__Control1000000658Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_13__Control1000000659">
+          <DataField>SeaRangeCVar_13__Control1000000659</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_13__Control1000000659Format">
+          <DataField>SeaRangeCVar_13__Control1000000659Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_14__Control1000000660">
+          <DataField>SeaRangeCBud_14__Control1000000660</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_14__Control1000000660Format">
+          <DataField>SeaRangeCBud_14__Control1000000660Format</DataField>
+        </Field>
+        <Field Name="SeaRangeC_14__Control1000000661">
+          <DataField>SeaRangeC_14__Control1000000661</DataField>
+        </Field>
+        <Field Name="SeaRangeC_14__Control1000000661Format">
+          <DataField>SeaRangeC_14__Control1000000661Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_14__Control1000000662">
+          <DataField>SeaRangeCVar_14__Control1000000662</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_14__Control1000000662Format">
+          <DataField>SeaRangeCVar_14__Control1000000662Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_15__Control1000000663">
+          <DataField>SeaRangeCBud_15__Control1000000663</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_15__Control1000000663Format">
+          <DataField>SeaRangeCBud_15__Control1000000663Format</DataField>
+        </Field>
+        <Field Name="SeaRangeC_15__Control1000000664">
+          <DataField>SeaRangeC_15__Control1000000664</DataField>
+        </Field>
+        <Field Name="SeaRangeC_15__Control1000000664Format">
+          <DataField>SeaRangeC_15__Control1000000664Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_15__Control1000000665">
+          <DataField>SeaRangeCVar_15__Control1000000665</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_15__Control1000000665Format">
+          <DataField>SeaRangeCVar_15__Control1000000665Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_16__Control1000000666">
+          <DataField>SeaRangeCBud_16__Control1000000666</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_16__Control1000000666Format">
+          <DataField>SeaRangeCBud_16__Control1000000666Format</DataField>
+        </Field>
+        <Field Name="SeaRangeC_16__Control1000000667">
+          <DataField>SeaRangeC_16__Control1000000667</DataField>
+        </Field>
+        <Field Name="SeaRangeC_16__Control1000000667Format">
+          <DataField>SeaRangeC_16__Control1000000667Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_16__Control1000000668">
+          <DataField>SeaRangeCVar_16__Control1000000668</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_16__Control1000000668Format">
+          <DataField>SeaRangeCVar_16__Control1000000668Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_17__Control1000000669">
+          <DataField>SeaRangeCBud_17__Control1000000669</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_17__Control1000000669Format">
+          <DataField>SeaRangeCBud_17__Control1000000669Format</DataField>
+        </Field>
+        <Field Name="SeaRangeC_17__Control1000000670">
+          <DataField>SeaRangeC_17__Control1000000670</DataField>
+        </Field>
+        <Field Name="SeaRangeC_17__Control1000000670Format">
+          <DataField>SeaRangeC_17__Control1000000670Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_17__Control1000000671">
+          <DataField>SeaRangeCVar_17__Control1000000671</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_17__Control1000000671Format">
+          <DataField>SeaRangeCVar_17__Control1000000671Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_18__Control1000000672">
+          <DataField>SeaRangeCBud_18__Control1000000672</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_18__Control1000000672Format">
+          <DataField>SeaRangeCBud_18__Control1000000672Format</DataField>
+        </Field>
+        <Field Name="SeaRangeC_18__Control1000000673">
+          <DataField>SeaRangeC_18__Control1000000673</DataField>
+        </Field>
+        <Field Name="SeaRangeC_18__Control1000000673Format">
+          <DataField>SeaRangeC_18__Control1000000673Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_18__Control1000000674">
+          <DataField>SeaRangeCVar_18__Control1000000674</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_18__Control1000000674Format">
+          <DataField>SeaRangeCVar_18__Control1000000674Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_19__Control1000000675">
+          <DataField>SeaRangeCBud_19__Control1000000675</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_19__Control1000000675Format">
+          <DataField>SeaRangeCBud_19__Control1000000675Format</DataField>
+        </Field>
+        <Field Name="SeaRangeC_19__Control1000000676">
+          <DataField>SeaRangeC_19__Control1000000676</DataField>
+        </Field>
+        <Field Name="SeaRangeC_19__Control1000000676Format">
+          <DataField>SeaRangeC_19__Control1000000676Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_19__Control1000000677">
+          <DataField>SeaRangeCVar_19__Control1000000677</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_19__Control1000000677Format">
+          <DataField>SeaRangeCVar_19__Control1000000677Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_20__Control1000000678">
+          <DataField>SeaRangeCBud_20__Control1000000678</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_20__Control1000000678Format">
+          <DataField>SeaRangeCBud_20__Control1000000678Format</DataField>
+        </Field>
+        <Field Name="SeaRangeC_20__Control1000000679">
+          <DataField>SeaRangeC_20__Control1000000679</DataField>
+        </Field>
+        <Field Name="SeaRangeC_20__Control1000000679Format">
+          <DataField>SeaRangeC_20__Control1000000679Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_20__Control1000000680">
+          <DataField>SeaRangeCVar_20__Control1000000680</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_20__Control1000000680Format">
+          <DataField>SeaRangeCVar_20__Control1000000680Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_1__Control1000000559">
+          <DataField>SeaRangeCBud_1__Control1000000559</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_1__Control1000000559Format">
+          <DataField>SeaRangeCBud_1__Control1000000559Format</DataField>
+        </Field>
+        <Field Name="SeaRangeC_1__Control1000000560">
+          <DataField>SeaRangeC_1__Control1000000560</DataField>
+        </Field>
+        <Field Name="SeaRangeC_1__Control1000000560Format">
+          <DataField>SeaRangeC_1__Control1000000560Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_1__Control1000000561">
+          <DataField>SeaRangeCVar_1__Control1000000561</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_1__Control1000000561Format">
+          <DataField>SeaRangeCVar_1__Control1000000561Format</DataField>
+        </Field>
+        <Field Name="TotalForX_Control1000000056">
+          <DataField>TotalForX_Control1000000056</DataField>
+        </Field>
+        <Field Name="TotalFory_Control1000000058">
+          <DataField>TotalFory_Control1000000058</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_5__Control1000000511">
+          <DataField>SeaRangeCBud_5__Control1000000511</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_5__Control1000000511Format">
+          <DataField>SeaRangeCBud_5__Control1000000511Format</DataField>
+        </Field>
+        <Field Name="SeaRangeC_5__Control1000000512">
+          <DataField>SeaRangeC_5__Control1000000512</DataField>
+        </Field>
+        <Field Name="SeaRangeC_5__Control1000000512Format">
+          <DataField>SeaRangeC_5__Control1000000512Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_5__Control1000000513">
+          <DataField>SeaRangeCVar_5__Control1000000513</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_5__Control1000000513Format">
+          <DataField>SeaRangeCVar_5__Control1000000513Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_6__Control1000000514">
+          <DataField>SeaRangeCBud_6__Control1000000514</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_6__Control1000000514Format">
+          <DataField>SeaRangeCBud_6__Control1000000514Format</DataField>
+        </Field>
+        <Field Name="SeaRangeC_6__Control1000000515">
+          <DataField>SeaRangeC_6__Control1000000515</DataField>
+        </Field>
+        <Field Name="SeaRangeC_6__Control1000000515Format">
+          <DataField>SeaRangeC_6__Control1000000515Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_6__Control1000000516">
+          <DataField>SeaRangeCVar_6__Control1000000516</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_6__Control1000000516Format">
+          <DataField>SeaRangeCVar_6__Control1000000516Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_7__Control1000000517">
+          <DataField>SeaRangeCBud_7__Control1000000517</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_7__Control1000000517Format">
+          <DataField>SeaRangeCBud_7__Control1000000517Format</DataField>
+        </Field>
+        <Field Name="SeaRangeC_7__Control1000000518">
+          <DataField>SeaRangeC_7__Control1000000518</DataField>
+        </Field>
+        <Field Name="SeaRangeC_7__Control1000000518Format">
+          <DataField>SeaRangeC_7__Control1000000518Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_7__Control1000000519">
+          <DataField>SeaRangeCVar_7__Control1000000519</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_7__Control1000000519Format">
+          <DataField>SeaRangeCVar_7__Control1000000519Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_8__Control1000000520">
+          <DataField>SeaRangeCBud_8__Control1000000520</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_8__Control1000000520Format">
+          <DataField>SeaRangeCBud_8__Control1000000520Format</DataField>
+        </Field>
+        <Field Name="SeaRangeC_8__Control1000000521">
+          <DataField>SeaRangeC_8__Control1000000521</DataField>
+        </Field>
+        <Field Name="SeaRangeC_8__Control1000000521Format">
+          <DataField>SeaRangeC_8__Control1000000521Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_8__Control1000000522">
+          <DataField>SeaRangeCVar_8__Control1000000522</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_8__Control1000000522Format">
+          <DataField>SeaRangeCVar_8__Control1000000522Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_9__Control1000000523">
+          <DataField>SeaRangeCBud_9__Control1000000523</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_9__Control1000000523Format">
+          <DataField>SeaRangeCBud_9__Control1000000523Format</DataField>
+        </Field>
+        <Field Name="SeaRangeC_9__Control1000000524">
+          <DataField>SeaRangeC_9__Control1000000524</DataField>
+        </Field>
+        <Field Name="SeaRangeC_9__Control1000000524Format">
+          <DataField>SeaRangeC_9__Control1000000524Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_9__Control1000000525">
+          <DataField>SeaRangeCVar_9__Control1000000525</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_9__Control1000000525Format">
+          <DataField>SeaRangeCVar_9__Control1000000525Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_10__Control1000000526">
+          <DataField>SeaRangeCBud_10__Control1000000526</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_10__Control1000000526Format">
+          <DataField>SeaRangeCBud_10__Control1000000526Format</DataField>
+        </Field>
+        <Field Name="SeaRangeC_10__Control1000000527">
+          <DataField>SeaRangeC_10__Control1000000527</DataField>
+        </Field>
+        <Field Name="SeaRangeC_10__Control1000000527Format">
+          <DataField>SeaRangeC_10__Control1000000527Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_10__Control1000000528">
+          <DataField>SeaRangeCVar_10__Control1000000528</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_10__Control1000000528Format">
+          <DataField>SeaRangeCVar_10__Control1000000528Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_11__Control1000000529">
+          <DataField>SeaRangeCBud_11__Control1000000529</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_11__Control1000000529Format">
+          <DataField>SeaRangeCBud_11__Control1000000529Format</DataField>
+        </Field>
+        <Field Name="SeaRangeC_11__Control1000000530">
+          <DataField>SeaRangeC_11__Control1000000530</DataField>
+        </Field>
+        <Field Name="SeaRangeC_11__Control1000000530Format">
+          <DataField>SeaRangeC_11__Control1000000530Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_11__Control1000000531">
+          <DataField>SeaRangeCVar_11__Control1000000531</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_11__Control1000000531Format">
+          <DataField>SeaRangeCVar_11__Control1000000531Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_12__Control1000000532">
+          <DataField>SeaRangeCBud_12__Control1000000532</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_12__Control1000000532Format">
+          <DataField>SeaRangeCBud_12__Control1000000532Format</DataField>
+        </Field>
+        <Field Name="SeaRangeC_12__Control1000000533">
+          <DataField>SeaRangeC_12__Control1000000533</DataField>
+        </Field>
+        <Field Name="SeaRangeC_12__Control1000000533Format">
+          <DataField>SeaRangeC_12__Control1000000533Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_12__Control1000000534">
+          <DataField>SeaRangeCVar_12__Control1000000534</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_12__Control1000000534Format">
+          <DataField>SeaRangeCVar_12__Control1000000534Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_13__Control1000000535">
+          <DataField>SeaRangeCBud_13__Control1000000535</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_13__Control1000000535Format">
+          <DataField>SeaRangeCBud_13__Control1000000535Format</DataField>
+        </Field>
+        <Field Name="SeaRangeC_13__Control1000000536">
+          <DataField>SeaRangeC_13__Control1000000536</DataField>
+        </Field>
+        <Field Name="SeaRangeC_13__Control1000000536Format">
+          <DataField>SeaRangeC_13__Control1000000536Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_13__Control1000000537">
+          <DataField>SeaRangeCVar_13__Control1000000537</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_13__Control1000000537Format">
+          <DataField>SeaRangeCVar_13__Control1000000537Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_14__Control1000000538">
+          <DataField>SeaRangeCBud_14__Control1000000538</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_14__Control1000000538Format">
+          <DataField>SeaRangeCBud_14__Control1000000538Format</DataField>
+        </Field>
+        <Field Name="SeaRangeC_14__Control1000000539">
+          <DataField>SeaRangeC_14__Control1000000539</DataField>
+        </Field>
+        <Field Name="SeaRangeC_14__Control1000000539Format">
+          <DataField>SeaRangeC_14__Control1000000539Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_14__Control1000000540">
+          <DataField>SeaRangeCVar_14__Control1000000540</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_14__Control1000000540Format">
+          <DataField>SeaRangeCVar_14__Control1000000540Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_15__Control1000000541">
+          <DataField>SeaRangeCBud_15__Control1000000541</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_15__Control1000000541Format">
+          <DataField>SeaRangeCBud_15__Control1000000541Format</DataField>
+        </Field>
+        <Field Name="SeaRangeC_15__Control1000000542">
+          <DataField>SeaRangeC_15__Control1000000542</DataField>
+        </Field>
+        <Field Name="SeaRangeC_15__Control1000000542Format">
+          <DataField>SeaRangeC_15__Control1000000542Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_15__Control1000000543">
+          <DataField>SeaRangeCVar_15__Control1000000543</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_15__Control1000000543Format">
+          <DataField>SeaRangeCVar_15__Control1000000543Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_16__Control1000000544">
+          <DataField>SeaRangeCBud_16__Control1000000544</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_16__Control1000000544Format">
+          <DataField>SeaRangeCBud_16__Control1000000544Format</DataField>
+        </Field>
+        <Field Name="SeaRangeC_16__Control1000000545">
+          <DataField>SeaRangeC_16__Control1000000545</DataField>
+        </Field>
+        <Field Name="SeaRangeC_16__Control1000000545Format">
+          <DataField>SeaRangeC_16__Control1000000545Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_16__Control1000000546">
+          <DataField>SeaRangeCVar_16__Control1000000546</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_16__Control1000000546Format">
+          <DataField>SeaRangeCVar_16__Control1000000546Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_17__Control1000000547">
+          <DataField>SeaRangeCBud_17__Control1000000547</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_17__Control1000000547Format">
+          <DataField>SeaRangeCBud_17__Control1000000547Format</DataField>
+        </Field>
+        <Field Name="SeaRangeC_17__Control1000000548">
+          <DataField>SeaRangeC_17__Control1000000548</DataField>
+        </Field>
+        <Field Name="SeaRangeC_17__Control1000000548Format">
+          <DataField>SeaRangeC_17__Control1000000548Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_17__Control1000000549">
+          <DataField>SeaRangeCVar_17__Control1000000549</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_17__Control1000000549Format">
+          <DataField>SeaRangeCVar_17__Control1000000549Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_18__Control1000000550">
+          <DataField>SeaRangeCBud_18__Control1000000550</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_18__Control1000000550Format">
+          <DataField>SeaRangeCBud_18__Control1000000550Format</DataField>
+        </Field>
+        <Field Name="SeaRangeC_18__Control1000000551">
+          <DataField>SeaRangeC_18__Control1000000551</DataField>
+        </Field>
+        <Field Name="SeaRangeC_18__Control1000000551Format">
+          <DataField>SeaRangeC_18__Control1000000551Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_18__Control1000000552">
+          <DataField>SeaRangeCVar_18__Control1000000552</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_18__Control1000000552Format">
+          <DataField>SeaRangeCVar_18__Control1000000552Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_19__Control1000000553">
+          <DataField>SeaRangeCBud_19__Control1000000553</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_19__Control1000000553Format">
+          <DataField>SeaRangeCBud_19__Control1000000553Format</DataField>
+        </Field>
+        <Field Name="SeaRangeC_19__Control1000000554">
+          <DataField>SeaRangeC_19__Control1000000554</DataField>
+        </Field>
+        <Field Name="SeaRangeC_19__Control1000000554Format">
+          <DataField>SeaRangeC_19__Control1000000554Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_19__Control1000000555">
+          <DataField>SeaRangeCVar_19__Control1000000555</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_19__Control1000000555Format">
+          <DataField>SeaRangeCVar_19__Control1000000555Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_20__Control1000000556">
+          <DataField>SeaRangeCBud_20__Control1000000556</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_20__Control1000000556Format">
+          <DataField>SeaRangeCBud_20__Control1000000556Format</DataField>
+        </Field>
+        <Field Name="SeaRangeC_20__Control1000000557">
+          <DataField>SeaRangeC_20__Control1000000557</DataField>
+        </Field>
+        <Field Name="SeaRangeC_20__Control1000000557Format">
+          <DataField>SeaRangeC_20__Control1000000557Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_20__Control1000000558">
+          <DataField>SeaRangeCVar_20__Control1000000558</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_20__Control1000000558Format">
+          <DataField>SeaRangeCVar_20__Control1000000558Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar3_4_">
+          <DataField>SeaRangeCVar3_4_</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar3_4_Format">
+          <DataField>SeaRangeCVar3_4_Format</DataField>
+        </Field>
+        <Field Name="SeaRangeC3_4_">
+          <DataField>SeaRangeC3_4_</DataField>
+        </Field>
+        <Field Name="SeaRangeC3_4_Format">
+          <DataField>SeaRangeC3_4_Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud3_4_">
+          <DataField>SeaRangeCBud3_4_</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud3_4_Format">
+          <DataField>SeaRangeCBud3_4_Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar3_3_">
+          <DataField>SeaRangeCVar3_3_</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar3_3_Format">
+          <DataField>SeaRangeCVar3_3_Format</DataField>
+        </Field>
+        <Field Name="SeaRangeC3_3_">
+          <DataField>SeaRangeC3_3_</DataField>
+        </Field>
+        <Field Name="SeaRangeC3_3_Format">
+          <DataField>SeaRangeC3_3_Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud3_3_">
+          <DataField>SeaRangeCBud3_3_</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud3_3_Format">
+          <DataField>SeaRangeCBud3_3_Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar3_2_">
+          <DataField>SeaRangeCVar3_2_</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar3_2_Format">
+          <DataField>SeaRangeCVar3_2_Format</DataField>
+        </Field>
+        <Field Name="SeaRangeC3_2_">
+          <DataField>SeaRangeC3_2_</DataField>
+        </Field>
+        <Field Name="SeaRangeC3_2_Format">
+          <DataField>SeaRangeC3_2_Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud3_2_">
+          <DataField>SeaRangeCBud3_2_</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud3_2_Format">
+          <DataField>SeaRangeCBud3_2_Format</DataField>
+        </Field>
+        <Field Name="PrdPrc2X_PrdPrcBX">
+          <DataField>PrdPrc2X_PrdPrcBX</DataField>
+        </Field>
+        <Field Name="PrdPrc2X_PrdPrcBXFormat">
+          <DataField>PrdPrc2X_PrdPrcBXFormat</DataField>
+        </Field>
+        <Field Name="NairaVal2_NairaValB___NairaVal2X_NairaValBX__Control1000000025">
+          <DataField>NairaVal2_NairaValB___NairaVal2X_NairaValBX__Control1000000025</DataField>
+        </Field>
+        <Field Name="NairaVal2_NairaValB___NairaVal2X_NairaValBX__Control1000000025Format">
+          <DataField>NairaVal2_NairaValB___NairaVal2X_NairaValBX__Control1000000025Format</DataField>
+        </Field>
+        <Field Name="PrdPrc2X_Control1000000041">
+          <DataField>PrdPrc2X_Control1000000041</DataField>
+        </Field>
+        <Field Name="PrdPrc2X_Control1000000041Format">
+          <DataField>PrdPrc2X_Control1000000041Format</DataField>
+        </Field>
+        <Field Name="NairaVal2_NairaVal2X_Control1000000043">
+          <DataField>NairaVal2_NairaVal2X_Control1000000043</DataField>
+        </Field>
+        <Field Name="NairaVal2_NairaVal2X_Control1000000043Format">
+          <DataField>NairaVal2_NairaVal2X_Control1000000043Format</DataField>
+        </Field>
+        <Field Name="PrdPrcBX_Control1000000050">
+          <DataField>PrdPrcBX_Control1000000050</DataField>
+        </Field>
+        <Field Name="PrdPrcBX_Control1000000050Format">
+          <DataField>PrdPrcBX_Control1000000050Format</DataField>
+        </Field>
+        <Field Name="NairaValB_NairaValBX_Control1000000052">
+          <DataField>NairaValB_NairaValBX_Control1000000052</DataField>
+        </Field>
+        <Field Name="NairaValB_NairaValBX_Control1000000052Format">
+          <DataField>NairaValB_NairaValBX_Control1000000052Format</DataField>
+        </Field>
+        <Field Name="NairaValB_Control1000000057">
+          <DataField>NairaValB_Control1000000057</DataField>
+        </Field>
+        <Field Name="NairaValB_Control1000000057Format">
+          <DataField>NairaValB_Control1000000057Format</DataField>
+        </Field>
+        <Field Name="NairaVal2_NairaValB_Control1000000442">
+          <DataField>NairaVal2_NairaValB_Control1000000442</DataField>
+        </Field>
+        <Field Name="NairaVal2_NairaValB_Control1000000442Format">
+          <DataField>NairaVal2_NairaValB_Control1000000442Format</DataField>
+        </Field>
+        <Field Name="NairaVal2_Control1000000443">
+          <DataField>NairaVal2_Control1000000443</DataField>
+        </Field>
+        <Field Name="NairaVal2_Control1000000443Format">
+          <DataField>NairaVal2_Control1000000443Format</DataField>
+        </Field>
+        <Field Name="TotalFor_____GLSetup__LCY_Code_____">
+          <DataField>TotalFor_____GLSetup__LCY_Code_____</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud1_2_">
+          <DataField>SeaRangeCBud1_2_</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud1_2_Format">
+          <DataField>SeaRangeCBud1_2_Format</DataField>
+        </Field>
+        <Field Name="SeaRangeC1_2_">
+          <DataField>SeaRangeC1_2_</DataField>
+        </Field>
+        <Field Name="SeaRangeC1_2_Format">
+          <DataField>SeaRangeC1_2_Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar1_2_">
+          <DataField>SeaRangeCVar1_2_</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar1_2_Format">
+          <DataField>SeaRangeCVar1_2_Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud1_3_">
+          <DataField>SeaRangeCBud1_3_</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud1_3_Format">
+          <DataField>SeaRangeCBud1_3_Format</DataField>
+        </Field>
+        <Field Name="SeaRangeC1_3_">
+          <DataField>SeaRangeC1_3_</DataField>
+        </Field>
+        <Field Name="SeaRangeC1_3_Format">
+          <DataField>SeaRangeC1_3_Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar1_3_">
+          <DataField>SeaRangeCVar1_3_</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar1_3_Format">
+          <DataField>SeaRangeCVar1_3_Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud1_4_">
+          <DataField>SeaRangeCBud1_4_</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud1_4_Format">
+          <DataField>SeaRangeCBud1_4_Format</DataField>
+        </Field>
+        <Field Name="SeaRangeC1_4_">
+          <DataField>SeaRangeC1_4_</DataField>
+        </Field>
+        <Field Name="SeaRangeC1_4_Format">
+          <DataField>SeaRangeC1_4_Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar1_4_">
+          <DataField>SeaRangeCVar1_4_</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar1_4_Format">
+          <DataField>SeaRangeCVar1_4_Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_5__Control1000000566">
+          <DataField>SeaRangeCBud_5__Control1000000566</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_5__Control1000000566Format">
+          <DataField>SeaRangeCBud_5__Control1000000566Format</DataField>
+        </Field>
+        <Field Name="SeaRangeC_5__Control1000000567">
+          <DataField>SeaRangeC_5__Control1000000567</DataField>
+        </Field>
+        <Field Name="SeaRangeC_5__Control1000000567Format">
+          <DataField>SeaRangeC_5__Control1000000567Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_5__Control1000000568">
+          <DataField>SeaRangeCVar_5__Control1000000568</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_5__Control1000000568Format">
+          <DataField>SeaRangeCVar_5__Control1000000568Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_6__Control1000000569">
+          <DataField>SeaRangeCBud_6__Control1000000569</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_6__Control1000000569Format">
+          <DataField>SeaRangeCBud_6__Control1000000569Format</DataField>
+        </Field>
+        <Field Name="SeaRangeC_6__Control1000000570">
+          <DataField>SeaRangeC_6__Control1000000570</DataField>
+        </Field>
+        <Field Name="SeaRangeC_6__Control1000000570Format">
+          <DataField>SeaRangeC_6__Control1000000570Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_6__Control1000000571">
+          <DataField>SeaRangeCVar_6__Control1000000571</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_6__Control1000000571Format">
+          <DataField>SeaRangeCVar_6__Control1000000571Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_7__Control1000000572">
+          <DataField>SeaRangeCBud_7__Control1000000572</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_7__Control1000000572Format">
+          <DataField>SeaRangeCBud_7__Control1000000572Format</DataField>
+        </Field>
+        <Field Name="SeaRangeC_7__Control1000000573">
+          <DataField>SeaRangeC_7__Control1000000573</DataField>
+        </Field>
+        <Field Name="SeaRangeC_7__Control1000000573Format">
+          <DataField>SeaRangeC_7__Control1000000573Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_7__Control1000000574">
+          <DataField>SeaRangeCVar_7__Control1000000574</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_7__Control1000000574Format">
+          <DataField>SeaRangeCVar_7__Control1000000574Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud2_2_">
+          <DataField>SeaRangeCBud2_2_</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud2_2_Format">
+          <DataField>SeaRangeCBud2_2_Format</DataField>
+        </Field>
+        <Field Name="SeaRangeC2_2_">
+          <DataField>SeaRangeC2_2_</DataField>
+        </Field>
+        <Field Name="SeaRangeC2_2_Format">
+          <DataField>SeaRangeC2_2_Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar2_2_">
+          <DataField>SeaRangeCVar2_2_</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar2_2_Format">
+          <DataField>SeaRangeCVar2_2_Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud2_3_">
+          <DataField>SeaRangeCBud2_3_</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud2_3_Format">
+          <DataField>SeaRangeCBud2_3_Format</DataField>
+        </Field>
+        <Field Name="SeaRangeC2_3_">
+          <DataField>SeaRangeC2_3_</DataField>
+        </Field>
+        <Field Name="SeaRangeC2_3_Format">
+          <DataField>SeaRangeC2_3_Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar2_3_">
+          <DataField>SeaRangeCVar2_3_</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar2_3_Format">
+          <DataField>SeaRangeCVar2_3_Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud2_4_">
+          <DataField>SeaRangeCBud2_4_</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud2_4_Format">
+          <DataField>SeaRangeCBud2_4_Format</DataField>
+        </Field>
+        <Field Name="SeaRangeC2_4_">
+          <DataField>SeaRangeC2_4_</DataField>
+        </Field>
+        <Field Name="SeaRangeC2_4_Format">
+          <DataField>SeaRangeC2_4_Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar2_4_">
+          <DataField>SeaRangeCVar2_4_</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar2_4_Format">
+          <DataField>SeaRangeCVar2_4_Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_5__Control1000000593">
+          <DataField>SeaRangeCBud_5__Control1000000593</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_5__Control1000000593Format">
+          <DataField>SeaRangeCBud_5__Control1000000593Format</DataField>
+        </Field>
+        <Field Name="SeaRangeC_5__Control1000000594">
+          <DataField>SeaRangeC_5__Control1000000594</DataField>
+        </Field>
+        <Field Name="SeaRangeC_5__Control1000000594Format">
+          <DataField>SeaRangeC_5__Control1000000594Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_5__Control1000000595">
+          <DataField>SeaRangeCVar_5__Control1000000595</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_5__Control1000000595Format">
+          <DataField>SeaRangeCVar_5__Control1000000595Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_6__Control1000000596">
+          <DataField>SeaRangeCBud_6__Control1000000596</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_6__Control1000000596Format">
+          <DataField>SeaRangeCBud_6__Control1000000596Format</DataField>
+        </Field>
+        <Field Name="SeaRangeC_6__Control1000000597">
+          <DataField>SeaRangeC_6__Control1000000597</DataField>
+        </Field>
+        <Field Name="SeaRangeC_6__Control1000000597Format">
+          <DataField>SeaRangeC_6__Control1000000597Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_6__Control1000000598">
+          <DataField>SeaRangeCVar_6__Control1000000598</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_6__Control1000000598Format">
+          <DataField>SeaRangeCVar_6__Control1000000598Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_7__Control1000000599">
+          <DataField>SeaRangeCBud_7__Control1000000599</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_7__Control1000000599Format">
+          <DataField>SeaRangeCBud_7__Control1000000599Format</DataField>
+        </Field>
+        <Field Name="SeaRangeC_7__Control1000000600">
+          <DataField>SeaRangeC_7__Control1000000600</DataField>
+        </Field>
+        <Field Name="SeaRangeC_7__Control1000000600Format">
+          <DataField>SeaRangeC_7__Control1000000600Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_7__Control1000000601">
+          <DataField>SeaRangeCVar_7__Control1000000601</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_7__Control1000000601Format">
+          <DataField>SeaRangeCVar_7__Control1000000601Format</DataField>
+        </Field>
+        <Field Name="Sea_Food_categories1__Sea_food_code_Caption">
+          <DataField>Sea_Food_categories1__Sea_food_code_Caption</DataField>
+        </Field>
+        <Field Name="Job_Ledger_Entry1_GroupSort">
+          <DataField>Job_Ledger_Entry1_GroupSort</DataField>
+        </Field>
+        <Field Name="Job_Ledger_Entry1__No__">
+          <DataField>Job_Ledger_Entry1__No__</DataField>
+        </Field>
+        <Field Name="NairaVal2_Control1000000152">
+          <DataField>NairaVal2_Control1000000152</DataField>
+        </Field>
+        <Field Name="NairaVal2_Control1000000152Format">
+          <DataField>NairaVal2_Control1000000152Format</DataField>
+        </Field>
+        <Field Name="PrdPrc2_Control1000000195">
+          <DataField>PrdPrc2_Control1000000195</DataField>
+        </Field>
+        <Field Name="PrdPrc2_Control1000000195Format">
+          <DataField>PrdPrc2_Control1000000195Format</DataField>
+        </Field>
+        <Field Name="Qty_Control1000000197">
+          <DataField>Qty_Control1000000197</DataField>
+        </Field>
+        <Field Name="Qty_Control1000000197Format">
+          <DataField>Qty_Control1000000197Format</DataField>
+        </Field>
+        <Field Name="Job_Ledger_Entry1_GroupSort_Control1000000198">
+          <DataField>Job_Ledger_Entry1_GroupSort_Control1000000198</DataField>
+        </Field>
+        <Field Name="NairaVal2_Control1000000199">
+          <DataField>NairaVal2_Control1000000199</DataField>
+        </Field>
+        <Field Name="NairaVal2_Control1000000199Format">
+          <DataField>NairaVal2_Control1000000199Format</DataField>
+        </Field>
+        <Field Name="PrdPrc2_Control1000000253">
+          <DataField>PrdPrc2_Control1000000253</DataField>
+        </Field>
+        <Field Name="PrdPrc2_Control1000000253Format">
+          <DataField>PrdPrc2_Control1000000253Format</DataField>
+        </Field>
+        <Field Name="Qty_Control1000000254">
+          <DataField>Qty_Control1000000254</DataField>
+        </Field>
+        <Field Name="Qty_Control1000000254Format">
+          <DataField>Qty_Control1000000254Format</DataField>
+        </Field>
+        <Field Name="COPYSTR_GroupSort_5__Control1000000255">
+          <DataField>COPYSTR_GroupSort_5__Control1000000255</DataField>
+        </Field>
+        <Field Name="NairaVal2_Control1000000257">
+          <DataField>NairaVal2_Control1000000257</DataField>
+        </Field>
+        <Field Name="NairaVal2_Control1000000257Format">
+          <DataField>NairaVal2_Control1000000257Format</DataField>
+        </Field>
+        <Field Name="PrdPrc2_Control1000000258">
+          <DataField>PrdPrc2_Control1000000258</DataField>
+        </Field>
+        <Field Name="PrdPrc2_Control1000000258Format">
+          <DataField>PrdPrc2_Control1000000258Format</DataField>
+        </Field>
+        <Field Name="Qty_Control1000000260">
+          <DataField>Qty_Control1000000260</DataField>
+        </Field>
+        <Field Name="Qty_Control1000000260Format">
+          <DataField>Qty_Control1000000260Format</DataField>
+        </Field>
+        <Field Name="TotalFor_Control1000000261">
+          <DataField>TotalFor_Control1000000261</DataField>
+        </Field>
+        <Field Name="Job_Ledger_Entry1_Entry_No_">
+          <DataField>Job_Ledger_Entry1_Entry_No_</DataField>
+        </Field>
+        <Field Name="Job_Ledger_Entry1_Job_No_">
+          <DataField>Job_Ledger_Entry1_Job_No_</DataField>
+        </Field>
+        <Field Name="No_B__Control1000000089">
+          <DataField>No_B__Control1000000089</DataField>
+        </Field>
+        <Field Name="NairaValB_Control1000000090">
+          <DataField>NairaValB_Control1000000090</DataField>
+        </Field>
+        <Field Name="NairaValB_Control1000000090Format">
+          <DataField>NairaValB_Control1000000090Format</DataField>
+        </Field>
+        <Field Name="PrdPrcB_Control1000000091">
+          <DataField>PrdPrcB_Control1000000091</DataField>
+        </Field>
+        <Field Name="PrdPrcB_Control1000000091Format">
+          <DataField>PrdPrcB_Control1000000091Format</DataField>
+        </Field>
+        <Field Name="QtyB_Control1000000092">
+          <DataField>QtyB_Control1000000092</DataField>
+        </Field>
+        <Field Name="QtyB_Control1000000092Format">
+          <DataField>QtyB_Control1000000092Format</DataField>
+        </Field>
+        <Field Name="Job_Catch_Default1_GroupSort">
+          <DataField>Job_Catch_Default1_GroupSort</DataField>
+        </Field>
+        <Field Name="Job_Catch_Default1_Table_Name">
+          <DataField>Job_Catch_Default1_Table_Name</DataField>
+        </Field>
+        <Field Name="Job_Catch_Default1_No_">
+          <DataField>Job_Catch_Default1_No_</DataField>
+        </Field>
+        <Field Name="Job_Catch_Default1_Code">
+          <DataField>Job_Catch_Default1_Code</DataField>
+        </Field>
+        <Field Name="Job_Catch_Default1_Pack_Size">
+          <DataField>Job_Catch_Default1_Pack_Size</DataField>
+        </Field>
+        <Field Name="Sea_Food_categories2__Sea_food_code_">
+          <DataField>Sea_Food_categories2__Sea_food_code_</DataField>
+        </Field>
+        <Field Name="Sea_Food_categories2__Landed_Value_">
+          <DataField>Sea_Food_categories2__Landed_Value_</DataField>
+        </Field>
+        <Field Name="Sea_Food_categories2__Landed_Value_Format">
+          <DataField>Sea_Food_categories2__Landed_Value_Format</DataField>
+        </Field>
+        <Field Name="Sea_Food_categories2__Entry_code_">
+          <DataField>Sea_Food_categories2__Entry_code_</DataField>
+        </Field>
+        <Field Name="Sea_Food_categories2__Sea_food_Description_">
+          <DataField>Sea_Food_categories2__Sea_food_Description_</DataField>
+        </Field>
+        <Field Name="Sea_Food_categories2__Sea_food_code__Control1000000262">
+          <DataField>Sea_Food_categories2__Sea_food_code__Control1000000262</DataField>
+        </Field>
+        <Field Name="A2_4__Control1000000294">
+          <DataField>A2_4__Control1000000294</DataField>
+        </Field>
+        <Field Name="A2_4__Control1000000294Format">
+          <DataField>A2_4__Control1000000294Format</DataField>
+        </Field>
+        <Field Name="A2_3__Control1000000295">
+          <DataField>A2_3__Control1000000295</DataField>
+        </Field>
+        <Field Name="A2_3__Control1000000295Format">
+          <DataField>A2_3__Control1000000295Format</DataField>
+        </Field>
+        <Field Name="A2_2__Control1000000296">
+          <DataField>A2_2__Control1000000296</DataField>
+        </Field>
+        <Field Name="A2_2__Control1000000296Format">
+          <DataField>A2_2__Control1000000296Format</DataField>
+        </Field>
+        <Field Name="A2_1__Control1000000297">
+          <DataField>A2_1__Control1000000297</DataField>
+        </Field>
+        <Field Name="A2_1__Control1000000297Format">
+          <DataField>A2_1__Control1000000297Format</DataField>
+        </Field>
+        <Field Name="A1_4__1000_Control1000000298">
+          <DataField>A1_4__1000_Control1000000298</DataField>
+        </Field>
+        <Field Name="A1_4__1000_Control1000000298Format">
+          <DataField>A1_4__1000_Control1000000298Format</DataField>
+        </Field>
+        <Field Name="A1_3__Control1000000299">
+          <DataField>A1_3__Control1000000299</DataField>
+        </Field>
+        <Field Name="A1_3__Control1000000299Format">
+          <DataField>A1_3__Control1000000299Format</DataField>
+        </Field>
+        <Field Name="A1_2__Control1000000300">
+          <DataField>A1_2__Control1000000300</DataField>
+        </Field>
+        <Field Name="A1_2__Control1000000300Format">
+          <DataField>A1_2__Control1000000300Format</DataField>
+        </Field>
+        <Field Name="A1_1__Control1000000301">
+          <DataField>A1_1__Control1000000301</DataField>
+        </Field>
+        <Field Name="A1_1__Control1000000301Format">
+          <DataField>A1_1__Control1000000301Format</DataField>
+        </Field>
+        <Field Name="Sea_Food_categories2__Sea_food_code__Control1000000247">
+          <DataField>Sea_Food_categories2__Sea_food_code__Control1000000247</DataField>
+        </Field>
+        <Field Name="A2_4__Control1000000313">
+          <DataField>A2_4__Control1000000313</DataField>
+        </Field>
+        <Field Name="A2_4__Control1000000313Format">
+          <DataField>A2_4__Control1000000313Format</DataField>
+        </Field>
+        <Field Name="A1_4_">
+          <DataField>A1_4_</DataField>
+        </Field>
+        <Field Name="A1_4_Format">
+          <DataField>A1_4_Format</DataField>
+        </Field>
+        <Field Name="A1_4__A2_4_">
+          <DataField>A1_4__A2_4_</DataField>
+        </Field>
+        <Field Name="A1_4__A2_4_Format">
+          <DataField>A1_4__A2_4_Format</DataField>
+        </Field>
+        <Field Name="COPYSTR___Sea_food_code__5__Control1000000037">
+          <DataField>COPYSTR___Sea_food_code__5__Control1000000037</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_2__Control1000000684">
+          <DataField>SeaRangeCBud_2__Control1000000684</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_2__Control1000000684Format">
+          <DataField>SeaRangeCBud_2__Control1000000684Format</DataField>
+        </Field>
+        <Field Name="SeaRangeC_2__Control1000000685">
+          <DataField>SeaRangeC_2__Control1000000685</DataField>
+        </Field>
+        <Field Name="SeaRangeC_2__Control1000000685Format">
+          <DataField>SeaRangeC_2__Control1000000685Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_2__Control1000000691">
+          <DataField>SeaRangeCVar_2__Control1000000691</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_2__Control1000000691Format">
+          <DataField>SeaRangeCVar_2__Control1000000691Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_3__Control1000000692">
+          <DataField>SeaRangeCBud_3__Control1000000692</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_3__Control1000000692Format">
+          <DataField>SeaRangeCBud_3__Control1000000692Format</DataField>
+        </Field>
+        <Field Name="SeaRangeC_3__Control1000000694">
+          <DataField>SeaRangeC_3__Control1000000694</DataField>
+        </Field>
+        <Field Name="SeaRangeC_3__Control1000000694Format">
+          <DataField>SeaRangeC_3__Control1000000694Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_3__Control1000000695">
+          <DataField>SeaRangeCVar_3__Control1000000695</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_3__Control1000000695Format">
+          <DataField>SeaRangeCVar_3__Control1000000695Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_4__Control1000000697">
+          <DataField>SeaRangeCBud_4__Control1000000697</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_4__Control1000000697Format">
+          <DataField>SeaRangeCBud_4__Control1000000697Format</DataField>
+        </Field>
+        <Field Name="SeaRangeC_4__Control1000000698">
+          <DataField>SeaRangeC_4__Control1000000698</DataField>
+        </Field>
+        <Field Name="SeaRangeC_4__Control1000000698Format">
+          <DataField>SeaRangeC_4__Control1000000698Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_4__Control1000000700">
+          <DataField>SeaRangeCVar_4__Control1000000700</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_4__Control1000000700Format">
+          <DataField>SeaRangeCVar_4__Control1000000700Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_5__Control1000000701">
+          <DataField>SeaRangeCBud_5__Control1000000701</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_5__Control1000000701Format">
+          <DataField>SeaRangeCBud_5__Control1000000701Format</DataField>
+        </Field>
+        <Field Name="SeaRangeC_5__Control1000000702">
+          <DataField>SeaRangeC_5__Control1000000702</DataField>
+        </Field>
+        <Field Name="SeaRangeC_5__Control1000000702Format">
+          <DataField>SeaRangeC_5__Control1000000702Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_5__Control1000000704">
+          <DataField>SeaRangeCVar_5__Control1000000704</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_5__Control1000000704Format">
+          <DataField>SeaRangeCVar_5__Control1000000704Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_6__Control1000000705">
+          <DataField>SeaRangeCBud_6__Control1000000705</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_6__Control1000000705Format">
+          <DataField>SeaRangeCBud_6__Control1000000705Format</DataField>
+        </Field>
+        <Field Name="SeaRangeC_6__Control1000000706">
+          <DataField>SeaRangeC_6__Control1000000706</DataField>
+        </Field>
+        <Field Name="SeaRangeC_6__Control1000000706Format">
+          <DataField>SeaRangeC_6__Control1000000706Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_6__Control1000000707">
+          <DataField>SeaRangeCVar_6__Control1000000707</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_6__Control1000000707Format">
+          <DataField>SeaRangeCVar_6__Control1000000707Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_7__Control1000000708">
+          <DataField>SeaRangeCBud_7__Control1000000708</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_7__Control1000000708Format">
+          <DataField>SeaRangeCBud_7__Control1000000708Format</DataField>
+        </Field>
+        <Field Name="SeaRangeC_7__Control1000000709">
+          <DataField>SeaRangeC_7__Control1000000709</DataField>
+        </Field>
+        <Field Name="SeaRangeC_7__Control1000000709Format">
+          <DataField>SeaRangeC_7__Control1000000709Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_7__Control1000000710">
+          <DataField>SeaRangeCVar_7__Control1000000710</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_7__Control1000000710Format">
+          <DataField>SeaRangeCVar_7__Control1000000710Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_8__Control1000000711">
+          <DataField>SeaRangeCBud_8__Control1000000711</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_8__Control1000000711Format">
+          <DataField>SeaRangeCBud_8__Control1000000711Format</DataField>
+        </Field>
+        <Field Name="SeaRangeC_8__Control1000000712">
+          <DataField>SeaRangeC_8__Control1000000712</DataField>
+        </Field>
+        <Field Name="SeaRangeC_8__Control1000000712Format">
+          <DataField>SeaRangeC_8__Control1000000712Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_8__Control1000000713">
+          <DataField>SeaRangeCVar_8__Control1000000713</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_8__Control1000000713Format">
+          <DataField>SeaRangeCVar_8__Control1000000713Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_9__Control1000000714">
+          <DataField>SeaRangeCBud_9__Control1000000714</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_9__Control1000000714Format">
+          <DataField>SeaRangeCBud_9__Control1000000714Format</DataField>
+        </Field>
+        <Field Name="SeaRangeC_9__Control1000000715">
+          <DataField>SeaRangeC_9__Control1000000715</DataField>
+        </Field>
+        <Field Name="SeaRangeC_9__Control1000000715Format">
+          <DataField>SeaRangeC_9__Control1000000715Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_9__Control1000000716">
+          <DataField>SeaRangeCVar_9__Control1000000716</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_9__Control1000000716Format">
+          <DataField>SeaRangeCVar_9__Control1000000716Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_10__Control1000000717">
+          <DataField>SeaRangeCBud_10__Control1000000717</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_10__Control1000000717Format">
+          <DataField>SeaRangeCBud_10__Control1000000717Format</DataField>
+        </Field>
+        <Field Name="SeaRangeC_10__Control1000000718">
+          <DataField>SeaRangeC_10__Control1000000718</DataField>
+        </Field>
+        <Field Name="SeaRangeC_10__Control1000000718Format">
+          <DataField>SeaRangeC_10__Control1000000718Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_10__Control1000000719">
+          <DataField>SeaRangeCVar_10__Control1000000719</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_10__Control1000000719Format">
+          <DataField>SeaRangeCVar_10__Control1000000719Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_11__Control1000000720">
+          <DataField>SeaRangeCBud_11__Control1000000720</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_11__Control1000000720Format">
+          <DataField>SeaRangeCBud_11__Control1000000720Format</DataField>
+        </Field>
+        <Field Name="SeaRangeC_11__Control1000000721">
+          <DataField>SeaRangeC_11__Control1000000721</DataField>
+        </Field>
+        <Field Name="SeaRangeC_11__Control1000000721Format">
+          <DataField>SeaRangeC_11__Control1000000721Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_11__Control1000000722">
+          <DataField>SeaRangeCVar_11__Control1000000722</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_11__Control1000000722Format">
+          <DataField>SeaRangeCVar_11__Control1000000722Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_12__Control1000000723">
+          <DataField>SeaRangeCBud_12__Control1000000723</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_12__Control1000000723Format">
+          <DataField>SeaRangeCBud_12__Control1000000723Format</DataField>
+        </Field>
+        <Field Name="SeaRangeC_12__Control1000000724">
+          <DataField>SeaRangeC_12__Control1000000724</DataField>
+        </Field>
+        <Field Name="SeaRangeC_12__Control1000000724Format">
+          <DataField>SeaRangeC_12__Control1000000724Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_12__Control1000000725">
+          <DataField>SeaRangeCVar_12__Control1000000725</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_12__Control1000000725Format">
+          <DataField>SeaRangeCVar_12__Control1000000725Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_13__Control1000000726">
+          <DataField>SeaRangeCBud_13__Control1000000726</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_13__Control1000000726Format">
+          <DataField>SeaRangeCBud_13__Control1000000726Format</DataField>
+        </Field>
+        <Field Name="SeaRangeC_13__Control1000000727">
+          <DataField>SeaRangeC_13__Control1000000727</DataField>
+        </Field>
+        <Field Name="SeaRangeC_13__Control1000000727Format">
+          <DataField>SeaRangeC_13__Control1000000727Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_13__Control1000000728">
+          <DataField>SeaRangeCVar_13__Control1000000728</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_13__Control1000000728Format">
+          <DataField>SeaRangeCVar_13__Control1000000728Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_14__Control1000000729">
+          <DataField>SeaRangeCBud_14__Control1000000729</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_14__Control1000000729Format">
+          <DataField>SeaRangeCBud_14__Control1000000729Format</DataField>
+        </Field>
+        <Field Name="SeaRangeC_14__Control1000000730">
+          <DataField>SeaRangeC_14__Control1000000730</DataField>
+        </Field>
+        <Field Name="SeaRangeC_14__Control1000000730Format">
+          <DataField>SeaRangeC_14__Control1000000730Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_14__Control1000000731">
+          <DataField>SeaRangeCVar_14__Control1000000731</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_14__Control1000000731Format">
+          <DataField>SeaRangeCVar_14__Control1000000731Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_15__Control1000000732">
+          <DataField>SeaRangeCBud_15__Control1000000732</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_15__Control1000000732Format">
+          <DataField>SeaRangeCBud_15__Control1000000732Format</DataField>
+        </Field>
+        <Field Name="SeaRangeC_15__Control1000000733">
+          <DataField>SeaRangeC_15__Control1000000733</DataField>
+        </Field>
+        <Field Name="SeaRangeC_15__Control1000000733Format">
+          <DataField>SeaRangeC_15__Control1000000733Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_15__Control1000000734">
+          <DataField>SeaRangeCVar_15__Control1000000734</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_15__Control1000000734Format">
+          <DataField>SeaRangeCVar_15__Control1000000734Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_16__Control1000000735">
+          <DataField>SeaRangeCBud_16__Control1000000735</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_16__Control1000000735Format">
+          <DataField>SeaRangeCBud_16__Control1000000735Format</DataField>
+        </Field>
+        <Field Name="SeaRangeC_16__Control1000000736">
+          <DataField>SeaRangeC_16__Control1000000736</DataField>
+        </Field>
+        <Field Name="SeaRangeC_16__Control1000000736Format">
+          <DataField>SeaRangeC_16__Control1000000736Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_16__Control1000000737">
+          <DataField>SeaRangeCVar_16__Control1000000737</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_16__Control1000000737Format">
+          <DataField>SeaRangeCVar_16__Control1000000737Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_17__Control1000000738">
+          <DataField>SeaRangeCBud_17__Control1000000738</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_17__Control1000000738Format">
+          <DataField>SeaRangeCBud_17__Control1000000738Format</DataField>
+        </Field>
+        <Field Name="SeaRangeC_17__Control1000000739">
+          <DataField>SeaRangeC_17__Control1000000739</DataField>
+        </Field>
+        <Field Name="SeaRangeC_17__Control1000000739Format">
+          <DataField>SeaRangeC_17__Control1000000739Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_17__Control1000000740">
+          <DataField>SeaRangeCVar_17__Control1000000740</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_17__Control1000000740Format">
+          <DataField>SeaRangeCVar_17__Control1000000740Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_18__Control1000000741">
+          <DataField>SeaRangeCBud_18__Control1000000741</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_18__Control1000000741Format">
+          <DataField>SeaRangeCBud_18__Control1000000741Format</DataField>
+        </Field>
+        <Field Name="SeaRangeC_18__Control1000000742">
+          <DataField>SeaRangeC_18__Control1000000742</DataField>
+        </Field>
+        <Field Name="SeaRangeC_18__Control1000000742Format">
+          <DataField>SeaRangeC_18__Control1000000742Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_18__Control1000000743">
+          <DataField>SeaRangeCVar_18__Control1000000743</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_18__Control1000000743Format">
+          <DataField>SeaRangeCVar_18__Control1000000743Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_19__Control1000000744">
+          <DataField>SeaRangeCBud_19__Control1000000744</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_19__Control1000000744Format">
+          <DataField>SeaRangeCBud_19__Control1000000744Format</DataField>
+        </Field>
+        <Field Name="SeaRangeC_19__Control1000000745">
+          <DataField>SeaRangeC_19__Control1000000745</DataField>
+        </Field>
+        <Field Name="SeaRangeC_19__Control1000000745Format">
+          <DataField>SeaRangeC_19__Control1000000745Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_19__Control1000000746">
+          <DataField>SeaRangeCVar_19__Control1000000746</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_19__Control1000000746Format">
+          <DataField>SeaRangeCVar_19__Control1000000746Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_20__Control1000000747">
+          <DataField>SeaRangeCBud_20__Control1000000747</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_20__Control1000000747Format">
+          <DataField>SeaRangeCBud_20__Control1000000747Format</DataField>
+        </Field>
+        <Field Name="SeaRangeC_20__Control1000000748">
+          <DataField>SeaRangeC_20__Control1000000748</DataField>
+        </Field>
+        <Field Name="SeaRangeC_20__Control1000000748Format">
+          <DataField>SeaRangeC_20__Control1000000748Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_20__Control1000000749">
+          <DataField>SeaRangeCVar_20__Control1000000749</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_20__Control1000000749Format">
+          <DataField>SeaRangeCVar_20__Control1000000749Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_1__Control1000000681">
+          <DataField>SeaRangeCBud_1__Control1000000681</DataField>
+        </Field>
+        <Field Name="SeaRangeCBud_1__Control1000000681Format">
+          <DataField>SeaRangeCBud_1__Control1000000681Format</DataField>
+        </Field>
+        <Field Name="SeaRangeC_1__Control1000000682">
+          <DataField>SeaRangeC_1__Control1000000682</DataField>
+        </Field>
+        <Field Name="SeaRangeC_1__Control1000000682Format">
+          <DataField>SeaRangeC_1__Control1000000682Format</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_1__Control1000000683">
+          <DataField>SeaRangeCVar_1__Control1000000683</DataField>
+        </Field>
+        <Field Name="SeaRangeCVar_1__Control1000000683Format">
+          <DataField>SeaRangeCVar_1__Control1000000683Format</DataField>
+        </Field>
+        <Field Name="Sea_Food_categories2__Sea_food_code_Caption">
+          <DataField>Sea_Food_categories2__Sea_food_code_Caption</DataField>
+        </Field>
+        <Field Name="Job_Ledger_Entry2__No__">
+          <DataField>Job_Ledger_Entry2__No__</DataField>
+        </Field>
+        <Field Name="NairaVal2_Control1000000265">
+          <DataField>NairaVal2_Control1000000265</DataField>
+        </Field>
+        <Field Name="NairaVal2_Control1000000265Format">
+          <DataField>NairaVal2_Control1000000265Format</DataField>
+        </Field>
+        <Field Name="PrdPrc2_Control1000000267">
+          <DataField>PrdPrc2_Control1000000267</DataField>
+        </Field>
+        <Field Name="PrdPrc2_Control1000000267Format">
+          <DataField>PrdPrc2_Control1000000267Format</DataField>
+        </Field>
+        <Field Name="Qty_Control1000000269">
+          <DataField>Qty_Control1000000269</DataField>
+        </Field>
+        <Field Name="Qty_Control1000000269Format">
+          <DataField>Qty_Control1000000269Format</DataField>
+        </Field>
+        <Field Name="Job_Ledger_Entry2_GroupSort">
+          <DataField>Job_Ledger_Entry2_GroupSort</DataField>
+        </Field>
+        <Field Name="NairaVal2_Control1000000271">
+          <DataField>NairaVal2_Control1000000271</DataField>
+        </Field>
+        <Field Name="NairaVal2_Control1000000271Format">
+          <DataField>NairaVal2_Control1000000271Format</DataField>
+        </Field>
+        <Field Name="PrdPrc2_Control1000000272">
+          <DataField>PrdPrc2_Control1000000272</DataField>
+        </Field>
+        <Field Name="PrdPrc2_Control1000000272Format">
+          <DataField>PrdPrc2_Control1000000272Format</DataField>
+        </Field>
+        <Field Name="Qty_Control1000000273">
+          <DataField>Qty_Control1000000273</DataField>
+        </Field>
+        <Field Name="Qty_Control1000000273Format">
+          <DataField>Qty_Control1000000273Format</DataField>
+        </Field>
+        <Field Name="COPYSTR_GroupSort_5__Control1000000274">
+          <DataField>COPYSTR_GroupSort_5__Control1000000274</DataField>
+        </Field>
+        <Field Name="Job_Ledger_Entry2_Entry_No_">
+          <DataField>Job_Ledger_Entry2_Entry_No_</DataField>
+        </Field>
+        <Field Name="Job_Ledger_Entry2_Job_No_">
+          <DataField>Job_Ledger_Entry2_Job_No_</DataField>
+        </Field>
+        <Field Name="No_B__Control1000000275">
+          <DataField>No_B__Control1000000275</DataField>
+        </Field>
+        <Field Name="NairaValB_Control1000000276">
+          <DataField>NairaValB_Control1000000276</DataField>
+        </Field>
+        <Field Name="NairaValB_Control1000000276Format">
+          <DataField>NairaValB_Control1000000276Format</DataField>
+        </Field>
+        <Field Name="PrdPrcB_Control1000000277">
+          <DataField>PrdPrcB_Control1000000277</DataField>
+        </Field>
+        <Field Name="PrdPrcB_Control1000000277Format">
+          <DataField>PrdPrcB_Control1000000277Format</DataField>
+        </Field>
+        <Field Name="QtyB_Control1000000278">
+          <DataField>QtyB_Control1000000278</DataField>
+        </Field>
+        <Field Name="QtyB_Control1000000278Format">
+          <DataField>QtyB_Control1000000278Format</DataField>
+        </Field>
+        <Field Name="Job_Catch_Default2_GroupSort">
+          <DataField>Job_Catch_Default2_GroupSort</DataField>
+        </Field>
+        <Field Name="No_B__Control1000000280">
+          <DataField>No_B__Control1000000280</DataField>
+        </Field>
+        <Field Name="NairaValB_Control1000000281">
+          <DataField>NairaValB_Control1000000281</DataField>
+        </Field>
+        <Field Name="NairaValB_Control1000000281Format">
+          <DataField>NairaValB_Control1000000281Format</DataField>
+        </Field>
+        <Field Name="PrdPrcB_Control1000000282">
+          <DataField>PrdPrcB_Control1000000282</DataField>
+        </Field>
+        <Field Name="PrdPrcB_Control1000000282Format">
+          <DataField>PrdPrcB_Control1000000282Format</DataField>
+        </Field>
+        <Field Name="QtyB_Control1000000283">
+          <DataField>QtyB_Control1000000283</DataField>
+        </Field>
+        <Field Name="QtyB_Control1000000283Format">
+          <DataField>QtyB_Control1000000283Format</DataField>
+        </Field>
+        <Field Name="Job_Catch_Default2_GroupSort_Control1000000284">
+          <DataField>Job_Catch_Default2_GroupSort_Control1000000284</DataField>
+        </Field>
+        <Field Name="Job_Catch_Default2_Table_Name">
+          <DataField>Job_Catch_Default2_Table_Name</DataField>
+        </Field>
+        <Field Name="Job_Catch_Default2_No_">
+          <DataField>Job_Catch_Default2_No_</DataField>
+        </Field>
+        <Field Name="Job_Catch_Default2_Code">
+          <DataField>Job_Catch_Default2_Code</DataField>
+        </Field>
+        <Field Name="Job_Catch_Default2_Pack_Size">
+          <DataField>Job_Catch_Default2_Pack_Size</DataField>
+        </Field>
+      </Fields>
+    </DataSet>
+  </DataSets>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <Height>27.99279cm</Height>
+        <Style />
+      </Body>
+      <Width>80.45955cm</Width>
+      <Page>
+        <PageHeader>
+          <Height>1in</Height>
+          <PrintOnFirstPage>true</PrintOnFirstPage>
+          <PrintOnLastPage>true</PrintOnLastPage>
+          <ReportItems>
+            <Textbox Name="GETFILTERS__1">
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=ReportItems!GETFILTERS__1.Value</Value>
+                      <Style>
+                        <FontSize>9pt</FontSize>
+                        <FontWeight>Bold</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Left</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <Top>1.4815cm</Top>
+              <Left>1.38528cm</Left>
+              <Height>0.423cm</Height>
+              <Width>15.75cm</Width>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <VerticalAlign>Middle</VerticalAlign>
+              </Style>
+            </Textbox>
+            <Textbox Name="Text181">
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=First(Fields!Text18.Value, "DataSet_Result")</Value>
+                      <Style>
+                        <FontSize>8pt</FontSize>
+                        <FontWeight>Bold</FontWeight>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <Top>0.6355cm</Top>
+              <Left>0.15353cm</Left>
+              <Height>0.423cm</Height>
+              <Width>7.5cm</Width>
+              <ZIndex>1</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <VerticalAlign>Middle</VerticalAlign>
+              </Style>
+            </Textbox>
+            <Textbox Name="FILTERSCaption">
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=First(Fields!FILTERSCaption.Value, "DataSet_Result")</Value>
+                      <Style>
+                        <FontSize>7pt</FontSize>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <Top>1.45504cm</Top>
+              <Left>0.15cm</Left>
+              <Height>0.423cm</Height>
+              <Width>1.2cm</Width>
+              <ZIndex>2</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <VerticalAlign>Middle</VerticalAlign>
+              </Style>
+            </Textbox>
+            <Textbox Name="CurrReport_PAGENOCaption">
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=First(Fields!CurrReport_PAGENO.Value, "DataSet_Result")</Value>
+                      <Style>
+                        <FontSize>7pt</FontSize>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <Top>0.92621cm</Top>
+              <Left>18.18528cm</Left>
+              <Height>0.423cm</Height>
+              <Width>0.75cm</Width>
+              <ZIndex>3</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <VerticalAlign>Middle</VerticalAlign>
+              </Style>
+            </Textbox>
+            <Textbox Name="UserIdTextBox">
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=User!UserID</Value>
+                      <Style>
+                        <FontSize>7pt</FontSize>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Right</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <Top>1.4815cm</Top>
+              <Left>16.13528cm</Left>
+              <Height>0.423cm</Height>
+              <Width>3.25cm</Width>
+              <ZIndex>4</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <VerticalAlign>Middle</VerticalAlign>
+              </Style>
+            </Textbox>
+            <Textbox Name="PageNumberTextBox">
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=Globals!PageNumber</Value>
+                      <Style>
+                        <FontSize>7pt</FontSize>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Right</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <Top>1.0585cm</Top>
+              <Left>18.93528cm</Left>
+              <Height>0.423cm</Height>
+              <Width>0.45cm</Width>
+              <ZIndex>5</ZIndex>
+              <Style>
+                <VerticalAlign>Middle</VerticalAlign>
+              </Style>
+            </Textbox>
+            <Textbox Name="COMPANYNAME">
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=First(Fields!COMPANYNAME.Value, "DataSet_Result")</Value>
+                      <Style>
+                        <FontSize>7pt</FontSize>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <Top>1.0585cm</Top>
+              <Left>0.18528cm</Left>
+              <Height>0.423cm</Height>
+              <Width>7.5cm</Width>
+              <ZIndex>6</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <VerticalAlign>Middle</VerticalAlign>
+              </Style>
+            </Textbox>
+            <Textbox Name="ExecutionTimeTextBox">
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=Globals!ExecutionTime</Value>
+                      <Style>
+                        <FontSize>7pt</FontSize>
+                        <Format>dd/MM/yyyy</Format>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Right</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <Top>0.6355cm</Top>
+              <Left>16.23528cm</Left>
+              <Height>0.423cm</Height>
+              <Width>3.15cm</Width>
+              <ZIndex>7</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <VerticalAlign>Middle</VerticalAlign>
+              </Style>
+            </Textbox>
+          </ReportItems>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+          </Style>
+        </PageHeader>
+        <PageHeight>29.7cm</PageHeight>
+        <PageWidth>74.10003cm</PageWidth>
+        <LeftMargin>0.8cm</LeftMargin>
+        <RightMargin>0cm</RightMargin>
+        <TopMargin>0.15cm</TopMargin>
+        <BottomMargin>0cm</BottomMargin>
+        <Style />
+      </Page>
+    </ReportSection>
+  </ReportSections>
+  <Code>Public Function BlankZero(ByVal Value As Decimal)
+    if Value = 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankPos(ByVal Value As Decimal)
+    if Value &gt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankZeroAndPos(ByVal Value As Decimal)
+    if Value &gt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNeg(ByVal Value As Decimal)
+    if Value &lt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNegAndZero(ByVal Value As Decimal)
+    if Value &lt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+</Code>
+  <Language>=User!Language</Language>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportUnitType>Cm</rd:ReportUnitType>
+</Report>

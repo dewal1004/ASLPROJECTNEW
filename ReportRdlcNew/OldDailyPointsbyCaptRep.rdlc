@@ -1,0 +1,578 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="DataSource">
+      <ConnectionProperties>
+        <DataProvider>SQL</DataProvider>
+        <ConnectString />
+      </ConnectionProperties>
+      <rd:SecurityType>None</rd:SecurityType>
+    </DataSource>
+  </DataSources>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <Height>2in</Height>
+        <Style />
+      </Body>
+      <Width>6.5in</Width>
+      <Page>
+        <Style />
+      </Page>
+    </ReportSection>
+  </ReportSections>
+  <Code>Public Function BlankZero(ByVal Value As Decimal)
+    if Value = 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankPos(ByVal Value As Decimal)
+    if Value &gt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankZeroAndPos(ByVal Value As Decimal)
+    if Value &gt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNeg(ByVal Value As Decimal)
+    if Value &lt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNegAndZero(ByVal Value As Decimal)
+    if Value &lt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+</Code>
+  <Language>=User!Language</Language>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="Day_of_Tide____DOT">
+          <DataField>Day_of_Tide____DOT</DataField>
+        </Field>
+        <Field Name="Consolidated_Daily_Points_Report_As_On_____FORMAT_Workdat_0_4_">
+          <DataField>Consolidated_Daily_Points_Report_As_On_____FORMAT_Workdat_0_4_</DataField>
+        </Field>
+        <Field Name="USERID">
+          <DataField>USERID</DataField>
+        </Field>
+        <Field Name="FORMAT_TODAY_0_4_">
+          <DataField>FORMAT_TODAY_0_4_</DataField>
+        </Field>
+        <Field Name="CurrReport_PAGENO">
+          <DataField>CurrReport_PAGENO</DataField>
+        </Field>
+        <Field Name="CurrReport_PAGENOCaption">
+          <DataField>CurrReport_PAGENOCaption</DataField>
+        </Field>
+        <Field Name="OperationCaption">
+          <DataField>OperationCaption</DataField>
+        </Field>
+        <Field Name="Integer_Number">
+          <DataField>Integer_Number</DataField>
+        </Field>
+        <Field Name="Res__No__">
+          <DataField>Res__No__</DataField>
+        </Field>
+        <Field Name="Name_______FORMAT_ROUND__Points_Average_Sort_Bay__1__">
+          <DataField>Name_______FORMAT_ROUND__Points_Average_Sort_Bay__1__</DataField>
+        </Field>
+        <Field Name="SeaDayA">
+          <DataField>SeaDayA</DataField>
+        </Field>
+        <Field Name="SeaTempA">
+          <DataField>SeaTempA</DataField>
+        </Field>
+        <Field Name="SeaTempAFormat">
+          <DataField>SeaTempAFormat</DataField>
+        </Field>
+        <Field Name="GTotPtsA_1_">
+          <DataField>GTotPtsA_1_</DataField>
+        </Field>
+        <Field Name="GTotPtsA_1_Format">
+          <DataField>GTotPtsA_1_Format</DataField>
+        </Field>
+        <Field Name="GTotPtsA_2_">
+          <DataField>GTotPtsA_2_</DataField>
+        </Field>
+        <Field Name="GTotPtsA_2_Format">
+          <DataField>GTotPtsA_2_Format</DataField>
+        </Field>
+        <Field Name="GTotPtsA_3_">
+          <DataField>GTotPtsA_3_</DataField>
+        </Field>
+        <Field Name="GTotPtsA_3_Format">
+          <DataField>GTotPtsA_3_Format</DataField>
+        </Field>
+        <Field Name="GTotPtsA_4_">
+          <DataField>GTotPtsA_4_</DataField>
+        </Field>
+        <Field Name="GTotPtsA_4_Format">
+          <DataField>GTotPtsA_4_Format</DataField>
+        </Field>
+        <Field Name="GTotPtsA_5_">
+          <DataField>GTotPtsA_5_</DataField>
+        </Field>
+        <Field Name="GTotPtsA_5_Format">
+          <DataField>GTotPtsA_5_Format</DataField>
+        </Field>
+        <Field Name="GTotPtsA_6_">
+          <DataField>GTotPtsA_6_</DataField>
+        </Field>
+        <Field Name="GTotPtsA_6_Format">
+          <DataField>GTotPtsA_6_Format</DataField>
+        </Field>
+        <Field Name="GTotPtsA_7_">
+          <DataField>GTotPtsA_7_</DataField>
+        </Field>
+        <Field Name="GTotPtsA_7_Format">
+          <DataField>GTotPtsA_7_Format</DataField>
+        </Field>
+        <Field Name="GTotPtsA_8_">
+          <DataField>GTotPtsA_8_</DataField>
+        </Field>
+        <Field Name="GTotPtsA_8_Format">
+          <DataField>GTotPtsA_8_Format</DataField>
+        </Field>
+        <Field Name="GTotPts_1_">
+          <DataField>GTotPts_1_</DataField>
+        </Field>
+        <Field Name="GTotPts_1_Format">
+          <DataField>GTotPts_1_Format</DataField>
+        </Field>
+        <Field Name="GTotPts_2_">
+          <DataField>GTotPts_2_</DataField>
+        </Field>
+        <Field Name="GTotPts_2_Format">
+          <DataField>GTotPts_2_Format</DataField>
+        </Field>
+        <Field Name="GTotPts_3_">
+          <DataField>GTotPts_3_</DataField>
+        </Field>
+        <Field Name="GTotPts_3_Format">
+          <DataField>GTotPts_3_Format</DataField>
+        </Field>
+        <Field Name="GTotPts_4_">
+          <DataField>GTotPts_4_</DataField>
+        </Field>
+        <Field Name="GTotPts_4_Format">
+          <DataField>GTotPts_4_Format</DataField>
+        </Field>
+        <Field Name="GTotPts_5_">
+          <DataField>GTotPts_5_</DataField>
+        </Field>
+        <Field Name="GTotPts_5_Format">
+          <DataField>GTotPts_5_Format</DataField>
+        </Field>
+        <Field Name="GTotPts_6_">
+          <DataField>GTotPts_6_</DataField>
+        </Field>
+        <Field Name="GTotPts_6_Format">
+          <DataField>GTotPts_6_Format</DataField>
+        </Field>
+        <Field Name="GTotPts_7_">
+          <DataField>GTotPts_7_</DataField>
+        </Field>
+        <Field Name="GTotPts_7_Format">
+          <DataField>GTotPts_7_Format</DataField>
+        </Field>
+        <Field Name="GTotPts_8_">
+          <DataField>GTotPts_8_</DataField>
+        </Field>
+        <Field Name="GTotPts_8_Format">
+          <DataField>GTotPts_8_Format</DataField>
+        </Field>
+        <Field Name="GSeaDaysTot">
+          <DataField>GSeaDaysTot</DataField>
+        </Field>
+        <Field Name="GSeaDaysTotFormat">
+          <DataField>GSeaDaysTotFormat</DataField>
+        </Field>
+        <Field Name="GTotPts_9_">
+          <DataField>GTotPts_9_</DataField>
+        </Field>
+        <Field Name="GTotPts_9_Format">
+          <DataField>GTotPts_9_Format</DataField>
+        </Field>
+        <Field Name="GTotPtsA_9_">
+          <DataField>GTotPtsA_9_</DataField>
+        </Field>
+        <Field Name="GTotPtsA_9_Format">
+          <DataField>GTotPtsA_9_Format</DataField>
+        </Field>
+        <Field Name="Sr__No_Caption">
+          <DataField>Sr__No_Caption</DataField>
+        </Field>
+        <Field Name="VesselCaption">
+          <DataField>VesselCaption</DataField>
+        </Field>
+        <Field Name="CountryCaption">
+          <DataField>CountryCaption</DataField>
+        </Field>
+        <Field Name="SkipperCaption">
+          <DataField>SkipperCaption</DataField>
+        </Field>
+        <Field Name="Sea_DaysCaption">
+          <DataField>Sea_DaysCaption</DataField>
+        </Field>
+        <Field Name="AreaCaption">
+          <DataField>AreaCaption</DataField>
+        </Field>
+        <Field Name="Sea_Temp__CCaption">
+          <DataField>Sea_Temp__CCaption</DataField>
+        </Field>
+        <Field Name="Fish_PtsCaption">
+          <DataField>Fish_PtsCaption</DataField>
+        </Field>
+        <Field Name="Shrimp_PtsCaption">
+          <DataField>Shrimp_PtsCaption</DataField>
+        </Field>
+        <Field Name="Day_PtsCaption">
+          <DataField>Day_PtsCaption</DataField>
+        </Field>
+        <Field Name="Fish_PtsCaption_Control1000000124">
+          <DataField>Fish_PtsCaption_Control1000000124</DataField>
+        </Field>
+        <Field Name="Shrimp_PtsCaption_Control1000000125">
+          <DataField>Shrimp_PtsCaption_Control1000000125</DataField>
+        </Field>
+        <Field Name="PtsCaption">
+          <DataField>PtsCaption</DataField>
+        </Field>
+        <Field Name="Fish_PtsCaption_Control1000000127">
+          <DataField>Fish_PtsCaption_Control1000000127</DataField>
+        </Field>
+        <Field Name="Shrimp_PtsCaption_Control1000000128">
+          <DataField>Shrimp_PtsCaption_Control1000000128</DataField>
+        </Field>
+        <Field Name="DaysCaption">
+          <DataField>DaysCaption</DataField>
+        </Field>
+        <Field Name="CumulativeCaption">
+          <DataField>CumulativeCaption</DataField>
+        </Field>
+        <Field Name="AverageCaption">
+          <DataField>AverageCaption</DataField>
+        </Field>
+        <Field Name="PtsCaption_Control1000000132">
+          <DataField>PtsCaption_Control1000000132</DataField>
+        </Field>
+        <Field Name="AVERAGECaption_Control1000000050">
+          <DataField>AVERAGECaption_Control1000000050</DataField>
+        </Field>
+        <Field Name="GRAND_TOTALCaption">
+          <DataField>GRAND_TOTALCaption</DataField>
+        </Field>
+        <Field Name="FORMAT_TODAY_0_4__Control2">
+          <DataField>FORMAT_TODAY_0_4__Control2</DataField>
+        </Field>
+        <Field Name="Consolidated_Daily_Points_Report_As_On_____FORMAT_Workdat_0_4__Control3">
+          <DataField>Consolidated_Daily_Points_Report_As_On_____FORMAT_Workdat_0_4__Control3</DataField>
+        </Field>
+        <Field Name="CurrReport_PAGENO_Control4">
+          <DataField>CurrReport_PAGENO_Control4</DataField>
+        </Field>
+        <Field Name="USERID_Control6">
+          <DataField>USERID_Control6</DataField>
+        </Field>
+        <Field Name="Day_of_Tide____DOT_Control1000000048">
+          <DataField>Day_of_Tide____DOT_Control1000000048</DataField>
+        </Field>
+        <Field Name="Countz">
+          <DataField>Countz</DataField>
+        </Field>
+        <Field Name="Desc">
+          <DataField>Desc</DataField>
+        </Field>
+        <Field Name="Job__Fishing_Country_Code_">
+          <DataField>Job__Fishing_Country_Code_</DataField>
+        </Field>
+        <Field Name="Skipper">
+          <DataField>Skipper</DataField>
+        </Field>
+        <Field Name="SeArea">
+          <DataField>SeArea</DataField>
+        </Field>
+        <Field Name="SeTemp">
+          <DataField>SeTemp</DataField>
+        </Field>
+        <Field Name="pts_1_">
+          <DataField>pts_1_</DataField>
+        </Field>
+        <Field Name="pts_1_Format">
+          <DataField>pts_1_Format</DataField>
+        </Field>
+        <Field Name="pts_3_">
+          <DataField>pts_3_</DataField>
+        </Field>
+        <Field Name="pts_3_Format">
+          <DataField>pts_3_Format</DataField>
+        </Field>
+        <Field Name="pts_2_">
+          <DataField>pts_2_</DataField>
+        </Field>
+        <Field Name="pts_2_Format">
+          <DataField>pts_2_Format</DataField>
+        </Field>
+        <Field Name="pts_7_">
+          <DataField>pts_7_</DataField>
+        </Field>
+        <Field Name="pts_7_Format">
+          <DataField>pts_7_Format</DataField>
+        </Field>
+        <Field Name="pts_8_">
+          <DataField>pts_8_</DataField>
+        </Field>
+        <Field Name="pts_8_Format">
+          <DataField>pts_8_Format</DataField>
+        </Field>
+        <Field Name="pts_9_">
+          <DataField>pts_9_</DataField>
+        </Field>
+        <Field Name="pts_9_Format">
+          <DataField>pts_9_Format</DataField>
+        </Field>
+        <Field Name="pts_4_">
+          <DataField>pts_4_</DataField>
+        </Field>
+        <Field Name="pts_4_Format">
+          <DataField>pts_4_Format</DataField>
+        </Field>
+        <Field Name="pts_5_">
+          <DataField>pts_5_</DataField>
+        </Field>
+        <Field Name="pts_5_Format">
+          <DataField>pts_5_Format</DataField>
+        </Field>
+        <Field Name="pts_6_">
+          <DataField>pts_6_</DataField>
+        </Field>
+        <Field Name="pts_6_Format">
+          <DataField>pts_6_Format</DataField>
+        </Field>
+        <Field Name="SeaDays">
+          <DataField>SeaDays</DataField>
+        </Field>
+        <Field Name="TotPts_1_">
+          <DataField>TotPts_1_</DataField>
+        </Field>
+        <Field Name="TotPts_1_Format">
+          <DataField>TotPts_1_Format</DataField>
+        </Field>
+        <Field Name="TotPts_2_">
+          <DataField>TotPts_2_</DataField>
+        </Field>
+        <Field Name="TotPts_2_Format">
+          <DataField>TotPts_2_Format</DataField>
+        </Field>
+        <Field Name="TotPts_3_">
+          <DataField>TotPts_3_</DataField>
+        </Field>
+        <Field Name="TotPts_3_Format">
+          <DataField>TotPts_3_Format</DataField>
+        </Field>
+        <Field Name="TotPts_4_">
+          <DataField>TotPts_4_</DataField>
+        </Field>
+        <Field Name="TotPts_4_Format">
+          <DataField>TotPts_4_Format</DataField>
+        </Field>
+        <Field Name="TotPts_5_">
+          <DataField>TotPts_5_</DataField>
+        </Field>
+        <Field Name="TotPts_5_Format">
+          <DataField>TotPts_5_Format</DataField>
+        </Field>
+        <Field Name="TotPts_6_">
+          <DataField>TotPts_6_</DataField>
+        </Field>
+        <Field Name="TotPts_6_Format">
+          <DataField>TotPts_6_Format</DataField>
+        </Field>
+        <Field Name="TotPts_7_">
+          <DataField>TotPts_7_</DataField>
+        </Field>
+        <Field Name="TotPts_7_Format">
+          <DataField>TotPts_7_Format</DataField>
+        </Field>
+        <Field Name="TotPts_8_">
+          <DataField>TotPts_8_</DataField>
+        </Field>
+        <Field Name="TotPts_8_Format">
+          <DataField>TotPts_8_Format</DataField>
+        </Field>
+        <Field Name="TotPts_9_">
+          <DataField>TotPts_9_</DataField>
+        </Field>
+        <Field Name="TotPts_9_Format">
+          <DataField>TotPts_9_Format</DataField>
+        </Field>
+        <Field Name="TotPtsA_1_">
+          <DataField>TotPtsA_1_</DataField>
+        </Field>
+        <Field Name="TotPtsA_1_Format">
+          <DataField>TotPtsA_1_Format</DataField>
+        </Field>
+        <Field Name="TotPtsA_2_">
+          <DataField>TotPtsA_2_</DataField>
+        </Field>
+        <Field Name="TotPtsA_2_Format">
+          <DataField>TotPtsA_2_Format</DataField>
+        </Field>
+        <Field Name="TotPtsA_3_">
+          <DataField>TotPtsA_3_</DataField>
+        </Field>
+        <Field Name="TotPtsA_3_Format">
+          <DataField>TotPtsA_3_Format</DataField>
+        </Field>
+        <Field Name="TotPtsA_4_">
+          <DataField>TotPtsA_4_</DataField>
+        </Field>
+        <Field Name="TotPtsA_4_Format">
+          <DataField>TotPtsA_4_Format</DataField>
+        </Field>
+        <Field Name="TotPtsA_5_">
+          <DataField>TotPtsA_5_</DataField>
+        </Field>
+        <Field Name="TotPtsA_5_Format">
+          <DataField>TotPtsA_5_Format</DataField>
+        </Field>
+        <Field Name="TotPtsA_6_">
+          <DataField>TotPtsA_6_</DataField>
+        </Field>
+        <Field Name="TotPtsA_6_Format">
+          <DataField>TotPtsA_6_Format</DataField>
+        </Field>
+        <Field Name="TotPtsA_7_">
+          <DataField>TotPtsA_7_</DataField>
+        </Field>
+        <Field Name="TotPtsA_7_Format">
+          <DataField>TotPtsA_7_Format</DataField>
+        </Field>
+        <Field Name="TotPtsA_8_">
+          <DataField>TotPtsA_8_</DataField>
+        </Field>
+        <Field Name="TotPtsA_8_Format">
+          <DataField>TotPtsA_8_Format</DataField>
+        </Field>
+        <Field Name="TotPtsA_9_">
+          <DataField>TotPtsA_9_</DataField>
+        </Field>
+        <Field Name="TotPtsA_9_Format">
+          <DataField>TotPtsA_9_Format</DataField>
+        </Field>
+        <Field Name="SeaDaysTot">
+          <DataField>SeaDaysTot</DataField>
+        </Field>
+        <Field Name="SeaDaysTotFormat">
+          <DataField>SeaDaysTotFormat</DataField>
+        </Field>
+        <Field Name="SeaTempA_Control1000000047">
+          <DataField>SeaTempA_Control1000000047</DataField>
+        </Field>
+        <Field Name="SeaTempA_Control1000000047Format">
+          <DataField>SeaTempA_Control1000000047Format</DataField>
+        </Field>
+        <Field Name="SeaDayA_Control1000000102">
+          <DataField>SeaDayA_Control1000000102</DataField>
+        </Field>
+        <Field Name="OperationCaption_Control1">
+          <DataField>OperationCaption_Control1</DataField>
+        </Field>
+        <Field Name="CurrReport_PAGENO_Control4Caption">
+          <DataField>CurrReport_PAGENO_Control4Caption</DataField>
+        </Field>
+        <Field Name="Sr__No_Caption_Control9">
+          <DataField>Sr__No_Caption_Control9</DataField>
+        </Field>
+        <Field Name="VesselCaption_Control12">
+          <DataField>VesselCaption_Control12</DataField>
+        </Field>
+        <Field Name="CountryCaption_Control15">
+          <DataField>CountryCaption_Control15</DataField>
+        </Field>
+        <Field Name="SkipperCaption_Control18">
+          <DataField>SkipperCaption_Control18</DataField>
+        </Field>
+        <Field Name="Sea_DaysCaption_Control21">
+          <DataField>Sea_DaysCaption_Control21</DataField>
+        </Field>
+        <Field Name="AreaCaption_Control24">
+          <DataField>AreaCaption_Control24</DataField>
+        </Field>
+        <Field Name="Sea_Temp__CCaption_Control27">
+          <DataField>Sea_Temp__CCaption_Control27</DataField>
+        </Field>
+        <Field Name="Shrimp_PtsCaption_Control1000000013">
+          <DataField>Shrimp_PtsCaption_Control1000000013</DataField>
+        </Field>
+        <Field Name="Fish_PtsCaption_Control1000000014">
+          <DataField>Fish_PtsCaption_Control1000000014</DataField>
+        </Field>
+        <Field Name="PtsCaption_Control1000000032">
+          <DataField>PtsCaption_Control1000000032</DataField>
+        </Field>
+        <Field Name="Fish_PtsCaption_Control1000000010">
+          <DataField>Fish_PtsCaption_Control1000000010</DataField>
+        </Field>
+        <Field Name="Shrimp_PtsCaption_Control1000000011">
+          <DataField>Shrimp_PtsCaption_Control1000000011</DataField>
+        </Field>
+        <Field Name="Day_PtsCaption_Control1000000015">
+          <DataField>Day_PtsCaption_Control1000000015</DataField>
+        </Field>
+        <Field Name="Fish_PtsCaption_Control1000000016">
+          <DataField>Fish_PtsCaption_Control1000000016</DataField>
+        </Field>
+        <Field Name="Shrimp_PtsCaption_Control1000000017">
+          <DataField>Shrimp_PtsCaption_Control1000000017</DataField>
+        </Field>
+        <Field Name="PtsCaption_Control1000000031">
+          <DataField>PtsCaption_Control1000000031</DataField>
+        </Field>
+        <Field Name="DaysCaption_Control1000000012">
+          <DataField>DaysCaption_Control1000000012</DataField>
+        </Field>
+        <Field Name="CumulativeCaption_Control1000000030">
+          <DataField>CumulativeCaption_Control1000000030</DataField>
+        </Field>
+        <Field Name="AverageCaption_Control1000000033">
+          <DataField>AverageCaption_Control1000000033</DataField>
+        </Field>
+        <Field Name="AVERAGECaption_Control1000000043">
+          <DataField>AVERAGECaption_Control1000000043</DataField>
+        </Field>
+        <Field Name="TOTALCaption">
+          <DataField>TOTALCaption</DataField>
+        </Field>
+        <Field Name="Job_No_">
+          <DataField>Job_No_</DataField>
+        </Field>
+        <Field Name="Job_Captain">
+          <DataField>Job_Captain</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
+</Report>
