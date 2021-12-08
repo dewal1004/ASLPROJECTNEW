@@ -1,0 +1,81 @@
+OBJECT Modification "Create Reserv. Entry"(Codeunit 99000830)
+{
+  OBJECT-PROPERTIES
+  {
+    Date=20210924D;
+    Time=203333.323T;
+    Modified=true;
+    Version List=NAVW114.21;
+  }
+  PROPERTIES
+  {
+    Target="Create Reserv. Entry"(Codeunit 99000830);
+  }
+  CHANGES
+  {
+    { CodeModification  ;OriginalCode=BEGIN
+                                        if TransferQty = 0 then
+                                          exit;
+
+                                        #4..58
+                                          if NewReservEntry."Quantity (Base)" > 0 then
+                                            NewReservEntry."Expected Receipt Date" := 0D
+                                          else
+                                            NewReservEntry."Shipment Date" := DMY2Date(31,12,9999);
+
+                                        NewReservEntry.UpdateItemTracking;
+                                        #65..113
+                                                if NewReservEntry."Quantity (Base)" < 0 then
+                                                  NewReservEntry."Expected Receipt Date" := 0D
+                                                else
+                                                  NewReservEntry."Shipment Date" := DMY2Date(31,12,9999);
+                                                NewReservEntry.Modify;
+                                              end;
+                                        #120..147
+
+                                        xTransferQty -= TransferQty;
+                                        exit(xTransferQty * CurrSignFactor);
+                                      END;
+
+                         ModifiedCode=BEGIN
+                                        #1..61
+
+                                        #62..116
+
+                                        #117..150
+                                      END;
+
+                         Target=TransferReservEntry(PROCEDURE 1) }
+    { CodeModification  ;OriginalCode=BEGIN
+                                        if ReservEntry."Source Type" = DATABASE::"Item Ledger Entry" then
+                                          if ReservEntry."Quantity (Base)" > 0 then
+                                            ReservEntry."Expected Receipt Date" := 0D
+                                          else
+                                            ReservEntry."Shipment Date" := DMY2Date(31,12,9999);
+                                      END;
+
+                         ModifiedCode=BEGIN
+                                        #1..4
+
+                                            ReservEntry."Shipment Date" := DMY2Date(31,12,9999);
+                                      END;
+
+                         Target=AdjustDateIfItemLedgerEntry(PROCEDURE 9) }
+    { Insertion         ;Target=SetUntrackedSurplus(PROCEDURE 24);
+                         ChangedElements=VariableCollection
+                         {
+                           ReservMgt@1004 : Codeunit "Reservation Management";
+                           LastEntryNo@1003 : Integer;
+                           TrackingSpecificationExists@1002 : Boolean;
+                           FirstSplit@1001 : Boolean;
+                         }
+                          }
+  }
+  CODE
+  {
+
+    BEGIN
+    END.
+  }
+}
+

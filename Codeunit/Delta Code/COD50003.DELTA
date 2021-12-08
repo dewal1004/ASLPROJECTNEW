@@ -1,0 +1,182 @@
+OBJECT Codeunit 50003 Library
+{
+  OBJECT-PROPERTIES
+  {
+    Date=20020918D;
+    Time=130046T;
+    Modified=true;
+    Version List=;
+  }
+  PROPERTIES
+  {
+    OnRun=BEGIN
+          END;
+
+  }
+  CODE
+  {
+    VAR
+      "------------------------------"@1000000000 : Text[30];
+      Words@1000000001 : Text[250];
+      Ands@1000000002 : Text[10];
+
+    [LineStart(454142)]
+    PROCEDURE "A-A-A-----------------"@22();
+    BEGIN
+    END;
+
+    [LineStart(454145)]
+    PROCEDURE C1000_Infinity@10(Value@1000000001 : Decimal) retvalue@1000000000 : Text[250];
+    VAR
+      t@1000000002 : Decimal;
+      tmp@1000000003 : Text[250];
+      t3@1000000004 : Integer;
+    BEGIN
+          begin
+            tmp := Format(Round(Value,1,'<'));
+            t := Round(StrLen(Format(Round(Value,1,'<'),0,1))/3,1,'>');
+            retvalue := '';
+
+            repeat
+            if StrPos(tmp,',')<>0 then
+            begin
+            Evaluate(t3,CopyStr(tmp,1,StrPos(tmp,',')-1));
+            tmp := CopyStr(tmp,StrPos(tmp,',')+1)
+            end
+            else
+            begin
+            Evaluate(t3,tmp);
+            tmp := '';
+            end;
+            t := t-1;
+            retvalue := retvalue+C0_999(t3);
+            if ((t>0) and (t3<>0)) then retvalue := retvalue+' '+SelectStr(28+t,Words)+' ';
+            if ((t>0) and (t3=0)) then retvalue := retvalue+' AND ';
+            until tmp='';
+            exit(retvalue);
+          end;
+    END;
+
+    [LineStart(454170)]
+    PROCEDURE C0_9@16(digit@1000000000 : Integer) : Text[20];
+    BEGIN
+          begin
+            case digit of
+            0: exit('');
+            1: exit(SelectStr(1,Words));
+            2: exit(SelectStr(2,Words));
+            3: exit(SelectStr(3,Words));
+            4: exit(SelectStr(4,Words));
+            5: exit(SelectStr(5,Words));
+            6: exit(SelectStr(6,Words));
+            7: exit(SelectStr(7,Words));
+            8: exit(SelectStr(8,Words));
+            9: exit(SelectStr(9,Words));
+            end;
+          end;
+    END;
+
+    [LineStart(454186)]
+    PROCEDURE C0_999@15(ThreeDigit@1000000000 : Integer) : Text[100];
+    VAR
+      text1@1000000001 : Text[30];
+      TwoDigit@1000000002 : Integer;
+      Hundreds@1000000003 : Text[30];
+    BEGIN
+          begin
+            TwoDigit := ThreeDigit mod 100;
+            Hundreds := C0_9(Round(ThreeDigit/100,1,'<'));
+            if(Hundreds<>'') then Hundreds :=Hundreds+' '+SelectStr(28,Words);
+
+            if (TwoDigit>0) and (Hundreds<>'') then
+            Hundreds := Hundreds+' '+Ands+' ';
+
+            if (TwoDigit>19) then
+            begin
+            text1 := C0_9(TwoDigit mod 10);
+            if text1<>'' then text1 := ' '+text1;
+            end;
+
+            case Round(TwoDigit/10,1,'<') of
+            0,1:
+            begin
+            case TwoDigit of
+            0,1,2,3,4,5,6,7,8,9: exit(Hundreds+C0_9(TwoDigit));
+            10: exit(Hundreds+SelectStr(10,Words));
+            11: exit(Hundreds+SelectStr(11,Words));
+            12: exit(Hundreds+SelectStr(12,Words));
+            13: exit(Hundreds+SelectStr(13,Words));
+            14: exit(Hundreds+SelectStr(14,Words));
+            15: exit(Hundreds+SelectStr(15,Words));
+            16: exit(Hundreds+SelectStr(16,Words));
+            17: exit(Hundreds+SelectStr(17,Words));
+            18: exit(Hundreds+SelectStr(18,Words));
+            19: exit(Hundreds+SelectStr(19,Words));
+            end;
+            end;
+            2: exit(Hundreds+SelectStr(20,Words)+text1);
+            3: exit(Hundreds+SelectStr(21,Words)+text1);
+            4: exit(Hundreds+SelectStr(22,Words)+text1);
+            5: exit(Hundreds+SelectStr(23,Words)+text1);
+            6: exit(Hundreds+SelectStr(24,Words)+text1);
+            7: exit(Hundreds+SelectStr(25,Words)+text1);
+            8: exit(Hundreds+SelectStr(26,Words)+text1);
+            9: exit(Hundreds+SelectStr(27,Words)+text1);
+            end;
+          end;
+    END;
+
+    [LineStart(454229)]
+    PROCEDURE ToWords@13(Value@1000000000 : Decimal;Currency@1000000001 : Text[30];CurrencyUnit@1000000002 : Text[30];ConversionRate@1000000003 : Integer;LanguageCodes@1000000004 : Text[250]) : Text[250];
+    VAR
+      WholeNumber@1000000005 : Decimal;
+      DecimalPart@1000000006 : Decimal;
+      l@1000000007 : Integer;
+    BEGIN
+      begin
+       Value := Abs(Value);
+       if LanguageCodes='' then
+       begin
+         LanguageCodes := 'One,Two,Three,Four,Five,Six,Seven,Eight,Nine,Ten,Eleven,Twelve,Thirtheen,Fourteen,Fifteen,Sixteen,Seventeen,';
+         LanguageCodes := LanguageCodes+'Eighteen,Nineteen,Twenty,thirty,Fourty,Fifty,Sixty,Seventy,Eighty,Ninety,Hundred,Thousand,';
+         LanguageCodes := LanguageCodes+'Million,Billion,Trillion';
+       end;
+       Words := LanguageCodes;
+       Ands := 'and';
+
+       if ConversionRate=0 then ConversionRate := 100;
+
+       WholeNumber := Round(Value,1,'<');
+       if StrPos(Format(Value),'.')<>0 then
+       begin
+         l := StrLen(Format(Value))+1;
+         repeat
+              l := l-1;
+         until Evaluate(DecimalPart,'0'+CopyStr(CopyStr(Format(Value),1,l),StrPos(Format(Value),'.')) );
+         DecimalPart := DecimalPart * ConversionRate;
+         DecimalPart := Round(DecimalPart,1,'=');
+       end
+       else
+         DecimalPart :=0;
+       if (WholeNumber>0) and (DecimalPart>0) then
+          exit(C1000_Infinity(WholeNumber)+' '+Currency+' '+C1000_Infinity(DecimalPart)+' '+CurrencyUnit);
+
+       if (WholeNumber>0) and (DecimalPart=0) then
+          exit(C1000_Infinity(WholeNumber)+' '+Currency);
+
+       if (WholeNumber=0) and (DecimalPart>0) then
+            exit(C1000_Infinity(DecimalPart)+' '+CurrencyUnit);
+
+       if (WholeNumber=0) and (DecimalPart=0) then
+            exit('');
+      end;
+    END;
+
+    BEGIN
+    {
+      //
+    }
+    END.
+  }
+}
+

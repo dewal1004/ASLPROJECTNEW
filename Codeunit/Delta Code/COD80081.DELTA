@@ -1,0 +1,66 @@
+OBJECT Codeunit 80081 Sales-Post (Yes/No)Z
+{
+  OBJECT-PROPERTIES
+  {
+    Date=20020111D;
+    Time=165620T;
+    Modified=true;
+    Version List=NAVW13.00;
+  }
+  PROPERTIES
+  {
+    TableNo="Sales Header";
+    OnRun=BEGIN
+            SalesHeader.Copy(Rec);
+            Code;
+            Rec := SalesHeader;
+          END;
+
+  }
+  CODE
+  {
+    VAR
+      Text000@1000 : TextConst 'ENU=&Ship,&Invoice,Ship &and Invoice';
+      Text001@1001 : TextConst 'ENU=Do you want to post the %1?';
+      Text002@1002 : TextConst 'ENU=&Receive,&Invoice,Receive &and Invoice';
+      SalesHeader@1003 : Record "Sales Header";
+      SalesPost@1004 : Codeunit "Sales-Post";
+      Selection@1005 : Integer;
+
+    [LineStart(454528)]
+    LOCAL PROCEDURE Code@1();
+    BEGIN
+      with SalesHeader do begin
+        case "Document Type" of
+          "Document Type"::Order:
+            begin
+              Selection := StrMenu(Text000,3);
+              if Selection = 0 then
+                exit;
+              Ship := Selection in [1,3];
+              Invoice := Selection in [2,3];
+            end;
+          "Document Type"::"Credit Memo":
+            begin
+              Selection := StrMenu(Text002,3);
+              if Selection = 0 then
+                exit;
+              Receive := Selection in [1,3];
+              Invoice := Selection in [2,3];
+            end else
+              if not
+                 Confirm(
+                   Text001,false,
+                   "Document Type")
+              then
+                exit;
+        end;
+        SalesPost.Run(SalesHeader);
+      end;
+    END;
+
+    BEGIN
+    END.
+  }
+}
+

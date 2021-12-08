@@ -1,0 +1,33 @@
+OBJECT Modification "Production BOM-Copy"(Codeunit 99000768)
+{
+  OBJECT-PROPERTIES
+  {
+    Date=20180919D;
+    Time=120000T;
+    Version List=NAVW113.00;
+  }
+  PROPERTIES
+  {
+    Target="Production BOM-Copy"(Codeunit 99000768);
+  }
+  CHANGES
+  {
+    { PropertyModification;
+                         Target=CopyBOM(PROCEDURE 1).FromVersionCode(Parameter 1001);
+                         Property=Length;
+                         OriginalValue=20;
+                         ModifiedValue=10 }
+    { PropertyModification;
+                         Target=CopyBOM(PROCEDURE 1).ToVersionCode(Parameter 1003);
+                         Property=Length;
+                         OriginalValue=20;
+                         ModifiedValue=10 }
+  }
+  CODE
+  {
+
+    BEGIN
+    END.
+  }
+}
+

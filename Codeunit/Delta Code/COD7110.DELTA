@@ -1,0 +1,48 @@
+OBJECT Modification "Analysis Report Management"(Codeunit 7110)
+{
+  OBJECT-PROPERTIES
+  {
+    Date=20210924D;
+    Time=184609.387T;
+    Modified=true;
+    Version List=NAVW114.03;
+  }
+  PROPERTIES
+  {
+    Target="Analysis Report Management"(Codeunit 7110);
+  }
+  CHANGES
+  {
+    { CodeModification  ;OriginalCode=BEGIN
+                                        Result := 0;
+                                        if AnalysisLine.Range <> '' then begin
+                                          case true of
+                                        #4..18
+                                                EvaluateExpression(
+                                                  true,AnalysisLine.Range,AnalysisLine,AnalysisColumn);
+                                            (StartDate = 0D) or (EndDate in [0D,DMY2Date(31,12,9999)]):
+                                              begin
+                                                Result := 0;
+                                                PeriodError := true;
+                                        #25..46
+                                          end;
+                                        end;
+                                        exit(Result);
+                                      END;
+
+                         ModifiedCode=BEGIN
+                                        #1..21
+                                        {<<<<<<<}
+                                        #22..49
+                                      END;
+
+                         Target=CalcCellValue(PROCEDURE 27) }
+  }
+  CODE
+  {
+
+    BEGIN
+    END.
+  }
+}
+

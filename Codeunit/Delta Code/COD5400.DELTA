@@ -1,0 +1,59 @@
+OBJECT Modification "Available Management"(Codeunit 5400)
+{
+  OBJECT-PROPERTIES
+  {
+    Date=20210924D;
+    Time=133802.557T;
+    Modified=true;
+    Version List=NAVW113.00;
+  }
+  PROPERTIES
+  {
+    Target="Available Management"(Codeunit 5400);
+  }
+  CHANGES
+  {
+    { CodeModification  ;OriginalCode=BEGIN
+                                        CopyOfItem.Copy(Item);
+                                        with CopyOfItem do begin
+                                          SetRange("Date Filter",0D,GetRangeMax("Date Filter"));
+                                        #4..16
+                                            "Qty. on Sales Order",
+                                            "Scheduled Need (Qty.)",
+                                            "Trans. Ord. Shipment (Qty.)",
+                                            "Qty. on Service Order",
+                                            "Qty. on Assembly Order",
+                                            "Qty. on Purch. Return");
+
+                                        #24..33
+                                            "Trans. Ord. Shipment (Qty.)" +
+                                            "Qty. in Transit" +
+                                            "Trans. Ord. Receipt (Qty.)" -
+                                            "Qty. on Service Order" -
+                                            "Qty. on Job Order" -
+                                            "Qty. on Purch. Return" +
+                                            "Qty. on Assembly Order" +
+                                        #41..43
+
+                                          exit(AvailableQty);
+                                        end;
+                                      END;
+
+                         ModifiedCode=BEGIN
+                                        #1..19
+                                        //    "Qty. on Service Order",
+                                        #21..36
+                                            //"Qty. on Service Order" - ///AAA
+                                        #38..46
+                                      END;
+
+                         Target=CalcAvailableQty(PROCEDURE 3) }
+  }
+  CODE
+  {
+
+    BEGIN
+    END.
+  }
+}
+

@@ -1,0 +1,86 @@
+OBJECT Modification "Format Address"(Codeunit 365)
+{
+  OBJECT-PROPERTIES
+  {
+    Date=20210924D;
+    Time=120045.607T;
+    Modified=true;
+    Version List=NAVW114.04;
+  }
+  PROPERTIES
+  {
+    Target="Format Address"(Codeunit 365);
+  }
+  CHANGES
+  {
+    { Deletion          ;Target=GeneratePostCodeCity(PROCEDURE 31).DummyString(Variable 1007);
+                         ChangedElements=VariableCollection
+                         {
+                           DummyString@1007 : Text;
+                         }
+                          }
+    { Deletion          ;Target=GeneratePostCodeCity(PROCEDURE 31).OverMaxStrLen(Variable 1006);
+                         ChangedElements=VariableCollection
+                         {
+                           OverMaxStrLen@1006 : Integer;
+                         }
+                          }
+    { CodeModification  ;OriginalCode=BEGIN
+                                        DummyString := '';
+                                        OverMaxStrLen := MaxStrLen(PostCodeCityText);
+                                        if OverMaxStrLen < MaxStrLen(DummyString) then
+                                          OverMaxStrLen += 1;
+
+                                        case Country."Address Format" of
+                                          Country."Address Format"::"Post Code+City":
+                                            begin
+                                              if PostCode <> '' then
+                                                PostCodeCityText := DelStr(PostCode + ' ' + City,OverMaxStrLen)
+                                              else
+                                                PostCodeCityText := City;
+                                              CountyText := County;
+                                        #14..33
+                                                PostCodeCityText := City;
+                                              CountyText := County;
+                                            end;
+                                          Country."Address Format"::"Blank Line+Post Code+City":
+                                            begin
+                                              if PostCode <> '' then
+                                                PostCodeCityText := DelStr(PostCode + ' ' + City,OverMaxStrLen)
+                                              else
+                                                PostCodeCityText := City;
+                                              CountyText := County;
+                                            end;
+                                        end;
+                                      END;
+
+                         ModifiedCode=BEGIN
+                                        #6..9
+                                                PostCodeCityText := DelStr(PostCode + ' ' + City,MaxStrLen(PostCodeCityText) + 1)
+                                        #11..36
+
+                                          //AAA-BPR OCT 2K1-Start
+                                          {Country."Address Format"::"City Only":
+                                            BEGIN
+                                              IF PostCode <> '' THEN
+                                                PostCodeCityText := DELSTR(City,MAXSTRLEN(PostCodeCityText) - STRLEN(PostCode) - 1)
+                                              ELSE
+                                                PostCodeCityText := City;
+                                            END;}
+                                          //AAA-BPR OCT 2K1-Stop
+
+                                        #37..39
+                                                PostCodeCityText := DelStr(PostCode + ' ' + City,MaxStrLen(PostCodeCityText) + 1)
+                                        #41..45
+                                      END;
+
+                         Target=GeneratePostCodeCity(PROCEDURE 31) }
+  }
+  CODE
+  {
+
+    BEGIN
+    END.
+  }
+}
+

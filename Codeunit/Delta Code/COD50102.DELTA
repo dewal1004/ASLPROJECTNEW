@@ -1,0 +1,35 @@
+OBJECT Codeunit 50102 Unit Measure modify
+{
+  OBJECT-PROPERTIES
+  {
+    Date=20160409D;
+    Time=201306T;
+    Modified=true;
+    Version List=;
+  }
+  PROPERTIES
+  {
+    OnRun=BEGIN
+            {cust.RESET;
+            cust.SETFILTER(cust."Gen. Prod. Posting Group",'RES');
+
+            IF cust.FINDSET THEN
+              REPEAT
+              cust."Base Unit of Measure" := 'Hours';
+                cust.MODIFY;
+            UNTIL cust.NEXT=0;
+            MESSAGE('Completed');
+            }
+          END;
+
+  }
+  CODE
+  {
+    VAR
+      cust@1000 : Record Resource;
+
+    BEGIN
+    END.
+  }
+}
+

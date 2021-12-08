@@ -1,0 +1,51 @@
+OBJECT Modification "Service-Post"(Codeunit 5980)
+{
+  OBJECT-PROPERTIES
+  {
+    Date=20200326D;
+    Time=120000T;
+    Version List=NAVW114.12;
+  }
+  PROPERTIES
+  {
+    Target="Service-Post"(Codeunit 5980);
+  }
+  CHANGES
+  {
+    { CodeModification  ;OriginalCode=BEGIN
+                                        with PassedServiceHeader do begin
+                                          TestField("Document Type");
+                                          TestField("Customer No.");
+                                        #4..7
+                                            TestServLinePostingDate("Document Type","No.")
+                                          else begin
+                                            if "Posting Date" <> PassedServiceLine."Posting Date" then begin
+                                              if PassedServiceLine.Type <> PassedServiceLine.Type::" " then
+                                                if GenJnlCheckLine.DateNotAllowed(PassedServiceLine."Posting Date") then
+                                                  PassedServiceLine.FieldError("Posting Date",Text007);
+
+                                              if GenJnlCheckLine.DateNotAllowed("Posting Date") then
+                                                FieldError("Posting Date",Text007);
+                                            end;
+                                          end;
+                                          TestMandatoryFields(PassedServiceLine);
+                                        end;
+                                      END;
+
+                         ModifiedCode=BEGIN
+                                        #1..10
+                                              if GenJnlCheckLine.DateNotAllowed(PassedServiceLine."Posting Date") then
+                                                PassedServiceLine.FieldError("Posting Date",Text007);
+                                        #14..20
+                                      END;
+
+                         Target=TestMandatoryFields(PROCEDURE 12) }
+  }
+  CODE
+  {
+
+    BEGIN
+    END.
+  }
+}
+

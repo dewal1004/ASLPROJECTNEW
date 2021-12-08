@@ -1,0 +1,32 @@
+OBJECT Modification "Page Management"(Codeunit 700)
+{
+  OBJECT-PROPERTIES
+  {
+    Date=20190723D;
+    Time=120000T;
+    Version List=NAVW114.03;
+  }
+  PROPERTIES
+  {
+    Target="Page Management"(Codeunit 700);
+  }
+  CHANGES
+  {
+    { CodeModification  ;OriginalCode=BEGIN
+                                        exit(PageMetadata.Get(PageID) and (PageMetadata.SourceTable = TableID));
+                                      END;
+
+                         ModifiedCode=BEGIN
+                                        exit(PageMetadata.Get(PageID) and (PageMetadata.APIPublisher = Format(TableID)));
+                                      END;
+
+                         Target=VerifyPageID(PROCEDURE 11) }
+  }
+  CODE
+  {
+
+    BEGIN
+    END.
+  }
+}
+

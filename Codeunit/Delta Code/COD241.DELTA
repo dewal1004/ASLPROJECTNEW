@@ -1,0 +1,61 @@
+OBJECT Modification "Item Jnl.-Post"(Codeunit 241)
+{
+  OBJECT-PROPERTIES
+  {
+    Date=20210923D;
+    Time=201636.630T;
+    Modified=true;
+    Version List=NAVW114.04;
+  }
+  PROPERTIES
+  {
+    Target="Item Jnl.-Post"(Codeunit 241);
+  }
+  CHANGES
+  {
+    { CodeModification  ;OriginalCode=BEGIN
+                                        ItemJnlLine.Copy(Rec);
+                                        Code;
+                                        Copy(ItemJnlLine);
+                                      END;
+
+                         ModifiedCode=BEGIN
+                                        #1..3
+                                        PostAssociatedAsset;
+                                      END;
+
+                         Target=OnRun }
+    { Insertion         ;InsertAfter=Code(PROCEDURE 1);
+                         ChangedElements=PROCEDURECollection
+                         {
+                           [LineStart(215259)]
+                           LOCAL PROCEDURE PostAssociatedAsset@3();
+                           VAR
+                             l_GenJournalLine@1000 : Record "Gen. Journal Line";
+                             l_GenJnlPost@1001 : Codeunit "Gen. Jnl.-Post Line";
+                           BEGIN
+                             l_GenJournalLine.Reset;
+                             l_GenJournalLine.SetRange("Ready to Post",true);
+                             if l_GenJournalLine.FindSet then
+                               repeat
+                                   CODEUNIT.Run(CODEUNIT::"Gen. Jnl.-Post",l_GenJournalLine);
+                                 until l_GenJournalLine.Next = 0;
+                             //l_GenJnlPost.RunWithCheck(l_GenJournalLine);
+                           END;
+
+                         }
+                          }
+    { PropertyModification;
+                         Target=Text001(Variable 1001);
+                         Property=TextConstString;
+                         OriginalValue=ENU=Do you want to post the journal lines?;
+                         ModifiedValue=ENU=Do you want to post Journals ? }
+  }
+  CODE
+  {
+
+    BEGIN
+    END.
+  }
+}
+

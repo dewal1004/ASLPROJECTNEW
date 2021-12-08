@@ -1,0 +1,312 @@
+OBJECT Modification ServItemManagement(Codeunit 5920)
+{
+  OBJECT-PROPERTIES
+  {
+    Date=20190922D;
+    Time=120000T;
+    Version List=NAVW114.06;
+  }
+  PROPERTIES
+  {
+    Target=ServItemManagement(Codeunit 5920);
+  }
+  CHANGES
+  {
+    { CodeModification  ;OriginalCode=BEGIN
+                                        IsHandled := false;
+                                        OnBeforeCreateServItemOnSalesLineShpt(SalesHeader,SalesLine,SalesShipmentLine,IsHandled);
+                                        if IsHandled then
+                                          exit;
+
+                                        if not (SalesHeader."Document Type" in [SalesHeader."Document Type"::Order,SalesHeader."Document Type"::Invoice]) then
+                                          exit;
+
+                                        if (SalesLine.Type = SalesLine.Type::Item) and (SalesLine."Qty. to Ship (Base)" > 0) then begin
+                                          Item.Get(SalesLine."No.");
+                                          if not ItemTrackingCode.Get(Item."Item Tracking Code") then
+                                            ItemTrackingCode.Init;
+                                          if ServItemGr.Get(Item."Service Item Group") and ServItemGr."Create Service Item" then begin
+                                            if SalesLine."Qty. to Ship (Base)" <> Round(SalesLine."Qty. to Ship (Base)",1) then
+                                              Error(
+                                                Text003,
+                                                Item.TableCaption,
+                                                Item."No.",
+                                                ServItemGr.TableCaption,
+                                                SalesLine.FieldCaption("Qty. to Ship (Base)"));
+
+                                            TempReservEntry.SetRange("Item No.",SalesLine."No.");
+                                            TempReservEntry.SetRange("Location Code",SalesLine."Location Code");
+                                            TempReservEntry.SetRange("Variant Code",SalesLine."Variant Code");
+                                            TempReservEntry.SetRange("Source Subtype",SalesLine."Document Type");
+                                            TempReservEntry.SetRange("Source ID",SalesLine."Document No.");
+                                            TempReservEntry.SetRange("Source Ref. No.",SalesLine."Line No.");
+                                            TrackingLinesExist := TempReservEntry.FindSet;
+
+                                            TempServiceItem.DeleteAll;
+                                            TempServiceItemComp.DeleteAll;
+
+                                            GLSetup.Get;
+                                            ServMgtSetup.Get;
+                                            ServMgtSetup.TestField("Service Item Nos.");
+                                            for x := 1 to SalesLine."Qty. to Ship (Base)" do begin
+                                              Clear(ServItem);
+                                              ServItemWithSerialNoExist := false;
+                                              if TempReservEntry."Serial No." <> '' then begin
+                                                ServItem.SetRange("Item No.",SalesLine."No.");
+                                                ServItem.SetRange("Serial No.",TempReservEntry."Serial No.");
+                                                if ServItem.FindFirst then
+                                                  ServItemWithSerialNoExist := true;
+                                              end;
+                                              if (TempReservEntry."Serial No." = '') or (not ServItemWithSerialNoExist) then begin
+                                                ServItem.Init;
+                                                NoSeriesMgt.InitSeries(
+                                                  ServMgtSetup."Service Item Nos.",ServItem."No. Series",0D,ServItem."No.",ServItem."No. Series");
+                                                ServItem.Insert;
+                                              end;
+                                              ServItem."Sales/Serv. Shpt. Document No." := SalesShipmentLine."Document No.";
+                                              ServItem."Sales/Serv. Shpt. Line No." := SalesShipmentLine."Line No.";
+                                              ServItem."Shipment Type" := ServItem."Shipment Type"::Sales;
+                                              ServItem.Validate(Description,
+                                                CopyStr(SalesLine.Description,1,MaxStrLen(ServItem.Description)));
+                                              ServItem."Description 2" := CopyStr(
+                                                  StrSubstNo('%1 %2',SalesHeader."Document Type",SalesHeader."No."),
+                                                  1,MaxStrLen(ServItem."Description 2"));
+                                              ServItem.Validate("Customer No.",SalesHeader."Sell-to Customer No.");
+                                              ServItem.Validate("Ship-to Code",SalesHeader."Ship-to Code");
+                                              ServItem.OmitAssignResSkills(true);
+                                              ServItem.Validate("Item No.",Item."No.");
+                                              ServItem.OmitAssignResSkills(false);
+                                              if TrackingLinesExist then
+                                                ServItem."Serial No." := TempReservEntry."Serial No.";
+                                              ServItem."Variant Code" := SalesLine."Variant Code";
+
+                                              ItemUnitOfMeasure.Get(Item."No.",SalesLine."Unit of Measure Code");
+
+                                              ServItem.Validate("Sales Unit Cost",Round(SalesLine."Unit Cost (LCY)" /
+                                                  ItemUnitOfMeasure."Qty. per Unit of Measure",GLSetup."Unit-Amount Rounding Precision"));
+                                              if SalesHeader."Currency Code" <> '' then
+                                                ServItem.Validate(
+                                                  "Sales Unit Price",
+                                                  AmountToLCY(
+                                                    Round(SalesLine."Unit Price" /
+                                                      ItemUnitOfMeasure."Qty. per Unit of Measure",GLSetup."Unit-Amount Rounding Precision"),
+                                                    SalesHeader."Currency Factor",
+                                                    SalesHeader."Currency Code",
+                                                    SalesHeader."Posting Date"))
+                                              else
+                                                ServItem.Validate("Sales Unit Price",Round(SalesLine."Unit Price" /
+                                                    ItemUnitOfMeasure."Qty. per Unit of Measure",GLSetup."Unit-Amount Rounding Precision"));
+                                              ServItem."Vendor No." := Item."Vendor No.";
+                                              ServItem."Vendor Item No." := Item."Vendor Item No.";
+                                              ServItem."Unit of Measure Code" := Item."Base Unit of Measure";
+                                              ServItem."Sales Date" := SalesHeader."Posting Date";
+                                              ServItem."Installation Date" := SalesHeader."Posting Date";
+                                              ServItem."Warranty % (Parts)" := ServMgtSetup."Warranty Disc. % (Parts)";
+                                              ServItem."Warranty % (Labor)" := ServMgtSetup."Warranty Disc. % (Labor)";
+
+                                              if TrackingLinesExist and (TempReservEntry."Warranty Date" <> 0D) then
+                                                WarrantyStartDate := TempReservEntry."Warranty Date"
+                                              else begin
+                                                WarrantyStartDate := SalesHeader."Posting Date";
+                                                if (WarrantyStartDate = 0D) and SalesLine."Drop Shipment" then
+                                                  if PurchaseHeader.Get(PurchaseHeader."Document Type"::Order,SalesLine."Purchase Order No.") then
+                                                    WarrantyStartDate := PurchaseHeader."Posting Date";
+                                              end;
+                                              CalcServiceItemWarrantyDates(
+                                                ServItem,WarrantyStartDate,ItemTrackingCode."Warranty Date Formula",ServMgtSetup."Default Warranty Duration");
+
+                                              OnCreateServItemOnSalesLineShpt(ServItem,SalesHeader,SalesLine);
+
+                                              ServItem.Modify;
+                                              Clear(TempServiceItem);
+                                              TempServiceItem := ServItem;
+                                              if TempServiceItem.Insert then;
+                                              ResSkillMgt.AssignServItemResSkills(ServItem);
+                                              if SalesLine."BOM Item No." <> '' then begin
+                                                Clear(BOMComp);
+                                                BOMComp.SetRange("Parent Item No.",SalesLine."BOM Item No.");
+                                                BOMComp.SetRange(Type,BOMComp.Type::Item);
+                                                BOMComp.SetRange("No.",SalesLine."No.");
+                                                BOMComp.SetRange("Installed in Line No.",0);
+                                                if BOMComp.FindSet then
+                                                  repeat
+                                                    Clear(BOMComp2);
+                                                    BOMComp2.SetRange("Parent Item No.",SalesLine."BOM Item No.");
+                                                    BOMComp2.SetRange("Installed in Line No.",BOMComp."Line No.");
+                                                    NextLineNo := 0;
+                                                    if BOMComp2.FindSet then
+                                                      repeat
+                                                        for Index := 1 to Round(BOMComp2."Quantity per",1) do begin
+                                                          NextLineNo := NextLineNo + 10000;
+                                                          InsertServItemComponent(ServItemComponent,BOMComp,BOMComp2,SalesHeader,SalesShipmentLine);
+                                                          Clear(TempServiceItemComp);
+                                                          TempServiceItemComp := ServItemComponent;
+                                                          TempServiceItemComp.Insert;
+                                                        end;
+                                                      until BOMComp2.Next = 0;
+                                                  until BOMComp.Next = 0;
+                                              end;
+
+                                              OnCreateServItemOnSalesLineShptOnAfterAddServItemComponents(
+                                                SalesHeader,SalesLine,SalesShipmentLine,ServItem,TempServiceItem,TempServiceItemComp);
+
+                                              Clear(ServLogMgt);
+                                              ServLogMgt.ServItemAutoCreated(ServItem);
+                                              TrackingLinesExist := TempReservEntry.Next = 1;
+                                            end;
+                                          end;
+                                        end;
+                                      END;
+
+                         ModifiedCode=BEGIN
+                                        #1..12
+                                          {IF ServItemGr.GET(Item."Service Item Group") AND ServItemGr."Create Service Item" THEN BEGIN //AAA
+                                            IF SalesLine."Qty. to Ship (Base)" <> ROUND(SalesLine."Qty. to Ship (Base)",1) THEN
+                                              ERROR(
+                                                Text003,
+                                                Item.TABLECAPTION,
+                                                Item."No.",
+                                                ServItemGr.TABLECAPTION,
+                                                SalesLine.FIELDCAPTION("Qty. to Ship (Base)"));
+
+                                            TempReservEntry.SETRANGE("Item No.",SalesLine."No.");
+                                            TempReservEntry.SETRANGE("Location Code",SalesLine."Location Code");
+                                            TempReservEntry.SETRANGE("Variant Code",SalesLine."Variant Code");
+                                            TempReservEntry.SETRANGE("Source Subtype",SalesLine."Document Type");
+                                            TempReservEntry.SETRANGE("Source ID",SalesLine."Document No.");
+                                            TempReservEntry.SETRANGE("Source Ref. No.",SalesLine."Line No.");
+                                            TrackingLinesExist := TempReservEntry.FINDSET;
+
+                                            TempServiceItem.DELETEALL;
+                                            TempServiceItemComp.DELETEALL;
+
+                                            GLSetup.GET;
+                                            ServMgtSetup.GET;
+                                            ServMgtSetup.TESTFIELD("Service Item Nos.");
+                                            FOR x := 1 TO SalesLine."Qty. to Ship (Base)" DO BEGIN
+                                              CLEAR(ServItem);
+                                              ServItemWithSerialNoExist := FALSE;
+                                              IF TempReservEntry."Serial No." <> '' THEN BEGIN
+                                                ServItem.SETRANGE("Item No.",SalesLine."No.");
+                                                ServItem.SETRANGE("Serial No.",TempReservEntry."Serial No.");
+                                                IF ServItem.FINDFIRST THEN
+                                                  ServItemWithSerialNoExist := TRUE;
+                                              END;
+                                              IF (TempReservEntry."Serial No." = '') OR (NOT ServItemWithSerialNoExist) THEN BEGIN
+                                                ServItem.INIT;
+                                                NoSeriesMgt.InitSeries(
+                                                  ServMgtSetup."Service Item Nos.",ServItem."No. Series",0D,ServItem."No.",ServItem."No. Series");
+                                                ServItem.INSERT;
+                                              END;
+                                        #51..53
+                                              ServItem.VALIDATE(Description,
+                                                COPYSTR(SalesLine.Description,1,MAXSTRLEN(ServItem.Description)));
+                                              ServItem."Description 2" := COPYSTR(
+                                                  STRSUBSTNO('%1 %2',SalesHeader."Document Type",SalesHeader."No."),
+                                                  1,MAXSTRLEN(ServItem."Description 2"));
+                                              ServItem.VALIDATE("Customer No.",SalesHeader."Sell-to Customer No.");
+                                              ServItem.VALIDATE("Ship-to Code",SalesHeader."Ship-to Code");
+                                              ServItem.OmitAssignResSkills(TRUE);
+                                              ServItem.VALIDATE("Item No.",Item."No.");
+                                              ServItem.OmitAssignResSkills(FALSE);
+                                              IF TrackingLinesExist THEN
+                                        #65..67
+                                              ItemUnitOfMeasure.GET(Item."No.",SalesLine."Unit of Measure Code");
+
+                                              ServItem.VALIDATE("Sales Unit Cost",ROUND(SalesLine."Unit Cost (LCY)" /
+                                                  ItemUnitOfMeasure."Qty. per Unit of Measure",GLSetup."Unit-Amount Rounding Precision"));
+                                              IF SalesHeader."Currency Code" <> '' THEN
+                                                ServItem.VALIDATE(
+                                                  "Sales Unit Price",
+                                                  AmountToLCY(
+                                                    ROUND(SalesLine."Unit Price" /
+                                        #77..80
+                                              ELSE
+                                                ServItem.VALIDATE("Sales Unit Price",ROUND(SalesLine."Unit Price" /
+                                        #83..91
+                                              IF TrackingLinesExist AND (TempReservEntry."Warranty Date" <> 0D) THEN
+                                                WarrantyStartDate := TempReservEntry."Warranty Date"
+                                              ELSE BEGIN
+                                                WarrantyStartDate := SalesHeader."Posting Date";
+                                                IF (WarrantyStartDate = 0D) AND SalesLine."Drop Shipment" THEN
+                                                  IF PurchaseHeader.GET(PurchaseHeader."Document Type"::Order,SalesLine."Purchase Order No.") THEN
+                                                    WarrantyStartDate := PurchaseHeader."Posting Date";
+                                              END;
+                                        #100..104
+                                              ServItem.MODIFY;
+                                              CLEAR(TempServiceItem);
+                                              TempServiceItem := ServItem;
+                                              IF TempServiceItem.INSERT THEN;
+                                              ResSkillMgt.AssignServItemResSkills(ServItem);
+                                              IF SalesLine."BOM Item No." <> '' THEN BEGIN
+                                                CLEAR(BOMComp);
+                                                BOMComp.SETRANGE("Parent Item No.",SalesLine."BOM Item No.");
+                                                BOMComp.SETRANGE(Type,BOMComp.Type::Item);
+                                                BOMComp.SETRANGE("No.",SalesLine."No.");
+                                                BOMComp.SETRANGE("Installed in Line No.",0);
+                                                IF BOMComp.FINDSET THEN
+                                                  REPEAT
+                                                    CLEAR(BOMComp2);
+                                                    BOMComp2.SETRANGE("Parent Item No.",SalesLine."BOM Item No.");
+                                                    BOMComp2.SETRANGE("Installed in Line No.",BOMComp."Line No.");
+                                                    NextLineNo := 0;
+                                                    IF BOMComp2.FINDSET THEN
+                                                      REPEAT
+                                                        FOR Index := 1 TO ROUND(BOMComp2."Quantity per",1) DO BEGIN
+                                                          NextLineNo := NextLineNo + 10000;
+                                                          InsertServItemComponent(ServItemComponent,BOMComp,BOMComp2,SalesHeader,SalesShipmentLine);
+                                                          CLEAR(TempServiceItemComp);
+                                                          TempServiceItemComp := ServItemComponent;
+                                                          TempServiceItemComp.INSERT;
+                                                        END;
+                                                      UNTIL BOMComp2.NEXT = 0;
+                                                  UNTIL BOMComp.NEXT = 0;
+                                              END;
+                                        #134..137
+                                              CLEAR(ServLogMgt);
+                                              ServLogMgt.ServItemAutoCreated(ServItem);
+                                              TrackingLinesExist := TempReservEntry.NEXT = 1;
+                                            END;
+                                          END;} //blocked by santus  25-10-05
+                                        end;
+                                      END;
+
+                         Target=CreateServItemOnSalesLineShpt(PROCEDURE 3) }
+    { CodeModification  ;OriginalCode=BEGIN
+                                        if not (SalesHeader."Document Type" in [SalesHeader."Document Type"::"Credit Memo",SalesHeader."Document Type"::"Return Order"]) then
+                                          exit;
+
+                                        #4..16
+                                                  ServItem.SetRange("Customer No.",SalesLine."Sell-to Customer No.");
+                                                  ServItem.SetRange("Serial No.",ReservationEntry."Serial No.");
+                                                  if ServItem.FindFirst then begin
+                                                    if ServItem.CheckIfCanBeDeleted <> '' then begin
+                                                      ServItem.Validate(Status,ServItem.Status::" ");
+                                                      ServItem.Modify(true);
+                                                    end else
+                                                      if ServItem.Delete(true) then
+                                                        ServItemDeleted := true;
+                                                  end;
+                                                until ReservationEntry.Next = 0;
+                                            end;
+                                          until SalesLine.Next = 0;
+                                        if ServItemDeleted then
+                                          Message(Text005);
+                                      END;
+
+                         ModifiedCode=BEGIN
+                                        #1..19
+                                                    if ServItem.CheckIfCanBeDeleted = '' then
+                                        #24..31
+                                      END;
+
+                         Target=DeleteServItemOnSaleCreditMemo(PROCEDURE 1100) }
+  }
+  CODE
+  {
+
+    BEGIN
+    END.
+  }
+}
+

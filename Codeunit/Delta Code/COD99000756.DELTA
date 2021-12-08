@@ -1,0 +1,38 @@
+OBJECT Modification VersionManagement(Codeunit 99000756)
+{
+  OBJECT-PROPERTIES
+  {
+    Date=20180919D;
+    Time=120000T;
+    Version List=NAVW113.00;
+  }
+  PROPERTIES
+  {
+    Target=VersionManagement(Codeunit 99000756);
+  }
+  CHANGES
+  {
+    { PropertyModification;
+                         Target=GetBOMVersion(PROCEDURE 1).ReturnValue;
+                         Property=Length;
+                         OriginalValue=20;
+                         ModifiedValue=10 }
+    { PropertyModification;
+                         Target=GetBOMUnitOfMeasure(PROCEDURE 3).VersionCode(Parameter 1001);
+                         Property=Length;
+                         OriginalValue=20;
+                         ModifiedValue=10 }
+    { PropertyModification;
+                         Target=GetRtngVersion(PROCEDURE 2).ReturnValue;
+                         Property=Length;
+                         OriginalValue=20;
+                         ModifiedValue=10 }
+  }
+  CODE
+  {
+
+    BEGIN
+    END.
+  }
+}
+

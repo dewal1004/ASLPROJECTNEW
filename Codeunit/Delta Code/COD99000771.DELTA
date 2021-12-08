@@ -1,0 +1,43 @@
+OBJECT Modification "BOM Matrix Management"(Codeunit 99000771)
+{
+  OBJECT-PROPERTIES
+  {
+    Date=20190723D;
+    Time=120000T;
+    Version List=NAVW114.03;
+  }
+  PROPERTIES
+  {
+    Target="BOM Matrix Management"(Codeunit 99000771);
+  }
+  CHANGES
+  {
+    { PropertyModification;
+                         Target=CompareTwoItems(PROCEDURE 6).VersionCode1(Parameter 1004);
+                         Property=Length;
+                         OriginalValue=20;
+                         ModifiedValue=10 }
+    { PropertyModification;
+                         Target=CompareTwoItems(PROCEDURE 6).VersionCode2(Parameter 1005);
+                         Property=Length;
+                         OriginalValue=20;
+                         ModifiedValue=10 }
+    { PropertyModification;
+                         Target=BuildMatrix(PROCEDURE 1).VersionCode(Parameter 1001);
+                         Property=Length;
+                         OriginalValue=20;
+                         ModifiedValue=10 }
+    { PropertyModification;
+                         Target=GetVersion(PROCEDURE 7).ReturnValue;
+                         Property=Length;
+                         OriginalValue=20;
+                         ModifiedValue=10 }
+  }
+  CODE
+  {
+
+    BEGIN
+    END.
+  }
+}
+
