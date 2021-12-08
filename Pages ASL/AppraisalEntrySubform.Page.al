@@ -6,7 +6,7 @@ page 50029 "Appraisal Entry Subform."
     MultipleNewLines = true;
     PageType = Card;
     SourceTable = "Sales Line";
-    SourceTableView = WHERE ("Document Type" = FILTER ("Return Order"));
+    SourceTableView = WHERE("Document Type" = FILTER("Return Order"));
 
     layout
     {
@@ -330,25 +330,25 @@ page 50029 "Appraisal Entry Subform."
         TransferExtendedText: Codeunit "Transfer Extended Text";
         ShortcutDimCode: array[8] of Code[20];
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure ApproveCalcInvDisc()
     begin
         CODEUNIT.Run(CODEUNIT::"Sales-Disc. (Yes/No)", Rec);
     end;
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure CalcInvDisc()
     begin
         CODEUNIT.Run(CODEUNIT::"Sales-Calc. Discount", Rec);
     end;
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure ExplodeBOM()
     begin
         CODEUNIT.Run(CODEUNIT::"Sales-Explode BOM", Rec);
     end;
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure OpenPurchOrderForm()
     var
         PurchHeader: Record "Purchase Header";
@@ -360,7 +360,7 @@ page 50029 "Appraisal Entry Subform."
         PurchOrder.Run;
     end;
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure _InsertExtendedText(Unconditionally: Boolean)
     begin
         if TransferExtendedText.SalesCheckIfAnyExtText(Rec, Unconditionally) then begin
@@ -371,7 +371,7 @@ page 50029 "Appraisal Entry Subform."
             UpdateForm(true);
     end;
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure InsertExtendedText(Unconditionally: Boolean)
     begin
         if TransferExtendedText.SalesCheckIfAnyExtText(Rec, Unconditionally) then begin
@@ -382,87 +382,87 @@ page 50029 "Appraisal Entry Subform."
             UpdateForm(true);
     end;
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure _ShowReservation()
     begin
         Find;
         Rec.ShowReservation;
     end;
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure ShowReservation()
     begin
         Find;
         Rec.ShowReservation;
     end;
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure _ItemAvailability(AvailabilityType: Option Date,Variant,Location,Bin)
     begin
         ItemAvailability(AvailabilityType);
     end;
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure ItemAvailability(AvailabilityType: Option Date,Variant,Location,Bin)
     begin
         ItemAvailability(AvailabilityType);
     end;
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure _ShowReservationEntries()
     begin
         Rec.ShowReservationEntries(true);
     end;
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure ShowReservationEntries()
     begin
         Rec.ShowReservationEntries(true);
     end;
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure _ShowDimensions()
     begin
         Rec.ShowDimensions;
     end;
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure ShowDimensions()
     begin
         Rec.ShowDimensions;
     end;
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure _ShowItemSub()
     begin
         Rec.ShowItemSub;
     end;
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure ShowItemSub()
     begin
         Rec.ShowItemSub;
     end;
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure ShowNonstockItems()
     begin
         Rec.ShowNonstock;
     end;
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure _OpenItemTrackingLines()
     begin
         Rec.OpenItemTrackingLines;
     end;
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure OpenItemTrackingLines()
     begin
         Rec.OpenItemTrackingLines;
     end;
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure ShowTracking()
     var
         TrackingPage: Page "Order Tracking";
@@ -471,13 +471,13 @@ page 50029 "Appraisal Entry Subform."
         TrackingPage.RunModal;
     end;
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure ItemChargeAssgnt()
     begin
         Rec.ShowItemChargeAssgnt;
     end;
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure UpdateForm(SetSaveRecord: Boolean)
     begin
         CurrPage.Update(SetSaveRecord);

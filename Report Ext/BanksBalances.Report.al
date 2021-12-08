@@ -535,13 +535,13 @@ report 50011 "Banks Balances"
         Window: Dialog;
         intExportStatus: Integer;
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure CreateSheet()
     begin
         //ExcelBuf.CreateBookAndOpenExcel('Total Sales',Text002,COMPANYNAME,USERID);
     end;
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure Header()
     begin
 
@@ -556,7 +556,7 @@ report 50011 "Banks Balances"
         ExcelBuf.AddColumn('Closing Balance ', false, '', true, false, false, '', 0);
     end;
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure Body()
     begin
         ExcelBuf.NewRow;

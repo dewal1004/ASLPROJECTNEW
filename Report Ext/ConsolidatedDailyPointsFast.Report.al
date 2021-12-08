@@ -935,7 +935,7 @@ report 50218 "Consolidated Daily Points Fast"
         Median_NigeriaCaptionLbl: Label 'Median Nigeria';
         res: Record Resource;
 
-    /* [Scope('Internal')]
+    /* [Scope('OnPrem')]
      procedure UpdateCell(Row: Integer; Col: Integer; ValueText: Text[200]; Bold: Boolean; Italic: Boolean; Underline: Boolean; FontSize: Integer)
      begin
          xlSheet.Range(GetCol(Col) + Format(Row)).Value := ValueText;
@@ -948,7 +948,7 @@ report 50218 "Consolidated Daily Points Fast"
          xlSheet.Range(GetCol(Col) + Format(Row)).Font.Size := FontSize;
      end;
 
-     [Scope('Internal')]
+     [Scope('OnPrem')]
      procedure GetCol(CN: Integer): Text[30]
      var
          xlColID: Text[10];

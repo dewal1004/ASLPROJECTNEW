@@ -589,7 +589,7 @@ report 50200 "Voyage P&L Ledger Line b4 Pst"
         EmptyStringCaption_Control1000000210Lbl: Label '$';
         QuantityCaption_Control1000000211Lbl: Label 'Quantity';
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure Syntesis2(Cd: Code[10]; Pk: Code[10]; Br: Code[10]) Itemno: Code[10]
     begin
         //Syntesis Item Code Name
@@ -598,7 +598,7 @@ report 50200 "Voyage P&L Ledger Line b4 Pst"
         "No.B" := ItemVar;
     end;
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure GetItPrice(JNos: Code[20]; Nos: Code[20]; PDays: Date): Decimal
     var
         job3: Record Job;

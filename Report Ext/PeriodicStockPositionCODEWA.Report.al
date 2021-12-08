@@ -417,7 +417,7 @@ report 50022 "Periodic Stock Position-CODEWA"
         TSL: Record "Transfer Shipment Line";
         Stk_9__CaptionLbl: Label 'Transfer Receipt';
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure UpdateCell(Row: Integer; Col: Integer; ValueText: Text[200]; Bold: Boolean; Italic: Boolean; Underline: Boolean; FontSize: Integer)
     begin
         /*xlSheet.Range(GetCol(Col)+FORMAT(Row)).Value := ValueText;
@@ -431,7 +431,7 @@ report 50022 "Periodic Stock Position-CODEWA"
 
     end;
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure GetCol(CN: Integer): Text[30]
     var
         xlColID: Text[10];

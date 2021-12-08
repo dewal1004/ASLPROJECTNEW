@@ -4,7 +4,7 @@ page 50028 "Appraisal Entry"
     PageType = Card;
     RefreshOnActivate = true;
     SourceTable = "Sales Header";
-    SourceTableView = WHERE ("Document Type" = FILTER ("Return Order"));
+    SourceTableView = WHERE("Document Type" = FILTER("Return Order"));
 
     layout
     {
@@ -91,7 +91,7 @@ page 50028 "Appraisal Entry"
             }
             part(SalesLines; "Appraisal Entry Subform.")
             {
-                SubPageLink = "Document No." = FIELD ("No.");
+                SubPageLink = "Document No." = FIELD("No.");
             }
             group(Interview)
             {
@@ -381,7 +381,7 @@ page 50028 "Appraisal Entry"
                     Caption = 'Card';
                     Image = EditLines;
                     // RunObject = Page "Customer Card";  //*** revISit
-                   // RunPageLink = "No." = FIELD ("Sell-to Customer No.");
+                    // RunPageLink = "No." = FIELD ("Sell-to Customer No.");
                     ShortCutKey = 'Shift+F7';
                     Visible = true;
                 }
@@ -397,15 +397,15 @@ page 50028 "Appraisal Entry"
                     Caption = 'Co&mments';
                     Image = ViewComments;
                     RunObject = Page "Sales Comment Sheet";
-                    RunPageLink = "Document Type" = FIELD ("Document Type"),
-                                  "No." = FIELD ("No.");
+                    RunPageLink = "Document Type" = FIELD("Document Type"),
+                                  "No." = FIELD("No.");
                 }
                 action("S&hipments")
                 {
                     Caption = 'S&hipments';
                     RunObject = Page "Posted Sales Shipments";
-                    RunPageLink = "Order No." = FIELD ("No.");
-                    RunPageView = SORTING ("Order No.");
+                    RunPageLink = "Order No." = FIELD("No.");
+                    RunPageView = SORTING("Order No.");
                     Visible = true;
                 }
                 action(Invoices)
@@ -413,8 +413,8 @@ page 50028 "Appraisal Entry"
                     Caption = 'Invoices';
                     Image = Invoice;
                     RunObject = Page "Posted Sales Invoices";
-                    RunPageLink = "Order No." = FIELD ("No.");
-                    RunPageView = SORTING ("Order No.");
+                    RunPageLink = "Order No." = FIELD("No.");
+                    RunPageView = SORTING("Order No.");
                     Visible = true;
                 }
                 action(Action122)
@@ -551,11 +551,11 @@ page 50028 "Appraisal Entry"
                         Caption = 'Activity List';
                         Enabled = true;
                         RunObject = Page "Warehouse Activity List";
-                        RunPageLink = Type = FILTER (Movement | "Invt. Put-away" | "Invt. Pick"),
-                                      "No. of Lines" = FILTER (> 0),
-                                      "Source Type Filter" = CONST (1),
-                                      "Source Subtype Filter" = FIELD ("Document Type"),
-                                      "Source No. Filter" = FIELD ("No.");
+                        RunPageLink = Type = FILTER(Movement | "Invt. Put-away" | "Invt. Pick"),
+                                      "No. of Lines" = FILTER(> 0),
+                                      "Source Type Filter" = CONST(1),
+                                      "Source Subtype Filter" = FIELD("Document Type"),
+                                      "Source No. Filter" = FIELD("No.");
                         Visible = true;
                     }
                     action("Create Assignment")
@@ -729,7 +729,7 @@ page 50028 "Appraisal Entry"
         Text19052518: Label 'Performance';
         Text19003762: Label 'Total %';
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure UpdateAllowed(): Boolean
     begin
         if CurrPage.Editable = false then

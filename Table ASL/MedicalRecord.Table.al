@@ -47,7 +47,7 @@ table 50029 "Medical Record"
         }
         field(5; "Hospital Code"; Code[10])
         {
-            TableRelation = IF ("Transaction Type" = CONST (H)) Vendor."No." WHERE (Hospital = CONST (true));
+            TableRelation = IF ("Transaction Type" = CONST(H)) Vendor."No." WHERE(Hospital = CONST(true));
         }
         field(6; Beneficiary; Option)
         {
@@ -68,29 +68,29 @@ table 50029 "Medical Record"
         {
             CaptionClass = '1,1,1';
             Editable = false;
-            TableRelation = "Dimension Value".Code WHERE ("Global Dimension No." = CONST (1));
+            TableRelation = "Dimension Value".Code WHERE("Global Dimension No." = CONST(1));
         }
         field(11; "Global Dimension 2 Code"; Code[10])
         {
             CaptionClass = '1,1,2';
             Editable = false;
-            TableRelation = "Dimension Value".Code WHERE ("Global Dimension No." = CONST (2));
+            TableRelation = "Dimension Value".Code WHERE("Global Dimension No." = CONST(2));
         }
         field(12; "Period Filter"; Code[10])
         {
             FieldClass = FlowFilter;
-            TableRelation = Date."Period No." WHERE ("Period Type" = CONST (Date));
+            TableRelation = Date."Period No." WHERE("Period Type" = CONST(Date));
         }
         field(13; "Treatment Cost"; Decimal)
         {
             BlankZero = true;
-            CalcFormula = Sum ("Medical Record".Amount WHERE ("Region Code" = FIELD ("Region Filter"),
-                                                             "Global Dimension 1 Code" = FIELD ("Global Dimension 1 Filter"),
-                                                             "Employee No" = FIELD ("Employee Filter"),
-                                                             Beneficiary = FIELD ("Beneficiary Filter"),
-                                                             "Transaction Type" = FIELD ("Transaction  Filter"),
-                                                             "Transaction Date" = FIELD ("Date Filter"),
-                                                             "Hospital Code" = FIELD ("Hospital Filter")));
+            CalcFormula = Sum("Medical Record".Amount WHERE("Region Code" = FIELD("Region Filter"),
+                                                             "Global Dimension 1 Code" = FIELD("Global Dimension 1 Filter"),
+                                                             "Employee No" = FIELD("Employee Filter"),
+                                                             Beneficiary = FIELD("Beneficiary Filter"),
+                                                             "Transaction Type" = FIELD("Transaction  Filter"),
+                                                             "Transaction Date" = FIELD("Date Filter"),
+                                                             "Hospital Code" = FIELD("Hospital Filter")));
             DecimalPlaces = 2 : 2;
             FieldClass = FlowField;
         }
@@ -122,69 +122,69 @@ table 50029 "Medical Record"
         {
             CaptionClass = '1,3,1';
             FieldClass = FlowFilter;
-            TableRelation = "Dimension Value".Code WHERE ("Global Dimension No." = CONST (1));
+            TableRelation = "Dimension Value".Code WHERE("Global Dimension No." = CONST(1));
         }
         field(20; "Global Dimension 2 Filter"; Code[10])
         {
             CaptionClass = '1,3,2';
             FieldClass = FlowFilter;
-            TableRelation = "Dimension Value".Code WHERE ("Global Dimension No." = CONST (2));
+            TableRelation = "Dimension Value".Code WHERE("Global Dimension No." = CONST(2));
         }
         field(21; "Clinic Cost"; Decimal)
         {
             BlankZero = true;
-            CalcFormula = Sum ("Medical Record".Amount WHERE ("Region Code" = FIELD ("Region Filter"),
-                                                             "Global Dimension 1 Code" = FIELD ("Global Dimension 1 Filter"),
-                                                             "Employee No" = FIELD ("Employee Filter"),
-                                                             Beneficiary = FIELD ("Beneficiary Filter"),
-                                                             "Transaction Type" = CONST (C),
-                                                             "Transaction Date" = FIELD ("Date Filter"),
-                                                             "Hospital Code" = FIELD ("Hospital Filter")));
+            CalcFormula = Sum("Medical Record".Amount WHERE("Region Code" = FIELD("Region Filter"),
+                                                             "Global Dimension 1 Code" = FIELD("Global Dimension 1 Filter"),
+                                                             "Employee No" = FIELD("Employee Filter"),
+                                                             Beneficiary = FIELD("Beneficiary Filter"),
+                                                             "Transaction Type" = CONST(C),
+                                                             "Transaction Date" = FIELD("Date Filter"),
+                                                             "Hospital Code" = FIELD("Hospital Filter")));
             DecimalPlaces = 2 : 2;
             FieldClass = FlowField;
         }
         field(22; "Reimbursed Cost"; Decimal)
         {
             BlankZero = true;
-            CalcFormula = Sum ("Medical Record".Amount WHERE ("Region Code" = FIELD ("Region Filter"),
-                                                             "Global Dimension 1 Code" = FIELD ("Global Dimension 1 Filter"),
-                                                             "Employee No" = FIELD ("Employee Filter"),
-                                                             Beneficiary = FIELD ("Beneficiary Filter"),
-                                                             "Transaction Type" = CONST (R),
-                                                             "Transaction Date" = FIELD ("Date Filter"),
-                                                             "Hospital Code" = FIELD ("Hospital Filter")));
+            CalcFormula = Sum("Medical Record".Amount WHERE("Region Code" = FIELD("Region Filter"),
+                                                             "Global Dimension 1 Code" = FIELD("Global Dimension 1 Filter"),
+                                                             "Employee No" = FIELD("Employee Filter"),
+                                                             Beneficiary = FIELD("Beneficiary Filter"),
+                                                             "Transaction Type" = CONST(R),
+                                                             "Transaction Date" = FIELD("Date Filter"),
+                                                             "Hospital Code" = FIELD("Hospital Filter")));
             DecimalPlaces = 2 : 2;
             FieldClass = FlowField;
         }
         field(23; "Hospital Cost"; Decimal)
         {
             BlankZero = true;
-            CalcFormula = Sum ("Medical Record".Amount WHERE ("Region Code" = FIELD ("Region Filter"),
-                                                             "Global Dimension 1 Code" = FIELD ("Global Dimension 1 Filter"),
-                                                             "Employee No" = FIELD ("Employee Filter"),
-                                                             Beneficiary = FIELD ("Beneficiary Filter"),
-                                                             "Transaction Type" = CONST (H),
-                                                             "Transaction Date" = FIELD ("Date Filter")));
+            CalcFormula = Sum("Medical Record".Amount WHERE("Region Code" = FIELD("Region Filter"),
+                                                             "Global Dimension 1 Code" = FIELD("Global Dimension 1 Filter"),
+                                                             "Employee No" = FIELD("Employee Filter"),
+                                                             Beneficiary = FIELD("Beneficiary Filter"),
+                                                             "Transaction Type" = CONST(H),
+                                                             "Transaction Date" = FIELD("Date Filter")));
             DecimalPlaces = 2 : 2;
             FieldClass = FlowField;
         }
         field(24; "Hospital Filter"; Code[10])
         {
             FieldClass = FlowFilter;
-            TableRelation = IF ("Transaction Type" = CONST (H)) Vendor."No." WHERE (Hospital = CONST (true));
+            TableRelation = IF ("Transaction Type" = CONST(H)) Vendor."No." WHERE(Hospital = CONST(true));
         }
         field(25; "Transaction Description"; Text[30])
         {
         }
         field(26; "No Treated"; Integer)
         {
-            CalcFormula = Count ("Medical Record" WHERE ("Region Code" = FIELD ("Region Filter"),
-                                                        "Global Dimension 1 Code" = FIELD ("Global Dimension 1 Filter"),
-                                                        "Employee No" = FIELD ("Employee Filter"),
-                                                        Beneficiary = FIELD ("Beneficiary Filter"),
-                                                        "Transaction Type" = FIELD ("Transaction  Filter"),
-                                                        "Transaction Date" = FIELD ("Date Filter"),
-                                                        "Hospital Code" = FIELD ("Hospital Filter")));
+            CalcFormula = Count("Medical Record" WHERE("Region Code" = FIELD("Region Filter"),
+                                                        "Global Dimension 1 Code" = FIELD("Global Dimension 1 Filter"),
+                                                        "Employee No" = FIELD("Employee Filter"),
+                                                        Beneficiary = FIELD("Beneficiary Filter"),
+                                                        "Transaction Type" = FIELD("Transaction  Filter"),
+                                                        "Transaction Date" = FIELD("Date Filter"),
+                                                        "Hospital Code" = FIELD("Hospital Filter")));
             FieldClass = FlowField;
         }
         field(27; "Sickness Description"; Text[30])
@@ -248,7 +248,7 @@ table 50029 "Medical Record"
         TText: Text[50];
         YTD: Text[30];
 
-   // [Scope('Internal')]
+    // [Scope('OnPrem')]
     procedure "Per Hospital Cost"(HospNo: Code[10]; PerStr: Text[30]): Decimal
     begin
         MedRec.SetFilter(MedRec."Transaction  Filter", Format(MedRec."Transaction  Filter"::H));
@@ -258,7 +258,7 @@ table 50029 "Medical Record"
         exit(MedRec."Treatment Cost");
     end;
 
-    //[Scope('Internal')]
+    //[Scope('OnPrem')]
     procedure "Per No Treated"(HospNo: Code[10]; PerStr: Text[30]): Decimal
     begin
         MedRec.SetFilter(MedRec."Transaction  Filter", Format(MedRec."Transaction  Filter"::H));
@@ -268,7 +268,7 @@ table 50029 "Medical Record"
         exit(MedRec."No Treated");
     end;
 
-    //[Scope('Internal')]
+    //[Scope('OnPrem')]
     procedure FullName(): Text[100]
     begin
         //Univision Start 20/01/03

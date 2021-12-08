@@ -1339,7 +1339,7 @@ report 50025 "Voyage P&L Ledger Line 2"
         CostPostedtoGL: Decimal;
         ValueEntry: Record "Value Entry";
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure Syntesis2(Cd: Code[10]; Pk: Code[10]; Br: Code[10]) Itemno: Code[10]
     begin
         //Syntesis Item Code Name
@@ -1348,7 +1348,7 @@ report 50025 "Voyage P&L Ledger Line 2"
         "No.B" := ItemVar;
     end;
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure GetItPrice(JNos: Code[20]; Nos: Code[20]; PDays: Date): Decimal
     var
         job3: Record Job;
@@ -1371,7 +1371,7 @@ report 50025 "Voyage P&L Ledger Line 2"
         exit(Prc);
     end;
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure BIN()
     begin
     end;

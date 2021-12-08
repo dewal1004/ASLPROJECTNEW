@@ -304,7 +304,7 @@ report 50036 "Purc Variance on Good Received"
 
             trigger OnAfterGetRecord()
             begin
-                CurrReport.Language := Language.GetLanguageID("Language Code");
+                // CurrReport.Language := Language.GetLanguageID("Language Code");  //Refactor
 
                 if RespCenter.Get("Responsibility Center") then begin
                     FormatAddr.RespCenter(CompanyAddr, RespCenter);

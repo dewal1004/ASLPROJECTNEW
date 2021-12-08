@@ -728,7 +728,7 @@ report 62000 "Voyage P&L Ledger Line 2!"
         Bud___N_CaptionLbl: Label 'Bud. =N=';
         Var___N_CaptionLbl: Label 'Var. =N=';
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure Syntesis(Cd: Code[10]; Pk: Code[10]; Br: Code[10]) Itemno: Code[10]
     begin
         /*//Syntesis Item Code Name
@@ -738,7 +738,7 @@ report 62000 "Voyage P&L Ledger Line 2!"
 
     end;
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure GetItPrice(JNos: Code[20]; Nos: Code[20]; PDays: Date): Decimal
     var
         job3: Record Job;
@@ -760,7 +760,7 @@ report 62000 "Voyage P&L Ledger Line 2!"
 
     end;
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure BIN()
     begin
     end;

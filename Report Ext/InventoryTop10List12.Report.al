@@ -333,7 +333,7 @@ report 90711 "Inventory - Top 10 List12"
         Recpt: Decimal;
         TStk: Decimal;
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure InitializeRequest(NewShowSorting: Option; NewShowType: Option; NewNoOfRecordsToPrint: Integer; NewPrintAlsoIfZero: Boolean)
     begin
         ShowSorting := NewShowSorting;

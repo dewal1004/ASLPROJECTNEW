@@ -175,7 +175,7 @@ report 50099 "Voyage Narration"
         SkipperCaptionLbl: Label 'Skipper';
         CountryTextCaptionLbl: Label 'Country';
 
-    /*[Scope('Internal')]
+    /*[Scope('OnPrem')]
     procedure UpdateCell(Row: Integer; Col: Integer; ValueText: Text[200]; Bold: Boolean; Italic: Boolean; Underline: Boolean; FontSize: Integer)
     begin
         xlSheet.Range(GetCol(Col) + Format(Row)).Value := ValueText;
@@ -188,7 +188,7 @@ report 50099 "Voyage Narration"
         xlSheet.Range(GetCol(Col) + Format(Row)).Font.Size := FontSize;
     end;
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure GetCol(CN: Integer): Text[30]
     var
         xlColID: Text[10];

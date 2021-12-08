@@ -38,7 +38,7 @@ page 51409 "Daily B/Up by Locatn (Vessel)2"
     begin
     end;
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure UpdateMatrix()
     begin
     end;

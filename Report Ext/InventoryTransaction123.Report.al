@@ -281,7 +281,7 @@ report 59704 "Inventory - Transaction 123"
         items2: Record Item;
         BinOp: Decimal;
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure InitializeRequest(NewPrintOnlyOnePerPage: Boolean)
     begin
         PrintOnlyOnePerPage := NewPrintOnlyOnePerPage;

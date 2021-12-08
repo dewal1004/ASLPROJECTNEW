@@ -249,14 +249,14 @@ report 55558 "Voyage Ending Inventory expD12"
         JobTask: Record "Job Task";
         Jobtask_No: Code[20];
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure PickRunType()
     begin
         Selection := StrMenu(Text002, 3);
         if Selection = 0 then exit;
     end;
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure WorkTypeCode(var Nos: Code[10])
     begin
         if items.Get(Nos) then
@@ -264,7 +264,7 @@ report 55558 "Voyage Ending Inventory expD12"
                 JobJL."Work Type Code Sort" := InvPostGrp.Category;
     end;
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure MakeBatch(CatchType: Integer)
     begin
         JobJB.Init;
@@ -289,7 +289,7 @@ report 55558 "Voyage Ending Inventory expD12"
         if not JobJB.Insert then JobJB.Modify;
     end;
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure MakeLines(var Items: Record Item; CatchType: Integer)
     begin
         Items.CalcFields(Items.Inventory);

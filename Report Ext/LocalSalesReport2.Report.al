@@ -334,7 +334,7 @@ report 50018 "Local Sales Report 2"
         ClsStk: Decimal;
         DatFilt: Date;
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure InitializeRequest(NewShowSorting: Option; NewShowType: Option; NewNoOfRecordsToPrint: Integer; NewPrintAlsoIfZero: Boolean)
     begin
         ShowSorting := NewShowSorting;

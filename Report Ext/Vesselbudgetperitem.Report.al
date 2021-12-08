@@ -452,7 +452,7 @@ report 50178 "Vessel budget per item"
         ProjectedCaptionLbl: Label 'Projected';
         VarianceCaptionLbl: Label 'Variance';
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure VoyHdr()
     begin
         Job.SetCurrentKey(Job.Vessel, Job."Starting Date");
@@ -472,7 +472,7 @@ report 50178 "Vessel budget per item"
         until Countx = Job.Count + 1;
     end;
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure bin()
     begin
         /*  Job.SETFILTER(Job."date filter",'%1..%2',010180D,DatoUppr);

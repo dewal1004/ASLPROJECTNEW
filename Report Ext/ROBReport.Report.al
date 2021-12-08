@@ -6,7 +6,7 @@ report 50226 "ROB Report"
     {
         dataitem("Integer"; "Integer")
         {
-            DataItemTableView = SORTING (Number) WHERE (Number = CONST (1));
+            DataItemTableView = SORTING(Number) WHERE(Number = CONST(1));
 
             trigger OnAfterGetRecord()
             begin
@@ -154,7 +154,7 @@ report 50226 "ROB Report"
         Text001: Label 'Filters';
         Text002: Label 'Update Workbook';
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure UpdateRequestForm()
     begin
         /*

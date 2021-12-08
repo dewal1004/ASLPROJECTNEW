@@ -1,7 +1,7 @@
 table 50049 "Item Points"
 {
     Caption = 'Item Points';
-   // LookupPageID = 70029;
+    // LookupPageID = 70029;
 
     fields
     {
@@ -71,12 +71,12 @@ table 50049 "Item Points"
         field(5400; "Unit of Measure Code"; Code[10])
         {
             Caption = 'Unit of Measure Code';
-            TableRelation = "Item Unit of Measure".Code WHERE ("Item No." = FIELD ("Item No."));
+            TableRelation = "Item Unit of Measure".Code WHERE("Item No." = FIELD("Item No."));
         }
         field(5700; "Variant Code"; Code[10])
         {
             Caption = 'Variant Code';
-            TableRelation = "Item Variant".Code WHERE ("Item No." = FIELD ("Item No."));
+            TableRelation = "Item Variant".Code WHERE("Item No." = FIELD("Item No."));
         }
         field(5701; "Responsibility Center"; Code[10])
         {
@@ -101,7 +101,7 @@ table 50049 "Item Points"
         PriceGr: Record "Customer Price Group";
         Item: Record Item;
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure Description(): Text[100]
     begin
         if Item.Get("Item No.") then exit(Item.Description);

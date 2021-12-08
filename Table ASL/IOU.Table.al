@@ -23,7 +23,7 @@ table 50040 IOU
         {
             CaptionClass = '1,1,1';
             Caption = 'Global Dimension 1 Code';
-            TableRelation = "Dimension Value".Code WHERE ("Global Dimension No." = CONST (1));
+            TableRelation = "Dimension Value".Code WHERE("Global Dimension No." = CONST(1));
         }
         field(17; Redeemed; Boolean)
         {
@@ -54,7 +54,7 @@ table 50040 IOU
     var
         Employee: Record Employee;
 
-    //[Scope('Internal')]
+    //[Scope('OnPrem')]
     procedure EmployeeName(): Text[30]
     begin
         if Employee.Get("Employee No.") then

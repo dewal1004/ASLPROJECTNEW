@@ -337,7 +337,7 @@ report 50143 "Voy Reconciliation Reprint"
         Calculated_Inventory_on_BoardCaptionLbl: Label 'Calculated Inventory on Board';
         Resource_on_BoardCaptionLbl: Label 'Resource on Board';
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure WorkTypeCode(var Nos: Code[10])
     begin
 
@@ -346,7 +346,7 @@ report 50143 "Voy Reconciliation Reprint"
                 JobJL."Work Type Code Sort" := InvPostGrp.Category;
     end;
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure Bin()
     begin
         JobJL.SetUpNewLine(JobJL);

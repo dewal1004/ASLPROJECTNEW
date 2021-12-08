@@ -87,7 +87,7 @@ report 99912 "Update Resource from Employee"
         EmployeeCaptionLbl: Label 'Employee';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure ResExist()
     begin
         Res2.SetRange(Res2.Name, Res.Name);
