@@ -1,0 +1,83 @@
+OBJECT Modification "Whse.-Activity-Post"(Codeunit 7324)
+{
+  OBJECT-PROPERTIES
+  {
+    Date=20200626D;
+    Time=120000T;
+    Version List=NAVW114.15;
+  }
+  PROPERTIES
+  {
+    Target="Whse.-Activity-Post"(Codeunit 7324);
+  }
+  CHANGES
+  {
+    { CodeModification  ;OriginalCode=BEGIN
+                                        with WhseActivLine do begin
+                                          WhseJnlLine.Init;
+                                          WhseJnlLine."Location Code" := "Location Code";
+                                        #4..65
+                                                WhseJnlLine."Reference Document" := WhseJnlLine."Reference Document"::"Prod.";
+                                              end;
+                                          end;
+
+                                          if "Activity Type" in ["Activity Type"::"Invt. Put-away","Activity Type"::"Invt. Pick",
+                                                                 "Activity Type"::"Invt. Movement"]
+                                          then
+                                            WhseJnlLine."Whse. Document Type" := WhseJnlLine."Whse. Document Type"::" ";
+
+                                          WhseJnlLine."Serial No." := "Serial No.";
+                                          WhseJnlLine."Lot No." := "Lot No.";
+                                          WhseJnlLine."Warranty Date" := "Warranty Date";
+                                          WhseJnlLine."Expiration Date" := "Expiration Date";
+                                        end;
+
+                                        OnAfterCreateWhseJnlLine(WhseJnlLine,WhseActivLine);
+                                      END;
+
+                         ModifiedCode=BEGIN
+                                        #1..68
+                                        #75..81
+                                      END;
+
+                         Target=CreateWhseJnlLine(PROCEDURE 22) }
+    { Deletion          ;Target=CalcLastOperationNo(PROCEDURE 18).ProdOrderRouteManagement(Variable 1001);
+                         ChangedElements=VariableCollection
+                         {
+                           ProdOrderRouteManagement@1001 : Codeunit "Prod. Order Route Management";
+                         }
+                          }
+    { CodeModification  ;OriginalCode=BEGIN
+                                        with ProdOrderLine do begin
+                                          ProdOrderRtngLine.SetRange(Status,Status);
+                                          ProdOrderRtngLine.SetRange("Prod. Order No.","Prod. Order No.");
+                                          ProdOrderRtngLine.SetRange("Routing Reference No.","Routing Reference No.");
+                                          ProdOrderRtngLine.SetRange("Routing No.","Routing No.");
+                                          if not ProdOrderRtngLine.IsEmpty then begin
+                                            ProdOrderRouteManagement.Check(ProdOrderLine);
+                                            ProdOrderRtngLine.SetRange("Next Operation No.",'');
+                                            ProdOrderRtngLine.FindLast;
+                                            exit(ProdOrderRtngLine."Operation No.");
+                                          end;
+
+                                          exit('');
+                                        end;
+                                      END;
+
+                         ModifiedCode=BEGIN
+                                        #1..5
+                                          if ProdOrderRtngLine.FindLast then
+                                            exit(ProdOrderRtngLine."Operation No.");
+                                        #12..14
+                                      END;
+
+                         Target=CalcLastOperationNo(PROCEDURE 18) }
+  }
+  CODE
+  {
+
+    BEGIN
+    END.
+  }
+}
+

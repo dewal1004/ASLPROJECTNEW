@@ -1,0 +1,51 @@
+OBJECT Modification "Http Web Request Mgt."(Codeunit 1297)
+{
+  OBJECT-PROPERTIES
+  {
+    Date=20190904D;
+    Time=120000T;
+    Version List=NAVW114.05;
+  }
+  PROPERTIES
+  {
+    Target="Http Web Request Mgt."(Codeunit 1297);
+  }
+  CHANGES
+  {
+    { CodeModification  ;OriginalCode=BEGIN
+                                        ErrorText := WebRequestHelper.GetWebResponseError(WebException,ServiceURL);
+
+                                        if not IsNull(WebException.Response) then begin
+                                        #4..6
+
+                                          if NodePath <> '' then
+                                            if TryLoadXMLResponse(ResponseInputStream,XmlDoc) then
+                                              if Prefix = '' then
+                                                ErrorText := XMLDOMMgt.FindNodeText(XmlDoc.DocumentElement,NodePath)
+                                              else
+                                                ErrorText := XMLDOMMgt.FindNodeTextWithNamespace(XmlDoc.DocumentElement,NodePath,Prefix,NameSpace);
+                                        end;
+
+                                        if ErrorText = '' then
+                                        #17..21
+                                          ErrorText += '\\' + SupportInfo;
+
+                                        Error(ErrorText);
+                                      END;
+
+                         ModifiedCode=BEGIN
+                                        #1..9
+                                              ErrorText := XMLDOMMgt.FindNodeTextWithNamespace(XmlDoc.DocumentElement,NodePath,Prefix,NameSpace);
+                                        #14..24
+                                      END;
+
+                         Target=ProcessFaultXMLResponse(PROCEDURE 16) }
+  }
+  CODE
+  {
+
+    BEGIN
+    END.
+  }
+}
+

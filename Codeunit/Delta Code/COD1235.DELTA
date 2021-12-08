@@ -1,0 +1,198 @@
+OBJECT Modification "XML Buffer Writer"(Codeunit 1235)
+{
+  OBJECT-PROPERTIES
+  {
+    Date=20191202D;
+    Time=120000T;
+    Version List=NAVW114.08;
+  }
+  PROPERTIES
+  {
+    Target="XML Buffer Writer"(Codeunit 1235);
+  }
+  CHANGES
+  {
+    { PropertyModification;
+                         Target=InitializeXMLBufferFrom(PROCEDURE 15).XMLBuffer(Parameter 1002);
+                         Property=Subtype;
+                         OriginalValue="XML Buffer";
+                         ModifiedValue="XML Structure" }
+    { PropertyModification;
+                         Target=InitializeXMLBufferFromStream(PROCEDURE 25).XMLBuffer(Parameter 1002);
+                         Property=Subtype;
+                         OriginalValue="XML Buffer";
+                         ModifiedValue="XML Structure" }
+    { PropertyModification;
+                         Target=InitializeXMLBufferFromText(PROCEDURE 9).XMLBuffer(Parameter 1002);
+                         Property=Subtype;
+                         OriginalValue="XML Buffer";
+                         ModifiedValue="XML Structure" }
+    { PropertyModification;
+                         Target=GenerateStructureFromPath(PROCEDURE 1).XMLBuffer(Parameter 1002);
+                         Property=Subtype;
+                         OriginalValue="XML Buffer";
+                         ModifiedValue="XML Structure" }
+    { PropertyModification;
+                         Target=GenerateStructure(PROCEDURE 3).XMLBuffer(Parameter 1002);
+                         Property=Subtype;
+                         OriginalValue="XML Buffer";
+                         ModifiedValue="XML Structure" }
+    { PropertyModification;
+                         Target=ParseXML(PROCEDURE 14).XMLBuffer(Parameter 1001);
+                         Property=Subtype;
+                         OriginalValue="XML Buffer";
+                         ModifiedValue="XML Structure" }
+    { PropertyModification;
+                         Target=ParseXML(PROCEDURE 14).ParentXMLBuffer(Variable 1000);
+                         Property=Subtype;
+                         OriginalValue="XML Buffer";
+                         ModifiedValue="XML Structure" }
+    { PropertyModification;
+                         Target=ParseXMLIteratively(PROCEDURE 13).XMLBuffer(Parameter 1001);
+                         Property=Subtype;
+                         OriginalValue="XML Buffer";
+                         ModifiedValue="XML Structure" }
+    { PropertyModification;
+                         Target=ParseXMLIteratively(PROCEDURE 13).ParentXMLBuffer(Parameter 1000);
+                         Property=Subtype;
+                         OriginalValue="XML Buffer";
+                         ModifiedValue="XML Structure" }
+    { PropertyModification;
+                         Target=ParseXMLIteratively(PROCEDURE 13).LastInsertedXMLBufferElement(Variable 1003);
+                         Property=Subtype;
+                         OriginalValue="XML Buffer";
+                         ModifiedValue="XML Structure" }
+    { PropertyModification;
+                         Target=ParseCurrentXmlNode(PROCEDURE 16).XMLBuffer(Parameter 1001);
+                         Property=Subtype;
+                         OriginalValue="XML Buffer";
+                         ModifiedValue="XML Structure" }
+    { PropertyModification;
+                         Target=ParseCurrentXmlNode(PROCEDURE 16).ParentXMLBuffer(Parameter 1000);
+                         Property=Subtype;
+                         OriginalValue="XML Buffer";
+                         ModifiedValue="XML Structure" }
+    { PropertyModification;
+                         Target=ParseCurrentXmlNode(PROCEDURE 16).LastInsertedXMLBufferElement(Parameter 1003);
+                         Property=Subtype;
+                         OriginalValue="XML Buffer";
+                         ModifiedValue="XML Structure" }
+    { PropertyModification;
+                         Target=ReadAndInsertXmlElement(PROCEDURE 19).XMLBuffer(Parameter 1001);
+                         Property=Subtype;
+                         OriginalValue="XML Buffer";
+                         ModifiedValue="XML Structure" }
+    { PropertyModification;
+                         Target=ReadAndInsertXmlElement(PROCEDURE 19).ParentXMLBuffer(Parameter 1000);
+                         Property=Subtype;
+                         OriginalValue="XML Buffer";
+                         ModifiedValue="XML Structure" }
+    { PropertyModification;
+                         Target=ReadAndInsertXmlElement(PROCEDURE 19).InsertedXMLBufferElement(Parameter 1003);
+                         Property=Subtype;
+                         OriginalValue="XML Buffer";
+                         ModifiedValue="XML Structure" }
+    { PropertyModification;
+                         Target=ReadAndInsertXmlElement(PROCEDURE 19).TempXMLBuffer(Variable 1004);
+                         Property=Subtype;
+                         OriginalValue="XML Buffer";
+                         ModifiedValue="XML Structure" }
+    { PropertyModification;
+                         Target=ProcessXmlElement(PROCEDURE 8).XMLBuffer(Parameter 1003);
+                         Property=Subtype;
+                         OriginalValue="XML Buffer";
+                         ModifiedValue="XML Structure" }
+    { PropertyModification;
+                         Target=ProcessXmlElement(PROCEDURE 8).ParentXMLBuffer(Parameter 1000);
+                         Property=Subtype;
+                         OriginalValue="XML Buffer";
+                         ModifiedValue="XML Structure" }
+    { PropertyModification;
+                         Target=ProcessXmlElement(PROCEDURE 8).InsertedXMLBufferElement(Parameter 1002);
+                         Property=Subtype;
+                         OriginalValue="XML Buffer";
+                         ModifiedValue="XML Structure" }
+    { PropertyModification;
+                         Target=InsertXmlElement(PROCEDURE 17).XMLBuffer(Parameter 1002);
+                         Property=Subtype;
+                         OriginalValue="XML Buffer";
+                         ModifiedValue="XML Structure" }
+    { PropertyModification;
+                         Target=InsertXmlElement(PROCEDURE 17).ParentXMLBuffer(Parameter 1001);
+                         Property=Subtype;
+                         OriginalValue="XML Buffer";
+                         ModifiedValue="XML Structure" }
+    { PropertyModification;
+                         Target=InsertXmlAttribute(PROCEDURE 18).XMLBuffer(Parameter 1001);
+                         Property=Subtype;
+                         OriginalValue="XML Buffer";
+                         ModifiedValue="XML Structure" }
+    { PropertyModification;
+                         Target=InsertXmlAttribute(PROCEDURE 18).ParentXMLBuffer(Parameter 1000);
+                         Property=Subtype;
+                         OriginalValue="XML Buffer";
+                         ModifiedValue="XML Structure" }
+    { PropertyModification;
+                         Target=InsertXmlProcessingInstruction(PROCEDURE 33).XMLBuffer(Parameter 1001);
+                         Property=Subtype;
+                         OriginalValue="XML Buffer";
+                         ModifiedValue="XML Structure" }
+    { PropertyModification;
+                         Target=InsertXmlProcessingInstruction(PROCEDURE 33).ParentXMLBuffer(Parameter 1000);
+                         Property=Subtype;
+                         OriginalValue="XML Buffer";
+                         ModifiedValue="XML Structure" }
+    { PropertyModification;
+                         Target=GetType(PROCEDURE 2).DummyXMLBuffer(Variable 1001);
+                         Property=Subtype;
+                         OriginalValue="XML Buffer";
+                         ModifiedValue="XML Structure" }
+    { PropertyModification;
+                         Target=AddXmlTextNodeIntoParentXMLBuffer(PROCEDURE 11).XMLBuffer(Parameter 1000);
+                         Property=Subtype;
+                         OriginalValue="XML Buffer";
+                         ModifiedValue="XML Structure" }
+    { PropertyModification;
+                         Target=InsertAttribute(PROCEDURE 22).XMLBuffer(Parameter 1000);
+                         Property=Subtype;
+                         OriginalValue="XML Buffer";
+                         ModifiedValue="XML Structure" }
+    { PropertyModification;
+                         Target=InsertAttribute(PROCEDURE 22).ParentXMLBuffer(Parameter 1005);
+                         Property=Subtype;
+                         OriginalValue="XML Buffer";
+                         ModifiedValue="XML Structure" }
+    { PropertyModification;
+                         Target=InsertElement(PROCEDURE 21).XMLBuffer(Parameter 1010);
+                         Property=Subtype;
+                         OriginalValue="XML Buffer";
+                         ModifiedValue="XML Structure" }
+    { PropertyModification;
+                         Target=InsertElement(PROCEDURE 21).ParentXMLBuffer(Parameter 1009);
+                         Property=Subtype;
+                         OriginalValue="XML Buffer";
+                         ModifiedValue="XML Structure" }
+    { PropertyModification;
+                         Target=InsertProcessingInstruction(PROCEDURE 34).XMLBuffer(Parameter 1005);
+                         Property=Subtype;
+                         OriginalValue="XML Buffer";
+                         ModifiedValue="XML Structure" }
+    { PropertyModification;
+                         Target=InsertProcessingInstruction(PROCEDURE 34).ParentXMLBuffer(Parameter 1004);
+                         Property=Subtype;
+                         OriginalValue="XML Buffer";
+                         ModifiedValue="XML Structure" }
+    { PropertyModification;
+                         Target=CanPassValue(PROCEDURE 26).XMLBuffer(Variable 1002);
+                         Property=Subtype;
+                         OriginalValue="XML Buffer";
+                         ModifiedValue="XML Structure" }
+  }
+  CODE
+  {
+
+    BEGIN
+    END.
+  }
+}
+

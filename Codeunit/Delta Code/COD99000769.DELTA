@@ -1,0 +1,38 @@
+OBJECT Modification "Production BOM-Check"(Codeunit 99000769)
+{
+  OBJECT-PROPERTIES
+  {
+    Date=20190723D;
+    Time=120000T;
+    Version List=NAVW114.03;
+  }
+  PROPERTIES
+  {
+    Target="Production BOM-Check"(Codeunit 99000769);
+  }
+  CHANGES
+  {
+    { PropertyModification;
+                         Target=Code(PROCEDURE 1).VersionCode(Parameter 1001);
+                         Property=Length;
+                         OriginalValue=20;
+                         ModifiedValue=10 }
+    { PropertyModification;
+                         Target=CheckBOMStructure(PROCEDURE 2).VersionCode(Parameter 1001);
+                         Property=Length;
+                         OriginalValue=20;
+                         ModifiedValue=10 }
+    { PropertyModification;
+                         Target=ProdBOMLineCheck(PROCEDURE 3).VersionCode(Parameter 1002);
+                         Property=Length;
+                         OriginalValue=20;
+                         ModifiedValue=10 }
+  }
+  CODE
+  {
+
+    BEGIN
+    END.
+  }
+}
+

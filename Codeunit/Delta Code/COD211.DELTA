@@ -1,0 +1,56 @@
+OBJECT Modification "Res. Jnl.-Check Line"(Codeunit 211)
+{
+  OBJECT-PROPERTIES
+  {
+    Date=20210923D;
+    Time=195832.903T;
+    Modified=true;
+    Version List=NAVW114.01;
+  }
+  PROPERTIES
+  {
+    Target="Res. Jnl.-Check Line"(Codeunit 211);
+  }
+  CHANGES
+  {
+    { CodeModification  ;OriginalCode=BEGIN
+                                        IsHandled := false;
+                                        OnBeforeRunCheck(ResJnlLine,IsHandled);
+                                        if IsHandled then
+                                        #4..9
+
+                                          TestField("Resource No.");
+                                          TestField("Posting Date");
+                                          TestField("Gen. Prod. Posting Group");
+
+                                          if "Posting Date" <> NormalDate("Posting Date") then
+                                            FieldError("Posting Date",Text000);
+
+                                          UserSetupManagement.CheckAllowedPostingDate("Posting Date");
+
+                                          if "Document Date" <> 0D then
+                                            if "Document Date" <> NormalDate("Document Date") then
+                                        #22..46
+                                        end;
+
+                                        OnAfterRunCheck(ResJnlLine);
+                                      END;
+
+                         ModifiedCode=BEGIN
+                                        #1..12
+                                          //TESTFIELD("Gen. Prod. Posting Group"); s
+                                        #14..17
+                                         UserSetupManagement.CheckAllowedPostingDate("Posting Date");
+                                        #19..49
+                                      END;
+
+                         Target=RunCheck(PROCEDURE 1) }
+  }
+  CODE
+  {
+
+    BEGIN
+    END.
+  }
+}
+

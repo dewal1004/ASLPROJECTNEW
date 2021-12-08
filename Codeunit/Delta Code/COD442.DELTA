@@ -1,0 +1,92 @@
+OBJECT Modification "Sales-Post Prepayments"(Codeunit 442)
+{
+  OBJECT-PROPERTIES
+  {
+    Date=20210625D;
+    Time=120000T;
+    Version List=NAVW114.26;
+  }
+  PROPERTIES
+  {
+    Target="Sales-Post Prepayments"(Codeunit 442);
+  }
+  CHANGES
+  {
+    { CodeModification  ;OriginalCode=BEGIN
+                                        if not SalesSetup."Copy Comments Order to Invoice" then
+                                          exit;
+
+                                        with SalesCommentLine do
+                                          case ToDocType of
+                                            DATABASE::"Sales Invoice Header":
+                                              CopyHeaderComments("Document Type"::Order,"Document Type"::"Posted Invoice",FromNumber,ToNumber);
+                                            DATABASE::"Sales Cr.Memo Header":
+                                              CopyHeaderComments("Document Type"::Order,"Document Type"::"Posted Credit Memo",FromNumber,ToNumber);
+                                          end;
+                                      END;
+
+                         ModifiedCode=BEGIN
+                                        #1..6
+                                              CopyHeaderComments("Document Type"::Order,"Document Type"::Shipment,FromNumber,ToNumber);
+                                            DATABASE::"Sales Cr.Memo Header":
+                                              CopyHeaderComments("Document Type"::Order,"Document Type"::"Posted Invoice",FromNumber,ToNumber);
+                                          end;
+                                      END;
+
+                         Target=CopyHeaderCommentLines(PROCEDURE 22) }
+    { CodeModification  ;OriginalCode=BEGIN
+                                        if not SalesSetup."Copy Comments Order to Invoice" then
+                                          exit;
+
+                                        with SalesCommentLine do
+                                          case ToDocType of
+                                            DATABASE::"Sales Invoice Header":
+                                              CopyLineComments("Document Type"::Order,"Document Type"::"Posted Invoice",FromNumber,ToNumber,FromLineNo,ToLineNo);
+                                            DATABASE::"Sales Cr.Memo Header":
+                                              CopyLineComments("Document Type"::Order,"Document Type"::"Posted Credit Memo",FromNumber,ToNumber,FromLineNo,ToLineNo);
+                                          end;
+                                      END;
+
+                         ModifiedCode=BEGIN
+                                        #1..6
+                                              CopyLineComments("Document Type"::Order,"Document Type"::Shipment,FromNumber,ToNumber,FromLineNo,ToLineNo);
+                                            DATABASE::"Sales Cr.Memo Header":
+                                              CopyLineComments("Document Type"::Order,"Document Type"::"Posted Invoice",FromNumber,ToNumber,FromLineNo,ToLineNo);
+                                          end;
+                                      END;
+
+                         Target=CopyLineCommentLines(PROCEDURE 83) }
+    { CodeModification  ;OriginalCode=BEGIN
+                                        if not SalesSetup."Copy Comments Order to Invoice" then
+                                          exit;
+
+                                        with SalesCommentLine do
+                                          case ToDocType of
+                                            DATABASE::"Sales Invoice Header":
+                                              CopyLineCommentsFromSalesLines(
+                                                "Document Type"::Order,"Document Type"::"Posted Invoice",FromNumber,ToNumber,TempSalesLine);
+                                            DATABASE::"Sales Cr.Memo Header":
+                                              CopyLineCommentsFromSalesLines(
+                                                "Document Type"::Order,"Document Type"::"Posted Credit Memo",FromNumber,ToNumber,TempSalesLine);
+                                          end;
+                                      END;
+
+                         ModifiedCode=BEGIN
+                                        #1..7
+                                                "Document Type"::Order,"Document Type"::Shipment,FromNumber,ToNumber,TempSalesLine);
+                                            DATABASE::"Sales Cr.Memo Header":
+                                              CopyLineCommentsFromSalesLines(
+                                                "Document Type"::Order,"Document Type"::"Posted Invoice",FromNumber,ToNumber,TempSalesLine);
+                                          end;
+                                      END;
+
+                         Target=CopyLineCommentLinesCompressedPrepayment(PROCEDURE 84) }
+  }
+  CODE
+  {
+
+    BEGIN
+    END.
+  }
+}
+

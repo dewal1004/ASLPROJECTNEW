@@ -1,0 +1,56 @@
+OBJECT Modification "Release Sales Document"(Codeunit 414)
+{
+  OBJECT-PROPERTIES
+  {
+    Date=20210924D;
+    Time=120837.347T;
+    Modified=true;
+    Version List=NAVW114.16;
+  }
+  PROPERTIES
+  {
+    Target="Release Sales Document"(Codeunit 414);
+  }
+  CHANGES
+  {
+    { CodeModification  ;OriginalCode=BEGIN
+                                        OnBeforeReopenSalesDoc(SalesHeader,PreviewMode);
+
+                                        with SalesHeader do begin
+                                          if Status = Status::Open then
+                                        #5..14
+                                        end;
+
+                                        OnAfterReopenSalesDoc(SalesHeader,PreviewMode);
+                                      END;
+
+                         ModifiedCode=BEGIN
+                                        OnBeforeReopenSalesDoc(SalesHeader,PreviewMode);
+                                        Usersetup.Get(UserId);
+                                        if Usersetup."Return Release To Open" = false then Error('You are not allowed to reopen this Document');
+                                         with SalesHeader do begin
+                                        #2..17
+                                        end;
+                                      END;
+
+                         Target=Reopen(PROCEDURE 1) }
+    { PropertyModification;
+                         Target=SalesHeader(Variable 1008);
+                         Property=Id;
+                         OriginalValue=1008;
+                         ModifiedValue=1108 }
+    { Insertion         ;InsertAfter=Text005(Variable 1006);
+                         ChangedElements=VariableCollection
+                         {
+                           Usersetup@1008 : Record "User Setup";
+                         }
+                          }
+  }
+  CODE
+  {
+
+    BEGIN
+    END.
+  }
+}
+

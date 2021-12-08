@@ -1,0 +1,33 @@
+OBJECT Modification "Routing Line-Copy Lines"(Codeunit 99000753)
+{
+  OBJECT-PROPERTIES
+  {
+    Date=20180919D;
+    Time=120000T;
+    Version List=NAVW113.00;
+  }
+  PROPERTIES
+  {
+    Target="Routing Line-Copy Lines"(Codeunit 99000753);
+  }
+  CHANGES
+  {
+    { PropertyModification;
+                         Target=CopyRouting(PROCEDURE 1).FromVersionCode(Parameter 1001);
+                         Property=Length;
+                         OriginalValue=20;
+                         ModifiedValue=10 }
+    { PropertyModification;
+                         Target=CopyRouting(PROCEDURE 1).ToVersionCode(Parameter 1003);
+                         Property=Length;
+                         OriginalValue=20;
+                         ModifiedValue=10 }
+  }
+  CODE
+  {
+
+    BEGIN
+    END.
+  }
+}
+

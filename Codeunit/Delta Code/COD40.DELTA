@@ -1,0 +1,34 @@
+OBJECT Modification LogInManagement(Codeunit 40)
+{
+  OBJECT-PROPERTIES
+  {
+    Date=20190904D;
+    Time=120000T;
+    Version List=NAVW114.05;
+  }
+  PROPERTIES
+  {
+    Target=LogInManagement(Codeunit 40);
+  }
+  CHANGES
+  {
+    { Insertion         ;InsertAfter=SetupMyVendor(PROCEDURE 9);
+                         ChangedElements=PROCEDURECollection
+                         {
+                           [LineStart(191802)]
+                           PROCEDURE OpenSettings@65();
+                           BEGIN
+                             PAGE.Run(PAGE::"My Settings");
+                           END;
+
+                         }
+                          }
+  }
+  CODE
+  {
+
+    BEGIN
+    END.
+  }
+}
+

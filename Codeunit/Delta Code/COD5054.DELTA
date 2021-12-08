@@ -1,0 +1,25 @@
+OBJECT Modification WordManagement(Codeunit 5054)
+{
+  OBJECT-PROPERTIES
+  {
+    Date=20190723D;
+    Time=120000T;
+    Version List=NAVW114.03;
+  }
+  PROPERTIES
+  {
+    Target=WordManagement(Codeunit 5054);
+  }
+  CHANGES
+  {
+    { Move              ;Target=AddFieldsToMergeSource(PROCEDURE 16).ContactAltAddressCode(Variable 1001);
+                         InsertAfter=CompanyInfo(Variable 1002) }
+  }
+  CODE
+  {
+
+    BEGIN
+    END.
+  }
+}
+

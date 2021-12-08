@@ -1,0 +1,49 @@
+OBJECT Modification "WMS Management"(Codeunit 7302)
+{
+  OBJECT-PROPERTIES
+  {
+    Date=20210924D;
+    Time=185537.923T;
+    Modified=true;
+    Version List=NAVW114.06;
+  }
+  PROPERTIES
+  {
+    Target="WMS Management"(Codeunit 7302);
+  }
+  CHANGES
+  {
+    { CodeModification  ;OriginalCode=BEGIN
+                                        with WhseJnlLine do begin
+                                          if "Entry Type" = "Entry Type"::Movement then
+                                            exit;
+                                        #4..6
+                                            exit;
+
+                                          WarehouseJournalTemplate.Get("Journal Template Name");
+                                          if WarehouseJournalTemplate.Type = WarehouseJournalTemplate.Type::Reclassification then
+                                            exit;
+
+                                          Location.TestField("Adjustment Bin Code");
+                                        #14..26
+                                              FieldCaption("Whse. Document No."),"Whse. Document No.",
+                                              FieldCaption("Line No."),"Line No.");
+                                        end;
+                                      END;
+
+                         ModifiedCode=BEGIN
+                                        #1..9
+                                          if WarehouseJournalTemplate.Type <> WarehouseJournalTemplate.Type::Item then
+                                        #11..29
+                                      END;
+
+                         Target=CheckAdjBinCode(PROCEDURE 91) }
+  }
+  CODE
+  {
+
+    BEGIN
+    END.
+  }
+}
+

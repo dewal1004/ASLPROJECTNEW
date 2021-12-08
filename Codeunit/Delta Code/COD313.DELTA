@@ -1,0 +1,40 @@
+OBJECT Modification "Sales-Printed"(Codeunit 313)
+{
+  OBJECT-PROPERTIES
+  {
+    Date=20210924D;
+    Time=073747.907T;
+    Modified=true;
+    Version List=NAVW114.18;
+  }
+  PROPERTIES
+  {
+    Target="Sales-Printed"(Codeunit 313);
+  }
+  CHANGES
+  {
+    { CodeModification  ;OriginalCode=BEGIN
+                                        Find;
+                                        "No. Printed" := "No. Printed" + 1;
+                                        OnBeforeModify(Rec);
+                                        Modify;
+                                        Commit;
+                                      END;
+
+                         ModifiedCode=BEGIN
+                                        Find;
+                                        "No. Printed" := "No. Printed" + 1;
+                                        Status := Status::Released;
+                                        #3..5
+                                      END;
+
+                         Target=OnRun }
+  }
+  CODE
+  {
+
+    BEGIN
+    END.
+  }
+}
+

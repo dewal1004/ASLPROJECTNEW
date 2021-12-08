@@ -1,0 +1,52 @@
+OBJECT Codeunit 50101 Cust. Entry-SetAppl.ID.
+{
+  OBJECT-PROPERTIES
+  {
+    Date=20011218D;
+    Time=033015T;
+    Modified=true;
+    Version List=NAVW13.00;
+  }
+  PROPERTIES
+  {
+    Permissions=TableData "Cust. Ledger Entry"=imd;
+    OnRun=BEGIN
+          END;
+
+  }
+  CODE
+  {
+    VAR
+      CustEntryApplID@1000 : Code[20];
+
+    [LineStart(454393)]
+    PROCEDURE SetApplId@1(VAR CustLedgEntry@1000 : Record "Cust. Ledger Entry";AppliesToID@1001 : Code[20]);
+    BEGIN
+      CustLedgEntry.LockTable;
+      if CustLedgEntry.Find('-') then begin
+        // Make Applies-to ID
+        if CustLedgEntry."Applies-to ID" <> '' then
+          CustEntryApplID := ''
+        else begin
+          CustEntryApplID := AppliesToID;
+          if CustEntryApplID = '' then begin
+            CustEntryApplID := UserId;
+            if CustEntryApplID = '' then
+              CustEntryApplID := '***';
+          end;
+        end;
+
+        // Set Applies-to ID
+        repeat
+          CustLedgEntry.TestField(Open,true);
+          CustLedgEntry."Applies-to ID" := CustEntryApplID;
+          CustLedgEntry.Modify;
+        until CustLedgEntry.Next = 0;
+      end;
+    END;
+
+    BEGIN
+    END.
+  }
+}
+

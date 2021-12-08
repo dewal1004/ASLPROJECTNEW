@@ -1,0 +1,151 @@
+OBJECT Modification "Available to Promise"(Codeunit 5790)
+{
+  OBJECT-PROPERTIES
+  {
+    Date=20210924D;
+    Time=072259.320T;
+    Modified=true;
+    Version List=NAVW114.17;
+  }
+  PROPERTIES
+  {
+    Target="Available to Promise"(Codeunit 5790);
+  }
+  CHANGES
+  {
+    { CodeModification  ;OriginalCode=BEGIN
+                                        CalcAllItemFields(Item);
+                                        OnBeforeCalcGrossRequirement(Item);
+
+                                        with Item do begin
+                                          GrossRequirement :=
+                                            "Scheduled Need (Qty.)" +
+                                            "Planning Issues (Qty.)" +
+                                            "Planning Transfer Ship. (Qty)." +
+                                            "Qty. on Sales Order" +
+                                            "Qty. on Service Order" +
+                                            "Qty. on Job Order" +
+                                            "Trans. Ord. Shipment (Qty.)" +
+                                            "Qty. on Asm. Component" +
+                                        #14..16
+
+                                          exit(GrossRequirement);
+                                        end;
+                                      END;
+
+                         ModifiedCode=BEGIN
+                                        #1..4
+                                         GrossRequirement :=
+                                            "Scheduled Need (Qty.)" +
+                                           // "Planning Issues (Qty.)" +
+                                            "Planning Transfer Ship. (Qty)." +
+                                            "Qty. on Sales Order" +
+                                           // "Qty. on Service Order" +
+                                        #11..19
+                                      END;
+
+                         Target=CalcGrossRequirement(PROCEDURE 4) }
+    { CodeModification  ;OriginalCode=BEGIN
+                                        CalcAllItemFields(Item);
+                                        with Item do begin
+                                          ReservedRequirement :=
+                                            "Res. Qty. on Prod. Order Comp." +
+                                            "Reserved Qty. on Sales Orders" +
+                                            "Res. Qty. on Service Orders" +
+                                            "Res. Qty. on Job Order" +
+                                            "Res. Qty. on Outbound Transfer" +
+                                            "Res. Qty. on  Asm. Comp." +
+                                        #10..12
+
+                                          exit(ReservedRequirement);
+                                        end;
+                                      END;
+
+                         ModifiedCode=BEGIN
+                                        #1..5
+                                            //"Res. Qty. on Service Orders" +
+                                        #7..15
+                                      END;
+
+                         Target=CalcReservedRequirement(PROCEDURE 12) }
+    { CodeModification  ;OriginalCode=BEGIN
+                                        if SalesLine."Requested Delivery Date" = 0D then
+                                          exit(SalesLine."Shipment Date");
+
+                                        SalesLine."Planned Delivery Date" := SalesLine."Requested Delivery Date";
+                                        if Format(SalesLine."Shipping Time") <> '' then
+                                          SalesLine."Planned Shipment Date" := SalesLine.CalcPlannedDeliveryDate(SalesLine.FieldNo("Planned Delivery Date"))
+                                        else
+                                          SalesLine."Planned Shipment Date" := SalesLine.CalcPlannedShptDate(SalesLine.FieldNo("Planned Delivery Date"));
+                                        exit(SalesLine.CalcShipmentDate);
+                                      END;
+
+                         ModifiedCode=BEGIN
+                                        if KeepShipmentDates then
+                                          exit(SalesLine."Shipment Date");
+
+                                        if SalesLine."Requested Delivery Date" <> 0D then begin
+                                          SalesLine.SuspendStatusCheck(true);
+                                          SalesLine.SetHideValidationDialog(true);
+                                          SalesLine.Validate("Requested Delivery Date",SalesLine."Requested Delivery Date");
+                                        end;
+                                        exit(SalesLine."Shipment Date");
+                                      END;
+
+                         Target=CalcReqShipDate(PROCEDURE 10) }
+    { CodeModification  ;OriginalCode=BEGIN
+                                        with PlanningComp do
+                                          if FindLinesWithItemToPlan(Item) then
+                                            repeat
+                                              CalcFields("Reserved Qty. (Base)");
+                                              UpdateGrossRequirement(AvailabilityAtDate,"Due Date","Expected Quantity (Base)" - "Reserved Qty. (Base)");
+                                            until Next = 0;
+                                      END;
+
+                         ModifiedCode=BEGIN
+                                        if PlanningComp.ReadPermission then // AAA
+                                        #1..6
+                                      END;
+
+                         Target=UpdatePlanningIssuesAvail(PROCEDURE 22) }
+    { CodeModification  ;OriginalCode=BEGIN
+                                        with ServLine do
+                                          if FindLinesWithItemToPlan(Item) then
+                                            repeat
+                                              CalcFields("Reserved Qty. (Base)");
+                                              UpdateGrossRequirement(AvailabilityAtDate,"Needed by Date","Outstanding Qty. (Base)" - "Reserved Qty. (Base)");
+                                            until Next = 0;
+                                      END;
+
+                         ModifiedCode=BEGIN
+                                        if ServLine.ReadPermission then // AAA
+                                        #1..6
+                                      END;
+
+                         Target=UpdateServOrderAvail(PROCEDURE 24) }
+    { Insertion         ;InsertAfter=UpdateAsmCompAvail(PROCEDURE 29);
+                         ChangedElements=PROCEDURECollection
+                         {
+                           [LineStart(367438)]
+                           PROCEDURE SetRecalculateShipmentDates@46(Recalculate@1000 : Boolean);
+                           BEGIN
+                             KeepShipmentDates := not Recalculate;
+                           END;
+
+                         }
+                          }
+    { Insertion         ;InsertAfter=ReqShipDate(Variable 1006);
+                         ChangedElements=VariableCollection
+                         {
+                           KeepShipmentDates@1103 : Boolean;
+                         }
+                          }
+  }
+  CODE
+  {
+
+    BEGIN
+    END.
+  }
+}
+

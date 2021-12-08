@@ -1,0 +1,27 @@
+OBJECT Codeunit 51101 Object delete
+{
+  OBJECT-PROPERTIES
+  {
+    Date=20160509D;
+    Time=163649T;
+    Modified=true;
+    Version List=;
+  }
+  PROPERTIES
+  {
+    OnRun=BEGIN
+            object.DeleteAll;
+            Message('Deleted');
+          END;
+
+  }
+  CODE
+  {
+    VAR
+      object@1000 : Record "Operation Daily Radio";
+
+    BEGIN
+    END.
+  }
+}
+

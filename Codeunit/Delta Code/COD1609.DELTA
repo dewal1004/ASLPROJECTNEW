@@ -1,0 +1,59 @@
+OBJECT Modification "Exp. Service Cr.M. - PEPPOL2.0"(Codeunit 1609)
+{
+  OBJECT-PROPERTIES
+  {
+    Date=20190324D;
+    Time=120000T;
+    Version List=NAVW114.00;
+  }
+  PROPERTIES
+  {
+    Target="Exp. Service Cr.M. - PEPPOL2.0"(Codeunit 1609);
+  }
+  CHANGES
+  {
+    { Deletion          ;Target=OnRun.RecordRef(Variable 1002);
+                         ChangedElements=VariableCollection
+                         {
+                           RecordRef@1002 : RecordRef;
+                         }
+                          }
+    { Insertion         ;Target=OnRun;
+                         InsertAfter=ServiceCrMemoHeader(Variable 1000);
+                         ChangedElements=VariableCollection
+                         {
+                           XMLServerPath@1001 : Text[250];
+                         }
+                          }
+    { CodeModification  ;OriginalCode=BEGIN
+                                        RecordRef.Get(RecordID);
+                                        RecordRef.SetTable(ServiceCrMemoHeader);
+
+                                        ServerFilePath := GenerateXMLFile(ServiceCrMemoHeader);
+
+                                        Modify;
+                                      END;
+
+                         ModifiedCode=BEGIN
+                                        ServiceCrMemoHeader.Get(Name);
+
+                                        XMLServerPath := GenerateXMLFile(ServiceCrMemoHeader);
+
+                                        Value := XMLServerPath;
+                                        Modify;
+                                      END;
+
+                         Target=OnRun }
+    { PropertyModification;
+                         Property=TableNo;
+                         OriginalValue="Record Export Buffer";
+                         ModifiedValue="Name/Value Buffer" }
+  }
+  CODE
+  {
+
+    BEGIN
+    END.
+  }
+}
+
