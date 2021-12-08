@@ -58,8 +58,8 @@ table 60019 "Leave Plan Lines Rev 2 NU*"
         }
         field(5; "Amount Paid"; Decimal)
         {
-            CalcFormula = Sum ("Leave Payment Rev 2 NU*"."Amount Paid" WHERE ("Leave Period" = FIELD ("Leave Period"),
-                                                                             "Employee No." = FIELD ("Employee No.")));
+            CalcFormula = Sum("Leave Payment Rev 2 NU*"."Amount Paid" WHERE("Leave Period" = FIELD("Leave Period"),
+                                                                             "Employee No." = FIELD("Employee No.")));
             Editable = false;
             FieldClass = FlowField;
         }
@@ -82,7 +82,7 @@ table 60019 "Leave Plan Lines Rev 2 NU*"
         field(21; "Entry Type Filter"; Code[10])
         {
             FieldClass = FlowFilter;
-           // TableRelation = Table60021.Field3;
+            // TableRelation = Table60021.Field3;
         }
         field(22; "Date Filter"; Date)
         {
@@ -91,9 +91,9 @@ table 60019 "Leave Plan Lines Rev 2 NU*"
         field(23; "Total Leaves Due"; Decimal)
         {
             BlankZero = true;
-            CalcFormula = Sum ("Leave Plan Lines Rev 2 NU*"."Annual Duration" WHERE ("Employee No." = FIELD ("Employee No."),
-                                                                                    "Leave Period" = FIELD ("Period Filter"),
-                                                                                    "Entry Type" = CONST (PLAN)));
+            CalcFormula = Sum("Leave Plan Lines Rev 2 NU*"."Annual Duration" WHERE("Employee No." = FIELD("Employee No."),
+                                                                                    "Leave Period" = FIELD("Period Filter"),
+                                                                                    "Entry Type" = CONST(PLAN)));
             DecimalPlaces = 0 : 0;
             Editable = false;
             FieldClass = FlowField;
@@ -101,60 +101,60 @@ table 60019 "Leave Plan Lines Rev 2 NU*"
         field(24; "Total Compassionate"; Integer)
         {
             BlankZero = true;
-            CalcFormula = Count ("Leave Roster NU*" WHERE ("Employee No" = FIELD ("Employee No."),
-                                                          LeaveDate = FIELD ("Date Filter"),
-                                                          "Leave Category" = CONST ('COMP'),
-                                                          "Leave Period" = FIELD ("Period Filter")));
+            CalcFormula = Count("Leave Roster NU*" WHERE("Employee No" = FIELD("Employee No."),
+                                                          LeaveDate = FIELD("Date Filter"),
+                                                          "Leave Category" = CONST('COMP'),
+                                                          "Leave Period" = FIELD("Period Filter")));
             Editable = false;
             FieldClass = FlowField;
         }
         field(25; "Total Exam"; Integer)
         {
             BlankZero = true;
-            CalcFormula = Count ("Leave Roster NU*" WHERE ("Employee No" = FIELD ("Employee No."),
-                                                          LeaveDate = FIELD ("Date Filter"),
-                                                          "Leave Category" = CONST ('EXAM'),
-                                                          "Leave Period" = FIELD ("Period Filter")));
+            CalcFormula = Count("Leave Roster NU*" WHERE("Employee No" = FIELD("Employee No."),
+                                                          LeaveDate = FIELD("Date Filter"),
+                                                          "Leave Category" = CONST('EXAM'),
+                                                          "Leave Period" = FIELD("Period Filter")));
             Editable = false;
             FieldClass = FlowField;
         }
         field(26; "Total Others"; Integer)
         {
             BlankZero = true;
-            CalcFormula = Count ("Leave Roster NU*" WHERE ("Employee No" = FIELD ("Employee No."),
-                                                          LeaveDate = FIELD ("Date Filter"),
-                                                          "Leave Category" = CONST ('OTHERS'),
-                                                          "Leave Period" = FIELD ("Period Filter")));
+            CalcFormula = Count("Leave Roster NU*" WHERE("Employee No" = FIELD("Employee No."),
+                                                          LeaveDate = FIELD("Date Filter"),
+                                                          "Leave Category" = CONST('OTHERS'),
+                                                          "Leave Period" = FIELD("Period Filter")));
             Editable = false;
             FieldClass = FlowField;
         }
         field(27; "Total Consuming"; Integer)
         {
             BlankZero = true;
-            CalcFormula = Count ("Leave Roster NU*" WHERE ("Employee No" = FIELD ("Employee No."),
-                                                          LeaveDate = FIELD ("Date Filter"),
-                                                          Consuming = CONST (true),
-                                                          "Leave Period" = FIELD ("Period Filter")));
+            CalcFormula = Count("Leave Roster NU*" WHERE("Employee No" = FIELD("Employee No."),
+                                                          LeaveDate = FIELD("Date Filter"),
+                                                          Consuming = CONST(true),
+                                                          "Leave Period" = FIELD("Period Filter")));
             Editable = false;
             FieldClass = FlowField;
         }
         field(28; "Total Annual"; Integer)
         {
             BlankZero = true;
-            CalcFormula = Count ("Leave Roster NU*" WHERE ("Employee No" = FIELD ("Employee No."),
-                                                          LeaveDate = FIELD ("Date Filter"),
-                                                          "Leave Category" = CONST ('ANNUAL'),
-                                                          "Leave Period" = FIELD ("Period Filter")));
+            CalcFormula = Count("Leave Roster NU*" WHERE("Employee No" = FIELD("Employee No."),
+                                                          LeaveDate = FIELD("Date Filter"),
+                                                          "Leave Category" = CONST('ANNUAL'),
+                                                          "Leave Period" = FIELD("Period Filter")));
             Editable = false;
             FieldClass = FlowField;
         }
         field(29; "Total Commuted To Cash"; Integer)
         {
             BlankZero = true;
-            CalcFormula = Count ("Leave Roster NU*" WHERE ("Employee No" = FIELD ("Employee No."),
-                                                          LeaveDate = FIELD ("Date Filter"),
-                                                          "Leave Category" = CONST ('CASH'),
-                                                          "Leave Period" = FIELD ("Period Filter")));
+            CalcFormula = Count("Leave Roster NU*" WHERE("Employee No" = FIELD("Employee No."),
+                                                          LeaveDate = FIELD("Date Filter"),
+                                                          "Leave Category" = CONST('CASH'),
+                                                          "Leave Period" = FIELD("Period Filter")));
             Editable = false;
             FieldClass = FlowField;
         }
@@ -174,7 +174,7 @@ table 60019 "Leave Plan Lines Rev 2 NU*"
                     Error(FieldCaption("Start Date1") + 'Must be on or after ' + FieldCaption("End Date1"));
 
                 if "End Date1" <> 0D then
-                   "No. Days1" := GenPCode.GetNoOfDays("Start Date1", "End Date1")
+                    "No. Days1" := GenPCode.GetNoOfDays("Start Date1", "End Date1")
                 else
                     if "No. Days1" <> 0 then
                         "End Date1" := GenPCode.GetEndDate("Start Date1", "No. Days1");
@@ -182,7 +182,8 @@ table 60019 "Leave Plan Lines Rev 2 NU*"
                 CheckTotalDuration(1);
             end;
 
-        }        field(33; "End Date1"; Date)
+        }
+        field(33; "End Date1"; Date)
         {
 
             trigger OnValidate()
@@ -201,12 +202,12 @@ table 60019 "Leave Plan Lines Rev 2 NU*"
                     "No. Days1" := GenPCode.GetNoOfDays("Start Date1", "End Date1")
                 else
                     if "No. Days1" <> 0 then
-                         "Start Date1" := GenPCode.GetStartDate("End Date1", "No. Days1");
+                        "Start Date1" := GenPCode.GetStartDate("End Date1", "No. Days1");
 
                 CheckTotalDuration(1);
             end;
-            
-        } 
+
+        }
         field(34; "No. Days1"; Integer)
         {
 
@@ -219,27 +220,27 @@ table 60019 "Leave Plan Lines Rev 2 NU*"
 
                 if ("Start Date1" = 0D) and ("End Date1" = 0D) then exit;
 
-                 if "Start Date1" <> 0D then
-               "End Date1" := GenPCode.GetEndDate("Start Date1", "No. Days1")
-                 else
-               "Start Date1" := GenPCode.GetStartDate("End Date1", "No. Days1");
+                if "Start Date1" <> 0D then
+                    "End Date1" := GenPCode.GetEndDate("Start Date1", "No. Days1")
+                else
+                    "Start Date1" := GenPCode.GetStartDate("End Date1", "No. Days1");
 
                 if EmpRec.Get("Employee No.") then EmpGrpCode := EmpRec."Employee Group";
 
                 CheckTotalDuration(1);
-/*
-                
-                IF ("Leave Category" = 'CASH') AND NOT(Registered) AND ("No. Days" > 0)THEN
-                BEGIN
-                  PayRec.FIND('+');
-                  PayRec."Entry no" := PayRec."Entry no" + 10;
-                  PayRec.INIT;
-                  PayRec."Leave Plan No" := "Serial No";
-                  PayRec."Payment Date" := TODAY;
-                  PayRec."Total Days Paid For" := "No. Days";
-                  PayRec.INSERT;
-                END;
-  */              
+                /*
+
+                                IF ("Leave Category" = 'CASH') AND NOT(Registered) AND ("No. Days" > 0)THEN
+                                BEGIN
+                                  PayRec.FIND('+');
+                                  PayRec."Entry no" := PayRec."Entry no" + 10;
+                                  PayRec.INIT;
+                                  PayRec."Leave Plan No" := "Serial No";
+                                  PayRec."Payment Date" := TODAY;
+                                  PayRec."Total Days Paid For" := "No. Days";
+                                  PayRec.INSERT;
+                                END;
+                  */
             end;
         }
         field(35; "Start Date2"; Date)
@@ -259,8 +260,8 @@ table 60019 "Leave Plan Lines Rev 2 NU*"
 
                 if "End Date2" <> 0D then
                     "No. Days2" := GenPCode.GetNoOfDays("Start Date2", "End Date2")
-              else
-                     if "No. Days2" <> 0 then
+                else
+                    if "No. Days2" <> 0 then
                         "End Date2" := GenPCode.GetEndDate("Start Date2", "No. Days2");
 
                 CheckTotalDuration(1);
@@ -284,7 +285,7 @@ table 60019 "Leave Plan Lines Rev 2 NU*"
                     "No. Days2" := GenPCode.GetNoOfDays("Start Date2", "End Date2")
                 else
                     if "No. Days2" <> 0 then
-                       "Start Date2" := GenPCode.GetStartDate("End Date2", "No. Days2");
+                        "Start Date2" := GenPCode.GetStartDate("End Date2", "No. Days2");
 
 
                 CheckTotalDuration(1);
@@ -310,19 +311,19 @@ table 60019 "Leave Plan Lines Rev 2 NU*"
 
                 CheckTotalDuration(1);
 
-/*
-                
-                IF ("Leave Category" = 'CASH') AND NOT(Registered) AND ("No. Days" > 0)THEN
-                BEGIN
-                  PayRec.FIND('+');
-                  PayRec."Entry no" := PayRec."Entry no" + 10;
-                  PayRec.INIT;
-                  PayRec."Leave Plan No" := "Serial No";
-                  PayRec."Payment Date" := TODAY;
-                  PayRec."Total Days Paid For" := "No. Days";
-                  PayRec.INSERT;
-                END;
-  */              
+                /*
+
+                                IF ("Leave Category" = 'CASH') AND NOT(Registered) AND ("No. Days" > 0)THEN
+                                BEGIN
+                                  PayRec.FIND('+');
+                                  PayRec."Entry no" := PayRec."Entry no" + 10;
+                                  PayRec.INIT;
+                                  PayRec."Leave Plan No" := "Serial No";
+                                  PayRec."Payment Date" := TODAY;
+                                  PayRec."Total Days Paid For" := "No. Days";
+                                  PayRec.INSERT;
+                                END;
+                  */
 
             end;
         }
@@ -701,7 +702,7 @@ table 60019 "Leave Plan Lines Rev 2 NU*"
         OldRemDur: Integer;
         OldTotal: Integer;
 
-    //[Scope('Internal')]
+    //[Scope('OnPrem')]
     procedure RegisterLeave(LeaveType: Option PLAN,ACTUAL)
     begin
 
@@ -722,7 +723,7 @@ table 60019 "Leave Plan Lines Rev 2 NU*"
         ExplodeRec();
     end;
 
-    //[Scope('Internal')]
+    //[Scope('OnPrem')]
     procedure ExplodeRec()
     begin
 
@@ -732,12 +733,12 @@ table 60019 "Leave Plan Lines Rev 2 NU*"
                            'Between %4 and %5', true, "Actual Duration",
                            CatName, EmpRec.FullName, "Actual Start Date", "Actual End Date")
                        then begin
-               // GenPCode.ExplodeActualLeave(Rec);
+                // GenPCode.ExplodeActualLeave(Rec);
                 Validate(Registered, true);
             end;
     end;
 
-    //[Scope('Internal')]
+    //[Scope('OnPrem')]
     procedure IsConsuming(LCat: Code[10]): Boolean
     begin
         if LCategory.Get(LCat) then
@@ -746,14 +747,14 @@ table 60019 "Leave Plan Lines Rev 2 NU*"
             exit(false);
     end;
 
-    //[Scope('Internal')]
+    //[Scope('OnPrem')]
     procedure RemainingLeave(): Integer
     begin
         CalcFields("Total Consuming");
         exit("Total Leaves Due" - "Total Consuming");
     end;
 
-    //[Scope('Internal')]
+    //[Scope('OnPrem')]
     procedure GetAmountDue()
     begin
 
@@ -774,7 +775,7 @@ table 60019 "Leave Plan Lines Rev 2 NU*"
         end;
     end;
 
-    //[Scope('Internal')]
+    //[Scope('OnPrem')]
     procedure CheckTotalDuration(Cnt: Integer)
     begin
         case Cnt of
@@ -798,7 +799,7 @@ table 60019 "Leave Plan Lines Rev 2 NU*"
         end;
     end;
 
-    //[Scope('Internal')]
+    //[Scope('OnPrem')]
     procedure RegPlan()
     begin
         if Registered then

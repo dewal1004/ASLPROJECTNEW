@@ -100,7 +100,7 @@ report 99055 "Cust Bal to Excel buffer"
         TempExcelBuffer.Insert;
     end;
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure CellDef(recd: Record Customer)
     begin
         EnterCell(RowNo, 1, recd."No.", true, false, false);

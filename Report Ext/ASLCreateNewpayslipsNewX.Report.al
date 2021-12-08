@@ -11,7 +11,7 @@ report 90054 "ASL Create New payslips - NewX"
     {
         dataitem(Employee; Employee)
         {
-            DataItemTableView = SORTING ("No.");
+            DataItemTableView = SORTING("No.");
             RequestFilterFields = "No.", "Global Dimension 1 Code", "Global Dimension 2 Code";
 
             trigger OnAfterGetRecord()
@@ -321,7 +321,7 @@ report 90054 "ASL Create New payslips - NewX"
         GenPCode: Codeunit "General Purpose Codeunit";
         EDRec2: Record "Payroll ED Codes.";
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure partsalary(nodays: Integer; emplomonth: Integer) prodays: Integer
     begin
         if emplomonth = PayMonth then begin
@@ -333,7 +333,7 @@ report 90054 "ASL Create New payslips - NewX"
         end;
     end;
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure SendLines(EDToSend: Code[10]; EDAmount: Decimal; EDQty: Decimal; EDRate: Decimal)
     begin
         /*Use The Following Lines to send to Payslip Lines*/
@@ -402,7 +402,7 @@ report 90054 "ASL Create New payslips - NewX"
 
     end;
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure GetPayDays(): Integer
     begin
         /*PayPeriodRec.GET(PayHeadRec."Payroll Period");
@@ -436,7 +436,7 @@ report 90054 "ASL Create New payslips - NewX"
 
     end;
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure BIN()
     begin
         /* AAA 01

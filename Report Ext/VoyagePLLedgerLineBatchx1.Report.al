@@ -809,7 +809,7 @@ report 61156 "Voyage P&L Ledger Line Batchx1"
         Bud___N_CaptionLbl: Label 'Bud. =N=';
         Var___N_CaptionLbl: Label 'Var. =N=';
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure Syntesis(Cd: Code[10]; Pk: Code[10]; Br: Code[10]) Itemno: Code[10]
     begin
         /*//Syntesis Item Code Name
@@ -819,7 +819,7 @@ report 61156 "Voyage P&L Ledger Line Batchx1"
 
     end;
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure BIN()
     begin
     end;

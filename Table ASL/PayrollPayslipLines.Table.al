@@ -432,7 +432,7 @@ table 50006 "Payroll-Payslip Lines."
             Mark(true);
             /* If this new entry contributes in computing another, then compute that value
               for that computed entry and insert it appropriately*/
-         //***   CalcCompute(Rec, Rec.Amount, false, "E/D Code");
+            //***   CalcCompute(Rec, Rec.Amount, false, "E/D Code");
             /*BDC*/
 
             /* If this new entry is a contributory factor for the value of another line,
@@ -533,7 +533,7 @@ table 50006 "Payroll-Payslip Lines."
         if ("Employee No" <> '') then BasicPay := EmployeeRec.GetBasic("Employee No");
     end;
 
-    //[Scope('Internal')]
+    //[Scope('OnPrem')]
     procedure ChkRoundMaxMin(EDRecord: Record "Payroll ED Codes."; TheAmount: Decimal): Decimal
     begin
         /*”””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””

@@ -1761,7 +1761,7 @@ report 50170 "Receipt Report"
         end;
     end;
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure TestPostingType()
     begin
         case true of

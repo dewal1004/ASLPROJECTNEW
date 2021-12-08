@@ -192,7 +192,7 @@ page 50023 "Applicant Card"
     }
 
     var
-       //*** Mail: Codeunit Mail;
+        //*** Mail: Codeunit Mail;
         HumanRecSetup: Record "Human Resources Setup";
         Applicant: Record Applicants;
         EmploRec: Record Employee;
@@ -215,7 +215,7 @@ page 50023 "Applicant Card"
         PictureExists: Boolean;
         GloDemCd: Record "Analysis View";
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure CheckInterView1()
     begin
         /*  BEGIN
@@ -240,7 +240,7 @@ page 50023 "Applicant Card"
 
     end;
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure CheckInterView2()
     begin
         /*  BEGIN
@@ -263,12 +263,12 @@ page 50023 "Applicant Card"
 
     end;
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure CheckInterView3()
     begin
     end;
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure GetAverage(Num: Integer): Decimal
     begin
     end;

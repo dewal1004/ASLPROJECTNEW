@@ -45,13 +45,13 @@ table 50011 "Payroll-Posting Group Header."
         {
             CaptionClass = '1,3,1';
             FieldClass = FlowFilter;
-            TableRelation = "Dimension Value".Code WHERE ("Global Dimension No." = CONST (1));
+            TableRelation = "Dimension Value".Code WHERE("Global Dimension No." = CONST(1));
         }
         field(50007; "Global Dimension 2 Filter"; Code[10])
         {
             CaptionClass = '1,3,2';
             FieldClass = FlowFilter;
-            TableRelation = "Dimension Value".Code WHERE ("Global Dimension No." = CONST (2));
+            TableRelation = "Dimension Value".Code WHERE("Global Dimension No." = CONST(2));
         }
         field(50008; "Budgeted Count"; Decimal)
         {
@@ -77,12 +77,12 @@ table 50011 "Payroll-Posting Group Header."
         }
         field(50300; StaffCount; Integer)
         {
-            CalcFormula = Count (Employee WHERE ("Global Dimension 1 Code" = FIELD ("Global Dimension 1 Filter"),
-                                                "Global Dimension 2 Code" = FIELD ("Global Dimension 2 Filter"),
-                                                "Posting Group" = FIELD ("Posting Group Code"),
-                                                "Employment Date" = FIELD ("Date Filter"),
-                                                "Termination Date" = FIELD ("Termination Date Filter"),
-                                                Blocked = CONST (false)));
+            CalcFormula = Count(Employee WHERE("Global Dimension 1 Code" = FIELD("Global Dimension 1 Filter"),
+                                                "Global Dimension 2 Code" = FIELD("Global Dimension 2 Filter"),
+                                                "Posting Group" = FIELD("Posting Group Code"),
+                                                "Employment Date" = FIELD("Date Filter"),
+                                                "Termination Date" = FIELD("Termination Date Filter"),
+                                                Blocked = CONST(false)));
             Editable = false;
             FieldClass = FlowField;
         }
@@ -138,7 +138,7 @@ table 50011 "Payroll-Posting Group Header."
         BookGrpLinesRec: Record "Payroll-Posting Group Line.";
         CursorPos: Integer;
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure SetupNewPGrp(OldEmpPGrp: Record "Payroll-Posting Group Header."; BelowOldEmpPGrp: Boolean)
     var
         OldEmpPGrp2: Record "Payroll-Posting Group Header.";

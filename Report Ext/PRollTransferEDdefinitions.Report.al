@@ -10,16 +10,16 @@ report 50058 "PRoll; Transfer ED definitions"
     {
         dataitem("Payroll-E/D Codes."; "Payroll ED Codes.")
         {
-            DataItemTableView = SORTING ("E/D Code");
+            DataItemTableView = SORTING("E/D Code");
             RequestFilterFields = "E/D Code";
             dataitem(Employee; Employee)
             {
-                DataItemTableView = SORTING ("No.");
+                DataItemTableView = SORTING("No.");
                 RequestFilterFields = "No.", "Posting Group", "Employee Group", "Pension Scheme";
                 dataitem("Payroll-Payslip Header."; "Payroll-Payslip Header.")
                 {
-                    DataItemLink = "Employee No" = FIELD ("No.");
-                    DataItemTableView = SORTING ("Employee No", "Payroll Period");
+                    DataItemLink = "Employee No" = FIELD("No.");
+                    DataItemTableView = SORTING("Employee No", "Payroll Period");
                     RequestFilterFields = "Payroll Period";
 
                     trigger OnAfterGetRecord()
@@ -159,7 +159,7 @@ report 50058 "PRoll; Transfer ED definitions"
         Window: Dialog;
         TMPamt: Decimal;
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure CalcAmount(EDFileRec: Record "Payroll ED Codes."; EntryLineRec: Record "Payroll-Payslip Lines."; EntryLineAmount: Decimal): Decimal
     begin
         /*””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””
@@ -298,7 +298,7 @@ report 50058 "PRoll; Transfer ED definitions"
 
     end;
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure AmountIsComputed(var ReturnAmount: Decimal; EntryLineRec: Record "Payroll-Payslip Lines."; EDFileRec: Record "Payroll ED Codes."; NewAmount: Decimal): Boolean
     begin
         /*”””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””
@@ -352,7 +352,7 @@ report 50058 "PRoll; Transfer ED definitions"
 
     end;
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure ChkRoundMaxMin(EDRecord: Record "Payroll ED Codes."; TheAmount: Decimal): Decimal
     begin
         /*”””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””
@@ -389,7 +389,7 @@ report 50058 "PRoll; Transfer ED definitions"
 
     end;
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure CalcTaxAmt(var LDetailsRec: Record "Payroll-Lookup Lines."; TaxTableInput: Decimal): Decimal
     begin
         /*””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””
@@ -436,7 +436,7 @@ report 50058 "PRoll; Transfer ED definitions"
 
     end;
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure CalcGraduated(var WantedLookRec: Record "Payroll-Lookup Lines."; InputToTable: Decimal): Decimal
     begin
         /*”””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””

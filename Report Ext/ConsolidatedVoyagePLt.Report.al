@@ -1545,7 +1545,7 @@ report 95150 "Consolidated Voyage P&Lt"
         ETDConsCaptionLbl: Label 'ETD';
         ETAConsCaptionLbl: Label 'ETA';
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure Syntesis(Cd: Code[10]; Pk: Code[10]; Br: Code[10]) Itemno: Code[10]
     begin
         //Syntesis Item Code Name
@@ -1554,7 +1554,7 @@ report 95150 "Consolidated Voyage P&Lt"
         "No.B" := ItemVar;
     end;
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure BIN()
     begin
         /*  //AGO Credit from G/L Entry

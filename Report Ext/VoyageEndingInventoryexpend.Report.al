@@ -353,7 +353,7 @@ report 50043 "Voyage Ending Inventory expend"
         Calculated_Inventory_on_BoardCaptionLbl: Label 'Calculated Inventory on Board';
         Resource_on_BoardCaptionLbl: Label 'Resource on Board';
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure WorkTypeCode(var Nos: Code[10])
     begin
         if items.Get(Nos) then

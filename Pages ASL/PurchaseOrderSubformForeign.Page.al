@@ -7,7 +7,7 @@ page 50055 "Purchase Order Subform Foreign"
     MultipleNewLines = true;
     PageType = ListPart;
     SourceTable = "Purchase Line";
-    SourceTableView = WHERE ("Document Type" = FILTER (Order));
+    SourceTableView = WHERE("Document Type" = FILTER(Order));
 
     layout
     {
@@ -496,9 +496,9 @@ page 50055 "Purchase Order Subform Foreign"
                 field("ShortcutDimCode[3]"; ShortcutDimCode[3])
                 {
                     CaptionClass = '1,2,3';
-                    TableRelation = "Dimension Value".Code WHERE ("Global Dimension No." = CONST (3),
-                                                                  "Dimension Value Type" = CONST (Standard),
-                                                                  Blocked = CONST (false));
+                    TableRelation = "Dimension Value".Code WHERE("Global Dimension No." = CONST(3),
+                                                                  "Dimension Value Type" = CONST(Standard),
+                                                                  Blocked = CONST(false));
                     Visible = false;
 
                     trigger OnValidate()
@@ -509,9 +509,9 @@ page 50055 "Purchase Order Subform Foreign"
                 field("ShortcutDimCode[4]"; ShortcutDimCode[4])
                 {
                     CaptionClass = '1,2,4';
-                    TableRelation = "Dimension Value".Code WHERE ("Global Dimension No." = CONST (4),
-                                                                  "Dimension Value Type" = CONST (Standard),
-                                                                  Blocked = CONST (false));
+                    TableRelation = "Dimension Value".Code WHERE("Global Dimension No." = CONST(4),
+                                                                  "Dimension Value Type" = CONST(Standard),
+                                                                  Blocked = CONST(false));
                     Visible = false;
 
                     trigger OnValidate()
@@ -522,9 +522,9 @@ page 50055 "Purchase Order Subform Foreign"
                 field("ShortcutDimCode[5]"; ShortcutDimCode[5])
                 {
                     CaptionClass = '1,2,5';
-                    TableRelation = "Dimension Value".Code WHERE ("Global Dimension No." = CONST (5),
-                                                                  "Dimension Value Type" = CONST (Standard),
-                                                                  Blocked = CONST (false));
+                    TableRelation = "Dimension Value".Code WHERE("Global Dimension No." = CONST(5),
+                                                                  "Dimension Value Type" = CONST(Standard),
+                                                                  Blocked = CONST(false));
                     Visible = false;
 
                     trigger OnValidate()
@@ -535,9 +535,9 @@ page 50055 "Purchase Order Subform Foreign"
                 field("ShortcutDimCode[6]"; ShortcutDimCode[6])
                 {
                     CaptionClass = '1,2,6';
-                    TableRelation = "Dimension Value".Code WHERE ("Global Dimension No." = CONST (6),
-                                                                  "Dimension Value Type" = CONST (Standard),
-                                                                  Blocked = CONST (false));
+                    TableRelation = "Dimension Value".Code WHERE("Global Dimension No." = CONST(6),
+                                                                  "Dimension Value Type" = CONST(Standard),
+                                                                  Blocked = CONST(false));
                     Visible = false;
 
                     trigger OnValidate()
@@ -548,9 +548,9 @@ page 50055 "Purchase Order Subform Foreign"
                 field("ShortcutDimCode[7]"; ShortcutDimCode[7])
                 {
                     CaptionClass = '1,2,7';
-                    TableRelation = "Dimension Value".Code WHERE ("Global Dimension No." = CONST (7),
-                                                                  "Dimension Value Type" = CONST (Standard),
-                                                                  Blocked = CONST (false));
+                    TableRelation = "Dimension Value".Code WHERE("Global Dimension No." = CONST(7),
+                                                                  "Dimension Value Type" = CONST(Standard),
+                                                                  Blocked = CONST(false));
                     Visible = false;
 
                     trigger OnValidate()
@@ -561,9 +561,9 @@ page 50055 "Purchase Order Subform Foreign"
                 field("ShortcutDimCode[8]"; ShortcutDimCode[8])
                 {
                     CaptionClass = '1,2,8';
-                    TableRelation = "Dimension Value".Code WHERE ("Global Dimension No." = CONST (8),
-                                                                  "Dimension Value Type" = CONST (Standard),
-                                                                  Blocked = CONST (false));
+                    TableRelation = "Dimension Value".Code WHERE("Global Dimension No." = CONST(8),
+                                                                  "Dimension Value Type" = CONST(Standard),
+                                                                  Blocked = CONST(false));
                     Visible = false;
 
                     trigger OnValidate()
@@ -875,7 +875,7 @@ page 50055 "Purchase Order Subform Foreign"
         RefreshMessageText: Text;
         TypeChosen: Boolean;
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure ApproveCalcInvDisc()
     begin
         CODEUNIT.Run(CODEUNIT::"Purch.-Disc. (Yes/No)", Rec);
@@ -915,7 +915,7 @@ page 50055 "Purchase Order Subform Foreign"
             UpdateForm(true);
     end;
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure ShowTracking()
     var
         TrackingForm: Page "Order Tracking";
@@ -936,13 +936,13 @@ page 50055 "Purchase Order Subform Foreign"
         SalesOrder.Run;
     end;
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure UpdateForm(SetSaveRecord: Boolean)
     begin
         CurrPage.Update(SetSaveRecord);
     end;
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure SetUpdateAllowed(UpdateAllowed: Boolean)
     begin
         UpdateAllowedVar := UpdateAllowed;

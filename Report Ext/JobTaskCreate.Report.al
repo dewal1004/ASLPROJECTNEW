@@ -48,7 +48,7 @@ report 90051 "JobTask Create"
         Jobtask: Record "Job Task";
         JobNo: Code[20];
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure GetJobNo(var JobNo1: Code[20])
     begin
         JobNo := JobNo1;
