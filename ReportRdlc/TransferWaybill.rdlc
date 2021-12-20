@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -10,145 +10,6 @@
       <rd:SecurityType>None</rd:SecurityType>
     </DataSource>
   </DataSources>
-  <DataSets>
-    <DataSet Name="DataSet_Result">
-      <Query>
-        <DataSourceName>DataSource</DataSourceName>
-        <CommandText />
-      </Query>
-      <Fields>
-        <Field Name="No_TransShptHeader">
-          <DataField>No_TransShptHeader</DataField>
-        </Field>
-        <Field Name="CopyTextCaption">
-          <DataField>CopyTextCaption</DataField>
-        </Field>
-        <Field Name="TransferToAddr1">
-          <DataField>TransferToAddr1</DataField>
-        </Field>
-        <Field Name="TransferFromAddr1">
-          <DataField>TransferFromAddr1</DataField>
-        </Field>
-        <Field Name="TransferToAddr2">
-          <DataField>TransferToAddr2</DataField>
-        </Field>
-        <Field Name="TransferFromAddr2">
-          <DataField>TransferFromAddr2</DataField>
-        </Field>
-        <Field Name="TransferToAddr3">
-          <DataField>TransferToAddr3</DataField>
-        </Field>
-        <Field Name="TransferFromAddr3">
-          <DataField>TransferFromAddr3</DataField>
-        </Field>
-        <Field Name="TransferToAddr4">
-          <DataField>TransferToAddr4</DataField>
-        </Field>
-        <Field Name="TransferFromAddr4">
-          <DataField>TransferFromAddr4</DataField>
-        </Field>
-        <Field Name="TransferToAddr5">
-          <DataField>TransferToAddr5</DataField>
-        </Field>
-        <Field Name="TransferToAddr6">
-          <DataField>TransferToAddr6</DataField>
-        </Field>
-        <Field Name="InTransit_TransShptHeader">
-          <DataField>InTransit_TransShptHeader</DataField>
-        </Field>
-        <Field Name="PostDate_TransShptHeader">
-          <DataField>PostDate_TransShptHeader</DataField>
-        </Field>
-        <Field Name="No2_TransShptHeader">
-          <DataField>No2_TransShptHeader</DataField>
-        </Field>
-        <Field Name="TransferToAddr7">
-          <DataField>TransferToAddr7</DataField>
-        </Field>
-        <Field Name="TransferToAddr8">
-          <DataField>TransferToAddr8</DataField>
-        </Field>
-        <Field Name="TransferFromAddr5">
-          <DataField>TransferFromAddr5</DataField>
-        </Field>
-        <Field Name="TransferFromAddr6">
-          <DataField>TransferFromAddr6</DataField>
-        </Field>
-        <Field Name="ShiptDate_TransShptHeader">
-          <DataField>ShiptDate_TransShptHeader</DataField>
-        </Field>
-        <Field Name="TransferFromAddr7">
-          <DataField>TransferFromAddr7</DataField>
-        </Field>
-        <Field Name="TransferFromAddr8">
-          <DataField>TransferFromAddr8</DataField>
-        </Field>
-        <Field Name="PageCaption">
-          <DataField>PageCaption</DataField>
-        </Field>
-        <Field Name="OutputNo">
-          <DataField>OutputNo</DataField>
-        </Field>
-        <Field Name="Desc_ShptMethod">
-          <DataField>Desc_ShptMethod</DataField>
-        </Field>
-        <Field Name="TransShptHdrNoCaption">
-          <DataField>TransShptHdrNoCaption</DataField>
-        </Field>
-        <Field Name="TransShptShptDateCaption">
-          <DataField>TransShptShptDateCaption</DataField>
-        </Field>
-        <Field Name="DimText">
-          <DataField>DimText</DataField>
-        </Field>
-        <Field Name="Number_DimensionLoop1">
-          <DataField>Number_DimensionLoop1</DataField>
-        </Field>
-        <Field Name="HdrDimCaption">
-          <DataField>HdrDimCaption</DataField>
-        </Field>
-        <Field Name="ShowInternalInfo">
-          <DataField>ShowInternalInfo</DataField>
-        </Field>
-        <Field Name="NoOfCopies">
-          <DataField>NoOfCopies</DataField>
-        </Field>
-        <Field Name="ItemNo_TransShptLine">
-          <DataField>ItemNo_TransShptLine</DataField>
-        </Field>
-        <Field Name="Desc_TransShptLine">
-          <DataField>Desc_TransShptLine</DataField>
-        </Field>
-        <Field Name="Qty_TransShptLine">
-          <DataField>Qty_TransShptLine</DataField>
-        </Field>
-        <Field Name="Qty_TransShptLineFormat">
-          <DataField>Qty_TransShptLineFormat</DataField>
-        </Field>
-        <Field Name="uom">
-          <DataField>uom</DataField>
-        </Field>
-        <Field Name="UOM_TransShptLine">
-          <DataField>UOM_TransShptLine</DataField>
-        </Field>
-        <Field Name="LineNo_TransShptLine">
-          <DataField>LineNo_TransShptLine</DataField>
-        </Field>
-        <Field Name="DocNo_TransShptLine">
-          <DataField>DocNo_TransShptLine</DataField>
-        </Field>
-        <Field Name="DimText4">
-          <DataField>DimText4</DataField>
-        </Field>
-        <Field Name="Number_DimensionLoop2">
-          <DataField>Number_DimensionLoop2</DataField>
-        </Field>
-        <Field Name="LineDimCaption">
-          <DataField>LineDimCaption</DataField>
-        </Field>
-      </Fields>
-    </DataSet>
-  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -2589,6 +2450,24 @@ Fields!Desc_ShptMethod.Value)</Hidden>
     </ReportSection>
   </ReportSections>
   <ReportParameters>
+    <ReportParameter Name="PostingDateCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>PostingDateCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>PostingDateCaption</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="ShptMethodCaption">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>ShptMethodCaption</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>ShptMethodCaption</Prompt>
+    </ReportParameter>
     <ReportParameter Name="InTransit_TransShptHeaderCaption">
       <DataType>String</DataType>
       <DefaultValue>
@@ -2634,24 +2513,6 @@ Fields!Desc_ShptMethod.Value)</Hidden>
       </DefaultValue>
       <Prompt>UOM_TransShptLineCaption</Prompt>
     </ReportParameter>
-    <ReportParameter Name="PostingDateCaption">
-      <DataType>String</DataType>
-      <DefaultValue>
-        <Values>
-          <Value>PostingDateCaption</Value>
-        </Values>
-      </DefaultValue>
-      <Prompt>PostingDateCaption</Prompt>
-    </ReportParameter>
-    <ReportParameter Name="ShptMethodCaption">
-      <DataType>String</DataType>
-      <DefaultValue>
-        <Values>
-          <Value>ShptMethodCaption</Value>
-        </Values>
-      </DefaultValue>
-      <Prompt>ShptMethodCaption</Prompt>
-    </ReportParameter>
   </ReportParameters>
   <ReportParametersLayout>
     <GridLayoutDefinition>
@@ -2661,37 +2522,37 @@ Fields!Desc_ShptMethod.Value)</Hidden>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>0</RowIndex>
-          <ParameterName>InTransit_TransShptHeaderCaption</ParameterName>
-        </CellDefinition>
-        <CellDefinition>
-          <ColumnIndex>0</ColumnIndex>
-          <RowIndex>1</RowIndex>
-          <ParameterName>ItemNo_TransShptLineCaption</ParameterName>
-        </CellDefinition>
-        <CellDefinition>
-          <ColumnIndex>0</ColumnIndex>
-          <RowIndex>2</RowIndex>
-          <ParameterName>Desc_TransShptLineCaption</ParameterName>
-        </CellDefinition>
-        <CellDefinition>
-          <ColumnIndex>0</ColumnIndex>
-          <RowIndex>3</RowIndex>
-          <ParameterName>Qty_TransShptLineCaption</ParameterName>
-        </CellDefinition>
-        <CellDefinition>
-          <ColumnIndex>0</ColumnIndex>
-          <RowIndex>4</RowIndex>
-          <ParameterName>UOM_TransShptLineCaption</ParameterName>
-        </CellDefinition>
-        <CellDefinition>
-          <ColumnIndex>0</ColumnIndex>
-          <RowIndex>5</RowIndex>
           <ParameterName>PostingDateCaption</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>0</ColumnIndex>
-          <RowIndex>6</RowIndex>
+          <RowIndex>1</RowIndex>
           <ParameterName>ShptMethodCaption</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>2</RowIndex>
+          <ParameterName>InTransit_TransShptHeaderCaption</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>3</RowIndex>
+          <ParameterName>ItemNo_TransShptLineCaption</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>4</RowIndex>
+          <ParameterName>Desc_TransShptLineCaption</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>5</RowIndex>
+          <ParameterName>Qty_TransShptLineCaption</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>0</ColumnIndex>
+          <RowIndex>6</RowIndex>
+          <ParameterName>UOM_TransShptLineCaption</ParameterName>
         </CellDefinition>
       </CellDefinitions>
     </GridLayoutDefinition>
@@ -2764,4 +2625,143 @@ End Function</Code>
   <Language>=User!Language</Language>
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="No_TransShptHeader">
+          <DataField>No_TransShptHeader</DataField>
+        </Field>
+        <Field Name="CopyTextCaption">
+          <DataField>CopyTextCaption</DataField>
+        </Field>
+        <Field Name="TransferToAddr1">
+          <DataField>TransferToAddr1</DataField>
+        </Field>
+        <Field Name="TransferFromAddr1">
+          <DataField>TransferFromAddr1</DataField>
+        </Field>
+        <Field Name="TransferToAddr2">
+          <DataField>TransferToAddr2</DataField>
+        </Field>
+        <Field Name="TransferFromAddr2">
+          <DataField>TransferFromAddr2</DataField>
+        </Field>
+        <Field Name="TransferToAddr3">
+          <DataField>TransferToAddr3</DataField>
+        </Field>
+        <Field Name="TransferFromAddr3">
+          <DataField>TransferFromAddr3</DataField>
+        </Field>
+        <Field Name="TransferToAddr4">
+          <DataField>TransferToAddr4</DataField>
+        </Field>
+        <Field Name="TransferFromAddr4">
+          <DataField>TransferFromAddr4</DataField>
+        </Field>
+        <Field Name="TransferToAddr5">
+          <DataField>TransferToAddr5</DataField>
+        </Field>
+        <Field Name="TransferToAddr6">
+          <DataField>TransferToAddr6</DataField>
+        </Field>
+        <Field Name="InTransit_TransShptHeader">
+          <DataField>InTransit_TransShptHeader</DataField>
+        </Field>
+        <Field Name="PostDate_TransShptHeader">
+          <DataField>PostDate_TransShptHeader</DataField>
+        </Field>
+        <Field Name="No2_TransShptHeader">
+          <DataField>No2_TransShptHeader</DataField>
+        </Field>
+        <Field Name="TransferToAddr7">
+          <DataField>TransferToAddr7</DataField>
+        </Field>
+        <Field Name="TransferToAddr8">
+          <DataField>TransferToAddr8</DataField>
+        </Field>
+        <Field Name="TransferFromAddr5">
+          <DataField>TransferFromAddr5</DataField>
+        </Field>
+        <Field Name="TransferFromAddr6">
+          <DataField>TransferFromAddr6</DataField>
+        </Field>
+        <Field Name="ShiptDate_TransShptHeader">
+          <DataField>ShiptDate_TransShptHeader</DataField>
+        </Field>
+        <Field Name="TransferFromAddr7">
+          <DataField>TransferFromAddr7</DataField>
+        </Field>
+        <Field Name="TransferFromAddr8">
+          <DataField>TransferFromAddr8</DataField>
+        </Field>
+        <Field Name="PageCaption">
+          <DataField>PageCaption</DataField>
+        </Field>
+        <Field Name="OutputNo">
+          <DataField>OutputNo</DataField>
+        </Field>
+        <Field Name="Desc_ShptMethod">
+          <DataField>Desc_ShptMethod</DataField>
+        </Field>
+        <Field Name="TransShptHdrNoCaption">
+          <DataField>TransShptHdrNoCaption</DataField>
+        </Field>
+        <Field Name="TransShptShptDateCaption">
+          <DataField>TransShptShptDateCaption</DataField>
+        </Field>
+        <Field Name="DimText">
+          <DataField>DimText</DataField>
+        </Field>
+        <Field Name="Number_DimensionLoop1">
+          <DataField>Number_DimensionLoop1</DataField>
+        </Field>
+        <Field Name="HdrDimCaption">
+          <DataField>HdrDimCaption</DataField>
+        </Field>
+        <Field Name="ShowInternalInfo">
+          <DataField>ShowInternalInfo</DataField>
+        </Field>
+        <Field Name="NoOfCopies">
+          <DataField>NoOfCopies</DataField>
+        </Field>
+        <Field Name="ItemNo_TransShptLine">
+          <DataField>ItemNo_TransShptLine</DataField>
+        </Field>
+        <Field Name="Desc_TransShptLine">
+          <DataField>Desc_TransShptLine</DataField>
+        </Field>
+        <Field Name="Qty_TransShptLine">
+          <DataField>Qty_TransShptLine</DataField>
+        </Field>
+        <Field Name="Qty_TransShptLineFormat">
+          <DataField>Qty_TransShptLineFormat</DataField>
+        </Field>
+        <Field Name="uom">
+          <DataField>uom</DataField>
+        </Field>
+        <Field Name="UOM_TransShptLine">
+          <DataField>UOM_TransShptLine</DataField>
+        </Field>
+        <Field Name="LineNo_TransShptLine">
+          <DataField>LineNo_TransShptLine</DataField>
+        </Field>
+        <Field Name="DocNo_TransShptLine">
+          <DataField>DocNo_TransShptLine</DataField>
+        </Field>
+        <Field Name="DimText4">
+          <DataField>DimText4</DataField>
+        </Field>
+        <Field Name="Number_DimensionLoop2">
+          <DataField>Number_DimensionLoop2</DataField>
+        </Field>
+        <Field Name="LineDimCaption">
+          <DataField>LineDimCaption</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
 </Report>

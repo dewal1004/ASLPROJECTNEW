@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -10,130 +10,6 @@
       <rd:SecurityType>None</rd:SecurityType>
     </DataSource>
   </DataSources>
-  <DataSets>
-    <DataSet Name="DataSet_Result">
-      <Query>
-        <DataSourceName>DataSource</DataSourceName>
-        <CommandText />
-      </Query>
-      <Fields>
-        <Field Name="USERID">
-          <DataField>USERID</DataField>
-        </Field>
-        <Field Name="COMPANYNAME">
-          <DataField>COMPANYNAME</DataField>
-        </Field>
-        <Field Name="CurrReport_PAGENO">
-          <DataField>CurrReport_PAGENO</DataField>
-        </Field>
-        <Field Name="FORMAT_TODAY_0_4_">
-          <DataField>FORMAT_TODAY_0_4_</DataField>
-        </Field>
-        <Field Name="RepFilter">
-          <DataField>RepFilter</DataField>
-        </Field>
-        <Field Name="Sea_Food_categories__Sea_food_Description_">
-          <DataField>Sea_Food_categories__Sea_food_Description_</DataField>
-        </Field>
-        <Field Name="COPYSTR__Sea_food_code__5_">
-          <DataField>COPYSTR__Sea_food_code__5_</DataField>
-        </Field>
-        <Field Name="TotSales">
-          <DataField>TotSales</DataField>
-        </Field>
-        <Field Name="TotSalesFormat">
-          <DataField>TotSalesFormat</DataField>
-        </Field>
-        <Field Name="TotSales_Control1000000012">
-          <DataField>TotSales_Control1000000012</DataField>
-        </Field>
-        <Field Name="TotSales_Control1000000012Format">
-          <DataField>TotSales_Control1000000012Format</DataField>
-        </Field>
-        <Field Name="CurrReport_PAGENOCaption">
-          <DataField>CurrReport_PAGENOCaption</DataField>
-        </Field>
-        <Field Name="Fish_Shop_Sales_ReportCaption">
-          <DataField>Fish_Shop_Sales_ReportCaption</DataField>
-        </Field>
-        <Field Name="Item__Sales__LCY__Caption">
-          <DataField>Item__Sales__LCY__Caption</DataField>
-        </Field>
-        <Field Name="Sales__LCY____Sales__Qty___Caption">
-          <DataField>Sales__LCY____Sales__Qty___Caption</DataField>
-        </Field>
-        <Field Name="Item__Sales__Qty___Caption">
-          <DataField>Item__Sales__Qty___Caption</DataField>
-        </Field>
-        <Field Name="Item_DescriptionCaption">
-          <DataField>Item_DescriptionCaption</DataField>
-        </Field>
-        <Field Name="Item__No__Caption">
-          <DataField>Item__No__Caption</DataField>
-        </Field>
-        <Field Name="Sea_Food_categories__Sea_food_Description_Caption">
-          <DataField>Sea_Food_categories__Sea_food_Description_Caption</DataField>
-        </Field>
-        <Field Name="COPYSTR__Sea_food_code__5_Caption">
-          <DataField>COPYSTR__Sea_food_code__5_Caption</DataField>
-        </Field>
-        <Field Name="Total_SalesCaption">
-          <DataField>Total_SalesCaption</DataField>
-        </Field>
-        <Field Name="Sea_Food_categories_Sea_food_code">
-          <DataField>Sea_Food_categories_Sea_food_code</DataField>
-        </Field>
-        <Field Name="Item__Item_Category_Code_">
-          <DataField>Item__Item_Category_Code_</DataField>
-        </Field>
-        <Field Name="Item__No__">
-          <DataField>Item__No__</DataField>
-        </Field>
-        <Field Name="Item_Description">
-          <DataField>Item_Description</DataField>
-        </Field>
-        <Field Name="Item__Sales__Qty___">
-          <DataField>Item__Sales__Qty___</DataField>
-        </Field>
-        <Field Name="Item__Sales__Qty___Format">
-          <DataField>Item__Sales__Qty___Format</DataField>
-        </Field>
-        <Field Name="Sales__LCY____Sales__Qty___">
-          <DataField>Sales__LCY____Sales__Qty___</DataField>
-        </Field>
-        <Field Name="Sales__LCY____Sales__Qty___Format">
-          <DataField>Sales__LCY____Sales__Qty___Format</DataField>
-        </Field>
-        <Field Name="Item__Sales__LCY__">
-          <DataField>Item__Sales__LCY__</DataField>
-        </Field>
-        <Field Name="Item__Sales__LCY__Format">
-          <DataField>Item__Sales__LCY__Format</DataField>
-        </Field>
-        <Field Name="TotalFor_COPYSTR__Sea_Food_categories___Sea_food_code__5_">
-          <DataField>TotalFor_COPYSTR__Sea_Food_categories___Sea_food_code__5_</DataField>
-        </Field>
-        <Field Name="Item__Sales__Qty____Control1000000032">
-          <DataField>Item__Sales__Qty____Control1000000032</DataField>
-        </Field>
-        <Field Name="Item__Sales__Qty____Control1000000032Format">
-          <DataField>Item__Sales__Qty____Control1000000032Format</DataField>
-        </Field>
-        <Field Name="Item__Sales__LCY___Control1000000033">
-          <DataField>Item__Sales__LCY___Control1000000033</DataField>
-        </Field>
-        <Field Name="Item__Sales__LCY___Control1000000033Format">
-          <DataField>Item__Sales__LCY___Control1000000033Format</DataField>
-        </Field>
-        <Field Name="Item__Item_Category_Code_Caption">
-          <DataField>Item__Item_Category_Code_Caption</DataField>
-        </Field>
-        <Field Name="Item_SF_Cat">
-          <DataField>Item_SF_Cat</DataField>
-        </Field>
-      </Fields>
-    </DataSet>
-  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -1731,4 +1607,128 @@ End Function
   <Language>=User!Language</Language>
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="USERID">
+          <DataField>USERID</DataField>
+        </Field>
+        <Field Name="COMPANYNAME">
+          <DataField>COMPANYNAME</DataField>
+        </Field>
+        <Field Name="CurrReport_PAGENO">
+          <DataField>CurrReport_PAGENO</DataField>
+        </Field>
+        <Field Name="FORMAT_TODAY_0_4_">
+          <DataField>FORMAT_TODAY_0_4_</DataField>
+        </Field>
+        <Field Name="RepFilter">
+          <DataField>RepFilter</DataField>
+        </Field>
+        <Field Name="Sea_Food_categories__Sea_food_Description_">
+          <DataField>Sea_Food_categories__Sea_food_Description_</DataField>
+        </Field>
+        <Field Name="COPYSTR__Sea_food_code__5_">
+          <DataField>COPYSTR__Sea_food_code__5_</DataField>
+        </Field>
+        <Field Name="TotSales">
+          <DataField>TotSales</DataField>
+        </Field>
+        <Field Name="TotSalesFormat">
+          <DataField>TotSalesFormat</DataField>
+        </Field>
+        <Field Name="TotSales_Control1000000012">
+          <DataField>TotSales_Control1000000012</DataField>
+        </Field>
+        <Field Name="TotSales_Control1000000012Format">
+          <DataField>TotSales_Control1000000012Format</DataField>
+        </Field>
+        <Field Name="CurrReport_PAGENOCaption">
+          <DataField>CurrReport_PAGENOCaption</DataField>
+        </Field>
+        <Field Name="Fish_Shop_Sales_ReportCaption">
+          <DataField>Fish_Shop_Sales_ReportCaption</DataField>
+        </Field>
+        <Field Name="Item__Sales__LCY__Caption">
+          <DataField>Item__Sales__LCY__Caption</DataField>
+        </Field>
+        <Field Name="Sales__LCY____Sales__Qty___Caption">
+          <DataField>Sales__LCY____Sales__Qty___Caption</DataField>
+        </Field>
+        <Field Name="Item__Sales__Qty___Caption">
+          <DataField>Item__Sales__Qty___Caption</DataField>
+        </Field>
+        <Field Name="Item_DescriptionCaption">
+          <DataField>Item_DescriptionCaption</DataField>
+        </Field>
+        <Field Name="Item__No__Caption">
+          <DataField>Item__No__Caption</DataField>
+        </Field>
+        <Field Name="Sea_Food_categories__Sea_food_Description_Caption">
+          <DataField>Sea_Food_categories__Sea_food_Description_Caption</DataField>
+        </Field>
+        <Field Name="COPYSTR__Sea_food_code__5_Caption">
+          <DataField>COPYSTR__Sea_food_code__5_Caption</DataField>
+        </Field>
+        <Field Name="Total_SalesCaption">
+          <DataField>Total_SalesCaption</DataField>
+        </Field>
+        <Field Name="Sea_Food_categories_Sea_food_code">
+          <DataField>Sea_Food_categories_Sea_food_code</DataField>
+        </Field>
+        <Field Name="Item__Item_Category_Code_">
+          <DataField>Item__Item_Category_Code_</DataField>
+        </Field>
+        <Field Name="Item__No__">
+          <DataField>Item__No__</DataField>
+        </Field>
+        <Field Name="Item_Description">
+          <DataField>Item_Description</DataField>
+        </Field>
+        <Field Name="Item__Sales__Qty___">
+          <DataField>Item__Sales__Qty___</DataField>
+        </Field>
+        <Field Name="Item__Sales__Qty___Format">
+          <DataField>Item__Sales__Qty___Format</DataField>
+        </Field>
+        <Field Name="Sales__LCY____Sales__Qty___">
+          <DataField>Sales__LCY____Sales__Qty___</DataField>
+        </Field>
+        <Field Name="Sales__LCY____Sales__Qty___Format">
+          <DataField>Sales__LCY____Sales__Qty___Format</DataField>
+        </Field>
+        <Field Name="Item__Sales__LCY__">
+          <DataField>Item__Sales__LCY__</DataField>
+        </Field>
+        <Field Name="Item__Sales__LCY__Format">
+          <DataField>Item__Sales__LCY__Format</DataField>
+        </Field>
+        <Field Name="TotalFor_COPYSTR__Sea_Food_categories___Sea_food_code__5_">
+          <DataField>TotalFor_COPYSTR__Sea_Food_categories___Sea_food_code__5_</DataField>
+        </Field>
+        <Field Name="Item__Sales__Qty____Control1000000032">
+          <DataField>Item__Sales__Qty____Control1000000032</DataField>
+        </Field>
+        <Field Name="Item__Sales__Qty____Control1000000032Format">
+          <DataField>Item__Sales__Qty____Control1000000032Format</DataField>
+        </Field>
+        <Field Name="Item__Sales__LCY___Control1000000033">
+          <DataField>Item__Sales__LCY___Control1000000033</DataField>
+        </Field>
+        <Field Name="Item__Sales__LCY___Control1000000033Format">
+          <DataField>Item__Sales__LCY___Control1000000033Format</DataField>
+        </Field>
+        <Field Name="Item__Item_Category_Code_Caption">
+          <DataField>Item__Item_Category_Code_Caption</DataField>
+        </Field>
+        <Field Name="Item_SF_Cat">
+          <DataField>Item_SF_Cat</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
 </Report>

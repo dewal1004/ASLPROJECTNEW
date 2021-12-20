@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -10,217 +10,6 @@
       <rd:SecurityType>None</rd:SecurityType>
     </DataSource>
   </DataSources>
-  <DataSets>
-    <DataSet Name="DataSet_Result">
-      <Query>
-        <DataSourceName>DataSource</DataSourceName>
-        <CommandText />
-      </Query>
-      <Fields>
-        <Field Name="FORMAT_TODAY_0_4_">
-          <DataField>FORMAT_TODAY_0_4_</DataField>
-        </Field>
-        <Field Name="COMPANYNAME">
-          <DataField>COMPANYNAME</DataField>
-        </Field>
-        <Field Name="CurrReport_PAGENO">
-          <DataField>CurrReport_PAGENO</DataField>
-        </Field>
-        <Field Name="USERID">
-          <DataField>USERID</DataField>
-        </Field>
-        <Field Name="Value_Entry__GETFILTERS">
-          <DataField>Value_Entry__GETFILTERS</DataField>
-        </Field>
-        <Field Name="Value_Entry__Location_Code_">
-          <DataField>Value_Entry__Location_Code_</DataField>
-        </Field>
-        <Field Name="Value_Entry__Item_Ledger_Entry_Type_">
-          <DataField>Value_Entry__Item_Ledger_Entry_Type_</DataField>
-        </Field>
-        <Field Name="Value_Entry__Item_No__">
-          <DataField>Value_Entry__Item_No__</DataField>
-        </Field>
-        <Field Name="Value_Entry_Description">
-          <DataField>Value_Entry_Description</DataField>
-        </Field>
-        <Field Name="Value_Entry__Valued_Quantity_">
-          <DataField>Value_Entry__Valued_Quantity_</DataField>
-        </Field>
-        <Field Name="Value_Entry__Valued_Quantity_Format">
-          <DataField>Value_Entry__Valued_Quantity_Format</DataField>
-        </Field>
-        <Field Name="Value_Entry__Cost_Amount__Actual__">
-          <DataField>Value_Entry__Cost_Amount__Actual__</DataField>
-        </Field>
-        <Field Name="Value_Entry__Cost_Amount__Actual__Format">
-          <DataField>Value_Entry__Cost_Amount__Actual__Format</DataField>
-        </Field>
-        <Field Name="Value_Entry__Cost_Amount__Actual___ACY__">
-          <DataField>Value_Entry__Cost_Amount__Actual___ACY__</DataField>
-        </Field>
-        <Field Name="Value_Entry__Cost_Amount__Actual___ACY__Format">
-          <DataField>Value_Entry__Cost_Amount__Actual___ACY__Format</DataField>
-        </Field>
-        <Field Name="Value_Entry__Cost_Posted_to_G_L__ACY__">
-          <DataField>Value_Entry__Cost_Posted_to_G_L__ACY__</DataField>
-        </Field>
-        <Field Name="Value_Entry__Cost_Posted_to_G_L__ACY__Format">
-          <DataField>Value_Entry__Cost_Posted_to_G_L__ACY__Format</DataField>
-        </Field>
-        <Field Name="TotalFor___FIELDCAPTION__Item_Ledger_Entry_Type__">
-          <DataField>TotalFor___FIELDCAPTION__Item_Ledger_Entry_Type__</DataField>
-        </Field>
-        <Field Name="Value_Entry__Valued_Quantity__Control1000000035">
-          <DataField>Value_Entry__Valued_Quantity__Control1000000035</DataField>
-        </Field>
-        <Field Name="Value_Entry__Valued_Quantity__Control1000000035Format">
-          <DataField>Value_Entry__Valued_Quantity__Control1000000035Format</DataField>
-        </Field>
-        <Field Name="Value_Entry__Cost_Amount__Actual___Control1000000036">
-          <DataField>Value_Entry__Cost_Amount__Actual___Control1000000036</DataField>
-        </Field>
-        <Field Name="Value_Entry__Cost_Amount__Actual___Control1000000036Format">
-          <DataField>Value_Entry__Cost_Amount__Actual___Control1000000036Format</DataField>
-        </Field>
-        <Field Name="Value_Entry__Cost_Amount__Actual___ACY___Control1000000037">
-          <DataField>Value_Entry__Cost_Amount__Actual___ACY___Control1000000037</DataField>
-        </Field>
-        <Field Name="Value_Entry__Cost_Amount__Actual___ACY___Control1000000037Format">
-          <DataField>Value_Entry__Cost_Amount__Actual___ACY___Control1000000037Format</DataField>
-        </Field>
-        <Field Name="Value_Entry__Cost_Posted_to_G_L__ACY___Control1000000038">
-          <DataField>Value_Entry__Cost_Posted_to_G_L__ACY___Control1000000038</DataField>
-        </Field>
-        <Field Name="Value_Entry__Cost_Posted_to_G_L__ACY___Control1000000038Format">
-          <DataField>Value_Entry__Cost_Posted_to_G_L__ACY___Control1000000038Format</DataField>
-        </Field>
-        <Field Name="VQtyCost_3_">
-          <DataField>VQtyCost_3_</DataField>
-        </Field>
-        <Field Name="VQtyCost_3_Format">
-          <DataField>VQtyCost_3_Format</DataField>
-        </Field>
-        <Field Name="VQtyCost2_3_">
-          <DataField>VQtyCost2_3_</DataField>
-        </Field>
-        <Field Name="VQtyCost2_3_Format">
-          <DataField>VQtyCost2_3_Format</DataField>
-        </Field>
-        <Field Name="VQtyCost_4_">
-          <DataField>VQtyCost_4_</DataField>
-        </Field>
-        <Field Name="VQtyCost_4_Format">
-          <DataField>VQtyCost_4_Format</DataField>
-        </Field>
-        <Field Name="VQtyCost2_4_">
-          <DataField>VQtyCost2_4_</DataField>
-        </Field>
-        <Field Name="VQtyCost2_4_Format">
-          <DataField>VQtyCost2_4_Format</DataField>
-        </Field>
-        <Field Name="Value_Entry__Item_No___Control1000000011">
-          <DataField>Value_Entry__Item_No___Control1000000011</DataField>
-        </Field>
-        <Field Name="Value_Entry__Valued_Quantity__Control1000000000">
-          <DataField>Value_Entry__Valued_Quantity__Control1000000000</DataField>
-        </Field>
-        <Field Name="Value_Entry__Valued_Quantity__Control1000000000Format">
-          <DataField>Value_Entry__Valued_Quantity__Control1000000000Format</DataField>
-        </Field>
-        <Field Name="Value_Entry__Cost_Amount__Actual___Control1000000007">
-          <DataField>Value_Entry__Cost_Amount__Actual___Control1000000007</DataField>
-        </Field>
-        <Field Name="Value_Entry__Cost_Amount__Actual___Control1000000007Format">
-          <DataField>Value_Entry__Cost_Amount__Actual___Control1000000007Format</DataField>
-        </Field>
-        <Field Name="ITEM_REC_Description">
-          <DataField>ITEM_REC_Description</DataField>
-        </Field>
-        <Field Name="TotalFor___FIELDCAPTION__Location_Code__">
-          <DataField>TotalFor___FIELDCAPTION__Location_Code__</DataField>
-        </Field>
-        <Field Name="Value_Entry__Valued_Quantity__Control1000000045">
-          <DataField>Value_Entry__Valued_Quantity__Control1000000045</DataField>
-        </Field>
-        <Field Name="Value_Entry__Valued_Quantity__Control1000000045Format">
-          <DataField>Value_Entry__Valued_Quantity__Control1000000045Format</DataField>
-        </Field>
-        <Field Name="Value_Entry__Cost_Amount__Actual___Control1000000046">
-          <DataField>Value_Entry__Cost_Amount__Actual___Control1000000046</DataField>
-        </Field>
-        <Field Name="Value_Entry__Cost_Amount__Actual___Control1000000046Format">
-          <DataField>Value_Entry__Cost_Amount__Actual___Control1000000046Format</DataField>
-        </Field>
-        <Field Name="VQtyCost_4__Control1000000016">
-          <DataField>VQtyCost_4__Control1000000016</DataField>
-        </Field>
-        <Field Name="VQtyCost_4__Control1000000016Format">
-          <DataField>VQtyCost_4__Control1000000016Format</DataField>
-        </Field>
-        <Field Name="VQtyCost2_4__Control1000000019">
-          <DataField>VQtyCost2_4__Control1000000019</DataField>
-        </Field>
-        <Field Name="VQtyCost2_4__Control1000000019Format">
-          <DataField>VQtyCost2_4__Control1000000019Format</DataField>
-        </Field>
-        <Field Name="VQtyCost_3__Control1000000022">
-          <DataField>VQtyCost_3__Control1000000022</DataField>
-        </Field>
-        <Field Name="VQtyCost_3__Control1000000022Format">
-          <DataField>VQtyCost_3__Control1000000022Format</DataField>
-        </Field>
-        <Field Name="VQtyCost2_3__Control1000000025">
-          <DataField>VQtyCost2_3__Control1000000025</DataField>
-        </Field>
-        <Field Name="VQtyCost2_3__Control1000000025Format">
-          <DataField>VQtyCost2_3__Control1000000025Format</DataField>
-        </Field>
-        <Field Name="Vessel_Consumption_ReportCaption">
-          <DataField>Vessel_Consumption_ReportCaption</DataField>
-        </Field>
-        <Field Name="CurrReport_PAGENOCaption">
-          <DataField>CurrReport_PAGENOCaption</DataField>
-        </Field>
-        <Field Name="Value_Entry__Item_No__Caption">
-          <DataField>Value_Entry__Item_No__Caption</DataField>
-        </Field>
-        <Field Name="Value_Entry_DescriptionCaption">
-          <DataField>Value_Entry_DescriptionCaption</DataField>
-        </Field>
-        <Field Name="Value_Entry__Valued_Quantity_Caption">
-          <DataField>Value_Entry__Valued_Quantity_Caption</DataField>
-        </Field>
-        <Field Name="Value_Entry__Cost_Amount__Actual__Caption">
-          <DataField>Value_Entry__Cost_Amount__Actual__Caption</DataField>
-        </Field>
-        <Field Name="Value_Entry__Cost_Amount__Actual___ACY__Caption">
-          <DataField>Value_Entry__Cost_Amount__Actual___ACY__Caption</DataField>
-        </Field>
-        <Field Name="Value_Entry__Cost_Posted_to_G_L__ACY__Caption">
-          <DataField>Value_Entry__Cost_Posted_to_G_L__ACY__Caption</DataField>
-        </Field>
-        <Field Name="Var__Cost_Caption">
-          <DataField>Var__Cost_Caption</DataField>
-        </Field>
-        <Field Name="Var__Qty_Caption">
-          <DataField>Var__Qty_Caption</DataField>
-        </Field>
-        <Field Name="Value_Entry__Location_Code_Caption">
-          <DataField>Value_Entry__Location_Code_Caption</DataField>
-        </Field>
-        <Field Name="Value_Entry__Item_No___Control1000000011Caption">
-          <DataField>Value_Entry__Item_No___Control1000000011Caption</DataField>
-        </Field>
-        <Field Name="Value_Entry__Item_Ledger_Entry_Type_Caption">
-          <DataField>Value_Entry__Item_Ledger_Entry_Type_Caption</DataField>
-        </Field>
-        <Field Name="Value_Entry_Entry_No_">
-          <DataField>Value_Entry_Entry_No_</DataField>
-        </Field>
-      </Fields>
-    </DataSet>
-  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -2744,4 +2533,215 @@ End Function
   <Language>=User!Language</Language>
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="FORMAT_TODAY_0_4_">
+          <DataField>FORMAT_TODAY_0_4_</DataField>
+        </Field>
+        <Field Name="COMPANYNAME">
+          <DataField>COMPANYNAME</DataField>
+        </Field>
+        <Field Name="CurrReport_PAGENO">
+          <DataField>CurrReport_PAGENO</DataField>
+        </Field>
+        <Field Name="USERID">
+          <DataField>USERID</DataField>
+        </Field>
+        <Field Name="Value_Entry__GETFILTERS">
+          <DataField>Value_Entry__GETFILTERS</DataField>
+        </Field>
+        <Field Name="Value_Entry__Location_Code_">
+          <DataField>Value_Entry__Location_Code_</DataField>
+        </Field>
+        <Field Name="Value_Entry__Item_Ledger_Entry_Type_">
+          <DataField>Value_Entry__Item_Ledger_Entry_Type_</DataField>
+        </Field>
+        <Field Name="Value_Entry__Item_No__">
+          <DataField>Value_Entry__Item_No__</DataField>
+        </Field>
+        <Field Name="Value_Entry_Description">
+          <DataField>Value_Entry_Description</DataField>
+        </Field>
+        <Field Name="Value_Entry__Valued_Quantity_">
+          <DataField>Value_Entry__Valued_Quantity_</DataField>
+        </Field>
+        <Field Name="Value_Entry__Valued_Quantity_Format">
+          <DataField>Value_Entry__Valued_Quantity_Format</DataField>
+        </Field>
+        <Field Name="Value_Entry__Cost_Amount__Actual__">
+          <DataField>Value_Entry__Cost_Amount__Actual__</DataField>
+        </Field>
+        <Field Name="Value_Entry__Cost_Amount__Actual__Format">
+          <DataField>Value_Entry__Cost_Amount__Actual__Format</DataField>
+        </Field>
+        <Field Name="Value_Entry__Cost_Amount__Actual___ACY__">
+          <DataField>Value_Entry__Cost_Amount__Actual___ACY__</DataField>
+        </Field>
+        <Field Name="Value_Entry__Cost_Amount__Actual___ACY__Format">
+          <DataField>Value_Entry__Cost_Amount__Actual___ACY__Format</DataField>
+        </Field>
+        <Field Name="Value_Entry__Cost_Posted_to_G_L__ACY__">
+          <DataField>Value_Entry__Cost_Posted_to_G_L__ACY__</DataField>
+        </Field>
+        <Field Name="Value_Entry__Cost_Posted_to_G_L__ACY__Format">
+          <DataField>Value_Entry__Cost_Posted_to_G_L__ACY__Format</DataField>
+        </Field>
+        <Field Name="TotalFor___FIELDCAPTION__Item_Ledger_Entry_Type__">
+          <DataField>TotalFor___FIELDCAPTION__Item_Ledger_Entry_Type__</DataField>
+        </Field>
+        <Field Name="Value_Entry__Valued_Quantity__Control1000000035">
+          <DataField>Value_Entry__Valued_Quantity__Control1000000035</DataField>
+        </Field>
+        <Field Name="Value_Entry__Valued_Quantity__Control1000000035Format">
+          <DataField>Value_Entry__Valued_Quantity__Control1000000035Format</DataField>
+        </Field>
+        <Field Name="Value_Entry__Cost_Amount__Actual___Control1000000036">
+          <DataField>Value_Entry__Cost_Amount__Actual___Control1000000036</DataField>
+        </Field>
+        <Field Name="Value_Entry__Cost_Amount__Actual___Control1000000036Format">
+          <DataField>Value_Entry__Cost_Amount__Actual___Control1000000036Format</DataField>
+        </Field>
+        <Field Name="Value_Entry__Cost_Amount__Actual___ACY___Control1000000037">
+          <DataField>Value_Entry__Cost_Amount__Actual___ACY___Control1000000037</DataField>
+        </Field>
+        <Field Name="Value_Entry__Cost_Amount__Actual___ACY___Control1000000037Format">
+          <DataField>Value_Entry__Cost_Amount__Actual___ACY___Control1000000037Format</DataField>
+        </Field>
+        <Field Name="Value_Entry__Cost_Posted_to_G_L__ACY___Control1000000038">
+          <DataField>Value_Entry__Cost_Posted_to_G_L__ACY___Control1000000038</DataField>
+        </Field>
+        <Field Name="Value_Entry__Cost_Posted_to_G_L__ACY___Control1000000038Format">
+          <DataField>Value_Entry__Cost_Posted_to_G_L__ACY___Control1000000038Format</DataField>
+        </Field>
+        <Field Name="VQtyCost_3_">
+          <DataField>VQtyCost_3_</DataField>
+        </Field>
+        <Field Name="VQtyCost_3_Format">
+          <DataField>VQtyCost_3_Format</DataField>
+        </Field>
+        <Field Name="VQtyCost2_3_">
+          <DataField>VQtyCost2_3_</DataField>
+        </Field>
+        <Field Name="VQtyCost2_3_Format">
+          <DataField>VQtyCost2_3_Format</DataField>
+        </Field>
+        <Field Name="VQtyCost_4_">
+          <DataField>VQtyCost_4_</DataField>
+        </Field>
+        <Field Name="VQtyCost_4_Format">
+          <DataField>VQtyCost_4_Format</DataField>
+        </Field>
+        <Field Name="VQtyCost2_4_">
+          <DataField>VQtyCost2_4_</DataField>
+        </Field>
+        <Field Name="VQtyCost2_4_Format">
+          <DataField>VQtyCost2_4_Format</DataField>
+        </Field>
+        <Field Name="Value_Entry__Item_No___Control1000000011">
+          <DataField>Value_Entry__Item_No___Control1000000011</DataField>
+        </Field>
+        <Field Name="Value_Entry__Valued_Quantity__Control1000000000">
+          <DataField>Value_Entry__Valued_Quantity__Control1000000000</DataField>
+        </Field>
+        <Field Name="Value_Entry__Valued_Quantity__Control1000000000Format">
+          <DataField>Value_Entry__Valued_Quantity__Control1000000000Format</DataField>
+        </Field>
+        <Field Name="Value_Entry__Cost_Amount__Actual___Control1000000007">
+          <DataField>Value_Entry__Cost_Amount__Actual___Control1000000007</DataField>
+        </Field>
+        <Field Name="Value_Entry__Cost_Amount__Actual___Control1000000007Format">
+          <DataField>Value_Entry__Cost_Amount__Actual___Control1000000007Format</DataField>
+        </Field>
+        <Field Name="ITEM_REC_Description">
+          <DataField>ITEM_REC_Description</DataField>
+        </Field>
+        <Field Name="TotalFor___FIELDCAPTION__Location_Code__">
+          <DataField>TotalFor___FIELDCAPTION__Location_Code__</DataField>
+        </Field>
+        <Field Name="Value_Entry__Valued_Quantity__Control1000000045">
+          <DataField>Value_Entry__Valued_Quantity__Control1000000045</DataField>
+        </Field>
+        <Field Name="Value_Entry__Valued_Quantity__Control1000000045Format">
+          <DataField>Value_Entry__Valued_Quantity__Control1000000045Format</DataField>
+        </Field>
+        <Field Name="Value_Entry__Cost_Amount__Actual___Control1000000046">
+          <DataField>Value_Entry__Cost_Amount__Actual___Control1000000046</DataField>
+        </Field>
+        <Field Name="Value_Entry__Cost_Amount__Actual___Control1000000046Format">
+          <DataField>Value_Entry__Cost_Amount__Actual___Control1000000046Format</DataField>
+        </Field>
+        <Field Name="VQtyCost_4__Control1000000016">
+          <DataField>VQtyCost_4__Control1000000016</DataField>
+        </Field>
+        <Field Name="VQtyCost_4__Control1000000016Format">
+          <DataField>VQtyCost_4__Control1000000016Format</DataField>
+        </Field>
+        <Field Name="VQtyCost2_4__Control1000000019">
+          <DataField>VQtyCost2_4__Control1000000019</DataField>
+        </Field>
+        <Field Name="VQtyCost2_4__Control1000000019Format">
+          <DataField>VQtyCost2_4__Control1000000019Format</DataField>
+        </Field>
+        <Field Name="VQtyCost_3__Control1000000022">
+          <DataField>VQtyCost_3__Control1000000022</DataField>
+        </Field>
+        <Field Name="VQtyCost_3__Control1000000022Format">
+          <DataField>VQtyCost_3__Control1000000022Format</DataField>
+        </Field>
+        <Field Name="VQtyCost2_3__Control1000000025">
+          <DataField>VQtyCost2_3__Control1000000025</DataField>
+        </Field>
+        <Field Name="VQtyCost2_3__Control1000000025Format">
+          <DataField>VQtyCost2_3__Control1000000025Format</DataField>
+        </Field>
+        <Field Name="Vessel_Consumption_ReportCaption">
+          <DataField>Vessel_Consumption_ReportCaption</DataField>
+        </Field>
+        <Field Name="CurrReport_PAGENOCaption">
+          <DataField>CurrReport_PAGENOCaption</DataField>
+        </Field>
+        <Field Name="Value_Entry__Item_No__Caption">
+          <DataField>Value_Entry__Item_No__Caption</DataField>
+        </Field>
+        <Field Name="Value_Entry_DescriptionCaption">
+          <DataField>Value_Entry_DescriptionCaption</DataField>
+        </Field>
+        <Field Name="Value_Entry__Valued_Quantity_Caption">
+          <DataField>Value_Entry__Valued_Quantity_Caption</DataField>
+        </Field>
+        <Field Name="Value_Entry__Cost_Amount__Actual__Caption">
+          <DataField>Value_Entry__Cost_Amount__Actual__Caption</DataField>
+        </Field>
+        <Field Name="Value_Entry__Cost_Amount__Actual___ACY__Caption">
+          <DataField>Value_Entry__Cost_Amount__Actual___ACY__Caption</DataField>
+        </Field>
+        <Field Name="Value_Entry__Cost_Posted_to_G_L__ACY__Caption">
+          <DataField>Value_Entry__Cost_Posted_to_G_L__ACY__Caption</DataField>
+        </Field>
+        <Field Name="Var__Cost_Caption">
+          <DataField>Var__Cost_Caption</DataField>
+        </Field>
+        <Field Name="Var__Qty_Caption">
+          <DataField>Var__Qty_Caption</DataField>
+        </Field>
+        <Field Name="Value_Entry__Location_Code_Caption">
+          <DataField>Value_Entry__Location_Code_Caption</DataField>
+        </Field>
+        <Field Name="Value_Entry__Item_No___Control1000000011Caption">
+          <DataField>Value_Entry__Item_No___Control1000000011Caption</DataField>
+        </Field>
+        <Field Name="Value_Entry__Item_Ledger_Entry_Type_Caption">
+          <DataField>Value_Entry__Item_Ledger_Entry_Type_Caption</DataField>
+        </Field>
+        <Field Name="Value_Entry_Entry_No_">
+          <DataField>Value_Entry_Entry_No_</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
 </Report>

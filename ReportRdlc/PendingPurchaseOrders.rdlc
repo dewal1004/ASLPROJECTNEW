@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -10,94 +10,6 @@
       <rd:SecurityType>None</rd:SecurityType>
     </DataSource>
   </DataSources>
-  <DataSets>
-    <DataSet Name="DataSet_Result">
-      <Query>
-        <DataSourceName>DataSource</DataSourceName>
-        <CommandText />
-      </Query>
-      <Fields>
-        <Field Name="FORMAT_TODAY_0_4_">
-          <DataField>FORMAT_TODAY_0_4_</DataField>
-        </Field>
-        <Field Name="COMPANYNAME">
-          <DataField>COMPANYNAME</DataField>
-        </Field>
-        <Field Name="CurrReport_PAGENO">
-          <DataField>CurrReport_PAGENO</DataField>
-        </Field>
-        <Field Name="USERID">
-          <DataField>USERID</DataField>
-        </Field>
-        <Field Name="Purchase_Header__Document_Type_">
-          <DataField>Purchase_Header__Document_Type_</DataField>
-        </Field>
-        <Field Name="Purchase_Header__No__">
-          <DataField>Purchase_Header__No__</DataField>
-        </Field>
-        <Field Name="Purchase_Header__Pay_to_Name_">
-          <DataField>Purchase_Header__Pay_to_Name_</DataField>
-        </Field>
-        <Field Name="Purchase_Header__Pay_to_Contact_">
-          <DataField>Purchase_Header__Pay_to_Contact_</DataField>
-        </Field>
-        <Field Name="Purchase_Header__Due_Date_">
-          <DataField>Purchase_Header__Due_Date_</DataField>
-        </Field>
-        <Field Name="Purchase_Header__Line_Amount_">
-          <DataField>Purchase_Header__Line_Amount_</DataField>
-        </Field>
-        <Field Name="Purchase_Header__Line_Amount_Format">
-          <DataField>Purchase_Header__Line_Amount_Format</DataField>
-        </Field>
-        <Field Name="Telephone">
-          <DataField>Telephone</DataField>
-        </Field>
-        <Field Name="OverDue">
-          <DataField>OverDue</DataField>
-        </Field>
-        <Field Name="TotalFor___FIELDCAPTION__Document_Type__">
-          <DataField>TotalFor___FIELDCAPTION__Document_Type__</DataField>
-        </Field>
-        <Field Name="Purchase_Header__Line_Amount__Control29">
-          <DataField>Purchase_Header__Line_Amount__Control29</DataField>
-        </Field>
-        <Field Name="Purchase_Header__Line_Amount__Control29Format">
-          <DataField>Purchase_Header__Line_Amount__Control29Format</DataField>
-        </Field>
-        <Field Name="List_of_Pending_Purchase_OrderCaption">
-          <DataField>List_of_Pending_Purchase_OrderCaption</DataField>
-        </Field>
-        <Field Name="CurrReport_PAGENOCaption">
-          <DataField>CurrReport_PAGENOCaption</DataField>
-        </Field>
-        <Field Name="Purchase_Header__No__Caption">
-          <DataField>Purchase_Header__No__Caption</DataField>
-        </Field>
-        <Field Name="Purchase_Header__Pay_to_Name_Caption">
-          <DataField>Purchase_Header__Pay_to_Name_Caption</DataField>
-        </Field>
-        <Field Name="Purchase_Header__Pay_to_Contact_Caption">
-          <DataField>Purchase_Header__Pay_to_Contact_Caption</DataField>
-        </Field>
-        <Field Name="Purchase_Header__Due_Date_Caption">
-          <DataField>Purchase_Header__Due_Date_Caption</DataField>
-        </Field>
-        <Field Name="Over_Due_DaysCaption">
-          <DataField>Over_Due_DaysCaption</DataField>
-        </Field>
-        <Field Name="Purchase_Header__Line_Amount_Caption">
-          <DataField>Purchase_Header__Line_Amount_Caption</DataField>
-        </Field>
-        <Field Name="Telephone_No_Caption">
-          <DataField>Telephone_No_Caption</DataField>
-        </Field>
-        <Field Name="Purchase_Header__Document_Type_Caption">
-          <DataField>Purchase_Header__Document_Type_Caption</DataField>
-        </Field>
-      </Fields>
-    </DataSet>
-  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -1388,4 +1300,92 @@ End Function
   <Language>=User!Language</Language>
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="FORMAT_TODAY_0_4_">
+          <DataField>FORMAT_TODAY_0_4_</DataField>
+        </Field>
+        <Field Name="COMPANYNAME">
+          <DataField>COMPANYNAME</DataField>
+        </Field>
+        <Field Name="CurrReport_PAGENO">
+          <DataField>CurrReport_PAGENO</DataField>
+        </Field>
+        <Field Name="USERID">
+          <DataField>USERID</DataField>
+        </Field>
+        <Field Name="Purchase_Header__Document_Type_">
+          <DataField>Purchase_Header__Document_Type_</DataField>
+        </Field>
+        <Field Name="Purchase_Header__No__">
+          <DataField>Purchase_Header__No__</DataField>
+        </Field>
+        <Field Name="Purchase_Header__Pay_to_Name_">
+          <DataField>Purchase_Header__Pay_to_Name_</DataField>
+        </Field>
+        <Field Name="Purchase_Header__Pay_to_Contact_">
+          <DataField>Purchase_Header__Pay_to_Contact_</DataField>
+        </Field>
+        <Field Name="Purchase_Header__Due_Date_">
+          <DataField>Purchase_Header__Due_Date_</DataField>
+        </Field>
+        <Field Name="Purchase_Header__Line_Amount_">
+          <DataField>Purchase_Header__Line_Amount_</DataField>
+        </Field>
+        <Field Name="Purchase_Header__Line_Amount_Format">
+          <DataField>Purchase_Header__Line_Amount_Format</DataField>
+        </Field>
+        <Field Name="Telephone">
+          <DataField>Telephone</DataField>
+        </Field>
+        <Field Name="OverDue">
+          <DataField>OverDue</DataField>
+        </Field>
+        <Field Name="TotalFor___FIELDCAPTION__Document_Type__">
+          <DataField>TotalFor___FIELDCAPTION__Document_Type__</DataField>
+        </Field>
+        <Field Name="Purchase_Header__Line_Amount__Control29">
+          <DataField>Purchase_Header__Line_Amount__Control29</DataField>
+        </Field>
+        <Field Name="Purchase_Header__Line_Amount__Control29Format">
+          <DataField>Purchase_Header__Line_Amount__Control29Format</DataField>
+        </Field>
+        <Field Name="List_of_Pending_Purchase_OrderCaption">
+          <DataField>List_of_Pending_Purchase_OrderCaption</DataField>
+        </Field>
+        <Field Name="CurrReport_PAGENOCaption">
+          <DataField>CurrReport_PAGENOCaption</DataField>
+        </Field>
+        <Field Name="Purchase_Header__No__Caption">
+          <DataField>Purchase_Header__No__Caption</DataField>
+        </Field>
+        <Field Name="Purchase_Header__Pay_to_Name_Caption">
+          <DataField>Purchase_Header__Pay_to_Name_Caption</DataField>
+        </Field>
+        <Field Name="Purchase_Header__Pay_to_Contact_Caption">
+          <DataField>Purchase_Header__Pay_to_Contact_Caption</DataField>
+        </Field>
+        <Field Name="Purchase_Header__Due_Date_Caption">
+          <DataField>Purchase_Header__Due_Date_Caption</DataField>
+        </Field>
+        <Field Name="Over_Due_DaysCaption">
+          <DataField>Over_Due_DaysCaption</DataField>
+        </Field>
+        <Field Name="Purchase_Header__Line_Amount_Caption">
+          <DataField>Purchase_Header__Line_Amount_Caption</DataField>
+        </Field>
+        <Field Name="Telephone_No_Caption">
+          <DataField>Telephone_No_Caption</DataField>
+        </Field>
+        <Field Name="Purchase_Header__Document_Type_Caption">
+          <DataField>Purchase_Header__Document_Type_Caption</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
 </Report>

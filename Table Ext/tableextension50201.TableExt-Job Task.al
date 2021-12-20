@@ -2,6 +2,11 @@ tableextension 50201 tableextension50201 extends "Job Task"
 {
     fields
     {
+    
+        field(50500; DescriptionASL; Text[200])
+        {
+            DataClassification = ToBeClassified;
+        }
         field(50300; Incentive; Decimal)
         {
 

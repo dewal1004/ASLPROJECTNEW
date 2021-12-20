@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -10,109 +10,6 @@
       <rd:SecurityType>None</rd:SecurityType>
     </DataSource>
   </DataSources>
-  <DataSets>
-    <DataSet Name="DataSet_Result">
-      <Query>
-        <DataSourceName>DataSource</DataSourceName>
-        <CommandText />
-      </Query>
-      <Fields>
-        <Field Name="FORMAT_TODAY_0_4_">
-          <DataField>FORMAT_TODAY_0_4_</DataField>
-        </Field>
-        <Field Name="COMPANYNAME">
-          <DataField>COMPANYNAME</DataField>
-        </Field>
-        <Field Name="CurrReport_PAGENO">
-          <DataField>CurrReport_PAGENO</DataField>
-        </Field>
-        <Field Name="USERID">
-          <DataField>USERID</DataField>
-        </Field>
-        <Field Name="Job_catch_Default__Table_Name_">
-          <DataField>Job_catch_Default__Table_Name_</DataField>
-        </Field>
-        <Field Name="Job_catch_Default__No__">
-          <DataField>Job_catch_Default__No__</DataField>
-        </Field>
-        <Field Name="Job_catch_Default_Code">
-          <DataField>Job_catch_Default_Code</DataField>
-        </Field>
-        <Field Name="Job_catch_Default_Description">
-          <DataField>Job_catch_Default_Description</DataField>
-        </Field>
-        <Field Name="Job_catch_Default__Pack_Size_">
-          <DataField>Job_catch_Default__Pack_Size_</DataField>
-        </Field>
-        <Field Name="Job_catch_Default_Brand">
-          <DataField>Job_catch_Default_Brand</DataField>
-        </Field>
-        <Field Name="Job_catch_Default__Statistics_Group_">
-          <DataField>Job_catch_Default__Statistics_Group_</DataField>
-        </Field>
-        <Field Name="Job_catch_Default__S_No__">
-          <DataField>Job_catch_Default__S_No__</DataField>
-        </Field>
-        <Field Name="Job_catch_Default__Budget_Quantity_">
-          <DataField>Job_catch_Default__Budget_Quantity_</DataField>
-        </Field>
-        <Field Name="Job_catch_Default__Budget_Quantity_Format">
-          <DataField>Job_catch_Default__Budget_Quantity_Format</DataField>
-        </Field>
-        <Field Name="Job_catch_Default__Marked_Rec_">
-          <DataField>Job_catch_Default__Marked_Rec_</DataField>
-        </Field>
-        <Field Name="Job_catch_Default_GroupSort">
-          <DataField>Job_catch_Default_GroupSort</DataField>
-        </Field>
-        <Field Name="Job_catch_Default_Vessel">
-          <DataField>Job_catch_Default_Vessel</DataField>
-        </Field>
-        <Field Name="Job_Catch_DefaultCaption">
-          <DataField>Job_Catch_DefaultCaption</DataField>
-        </Field>
-        <Field Name="CurrReport_PAGENOCaption">
-          <DataField>CurrReport_PAGENOCaption</DataField>
-        </Field>
-        <Field Name="Job_catch_Default__Table_Name_Caption">
-          <DataField>Job_catch_Default__Table_Name_Caption</DataField>
-        </Field>
-        <Field Name="Job_catch_Default__No__Caption">
-          <DataField>Job_catch_Default__No__Caption</DataField>
-        </Field>
-        <Field Name="Job_catch_Default_CodeCaption">
-          <DataField>Job_catch_Default_CodeCaption</DataField>
-        </Field>
-        <Field Name="Job_catch_Default_DescriptionCaption">
-          <DataField>Job_catch_Default_DescriptionCaption</DataField>
-        </Field>
-        <Field Name="Job_catch_Default__Pack_Size_Caption">
-          <DataField>Job_catch_Default__Pack_Size_Caption</DataField>
-        </Field>
-        <Field Name="Job_catch_Default_BrandCaption">
-          <DataField>Job_catch_Default_BrandCaption</DataField>
-        </Field>
-        <Field Name="Job_catch_Default__Statistics_Group_Caption">
-          <DataField>Job_catch_Default__Statistics_Group_Caption</DataField>
-        </Field>
-        <Field Name="Job_catch_Default__S_No__Caption">
-          <DataField>Job_catch_Default__S_No__Caption</DataField>
-        </Field>
-        <Field Name="Job_catch_Default__Budget_Quantity_Caption">
-          <DataField>Job_catch_Default__Budget_Quantity_Caption</DataField>
-        </Field>
-        <Field Name="Job_catch_Default__Marked_Rec_Caption">
-          <DataField>Job_catch_Default__Marked_Rec_Caption</DataField>
-        </Field>
-        <Field Name="Job_catch_Default_GroupSortCaption">
-          <DataField>Job_catch_Default_GroupSortCaption</DataField>
-        </Field>
-        <Field Name="Job_catch_Default_VesselCaption">
-          <DataField>Job_catch_Default_VesselCaption</DataField>
-        </Field>
-      </Fields>
-    </DataSet>
-  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -1257,4 +1154,107 @@ End Function
   <Language>=User!Language</Language>
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="FORMAT_TODAY_0_4_">
+          <DataField>FORMAT_TODAY_0_4_</DataField>
+        </Field>
+        <Field Name="COMPANYNAME">
+          <DataField>COMPANYNAME</DataField>
+        </Field>
+        <Field Name="CurrReport_PAGENO">
+          <DataField>CurrReport_PAGENO</DataField>
+        </Field>
+        <Field Name="USERID">
+          <DataField>USERID</DataField>
+        </Field>
+        <Field Name="Job_catch_Default__Table_Name_">
+          <DataField>Job_catch_Default__Table_Name_</DataField>
+        </Field>
+        <Field Name="Job_catch_Default__No__">
+          <DataField>Job_catch_Default__No__</DataField>
+        </Field>
+        <Field Name="Job_catch_Default_Code">
+          <DataField>Job_catch_Default_Code</DataField>
+        </Field>
+        <Field Name="Job_catch_Default_Description">
+          <DataField>Job_catch_Default_Description</DataField>
+        </Field>
+        <Field Name="Job_catch_Default__Pack_Size_">
+          <DataField>Job_catch_Default__Pack_Size_</DataField>
+        </Field>
+        <Field Name="Job_catch_Default_Brand">
+          <DataField>Job_catch_Default_Brand</DataField>
+        </Field>
+        <Field Name="Job_catch_Default__Statistics_Group_">
+          <DataField>Job_catch_Default__Statistics_Group_</DataField>
+        </Field>
+        <Field Name="Job_catch_Default__S_No__">
+          <DataField>Job_catch_Default__S_No__</DataField>
+        </Field>
+        <Field Name="Job_catch_Default__Budget_Quantity_">
+          <DataField>Job_catch_Default__Budget_Quantity_</DataField>
+        </Field>
+        <Field Name="Job_catch_Default__Budget_Quantity_Format">
+          <DataField>Job_catch_Default__Budget_Quantity_Format</DataField>
+        </Field>
+        <Field Name="Job_catch_Default__Marked_Rec_">
+          <DataField>Job_catch_Default__Marked_Rec_</DataField>
+        </Field>
+        <Field Name="Job_catch_Default_GroupSort">
+          <DataField>Job_catch_Default_GroupSort</DataField>
+        </Field>
+        <Field Name="Job_catch_Default_Vessel">
+          <DataField>Job_catch_Default_Vessel</DataField>
+        </Field>
+        <Field Name="Job_Catch_DefaultCaption">
+          <DataField>Job_Catch_DefaultCaption</DataField>
+        </Field>
+        <Field Name="CurrReport_PAGENOCaption">
+          <DataField>CurrReport_PAGENOCaption</DataField>
+        </Field>
+        <Field Name="Job_catch_Default__Table_Name_Caption">
+          <DataField>Job_catch_Default__Table_Name_Caption</DataField>
+        </Field>
+        <Field Name="Job_catch_Default__No__Caption">
+          <DataField>Job_catch_Default__No__Caption</DataField>
+        </Field>
+        <Field Name="Job_catch_Default_CodeCaption">
+          <DataField>Job_catch_Default_CodeCaption</DataField>
+        </Field>
+        <Field Name="Job_catch_Default_DescriptionCaption">
+          <DataField>Job_catch_Default_DescriptionCaption</DataField>
+        </Field>
+        <Field Name="Job_catch_Default__Pack_Size_Caption">
+          <DataField>Job_catch_Default__Pack_Size_Caption</DataField>
+        </Field>
+        <Field Name="Job_catch_Default_BrandCaption">
+          <DataField>Job_catch_Default_BrandCaption</DataField>
+        </Field>
+        <Field Name="Job_catch_Default__Statistics_Group_Caption">
+          <DataField>Job_catch_Default__Statistics_Group_Caption</DataField>
+        </Field>
+        <Field Name="Job_catch_Default__S_No__Caption">
+          <DataField>Job_catch_Default__S_No__Caption</DataField>
+        </Field>
+        <Field Name="Job_catch_Default__Budget_Quantity_Caption">
+          <DataField>Job_catch_Default__Budget_Quantity_Caption</DataField>
+        </Field>
+        <Field Name="Job_catch_Default__Marked_Rec_Caption">
+          <DataField>Job_catch_Default__Marked_Rec_Caption</DataField>
+        </Field>
+        <Field Name="Job_catch_Default_GroupSortCaption">
+          <DataField>Job_catch_Default_GroupSortCaption</DataField>
+        </Field>
+        <Field Name="Job_catch_Default_VesselCaption">
+          <DataField>Job_catch_Default_VesselCaption</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
 </Report>

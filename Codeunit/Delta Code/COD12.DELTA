@@ -7,8 +7,6 @@ OBJECT Modification "Gen. Jnl.-Post Line"(Codeunit 12)
     Modified=true;
     Version List=NAVW114.27;
     This code is to be Modified
-
-
   }
   PROPERTIES
   {

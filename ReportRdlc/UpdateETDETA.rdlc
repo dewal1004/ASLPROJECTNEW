@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -10,64 +10,6 @@
       <rd:SecurityType>None</rd:SecurityType>
     </DataSource>
   </DataSources>
-  <DataSets>
-    <DataSet Name="DataSet_Result">
-      <Query>
-        <DataSourceName>DataSource</DataSourceName>
-        <CommandText />
-      </Query>
-      <Fields>
-        <Field Name="FORMAT_TODAY_0_4_">
-          <DataField>FORMAT_TODAY_0_4_</DataField>
-        </Field>
-        <Field Name="COMPANYNAME">
-          <DataField>COMPANYNAME</DataField>
-        </Field>
-        <Field Name="CurrReport_PAGENO">
-          <DataField>CurrReport_PAGENO</DataField>
-        </Field>
-        <Field Name="USERID">
-          <DataField>USERID</DataField>
-        </Field>
-        <Field Name="Location_Code">
-          <DataField>Location_Code</DataField>
-        </Field>
-        <Field Name="Location_Name">
-          <DataField>Location_Name</DataField>
-        </Field>
-        <Field Name="Location_ETD">
-          <DataField>Location_ETD</DataField>
-        </Field>
-        <Field Name="Location_ETA">
-          <DataField>Location_ETA</DataField>
-        </Field>
-        <Field Name="LocationCaption">
-          <DataField>LocationCaption</DataField>
-        </Field>
-        <Field Name="CurrReport_PAGENOCaption">
-          <DataField>CurrReport_PAGENOCaption</DataField>
-        </Field>
-        <Field Name="Location_CodeCaption">
-          <DataField>Location_CodeCaption</DataField>
-        </Field>
-        <Field Name="Location_NameCaption">
-          <DataField>Location_NameCaption</DataField>
-        </Field>
-        <Field Name="Location_ETDCaption">
-          <DataField>Location_ETDCaption</DataField>
-        </Field>
-        <Field Name="Location_ETACaption">
-          <DataField>Location_ETACaption</DataField>
-        </Field>
-        <Field Name="Location_VSDVal">
-          <DataField>Location_VSDVal</DataField>
-        </Field>
-        <Field Name="Location_VSDValFormat">
-          <DataField>Location_VSDValFormat</DataField>
-        </Field>
-      </Fields>
-    </DataSet>
-  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -763,4 +705,62 @@ End Function
   <Language>=User!Language</Language>
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="FORMAT_TODAY_0_4_">
+          <DataField>FORMAT_TODAY_0_4_</DataField>
+        </Field>
+        <Field Name="COMPANYNAME">
+          <DataField>COMPANYNAME</DataField>
+        </Field>
+        <Field Name="CurrReport_PAGENO">
+          <DataField>CurrReport_PAGENO</DataField>
+        </Field>
+        <Field Name="USERID">
+          <DataField>USERID</DataField>
+        </Field>
+        <Field Name="Location_Code">
+          <DataField>Location_Code</DataField>
+        </Field>
+        <Field Name="Location_Name">
+          <DataField>Location_Name</DataField>
+        </Field>
+        <Field Name="Location_ETD">
+          <DataField>Location_ETD</DataField>
+        </Field>
+        <Field Name="Location_ETA">
+          <DataField>Location_ETA</DataField>
+        </Field>
+        <Field Name="LocationCaption">
+          <DataField>LocationCaption</DataField>
+        </Field>
+        <Field Name="CurrReport_PAGENOCaption">
+          <DataField>CurrReport_PAGENOCaption</DataField>
+        </Field>
+        <Field Name="Location_CodeCaption">
+          <DataField>Location_CodeCaption</DataField>
+        </Field>
+        <Field Name="Location_NameCaption">
+          <DataField>Location_NameCaption</DataField>
+        </Field>
+        <Field Name="Location_ETDCaption">
+          <DataField>Location_ETDCaption</DataField>
+        </Field>
+        <Field Name="Location_ETACaption">
+          <DataField>Location_ETACaption</DataField>
+        </Field>
+        <Field Name="Location_VSDVal">
+          <DataField>Location_VSDVal</DataField>
+        </Field>
+        <Field Name="Location_VSDValFormat">
+          <DataField>Location_VSDValFormat</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
 </Report>

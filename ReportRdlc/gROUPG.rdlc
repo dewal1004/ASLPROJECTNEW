@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -10,136 +10,6 @@
       <rd:SecurityType>None</rd:SecurityType>
     </DataSource>
   </DataSources>
-  <DataSets>
-    <DataSet Name="DataSet_Result">
-      <Query>
-        <DataSourceName>DataSource</DataSourceName>
-        <CommandText />
-      </Query>
-      <Fields>
-        <Field Name="FORMAT_TODAY_0_4_">
-          <DataField>FORMAT_TODAY_0_4_</DataField>
-        </Field>
-        <Field Name="COMPANYNAME">
-          <DataField>COMPANYNAME</DataField>
-        </Field>
-        <Field Name="CurrReport_PAGENO">
-          <DataField>CurrReport_PAGENO</DataField>
-        </Field>
-        <Field Name="USERID">
-          <DataField>USERID</DataField>
-        </Field>
-        <Field Name="Job_Journal_Line__Journal_Template_Name_">
-          <DataField>Job_Journal_Line__Journal_Template_Name_</DataField>
-        </Field>
-        <Field Name="Job_Journal_Line__Journal_Batch_Name_">
-          <DataField>Job_Journal_Line__Journal_Batch_Name_</DataField>
-        </Field>
-        <Field Name="Job_Journal_Line__Statistics_Group_">
-          <DataField>Job_Journal_Line__Statistics_Group_</DataField>
-        </Field>
-        <Field Name="Job_Journal_Line__Work_Type_Code_">
-          <DataField>Job_Journal_Line__Work_Type_Code_</DataField>
-        </Field>
-        <Field Name="Job_Journal_Line__Job_No__">
-          <DataField>Job_Journal_Line__Job_No__</DataField>
-        </Field>
-        <Field Name="Job_Journal_Line__No__">
-          <DataField>Job_Journal_Line__No__</DataField>
-        </Field>
-        <Field Name="Job_Journal_Line_Description">
-          <DataField>Job_Journal_Line_Description</DataField>
-        </Field>
-        <Field Name="Job_Journal_Line_Quantity">
-          <DataField>Job_Journal_Line_Quantity</DataField>
-        </Field>
-        <Field Name="Job_Journal_Line_QuantityFormat">
-          <DataField>Job_Journal_Line_QuantityFormat</DataField>
-        </Field>
-        <Field Name="Job_Journal_Line__Statistics_Group__Control32">
-          <DataField>Job_Journal_Line__Statistics_Group__Control32</DataField>
-        </Field>
-        <Field Name="Job_Journal_Line__Work_Type_Code__Control35">
-          <DataField>Job_Journal_Line__Work_Type_Code__Control35</DataField>
-        </Field>
-        <Field Name="TotalFor___FIELDCAPTION__Work_Type_Code__">
-          <DataField>TotalFor___FIELDCAPTION__Work_Type_Code__</DataField>
-        </Field>
-        <Field Name="Job_Journal_Line_Quantity_Control38">
-          <DataField>Job_Journal_Line_Quantity_Control38</DataField>
-        </Field>
-        <Field Name="Job_Journal_Line_Quantity_Control38Format">
-          <DataField>Job_Journal_Line_Quantity_Control38Format</DataField>
-        </Field>
-        <Field Name="TotalFor___FIELDCAPTION__Statistics_Group__">
-          <DataField>TotalFor___FIELDCAPTION__Statistics_Group__</DataField>
-        </Field>
-        <Field Name="Job_Journal_Line_Quantity_Control40">
-          <DataField>Job_Journal_Line_Quantity_Control40</DataField>
-        </Field>
-        <Field Name="Job_Journal_Line_Quantity_Control40Format">
-          <DataField>Job_Journal_Line_Quantity_Control40Format</DataField>
-        </Field>
-        <Field Name="TotalFor___FIELDCAPTION__Journal_Batch_Name__">
-          <DataField>TotalFor___FIELDCAPTION__Journal_Batch_Name__</DataField>
-        </Field>
-        <Field Name="Job_Journal_Line_Quantity_Control42">
-          <DataField>Job_Journal_Line_Quantity_Control42</DataField>
-        </Field>
-        <Field Name="Job_Journal_Line_Quantity_Control42Format">
-          <DataField>Job_Journal_Line_Quantity_Control42Format</DataField>
-        </Field>
-        <Field Name="TotalFor___FIELDCAPTION__Journal_Template_Name__">
-          <DataField>TotalFor___FIELDCAPTION__Journal_Template_Name__</DataField>
-        </Field>
-        <Field Name="Job_Journal_Line_Quantity_Control44">
-          <DataField>Job_Journal_Line_Quantity_Control44</DataField>
-        </Field>
-        <Field Name="Job_Journal_Line_Quantity_Control44Format">
-          <DataField>Job_Journal_Line_Quantity_Control44Format</DataField>
-        </Field>
-        <Field Name="Job_Journal_LineCaption">
-          <DataField>Job_Journal_LineCaption</DataField>
-        </Field>
-        <Field Name="CurrReport_PAGENOCaption">
-          <DataField>CurrReport_PAGENOCaption</DataField>
-        </Field>
-        <Field Name="Job_Journal_Line__Job_No__Caption">
-          <DataField>Job_Journal_Line__Job_No__Caption</DataField>
-        </Field>
-        <Field Name="Job_Journal_Line__No__Caption">
-          <DataField>Job_Journal_Line__No__Caption</DataField>
-        </Field>
-        <Field Name="Job_Journal_Line_DescriptionCaption">
-          <DataField>Job_Journal_Line_DescriptionCaption</DataField>
-        </Field>
-        <Field Name="Job_Journal_Line_QuantityCaption">
-          <DataField>Job_Journal_Line_QuantityCaption</DataField>
-        </Field>
-        <Field Name="Job_Journal_Line__Statistics_Group__Control32Caption">
-          <DataField>Job_Journal_Line__Statistics_Group__Control32Caption</DataField>
-        </Field>
-        <Field Name="Job_Journal_Line__Work_Type_Code__Control35Caption">
-          <DataField>Job_Journal_Line__Work_Type_Code__Control35Caption</DataField>
-        </Field>
-        <Field Name="Job_Journal_Line__Journal_Template_Name_Caption">
-          <DataField>Job_Journal_Line__Journal_Template_Name_Caption</DataField>
-        </Field>
-        <Field Name="Job_Journal_Line__Journal_Batch_Name_Caption">
-          <DataField>Job_Journal_Line__Journal_Batch_Name_Caption</DataField>
-        </Field>
-        <Field Name="Job_Journal_Line__Statistics_Group_Caption">
-          <DataField>Job_Journal_Line__Statistics_Group_Caption</DataField>
-        </Field>
-        <Field Name="Job_Journal_Line__Work_Type_Code_Caption">
-          <DataField>Job_Journal_Line__Work_Type_Code_Caption</DataField>
-        </Field>
-        <Field Name="Job_Journal_Line_Line_No_">
-          <DataField>Job_Journal_Line_Line_No_</DataField>
-        </Field>
-      </Fields>
-    </DataSet>
-  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -2494,4 +2364,134 @@ End Function
   <Language>=User!Language</Language>
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="FORMAT_TODAY_0_4_">
+          <DataField>FORMAT_TODAY_0_4_</DataField>
+        </Field>
+        <Field Name="COMPANYNAME">
+          <DataField>COMPANYNAME</DataField>
+        </Field>
+        <Field Name="CurrReport_PAGENO">
+          <DataField>CurrReport_PAGENO</DataField>
+        </Field>
+        <Field Name="USERID">
+          <DataField>USERID</DataField>
+        </Field>
+        <Field Name="Job_Journal_Line__Journal_Template_Name_">
+          <DataField>Job_Journal_Line__Journal_Template_Name_</DataField>
+        </Field>
+        <Field Name="Job_Journal_Line__Journal_Batch_Name_">
+          <DataField>Job_Journal_Line__Journal_Batch_Name_</DataField>
+        </Field>
+        <Field Name="Job_Journal_Line__Statistics_Group_">
+          <DataField>Job_Journal_Line__Statistics_Group_</DataField>
+        </Field>
+        <Field Name="Job_Journal_Line__Work_Type_Code_">
+          <DataField>Job_Journal_Line__Work_Type_Code_</DataField>
+        </Field>
+        <Field Name="Job_Journal_Line__Job_No__">
+          <DataField>Job_Journal_Line__Job_No__</DataField>
+        </Field>
+        <Field Name="Job_Journal_Line__No__">
+          <DataField>Job_Journal_Line__No__</DataField>
+        </Field>
+        <Field Name="Job_Journal_Line_Description">
+          <DataField>Job_Journal_Line_Description</DataField>
+        </Field>
+        <Field Name="Job_Journal_Line_Quantity">
+          <DataField>Job_Journal_Line_Quantity</DataField>
+        </Field>
+        <Field Name="Job_Journal_Line_QuantityFormat">
+          <DataField>Job_Journal_Line_QuantityFormat</DataField>
+        </Field>
+        <Field Name="Job_Journal_Line__Statistics_Group__Control32">
+          <DataField>Job_Journal_Line__Statistics_Group__Control32</DataField>
+        </Field>
+        <Field Name="Job_Journal_Line__Work_Type_Code__Control35">
+          <DataField>Job_Journal_Line__Work_Type_Code__Control35</DataField>
+        </Field>
+        <Field Name="TotalFor___FIELDCAPTION__Work_Type_Code__">
+          <DataField>TotalFor___FIELDCAPTION__Work_Type_Code__</DataField>
+        </Field>
+        <Field Name="Job_Journal_Line_Quantity_Control38">
+          <DataField>Job_Journal_Line_Quantity_Control38</DataField>
+        </Field>
+        <Field Name="Job_Journal_Line_Quantity_Control38Format">
+          <DataField>Job_Journal_Line_Quantity_Control38Format</DataField>
+        </Field>
+        <Field Name="TotalFor___FIELDCAPTION__Statistics_Group__">
+          <DataField>TotalFor___FIELDCAPTION__Statistics_Group__</DataField>
+        </Field>
+        <Field Name="Job_Journal_Line_Quantity_Control40">
+          <DataField>Job_Journal_Line_Quantity_Control40</DataField>
+        </Field>
+        <Field Name="Job_Journal_Line_Quantity_Control40Format">
+          <DataField>Job_Journal_Line_Quantity_Control40Format</DataField>
+        </Field>
+        <Field Name="TotalFor___FIELDCAPTION__Journal_Batch_Name__">
+          <DataField>TotalFor___FIELDCAPTION__Journal_Batch_Name__</DataField>
+        </Field>
+        <Field Name="Job_Journal_Line_Quantity_Control42">
+          <DataField>Job_Journal_Line_Quantity_Control42</DataField>
+        </Field>
+        <Field Name="Job_Journal_Line_Quantity_Control42Format">
+          <DataField>Job_Journal_Line_Quantity_Control42Format</DataField>
+        </Field>
+        <Field Name="TotalFor___FIELDCAPTION__Journal_Template_Name__">
+          <DataField>TotalFor___FIELDCAPTION__Journal_Template_Name__</DataField>
+        </Field>
+        <Field Name="Job_Journal_Line_Quantity_Control44">
+          <DataField>Job_Journal_Line_Quantity_Control44</DataField>
+        </Field>
+        <Field Name="Job_Journal_Line_Quantity_Control44Format">
+          <DataField>Job_Journal_Line_Quantity_Control44Format</DataField>
+        </Field>
+        <Field Name="Job_Journal_LineCaption">
+          <DataField>Job_Journal_LineCaption</DataField>
+        </Field>
+        <Field Name="CurrReport_PAGENOCaption">
+          <DataField>CurrReport_PAGENOCaption</DataField>
+        </Field>
+        <Field Name="Job_Journal_Line__Job_No__Caption">
+          <DataField>Job_Journal_Line__Job_No__Caption</DataField>
+        </Field>
+        <Field Name="Job_Journal_Line__No__Caption">
+          <DataField>Job_Journal_Line__No__Caption</DataField>
+        </Field>
+        <Field Name="Job_Journal_Line_DescriptionCaption">
+          <DataField>Job_Journal_Line_DescriptionCaption</DataField>
+        </Field>
+        <Field Name="Job_Journal_Line_QuantityCaption">
+          <DataField>Job_Journal_Line_QuantityCaption</DataField>
+        </Field>
+        <Field Name="Job_Journal_Line__Statistics_Group__Control32Caption">
+          <DataField>Job_Journal_Line__Statistics_Group__Control32Caption</DataField>
+        </Field>
+        <Field Name="Job_Journal_Line__Work_Type_Code__Control35Caption">
+          <DataField>Job_Journal_Line__Work_Type_Code__Control35Caption</DataField>
+        </Field>
+        <Field Name="Job_Journal_Line__Journal_Template_Name_Caption">
+          <DataField>Job_Journal_Line__Journal_Template_Name_Caption</DataField>
+        </Field>
+        <Field Name="Job_Journal_Line__Journal_Batch_Name_Caption">
+          <DataField>Job_Journal_Line__Journal_Batch_Name_Caption</DataField>
+        </Field>
+        <Field Name="Job_Journal_Line__Statistics_Group_Caption">
+          <DataField>Job_Journal_Line__Statistics_Group_Caption</DataField>
+        </Field>
+        <Field Name="Job_Journal_Line__Work_Type_Code_Caption">
+          <DataField>Job_Journal_Line__Work_Type_Code_Caption</DataField>
+        </Field>
+        <Field Name="Job_Journal_Line_Line_No_">
+          <DataField>Job_Journal_Line_Line_No_</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
 </Report>
