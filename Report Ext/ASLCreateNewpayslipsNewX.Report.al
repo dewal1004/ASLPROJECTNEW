@@ -299,7 +299,7 @@ report 90054 "ASL Create New payslips - NewX"
         PeriodEnd: Date;
         AbsentDeduct: Decimal;
         EmployeeGroupLinerec: Record "Payroll-Employee Group Lines.";
-        PaySetup: Record "Asl Payroll Setup";
+        PaySetup: Record "ASL Payroll Setup";
         TaxFreeED: Code[10];
         TaxFreeAmount: Decimal;
         EmptDate: Date;

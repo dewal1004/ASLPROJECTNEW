@@ -495,7 +495,7 @@ report 50051 "Monthly Payslip"
         PaySetup: Record "Staff Log";
         BuLocation: Text[30];
         LocRec: Record Location;
-        payslsetup: Record "Payroll Setup";
+        payslsetup: Record "ASL Payroll Setup";
         wrkday: Integer;
         latehr: Integer;
         EARNINGS___ALLOWANCESCaptionLbl: Label 'EARNINGS & ALLOWANCES';

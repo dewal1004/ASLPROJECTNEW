@@ -39,6 +39,10 @@ codeunit 50095 "Code For Approval setup"
                     ApprovalsMgmt.OnSendPurchaseDocForApproval(PurchaseHeader);
                 end
         end
+
+        
     end;
+
+    
 }
 
