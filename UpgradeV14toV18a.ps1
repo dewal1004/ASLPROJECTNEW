@@ -16,6 +16,7 @@ $TabMigrExtPubr = "SSNL"
 $LicenseFilePath = "C:\LIC\SSNL365V180122.flf"
 
 
+
 ##7,8&9
 Invoke-NAVApplicationDatabaseConversion -DatabaseServer NAV365TEST\ASLHO2016 -DatabaseName "Atlantic ASL V18fromV14"
 # Set-NAVServerConfiguration -ServerInstance <server instance name?> -KeyName DatabaseName -KeyValue "<database name>"
@@ -23,7 +24,7 @@ Set-NAVServerConfiguration -ServerInstance BC180 -KeyName DatabaseName -KeyValue
 Set-NAVServerConfiguration -ServerInstance BC180 -KeyName "DestinationAppsForMigration" -KeyValue '[{"appId": "9cb1232b-94cb-4aa6-bab3-c15ec6ea7bc0", "name":"bc14baseapptablesonly", "publisher": "SSNL"}]'
 Set-NavServerConfiguration -ServerInstance BC180 -KeyName "EnableTaskScheduler" -KeyValue false
 
-Import-NAVServerLicense -ServerInstance BC180 -LicenseFile "C:\LIC\SSNL365V180122.flf"
+Import-NAVServerLicense -ServerInstance BC180 -LicenseFile "C:\LIC\SSNL365V19.flf"
 Restart-NAVServerInstance -ServerInstance BC180
 
 

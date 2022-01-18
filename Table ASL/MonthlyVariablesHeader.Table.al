@@ -124,7 +124,7 @@ table 50013 "Monthly Variables Header."
         field(23; VariableFilter; Code[10])
         {
             FieldClass = FlowFilter;
-            TableRelation = "Payroll ED Codes."."E/D Code" WHERE ("Monthly Variable" = CONST (true));
+            TableRelation = "Payroll-E/D Codes."."E/D Code" WHERE ("Monthly Variable" = CONST (true));
         }
         field(24; VariableAmount; Decimal)
         {
@@ -289,7 +289,7 @@ table 50013 "Monthly Variables Header."
         VarLinesRec: Record "Monthly Variables Lines.";
         EmpGrpRec: Record "Payroll-Employee Group Header.";
         EmpGrpLinesRec: Record "Payroll-Employee Group Lines.";
-        EDFileRec: Record "Payroll ED Codes.";
+        EDFileRec: Record "Payroll-E/D Codes.";
         BookGrLinesRec: Record "Payroll-Posting Group Line.";
 }
 

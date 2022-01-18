@@ -465,7 +465,7 @@ report 50051 "Monthly Payslip"
     var
         PayAdviceTitle: Text[80];
         CompanyData: Record "Company Information";
-        RecOfEDFile: Record "Payroll ED Codes.";
+        RecOfEDFile: Record "Payroll-E/D Codes.";
         PeriodRec: Record "Payroll-Periods.";
         PayEntryText: Text[35];
         AmountToPrint: Text[15];

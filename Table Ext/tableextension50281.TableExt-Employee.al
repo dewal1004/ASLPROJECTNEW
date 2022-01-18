@@ -129,7 +129,7 @@ tableextension 50281 tableextension50281 extends Employee
         field(50026; "ED Filter"; Code[20])
         {
             FieldClass = FlowFilter;
-            TableRelation = "Payroll ED Codes.";
+            TableRelation = "Payroll-E/D Codes.";
         }
         field(50027; Designation; Code[10])
         {
@@ -169,7 +169,8 @@ tableextension 50281 tableextension50281 extends Employee
             trigger OnValidate()
             begin
                 //Univision Start 6/11/01
-                if "No of Days" > 30 then begin
+                if "No of Days" > 30 then 
+                begin
                     if (Date2DMY("Employment Date", 2) + 1) = Date2DMY(Today, 2) then
                         "day Employeed" := DMY2Date(1, (Date2DMY(Today, 2))) - "Employment Date";
                     if "No of Days" > (30 + "day Employeed") then Error('You Can Not Pay staff for this Number of Days');
@@ -332,11 +333,14 @@ tableextension 50281 tableextension50281 extends Employee
             begin
                 //Univision Start 6/11/01
                 if not (Sam) and (xRec.Sam) then
-                    if Confirm('Do you want to Remove Sam Account for %1', true, FullName) then begin
-                        if CustRec.Get("No.") then begin
+                    if Confirm('Do you want to Remove Sam Account for %1', true, FullName) then 
+                    begin
+                        if CustRec.Get("No.") then 
+                        begin
                             CustRec.CalcFields(CustRec.Balance);
                             SamBalance := CustRec.Balance;
-                            if (SamBalance = 0) then begin
+                            if (SamBalance = 0) then 
+                            begin
                                 "SAM Number" := '';
                                 Modify;
                                 CustRec.Delete;
@@ -517,6 +521,14 @@ tableextension 50281 tableextension50281 extends Employee
         field(50411; "Country Code"; Code[10])
         {
         }
+        field(70000; "Emplymt. Contract Code Temp"; Code[30])
+        {
+            DataClassification = ToBeClassified;
+        }
+    }
+
+    keys
+    {
     }
 
 
@@ -768,7 +780,7 @@ tableextension 50281 tableextension50281 extends Employee
         VendRec: Record Vendor;
         CustLdgRec: Record "Cust. Ledger Entry";
         DesigRec: Record Designation;
-        EDRec: Record "Payroll ED Codes.";
+        EDRec: Record "Payroll-E/D Codes.";
         DepartRec: Record Dimension;
         BCRec: Record Dimension;
         CCRec: Record Dimension;

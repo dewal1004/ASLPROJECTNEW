@@ -68,7 +68,7 @@ table 50004 "Payroll-Periods."
         field(7; "ED Delimitation"; Code[20])
         {
             FieldClass = FlowFilter;
-            TableRelation = "Payroll ED Codes.";
+            TableRelation = "Payroll-E/D Codes.";
         }
         field(8; "Empl. Delimitation"; Code[20])
         {

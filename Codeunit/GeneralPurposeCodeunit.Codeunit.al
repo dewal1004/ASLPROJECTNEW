@@ -17,7 +17,7 @@ codeunit 50001 "General Purpose Codeunit"
         Cnt: Integer;
         TmpDate: Date;
         TempDate: Date;
-        EDRec: Record "Payroll ED Codes.";
+        EDRec: Record "Payroll-E/D Codes.";
 
     //[Scope('OnPrem')]
     procedure Parents2Components(SalesHeader: Record "Sales Header")

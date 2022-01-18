@@ -117,7 +117,7 @@ report 50067 "Payroll entries"
     var
         PRollRepTitle: Text[80];
         CompanyData: Record "Company Information";
-        RecOfEDFile: Record "Payroll ED Codes.";
+        RecOfEDFile: Record "Payroll-E/D Codes.";
         PeriodRec: Record "Payroll-Periods.";
         PayEntryText: Text[30];
         AmountToPrint: Text[15];

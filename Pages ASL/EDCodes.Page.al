@@ -1,7 +1,7 @@
 page 50003 "ED Codes."
 {
     PageType = Card;
-    SourceTable = "Payroll ED Codes.";
+    SourceTable = "Payroll-E/D Codes.";
 
     layout
     {

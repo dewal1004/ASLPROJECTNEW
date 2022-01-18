@@ -5,9 +5,7 @@ tableextension 50333 tableextension50333 extends "Comment Line"
         modify("Table Name")
         {
             OptionCaption = 'G/L Account,Customer,Vendor,Item,Resource,Job,,Resource Group,Bank Account,Campaign,Fixed Asset,Insurance,Nonstock Item,IC Partner,Job Journal Line';
-
             //Unsupported feature: Property Modification (OptionString) on ""Table Name"(Field 1)".
-
         }
 
         //Unsupported feature: Property Modification (Data type) on "Comment(Field 6)".
@@ -20,7 +18,8 @@ tableextension 50333 tableextension50333 extends "Comment Line"
             begin
                 if seaport.Get("Day Lost Cause") then
                     "Day Lost Location" := seaport.SeaPort;
-                if Operation.Get("No.") then begin
+                if Operation.Get("No.") then 
+                begin
                     Vessel := Operation.Vessel;
                     "Global Dimension 1 Code" := Operation."Global Dimension 1 Code";
                     "Global Dimension 2 Code" := Operation."Global Dimension 2 Code";
@@ -74,7 +73,8 @@ tableextension 50333 tableextension50333 extends "Comment Line"
 
             trigger OnValidate()
             begin
-                if Jobss.Get("Operation No.") then begin
+                if Jobss.Get("Operation No.") then 
+                begin
 
                     Captain := Jobss."Person Responsible";
                     Validate(Voyage, Jobss."Voyage No.");
@@ -295,7 +295,6 @@ tableextension 50333 tableextension50333 extends "Comment Line"
         }
         field(50466; "Fuel Average"; Decimal)
         {
-
             trigger OnValidate()
             begin
                 /*IF "Fuel Average"<>0 THEN "Fuel Days":="Fuel Consumed"/"Fuel Average";
@@ -303,6 +302,9 @@ tableextension 50333 tableextension50333 extends "Comment Line"
                 Jobss.MODIFY;*///nitin
 
             end;
+        }
+        field(70000; "Comment Temp"; Text[250]) 
+        {
         }
     }
     keys

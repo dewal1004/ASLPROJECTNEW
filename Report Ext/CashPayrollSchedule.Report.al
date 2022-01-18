@@ -120,7 +120,7 @@ report 50063 "Cash Payroll Schedule"
     var
         BasicAm: Decimal;
         BASIC: Code[20];
-        Edrec: Record "Payroll ED Codes.";
+        Edrec: Record "Payroll-E/D Codes.";
         EmployerAm: Decimal;
         EmployeeAm: Decimal;
         CompanyData: Record "Company Information";
