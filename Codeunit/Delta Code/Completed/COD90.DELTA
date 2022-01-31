@@ -13,7 +13,7 @@ OBJECT Modification "Purch.-Post"(Codeunit 90)
   }
   CHANGES
   {
-    { CodeModification  ;OriginalCode=BEGIN
+    { ignore(Not necessary): CodeModification  ;OriginalCode=BEGIN
                                         OnBeforePostPurchaseDoc(Rec,PreviewMode,SuppressCommit,HideProgressWindow);
 
                                         ValidatePostingAndDocumentDate(Rec);
@@ -45,50 +45,7 @@ OBJECT Modification "Purch.-Post"(Codeunit 90)
                                       END;
 
                          Target=OnRun }
-    { CodeModification  ;OriginalCode=BEGIN
-                                        if not ItemJnlRollRndg then begin
-                                          RemAmt := 0;
-                                          RemDiscAmt := 0;
-                                        end;
-
-                                        OnBeforePostItemJnlLine(
-                                          PurchHeader,PurchLine,QtyToBeReceived,QtyToBeReceivedBase,QtyToBeInvoiced,QtyToBeInvoicedBase,
-                                          ItemLedgShptEntryNo,ItemChargeNo,TrackingSpecification,SuppressCommit);
-                                        #9..131
-                                        OnAfterPostItemJnlLine(ItemJnlLine,PurchLine,PurchHeader,ItemJnlPostLine);
-
-                                        exit(ItemJnlLine."Item Shpt. Entry No.");
-                                      END;
-
-                         ModifiedCode=BEGIN
-                                        #1..4
-                                        #6..134
-                                      END;
-
-                         Target=PostItemJnlLine(PROCEDURE 2) }
-    { CodeModification  ;OriginalCode=BEGIN
-                                        IsHandled := false;
-                                        OnBeforeUpdateBlanketOrderLine(PurchLine,Receive,Ship,Invoice,IsHandled);
-                                        if IsHandled then
-                                        #4..121
-                                              OnAfterBlanketOrderPurchLineModify(BlanketOrderPurchLine,PurchLine,Ship,Receive,Invoice);
-                                            end;
-                                          end;
-                                      END;
-
-                         ModifiedCode=BEGIN
-                                        if PurchLine."Document Type" in [PurchLine."Document Type"::"Return Order",PurchLine."Document Type"::"Credit Memo"] then
-                                          exit;
-                                        #1..124
-                                      END;
-
-                         Target=UpdateBlanketOrderLine(PROCEDURE 21) }
-    { PropertyModification;
-                         Target=ArchiveUnpostedOrder(PROCEDURE 56);
-                         Property=Attributes;
-                         OriginalValue=[[External]]];
-                         ModifiedValue= }
-    { CodeModification  ;OriginalCode=BEGIN
+    { Error: CodeModification  ;OriginalCode=BEGIN   //This modification appears to be wrong.
                                         OnBeforePostCombineSalesOrderShipment(PurchHeader,TempDropShptPostBuffer);
 
                                         ArchiveSalesOrders(TempDropShptPostBuffer);
@@ -108,21 +65,15 @@ OBJECT Modification "Purch.-Post"(Codeunit 90)
 
                          ModifiedCode=BEGIN
                                         #1..12
-                                                  SalesOrderHeader."Document Type",SalesCommentLine."Document Type"::"Return Order",
+                                                  SalesOrderHeader."Document Type",SalesCommentLine."Document Type"::"Return Order",  //This line of code appears to be wrong. Copyg comeents to return order should be treated differently.
                                         #14..49
                                       END;
 
                          Target=PostCombineSalesOrderShipment(PROCEDURE 76) }
-    { PropertyDeletion  ;Target=OnAfterPostPurchaseDoc(PROCEDURE 116).PurchaseHeader(Parameter 1000);
+    { Ignore: PropertyDeletion  ;Target=OnAfterPostPurchaseDoc(PROCEDURE 116).PurchaseHeader(Parameter 1000);
                          Property=AsVar;
                          OriginalValue=Yes }
-    { Insertion         ;InsertAfter=ZeroDeferralAmtErr(Variable 1067);
-                         ChangedElements=VariableCollection
-                         {
-                           l_Item@1074 : Record Item;
-                         }
-                          }
-  }
+    }
   CODE
   {
 

@@ -13,7 +13,7 @@ OBJECT Modification "Job Jnl.-Post Line"(Codeunit 1012)
   }
   CHANGES
   {
-    { CodeModification  ;OriginalCode=BEGIN
+    { Obsolete: (To be made through Jnl transfer codeunit):  CodeModification  ;OriginalCode=BEGIN
                                         OnBeforeCode(JobJnlLine);
 
                                         GetGLSetup;
@@ -85,7 +85,7 @@ OBJECT Modification "Job Jnl.-Post Line"(Codeunit 1012)
                                       END;
 
                          Target=CreateJobLedgEntry(PROCEDURE 2) }
-    { CodeModification  ;OriginalCode=BEGIN
+    { Resolved (Simply lies added to the method)CodeModification  ;OriginalCode=BEGIN
                                         with ItemJnlLine do begin
                                           Init;
                                           CopyFromJobJnlLine(JobJnlLine2);

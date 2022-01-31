@@ -12,14 +12,14 @@ OBJECT Modification "Assembly-Post"(Codeunit 900)
   }
   CHANGES
   {
-    { Insertion         ;Target=PostItemConsumption(PROCEDURE 2);
+    { ignore(Part of next modification):Insertion         ;Target=PostItemConsumption(PROCEDURE 2);
                          InsertAfter=ItemJnlLine(Variable 1000);
                          ChangedElements=VariableCollection
                          {
                            Item@1012 : Record Item;
                          }
                           }
-    { CodeModification  ;OriginalCode=BEGIN
+    { Obsolete: CodeModification  ;OriginalCode=BEGIN
                                         with AssemblyLine do begin
                                           TestField(Type,Type::Item);
 
@@ -46,7 +46,7 @@ OBJECT Modification "Assembly-Post"(Codeunit 900)
                                       END;
 
                          Target=PostItemConsumption(PROCEDURE 2) }
-    { CodeModification  ;OriginalCode=BEGIN
+    { Ignore: CodeModification  ;OriginalCode=BEGIN
                                         with AssemblyHeader do begin
                                           ItemJnlLine.Init;
                                           ItemJnlLine."Entry Type" := ItemJnlLine."Entry Type"::"Assembly Output";
@@ -70,12 +70,6 @@ OBJECT Modification "Assembly-Post"(Codeunit 900)
                                       END;
 
                          Target=PostItemOutput(PROCEDURE 4) }
-  }
-  CODE
-  {
-
-    BEGIN
-    END.
   }
 }
 

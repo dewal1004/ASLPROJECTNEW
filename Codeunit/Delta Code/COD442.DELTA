@@ -11,8 +11,8 @@ OBJECT Modification "Sales-Post Prepayments"(Codeunit 442)
     Target="Sales-Post Prepayments"(Codeunit 442);
   }
   CHANGES
-  {
-    { CodeModification  ;OriginalCode=BEGIN
+  {There appears to be data type mismatch this code require review
+    { Refactor(new procedure should be inserted to take care of this rather than modifyg)CodeModification  ;OriginalCode=BEGIN
                                         if not SalesSetup."Copy Comments Order to Invoice" then
                                           exit;
 

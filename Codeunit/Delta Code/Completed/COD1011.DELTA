@@ -27,6 +27,7 @@ OBJECT Modification "Job Jnl.-Check Line"(Codeunit 1011)
                                             FieldError("Posting Date",Text000);
 
                                           if ("Document Date" <> 0D) and ("Document Date" <> NormalDate("Document Date")) then
+                                          {IF ("Document Date" <> 0D) AND ("Document Date" <> NORMALDATE("Document Date")) THEN
                                             FieldError("Document Date",Text000);
 
                                           if not UserSetupManagement.IsPostingDateValid("Posting Date") then
@@ -77,12 +78,6 @@ OBJECT Modification "Job Jnl.-Check Line"(Codeunit 1011)
                                       END;
 
                          Target=CheckItemQuantityJobJnl(PROCEDURE 15) }
-  }
-  CODE
-  {
-
-    BEGIN
-    END.
   }
 }
 

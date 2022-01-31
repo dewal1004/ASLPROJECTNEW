@@ -12,7 +12,7 @@ OBJECT Modification "Job Link Usage"(Codeunit 1026)
   }
   CHANGES
   {
-    { CodeModification  ;OriginalCode=BEGIN
+    { Suspend Change(Not certain if it is necessary): CodeModification  ;OriginalCode=BEGIN
                                         JobPlanningLine.Get(JobLedgerEntry."Job No.",JobLedgerEntry."Job Task No.",JobJournalLine."Job Planning Line No.");
                                         if not JobPlanningLine."Usage Link" then
                                           Error(Text001,JobPlanningLine.TableCaption,JobPlanningLine.FieldCaption("Usage Link"));

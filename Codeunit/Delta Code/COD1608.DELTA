@@ -17,7 +17,7 @@ OBJECT Modification "Exp. Service Cr.M. - PEPPOL2.1"(Codeunit 1608)
                          {
                            RecordRef@1001 : RecordRef;
                          }
-                          }
+                          } 
     { Insertion         ;Target=OnRun;
                          InsertAfter=ServiceCrMemoHeader(Variable 1000);
                          ChangedElements=VariableCollection

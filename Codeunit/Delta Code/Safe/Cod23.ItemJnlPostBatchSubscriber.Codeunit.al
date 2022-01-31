@@ -5,7 +5,6 @@ codeunit 50017 ItemJnlPostBatchSubscriber
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Item Jnl.-Post Batch", 'OnBeforeCheckLines', '', true, true)]
     local procedure ItemJnlLnPostBatcOnBeforeCheckLines(var ItemJnlLine: Record "Item Journal Line")
     begin
-        //AAA-BPR-AUG2K-Start
         InventSU.Get;
         if (ItemJnlLine."Reason Code" = InventSU."FA Acquisition") and (ItemJnlLine."External Document No." <> '') then begin
             FAUseReaCd := InventSU."FA Acquisition";
@@ -18,8 +17,19 @@ codeunit 50017 ItemJnlPostBatchSubscriber
                 FAJourlTemp := InventSU."FA Maintenance Template";
                 IJLM(ItemJnlLine);
             end;
-        //AAA-BPR-AUG2K-Stop
     end;
+
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Item Jnl.-Post Batch", 'OnPostLinesOnBeforePostLine', '', true, true)]
+    local procedure ItemJnlLnPostBatcOnPostLinesOnBeforePostLine(var ItemJournalLine: Record "Item Journal Line")
+    begin
+        if (ItemJournalLine."Reason Code" = FAUseReaCd) and (ItemJournalLine."External Document No." <> '') then
+            //Posting of Acquisition Cost for FA GL
+            if REC.Get(FAJourlTemp, ItemJournalLine."Journal Batch Name", ItemJournalLine."Line No.") then begin
+                REC."Ready to Post" := true;
+                REC.Modify;
+            end;
+    end;
+
 
     Var
         REC: Record "Gen. Journal Line";
@@ -85,13 +95,13 @@ codeunit 50017 ItemJnlPostBatchSubscriber
         FAJnlLine.Insert;
     END;
 
-    Procedure IJLM(VAR ItemJL : Record "Item Journal Line");
+    Procedure IJLM(VAR ItemJL: Record "Item Journal Line");
     VAR
-        FAJL : Record "FA Journal Line";
-        FAJnlTemplate : Record "Gen. Journal Template";
-        FAJnlLine : Record "Gen. Journal Line";
-        FAJnlBatch : Record "Gen. Journal Batch";
-        GenPostgSetup : Record "General Posting Setup";
+        FAJL: Record "FA Journal Line";
+        FAJnlTemplate: Record "Gen. Journal Template";
+        FAJnlLine: Record "Gen. Journal Line";
+        FAJnlBatch: Record "Gen. Journal Batch";
+        GenPostgSetup: Record "General Posting Setup";
     BEGIN
         //AAA
         InventSU.Get;
@@ -124,7 +134,7 @@ codeunit 50017 ItemJnlPostBatchSubscriber
         FAJnlLine."Posting Date" := ItemJL."Posting Date";
         FAJnlLine."Document No." := ItemJL."Document No.";
         FAJnlLine."Maintenance Code" := Format(ItemJL."Issue Type");
-        if (ItemJL."Entry Type" = 0) or (ItemJL."Entry Type" = 2) then
+        if (ItemJL."Entry Type" = ItemJL."Entry Type"::" ") or (ItemJL."Entry Type" = ItemJL."Entry Type"::"Assembly Output") then
             ItemJL.Amount := ItemJL.Amount * -1;
         FAJnlLine.Validate(FAJnlLine.Amount, ItemJL.Amount);
         FAJnlLine."FA Posting Type" := FAJnlLine."FA Posting Type"::Maintenance;
