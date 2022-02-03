@@ -2,8 +2,6 @@ codeunit 50004 "ItemJournalSubsriber"
 {
     EventSubscriberInstance = StaticAutomatic;
 
-
-
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Item Jnl.-Check Line", 'OnBeforeCheckBins', '', true, true)]
     local procedure ItemJnlChkLineOnBeforeChkBins(var ItemJournalLine: Record "Item Journal Line")
     var
@@ -11,63 +9,43 @@ codeunit 50004 "ItemJournalSubsriber"
         Vend: Record 23;
         AllowedQty: Decimal;
         ChkArray: ARRAY[3, 3] OF Text[200];
-
-    // SplitedArray: DotNet "'mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089'.System.Array";
-    // ChkSettVar: DotNet "'mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089'.System.String";
-    // Separator1: DotNet "'mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089'.System.String";
-    // Separator2: DotNet "'mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089'.System.String";
-    // ChkSettVar: DotNet "'mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089'.System.String";
-    // DefaultStr: DotNet "'mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089'.System.String";
-    // SubSplitArray: DotNet "'mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089'.System.Array";
-    // SubStr: DotNet "'mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089'.System.String";
-
     begin
-        //     //TSG Post Receipt tolerance check start
-        //     IF (ItemJournalLine."Entry Type" = ItemJournalLine."Entry Type"::Purchase) AND
-        //     (ItemJournalLine."Source Type" = ItemJournalLine."Source Type"::Vendor)  AND
-        //     (ItemJournalLine."Document Type" = ItemJournalLine."Document Type"::"Purchase Receipt")
-        //     THEN  BEGIN
 
-        //     DefaultStr :='0,';
-        //     Vend.SETRANGE("No.",ItemJournalLine."Source No.");
-        //     IF Vend.FIND('-') THEN ChkSettVar := Vend."Receipt Tolerance Format"
-        //     ELSE  ChkSettVar := '';
-
-        //     //First Split by ; max three group of chk setting
-        //     IF ChkSettVar.Length > 0 THEN
-        //     BEGIN
-        //     Separator1 := ';';
-        //     SubSplitArray :=  ChkSettVar.Split(Separator1.ToCharArray()); // Split groups by ;
-        //       IF SubSplitArray.Length >0 THEN // then split per group by ','
-        //       BEGIN
-        //       Separator1 := ',';
-        //       FOR chki := 0 TO SubSplitArray.Length - 1 DO
-        //         BEGIN
-        //           SubStr := SubSplitArray.GetValue(chki);
-        //           SplitedArray := SubStr.Split(Separator1.ToCharArray());
-        //             IF (SplitedArray.Length = 3) AND ((chki+1) <=ARRAYLEN(ChkArray,1))  THEN
-        //             BEGIN
-        //               ChkArray[chki+1,1] := SplitedArray.GetValue(0);
-        //               ChkArray[chki+1,2] := SplitedArray.GetValue(1);
-        //               ChkArray[chki+1,3] := SplitedArray.GetValue(2);
-        //             END;
-        //         END;
-        //       END;
-        //     END
-        //     ELSE SplitedArray:=DefaultStr.Split(Separator1.ToCharArray());
-
-        //     // loop all receipt posting tolerance check
-        //     FOR chki :=1 TO ARRAYLEN(ChkArray,1) DO
-        //     BEGIN
-        //       IF EVALUATE(AllowedQty,ChkArray[chki,3]) AND
-        //       (ChkArray[chki,1] = "Gen. Prod. Posting Group") AND
-        //       (ChkArray[chki,2] = "Unit of Measure Code") AND
-        //       (AllowedQty < Quantity) THEN ERROR(ReceiptToleranceErr,"Item No.",Quantity,AllowedQty)
-        //       ELSE AllowedQty:=0 ;
-        //     END;
-        // END;
-        //     //TSG END
     end;
+
+    local procedure NegCheck(var ItemJnlLine: Record "Item Journal Line")
+    var
+        Item: Record Item;
+    begin
+        //Inserted by Nancy, to disallow Negative Inventory
+
+        if (ItemJnlLine."Entry Type" = ItemJnlLine."Entry Type"::Sale) or
+           (ItemJnlLine."Entry Type" = ItemJnlLine."Entry Type"::"Negative Adjmt.") then
+        begin
+            Item.Get(ItemJnlLine."Item No.");
+            Item.SetRange(Item."Global Dimension 2 Filter", ItemJnlLine."Shortcut Dimension 2 Code");
+            Item.SetRange(Item."Location Filter", ItemJnlLine."Location Code");
+            Item.SetRange(Item."Variant Filter", ItemJnlLine."Variant Code");
+            Item.CalcFields(Inventory);
+            if Item.Inventory <= 0 then
+                Error('Item No. %1, is not in Inventory at\' +
+                       ' Location ' + '"%2."', Item."No.", ItemJnlLine."Location Code");
+            if Item.Inventory < ItemJnlLine.Quantity then
+                Error('Quantity is more than Inventory in Item No. %1.\' +
+                       'at Location ' + '"%2."', Item."No.", ItemJnlLine."Location Code");
+        end;
+
+        if (ItemJnlLine."Entry Type" = ItemJnlLine."Entry Type"::"Positive Adjmt.") then begin
+            if (ItemJnlLine.Quantity < 0) then
+                Error('Quantity Should be not be Negative\' + 'in Line No. %1', ItemJnlLine."Line No.");
+        end;
+    end;
+
+
+}
+                          }
+    
+
 }
 
 
