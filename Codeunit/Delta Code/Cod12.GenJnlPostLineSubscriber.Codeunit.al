@@ -14,16 +14,45 @@ codeunit 50002 GenJnlPostLineSubscriber
       
     end;
 
-    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Gen. Jnl.-Post Line", 'OnPostCustOnAfterCopyCVLedgEntryBuf' , '', true, true)]
-    local procedure OnPostCustGenJnlPostLine()
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Gen. Jnl.-Post Line",'OnPostCustOnAfterTempDtldCVLedgEntryBufCopyFromGenJnlLine', '', true, true)]
+    local procedure OnPostCustGenJnlPostLineOnPostCustOnAfterTempDtldCVLedgEntryBufCopyFromGenJnlLine(var GenJournalLine: Record "Gen. Journal Line"; var TempDtldCVLedgEntryBuf: Record "Detailed CV Ledg. Entry Buffer")
     begin
-      // with GenJnlLine do begin
-      //       if "Currency Code" = '' then begin
-      //         if "Deferral Code" <> '' then
-      //           "VAT Base Amount (LCY)" := "xVAT Base Amount (LCY)";   //Revisit
-      //       end;
-      end;
+      TempDtldCVLedgEntryBuf. "Loan ID":= GenJournalLine."Loan ID";
+    end;
       
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Gen. Jnl.-Post Line",'OnBeforeCustLedgEntryInsert', '', true, true)]
+    local procedure OnPostCustGenJnlPostLineOnPostCustOnBeforeCustLedgEntryInsert(var CustLedgerEntry: Record "Cust. Ledger Entry"; var GenJournalLine: Record "Gen. Journal Line")
+    begin
+      CustLedgerEntry."Loan ID":= GenJournalLine."Loan ID";
+    end;
+
+    [EventSubscriber(ObjectType::Table, Database::"Detailed CV Ledg. Entry Buffer",'OnAfterCopyFromGenJnlLine', '', true, true)]
+    local procedure OnPostCustGenJnlPostLineOnAfterCopyFromGenJnlLine(var DtldCVLedgEntryBuffer: Record "Detailed CV Ledg. Entry Buffer";GenJnlLine: Record "Gen. Journal Line")
+    begin
+      DtldCVLedgEntryBuffer. "Loan ID":= GenJnlLine."Loan ID";  //This also applies to Cust and Employee
+    end;
+      
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Gen. Jnl.-Post Line",'OnBeforeVendLedgEntryInsert', '', true, true)]
+    local procedure GenJnlPostLineOnPostCustOnBeforeVendLedgEntryInsert(var VendorLedgerEntry: Record "Vendor Ledger Entry"; GenJournalLine: Record "Gen. Journal Line" )
+    begin
+      VendorLedgerEntry."Loan ID":= GenJournalLine."Loan ID";
+    end;
+
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Gen. Jnl.-Post Line",'OnAfterInitBankAccLedgEntry', '', true, true)]
+    local procedure GenJnlPostLineOnAfterInitBankAccLedgEntry(var BankAccountLedgerEntry: Record "Bank Account Ledger Entry"; GenJournalLine: Record "Gen. Journal Line")
+    begin
+      BankAccountLedgerEntry."DEPOSIT ID":= GenJournalLine."Deposit ID";
+    end;
+
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Gen. Jnl.-Post Line",'OnAfterInitGLEntry', '', true, true)]
+    local procedure GenJnlPostLineOnAfterInitGLEntry(var GLEntry: Record "G/L Entry"; GenJournalLine: Record "Gen. Journal Line")
+    begin
+      GLEntry."Maintenance Code":=GenJournalLine."Maintenance Code";                
+      GLEntry."Gen. Bus. Posting Group":=GenJournalLine."Gen. Bus. Posting Group";  
+    end;
+
+
+
 
     var
       "xVAT Base Amount (LCY)": Decimal;
@@ -34,221 +63,17 @@ codeunit 50002 GenJnlPostLineSubscriber
 // {
 //   CHANGES
 //   {
-//     //     { CodeModification  ;OriginalCode=BEGIN
-//                                         SalesSetup.Get;
-//                                         with GenJnlLine do begin
-//                                           Cust.Get("Account No.");
-//                                         #4..23
-//                                           TempDtldCVLedgEntryBuf.Init;
-//                                           TempDtldCVLedgEntryBuf.CopyFromGenJnlLine(GenJnlLine);
-//                                           TempDtldCVLedgEntryBuf."CV Ledger Entry No." := CustLedgEntry."Entry No.";
-//                                           CVLedgEntryBuf.CopyFromCustLedgEntry(CustLedgEntry);
-//                                           TempDtldCVLedgEntryBuf.InsertDtldCVLedgEntry(TempDtldCVLedgEntryBuf,CVLedgEntryBuf,true);
-//                                           CVLedgEntryBuf.Open := CVLedgEntryBuf."Remaining Amount" <> 0;
-//                                         #30..52
-//                                           CustLedgEntry.CopyFromCVLedgEntryBuffer(CVLedgEntryBuf);
-//                                           CustLedgEntry."Amount to Apply" := 0;
-//                                           CustLedgEntry."Applies-to Doc. No." := '';
-//                                           CustLedgEntry."Applies-to ID" := '';
-//                                           if SalesSetup."Copy Customer Name to Entries" then
-//                                             CustLedgEntry."Customer Name" := Cust.Name;
-//                                         #59..75
-//                                         end;
 
-//                                         OnAfterPostCust(GenJnlLine,Balancing,TempGLEntryBuf,NextEntryNo,NextTransactionNo);
-//                                       END;
-
-//                          ModifiedCode=BEGIN
-//                                         #1..26
-//                                           TempDtldCVLedgEntryBuf. "Loan ID":="Loan ID"; //AAA Oct 2002
-//                                         #27..55
-//                                           CustLedgEntry."Loan ID":="Loan ID"; //AAA Oct 2002
-//                                         #56..78
-//                                       END;
-
-//                          Target=PostCust(PROCEDURE 12) }
-//     { CodeModification  ;OriginalCode=BEGIN
-//                                         PurchSetup.Get;
-//                                         with GenJnlLine do begin
-//                                           Vend.Get("Account No.");
-//                                         #4..23
-//                                           TempDtldCVLedgEntryBuf.Init;
-//                                           TempDtldCVLedgEntryBuf.CopyFromGenJnlLine(GenJnlLine);
-//                                           TempDtldCVLedgEntryBuf."CV Ledger Entry No." := VendLedgEntry."Entry No.";
-//                                           CVLedgEntryBuf.CopyFromVendLedgEntry(VendLedgEntry);
-//                                           TempDtldCVLedgEntryBuf.InsertDtldCVLedgEntry(TempDtldCVLedgEntryBuf,CVLedgEntryBuf,true);
-//                                           CVLedgEntryBuf.Open := CVLedgEntryBuf."Remaining Amount" <> 0;
-//                                         #30..54
-//                                           VendLedgEntry.CopyFromCVLedgEntryBuffer(CVLedgEntryBuf);
-//                                           VendLedgEntry."Amount to Apply" := 0;
-//                                           VendLedgEntry."Applies-to Doc. No." := '';
-//                                           VendLedgEntry."Applies-to ID" := '';
-//                                           if PurchSetup."Copy Vendor Name to Entries" then
-//                                             VendLedgEntry."Vendor Name" := Vend.Name;
-//                                         #61..73
-//                                         end;
-
-//                                         OnAfterPostVend(GenJnlLine,Balancing,TempGLEntryBuf,NextEntryNo,NextTransactionNo);
-//                                       END;
-
-//                          ModifiedCode=BEGIN
-//                                         #1..26
-//                                           TempDtldCVLedgEntryBuf."Loan ID":="Loan ID"; //AAA Sept 2002
-//                                         #27..57
-//                                           VendLedgEntry."Loan ID" :="Loan ID";     //Yusuf Feb 2002
-//                                         #58..76
-//                                       END;
-
-//                          Target=PostVend(PROCEDURE 13) }
-//     { CodeModification  ;OriginalCode=BEGIN
-//                                         with GenJnlLine do begin
-//                                           BankAcc.Get("Account No.");
-//                                           BankAcc.TestField(Blocked,false);
-//                                         #4..22
-//                                           else
-//                                             BankAccLedgEntry.Amount := "Amount (LCY)";
-//                                           BankAccLedgEntry."Amount (LCY)" := "Amount (LCY)";
-//                                           BankAccLedgEntry.Open := Amount <> 0;
-//                                           BankAccLedgEntry."Remaining Amount" := BankAccLedgEntry.Amount;
-//                                           BankAccLedgEntry.Positive := Amount > 0;
-//                                         #29..97
-//                                           DeferralPosting("Deferral Code","Source Code",BankAccPostingGr."G/L Bank Account No.",GenJnlLine,Balancing);
-//                                           OnMoveGenJournalLine(BankAccLedgEntry.RecordId);
-//                                         end;
-//                                       END;
-
-//                          ModifiedCode=BEGIN
-//                                         #1..25
-//                                           BankAccLedgEntry."DEPOSIT ID":="Deposit ID";//inserted pnk univision 14/3/2003
-//                                         #26..100
-//                                       END;
-
-//                          Target=PostBankAcc(PROCEDURE 14) }
-//     { Insertion         ;Target=PostFixedAsset(PROCEDURE 29);
-//                          InsertAfter=VATPostingSetup(Variable 1012);
-//                          ChangedElements=VariableCollection
-//                          {
-//                            GLReg@1114 : Record "G/L Register";
-//                          }
-//                           }
-//     { CodeModification  ;OriginalCode=BEGIN
-//                                         with GenJnlLine do begin
-//                                           InitGLEntry(GenJnlLine,GLEntry,'',"Amount (LCY)","Source Currency Amount",true,"System-Created Entry");
-//                                           GLEntry."Gen. Posting Type" := "Gen. Posting Type";
-//                                         #4..63
-//                                         TempGLEntryBuf."Entry No." := VATEntryGLEntryNo; // Used later in InsertVAT(): GLEntryVATEntryLink.InsertLink(TempGLEntryBuf."Entry No.",VATEntry."Entry No.")
-//                                         PostVAT(GenJnlLine,GLEntry,VATPostingSetup);
-
-//                                         FAJnlPostLine.UpdateRegNo(GLReg."No.");
-//                                         GenJnlLine.OnMoveGenJournalLine(GLEntry.RecordId);
-//                                       END;
-
-//                          ModifiedCode=BEGIN
-//                                         #1..66
-//                                         GetGLReg(GLReg);
-//                                         FAJnlPostLine.UpdateRegNo(GLReg."No.");
-//                                         GenJnlLine.OnMoveGenJournalLine(GLEntry.RecordId);
-//                                       END;
-
-//                          Target=PostFixedAsset(PROCEDURE 29) }
-//     { CodeModification  ;OriginalCode=BEGIN
-//                                         OnBeforeInitGLEntry(GenJnlLine);
-
-//                                         if GLAccNo <> '' then begin
-//                                         #4..21
-//                                         GLEntry."Transaction No." := NextTransactionNo;
-//                                         GLEntry."G/L Account No." := GLAccNo;
-//                                         GLEntry."System-Created Entry" := SystemCreatedEntry;
-//                                         GLEntry.Amount := Amount;
-//                                         GLEntry."Additional-Currency Amount" :=
-//                                           GLCalcAddCurrency(Amount,AmountAddCurr,GLEntry."Additional-Currency Amount",UseAmountAddCurr,GenJnlLine);
-
-//                                         OnAfterInitGLEntry(GLEntry,GenJnlLine);
-//                                       END;
-
-//                          ModifiedCode=BEGIN
-//                                         #1..24
-//                                         GLEntry."Maintenance Code":=GenJnlLine."Maintenance Code";                //AAA Feb 25,2003 Residence Mainte Record
-//                                         GLEntry."Gen. Bus. Posting Group":=GenJnlLine."Gen. Bus. Posting Group";  //AAA Dec 12,2003 Residence Mainte Record
-//                                         #25..29
-//                                       END;
-
-//                          Target=InitGLEntry(PROCEDURE 3) }
-//     { CodeModification  ;OriginalCode=BEGIN
-//                                         if (DtldCVLedgEntryBuf."Amount (LCY)" = 0) and
-//                                            (DtldCVLedgEntryBuf."VAT Amount (LCY)" = 0) and
-//                                            ((AddCurrencyCode = '') or (DtldCVLedgEntryBuf."Additional-Currency Amount" = 0))
-//                                         then
-//                                           exit;
-
-//                                         AccNo := GetDtldCustLedgEntryAccNo(GenJnlLine,DtldCVLedgEntryBuf,CustPostingGr,OriginalTransactionNo,true);
-//                                         DtldCVLedgEntryBuf."Gen. Posting Type" := DtldCVLedgEntryBuf."Gen. Posting Type"::Sale;
-//                                         PostDtldCVLedgEntry(GenJnlLine,DtldCVLedgEntryBuf,AccNo,AdjAmount,true);
-//                                       END;
-
-//                          ModifiedCode=BEGIN
-//                                         #1..7
-//                                         PostDtldCVLedgEntry(GenJnlLine,DtldCVLedgEntryBuf,AccNo,AdjAmount,true);
-//                                       END;
-
-//                          Target=PostDtldCustLedgEntryUnapply(PROCEDURE 114) }
-//     { CodeModification  ;OriginalCode=BEGIN
-//                                         if (DtldCVLedgEntryBuf."Amount (LCY)" = 0) and
-//                                            (DtldCVLedgEntryBuf."VAT Amount (LCY)" = 0) and
-//                                            ((AddCurrencyCode = '') or (DtldCVLedgEntryBuf."Additional-Currency Amount" = 0))
-//                                         then
-//                                           exit;
-
-//                                         AccNo := GetDtldVendLedgEntryAccNo(GenJnlLine,DtldCVLedgEntryBuf,VendPostingGr,OriginalTransactionNo,true);
-//                                         DtldCVLedgEntryBuf."Gen. Posting Type" := DtldCVLedgEntryBuf."Gen. Posting Type"::Purchase;
-//                                         PostDtldCVLedgEntry(GenJnlLine,DtldCVLedgEntryBuf,AccNo,AdjAmount,true);
-//                                       END;
-
-//                          ModifiedCode=BEGIN
-//                                         #1..7
-//                                         PostDtldCVLedgEntry(GenJnlLine,DtldCVLedgEntryBuf,AccNo,AdjAmount,true);
-//                                       END;
-
-//                          Target=PostDtldVendLedgEntryUnapply(PROCEDURE 69) }
+//     
 //     { PropertyModification;
 //                          Target=PostApply(PROCEDURE 105).IsHandled(Variable 1014);
 //                          Property=Id;
 //                          OriginalValue=1014;
 //                          ModifiedValue=1114 }
-//     { CodeModification  ;OriginalCode=BEGIN
-//                                         if not (DtldCVLedgEntryBuf."Entry Type" in
-//                                                 [DtldCVLedgEntryBuf."Entry Type"::"Payment Discount (VAT Excl.)",
-//                                                  DtldCVLedgEntryBuf."Entry Type"::"Payment Tolerance (VAT Excl.)",
-//                                                  DtldCVLedgEntryBuf."Entry Type"::"Payment Discount Tolerance (VAT Excl.)"])
-//                                         then
-//                                           exit;
-
-//                                         DeductedVATBase := 0;
-//                                         TempVATEntry.Reset;
-//                                         TempVATEntry.SetRange("Entry No.",0,999999);
-//                                         TempVATEntry.SetRange("Gen. Bus. Posting Group",DtldCVLedgEntryBuf."Gen. Bus. Posting Group");
-//                                         #12..46
-//                                                     TempVATEntry.Rename(TempVATEntry."Entry No." + 1000000);
-//                                                 end;
-//                                                 TempVATEntry := VATEntrySaved;
-//                                                 DeductedVATBase += TempVATEntry.Base;
-//                                               until TempVATEntry.Next = 0;
-//                                               for i := 1 to 3 do begin
-//                                                 VATBaseSum[i] := 0;
-//                                         #54..65
-//                                               SummarizedVAT := true;
-//                                             end;
-//                                           until TempVATEntry.Next = 0;
-//                                       END;
-
-//                          ModifiedCode=BEGIN
-//                                         #1..7
-//                                         #9..49
-//                                         #51..68
-//                                       END;
-
+//     
 //                          Target=ProcessTempVATEntry(PROCEDURE 87) }
-//     { CodeModification  ;OriginalCode=BEGIN
+//     
+// { CodeModification  ;OriginalCode=BEGIN
 //                                         if AddCurrencyCode = '' then
 //                                           exit;
 
@@ -290,48 +115,8 @@ codeunit 50002 GenJnlPostLineSubscriber
 //                          Property=Id;
 //                          OriginalValue=1006;
 //                          ModifiedValue=1005 }
-//     { CodeModification  ;OriginalCode=BEGIN
-//                                         TempVATEntry.Reset;
-//                                         TempVATEntry.SetRange("Gen. Bus. Posting Group",GLEntry."Gen. Bus. Posting Group");
-//                                         TempVATEntry.SetRange("Gen. Prod. Posting Group",GLEntry."Gen. Prod. Posting Group");
-//                                         TempVATEntry.SetRange("VAT Bus. Posting Group",GLEntry."VAT Bus. Posting Group");
-//                                         TempVATEntry.SetRange("VAT Prod. Posting Group",GLEntry."VAT Prod. Posting Group");
-//                                         case DtldCVLedgEntryBuf."Entry Type" of
-//                                           DtldCVLedgEntryBuf."Entry Type"::"Payment Discount Tolerance (VAT Excl.)":
-//                                             begin
-//                                               FirstEntryNo := 1000000;
-//                                               LastEntryNo := 1999999;
-//                                             end;
-//                                           DtldCVLedgEntryBuf."Entry Type"::"Payment Tolerance (VAT Excl.)":
-//                                             begin
-//                                               FirstEntryNo := 2000000;
-//                                               LastEntryNo := 2999999;
-//                                         #16..19
-//                                               LastEntryNo := 3999999;
-//                                             end;
-//                                         end;
-//                                         TempVATEntry.SetRange("Entry No.",FirstEntryNo,LastEntryNo);
-//                                         if TempVATEntry.FindSet then
-//                                           repeat
-//                                             VATEntry := TempVATEntry;
-//                                         #27..34
-//                                             LastEntryNo := TempVATEntry."Entry No.";
-//                                           until Complete or (TempVATEntry.Next = 0);
 
-//                                         TempVATEntry.SetRange("Entry No.",FirstEntryNo,LastEntryNo);
-//                                         TempVATEntry.DeleteAll;
-//                                       END;
-
-//                          ModifiedCode=BEGIN
-//                                         #1..6
-//                                            DtldCVLedgEntryBuf."Entry Type"::"Payment Discount Tolerance (VAT Excl.)":
-//                                         #8..11
-//                                            DtldCVLedgEntryBuf."Entry Type"::"Payment Tolerance (VAT Excl.)":
-//                                         #13..22
-//                                         #24..37
-//                                         TempVATEntry.DeleteAll;
-//                                       END;
-
+//     
 //                          Target=InsertVATEntriesFromTemp(PROCEDURE 83) }
 //   }
 //   CODE
@@ -342,7 +127,7 @@ codeunit 50002 GenJnlPostLineSubscriber
 //   }
 // }
 
-// { CodeModification  ;OriginalCode=BEGIN
+// { Skip: CodeModification  ;OriginalCode=BEGIN
 //                                         with GenJnlLine do begin
 //                                           if "Currency Code" = '' then begin
 //                                             Currency.InitRoundingPrecision;
@@ -366,3 +151,78 @@ codeunit 50002 GenJnlPostLineSubscriber
 //                                       END;
 
 //                          Target=InitAmounts(PROCEDURE 186) }
+
+
+//******
+
+// { Skip: CodeModification  ;OriginalCode=BEGIN
+//                                         if (DtldCVLedgEntryBuf."Amount (LCY)" = 0) and
+//                                            (DtldCVLedgEntryBuf."VAT Amount (LCY)" = 0) and
+//                                            ((AddCurrencyCode = '') or (DtldCVLedgEntryBuf."Additional-Currency Amount" = 0))
+//                                         then
+//                                           exit;
+
+//                                         AccNo := GetDtldCustLedgEntryAccNo(GenJnlLine,DtldCVLedgEntryBuf,CustPostingGr,OriginalTransactionNo,true);
+//                                         DtldCVLedgEntryBuf."Gen. Posting Type" := DtldCVLedgEntryBuf."Gen. Posting Type"::Sale;
+//                                         PostDtldCVLedgEntry(GenJnlLine,DtldCVLedgEntryBuf,AccNo,AdjAmount,true);
+//                                       END;
+
+//                          ModifiedCode=BEGIN
+//                                         #1..7
+//                                         PostDtldCVLedgEntry(GenJnlLine,DtldCVLedgEntryBuf,AccNo,AdjAmount,true);
+//                                       END;
+
+//                          Target=PostDtldCustLedgEntryUnapply(PROCEDURE 114) }
+
+
+//     { CodeModification  ;OriginalCode=BEGIN
+//                                         if (DtldCVLedgEntryBuf."Amount (LCY)" = 0) and
+//                                            (DtldCVLedgEntryBuf."VAT Amount (LCY)" = 0) and
+//                                            ((AddCurrencyCode = '') or (DtldCVLedgEntryBuf."Additional-Currency Amount" = 0))
+//                                         then
+//                                           exit;
+
+//                                         AccNo := GetDtldVendLedgEntryAccNo(GenJnlLine,DtldCVLedgEntryBuf,VendPostingGr,OriginalTransactionNo,true);
+//                                         DtldCVLedgEntryBuf."Gen. Posting Type" := DtldCVLedgEntryBuf."Gen. Posting Type"::Purchase;
+//                                         PostDtldCVLedgEntry(GenJnlLine,DtldCVLedgEntryBuf,AccNo,AdjAmount,true);
+//                                       END;
+
+//                          ModifiedCode=BEGIN
+//                                         #1..7
+//                                         PostDtldCVLedgEntry(GenJnlLine,DtldCVLedgEntryBuf,AccNo,AdjAmount,true);
+//                                       END;
+
+//                          Target=PostDtldVendLedgEntryUnapply(PROCEDURE 69) }
+
+// { Skip: CodeModification  ;OriginalCode=BEGIN
+//                                         if not (DtldCVLedgEntryBuf."Entry Type" in
+//                                                 [DtldCVLedgEntryBuf."Entry Type"::"Payment Discount (VAT Excl.)",
+//                                                  DtldCVLedgEntryBuf."Entry Type"::"Payment Tolerance (VAT Excl.)",
+//                                                  DtldCVLedgEntryBuf."Entry Type"::"Payment Discount Tolerance (VAT Excl.)"])
+//                                         then
+//                                           exit;
+
+//                                         DeductedVATBase := 0;
+//                                         TempVATEntry.Reset;
+//                                         TempVATEntry.SetRange("Entry No.",0,999999);
+//                                         TempVATEntry.SetRange("Gen. Bus. Posting Group",DtldCVLedgEntryBuf."Gen. Bus. Posting Group");
+//                                         #12..46
+//                                                     TempVATEntry.Rename(TempVATEntry."Entry No." + 1000000);
+//                                                 end;
+//                                                 TempVATEntry := VATEntrySaved;
+//                                                 DeductedVATBase += TempVATEntry.Base;
+//                                               until TempVATEntry.Next = 0;
+//                                               for i := 1 to 3 do begin
+//                                                 VATBaseSum[i] := 0;
+//                                         #54..65
+//                                               SummarizedVAT := true;
+//                                             end;
+//                                           until TempVATEntry.Next = 0;
+//                                       END;
+
+//                          ModifiedCode=BEGIN
+//                                         #1..7
+//                                         #9..49
+//                                         #51..68
+//                                       END;
+

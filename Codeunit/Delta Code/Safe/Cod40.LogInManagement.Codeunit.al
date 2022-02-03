@@ -7,7 +7,7 @@ codeunit 50018 LogInManagementSubscriber
 
     PROCEDURE OpenSettings();
     BEGIN
-        PAGE.Run(PAGE::"User Settings");
+        PAGE.Run(PAGE::"User Setup");
     END;
 
 }
