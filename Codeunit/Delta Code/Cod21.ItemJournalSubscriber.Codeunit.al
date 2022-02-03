@@ -17,8 +17,6 @@ codeunit 50004 "ItemJournalSubsriber"
     var
         Item: Record Item;
     begin
-        //Inserted by Nancy, to disallow Negative Inventory
-
         if (ItemJnlLine."Entry Type" = ItemJnlLine."Entry Type"::Sale) or
            (ItemJnlLine."Entry Type" = ItemJnlLine."Entry Type"::"Negative Adjmt.") then
         begin
