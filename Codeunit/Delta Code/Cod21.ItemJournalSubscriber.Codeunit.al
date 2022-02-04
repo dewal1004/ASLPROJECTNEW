@@ -2,6 +2,13 @@ codeunit 50004 "ItemJournalSubsriber"
 {
     EventSubscriberInstance = StaticAutomatic;
 
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Item Jnl.-Check Line", 'OnAfterGetItem', '', true, true)]
+    local procedure ItemJnlChkLineOn(var ItemJournalLine: Record "Item Journal Line")
+    var
+    begin
+        NegCheck(ItemJournalLine);
+    end;
+
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Item Jnl.-Check Line", 'OnBeforeCheckBins', '', true, true)]
     local procedure ItemJnlChkLineOnBeforeChkBins(var ItemJournalLine: Record "Item Journal Line")
     var
@@ -13,13 +20,13 @@ codeunit 50004 "ItemJournalSubsriber"
 
     end;
 
+
     local procedure NegCheck(var ItemJnlLine: Record "Item Journal Line")
     var
         Item: Record Item;
     begin
         if (ItemJnlLine."Entry Type" = ItemJnlLine."Entry Type"::Sale) or
-           (ItemJnlLine."Entry Type" = ItemJnlLine."Entry Type"::"Negative Adjmt.") then
-        begin
+           (ItemJnlLine."Entry Type" = ItemJnlLine."Entry Type"::"Negative Adjmt.") then begin
             Item.Get(ItemJnlLine."Item No.");
             Item.SetRange(Item."Global Dimension 2 Filter", ItemJnlLine."Shortcut Dimension 2 Code");
             Item.SetRange(Item."Location Filter", ItemJnlLine."Location Code");
@@ -38,12 +45,8 @@ codeunit 50004 "ItemJournalSubsriber"
                 Error('Quantity Should be not be Negative\' + 'in Line No. %1', ItemJnlLine."Line No.");
         end;
     end;
-
-
 }
-                          }
-    
 
-}
+
 
 

@@ -1,110 +1,38 @@
-OBJECT Modification "Item Jnl.-Post Line"(Codeunit 22)
+codeunit 50028 ItemJnlPostLineSubcriber
 {
-  OBJECT-PROPERTIES
-  {
-    Date=20210923D;
-    Time=184832.553T;
-    Modified=true;
-    Version List=NAVW114.26;
-  }
-  PROPERTIES
-  {
-    Target="Item Jnl.-Post Line"(Codeunit 22);
-  }
+    EventSubscriberInstance = StaticAutomatic;
+
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Item Jnl.-Post Line", 'OnBeforePostItem', '', true, true)]
+    local procedure ItemJnlPostLineOnBeforePostItem(var ItemJournalLine: Record "Item Journal Line")
+    var
+        ItemAvailability: Codeunit "Item-Check Avail.";
+        text001: Label 'ENU="%1 is Insurficient in Line %2   "';
+    begin
+        IF ItemJournalLine."Entry Type" = ItemJournalLine."Entry Type"::Transfer THEN
+            IF ItemAvailability.ItemJnlCheckLine(ItemJournalLine) THEN //IF ItemAvailability.ItemJnlCheckLinePost(ItemJnlLine) THEN
+                ERROR(text001, ItemJournalLine."Item No.", ItemJournalLine."Line No.");
+    end;
+
+    #22..32
+                                            //AAA-START
+                                                if not CoInfo.Find('-') then Message('record not found') else
+                                                if ("Item Ledger Entry Type" in [
+                                                   "Item Ledger Entry Type"::Purchase,
+                                                   "Item Ledger Entry Type"::"Positive Adjmt.",
+                                                   "Item Ledger Entry Type"::Output]) and
+                                                   (ItemJnlLine.Amount + ItemJnlLine."Discount Amount" > 0)
+                                                   then
+                                                   if (ItemJnlLine."Indirect Cost %">=CoInfo."Min Foreign Indirect Cost %") then
+                                                      Item."Last Imported Cost":=LastDirectCost
+                                                   else
+                                                      Item."Last Local Cost":=LastDirectCost;
+                                                   Item.Modify;
+                                                 //AAA-STOP
+      
+}
+
   CHANGES
-  {
-    { CodeModification  ;OriginalCode=BEGIN
-                                        OnBeforePostItemJnlLine(ItemJnlLine,CalledFromAdjustment,CalledFromInvtPutawayPick);
-
-                                        with ItemJnlLine do begin
-                                        #4..57
-                                          then
-                                            GenPostingSetup.Get("Gen. Bus. Posting Group","Gen. Prod. Posting Group");
-
-                                          if "Qty. per Unit of Measure" = 0 then
-                                            "Qty. per Unit of Measure" := 1;
-                                          if "Qty. per Cap. Unit of Measure" = 0 then
-                                        #64..132
-                                        end;
-
-                                        OnAfterPostItemJnlLine(ItemJnlLine,GlobalItemLedgEntry,ValueEntryNo,InventoryPostingToGL);
-                                      END;
-
-                         ModifiedCode=BEGIN
-                                        #1..60
-                                          GetGLSetup;
-                                        #61..135
-                                      END;
-
-                         Target=Code(PROCEDURE 3) }
-    { CodeModification  ;OriginalCode=BEGIN
-                                        with ItemJnlLine do begin
-                                          if "Stop Time" <> 0 then begin
-                                            InsertCapLedgEntry(CapLedgEntry,"Stop Time","Stop Time");
-                                        #4..122
-                                            end;
-
-                                            Description := ProdOrderLine.Description;
-                                            if Subcontracting then begin
-                                              "Document Type" := "Document Type"::" ";
-                                              "Document No." := "Order No.";
-                                        #129..137
-                                        end;
-
-                                        OnAfterPostOutput(GlobalItemLedgEntry,ProdOrderLine,ItemJnlLine);
-                                      END;
-
-                         ModifiedCode=BEGIN
-                                        #1..125
-
-                                        #126..140
-                                      END;
-
-                         Target=PostOutput(PROCEDURE 25) }
-    { Insertion         ;Target=PostItem(PROCEDURE 28);
-                         ChangedElements=VariableCollection
-                         {
-                           text001@1000 : TextConst 'ENU="%1 is Insurficient in Line %2   "';
-                         }
-                          }
-    { CodeModification  ;OriginalCode=BEGIN
-                                        OnBeforePostItem(ItemJnlLine);
-
-                                        with ItemJnlLine do begin
-                                          SKUExists := SKU.Get("Location Code","Item No.","Variant Code");
-                                          if "Item Shpt. Entry No." <> 0 then begin
-                                            "Location Code" := '';
-                                            "Variant Code" := '';
-                                          end;
-
-                                          if Item.Get("Item No.") then begin
-                                            if not CalledFromAdjustment then
-                                              DisplayErrorIfItemIsBlocked(Item);
-                                            Item.CheckBlockedByApplWorksheet;
-                                          end;
-
-                                          if ("Inventory Posting Group" = '') and (Item.Type = Item.Type::Inventory) then begin
-                                            Item.TestField("Inventory Posting Group");
-                                        #18..71
-                                        end;
-
-                                        OnAfterPostItem(ItemJnlLine);
-                                      END;
-
-                         ModifiedCode=BEGIN
-                                        #1..8
-                                        {
-                                         IF ItemJnlLine."Entry Type"=ItemJnlLine."Entry Type"::Transfer     //SHOD SYSTEMS -170818
-                                           THEN
-                                         IF ItemAvailability.ItemJnlCheckLinePost(ItemJnlLine) THEN
-                                             ERROR(text001,ItemJnlLine."Item No.",ItemJnlLine."Line No.");
-                                        }
-                                        #10..14
-                                        {<<<<<<<}
-                                        #15..74
-                                      END;
-
-                         Target=PostItem(PROCEDURE 28) }
+  {}
     { CodeModification  ;OriginalCode=BEGIN
                                         IsHandled := false;
                                         OnBeforeUpdateUnitCost(ValueEntry,IsHandled);
@@ -530,7 +458,7 @@ OBJECT Modification "Item Jnl.-Post Line"(Codeunit 22)
                            CoInfo@1089 : Record "Company Information";
                            Text005@1095 : TextConst 'ENU=Item %1 is not on inventory at Location %2.';
                            TransferQtyItetmTracking@1096 : Decimal;
-                           ItemAvailability@1097 : Codeunit "Item-Check Avail.";
+                           
                          }
                           }
   }
@@ -542,3 +470,43 @@ OBJECT Modification "Item Jnl.-Post Line"(Codeunit 22)
   }
 }
 
+//********************
+// OBJECT Modification "Item Jnl.-Post Line"(Codeunit 22)
+// {
+//   OBJECT-PROPERTIES
+//   {
+//     Date=20210923D;
+//     Time=184832.553T;
+//     Modified=true;
+//     Version List=NAVW114.26;
+//   }
+//   PROPERTIES
+//   {
+//     Target="Item Jnl.-Post Line"(Codeunit 22);
+//   }
+
+{ Skip(Redundant):CodeModification  ;OriginalCode=BEGIN
+                                        OnBeforePostItemJnlLine(ItemJnlLine,CalledFromAdjustment,CalledFromInvtPutawayPick);
+
+                                        with ItemJnlLine do begin
+                                        #4..57
+                                          then
+                                            GenPostingSetup.Get("Gen. Bus. Posting Group","Gen. Prod. Posting Group");
+
+                                          if "Qty. per Unit of Measure" = 0 then
+                                            "Qty. per Unit of Measure" := 1;
+                                          if "Qty. per Cap. Unit of Measure" = 0 then
+                                        #64..132
+                                        end;
+
+                                        OnAfterPostItemJnlLine(ItemJnlLine,GlobalItemLedgEntry,ValueEntryNo,InventoryPostingToGL);
+                                      END;
+
+                         ModifiedCode=BEGIN
+                                        #1..60
+                                          GetGLSetup;
+                                        #61..135
+                                      END;
+
+                         Target=Code(PROCEDURE 3) }
+    

@@ -13,17 +13,7 @@ OBJECT Modification "Item Jnl.-Check Line"(Codeunit 21)
   }
   CHANGES
   {
-    { CodeModification  ;OriginalCode=BEGIN
-                                        RunCheck(Rec);
-                                      END;
-
-                         ModifiedCode=BEGIN
-                                        RunCheck(Rec);
-                                        NegCheck(Rec);   //AAA Feb 2002
-                                      END;
-
-                         Target=OnRun }
-    { CodeModification  ;OriginalCode=BEGIN
+    { Skip(Until proven to be required): CodeModification  ;OriginalCode=BEGIN
                                         GLSetup.Get;
                                         InvtSetup.Get;
 
@@ -60,14 +50,7 @@ OBJECT Modification "Item Jnl.-Check Line"(Codeunit 21)
                                       END;
 
                          Target=RunCheck(PROCEDURE 1) }
-    { Insertion         ;InsertAfter=UseInTransitLocationErr(Variable 1024);
-                         ChangedElements=VariableCollection
-                         {
-                           "--------"@1026 : Integer;
-                           Item@1025 : Record Item;
-                         }
-                          }
-  }
+    { Insertion         ;
   CODE
   {
 
