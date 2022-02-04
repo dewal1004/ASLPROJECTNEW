@@ -13,22 +13,43 @@ codeunit 50028 ItemJnlPostLineSubcriber
                 ERROR(text001, ItemJournalLine."Item No.", ItemJournalLine."Line No.");
     end;
 
-    #22..32
-                                            //AAA-START
-                                                if not CoInfo.Find('-') then Message('record not found') else
-                                                if ("Item Ledger Entry Type" in [
-                                                   "Item Ledger Entry Type"::Purchase,
-                                                   "Item Ledger Entry Type"::"Positive Adjmt.",
-                                                   "Item Ledger Entry Type"::Output]) and
-                                                   (ItemJnlLine.Amount + ItemJnlLine."Discount Amount" > 0)
-                                                   then
-                                                   if (ItemJnlLine."Indirect Cost %">=CoInfo."Min Foreign Indirect Cost %") then
-                                                      Item."Last Imported Cost":=LastDirectCost
-                                                   else
-                                                      Item."Last Local Cost":=LastDirectCost;
-                                                   Item.Modify;
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Item Jnl.-Post Line", 'OnAfterUpdateUnitCost', '', true, true)]
+    local procedure ItemJnlPostLineOnAfterUpdateUnitCost(ItemJournalLine: Record "Item Journal Line"; ValueEntry: Record "Value Entry"; LastDirectCost: Decimal)
+    var
+        Item: Record Item;
+        CompanyInfo: Record "Company Information";
+
+    begin
+        if (ValueEntry."Valued Quantity" > 0) and
+          (ItemJournalLine.Amount + ItemJournalLine."Discount Amount" > 0) and
+          not (ValueEntry."Expected Cost" or ItemJournalLine.Adjustment) then begin
+            item.Get(ItemJournalLine."No.");
+            if (ItemJournalLine."Indirect Cost %" >= CompanyInfo."Min Foreign Indirect Cost %") then
+                Item."Last Imported Cost" := LastDirectCost
+            else
+                Item."Last Local Cost" := LastDirectCost;
+            Item.Modify;
+        end
+
+                                                //AAA-START
+                                                if not CompanyInfo.Find('-') then
+            Message('record not found') else
+            if ("Item Ledger Entry Type" in [
+               "Item Ledger Entry Type"::Purchase,
+               "Item Ledger Entry Type"::"Positive Adjmt.",
+               "Item Ledger Entry Type"::Output]) and
+               (ItemJnlLine.Amount + ItemJnlLine."Discount Amount" > 0)
+               then
+                                                   
                                                  //AAA-STOP
-      
+    end;
+
+        OnAfterUpdateUnitCost(ValueEntry, LastDirectCost, ItemJnlLine);
+
+
+    #22..32
+
+
 }
 
   CHANGES
