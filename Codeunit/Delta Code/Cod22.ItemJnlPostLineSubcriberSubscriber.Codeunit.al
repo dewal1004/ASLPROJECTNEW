@@ -18,7 +18,6 @@ codeunit 50028 ItemJnlPostLineSubcriber
     var
         Item: Record Item;
         CompanyInfo: Record "Company Information";
-
     begin
         if (ValueEntry."Valued Quantity" > 0) and
           (ItemJournalLine.Amount + ItemJournalLine."Discount Amount" > 0) and
@@ -30,97 +29,36 @@ codeunit 50028 ItemJnlPostLineSubcriber
                 Item."Last Local Cost" := LastDirectCost;
             Item.Modify;
         end
-
-                                                //AAA-START
-                                                if not CompanyInfo.Find('-') then
-            Message('record not found') else
-            if ("Item Ledger Entry Type" in [
-               "Item Ledger Entry Type"::Purchase,
-               "Item Ledger Entry Type"::"Positive Adjmt.",
-               "Item Ledger Entry Type"::Output]) and
-               (ItemJnlLine.Amount + ItemJnlLine."Discount Amount" > 0)
-               then
-                                                   
-                                                 //AAA-STOP
     end;
 
-        OnAfterUpdateUnitCost(ValueEntry, LastDirectCost, ItemJnlLine);
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Item Jnl.-Post Line", '', '', true, true)]
+    local procedure ItemJnlPostLine()
+    begin
+
+    end;
+
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Item Jnl.-Post Line", 'OnAfterInitItemLedgEntry', '', true, true)]
+    local procedure ItemJnlPostLineOnAfterInitItemLedgEntry(var NewItemLedgEntry: Record "Item Ledger Entry"; var ItemJournalLine: Record "Item Journal Line")
+    begin
+
+        NewItemLedgEntry."Source Code" := ItemJournalLine."Source Code";
+        NewItemLedgEntry."Scrap Quantity" := ItemJournalLine."Scrap Quantity";
+        NewItemLedgEntry."Consumed Quantity" := ItemJournalLine."Consumed Quantity";
+        NewItemLedgEntry."Vessel Type" := ItemJournalLine."Vessel Type";
+        if ItemJournalLine."Entry Type" = ItemJournalLine."Entry Type"::Consumption then begin
+            NewItemLedgEntry.Quantity := -ItemJournalLine."Consumed Quantity";
+            NewItemLedgEntry."Invoiced Quantity" := -ItemJournalLine."Consumed Quantity";
+        end;
 
 
-    #22..32
+    end;
+
 
 
 }
 
   CHANGES
   {}
-    { CodeModification  ;OriginalCode=BEGIN
-                                        IsHandled := false;
-                                        OnBeforeUpdateUnitCost(ValueEntry,IsHandled);
-                                        if IsHandled then
-                                        #4..18
-                                              LastDirectCost := Round(TotalAmount / "Valued Quantity",GLSetup."Unit-Amount Rounding Precision")
-                                            end;
-
-                                            if "Drop Shipment" then begin
-                                              if LastDirectCost <> 0 then begin
-                                                Item."Last Direct Cost" := LastDirectCost;
-                                        #25..29
-                                              ItemCostMgt.SetProperties(false,"Invoiced Quantity");
-                                              ItemCostMgt.UpdateUnitCost(Item,"Location Code","Variant Code",LastDirectCost,0,true,true,false,0);
-                                            end;
-                                          end;
-                                      END;
-
-                         ModifiedCode=BEGIN
-                                        #1..21
-                                        {<<<<<<<}
-                                        #22..32
-                                            //AAA-START
-                                                if not CoInfo.Find('-') then Message('record not found') else
-                                                if ("Item Ledger Entry Type" in [
-                                                   "Item Ledger Entry Type"::Purchase,
-                                                   "Item Ledger Entry Type"::"Positive Adjmt.",
-                                                   "Item Ledger Entry Type"::Output]) and
-                                                   (ItemJnlLine.Amount + ItemJnlLine."Discount Amount" > 0)
-                                                   then
-                                                   if (ItemJnlLine."Indirect Cost %">=CoInfo."Min Foreign Indirect Cost %") then
-                                                      Item."Last Imported Cost":=LastDirectCost
-                                                   else
-                                                      Item."Last Local Cost":=LastDirectCost;
-                                                   Item.Modify;
-                                                 //AAA-STOP
-                                          end;
-                                      END;
-
-                         Target=UpdateUnitCost(PROCEDURE 9) }
-    { CodeModification  ;OriginalCode=BEGIN
-                                        if not InventoryPeriod.IsValidDate(ItemApplnEntry."Posting Date") then
-                                          InventoryPeriod.ShowError(ItemApplnEntry."Posting Date");
-
-                                        #4..52
-                                                0,0,ItemApplnEntry."Posting Date",ItemApplnEntry.Quantity,true);
-                                        end;
-
-                                        if Item."Costing Method" = Item."Costing Method"::Average then
-                                          if ItemApplnEntry.Fixed then
-                                            UpdateValuedByAverageCost(CostItemLedgEntry."Entry No.",true);
-                                        #59..76
-                                        SetValuationDateAllValueEntrie(CostItemLedgEntry."Entry No.",Valuationdate,false);
-
-                                        UpdateLinkedValuationUnapply(Valuationdate,CostItemLedgEntry."Entry No.",CostItemLedgEntry.Positive);
-                                      END;
-
-                         ModifiedCode=BEGIN
-                                        #1..55
-                                        {IF ItemJnlLine."Item Tracking No." = 0 THEN
-                                                      UpdateRelatedItemTracking(OldItemLedgEntry."Entry No.",-AppliedQty);} // blocked by santus 20-10-05
-
-
-                                        #56..79
-                                      END;
-
-                         Target=UnApply(PROCEDURE 73) }
     { CodeModification  ;OriginalCode=BEGIN
                                         ItemLedgEntryNo := ItemLedgEntryNo + 1;
 
@@ -207,14 +145,6 @@ codeunit 50028 ItemJnlPostLineSubcriber
 
                          ModifiedCode=BEGIN
                                         #1..52
-                                          ItemLedgEntry."Product Group Code" := "Product Group Code";
-                                          ItemLedgEntry."Source Code":="Source Code";     //AAA/July 24 - 2002 //s
-                                        #53..59
-                                          ItemLedgEntry."Scrap Quantity" := "Scrap Quantity";  //CODEWARE
-                                          ItemLedgEntry."Consumed Quantity" := "Consumed Quantity"; //CODEWARE
-                                          ItemLedgEntry."Vessel Type" := "Vessel Type"; // Inserted By SSNL 170721
-                                          ItemLedgEntry."Shpt. Method Code" := "Shpt. Method Code";
-                                          ItemLedgEntry.Correction := Correction;
                                           case "Entry Type" of
                                             "Entry Type"::Sale,"Entry Type"::"Negative Adjmt.",
                                               "Entry Type"::Transfer,"Entry Type"::"Assembly Consumption":
@@ -530,4 +460,31 @@ codeunit 50028 ItemJnlPostLineSubcriber
                                       END;
 
                          Target=Code(PROCEDURE 3) }
+    { Dropped: CodeModification  ;OriginalCode=BEGIN
+                                        if not InventoryPeriod.IsValidDate(ItemApplnEntry."Posting Date") then
+                                          InventoryPeriod.ShowError(ItemApplnEntry."Posting Date");
+
+                                        #4..52
+                                                0,0,ItemApplnEntry."Posting Date",ItemApplnEntry.Quantity,true);
+                                        end;
+
+                                        if Item."Costing Method" = Item."Costing Method"::Average then
+                                          if ItemApplnEntry.Fixed then
+                                            UpdateValuedByAverageCost(CostItemLedgEntry."Entry No.",true);
+                                        #59..76
+                                        SetValuationDateAllValueEntrie(CostItemLedgEntry."Entry No.",Valuationdate,false);
+
+                                        UpdateLinkedValuationUnapply(Valuationdate,CostItemLedgEntry."Entry No.",CostItemLedgEntry.Positive);
+                                      END;
+
+                         ModifiedCode=BEGIN
+                                        #1..55
+                                        {IF ItemJnlLine."Item Tracking No." = 0 THEN
+                                                      UpdateRelatedItemTracking(OldItemLedgEntry."Entry No.",-AppliedQty);} // blocked by santus 20-10-05
+
+
+                                        #56..79
+                                      END;
+
+                         Target=UnApply(PROCEDURE 73) }
     
