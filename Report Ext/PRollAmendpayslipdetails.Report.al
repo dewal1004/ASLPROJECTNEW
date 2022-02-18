@@ -8,7 +8,7 @@ report 50559 "PRoll; Amend payslip details"
 
     dataset
     {
-        dataitem("Payroll-E/D Codes."; "Payroll ED Codes.")
+        dataitem("Payroll-E/D Codes."; "Payroll-E/D Codes.")
         {
             DataItemTableView = SORTING ("E/D Code");
             RequestFilterFields = "E/D Code";

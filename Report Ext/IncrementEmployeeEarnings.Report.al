@@ -126,7 +126,7 @@ report 50070 "Increment Employee Earnings"
         FooterPrinted: Boolean;
         TotalFor: Label 'Total for ';
         Incpercent: Decimal;
-        EDRec: Record "Payroll ED Codes.";
+        EDRec: Record "Payroll-E/D Codes.";
         Payroll_Employee_Group_Lines_CaptionLbl: Label 'Payroll-Employee Group Lines.';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
         TextCaptionLbl: Label 'Text';

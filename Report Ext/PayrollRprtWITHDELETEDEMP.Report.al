@@ -400,7 +400,7 @@ report 50030 "Payroll Rprt- WITH DELETED EMP"
         EmployeeRec: Record Employee;
         PeriodRec: Record "Payroll-Periods.";
         EmployeeName: Text[40];
-        RequestEDsArray: array[12] of Record "Payroll ED Codes.";
+        RequestEDsArray: array[12] of Record "Payroll-E/D Codes.";
         EDAmountsArray: array[12] of Decimal;
         EDText: array[12, 2] of Text[10];
         EDString: Text[20];

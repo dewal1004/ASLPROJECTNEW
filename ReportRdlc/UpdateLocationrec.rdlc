@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -10,82 +10,6 @@
       <rd:SecurityType>None</rd:SecurityType>
     </DataSource>
   </DataSources>
-  <DataSets>
-    <DataSet Name="DataSet_Result">
-      <Query>
-        <DataSourceName>DataSource</DataSourceName>
-        <CommandText />
-      </Query>
-      <Fields>
-        <Field Name="FORMAT_TODAY_0_4_">
-          <DataField>FORMAT_TODAY_0_4_</DataField>
-        </Field>
-        <Field Name="COMPANYNAME">
-          <DataField>COMPANYNAME</DataField>
-        </Field>
-        <Field Name="CurrReport_PAGENO">
-          <DataField>CurrReport_PAGENO</DataField>
-        </Field>
-        <Field Name="USERID">
-          <DataField>USERID</DataField>
-        </Field>
-        <Field Name="Job__No__">
-          <DataField>Job__No__</DataField>
-        </Field>
-        <Field Name="Job__Search_Description_">
-          <DataField>Job__Search_Description_</DataField>
-        </Field>
-        <Field Name="Job_Description">
-          <DataField>Job_Description</DataField>
-        </Field>
-        <Field Name="Job__Description_2_">
-          <DataField>Job__Description_2_</DataField>
-        </Field>
-        <Field Name="Job__Bill_to_Customer_No__">
-          <DataField>Job__Bill_to_Customer_No__</DataField>
-        </Field>
-        <Field Name="Job__Creation_Date_">
-          <DataField>Job__Creation_Date_</DataField>
-        </Field>
-        <Field Name="Job__Starting_Date_">
-          <DataField>Job__Starting_Date_</DataField>
-        </Field>
-        <Field Name="Job__Ending_Date_">
-          <DataField>Job__Ending_Date_</DataField>
-        </Field>
-        <Field Name="JobCaption">
-          <DataField>JobCaption</DataField>
-        </Field>
-        <Field Name="CurrReport_PAGENOCaption">
-          <DataField>CurrReport_PAGENOCaption</DataField>
-        </Field>
-        <Field Name="Job__No__Caption">
-          <DataField>Job__No__Caption</DataField>
-        </Field>
-        <Field Name="Job__Search_Description_Caption">
-          <DataField>Job__Search_Description_Caption</DataField>
-        </Field>
-        <Field Name="Job_DescriptionCaption">
-          <DataField>Job_DescriptionCaption</DataField>
-        </Field>
-        <Field Name="Job__Description_2_Caption">
-          <DataField>Job__Description_2_Caption</DataField>
-        </Field>
-        <Field Name="Job__Bill_to_Customer_No__Caption">
-          <DataField>Job__Bill_to_Customer_No__Caption</DataField>
-        </Field>
-        <Field Name="Job__Creation_Date_Caption">
-          <DataField>Job__Creation_Date_Caption</DataField>
-        </Field>
-        <Field Name="Job__Starting_Date_Caption">
-          <DataField>Job__Starting_Date_Caption</DataField>
-        </Field>
-        <Field Name="Job__Ending_Date_Caption">
-          <DataField>Job__Ending_Date_Caption</DataField>
-        </Field>
-      </Fields>
-    </DataSet>
-  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -982,4 +906,80 @@ End Function
   <Language>=User!Language</Language>
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="FORMAT_TODAY_0_4_">
+          <DataField>FORMAT_TODAY_0_4_</DataField>
+        </Field>
+        <Field Name="COMPANYNAME">
+          <DataField>COMPANYNAME</DataField>
+        </Field>
+        <Field Name="CurrReport_PAGENO">
+          <DataField>CurrReport_PAGENO</DataField>
+        </Field>
+        <Field Name="USERID">
+          <DataField>USERID</DataField>
+        </Field>
+        <Field Name="Job__No__">
+          <DataField>Job__No__</DataField>
+        </Field>
+        <Field Name="Job__Search_Description_">
+          <DataField>Job__Search_Description_</DataField>
+        </Field>
+        <Field Name="Job_Description">
+          <DataField>Job_Description</DataField>
+        </Field>
+        <Field Name="Job__Description_2_">
+          <DataField>Job__Description_2_</DataField>
+        </Field>
+        <Field Name="Job__Bill_to_Customer_No__">
+          <DataField>Job__Bill_to_Customer_No__</DataField>
+        </Field>
+        <Field Name="Job__Creation_Date_">
+          <DataField>Job__Creation_Date_</DataField>
+        </Field>
+        <Field Name="Job__Starting_Date_">
+          <DataField>Job__Starting_Date_</DataField>
+        </Field>
+        <Field Name="Job__Ending_Date_">
+          <DataField>Job__Ending_Date_</DataField>
+        </Field>
+        <Field Name="JobCaption">
+          <DataField>JobCaption</DataField>
+        </Field>
+        <Field Name="CurrReport_PAGENOCaption">
+          <DataField>CurrReport_PAGENOCaption</DataField>
+        </Field>
+        <Field Name="Job__No__Caption">
+          <DataField>Job__No__Caption</DataField>
+        </Field>
+        <Field Name="Job__Search_Description_Caption">
+          <DataField>Job__Search_Description_Caption</DataField>
+        </Field>
+        <Field Name="Job_DescriptionCaption">
+          <DataField>Job_DescriptionCaption</DataField>
+        </Field>
+        <Field Name="Job__Description_2_Caption">
+          <DataField>Job__Description_2_Caption</DataField>
+        </Field>
+        <Field Name="Job__Bill_to_Customer_No__Caption">
+          <DataField>Job__Bill_to_Customer_No__Caption</DataField>
+        </Field>
+        <Field Name="Job__Creation_Date_Caption">
+          <DataField>Job__Creation_Date_Caption</DataField>
+        </Field>
+        <Field Name="Job__Starting_Date_Caption">
+          <DataField>Job__Starting_Date_Caption</DataField>
+        </Field>
+        <Field Name="Job__Ending_Date_Caption">
+          <DataField>Job__Ending_Date_Caption</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
 </Report>

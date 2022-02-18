@@ -12,7 +12,7 @@ page 50051 "Monthly Variables Lines."
                 ShowCaption = false;
                 field("E/D Code"; "E/D Code")
                 {
-                    TableRelation = "Payroll ED Codes."."E/D Code" WHERE ("Monthly Variable" = CONST (true));
+                    TableRelation = "Payroll-E/D Codes."."E/D Code" WHERE ("Monthly Variable" = CONST (true));
                 }
                 field("Payslip Text"; "Payslip Text")
                 {

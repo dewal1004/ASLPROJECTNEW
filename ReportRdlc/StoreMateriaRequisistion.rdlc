@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -10,115 +10,6 @@
       <rd:SecurityType>None</rd:SecurityType>
     </DataSource>
   </DataSources>
-  <DataSets>
-    <DataSet Name="DataSet_Result">
-      <Query>
-        <DataSourceName>DataSource</DataSourceName>
-        <CommandText />
-      </Query>
-      <Fields>
-        <Field Name="RequisitionNo">
-          <DataField>RequisitionNo</DataField>
-        </Field>
-        <Field Name="Type">
-          <DataField>Type</DataField>
-        </Field>
-        <Field Name="Description">
-          <DataField>Description</DataField>
-        </Field>
-        <Field Name="TobeCollected">
-          <DataField>TobeCollected</DataField>
-        </Field>
-        <Field Name="RequisitioDate">
-          <DataField>RequisitioDate</DataField>
-        </Field>
-        <Field Name="Sender">
-          <DataField>Sender</DataField>
-        </Field>
-        <Field Name="DocumentNo">
-          <DataField>DocumentNo</DataField>
-        </Field>
-        <Field Name="DepartmentalApprovalBy">
-          <DataField>DepartmentalApprovalBy</DataField>
-        </Field>
-        <Field Name="Approved1">
-          <DataField>Approved1</DataField>
-        </Field>
-        <Field Name="StoreApprovalBy">
-          <DataField>StoreApprovalBy</DataField>
-        </Field>
-        <Field Name="ApprovedF">
-          <DataField>ApprovedF</DataField>
-        </Field>
-        <Field Name="ProcessBy">
-          <DataField>ProcessBy</DataField>
-        </Field>
-        <Field Name="TransferTo">
-          <DataField>TransferTo</DataField>
-        </Field>
-        <Field Name="ClaimBy">
-          <DataField>ClaimBy</DataField>
-        </Field>
-        <Field Name="iSSUEDBY">
-          <DataField>iSSUEDBY</DataField>
-        </Field>
-        <Field Name="CaptureBy">
-          <DataField>CaptureBy</DataField>
-        </Field>
-        <Field Name="From">
-          <DataField>From</DataField>
-        </Field>
-        <Field Name="Voyage">
-          <DataField>Voyage</DataField>
-        </Field>
-        <Field Name="Department">
-          <DataField>Department</DataField>
-        </Field>
-        <Field Name="ItemNo">
-          <DataField>ItemNo</DataField>
-        </Field>
-        <Field Name="ItemDescription">
-          <DataField>ItemDescription</DataField>
-        </Field>
-        <Field Name="ReqQty">
-          <DataField>ReqQty</DataField>
-        </Field>
-        <Field Name="ReqQtyFormat">
-          <DataField>ReqQtyFormat</DataField>
-        </Field>
-        <Field Name="ApprovedQty">
-          <DataField>ApprovedQty</DataField>
-        </Field>
-        <Field Name="ApprovedQtyFormat">
-          <DataField>ApprovedQtyFormat</DataField>
-        </Field>
-        <Field Name="IssueQty">
-          <DataField>IssueQty</DataField>
-        </Field>
-        <Field Name="IssueQtyFormat">
-          <DataField>IssueQtyFormat</DataField>
-        </Field>
-        <Field Name="StoreLocation">
-          <DataField>StoreLocation</DataField>
-        </Field>
-        <Field Name="EmployeeNo">
-          <DataField>EmployeeNo</DataField>
-        </Field>
-        <Field Name="Collecteddate">
-          <DataField>Collecteddate</DataField>
-        </Field>
-        <Field Name="Comment">
-          <DataField>Comment</DataField>
-        </Field>
-        <Field Name="InvPGrp">
-          <DataField>InvPGrp</DataField>
-        </Field>
-        <Field Name="SRN">
-          <DataField>SRN</DataField>
-        </Field>
-      </Fields>
-    </DataSet>
-  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -3823,4 +3714,113 @@ RaRVaCvMUXIrrXuJQC9z/wDa+//Z</ImageData>
   <Language>=User!Language</Language>
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="RequisitionNo">
+          <DataField>RequisitionNo</DataField>
+        </Field>
+        <Field Name="Type">
+          <DataField>Type</DataField>
+        </Field>
+        <Field Name="Description">
+          <DataField>Description</DataField>
+        </Field>
+        <Field Name="TobeCollected">
+          <DataField>TobeCollected</DataField>
+        </Field>
+        <Field Name="RequisitioDate">
+          <DataField>RequisitioDate</DataField>
+        </Field>
+        <Field Name="Sender">
+          <DataField>Sender</DataField>
+        </Field>
+        <Field Name="DocumentNo">
+          <DataField>DocumentNo</DataField>
+        </Field>
+        <Field Name="DepartmentalApprovalBy">
+          <DataField>DepartmentalApprovalBy</DataField>
+        </Field>
+        <Field Name="Approved1">
+          <DataField>Approved1</DataField>
+        </Field>
+        <Field Name="StoreApprovalBy">
+          <DataField>StoreApprovalBy</DataField>
+        </Field>
+        <Field Name="ApprovedF">
+          <DataField>ApprovedF</DataField>
+        </Field>
+        <Field Name="ProcessBy">
+          <DataField>ProcessBy</DataField>
+        </Field>
+        <Field Name="TransferTo">
+          <DataField>TransferTo</DataField>
+        </Field>
+        <Field Name="ClaimBy">
+          <DataField>ClaimBy</DataField>
+        </Field>
+        <Field Name="iSSUEDBY">
+          <DataField>iSSUEDBY</DataField>
+        </Field>
+        <Field Name="CaptureBy">
+          <DataField>CaptureBy</DataField>
+        </Field>
+        <Field Name="From">
+          <DataField>From</DataField>
+        </Field>
+        <Field Name="Voyage">
+          <DataField>Voyage</DataField>
+        </Field>
+        <Field Name="Department">
+          <DataField>Department</DataField>
+        </Field>
+        <Field Name="ItemNo">
+          <DataField>ItemNo</DataField>
+        </Field>
+        <Field Name="ItemDescription">
+          <DataField>ItemDescription</DataField>
+        </Field>
+        <Field Name="ReqQty">
+          <DataField>ReqQty</DataField>
+        </Field>
+        <Field Name="ReqQtyFormat">
+          <DataField>ReqQtyFormat</DataField>
+        </Field>
+        <Field Name="ApprovedQty">
+          <DataField>ApprovedQty</DataField>
+        </Field>
+        <Field Name="ApprovedQtyFormat">
+          <DataField>ApprovedQtyFormat</DataField>
+        </Field>
+        <Field Name="IssueQty">
+          <DataField>IssueQty</DataField>
+        </Field>
+        <Field Name="IssueQtyFormat">
+          <DataField>IssueQtyFormat</DataField>
+        </Field>
+        <Field Name="StoreLocation">
+          <DataField>StoreLocation</DataField>
+        </Field>
+        <Field Name="EmployeeNo">
+          <DataField>EmployeeNo</DataField>
+        </Field>
+        <Field Name="Collecteddate">
+          <DataField>Collecteddate</DataField>
+        </Field>
+        <Field Name="Comment">
+          <DataField>Comment</DataField>
+        </Field>
+        <Field Name="InvPGrp">
+          <DataField>InvPGrp</DataField>
+        </Field>
+        <Field Name="SRN">
+          <DataField>SRN</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
 </Report>

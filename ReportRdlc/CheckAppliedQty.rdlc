@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -60,4 +60,35 @@ End Function
   <Language>=User!Language</Language>
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="EntryNo">
+          <DataField>EntryNo</DataField>
+        </Field>
+        <Field Name="ItemQty">
+          <DataField>ItemQty</DataField>
+        </Field>
+        <Field Name="ItemQtyFormat">
+          <DataField>ItemQtyFormat</DataField>
+        </Field>
+        <Field Name="ItemRemQty">
+          <DataField>ItemRemQty</DataField>
+        </Field>
+        <Field Name="ItemRemQtyFormat">
+          <DataField>ItemRemQtyFormat</DataField>
+        </Field>
+        <Field Name="QuantityBal">
+          <DataField>QuantityBal</DataField>
+        </Field>
+        <Field Name="QuantityBalFormat">
+          <DataField>QuantityBalFormat</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
 </Report>

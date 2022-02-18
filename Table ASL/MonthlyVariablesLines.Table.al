@@ -28,7 +28,7 @@ table 50014 "Monthly Variables Lines."
         field(3; "E/D Code"; Code[20])
         {
             NotBlank = true;
-            TableRelation = "Payroll ED Codes."."E/D Code" WHERE("Monthly Variable" = CONST(true));
+            TableRelation = "Payroll-E/D Codes."."E/D Code" WHERE("Monthly Variable" = CONST(true));
 
             trigger OnLookup()
             begin
@@ -467,8 +467,8 @@ table 50014 "Monthly Variables Lines."
     end;
 
     var
-        "E/DFileRec": Record "Payroll ED Codes.";
-        ConstEDFileRec: Record "Payroll ED Codes.";
+        "E/DFileRec": Record "Payroll-E/D Codes.";
+        ConstEDFileRec: Record "Payroll-E/D Codes.";
         ProllHeader: Record "Monthly Variables Header.";
         ProllRecStore: Record "Monthly Variables Lines.";
         ProllFactorRec: Record "Monthly Variables Lines.";
@@ -505,7 +505,7 @@ table 50014 "Monthly Variables Lines."
         HrsInDay: Integer;
         DaysInMonth: Integer;
         BasicPay: Decimal;
-        NewEDRec: Record "Payroll ED Codes.";
+        NewEDRec: Record "Payroll-E/D Codes.";
         EDPage: Page "ED Codes.";
 
     //[Scope('OnPrem')]
@@ -528,7 +528,7 @@ table 50014 "Monthly Variables Lines."
     end;
 
     //[Scope('OnPrem')]
-    procedure CalcAmount(EDFileRec: Record "Payroll ED Codes."; EntryLineRec: Record "Monthly Variables Lines."; EntryLineAmount: Decimal; EDCode: Code[20]): Decimal
+    procedure CalcAmount(EDFileRec: Record "Payroll-E/D Codes."; EntryLineRec: Record "Monthly Variables Lines."; EntryLineAmount: Decimal; EDCode: Code[20]): Decimal
     begin
         /*””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””
         ‚ Calculate the amount based on Factor Of and Percentage fields in the file  ‚
@@ -916,7 +916,7 @@ table 50014 "Monthly Variables Lines."
     end;
 
     //[Scope('OnPrem')]
-    procedure "CalcFactor1.1"(CurrLineRec: Record "Monthly Variables Lines."; LineToChangeRec: Record "Monthly Variables Lines."; EDFileRec: Record "Payroll ED Codes."): Decimal
+    procedure "CalcFactor1.1"(CurrLineRec: Record "Monthly Variables Lines."; LineToChangeRec: Record "Monthly Variables Lines."; EDFileRec: Record "Payroll-E/D Codes."): Decimal
     begin
         /*””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””
         ‚ Calculate the amount based on Factor Of and Percentage fields of the file  ‚
@@ -1291,7 +1291,7 @@ table 50014 "Monthly Variables Lines."
     end;
 
     //[Scope('OnPrem')]
-    procedure AmountIsComputed(var ReturnAmount: Decimal; EntryLineRec: Record "Monthly Variables Lines."; EDFileRec: Record "Payroll ED Codes."; NewAmount: Decimal; EDCode: Code[20]): Boolean
+    procedure AmountIsComputed(var ReturnAmount: Decimal; EntryLineRec: Record "Monthly Variables Lines."; EDFileRec: Record "Payroll-E/D Codes."; NewAmount: Decimal; EDCode: Code[20]): Boolean
     begin
         /*”””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””
         ‚ Check for values that should COMPUTE the amount for the P.Roll Entry      ‚
@@ -1377,7 +1377,7 @@ table 50014 "Monthly Variables Lines."
     end;
 
     //[Scope('OnPrem')]
-    procedure ChkRoundMaxMin(EDRecord: Record "Payroll ED Codes."; TheAmount: Decimal): Decimal
+    procedure ChkRoundMaxMin(EDRecord: Record "Payroll-E/D Codes."; TheAmount: Decimal): Decimal
     begin
         /*”””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””
         ‚ Round an amount and check for Max and Min. Return the amended amount.     ‚

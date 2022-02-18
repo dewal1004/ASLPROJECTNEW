@@ -350,8 +350,8 @@ tableextension 50276 tableextension50276 extends "Purchase Line"
     var
         "--------": Text[30];
         PurSetup: Record "Purchases & Payables Setup";
-        PVariance: Record "Payroll Setup";
-        PVarianceX: Record "Payroll Setup";
+        PVariance: Record "ASL Payroll Setup";
+        PVarianceX: Record "ASL Payroll Setup";
         PG: Integer;
         "..................": Integer;
         ItemAvailByDate: Page "Item Availability by Periods";

@@ -41,27 +41,27 @@ table 50000 "ASL Payroll Setup"
         }
         field(10; "OT ED Ordinary Jnr"; Code[10])
         {
-            TableRelation = "Payroll ED Codes."."E/D Code";
+            TableRelation = "Payroll-E/D Codes."."E/D Code";
         }
         field(11; "OT ED Special Jnr"; Code[10])
         {
-            TableRelation = "Payroll ED Codes."."E/D Code";
+            TableRelation = "Payroll-E/D Codes."."E/D Code";
         }
         field(12; "OT ED Ordinary Grd3"; Code[10])
         {
-            TableRelation = "Payroll ED Codes."."E/D Code";
+            TableRelation = "Payroll-E/D Codes."."E/D Code";
         }
         field(13; "OT ED Special Grd3"; Code[10])
         {
-            TableRelation = "Payroll ED Codes."."E/D Code";
+            TableRelation = "Payroll-E/D Codes."."E/D Code";
         }
         field(14; "OT ED Ordinary Grd2"; Code[10])
         {
-            TableRelation = "Payroll ED Codes."."E/D Code";
+            TableRelation = "Payroll-E/D Codes."."E/D Code";
         }
         field(15; "OT ED Special Grd2"; Code[10])
         {
-            TableRelation = "Payroll ED Codes."."E/D Code";
+            TableRelation = "Payroll-E/D Codes."."E/D Code";
         }
         field(16; "Staff Loans Control Account"; Code[10])
         {
@@ -69,15 +69,15 @@ table 50000 "ASL Payroll Setup"
         }
         field(17; "Taxfree Pay ED"; Code[10])
         {
-            TableRelation = "Payroll ED Codes."."E/D Code";
+            TableRelation = "Payroll-E/D Codes."."E/D Code";
         }
         field(18; "Night Shift ED"; Code[10])
         {
-            TableRelation = "Payroll ED Codes."."E/D Code";
+            TableRelation = "Payroll-E/D Codes."."E/D Code";
         }
         field(19; "Day Shift ED"; Code[10])
         {
-            TableRelation = "Payroll ED Codes."."E/D Code";
+            TableRelation = "Payroll-E/D Codes."."E/D Code";
         }
         field(20; "Night Shift Rate"; Decimal)
         {
@@ -89,7 +89,7 @@ table 50000 "ASL Payroll Setup"
         }
         field(22; "Lost Hours ED"; Code[10])
         {
-            TableRelation = "Payroll ED Codes."."E/D Code";
+            TableRelation = "Payroll-E/D Codes."."E/D Code";
         }
         field(23; "Lost Hours Rate"; Decimal)
         {
@@ -97,7 +97,7 @@ table 50000 "ASL Payroll Setup"
         }
         field(24; "Commission ED"; Code[10])
         {
-            TableRelation = "Payroll ED Codes."."E/D Code";
+            TableRelation = "Payroll-E/D Codes."."E/D Code";
         }
         field(25; "Monthly Working Days"; Integer)
         {
@@ -112,14 +112,14 @@ table 50000 "ASL Payroll Setup"
         }
         field(27; "Productivity Bonus ED"; Code[10])
         {
-            TableRelation = "Payroll ED Codes."."E/D Code";
+            TableRelation = "Payroll-E/D Codes."."E/D Code";
         }
         field(28; "Daily Working Hours"; Integer)
         {
         }
         field(29; "Total Taxable ED"; Code[10])
         {
-            TableRelation = "Payroll ED Codes."."E/D Code";
+            TableRelation = "Payroll-E/D Codes."."E/D Code";
         }
         field(30; "Staff Loans Interest Account"; Code[10])
         {
@@ -155,19 +155,19 @@ table 50000 "ASL Payroll Setup"
         }
         field(50000; "Basic+Hous+Transp"; Code[10])
         {
-            TableRelation = "Payroll ED Codes.";
+            TableRelation = "Payroll-E/D Codes.";
         }
         field(50001; "NSITF(Employee)"; Code[10])
         {
-            TableRelation = "Payroll ED Codes.";
+            TableRelation = "Payroll-E/D Codes.";
         }
         field(50002; "NSITF(Employer)"; Code[10])
         {
-            TableRelation = "Payroll ED Codes.";
+            TableRelation = "Payroll-E/D Codes.";
         }
         field(50003; Seniority; Code[10])
         {
-            TableRelation = "Payroll ED Codes.";
+            TableRelation = "Payroll-E/D Codes.";
         }
     }
 

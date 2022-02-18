@@ -62,7 +62,7 @@ page 50016 "Employee Group Lines."
     }
 
     var
-        EDRec: Record "Payroll ED Codes.";
+        EDRec: Record "Payroll-E/D Codes.";
 
     [Scope('OnPrem')]
     procedure GetEDName(): Text[30]

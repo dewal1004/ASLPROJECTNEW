@@ -52,17 +52,17 @@ tableextension 50293 tableextension50293 extends "Human Resources Setup"
         field(50013; "General Overtime E/D"; Code[10])
         {
             Description = 'To store Overtime Payroll Related Code';
-            TableRelation = "Payroll ED Codes."."E/D Code";
+            TableRelation = "Payroll-E/D Codes."."E/D Code";
         }
         field(50014; "Security Overtime E/D"; Code[10])
         {
             Description = 'To store Overtime Payroll Related Code for security men ordinary day';
-            TableRelation = "Payroll ED Codes."."E/D Code";
+            TableRelation = "Payroll-E/D Codes."."E/D Code";
         }
         field(50015; "Security O.T. Sun/P.H"; Code[10])
         {
             Description = 'To store Overtime Payroll Related Code for security men SunDay or Public Holidays';
-            TableRelation = "Payroll ED Codes."."E/D Code";
+            TableRelation = "Payroll-E/D Codes."."E/D Code";
         }
         field(50016; "Leave Plan No"; Code[10])
         {

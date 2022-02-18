@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -10,160 +10,6 @@
       <rd:SecurityType>None</rd:SecurityType>
     </DataSource>
   </DataSources>
-  <DataSets>
-    <DataSet Name="DataSet_Result">
-      <Query>
-        <DataSourceName>DataSource</DataSourceName>
-        <CommandText />
-      </Query>
-      <Fields>
-        <Field Name="Jobs_Point_Validate__No__">
-          <DataField>Jobs_Point_Validate__No__</DataField>
-        </Field>
-        <Field Name="Jobs_Point_Validate__Points_Sort_Bay_">
-          <DataField>Jobs_Point_Validate__Points_Sort_Bay_</DataField>
-        </Field>
-        <Field Name="Jobs_Point_Validate__Points_Sort_Bay_Format">
-          <DataField>Jobs_Point_Validate__Points_Sort_Bay_Format</DataField>
-        </Field>
-        <Field Name="Jobs_Point_Validate__Points_Actual_">
-          <DataField>Jobs_Point_Validate__Points_Actual_</DataField>
-        </Field>
-        <Field Name="Jobs_Point_Validate__Points_Actual_Format">
-          <DataField>Jobs_Point_Validate__Points_Actual_Format</DataField>
-        </Field>
-        <Field Name="Jobs_Point_Validate_Points">
-          <DataField>Jobs_Point_Validate_Points</DataField>
-        </Field>
-        <Field Name="Jobs_Point_Validate_PointsFormat">
-          <DataField>Jobs_Point_Validate_PointsFormat</DataField>
-        </Field>
-        <Field Name="Jobs_Point_Validate__Points_Actual_Caption">
-          <DataField>Jobs_Point_Validate__Points_Actual_Caption</DataField>
-        </Field>
-        <Field Name="Jobs_Point_Validate__Points_Sort_Bay_Caption">
-          <DataField>Jobs_Point_Validate__Points_Sort_Bay_Caption</DataField>
-        </Field>
-        <Field Name="Jobs_Point_Validate_PointsCaption">
-          <DataField>Jobs_Point_Validate_PointsCaption</DataField>
-        </Field>
-        <Field Name="Jobs_Point_Validate__No__Caption">
-          <DataField>Jobs_Point_Validate__No__Caption</DataField>
-        </Field>
-        <Field Name="FORMAT_TODAY_0_4_">
-          <DataField>FORMAT_TODAY_0_4_</DataField>
-        </Field>
-        <Field Name="COMPANYNAME">
-          <DataField>COMPANYNAME</DataField>
-        </Field>
-        <Field Name="CurrReport_PAGENO">
-          <DataField>CurrReport_PAGENO</DataField>
-        </Field>
-        <Field Name="USERID">
-          <DataField>USERID</DataField>
-        </Field>
-        <Field Name="Skipper___Vessel_Performance_from_____FORMAT_GETRANGEMIN__Ending_Date___0_4_____to___FORMAT_GETRANGEMAX__Ending_Date___0_4_">
-          <DataField>Skipper___Vessel_Performance_from_____FORMAT_GETRANGEMIN__Ending_Date___0_4_____to___FORMAT_GETRANGEMAX__Ending_Date___0_4_</DataField>
-        </Field>
-        <Field Name="Countz">
-          <DataField>Countz</DataField>
-        </Field>
-        <Field Name="Job__Person_Responsible_">
-          <DataField>Job__Person_Responsible_</DataField>
-        </Field>
-        <Field Name="Job_Vessel">
-          <DataField>Job_Vessel</DataField>
-        </Field>
-        <Field Name="Job__Voyage_No__">
-          <DataField>Job__Voyage_No__</DataField>
-        </Field>
-        <Field Name="Job__Fishing_Country_Code_">
-          <DataField>Job__Fishing_Country_Code_</DataField>
-        </Field>
-        <Field Name="Job__Starting_Date_">
-          <DataField>Job__Starting_Date_</DataField>
-        </Field>
-        <Field Name="Job__Ending_Date_">
-          <DataField>Job__Ending_Date_</DataField>
-        </Field>
-        <Field Name="NetSeaDay">
-          <DataField>NetSeaDay</DataField>
-        </Field>
-        <Field Name="NetSeaDayFormat">
-          <DataField>NetSeaDayFormat</DataField>
-        </Field>
-        <Field Name="Job__Points_Actual_">
-          <DataField>Job__Points_Actual_</DataField>
-        </Field>
-        <Field Name="Job__Points_Actual_Format">
-          <DataField>Job__Points_Actual_Format</DataField>
-        </Field>
-        <Field Name="Points_Actual__NetSeaDay">
-          <DataField>Points_Actual__NetSeaDay</DataField>
-        </Field>
-        <Field Name="Points_Actual__NetSeaDayFormat">
-          <DataField>Points_Actual__NetSeaDayFormat</DataField>
-        </Field>
-        <Field Name="Shrimp_2_">
-          <DataField>Shrimp_2_</DataField>
-        </Field>
-        <Field Name="Shrimp_2_Format">
-          <DataField>Shrimp_2_Format</DataField>
-        </Field>
-        <Field Name="Fish_2_">
-          <DataField>Fish_2_</DataField>
-        </Field>
-        <Field Name="Fish_2_Format">
-          <DataField>Fish_2_Format</DataField>
-        </Field>
-        <Field Name="JobCaption">
-          <DataField>JobCaption</DataField>
-        </Field>
-        <Field Name="CurrReport_PAGENOCaption">
-          <DataField>CurrReport_PAGENOCaption</DataField>
-        </Field>
-        <Field Name="CountzCaption">
-          <DataField>CountzCaption</DataField>
-        </Field>
-        <Field Name="Job__Person_Responsible_Caption">
-          <DataField>Job__Person_Responsible_Caption</DataField>
-        </Field>
-        <Field Name="Job_VesselCaption">
-          <DataField>Job_VesselCaption</DataField>
-        </Field>
-        <Field Name="Job__Voyage_No__Caption">
-          <DataField>Job__Voyage_No__Caption</DataField>
-        </Field>
-        <Field Name="Job__Fishing_Country_Code_Caption">
-          <DataField>Job__Fishing_Country_Code_Caption</DataField>
-        </Field>
-        <Field Name="Job__Starting_Date_Caption">
-          <DataField>Job__Starting_Date_Caption</DataField>
-        </Field>
-        <Field Name="Job__Ending_Date_Caption">
-          <DataField>Job__Ending_Date_Caption</DataField>
-        </Field>
-        <Field Name="NetSeaDayCaption">
-          <DataField>NetSeaDayCaption</DataField>
-        </Field>
-        <Field Name="Job__Points_Actual_Caption">
-          <DataField>Job__Points_Actual_Caption</DataField>
-        </Field>
-        <Field Name="Points_Actual__NetSeaDayCaption">
-          <DataField>Points_Actual__NetSeaDayCaption</DataField>
-        </Field>
-        <Field Name="Shrimp_2_Caption">
-          <DataField>Shrimp_2_Caption</DataField>
-        </Field>
-        <Field Name="Fish_2_Caption">
-          <DataField>Fish_2_Caption</DataField>
-        </Field>
-        <Field Name="Job_No_">
-          <DataField>Job_No_</DataField>
-        </Field>
-      </Fields>
-    </DataSet>
-  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -1471,4 +1317,158 @@ End Function
   <Language>=User!Language</Language>
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="Jobs_Point_Validate__No__">
+          <DataField>Jobs_Point_Validate__No__</DataField>
+        </Field>
+        <Field Name="Jobs_Point_Validate__Points_Sort_Bay_">
+          <DataField>Jobs_Point_Validate__Points_Sort_Bay_</DataField>
+        </Field>
+        <Field Name="Jobs_Point_Validate__Points_Sort_Bay_Format">
+          <DataField>Jobs_Point_Validate__Points_Sort_Bay_Format</DataField>
+        </Field>
+        <Field Name="Jobs_Point_Validate__Points_Actual_">
+          <DataField>Jobs_Point_Validate__Points_Actual_</DataField>
+        </Field>
+        <Field Name="Jobs_Point_Validate__Points_Actual_Format">
+          <DataField>Jobs_Point_Validate__Points_Actual_Format</DataField>
+        </Field>
+        <Field Name="Jobs_Point_Validate_Points">
+          <DataField>Jobs_Point_Validate_Points</DataField>
+        </Field>
+        <Field Name="Jobs_Point_Validate_PointsFormat">
+          <DataField>Jobs_Point_Validate_PointsFormat</DataField>
+        </Field>
+        <Field Name="Jobs_Point_Validate__Points_Actual_Caption">
+          <DataField>Jobs_Point_Validate__Points_Actual_Caption</DataField>
+        </Field>
+        <Field Name="Jobs_Point_Validate__Points_Sort_Bay_Caption">
+          <DataField>Jobs_Point_Validate__Points_Sort_Bay_Caption</DataField>
+        </Field>
+        <Field Name="Jobs_Point_Validate_PointsCaption">
+          <DataField>Jobs_Point_Validate_PointsCaption</DataField>
+        </Field>
+        <Field Name="Jobs_Point_Validate__No__Caption">
+          <DataField>Jobs_Point_Validate__No__Caption</DataField>
+        </Field>
+        <Field Name="FORMAT_TODAY_0_4_">
+          <DataField>FORMAT_TODAY_0_4_</DataField>
+        </Field>
+        <Field Name="COMPANYNAME">
+          <DataField>COMPANYNAME</DataField>
+        </Field>
+        <Field Name="CurrReport_PAGENO">
+          <DataField>CurrReport_PAGENO</DataField>
+        </Field>
+        <Field Name="USERID">
+          <DataField>USERID</DataField>
+        </Field>
+        <Field Name="DataItem1000000002">
+          <DataField>DataItem1000000002</DataField>
+        </Field>
+        <Field Name="Countz">
+          <DataField>Countz</DataField>
+        </Field>
+        <Field Name="Job__Person_Responsible_">
+          <DataField>Job__Person_Responsible_</DataField>
+        </Field>
+        <Field Name="Job_Vessel">
+          <DataField>Job_Vessel</DataField>
+        </Field>
+        <Field Name="Job__Voyage_No__">
+          <DataField>Job__Voyage_No__</DataField>
+        </Field>
+        <Field Name="Job__Fishing_Country_Code_">
+          <DataField>Job__Fishing_Country_Code_</DataField>
+        </Field>
+        <Field Name="Job__Starting_Date_">
+          <DataField>Job__Starting_Date_</DataField>
+        </Field>
+        <Field Name="Job__Ending_Date_">
+          <DataField>Job__Ending_Date_</DataField>
+        </Field>
+        <Field Name="NetSeaDay">
+          <DataField>NetSeaDay</DataField>
+        </Field>
+        <Field Name="NetSeaDayFormat">
+          <DataField>NetSeaDayFormat</DataField>
+        </Field>
+        <Field Name="Job__Points_Actual_">
+          <DataField>Job__Points_Actual_</DataField>
+        </Field>
+        <Field Name="Job__Points_Actual_Format">
+          <DataField>Job__Points_Actual_Format</DataField>
+        </Field>
+        <Field Name="Points_Actual__NetSeaDay">
+          <DataField>Points_Actual__NetSeaDay</DataField>
+        </Field>
+        <Field Name="Points_Actual__NetSeaDayFormat">
+          <DataField>Points_Actual__NetSeaDayFormat</DataField>
+        </Field>
+        <Field Name="Shrimp_2_">
+          <DataField>Shrimp_2_</DataField>
+        </Field>
+        <Field Name="Shrimp_2_Format">
+          <DataField>Shrimp_2_Format</DataField>
+        </Field>
+        <Field Name="Fish_2_">
+          <DataField>Fish_2_</DataField>
+        </Field>
+        <Field Name="Fish_2_Format">
+          <DataField>Fish_2_Format</DataField>
+        </Field>
+        <Field Name="JobCaption">
+          <DataField>JobCaption</DataField>
+        </Field>
+        <Field Name="CurrReport_PAGENOCaption">
+          <DataField>CurrReport_PAGENOCaption</DataField>
+        </Field>
+        <Field Name="CountzCaption">
+          <DataField>CountzCaption</DataField>
+        </Field>
+        <Field Name="Job__Person_Responsible_Caption">
+          <DataField>Job__Person_Responsible_Caption</DataField>
+        </Field>
+        <Field Name="Job_VesselCaption">
+          <DataField>Job_VesselCaption</DataField>
+        </Field>
+        <Field Name="Job__Voyage_No__Caption">
+          <DataField>Job__Voyage_No__Caption</DataField>
+        </Field>
+        <Field Name="Job__Fishing_Country_Code_Caption">
+          <DataField>Job__Fishing_Country_Code_Caption</DataField>
+        </Field>
+        <Field Name="Job__Starting_Date_Caption">
+          <DataField>Job__Starting_Date_Caption</DataField>
+        </Field>
+        <Field Name="Job__Ending_Date_Caption">
+          <DataField>Job__Ending_Date_Caption</DataField>
+        </Field>
+        <Field Name="NetSeaDayCaption">
+          <DataField>NetSeaDayCaption</DataField>
+        </Field>
+        <Field Name="Job__Points_Actual_Caption">
+          <DataField>Job__Points_Actual_Caption</DataField>
+        </Field>
+        <Field Name="Points_Actual__NetSeaDayCaption">
+          <DataField>Points_Actual__NetSeaDayCaption</DataField>
+        </Field>
+        <Field Name="Shrimp_2_Caption">
+          <DataField>Shrimp_2_Caption</DataField>
+        </Field>
+        <Field Name="Fish_2_Caption">
+          <DataField>Fish_2_Caption</DataField>
+        </Field>
+        <Field Name="Job_No_">
+          <DataField>Job_No_</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
 </Report>

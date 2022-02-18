@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -10,328 +10,6 @@
       <rd:SecurityType>None</rd:SecurityType>
     </DataSource>
   </DataSources>
-  <DataSets>
-    <DataSet Name="DataSet_Result">
-      <Query>
-        <DataSourceName>DataSource</DataSourceName>
-        <CommandText />
-      </Query>
-      <Fields>
-        <Field Name="COMPANYNAME">
-          <DataField>COMPANYNAME</DataField>
-        </Field>
-        <Field Name="FORMAT_TODAY_0_4_">
-          <DataField>FORMAT_TODAY_0_4_</DataField>
-        </Field>
-        <Field Name="USERID">
-          <DataField>USERID</DataField>
-        </Field>
-        <Field Name="CurrReport_PAGENO">
-          <DataField>CurrReport_PAGENO</DataField>
-        </Field>
-        <Field Name="DeprBookText">
-          <DataField>DeprBookText</DataField>
-        </Field>
-        <Field Name="GroupCodeName">
-          <DataField>GroupCodeName</DataField>
-        </Field>
-        <Field Name="Fixed_Asset__TABLECAPTION__________FAFilter">
-          <DataField>Fixed_Asset__TABLECAPTION__________FAFilter</DataField>
-        </Field>
-        <Field Name="T1">
-          <DataField>T1</DataField>
-        </Field>
-        <Field Name="T2">
-          <DataField>T2</DataField>
-        </Field>
-        <Field Name="T3">
-          <DataField>T3</DataField>
-        </Field>
-        <Field Name="T5">
-          <DataField>T5</DataField>
-        </Field>
-        <Field Name="FADescription">
-          <DataField>FADescription</DataField>
-        </Field>
-        <Field Name="T4">
-          <DataField>T4</DataField>
-        </Field>
-        <Field Name="GroupHeadLine">
-          <DataField>GroupHeadLine</DataField>
-        </Field>
-        <Field Name="Starting_Date">
-          <DataField>Starting_Date</DataField>
-        </Field>
-        <Field Name="Ending_Date">
-          <DataField>Ending_Date</DataField>
-        </Field>
-        <Field Name="SNO">
-          <DataField>SNO</DataField>
-        </Field>
-        <Field Name="Fixed_Asset_Description">
-          <DataField>Fixed_Asset_Description</DataField>
-        </Field>
-        <Field Name="Amounts_1_">
-          <DataField>Amounts_1_</DataField>
-        </Field>
-        <Field Name="Amounts_1_Format">
-          <DataField>Amounts_1_Format</DataField>
-        </Field>
-        <Field Name="Amounts_2__Amounts_1_">
-          <DataField>Amounts_2__Amounts_1_</DataField>
-        </Field>
-        <Field Name="Amounts_2__Amounts_1_Format">
-          <DataField>Amounts_2__Amounts_1_Format</DataField>
-        </Field>
-        <Field Name="Amounts_2_">
-          <DataField>Amounts_2_</DataField>
-        </Field>
-        <Field Name="Amounts_2_Format">
-          <DataField>Amounts_2_Format</DataField>
-        </Field>
-        <Field Name="Fixed_Asset__Serial_No__">
-          <DataField>Fixed_Asset__Serial_No__</DataField>
-        </Field>
-        <Field Name="ResEmp">
-          <DataField>ResEmp</DataField>
-        </Field>
-        <Field Name="Fixed_Asset__Maintenance_Amt_">
-          <DataField>Fixed_Asset__Maintenance_Amt_</DataField>
-        </Field>
-        <Field Name="Fixed_Asset__Maintenance_Amt_Format">
-          <DataField>Fixed_Asset__Maintenance_Amt_Format</DataField>
-        </Field>
-        <Field Name="GroupAmounts_1_">
-          <DataField>GroupAmounts_1_</DataField>
-        </Field>
-        <Field Name="GroupAmounts_1_Format">
-          <DataField>GroupAmounts_1_Format</DataField>
-        </Field>
-        <Field Name="Groupg_Amounts_2_">
-          <DataField>Groupg_Amounts_2_</DataField>
-        </Field>
-        <Field Name="Groupg_Amounts_2_Format">
-          <DataField>Groupg_Amounts_2_Format</DataField>
-        </Field>
-        <Field Name="GroupAmounts_1__GroupAmounts_2_">
-          <DataField>GroupAmounts_1__GroupAmounts_2_</DataField>
-        </Field>
-        <Field Name="GroupAmounts_1__GroupAmounts_2_Format">
-          <DataField>GroupAmounts_1__GroupAmounts_2_Format</DataField>
-        </Field>
-        <Field Name="Text000__________GroupHeadLine">
-          <DataField>Text000__________GroupHeadLine</DataField>
-        </Field>
-        <Field Name="TotalAmounts_1_">
-          <DataField>TotalAmounts_1_</DataField>
-        </Field>
-        <Field Name="TotalAmounts_1_Format">
-          <DataField>TotalAmounts_1_Format</DataField>
-        </Field>
-        <Field Name="TotalAmounts_2_">
-          <DataField>TotalAmounts_2_</DataField>
-        </Field>
-        <Field Name="TotalAmounts_2_Format">
-          <DataField>TotalAmounts_2_Format</DataField>
-        </Field>
-        <Field Name="TotalAmounts_1__TotalAmounts_2_">
-          <DataField>TotalAmounts_1__TotalAmounts_2_</DataField>
-        </Field>
-        <Field Name="TotalAmounts_1__TotalAmounts_2_Format">
-          <DataField>TotalAmounts_1__TotalAmounts_2_Format</DataField>
-        </Field>
-        <Field Name="CurrReport_PAGENOCaption">
-          <DataField>CurrReport_PAGENOCaption</DataField>
-        </Field>
-        <Field Name="Fuel___Maintenance___AnalysisCaption">
-          <DataField>Fuel___Maintenance___AnalysisCaption</DataField>
-        </Field>
-        <Field Name="DetailsCaption">
-          <DataField>DetailsCaption</DataField>
-        </Field>
-        <Field Name="TotalCaption">
-          <DataField>TotalCaption</DataField>
-        </Field>
-        <Field Name="Fixed_Asset_No_">
-          <DataField>Fixed_Asset_No_</DataField>
-        </Field>
-        <Field Name="Fixed_Asset_FA_Subclass_Code">
-          <DataField>Fixed_Asset_FA_Subclass_Code</DataField>
-        </Field>
-        <Field Name="Fixed_Asset_FA_Class_Code">
-          <DataField>Fixed_Asset_FA_Class_Code</DataField>
-        </Field>
-        <Field Name="Fixed_Asset_Global_Dimension_1_Code">
-          <DataField>Fixed_Asset_Global_Dimension_1_Code</DataField>
-        </Field>
-        <Field Name="Fixed_Asset_Global_Dimension_2_Code">
-          <DataField>Fixed_Asset_Global_Dimension_2_Code</DataField>
-        </Field>
-        <Field Name="Fixed_Asset_Component_of_Main_Asset">
-          <DataField>Fixed_Asset_Component_of_Main_Asset</DataField>
-        </Field>
-        <Field Name="Fixed_Asset_FA_Location_Code">
-          <DataField>Fixed_Asset_FA_Location_Code</DataField>
-        </Field>
-        <Field Name="Fixed_Asset_FA_Posting_Group">
-          <DataField>Fixed_Asset_FA_Posting_Group</DataField>
-        </Field>
-        <Field Name="T3_Control1000000017">
-          <DataField>T3_Control1000000017</DataField>
-        </Field>
-        <Field Name="T2_Control1000000016">
-          <DataField>T2_Control1000000016</DataField>
-        </Field>
-        <Field Name="T1_Control1000000015">
-          <DataField>T1_Control1000000015</DataField>
-        </Field>
-        <Field Name="Amounts_2__Control1000000025">
-          <DataField>Amounts_2__Control1000000025</DataField>
-        </Field>
-        <Field Name="Amounts_2__Control1000000025Format">
-          <DataField>Amounts_2__Control1000000025Format</DataField>
-        </Field>
-        <Field Name="Amounts_2__Amounts_1__Control1000000026">
-          <DataField>Amounts_2__Amounts_1__Control1000000026</DataField>
-        </Field>
-        <Field Name="Amounts_2__Amounts_1__Control1000000026Format">
-          <DataField>Amounts_2__Amounts_1__Control1000000026Format</DataField>
-        </Field>
-        <Field Name="Amounts_1__Control1000000027">
-          <DataField>Amounts_1__Control1000000027</DataField>
-        </Field>
-        <Field Name="Amounts_1__Control1000000027Format">
-          <DataField>Amounts_1__Control1000000027Format</DataField>
-        </Field>
-        <Field Name="fa__Serial_No__">
-          <DataField>fa__Serial_No__</DataField>
-        </Field>
-        <Field Name="fa_Description">
-          <DataField>fa_Description</DataField>
-        </Field>
-        <Field Name="ResEmp_Control1000000030">
-          <DataField>ResEmp_Control1000000030</DataField>
-        </Field>
-        <Field Name="SNO_Control1000000031">
-          <DataField>SNO_Control1000000031</DataField>
-        </Field>
-        <Field Name="ResEmp_Control1000000018">
-          <DataField>ResEmp_Control1000000018</DataField>
-        </Field>
-        <Field Name="SNO2">
-          <DataField>SNO2</DataField>
-        </Field>
-        <Field Name="GroupAmounts_1__GroupAmounts_2__Control1000000039">
-          <DataField>GroupAmounts_1__GroupAmounts_2__Control1000000039</DataField>
-        </Field>
-        <Field Name="GroupAmounts_1__GroupAmounts_2__Control1000000039Format">
-          <DataField>GroupAmounts_1__GroupAmounts_2__Control1000000039Format</DataField>
-        </Field>
-        <Field Name="GroupAmounts_2__Control1000000040">
-          <DataField>GroupAmounts_2__Control1000000040</DataField>
-        </Field>
-        <Field Name="GroupAmounts_2__Control1000000040Format">
-          <DataField>GroupAmounts_2__Control1000000040Format</DataField>
-        </Field>
-        <Field Name="GroupAmounts_1__Control1000000041">
-          <DataField>GroupAmounts_1__Control1000000041</DataField>
-        </Field>
-        <Field Name="GroupAmounts_1__Control1000000041Format">
-          <DataField>GroupAmounts_1__Control1000000041Format</DataField>
-        </Field>
-        <Field Name="Text000__________GroupHeadLine_Control1000000042">
-          <DataField>Text000__________GroupHeadLine_Control1000000042</DataField>
-        </Field>
-        <Field Name="TotalAmounts_1__Control1000000035">
-          <DataField>TotalAmounts_1__Control1000000035</DataField>
-        </Field>
-        <Field Name="TotalAmounts_1__Control1000000035Format">
-          <DataField>TotalAmounts_1__Control1000000035Format</DataField>
-        </Field>
-        <Field Name="TotalAmounts_2__Control1000000036">
-          <DataField>TotalAmounts_2__Control1000000036</DataField>
-        </Field>
-        <Field Name="TotalAmounts_2__Control1000000036Format">
-          <DataField>TotalAmounts_2__Control1000000036Format</DataField>
-        </Field>
-        <Field Name="TotalAmounts_1__TotalAmounts_2__Control1000000037">
-          <DataField>TotalAmounts_1__TotalAmounts_2__Control1000000037</DataField>
-        </Field>
-        <Field Name="TotalAmounts_1__TotalAmounts_2__Control1000000037Format">
-          <DataField>TotalAmounts_1__TotalAmounts_2__Control1000000037Format</DataField>
-        </Field>
-        <Field Name="Document_No_Caption">
-          <DataField>Document_No_Caption</DataField>
-        </Field>
-        <Field Name="Maintenance_Ledger_Entry_DescriptionCaption">
-          <DataField>Maintenance_Ledger_Entry_DescriptionCaption</DataField>
-        </Field>
-        <Field Name="Maintenance_Ledger_Entry__FA_Posting_Date_Caption">
-          <DataField>Maintenance_Ledger_Entry__FA_Posting_Date_Caption</DataField>
-        </Field>
-        <Field Name="TotalCaption_Control1000000038">
-          <DataField>TotalCaption_Control1000000038</DataField>
-        </Field>
-        <Field Name="fa_No_">
-          <DataField>fa_No_</DataField>
-        </Field>
-        <Field Name="MAAmt">
-          <DataField>MAAmt</DataField>
-        </Field>
-        <Field Name="MAAmtFormat">
-          <DataField>MAAmtFormat</DataField>
-        </Field>
-        <Field Name="FUAmt">
-          <DataField>FUAmt</DataField>
-        </Field>
-        <Field Name="FUAmtFormat">
-          <DataField>FUAmtFormat</DataField>
-        </Field>
-        <Field Name="Maintenance_Ledger_Entry_Amount">
-          <DataField>Maintenance_Ledger_Entry_Amount</DataField>
-        </Field>
-        <Field Name="Maintenance_Ledger_Entry_AmountFormat">
-          <DataField>Maintenance_Ledger_Entry_AmountFormat</DataField>
-        </Field>
-        <Field Name="Maintenance_Ledger_Entry__Document_No__">
-          <DataField>Maintenance_Ledger_Entry__Document_No__</DataField>
-        </Field>
-        <Field Name="Maintenance_Ledger_Entry_Description">
-          <DataField>Maintenance_Ledger_Entry_Description</DataField>
-        </Field>
-        <Field Name="Maintenance_Ledger_Entry__FA_Posting_Date_">
-          <DataField>Maintenance_Ledger_Entry__FA_Posting_Date_</DataField>
-        </Field>
-        <Field Name="FUAmtTot">
-          <DataField>FUAmtTot</DataField>
-        </Field>
-        <Field Name="FUAmtTotFormat">
-          <DataField>FUAmtTotFormat</DataField>
-        </Field>
-        <Field Name="MAAmtTot">
-          <DataField>MAAmtTot</DataField>
-        </Field>
-        <Field Name="MAAmtTotFormat">
-          <DataField>MAAmtTotFormat</DataField>
-        </Field>
-        <Field Name="Maintenance_Ledger_Entry_Amount_Control1000000022">
-          <DataField>Maintenance_Ledger_Entry_Amount_Control1000000022</DataField>
-        </Field>
-        <Field Name="Maintenance_Ledger_Entry_Amount_Control1000000022Format">
-          <DataField>Maintenance_Ledger_Entry_Amount_Control1000000022Format</DataField>
-        </Field>
-        <Field Name="TotalCaption_Control1000000023">
-          <DataField>TotalCaption_Control1000000023</DataField>
-        </Field>
-        <Field Name="Maintenance_Ledger_Entry_Entry_No_">
-          <DataField>Maintenance_Ledger_Entry_Entry_No_</DataField>
-        </Field>
-        <Field Name="Maintenance_Ledger_Entry_FA_No_">
-          <DataField>Maintenance_Ledger_Entry_FA_No_</DataField>
-        </Field>
-      </Fields>
-    </DataSet>
-  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -2901,4 +2579,326 @@ End Function
   <Language>=User!Language</Language>
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="COMPANYNAME">
+          <DataField>COMPANYNAME</DataField>
+        </Field>
+        <Field Name="FORMAT_TODAY_0_4_">
+          <DataField>FORMAT_TODAY_0_4_</DataField>
+        </Field>
+        <Field Name="USERID">
+          <DataField>USERID</DataField>
+        </Field>
+        <Field Name="CurrReport_PAGENO">
+          <DataField>CurrReport_PAGENO</DataField>
+        </Field>
+        <Field Name="DeprBookText">
+          <DataField>DeprBookText</DataField>
+        </Field>
+        <Field Name="GroupCodeName">
+          <DataField>GroupCodeName</DataField>
+        </Field>
+        <Field Name="Fixed_Asset__TABLECAPTION__________FAFilter">
+          <DataField>Fixed_Asset__TABLECAPTION__________FAFilter</DataField>
+        </Field>
+        <Field Name="T1">
+          <DataField>T1</DataField>
+        </Field>
+        <Field Name="T2">
+          <DataField>T2</DataField>
+        </Field>
+        <Field Name="T3">
+          <DataField>T3</DataField>
+        </Field>
+        <Field Name="T5">
+          <DataField>T5</DataField>
+        </Field>
+        <Field Name="FADescription">
+          <DataField>FADescription</DataField>
+        </Field>
+        <Field Name="T4">
+          <DataField>T4</DataField>
+        </Field>
+        <Field Name="GroupHeadLine">
+          <DataField>GroupHeadLine</DataField>
+        </Field>
+        <Field Name="Starting_Date">
+          <DataField>Starting_Date</DataField>
+        </Field>
+        <Field Name="Ending_Date">
+          <DataField>Ending_Date</DataField>
+        </Field>
+        <Field Name="SNO">
+          <DataField>SNO</DataField>
+        </Field>
+        <Field Name="Fixed_Asset_Description">
+          <DataField>Fixed_Asset_Description</DataField>
+        </Field>
+        <Field Name="Amounts_1_">
+          <DataField>Amounts_1_</DataField>
+        </Field>
+        <Field Name="Amounts_1_Format">
+          <DataField>Amounts_1_Format</DataField>
+        </Field>
+        <Field Name="Amounts_2__Amounts_1_">
+          <DataField>Amounts_2__Amounts_1_</DataField>
+        </Field>
+        <Field Name="Amounts_2__Amounts_1_Format">
+          <DataField>Amounts_2__Amounts_1_Format</DataField>
+        </Field>
+        <Field Name="Amounts_2_">
+          <DataField>Amounts_2_</DataField>
+        </Field>
+        <Field Name="Amounts_2_Format">
+          <DataField>Amounts_2_Format</DataField>
+        </Field>
+        <Field Name="Fixed_Asset__Serial_No__">
+          <DataField>Fixed_Asset__Serial_No__</DataField>
+        </Field>
+        <Field Name="ResEmp">
+          <DataField>ResEmp</DataField>
+        </Field>
+        <Field Name="Fixed_Asset__Maintenance_Amt_">
+          <DataField>Fixed_Asset__Maintenance_Amt_</DataField>
+        </Field>
+        <Field Name="Fixed_Asset__Maintenance_Amt_Format">
+          <DataField>Fixed_Asset__Maintenance_Amt_Format</DataField>
+        </Field>
+        <Field Name="GroupAmounts_1_">
+          <DataField>GroupAmounts_1_</DataField>
+        </Field>
+        <Field Name="GroupAmounts_1_Format">
+          <DataField>GroupAmounts_1_Format</DataField>
+        </Field>
+        <Field Name="Groupg_Amounts_2_">
+          <DataField>Groupg_Amounts_2_</DataField>
+        </Field>
+        <Field Name="Groupg_Amounts_2_Format">
+          <DataField>Groupg_Amounts_2_Format</DataField>
+        </Field>
+        <Field Name="GroupAmounts_1__GroupAmounts_2_">
+          <DataField>GroupAmounts_1__GroupAmounts_2_</DataField>
+        </Field>
+        <Field Name="GroupAmounts_1__GroupAmounts_2_Format">
+          <DataField>GroupAmounts_1__GroupAmounts_2_Format</DataField>
+        </Field>
+        <Field Name="Text000__________GroupHeadLine">
+          <DataField>Text000__________GroupHeadLine</DataField>
+        </Field>
+        <Field Name="TotalAmounts_1_">
+          <DataField>TotalAmounts_1_</DataField>
+        </Field>
+        <Field Name="TotalAmounts_1_Format">
+          <DataField>TotalAmounts_1_Format</DataField>
+        </Field>
+        <Field Name="TotalAmounts_2_">
+          <DataField>TotalAmounts_2_</DataField>
+        </Field>
+        <Field Name="TotalAmounts_2_Format">
+          <DataField>TotalAmounts_2_Format</DataField>
+        </Field>
+        <Field Name="TotalAmounts_1__TotalAmounts_2_">
+          <DataField>TotalAmounts_1__TotalAmounts_2_</DataField>
+        </Field>
+        <Field Name="TotalAmounts_1__TotalAmounts_2_Format">
+          <DataField>TotalAmounts_1__TotalAmounts_2_Format</DataField>
+        </Field>
+        <Field Name="CurrReport_PAGENOCaption">
+          <DataField>CurrReport_PAGENOCaption</DataField>
+        </Field>
+        <Field Name="Fuel___Maintenance___AnalysisCaption">
+          <DataField>Fuel___Maintenance___AnalysisCaption</DataField>
+        </Field>
+        <Field Name="DetailsCaption">
+          <DataField>DetailsCaption</DataField>
+        </Field>
+        <Field Name="TotalCaption">
+          <DataField>TotalCaption</DataField>
+        </Field>
+        <Field Name="Fixed_Asset_No_">
+          <DataField>Fixed_Asset_No_</DataField>
+        </Field>
+        <Field Name="Fixed_Asset_FA_Subclass_Code">
+          <DataField>Fixed_Asset_FA_Subclass_Code</DataField>
+        </Field>
+        <Field Name="Fixed_Asset_FA_Class_Code">
+          <DataField>Fixed_Asset_FA_Class_Code</DataField>
+        </Field>
+        <Field Name="Fixed_Asset_Global_Dimension_1_Code">
+          <DataField>Fixed_Asset_Global_Dimension_1_Code</DataField>
+        </Field>
+        <Field Name="Fixed_Asset_Global_Dimension_2_Code">
+          <DataField>Fixed_Asset_Global_Dimension_2_Code</DataField>
+        </Field>
+        <Field Name="Fixed_Asset_Component_of_Main_Asset">
+          <DataField>Fixed_Asset_Component_of_Main_Asset</DataField>
+        </Field>
+        <Field Name="Fixed_Asset_FA_Location_Code">
+          <DataField>Fixed_Asset_FA_Location_Code</DataField>
+        </Field>
+        <Field Name="Fixed_Asset_FA_Posting_Group">
+          <DataField>Fixed_Asset_FA_Posting_Group</DataField>
+        </Field>
+        <Field Name="T3_Control1000000017">
+          <DataField>T3_Control1000000017</DataField>
+        </Field>
+        <Field Name="T2_Control1000000016">
+          <DataField>T2_Control1000000016</DataField>
+        </Field>
+        <Field Name="T1_Control1000000015">
+          <DataField>T1_Control1000000015</DataField>
+        </Field>
+        <Field Name="Amounts_2__Control1000000025">
+          <DataField>Amounts_2__Control1000000025</DataField>
+        </Field>
+        <Field Name="Amounts_2__Control1000000025Format">
+          <DataField>Amounts_2__Control1000000025Format</DataField>
+        </Field>
+        <Field Name="Amounts_2__Amounts_1__Control1000000026">
+          <DataField>Amounts_2__Amounts_1__Control1000000026</DataField>
+        </Field>
+        <Field Name="Amounts_2__Amounts_1__Control1000000026Format">
+          <DataField>Amounts_2__Amounts_1__Control1000000026Format</DataField>
+        </Field>
+        <Field Name="Amounts_1__Control1000000027">
+          <DataField>Amounts_1__Control1000000027</DataField>
+        </Field>
+        <Field Name="Amounts_1__Control1000000027Format">
+          <DataField>Amounts_1__Control1000000027Format</DataField>
+        </Field>
+        <Field Name="fa__Serial_No__">
+          <DataField>fa__Serial_No__</DataField>
+        </Field>
+        <Field Name="fa_Description">
+          <DataField>fa_Description</DataField>
+        </Field>
+        <Field Name="ResEmp_Control1000000030">
+          <DataField>ResEmp_Control1000000030</DataField>
+        </Field>
+        <Field Name="SNO_Control1000000031">
+          <DataField>SNO_Control1000000031</DataField>
+        </Field>
+        <Field Name="ResEmp_Control1000000018">
+          <DataField>ResEmp_Control1000000018</DataField>
+        </Field>
+        <Field Name="SNO2">
+          <DataField>SNO2</DataField>
+        </Field>
+        <Field Name="GroupAmounts_1__GroupAmounts_2__Control1000000039">
+          <DataField>GroupAmounts_1__GroupAmounts_2__Control1000000039</DataField>
+        </Field>
+        <Field Name="GroupAmounts_1__GroupAmounts_2__Control1000000039Format">
+          <DataField>GroupAmounts_1__GroupAmounts_2__Control1000000039Format</DataField>
+        </Field>
+        <Field Name="GroupAmounts_2__Control1000000040">
+          <DataField>GroupAmounts_2__Control1000000040</DataField>
+        </Field>
+        <Field Name="GroupAmounts_2__Control1000000040Format">
+          <DataField>GroupAmounts_2__Control1000000040Format</DataField>
+        </Field>
+        <Field Name="GroupAmounts_1__Control1000000041">
+          <DataField>GroupAmounts_1__Control1000000041</DataField>
+        </Field>
+        <Field Name="GroupAmounts_1__Control1000000041Format">
+          <DataField>GroupAmounts_1__Control1000000041Format</DataField>
+        </Field>
+        <Field Name="Text000__________GroupHeadLine_Control1000000042">
+          <DataField>Text000__________GroupHeadLine_Control1000000042</DataField>
+        </Field>
+        <Field Name="TotalAmounts_1__Control1000000035">
+          <DataField>TotalAmounts_1__Control1000000035</DataField>
+        </Field>
+        <Field Name="TotalAmounts_1__Control1000000035Format">
+          <DataField>TotalAmounts_1__Control1000000035Format</DataField>
+        </Field>
+        <Field Name="TotalAmounts_2__Control1000000036">
+          <DataField>TotalAmounts_2__Control1000000036</DataField>
+        </Field>
+        <Field Name="TotalAmounts_2__Control1000000036Format">
+          <DataField>TotalAmounts_2__Control1000000036Format</DataField>
+        </Field>
+        <Field Name="TotalAmounts_1__TotalAmounts_2__Control1000000037">
+          <DataField>TotalAmounts_1__TotalAmounts_2__Control1000000037</DataField>
+        </Field>
+        <Field Name="TotalAmounts_1__TotalAmounts_2__Control1000000037Format">
+          <DataField>TotalAmounts_1__TotalAmounts_2__Control1000000037Format</DataField>
+        </Field>
+        <Field Name="Document_No_Caption">
+          <DataField>Document_No_Caption</DataField>
+        </Field>
+        <Field Name="Maintenance_Ledger_Entry_DescriptionCaption">
+          <DataField>Maintenance_Ledger_Entry_DescriptionCaption</DataField>
+        </Field>
+        <Field Name="Maintenance_Ledger_Entry__FA_Posting_Date_Caption">
+          <DataField>Maintenance_Ledger_Entry__FA_Posting_Date_Caption</DataField>
+        </Field>
+        <Field Name="TotalCaption_Control1000000038">
+          <DataField>TotalCaption_Control1000000038</DataField>
+        </Field>
+        <Field Name="fa_No_">
+          <DataField>fa_No_</DataField>
+        </Field>
+        <Field Name="MAAmt">
+          <DataField>MAAmt</DataField>
+        </Field>
+        <Field Name="MAAmtFormat">
+          <DataField>MAAmtFormat</DataField>
+        </Field>
+        <Field Name="FUAmt">
+          <DataField>FUAmt</DataField>
+        </Field>
+        <Field Name="FUAmtFormat">
+          <DataField>FUAmtFormat</DataField>
+        </Field>
+        <Field Name="Maintenance_Ledger_Entry_Amount">
+          <DataField>Maintenance_Ledger_Entry_Amount</DataField>
+        </Field>
+        <Field Name="Maintenance_Ledger_Entry_AmountFormat">
+          <DataField>Maintenance_Ledger_Entry_AmountFormat</DataField>
+        </Field>
+        <Field Name="Maintenance_Ledger_Entry__Document_No__">
+          <DataField>Maintenance_Ledger_Entry__Document_No__</DataField>
+        </Field>
+        <Field Name="Maintenance_Ledger_Entry_Description">
+          <DataField>Maintenance_Ledger_Entry_Description</DataField>
+        </Field>
+        <Field Name="Maintenance_Ledger_Entry__FA_Posting_Date_">
+          <DataField>Maintenance_Ledger_Entry__FA_Posting_Date_</DataField>
+        </Field>
+        <Field Name="FUAmtTot">
+          <DataField>FUAmtTot</DataField>
+        </Field>
+        <Field Name="FUAmtTotFormat">
+          <DataField>FUAmtTotFormat</DataField>
+        </Field>
+        <Field Name="MAAmtTot">
+          <DataField>MAAmtTot</DataField>
+        </Field>
+        <Field Name="MAAmtTotFormat">
+          <DataField>MAAmtTotFormat</DataField>
+        </Field>
+        <Field Name="Maintenance_Ledger_Entry_Amount_Control1000000022">
+          <DataField>Maintenance_Ledger_Entry_Amount_Control1000000022</DataField>
+        </Field>
+        <Field Name="Maintenance_Ledger_Entry_Amount_Control1000000022Format">
+          <DataField>Maintenance_Ledger_Entry_Amount_Control1000000022Format</DataField>
+        </Field>
+        <Field Name="TotalCaption_Control1000000023">
+          <DataField>TotalCaption_Control1000000023</DataField>
+        </Field>
+        <Field Name="Maintenance_Ledger_Entry_Entry_No_">
+          <DataField>Maintenance_Ledger_Entry_Entry_No_</DataField>
+        </Field>
+        <Field Name="Maintenance_Ledger_Entry_FA_No_">
+          <DataField>Maintenance_Ledger_Entry_FA_No_</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
 </Report>

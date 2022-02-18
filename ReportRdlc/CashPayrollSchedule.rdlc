@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -10,76 +10,6 @@
       <rd:SecurityType>None</rd:SecurityType>
     </DataSource>
   </DataSources>
-  <DataSets>
-    <DataSet Name="DataSet_Result">
-      <Query>
-        <DataSourceName>DataSource</DataSourceName>
-        <CommandText />
-      </Query>
-      <Fields>
-        <Field Name="GETFILTER__Period_Filter__">
-          <DataField>GETFILTER__Period_Filter__</DataField>
-        </Field>
-        <Field Name="CurrReport_PAGENO">
-          <DataField>CurrReport_PAGENO</DataField>
-        </Field>
-        <Field Name="CompanyData_Name">
-          <DataField>CompanyData_Name</DataField>
-        </Field>
-        <Field Name="TODAY">
-          <DataField>TODAY</DataField>
-        </Field>
-        <Field Name="DELCHR__FullName_______">
-          <DataField>DELCHR__FullName_______</DataField>
-        </Field>
-        <Field Name="BasicAm">
-          <DataField>BasicAm</DataField>
-        </Field>
-        <Field Name="BasicAmFormat">
-          <DataField>BasicAmFormat</DataField>
-        </Field>
-        <Field Name="Employee__Mode_of_payment_">
-          <DataField>Employee__Mode_of_payment_</DataField>
-        </Field>
-        <Field Name="EmptyString">
-          <DataField>EmptyString</DataField>
-        </Field>
-        <Field Name="BasicAm_Control26">
-          <DataField>BasicAm_Control26</DataField>
-        </Field>
-        <Field Name="BasicAm_Control26Format">
-          <DataField>BasicAm_Control26Format</DataField>
-        </Field>
-        <Field Name="Cash_Payroll_ScheduleCaption">
-          <DataField>Cash_Payroll_ScheduleCaption</DataField>
-        </Field>
-        <Field Name="Period_Caption">
-          <DataField>Period_Caption</DataField>
-        </Field>
-        <Field Name="Page_Caption">
-          <DataField>Page_Caption</DataField>
-        </Field>
-        <Field Name="Report_print_date_Caption">
-          <DataField>Report_print_date_Caption</DataField>
-        </Field>
-        <Field Name="Employee_NameCaption">
-          <DataField>Employee_NameCaption</DataField>
-        </Field>
-        <Field Name="Net_SalaryCaption">
-          <DataField>Net_SalaryCaption</DataField>
-        </Field>
-        <Field Name="Employee__Mode_of_payment_Caption">
-          <DataField>Employee__Mode_of_payment_Caption</DataField>
-        </Field>
-        <Field Name="TOTALSCaption">
-          <DataField>TOTALSCaption</DataField>
-        </Field>
-        <Field Name="Employee_No_">
-          <DataField>Employee_No_</DataField>
-        </Field>
-      </Fields>
-    </DataSet>
-  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -2269,4 +2199,74 @@ End Function
   <Language>=User!Language</Language>
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="GETFILTER__Period_Filter__">
+          <DataField>GETFILTER__Period_Filter__</DataField>
+        </Field>
+        <Field Name="CurrReport_PAGENO">
+          <DataField>CurrReport_PAGENO</DataField>
+        </Field>
+        <Field Name="CompanyData_Name">
+          <DataField>CompanyData_Name</DataField>
+        </Field>
+        <Field Name="TODAY">
+          <DataField>TODAY</DataField>
+        </Field>
+        <Field Name="DELCHR__FullName_______">
+          <DataField>DELCHR__FullName_______</DataField>
+        </Field>
+        <Field Name="BasicAm">
+          <DataField>BasicAm</DataField>
+        </Field>
+        <Field Name="BasicAmFormat">
+          <DataField>BasicAmFormat</DataField>
+        </Field>
+        <Field Name="Employee__Mode_of_payment_">
+          <DataField>Employee__Mode_of_payment_</DataField>
+        </Field>
+        <Field Name="EmptyString">
+          <DataField>EmptyString</DataField>
+        </Field>
+        <Field Name="BasicAm_Control26">
+          <DataField>BasicAm_Control26</DataField>
+        </Field>
+        <Field Name="BasicAm_Control26Format">
+          <DataField>BasicAm_Control26Format</DataField>
+        </Field>
+        <Field Name="Cash_Payroll_ScheduleCaption">
+          <DataField>Cash_Payroll_ScheduleCaption</DataField>
+        </Field>
+        <Field Name="Period_Caption">
+          <DataField>Period_Caption</DataField>
+        </Field>
+        <Field Name="Page_Caption">
+          <DataField>Page_Caption</DataField>
+        </Field>
+        <Field Name="Report_print_date_Caption">
+          <DataField>Report_print_date_Caption</DataField>
+        </Field>
+        <Field Name="Employee_NameCaption">
+          <DataField>Employee_NameCaption</DataField>
+        </Field>
+        <Field Name="Net_SalaryCaption">
+          <DataField>Net_SalaryCaption</DataField>
+        </Field>
+        <Field Name="Employee__Mode_of_payment_Caption">
+          <DataField>Employee__Mode_of_payment_Caption</DataField>
+        </Field>
+        <Field Name="TOTALSCaption">
+          <DataField>TOTALSCaption</DataField>
+        </Field>
+        <Field Name="Employee_No_">
+          <DataField>Employee_No_</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
 </Report>

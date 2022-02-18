@@ -336,19 +336,19 @@ report 50054 "ASL Create New payslips - New"
     end;
 
     var
-        EdfileRec1: Record "Payroll ED Codes.";
+        EdfileRec1: Record "Payroll-E/D Codes.";
         "day Employeed": Integer;
         PayPeriodRec: Record "Payroll-Periods.";
         PayHeadRec: Record "Payroll-Payslip Header.";
         PayLinesRec: Record "Payroll-Payslip Lines.";
         EmpGrpLinesRec: Record "Payroll-Employee Group Lines.";
-        EDFileRec: Record "Payroll ED Codes.";
+        EDFileRec: Record "Payroll-E/D Codes.";
         BookGrLinesRec: Record "Payroll-Posting Group Line.";
         InfoCounter: Integer;
         Window: Dialog;
         LoanRec: Record "Loan.";
         EdgropRec: Record "Payroll-Employee Group Lines.";
-        EdRec: Record "Payroll ED Codes.";
+        EdRec: Record "Payroll-E/D Codes.";
         RecRate: Decimal;
         RecQty: Decimal;
         emploMonth: Integer;
@@ -389,7 +389,7 @@ report 50054 "ASL Create New payslips - New"
         HrsInDay: Integer;
         VarRec: Record "Monthly Variables Lines.";
         GenPCode: Codeunit "General Purpose Codeunit";
-        EDRec2: Record "Payroll ED Codes.";
+        EDRec2: Record "Payroll-E/D Codes.";
         "---": Integer;
         PG: Code[10];
         INSTD: Boolean;

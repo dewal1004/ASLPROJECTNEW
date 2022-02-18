@@ -29,7 +29,7 @@ table 50006 "Payroll-Payslip Lines."
         field(3; "E/D Code"; Code[20])
         {
             NotBlank = true;
-            TableRelation = "Payroll ED Codes.";
+            TableRelation = "Payroll-E/D Codes.";
 
             trigger OnValidate()
             begin
@@ -467,9 +467,9 @@ table 50006 "Payroll-Payslip Lines."
 
 
     var
-        "E/DFileRec": Record "Payroll ED Codes.";
-        ConstEDFileRec: Record "Payroll ED Codes.";
-        EDRec2: Record "Payroll ED Codes.";
+        "E/DFileRec": Record "Payroll-E/D Codes.";
+        ConstEDFileRec: Record "Payroll-E/D Codes.";
+        EDRec2: Record "Payroll-E/D Codes.";
         ProllHeader: Record "Payroll-Payslip Header.";
         ProllRecStore: Record "Payroll-Payslip Lines.";
         ProllFactorRec: Record "Payroll-Payslip Lines.";
@@ -534,7 +534,7 @@ table 50006 "Payroll-Payslip Lines."
     end;
 
     //[Scope('OnPrem')]
-    procedure ChkRoundMaxMin(EDRecord: Record "Payroll ED Codes."; TheAmount: Decimal): Decimal
+    procedure ChkRoundMaxMin(EDRecord: Record "Payroll-E/D Codes."; TheAmount: Decimal): Decimal
     begin
         /*”””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””
         ‚ Round an amount and check for Max and Min. Return the amended amount.     ‚
@@ -597,7 +597,7 @@ table 50006 "Payroll-Payslip Lines."
     end;
 
     //[Scope('OnPrem')]
-    procedure CalcAmount(EDFileRec: Record "Payroll ED Codes."; EntryLineRec: Record "Payroll-Payslip Lines."; EntryLineAmount: Decimal; EDCode: Code[20]): Decimal
+    procedure CalcAmount(EDFileRec: Record "Payroll-E/D Codes."; EntryLineRec: Record "Payroll-Payslip Lines."; EntryLineAmount: Decimal; EDCode: Code[20]): Decimal
     begin
         /*””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””
         ‚ Calculate the amount based on Factor Of and Percentage fields in the file  ‚

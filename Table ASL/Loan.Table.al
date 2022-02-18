@@ -125,7 +125,7 @@ table 50005 "Loan."
         }
         field(16; "Loan ED"; Code[10])
         {
-            TableRelation = "Payroll ED Codes."."E/D Code";
+            TableRelation = "Payroll-E/D Codes."."E/D Code";
 
             trigger OnValidate()
             begin
@@ -277,7 +277,7 @@ table 50005 "Loan."
     var
         NoSeriesMgt: Codeunit NoSeriesManagement;
         StaffRec: Record Employee;
-        EDRec: Record "Payroll ED Codes.";
+        EDRec: Record "Payroll-E/D Codes.";
         GlRec: Record "Gen. Journal Line";
         GlRec1: Record "Gen. Journal Line";
         ACSETREC: Record "General Ledger Setup";

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -10,118 +10,6 @@
       <rd:SecurityType>None</rd:SecurityType>
     </DataSource>
   </DataSources>
-  <DataSets>
-    <DataSet Name="DataSet_Result">
-      <Query>
-        <DataSourceName>DataSource</DataSourceName>
-        <CommandText />
-      </Query>
-      <Fields>
-        <Field Name="FORMAT_TODAY_0_4_">
-          <DataField>FORMAT_TODAY_0_4_</DataField>
-        </Field>
-        <Field Name="COMPANYNAME">
-          <DataField>COMPANYNAME</DataField>
-        </Field>
-        <Field Name="CurrReport_PAGENO">
-          <DataField>CurrReport_PAGENO</DataField>
-        </Field>
-        <Field Name="USERID">
-          <DataField>USERID</DataField>
-        </Field>
-        <Field Name="STRSUBSTNO_Text002_CopyText_">
-          <DataField>STRSUBSTNO_Text002_CopyText_</DataField>
-        </Field>
-        <Field Name="FORMAT__Purch__Rcpt__Header___Document_Date__0_4_">
-          <DataField>FORMAT__Purch__Rcpt__Header___Document_Date__0_4_</DataField>
-        </Field>
-        <Field Name="Purch__Rcpt__Header___Ship_to_Address_">
-          <DataField>Purch__Rcpt__Header___Ship_to_Address_</DataField>
-        </Field>
-        <Field Name="VendAddr_1_">
-          <DataField>VendAddr_1_</DataField>
-        </Field>
-        <Field Name="PurInvHd__No__">
-          <DataField>PurInvHd__No__</DataField>
-        </Field>
-        <Field Name="Purch__Rcpt__Header___Order_No__">
-          <DataField>Purch__Rcpt__Header___Order_No__</DataField>
-        </Field>
-        <Field Name="Purch__Rcpt__Header___No__">
-          <DataField>Purch__Rcpt__Header___No__</DataField>
-        </Field>
-        <Field Name="Purchase_Variance__Item__ItemNo">
-          <DataField>Purchase_Variance__Item__ItemNo</DataField>
-        </Field>
-        <Field Name="ItemRec__VReceived_Qty__ItemRec__VSupplimentary_Qty_">
-          <DataField>ItemRec__VReceived_Qty__ItemRec__VSupplimentary_Qty_</DataField>
-        </Field>
-        <Field Name="ItemRec__VReceived_Qty__ItemRec__VSupplimentary_Qty_Format">
-          <DataField>ItemRec__VReceived_Qty__ItemRec__VSupplimentary_Qty_Format</DataField>
-        </Field>
-        <Field Name="ItemRec__VOrdered_Qty__Trecev">
-          <DataField>ItemRec__VOrdered_Qty__Trecev</DataField>
-        </Field>
-        <Field Name="ItemRec__VOrdered_Qty__TrecevFormat">
-          <DataField>ItemRec__VOrdered_Qty__TrecevFormat</DataField>
-        </Field>
-        <Field Name="ItemRec_Description">
-          <DataField>ItemRec_Description</DataField>
-        </Field>
-        <Field Name="ItemRec__VOrdered_Qty_">
-          <DataField>ItemRec__VOrdered_Qty_</DataField>
-        </Field>
-        <Field Name="ItemRec__VOrdered_Qty_Format">
-          <DataField>ItemRec__VOrdered_Qty_Format</DataField>
-        </Field>
-        <Field Name="Purchase_Variance__Item_Caption">
-          <DataField>Purchase_Variance__Item_Caption</DataField>
-        </Field>
-        <Field Name="CurrReport_PAGENOCaption">
-          <DataField>CurrReport_PAGENOCaption</DataField>
-        </Field>
-        <Field Name="Date_Caption">
-          <DataField>Date_Caption</DataField>
-        </Field>
-        <Field Name="Way_Bill_No_Caption">
-          <DataField>Way_Bill_No_Caption</DataField>
-        </Field>
-        <Field Name="Invoice_No__Caption">
-          <DataField>Invoice_No__Caption</DataField>
-        </Field>
-        <Field Name="Order_No_Caption">
-          <DataField>Order_No_Caption</DataField>
-        </Field>
-        <Field Name="GRN_No__Caption">
-          <DataField>GRN_No__Caption</DataField>
-        </Field>
-        <Field Name="Vendor_Name_Caption">
-          <DataField>Vendor_Name_Caption</DataField>
-        </Field>
-        <Field Name="Purchase_Variance__Item__ItemNoCaption">
-          <DataField>Purchase_Variance__Item__ItemNoCaption</DataField>
-        </Field>
-        <Field Name="ItemRec__VReceived_Qty__ItemRec__VSupplimentary_Qty_Caption">
-          <DataField>ItemRec__VReceived_Qty__ItemRec__VSupplimentary_Qty_Caption</DataField>
-        </Field>
-        <Field Name="Item_DescriptionCaption">
-          <DataField>Item_DescriptionCaption</DataField>
-        </Field>
-        <Field Name="Quantity_OrderedCaption">
-          <DataField>Quantity_OrderedCaption</DataField>
-        </Field>
-        <Field Name="Short__Excess__SupplyCaption">
-          <DataField>Short__Excess__SupplyCaption</DataField>
-        </Field>
-        <Field Name="Purchase_Variance__Item__OrderNo">
-          <DataField>Purchase_Variance__Item__OrderNo</DataField>
-        </Field>
-        <Field Name="ItemNo">
-          <DataField>ItemNo</DataField>
-        </Field>
-      </Fields>
-    </DataSet>
-  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -1191,4 +1079,116 @@ End Function
   <Language>=User!Language</Language>
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="FORMAT_TODAY_0_4_">
+          <DataField>FORMAT_TODAY_0_4_</DataField>
+        </Field>
+        <Field Name="COMPANYNAME">
+          <DataField>COMPANYNAME</DataField>
+        </Field>
+        <Field Name="CurrReport_PAGENO">
+          <DataField>CurrReport_PAGENO</DataField>
+        </Field>
+        <Field Name="USERID">
+          <DataField>USERID</DataField>
+        </Field>
+        <Field Name="STRSUBSTNO_Text002_CopyText_">
+          <DataField>STRSUBSTNO_Text002_CopyText_</DataField>
+        </Field>
+        <Field Name="FORMAT__Purch__Rcpt__Header___Document_Date__0_4_">
+          <DataField>FORMAT__Purch__Rcpt__Header___Document_Date__0_4_</DataField>
+        </Field>
+        <Field Name="Purch__Rcpt__Header___Ship_to_Address_">
+          <DataField>Purch__Rcpt__Header___Ship_to_Address_</DataField>
+        </Field>
+        <Field Name="VendAddr_1_">
+          <DataField>VendAddr_1_</DataField>
+        </Field>
+        <Field Name="PurInvHd__No__">
+          <DataField>PurInvHd__No__</DataField>
+        </Field>
+        <Field Name="Purch__Rcpt__Header___Order_No__">
+          <DataField>Purch__Rcpt__Header___Order_No__</DataField>
+        </Field>
+        <Field Name="Purch__Rcpt__Header___No__">
+          <DataField>Purch__Rcpt__Header___No__</DataField>
+        </Field>
+        <Field Name="Purchase_Variance__Item__ItemNo">
+          <DataField>Purchase_Variance__Item__ItemNo</DataField>
+        </Field>
+        <Field Name="ItemRec__VReceived_Qty__ItemRec__VSupplimentary_Qty_">
+          <DataField>ItemRec__VReceived_Qty__ItemRec__VSupplimentary_Qty_</DataField>
+        </Field>
+        <Field Name="ItemRec__VReceived_Qty__ItemRec__VSupplimentary_Qty_Format">
+          <DataField>ItemRec__VReceived_Qty__ItemRec__VSupplimentary_Qty_Format</DataField>
+        </Field>
+        <Field Name="ItemRec__VOrdered_Qty__Trecev">
+          <DataField>ItemRec__VOrdered_Qty__Trecev</DataField>
+        </Field>
+        <Field Name="ItemRec__VOrdered_Qty__TrecevFormat">
+          <DataField>ItemRec__VOrdered_Qty__TrecevFormat</DataField>
+        </Field>
+        <Field Name="ItemRec_Description">
+          <DataField>ItemRec_Description</DataField>
+        </Field>
+        <Field Name="ItemRec__VOrdered_Qty_">
+          <DataField>ItemRec__VOrdered_Qty_</DataField>
+        </Field>
+        <Field Name="ItemRec__VOrdered_Qty_Format">
+          <DataField>ItemRec__VOrdered_Qty_Format</DataField>
+        </Field>
+        <Field Name="Purchase_Variance__Item_Caption">
+          <DataField>Purchase_Variance__Item_Caption</DataField>
+        </Field>
+        <Field Name="CurrReport_PAGENOCaption">
+          <DataField>CurrReport_PAGENOCaption</DataField>
+        </Field>
+        <Field Name="Date_Caption">
+          <DataField>Date_Caption</DataField>
+        </Field>
+        <Field Name="Way_Bill_No_Caption">
+          <DataField>Way_Bill_No_Caption</DataField>
+        </Field>
+        <Field Name="Invoice_No__Caption">
+          <DataField>Invoice_No__Caption</DataField>
+        </Field>
+        <Field Name="Order_No_Caption">
+          <DataField>Order_No_Caption</DataField>
+        </Field>
+        <Field Name="GRN_No__Caption">
+          <DataField>GRN_No__Caption</DataField>
+        </Field>
+        <Field Name="Vendor_Name_Caption">
+          <DataField>Vendor_Name_Caption</DataField>
+        </Field>
+        <Field Name="Purchase_Variance__Item__ItemNoCaption">
+          <DataField>Purchase_Variance__Item__ItemNoCaption</DataField>
+        </Field>
+        <Field Name="ItemRec__VReceived_Qty__ItemRec__VSupplimentary_Qty_Caption">
+          <DataField>ItemRec__VReceived_Qty__ItemRec__VSupplimentary_Qty_Caption</DataField>
+        </Field>
+        <Field Name="Item_DescriptionCaption">
+          <DataField>Item_DescriptionCaption</DataField>
+        </Field>
+        <Field Name="Quantity_OrderedCaption">
+          <DataField>Quantity_OrderedCaption</DataField>
+        </Field>
+        <Field Name="Short__Excess__SupplyCaption">
+          <DataField>Short__Excess__SupplyCaption</DataField>
+        </Field>
+        <Field Name="Purchase_Variance__Item__OrderNo">
+          <DataField>Purchase_Variance__Item__OrderNo</DataField>
+        </Field>
+        <Field Name="ItemNo">
+          <DataField>ItemNo</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
 </Report>

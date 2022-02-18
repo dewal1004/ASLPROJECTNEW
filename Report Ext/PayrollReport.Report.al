@@ -420,73 +420,73 @@ report 50062 "Payroll Report"
                     {
                         Lookup = true;
                         LookupPageID = "Payroll ED Survey.";
-                        TableRelation = "Payroll ED Codes.";
+                        TableRelation = "Payroll-E/D Codes.";
                     }
                     field("2."; RequestEDsArray[2]."E/D Code")
                     {
                         Lookup = true;
                         LookupPageID = "Payroll ED Survey.";
-                        TableRelation = "Payroll ED Codes.";
+                        TableRelation = "Payroll-E/D Codes.";
                     }
                     field("3"; RequestEDsArray[3]."E/D Code")
                     {
                         Lookup = true;
                         LookupPageID = "Payroll ED Survey.";
-                        TableRelation = "Payroll ED Codes.";
+                        TableRelation = "Payroll-E/D Codes.";
                     }
                     field("4"; RequestEDsArray[4]."E/D Code")
                     {
                         Lookup = true;
                         LookupPageID = "Payroll ED Survey.";
-                        TableRelation = "Payroll ED Codes.";
+                        TableRelation = "Payroll-E/D Codes.";
                     }
                     field("5"; RequestEDsArray[5]."E/D Code")
                     {
                         Lookup = true;
                         LookupPageID = "Payroll ED Survey.";
-                        TableRelation = "Payroll ED Codes.";
+                        TableRelation = "Payroll-E/D Codes.";
                     }
                     field("6"; RequestEDsArray[6]."E/D Code")
                     {
                         Lookup = true;
                         LookupPageID = "Payroll ED Survey.";
-                        TableRelation = "Payroll ED Codes.";
+                        TableRelation = "Payroll-E/D Codes.";
                     }
                     field("7"; RequestEDsArray[7]."E/D Code")
                     {
                         Lookup = true;
                         LookupPageID = "Payroll ED Survey.";
-                        TableRelation = "Payroll ED Codes.";
+                        TableRelation = "Payroll-E/D Codes.";
                     }
                     field("8"; RequestEDsArray[8]."E/D Code")
                     {
                         Lookup = true;
                         LookupPageID = "Payroll ED Survey.";
-                        TableRelation = "Payroll ED Codes.";
+                        TableRelation = "Payroll-E/D Codes.";
                     }
                     field("9"; RequestEDsArray[9]."E/D Code")
                     {
                         Lookup = true;
                         LookupPageID = "Payroll ED Survey.";
-                        TableRelation = "Payroll ED Codes.";
+                        TableRelation = "Payroll-E/D Codes.";
                     }
                     field("10"; RequestEDsArray[10]."E/D Code")
                     {
                         Lookup = true;
                         LookupPageID = "Payroll ED Survey.";
-                        TableRelation = "Payroll ED Codes.";
+                        TableRelation = "Payroll-E/D Codes.";
                     }
                     field("11"; RequestEDsArray[11]."E/D Code")
                     {
                         Lookup = true;
                         LookupPageID = "Payroll ED Survey.";
-                        TableRelation = "Payroll ED Codes.";
+                        TableRelation = "Payroll-E/D Codes.";
                     }
                     field("12"; RequestEDsArray[12]."E/D Code")
                     {
                         Lookup = true;
                         LookupPageID = "Payroll ED Survey.";
-                        TableRelation = "Payroll ED Codes.";
+                        TableRelation = "Payroll-E/D Codes.";
                     }
                 }
             }
@@ -523,7 +523,7 @@ report 50062 "Payroll Report"
         EmployeeRec: Record Employee;
         PeriodRec: Record "Payroll-Periods.";
         EmployeeName: Text[40];
-        RequestEDsArray: array[12] of Record "Payroll ED Codes.";
+        RequestEDsArray: array[12] of Record "Payroll-E/D Codes.";
         EDAmountsArray: array[12] of Decimal;
         EDText: array[12, 2] of Text[20];
         EDString: Text[20];

@@ -22,16 +22,19 @@ tableextension 50270 tableextension50270 extends "Sales Line"
                                             "Location Type" = FILTER(Store));
         }
 
+        // {          
+        //  }
+
         //Unsupported feature: Property Modification (Data type) on ""Description 2"(Field 12)".
 
 
-        //Unsupported feature: Property Insertion (Editable) on ""Unit Price"(Field 22)".
+          //Unsupported feature: Property Insertion (Editable) on ""Unit Price"(Field 22)".
 
 
-        //Unsupported feature: Property Insertion (Enabled) on ""Substitution Available"(Field 5702)".
+          //Unsupported feature: Property Insertion (Enabled) on ""Substitution Available"(Field 5702)".
 
 
-        //Unsupported feature: Property Insertion (Enabled) on ""Qty. to Assign"(Field 5801)".
+          //Unsupported feature: Property Insertion (Enabled) on ""Qty. to Assign"(Field 5801)".
 
 
         //Unsupported feature: Property Insertion (Enabled) on ""Qty. Assigned"(Field 5802)".
