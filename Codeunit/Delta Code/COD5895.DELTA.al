@@ -1,6 +1,7 @@
 codeunit 50035 InventoryAdjustmentSubscriber
 {
   EventSubscriberInstance = StaticAutomatic;
+  //Test
 
 
 }
