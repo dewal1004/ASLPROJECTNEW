@@ -1,0 +1,18 @@
+
+OBJECT Modification "Doc. Exch. Links"(Codeunit 1411)
+{
+  
+  
+  OBJECT-PROPERTIES
+  {
+  CHANGES
+  {
+    Changes are format related
+  CODE
+  {
+
+    BEGIN
+    END.
+  }
+}
+

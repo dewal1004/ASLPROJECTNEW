@@ -15,5 +15,17 @@ codeunit 50021 PageManagementSubscriber
     begin
         exit(PageMetadata.Get(PageID) and (PageMetadata.APIPublisher = Format(TableID)));
     end;
-
 }
+
+// CHANGES
+//   {
+//     { CodeModification  ;OriginalCode=BEGIN
+//                                         exit(PageMetadata.Get(PageID) and (PageMetadata.SourceTable = TableID));
+//                                       END;
+
+//                          ModifiedCode=BEGIN
+//                                         exit(PageMetadata.Get(PageID) and (PageMetadata.APIPublisher = Format(TableID)));
+//                                       END;
+
+//                          Target=VerifyPageID(PROCEDURE 11) }
+//   }

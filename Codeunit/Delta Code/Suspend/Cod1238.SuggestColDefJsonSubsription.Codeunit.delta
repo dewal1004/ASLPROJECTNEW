@@ -1,18 +1,9 @@
 OBJECT Modification "Suggest Col. Definition - Json"(Codeunit 1238)
 {
   OBJECT-PROPERTIES
-  {
-    Date=20190324D;
-    Time=120000T;
-    Version List=NAVW114.00;
-  }
-  PROPERTIES
-  {
-    Target="Suggest Col. Definition - Json"(Codeunit 1238);
-  }
   CHANGES
   {
-    { Deletion          ;Target=GenerateDataExchColDef(PROCEDURE 3).TempXMLBuffer(Variable 1003);
+    { Redundant(Table change by MS):Deletion          ;Target=GenerateDataExchColDef(PROCEDURE 3).TempXMLBuffer(Variable 1003);
                          ChangedElements=VariableCollection
                          {
                            TempXMLBuffer@1003 : TEMPORARY Record "XML Buffer";
@@ -65,12 +56,6 @@ OBJECT Modification "Suggest Col. Definition - Json"(Codeunit 1238)
                                       END;
 
                          Target=GenerateDataExchColDef(PROCEDURE 3) }
-  }
-  CODE
-  {
-
-    BEGIN
-    END.
   }
 }
 

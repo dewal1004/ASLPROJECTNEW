@@ -12,7 +12,7 @@ OBJECT Modification ServItemManagement(Codeunit 5920)
   }
   CHANGES
   {
-    { CodeModification  ;OriginalCode=BEGIN
+    { Suspend: CodeModification  ;OriginalCode=BEGIN
                                         IsHandled := false;
                                         OnBeforeCreateServItemOnSalesLineShpt(SalesHeader,SalesLine,SalesShipmentLine,IsHandled);
                                         if IsHandled then

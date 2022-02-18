@@ -12,7 +12,7 @@ OBJECT Modification "TransferOrder-Post (Yes/No)"(Codeunit 5706)
     Target="TransferOrder-Post (Yes/No)"(Codeunit 5706);
   }
   CHANGES
-  {
+  {Pending:
     { PropertyModification;
                          Target=Text000(Variable 1000);
                          Property=TextConstString;

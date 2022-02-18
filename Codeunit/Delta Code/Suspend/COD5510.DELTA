@@ -12,7 +12,7 @@ OBJECT Modification "Production Journal Mgt"(Codeunit 5510)
   }
   CHANGES
   {
-    { CodeModification  ;OriginalCode=BEGIN
+    { Suspended: CodeModification  ;OriginalCode=BEGIN
                                         ItemJnlLine.LockTable;
                                         ItemJnlLine.Reset;
                                         ItemJnlLine.SetRange("Journal Template Name",ToTemplateName);
