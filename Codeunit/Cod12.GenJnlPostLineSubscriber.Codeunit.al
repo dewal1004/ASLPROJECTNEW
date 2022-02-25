@@ -16,6 +16,7 @@ codeunit 50002 GenJnlPostLineSubscriber
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Gen. Jnl.-Post Line",'OnPostCustOnAfterTempDtldCVLedgEntryBufCopyFromGenJnlLine', '', true, true)]
     local procedure OnPostCustGenJnlPostLineOnPostCustOnAfterTempDtldCVLedgEntryBufCopyFromGenJnlLine(var GenJournalLine: Record "Gen. Journal Line"; var TempDtldCVLedgEntryBuf: Record "Detailed CV Ledg. Entry Buffer")
+      
     begin
       TempDtldCVLedgEntryBuf. "Loan ID":= GenJournalLine."Loan ID";
     end;
@@ -56,6 +57,7 @@ codeunit 50002 GenJnlPostLineSubscriber
 
     var
       "xVAT Base Amount (LCY)": Decimal;
+      
 
 }
 
