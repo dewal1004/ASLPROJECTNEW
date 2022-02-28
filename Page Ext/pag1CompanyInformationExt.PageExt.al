@@ -29,6 +29,7 @@ pageextension 50201 pageextension50201 extends "Company Information"
             field("Min Foreign Indirect Cost %"; "Min Foreign Indirect Cost %")
             {
             }
+            //
         }
     }
 }
