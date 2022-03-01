@@ -22,6 +22,7 @@ pageextension 50201 pageextension50201 extends "Company Information"
         {
             field("Name 2"; "Name 2")
             {
+                
             }
         }
         addafter("Cal. Convergence Time Frame")
