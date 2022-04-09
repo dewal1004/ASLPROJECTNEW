@@ -2,13 +2,10 @@ pageextension 50257 pageextension50257 extends "Job Journal Batches"
 {
 
     //Unsupported feature: Property Insertion (Permissions) on ""Job Journal Batches"(Page 276)".
-
-
     //Unsupported feature: Property Insertion (SourceTableView) on ""Job Journal Batches"(Page 276)".
 
     layout
     {
-
         //Unsupported feature: Property Modification (ImplicitType) on "Name(Control 2)".
 
         addafter(Name)
@@ -59,7 +56,12 @@ pageextension 50257 pageextension50257 extends "Job Journal Batches"
             {
             }
         }
+        modify(Name)
+        {
+            Width = 17;
+        }
     }
+
     actions
     {
         addafter("Edit Journal")
@@ -72,10 +74,9 @@ pageextension 50257 pageextension50257 extends "Job Journal Batches"
             }
         }
     }
+}
 
-
-    //Unsupported feature: Code Modification on "OnOpenPage".
-
+//Unsupported feature: Code Modification on "OnOpenPage".
     //trigger OnOpenPage()
     //>>>> ORIGINAL CODE:
     //begin
@@ -90,5 +91,4 @@ pageextension 50257 pageextension50257 extends "Job Journal Batches"
     CurrPage.Editable(true);
     */
     //end;
-}
 

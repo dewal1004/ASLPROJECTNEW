@@ -52,3 +52,5 @@ Get-NAVAppInfo -ServerInstance $SrvrInst | % { Unpublish-NAVApp -ServerInstance 
 Get-NAVAppInfo -ServerInstance $SrvrInst -SymbolsOnly | % { Unpublish-NAVApp -ServerInstance BC140 -Name $_.Name -Version $_.Version }
 
 # Prepare DB for conversion, restore it to V18 e.g. <NameV18fromV14>
+
+Split-NAVApplicationObjectFile -Source "C:\export2alBDG\BDGtableOnly\Delta.txt" -Destination "C:\export2alBDG\BDGtableOnly\AL"

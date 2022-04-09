@@ -1,35 +1,21 @@
 pageextension 50354 pageextension50354 extends "Job List"
 {
-
-    //Unsupported feature: Property Insertion (SourceTableView) on ""Job List"(Page 89)".
-
     layout
     {
-        modify("No.")
-        {
-            StyleExpr = StyleText;
-        }
-        modify(Status)
-        {
-            StyleExpr = StyleText;
-        }
-
         addafter("No.")
         {
-            field(Vessel; Vessel)
+            field(Vessel; rec.Vessel)
             {
                 StyleExpr = StyleText;
             }
             field("Voyage No."; "Voyage No.")
             {
             }
-        }
-        addafter(Description)
-        {
             field("Fuel Consumed"; "Fuel Consumed")
             {
             }
         }
+
         addafter("Person Responsible")
         {
             field(Captain; Captain)
@@ -72,6 +58,18 @@ pageextension 50354 pageextension50354 extends "Job List"
             {
             }
         }
+
+        moveafter("Voyage No."; Description)
+
+        modify("No.")
+        {
+            StyleExpr = StyleText;
+        }
+        modify(Status)
+        {
+            StyleExpr = StyleText;
+        }
+
     }
     actions
     {
@@ -344,26 +342,24 @@ pageextension 50354 pageextension50354 extends "Job List"
         // moveafter("Organoleptic Report"; "<Action151>")
     }
 
-    var
-        StyleText: Text[20];
-
-
-    //Unsupported feature: Code Insertion on "OnAfterGetRecord".
-
-    //trigger OnAfterGetRecord()
-    //begin
-    /*
-    //SETRANGE("No.");
-    StyleText:='';
-    if Status = Status :: "Close Job Card" then begin
-      StyleText := 'Unfavorable';
-    end else begin
-      StyleText := 'standard'
+    trigger OnOpenPage()
+    begin
+        rec.SetFilter("No.", 'J*');
     end;
 
-    if Rec."Voyage Ended" = true then
-      StyleText:='Unfavorable'
-    */
-    //end;
-}
+    trigger OnAfterGetRecord()
+    var
+        myInt: Integer;
+    begin
+        StyleText := '';
+        if Status = Status::"Close Job Card" then
+            StyleText := 'Unfavorable'
+        else
+            StyleText := 'standard';
+        if Rec."Voyage Ended" = true then
+            StyleText := 'Unfavorable';
+    end;
 
+    var
+        StyleText: Text[20];
+}
