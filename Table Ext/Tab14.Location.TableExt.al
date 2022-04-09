@@ -341,6 +341,7 @@ tableextension 50223 tableextension50223 extends Location
             OptionMembers = " ","Short Voyage";
         }
     }
+
     keys
     {
         key(ASLKey1; "Lst Ovh")
@@ -424,10 +425,6 @@ tableextension 50223 tableextension50223 extends Location
         {
         }
     }
-
-    procedure "--------------------"()
-    begin
-    end;
 
     procedure Captain(Vessel: Code[10]): Code[10]
     var
