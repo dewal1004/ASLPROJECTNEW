@@ -4,33 +4,20 @@ tableextension 50230 tableextension50230 extends Job
     DrillDownPageID = "Dry Docking/Job  list";
     fields
     {
-        // modify("Bill-to Customer "No. of Deck Hands"o.")
-        // {
-        //     TableRelation = IF (Vessel = FILTER(<> '')) Customer WHERE("Operation Type" = CONST(true))
-        //     ELSE
-        //     IF (Vessel = FILTER('')) Customer WHERE("Operation Type" = CONST(false));
-        // }
+        modify("Bill-to Customer No.")
+        {
+            TableRelation = IF (Vessel = FILTER(<> '')) Customer WHERE("Operation Type" = CONST(true))
+            ELSE
+            IF (Vessel = FILTER('')) Customer WHERE("Operation Type" = CONST(false));
+        }
         modify("Starting Date")
         {
             Caption = 'ETD';
-
-            //Unsupported feature: Property Insertion (FieldClass) on ""Starting Date"(Field 13)".
-
         }
         modify("Ending Date")
         {
             Caption = 'ETA';
-            //
         }
-        //modify(Status, True)
-
-            //Unsupported feature: Property Modification (InitValue) on "Status(Field 19)".
-
-          //  OptionCaption = 'Budget,Preparation,Voyage Start,Close Job /////Card,Planning,Quote,Order,Completed';
-
-            //Unsupported feature: Property Modification (OptionString) on "Status(Field 19)".
-
-        // }
         modify("Person Responsible")
         {
             TableRelation = IF (Vessel = FILTER(<> '')) Resource WHERE("Resource Group No." = CONST('SKIP'))
@@ -38,224 +25,7 @@ tableextension 50230 tableextension50230 extends Job
             IF (Vessel = FILTER('')) Resource WHERE("Resource Group No." = CONST('CENG'));
             Caption = 'Skipper';
         }
-
-        //Unsupported feature: Property Insertion (NotBlank) on ""Global Dimension 2 Code"(Field 22)".
-
-
-        //Unsupported feature: Code Modification on ""No."(Field 1).OnValidate".
-
-        //trigger "(Field 1)()
-        //Parameters and return type have not been exported.
-        //>>>> ORIGINAL CODE:
-        //begin
-        /*
-        if "No." <> xRec."No." then begin
-          JobsSetup.Get;
-          NoSeriesMgt.TestManual(JobsSetup."Job Nos.");
-          "No. Series" := '';
-        end;
-        */
-        //end;
-        //>>>> MODIFIED CODE:
-        //begin
-        /*
-        #1..5
-        //Status := Status::Budget;
-        */
-        //end;
-
-
-        //Unsupported feature: Code Modification on ""Starting Date"(Field 13).OnValidate".
-
-        //trigger OnValidate()
-        //Parameters and return type have not been exported.
-        //>>>> ORIGINAL CODE:
-        //begin
-        /*
-        CheckDate;
-        */
-        //end;
-        //>>>> MODIFIED CODE:
-        //begin
-        /*
-        if ("Ending Date"<>0D) and ("Starting Date"<>0D) then
-        "Sea Days":="Ending Date"-"Starting Date";
-        if Vessel<>'' then
-          if Loc.Get(Vessel) then
-          begin
-            Loc.ETD:="Starting Date";
-            Loc.ETA:="Ending Date";
-            Loc.Modify;
-          end;
-
-        CheckDate;
-        */
-        //end;
-
-
-        //Unsupported feature: Code Modification on ""Ending Date"(Field 14).OnValidate".
-
-        //trigger OnValidate()
-        //Parameters and return type have not been exported.
-        //>>>> ORIGINAL CODE:
-        //begin
-        /*
-        CheckDate;
-        */
-        //end;
-        //>>>> MODIFIED CODE:
-        //begin
-        /*
-
-        if ("Ending Date"<>0D) and ("Starting Date"<>0D) then
-        "Sea Days":="Ending Date"-"Starting Date";
-        if Vessel<>'' then
-          if Loc.Get(Vessel) then
-          begin
-            Loc.ETD:="Starting Date";
-            Loc.ETA:="Ending Date";
-            Loc.Modify;
-          end;
-        CheckDate;
-        */
-        //end;
-
-
-        //Unsupported feature: Code Modification on "Status(Field 19).OnValidate".
-
-        //trigger OnValidate()
-        //Parameters and return type have not been exported.
-        //>>>> ORIGINAL CODE:
-        //begin
-        /*
-        if xRec.Status <> Status then begin
-          if Status = Status::Completed then
-            Validate(Complete,true);
-          if xRec.Status = xRec.Status::Completed then
-        #5..8
-          Modify;
-          JobPlanningLine.SetCurrentKey("Job No.");
-          JobPlanningLine.SetRange("Job No.","No.");
-          if JobPlanningLine.FindSet then begin
-            if CheckReservationEntries then
-              repeat
-                JobPlanningLineReserve.DeleteLine(JobPlanningLine);
-              until JobPlanningLine.Next = 0;
-            JobPlanningLine.ModifyAll(Status,Status);
-            PerformAutoReserve(JobPlanningLine);
-          end;
-        end;
-        */
-        //end;
-        //>>>> MODIFIED CODE:
-        //begin
-        /*
-        GenSetup.Get;
-        if UserId<>GenSetup.Administrator then
-        begin
-          if Status = xRec.Status then
-           exit;
-        {
-         IF Status < xRec.Status THEN
-           ERROR(Text001);
-
-         ChangeJobStatus :=
-           CONFIRM(
-             Text002+
-             Text003,FALSE,
-             FIELDCAPTION(Status));
-
-         IF NOT ChangeJobStatus THEN
-         BEGIN
-           Status := xRec.Status;
-           EXIT;
-         END;
-         }
-         if (Status = Status::"Close Job Card") and (CopyStr(Job."No.",1,1)='J') then
-           TestField("Voyage Ended",true);
-        if xRec.Status <> Status then
-        begin
-        #2..11
-          if JobPlanningLine.FindSet then
-          begin
-        #13..20
-        end;
-        */
-        //end;
-
-
-        //Unsupported feature: Code Insertion on ""Person Responsible"(Field 20)".
-
-        //trigger OnValidate()
-        //Parameters and return type have not been exported.
-        //begin
-        /*
-        if "Person Responsible" = '' then
-          exit;
-
-        SetRange("Person Responsible",Res."No.");
-        if Res.Get("Person Responsible") then
-          Validate(Captain, Res.Name);
-
-        JobTask.SetRange(JobTask."Job No.","No.");
-        JobTask.SetRange(JobTask."Job Task No.",'temp');
-        if JobTask.FindFirst then begin
-          InitPlanningLines;
-        end else begin
-          JobTask.Init;
-          JobTask."Job No." := "No.";
-          JobTask."Job Task No." := 'temp';
-          JobTask."Job Task Type" := JobTask."Job Task Type"::Posting;
-          JobTask."Job Posting Group" := 'OPERATION';
-          JobTask.Description := Description;
-          JobTask.Insert(true);
-          InitPlanningLines;
-        end;
-        */
-        //end;
-
-
-        //Unsupported feature: Code Modification on ""Apply Usage Link"(Field 1025).OnValidate".
-
-        //trigger OnValidate()
-        //Parameters and return type have not been exported.
-        //>>>> ORIGINAL CODE:
-        //begin
-        /*
-        if "Apply Usage Link" then begin
-          JobLedgerEntry.SetCurrentKey("Job No.");
-          JobLedgerEntry.SetRange("Job No.","No.");
-          JobLedgerEntry.SetRange("Entry Type",JobLedgerEntry."Entry Type"::Usage);
-          if JobLedgerEntry.FindFirst then begin
-            JobUsageLink.SetRange("Entry No.",JobLedgerEntry."Entry No.");
-            if JobUsageLink.IsEmpty then
-              Error(ApplyUsageLinkErr,TableCaption);
-          end;
-        #10..18
-              JobPlanningLine.Modify(true);
-            until JobPlanningLine.Next = 0;
-        end;
-        */
-        //end;
-        //>>>> MODIFIED CODE:
-        //begin
-        /*
-        #1..5
-            //JobUsageLink.SETRANGE("Entry No.",JobLedgerEntry."Entry No.");
-        #7..21
-        */
-        //end;
-        // field(50001; "0"; Decimal)
-        // {
-        // }
-        // field(50002; "1"; Decimal)
-        // {
-        //     TableRelation = "Job Ledger Entry" WHERE("Job No." = FIELD("1"));
-        // }
-        // field(50003; "2"; Decimal)
-        // {
-        //     TableRelation = "Job Ledger Entry" WHERE("Job No." = FIELD("2"));
-        // }
+        
         field(50137; "Task Filter"; Code[10])
         {
             Caption = 'Task Filter';
@@ -268,21 +38,20 @@ tableextension 50230 tableextension50230 extends Job
 
             trigger OnValidate()
             begin
-                //Bin01
-
                 CheckStatus;
 
                 if FA.Get(Vessel) then
                     "Global Dimension 2 Code" := FA."Global Dimension 2 Code"
                 else
-                    if Loc.Get(Vessel) then begin
+                    if Loc.Get(Vessel) then 
+                    begin
                         "Global Dimension 2 Code" := Loc."Shortcut Dimension 2 Code";
                         "Vessel Type" := Loc."Vessel Type";
                     end;
-                //BIN02
 
                 //Date Initiatn
-                if Loc.Get(Vessel) then begin
+                if Loc.Get(Vessel) then 
+                begin
                     "Lst Ovh" := Loc."Lst Ovh";
                     "Lst Ddk" := Loc."Lst Ddk";
                     xx1 := Loc.xx1;
@@ -334,7 +103,6 @@ tableextension 50230 tableextension50230 extends Job
                 //BIN03
 
                 //Create Job Journal batch;
-
                 JJourBat.Init;
                 JJourBat."Journal Template Name" := 'RECURRING';
                 JJourBat.Name := Vessel;
@@ -769,7 +537,8 @@ tableextension 50230 tableextension50230 extends Job
             OptionCaption = ' ,Short Voyage';
             OptionMembers = " ","Short Voyage";
         }
-        }
+    }
+    
     keys
     {
 
@@ -826,88 +595,7 @@ tableextension 50230 tableextension50230 extends Job
     }
 
 
-    //Unsupported feature: Code Insertion (VariableCollection) on "OnInsert".
-
-    //trigger (Variable: Resource)()
-    //Parameters and return type have not been exported.
-    //begin
-    /*
-    */
-    //end;
-
-
-    //Unsupported feature: Code Modification on "OnInsert".
-
-    //trigger OnInsert()
-    //>>>> ORIGINAL CODE:
-    //begin
-    /*
-    JobsSetup.Get;
-
-    if "No." = '' then begin
-    #4..17
-    if "Job Posting Group" = '' then
-      Validate("Job Posting Group",JobsSetup."Default Job Posting Group");
-    Validate("WIP Posting Method",JobsSetup."Default WIP Posting Method");
-
-    DimMgt.UpdateDefaultDim(
-      DATABASE::Job,"No.",
-      "Global Dimension 1 Code","Global Dimension 2 Code");
-    InitWIPFields;
-
-    "Creation Date" := Today;
-    "Last Date Modified" := "Creation Date";
-
-    if ("Project Manager" <> '') and (Status = Status::Open) then
-      AddToMyJobs("Project Manager");
-    */
-    //end;
-    //>>>> MODIFIED CODE:
-    //begin
-    /*
-    #1..20
-    "Global Dimension 2 Code":='ATLANTIC';     //AAA - Oct 2002
-    #22..25
-     "Starting Date":=Today;
-                   if Vessel<>'' then
-                      "Ending Date":=CalcDate('+50D',Today);
-                   "Creation Date":=Today;
-    "Creation Date" := Today;
-    "Last Date Modified" := "Creation Date";
-    if ("Project Manager" <> '') and (Status = Status::"Voyage Start") then
-      AddToMyJobs("Project Manager");
-    */
-    //end;
-
-
-    //Unsupported feature: Code Modification on "OnModify".
-
-    //trigger OnModify()
-    //>>>> ORIGINAL CODE:
-    //begin
-    /*
-    "Last Date Modified" := Today;
-
-    if (("Project Manager" <> xRec."Project Manager") and (xRec."Project Manager" <> '')) or (Status <> Status::Open) then
-      RemoveFromMyJobs;
-
-    if ("Project Manager" <> '') and (xRec."Project Manager" <> "Project Manager") then
-      if Status = Status::Open then
-        AddToMyJobs("Project Manager");
-    */
-    //end;
-    //>>>> MODIFIED CODE:
-    //begin
-    /*
-    "Last Date Modified" := Today;
-
-    if (("Project Manager" <> xRec."Project Manager") and (xRec."Project Manager" <> '')) or (Status <> Status::"Voyage Start") then
-    #4..6
-      if Status = Status::"Voyage Start" then
-        AddToMyJobs("Project Manager");
-    */
-    //end;
-
+    
 
     //Unsupported feature: Code Modification on "UpdateCust(PROCEDURE 4)".
 
@@ -1351,3 +1039,14 @@ tableextension 50230 tableextension50230 extends Job
         Text002: Label 'Please note that you cannot change a job to its previous';
 }
 
+//No. of Deck Hands"o."
+
+// field(50001; "0"; Decimal) {}
+//         field(50002; "1"; Decimal) 
+//         {
+//             TableRelation = "Job Ledger Entry" WHERE("Job No." = field("No."));
+//         }
+//         field(50003; "2"; Decimal)
+//         {
+//             TableRelation = "Job Ledger Entry" WHERE("Job No." = FIELD("2"));
+//         }
