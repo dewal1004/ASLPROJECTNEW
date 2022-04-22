@@ -6,6 +6,8 @@ page 50121 "Dynamic Procurement Register"
     ModifyAllowed = false;
     PageType = List;
     SourceTable = "Dynamics Procurement Header";
+    UsageCategory = Lists;
+    ApplicationArea = All,Basic;
 
     layout
     {

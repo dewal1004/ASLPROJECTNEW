@@ -37,10 +37,10 @@ Start-NAVAppDataUpgrade -name "ASL Upgrade Operation" -ServerInstance BC180 -Ver
 
 ##UAT ASL HO
 import-Module "C:\Program Files\Microsoft Dynamics 365 Business Central\180\Service\navAdminTool.ps1"
-UnInstall-NavApp -ServerInstance HO365V18 -Name "ASL Upgrade Operation" -Version 18.0.1.2
-Unpublish-NavApp -ServerInstance HO365V18 -Name "ASL Upgrade Operation" -Version 18.0.1.2
+UnInstall-NavApp -ServerInstance HO365V18 -Name "ASL Upgrade Operation" -Version 18.0.1.5
+Unpublish-NavApp -ServerInstance HO365V18 -Name "ASL Upgrade Operation" -Version 18.0.1.5
 
-publish-navapp -serverinstance HO365V18 -Path 'C:\ALs\ASLPROJECTNEW\SSNL_ASL Upgrade Operation_18.0.1.3.app' -Skipverification
-#Install-NAVApp -ServerInstance HO365V18 -Name "ASL Upgrade Operation" -Version 18.0.0.5
-Sync-NAVApp -ServerInstance HO365V18 -Name "ASL Upgrade Operation" -Version 18.0.1.3
-Start-NAVAppDataUpgrade -name "ASL Upgrade Operation" -ServerInstance HO365V18 -Version 18.0.1.3
+publish-navapp -serverinstance HO365V18 -Path 'C:\ALs\ASLPROJECTNEW\SSNL_ASL Upgrade Operation_18.0.1.6.app' -Skipverification
+#Install-NAVApp -ServerInstance HO365V18 -Name "ASL Upgrade Operation" -Version 18.0.0.6
+Sync-NAVApp -ServerInstance HO365V18 -Name "ASL Upgrade Operation" -Version 18.0.1.6
+Start-NAVAppDataUpgrade -name "ASL Upgrade Operation" -ServerInstance HO365V18 -Version 18.0.1.6
