@@ -5,6 +5,8 @@ page 50105 "Dry Docking/Job  list"
     Editable = false;
     PageType = List;
     SourceTable = Job;
+    UsageCategory = Lists;
+    ApplicationArea = All;
 
     layout
     {
@@ -101,7 +103,7 @@ page 50105 "Dry Docking/Job  list"
                     PromotedCategory = Process;
                     PromotedIsBig = true;
                     RunObject = Page "Job Task Lines";
-                    RunPageLink = "Job No." = FIELD ("No.");
+                    RunPageLink = "Job No." = FIELD("No.");
                     ShortCutKey = 'Shift+Ctrl+T';
                 }
             }
@@ -116,8 +118,8 @@ page 50105 "Dry Docking/Job  list"
                     Promoted = true;
                     PromotedCategory = Process;
                     RunObject = Page "Job Ledger Entries";
-                    RunPageLink = "Job No." = FIELD ("No.");
-                    RunPageView = SORTING ("Job No.", "Job Task No.", "Entry Type", "Posting Date");
+                    RunPageLink = "Job No." = FIELD("No.");
+                    RunPageView = SORTING("Job No.", "Job Task No.", "Entry Type", "Posting Date");
                     ShortCutKey = 'Ctrl+F7';
                 }
             }
@@ -143,6 +145,10 @@ page 50105 "Dry Docking/Job  list"
             }
         }
     }
+    trigger OnOpenPage()
+    begin
+        rec.SetFilter("No.", '*C*');
+    end;
 
     trigger OnAfterGetRecord()
     begin
@@ -159,5 +165,6 @@ page 50105 "Dry Docking/Job  list"
 
     var
         StyleText: Text[20];
+
 }
 

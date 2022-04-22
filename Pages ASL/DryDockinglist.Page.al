@@ -6,6 +6,8 @@ page 50099 "Dry Docking list"
     PageType = List;
     SourceTable = Job;
     SourceTableView = WHERE ("No." = CONST ('*C*'));
+    UsageCategory = Lists;
+    ApplicationArea = All;
 
     layout
     {

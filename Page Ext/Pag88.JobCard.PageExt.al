@@ -48,12 +48,6 @@ pageextension 50353 pageextension50353 extends "Job Card"
             {
             }
         }
-
-
-
-
-
-
         moveafter("Starting Date"; "Person Responsible", "Job Posting Group")
         movefirst(Duration; "Creation Date")
 
@@ -140,7 +134,6 @@ pageextension 50353 pageextension50353 extends "Job Card"
 
         moveafter("Bill-to Name"; "Bill-to Post Code", "Bill-to City", "Bill-to Country/Region Code", "Bill-to Contact", "Last Date Modified", "Project Manager")
 
-
         addafter("Bill-to Name")
         {
             part(JobTaskLines1; "Job Task Lines Subform")
@@ -151,7 +144,7 @@ pageextension 50353 pageextension50353 extends "Job Card"
                 SubPageView = SORTING("Job Task No.")
                               ORDER(Ascending);
             }
-        }
+        } 
         addafter("Calc. Recog. Costs G/L Amount")
         {
             field("Ves Age"; "Ves Age")

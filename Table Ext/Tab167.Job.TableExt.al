@@ -623,7 +623,7 @@ tableextension 50230 tableextension50230 extends Job
     //>>>> MODIFIED CODE:
     //begin
     /*
-    #1..6
+    #1..
       if Cust.Blocked = Cust.Blocked::Ship then
     #8..48
     */
