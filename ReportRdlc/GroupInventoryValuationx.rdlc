@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -10,94 +10,6 @@
       <rd:SecurityType>None</rd:SecurityType>
     </DataSource>
   </DataSources>
-  <DataSets>
-    <DataSet Name="DataSet_Result">
-      <Query>
-        <DataSourceName>DataSource</DataSourceName>
-        <CommandText />
-      </Query>
-      <Fields>
-        <Field Name="FORMAT_TODAY_0_4_">
-          <DataField>FORMAT_TODAY_0_4_</DataField>
-        </Field>
-        <Field Name="COMPANYNAME">
-          <DataField>COMPANYNAME</DataField>
-        </Field>
-        <Field Name="CurrReport_PAGENO">
-          <DataField>CurrReport_PAGENO</DataField>
-        </Field>
-        <Field Name="USERID">
-          <DataField>USERID</DataField>
-        </Field>
-        <Field Name="As_On_______GETFILTER__Date_Filter__">
-          <DataField>As_On_______GETFILTER__Date_Filter__</DataField>
-        </Field>
-        <Field Name="Gen__Product_Posting_Group_Description">
-          <DataField>Gen__Product_Posting_Group_Description</DataField>
-        </Field>
-        <Field Name="StoresValue">
-          <DataField>StoresValue</DataField>
-        </Field>
-        <Field Name="StoresValueFormat">
-          <DataField>StoresValueFormat</DataField>
-        </Field>
-        <Field Name="VesselValue">
-          <DataField>VesselValue</DataField>
-        </Field>
-        <Field Name="VesselValueFormat">
-          <DataField>VesselValueFormat</DataField>
-        </Field>
-        <Field Name="LineTotal">
-          <DataField>LineTotal</DataField>
-        </Field>
-        <Field Name="LineTotalFormat">
-          <DataField>LineTotalFormat</DataField>
-        </Field>
-        <Field Name="GRAND_TOTAL_">
-          <DataField>GRAND_TOTAL_</DataField>
-        </Field>
-        <Field Name="StoresValue_Control1000000006">
-          <DataField>StoresValue_Control1000000006</DataField>
-        </Field>
-        <Field Name="StoresValue_Control1000000006Format">
-          <DataField>StoresValue_Control1000000006Format</DataField>
-        </Field>
-        <Field Name="VesselValue_Control1000000007">
-          <DataField>VesselValue_Control1000000007</DataField>
-        </Field>
-        <Field Name="VesselValue_Control1000000007Format">
-          <DataField>VesselValue_Control1000000007Format</DataField>
-        </Field>
-        <Field Name="LineTotal_Control1000000008">
-          <DataField>LineTotal_Control1000000008</DataField>
-        </Field>
-        <Field Name="LineTotal_Control1000000008Format">
-          <DataField>LineTotal_Control1000000008Format</DataField>
-        </Field>
-        <Field Name="INVENTORY_VALUATION_PER_PRODUCT_GROUPCaption">
-          <DataField>INVENTORY_VALUATION_PER_PRODUCT_GROUPCaption</DataField>
-        </Field>
-        <Field Name="CurrReport_PAGENOCaption">
-          <DataField>CurrReport_PAGENOCaption</DataField>
-        </Field>
-        <Field Name="DESCRIPTIONCaption">
-          <DataField>DESCRIPTIONCaption</DataField>
-        </Field>
-        <Field Name="TOTALCaption">
-          <DataField>TOTALCaption</DataField>
-        </Field>
-        <Field Name="VESSELSCaption">
-          <DataField>VESSELSCaption</DataField>
-        </Field>
-        <Field Name="STORESCaption">
-          <DataField>STORESCaption</DataField>
-        </Field>
-        <Field Name="Gen__Product_Posting_Group_Code">
-          <DataField>Gen__Product_Posting_Group_Code</DataField>
-        </Field>
-      </Fields>
-    </DataSet>
-  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -951,4 +863,92 @@ End Function
   <Language>=User!Language</Language>
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="FORMAT_TODAY_0_4_">
+          <DataField>FORMAT_TODAY_0_4_</DataField>
+        </Field>
+        <Field Name="COMPANYNAME">
+          <DataField>COMPANYNAME</DataField>
+        </Field>
+        <Field Name="CurrReport_PAGENO">
+          <DataField>CurrReport_PAGENO</DataField>
+        </Field>
+        <Field Name="USERID">
+          <DataField>USERID</DataField>
+        </Field>
+        <Field Name="As_On_______GETFILTER__Date_Filter__">
+          <DataField>As_On_______GETFILTER__Date_Filter__</DataField>
+        </Field>
+        <Field Name="Gen__Product_Posting_Group_Description">
+          <DataField>Gen__Product_Posting_Group_Description</DataField>
+        </Field>
+        <Field Name="StoresValue">
+          <DataField>StoresValue</DataField>
+        </Field>
+        <Field Name="StoresValueFormat">
+          <DataField>StoresValueFormat</DataField>
+        </Field>
+        <Field Name="VesselValue">
+          <DataField>VesselValue</DataField>
+        </Field>
+        <Field Name="VesselValueFormat">
+          <DataField>VesselValueFormat</DataField>
+        </Field>
+        <Field Name="LineTotal">
+          <DataField>LineTotal</DataField>
+        </Field>
+        <Field Name="LineTotalFormat">
+          <DataField>LineTotalFormat</DataField>
+        </Field>
+        <Field Name="GRAND_TOTAL_">
+          <DataField>GRAND_TOTAL_</DataField>
+        </Field>
+        <Field Name="StoresValue_Control1000000006">
+          <DataField>StoresValue_Control1000000006</DataField>
+        </Field>
+        <Field Name="StoresValue_Control1000000006Format">
+          <DataField>StoresValue_Control1000000006Format</DataField>
+        </Field>
+        <Field Name="VesselValue_Control1000000007">
+          <DataField>VesselValue_Control1000000007</DataField>
+        </Field>
+        <Field Name="VesselValue_Control1000000007Format">
+          <DataField>VesselValue_Control1000000007Format</DataField>
+        </Field>
+        <Field Name="LineTotal_Control1000000008">
+          <DataField>LineTotal_Control1000000008</DataField>
+        </Field>
+        <Field Name="LineTotal_Control1000000008Format">
+          <DataField>LineTotal_Control1000000008Format</DataField>
+        </Field>
+        <Field Name="INVENTORY_VALUATION_PER_PRODUCT_GROUPCaption">
+          <DataField>INVENTORY_VALUATION_PER_PRODUCT_GROUPCaption</DataField>
+        </Field>
+        <Field Name="CurrReport_PAGENOCaption">
+          <DataField>CurrReport_PAGENOCaption</DataField>
+        </Field>
+        <Field Name="DESCRIPTIONCaption">
+          <DataField>DESCRIPTIONCaption</DataField>
+        </Field>
+        <Field Name="TOTALCaption">
+          <DataField>TOTALCaption</DataField>
+        </Field>
+        <Field Name="VESSELSCaption">
+          <DataField>VESSELSCaption</DataField>
+        </Field>
+        <Field Name="STORESCaption">
+          <DataField>STORESCaption</DataField>
+        </Field>
+        <Field Name="Gen__Product_Posting_Group_Code">
+          <DataField>Gen__Product_Posting_Group_Code</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
 </Report>

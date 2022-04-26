@@ -9,7 +9,7 @@ report 50066 "E/D-Employee-period"
 
     dataset
     {
-        dataitem("Payroll-E/D Codes."; "Payroll ED Codes.")
+        dataitem("Payroll-E/D Codes."; "Payroll-E/D Codes.")
         {
             DataItemTableView = SORTING("E/D Code");
             PrintOnlyIfDetail = false;

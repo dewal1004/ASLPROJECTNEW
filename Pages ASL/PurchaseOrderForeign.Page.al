@@ -5,8 +5,8 @@ page 50097 "Purchase Order Foreign"
     PromotedActionCategories = 'New,Process,Report,Approve,Release,Posting,Prepare,Invoice,Request Approval';
     RefreshOnActivate = true;
     SourceTable = "Purchase Header";
-    SourceTableView = WHERE ("Document Type" = FILTER (Order),
-                            "Order Type" = FILTER (Foreign));
+    SourceTableView = WHERE("Document Type" = FILTER(Order),
+                            "Order Type" = FILTER(Foreign));
 
     layout
     {
@@ -124,7 +124,7 @@ page 50097 "Purchase Order Foreign"
             }
             part(PurchLines; "Purchase Order Subform Foreign")
             {
-                SubPageLink = "Document No." = FIELD ("No.");
+                SubPageLink = "Document No." = FIELD("No.");
                 UpdatePropagation = Both;
             }
             group(Invoicing)
@@ -425,32 +425,32 @@ page 50097 "Purchase Order Foreign"
         {
             part(Control23; "Pending Approval FactBox")
             {
-                SubPageLink = "Table ID" = CONST (38),
-                              "Document Type" = FIELD ("Document Type"),
-                              "Document No." = FIELD ("No.");
+                SubPageLink = "Table ID" = CONST(38),
+                              "Document Type" = FIELD("Document Type"),
+                              "Document No." = FIELD("No.");
                 Visible = OpenApprovalEntriesExistForCurrUser;
             }
             part(Control1903326807; "Item Replenishment FactBox")
             {
                 Provider = PurchLines;
-                SubPageLink = "No." = FIELD ("No.");
+                SubPageLink = "No." = FIELD("No.");
                 Visible = false;
             }
             part(Control1906354007; "Approval FactBox")
             {
-                SubPageLink = "Table ID" = CONST (38),
-                              "Document Type" = FIELD ("Document Type"),
-                              "Document No." = FIELD ("No.");
+                SubPageLink = "Table ID" = CONST(38),
+                              "Document Type" = FIELD("Document Type"),
+                              "Document No." = FIELD("No.");
                 Visible = false;
             }
             part(Control1901138007; "Vendor Details FactBox")
             {
-                SubPageLink = "No." = FIELD ("Buy-from Vendor No.");
+                SubPageLink = "No." = FIELD("Buy-from Vendor No.");
                 Visible = false;
             }
             part(Control1904651607; "Vendor Statistics FactBox")
             {
-                SubPageLink = "No." = FIELD ("Pay-to Vendor No.");
+                SubPageLink = "No." = FIELD("Pay-to Vendor No.");
                 Visible = true;
             }
             part(IncomingDocAttachFactBox; "Incoming Doc. Attach. FactBox")
@@ -460,20 +460,20 @@ page 50097 "Purchase Order Foreign"
             }
             part(Control1903435607; "Vendor Hist. Buy-from FactBox")
             {
-                SubPageLink = "No." = FIELD ("Buy-from Vendor No.");
+                SubPageLink = "No." = FIELD("Buy-from Vendor No.");
                 Visible = true;
             }
             part(Control1906949207; "Vendor Hist. Pay-to FactBox")
             {
-                SubPageLink = "No." = FIELD ("Pay-to Vendor No.");
+                SubPageLink = "No." = FIELD("Pay-to Vendor No.");
                 Visible = false;
             }
             part(Control3; "Purchase Line FactBox")
             {
                 Provider = PurchLines;
-                SubPageLink = "Document Type" = FIELD ("Document Type"),
-                              "Document No." = FIELD ("Document No."),
-                              "Line No." = FIELD ("Line No.");
+                SubPageLink = "Document Type" = FIELD("Document Type"),
+                              "Document No." = FIELD("Document No."),
+                              "Line No." = FIELD("Line No.");
             }
             part(WorkflowStatus; "Workflow Status FactBox")
             {
@@ -540,7 +540,7 @@ page 50097 "Purchase Order Foreign"
                     //The property 'PromotedIsBig' can only be set if the property 'Promoted' is set to 'true'
                     //PromotedIsBig = false;
                     RunObject = Page "Vendor Card";
-                    RunPageLink = "No." = FIELD ("Buy-from Vendor No.");
+                    RunPageLink = "No." = FIELD("Buy-from Vendor No.");
                     ShortCutKey = 'Shift+F7';
                 }
                 action(Approvals)
@@ -561,9 +561,9 @@ page 50097 "Purchase Order Foreign"
                     Caption = 'Co&mments';
                     Image = ViewComments;
                     RunObject = Page "Purch. Comment Sheet";
-                    RunPageLink = "Document Type" = FIELD ("Document Type"),
-                                  "No." = FIELD ("No."),
-                                  "Document Line No." = CONST (0);
+                    RunPageLink = "Document Type" = FIELD("Document Type"),
+                                  "No." = FIELD("No."),
+                                  "Document Line No." = CONST(0);
                 }
             }
             group(Documents)
@@ -575,8 +575,8 @@ page 50097 "Purchase Order Foreign"
                     Caption = 'Receipts';
                     Image = PostedReceipts;
                     RunObject = Page "Posted Purchase Receipts";
-                    RunPageLink = "Order No." = FIELD ("No.");
-                    RunPageView = SORTING ("Order No.");
+                    RunPageLink = "Order No." = FIELD("No.");
+                    RunPageView = SORTING("Order No.");
                 }
                 action(Invoices)
                 {
@@ -586,24 +586,24 @@ page 50097 "Purchase Order Foreign"
                     //The property 'PromotedIsBig' can only be set if the property 'Promoted' is set to 'true'
                     //PromotedIsBig = false;
                     RunObject = Page "Posted Purchase Invoices";
-                    RunPageLink = "Order No." = FIELD ("No.");
-                    RunPageView = SORTING ("Order No.");
+                    RunPageLink = "Order No." = FIELD("No.");
+                    RunPageView = SORTING("Order No.");
                 }
                 action("Prepa&yment Invoices")
                 {
                     Caption = 'Prepa&yment Invoices';
                     Image = PrepaymentInvoice;
                     RunObject = Page "Posted Purchase Invoices";
-                    RunPageLink = "Prepayment Order No." = FIELD ("No.");
-                    RunPageView = SORTING ("Prepayment Order No.");
+                    RunPageLink = "Prepayment Order No." = FIELD("No.");
+                    RunPageView = SORTING("Prepayment Order No.");
                 }
                 action("Prepayment Credi&t Memos")
                 {
                     Caption = 'Prepayment Credi&t Memos';
                     Image = PrepaymentCreditMemo;
                     RunObject = Page "Posted Purchase Credit Memos";
-                    RunPageLink = "Prepayment Order No." = FIELD ("No.");
-                    RunPageView = SORTING ("Prepayment Order No.");
+                    RunPageLink = "Prepayment Order No." = FIELD("No.");
+                    RunPageView = SORTING("Prepayment Order No.");
                 }
             }
             group(Warehouse)
@@ -618,19 +618,19 @@ page 50097 "Purchase Order Foreign"
                     Caption = 'In&vt. Put-away/Pick Lines';
                     Image = PickLines;
                     RunObject = Page "Warehouse Activity List";
-                    RunPageLink = "Source Document" = CONST ("Purchase Order"),
-                                  "Source No." = FIELD ("No.");
-                    RunPageView = SORTING ("Source Document", "Source No.", "Location Code");
+                    RunPageLink = "Source Document" = CONST("Purchase Order"),
+                                  "Source No." = FIELD("No.");
+                    RunPageView = SORTING("Source Document", "Source No.", "Location Code");
                 }
                 action("Whse. Receipt Lines")
                 {
                     Caption = 'Whse. Receipt Lines';
                     Image = ReceiptLines;
                     RunObject = Page "Whse. Receipt Lines";
-                    RunPageLink = "Source Type" = CONST (39),
-                                  "Source Subtype" = FIELD ("Document Type"),
-                                  "Source No." = FIELD ("No.");
-                    RunPageView = SORTING ("Source Type", "Source Subtype", "Source No.", "Source Line No.");
+                    RunPageLink = "Source Type" = CONST(39),
+                                  "Source Subtype" = FIELD("Document Type"),
+                                  "Source No." = FIELD("No.");
+                    RunPageView = SORTING("Source Type", "Source Subtype", "Source No.", "Source Line No.");
                 }
                 separator(Action182)
                 {
@@ -728,9 +728,9 @@ page 50097 "Purchase Order Foreign"
                     Promoted = true;
                     PromotedCategory = Category4;
                     RunObject = Page "Approval Comments";
-                    RunPageLink = "Table ID" = CONST (38),
-                                  "Document Type" = FIELD ("Document Type"),
-                                  "Document No." = FIELD ("No.");
+                    RunPageLink = "Table ID" = CONST(38),
+                                  "Document Type" = FIELD("Document Type"),
+                                  "Document No." = FIELD("No.");
                     Visible = OpenApprovalEntriesExistForCurrUser;
                 }
             }
@@ -1392,7 +1392,7 @@ page 50097 "Purchase Order Foreign"
         OpenApprovalEntriesExist := ApprovalsMgmt.HasOpenApprovalEntries(RecordId);
     end;
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure UpdatePurchLinesX(ChangedFieldName: Text[30])
     var
         UpdateConfirmed: Boolean;

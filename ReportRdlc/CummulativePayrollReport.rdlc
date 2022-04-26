@@ -1,0 +1,362 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="DataSource">
+      <ConnectionProperties>
+        <DataProvider>SQL</DataProvider>
+        <ConnectString />
+      </ConnectionProperties>
+      <rd:SecurityType>None</rd:SecurityType>
+    </DataSource>
+  </DataSources>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <Height>2in</Height>
+        <Style />
+      </Body>
+      <Width>6.5in</Width>
+      <Page>
+        <Style />
+      </Page>
+    </ReportSection>
+  </ReportSections>
+  <Code>Public Function BlankZero(ByVal Value As Decimal)
+    if Value = 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankPos(ByVal Value As Decimal)
+    if Value &gt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankZeroAndPos(ByVal Value As Decimal)
+    if Value &gt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNeg(ByVal Value As Decimal)
+    if Value &lt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNegAndZero(ByVal Value As Decimal)
+    if Value &lt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+</Code>
+  <Language>=User!Language</Language>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="filters">
+          <DataField>filters</DataField>
+        </Field>
+        <Field Name="ED14">
+          <DataField>ED14</DataField>
+        </Field>
+        <Field Name="ED13">
+          <DataField>ED13</DataField>
+        </Field>
+        <Field Name="ED12">
+          <DataField>ED12</DataField>
+        </Field>
+        <Field Name="ED11">
+          <DataField>ED11</DataField>
+        </Field>
+        <Field Name="ED10">
+          <DataField>ED10</DataField>
+        </Field>
+        <Field Name="ED9">
+          <DataField>ED9</DataField>
+        </Field>
+        <Field Name="ED8">
+          <DataField>ED8</DataField>
+        </Field>
+        <Field Name="ED7">
+          <DataField>ED7</DataField>
+        </Field>
+        <Field Name="ED6">
+          <DataField>ED6</DataField>
+        </Field>
+        <Field Name="ED5">
+          <DataField>ED5</DataField>
+        </Field>
+        <Field Name="ED4">
+          <DataField>ED4</DataField>
+        </Field>
+        <Field Name="ED3">
+          <DataField>ED3</DataField>
+        </Field>
+        <Field Name="ED2">
+          <DataField>ED2</DataField>
+        </Field>
+        <Field Name="ED1">
+          <DataField>ED1</DataField>
+        </Field>
+        <Field Name="ED1_Control1000000000">
+          <DataField>ED1_Control1000000000</DataField>
+        </Field>
+        <Field Name="ED2_Control1000000001">
+          <DataField>ED2_Control1000000001</DataField>
+        </Field>
+        <Field Name="ED3_Control1000000017">
+          <DataField>ED3_Control1000000017</DataField>
+        </Field>
+        <Field Name="ED4_Control1000000016">
+          <DataField>ED4_Control1000000016</DataField>
+        </Field>
+        <Field Name="ED5_Control1000000023">
+          <DataField>ED5_Control1000000023</DataField>
+        </Field>
+        <Field Name="ED6_Control1000000022">
+          <DataField>ED6_Control1000000022</DataField>
+        </Field>
+        <Field Name="ED7_Control1000000021">
+          <DataField>ED7_Control1000000021</DataField>
+        </Field>
+        <Field Name="ED8_Control1000000020">
+          <DataField>ED8_Control1000000020</DataField>
+        </Field>
+        <Field Name="ED9_Control1000000019">
+          <DataField>ED9_Control1000000019</DataField>
+        </Field>
+        <Field Name="ED10_Control1000000018">
+          <DataField>ED10_Control1000000018</DataField>
+        </Field>
+        <Field Name="ED11_Control1000000041">
+          <DataField>ED11_Control1000000041</DataField>
+        </Field>
+        <Field Name="ED12_Control1000000040">
+          <DataField>ED12_Control1000000040</DataField>
+        </Field>
+        <Field Name="ED13_Control1000000039">
+          <DataField>ED13_Control1000000039</DataField>
+        </Field>
+        <Field Name="ED14_Control1000000038">
+          <DataField>ED14_Control1000000038</DataField>
+        </Field>
+        <Field Name="AMT10">
+          <DataField>AMT10</DataField>
+        </Field>
+        <Field Name="AMT10Format">
+          <DataField>AMT10Format</DataField>
+        </Field>
+        <Field Name="AMT9">
+          <DataField>AMT9</DataField>
+        </Field>
+        <Field Name="AMT9Format">
+          <DataField>AMT9Format</DataField>
+        </Field>
+        <Field Name="AMT8">
+          <DataField>AMT8</DataField>
+        </Field>
+        <Field Name="AMT8Format">
+          <DataField>AMT8Format</DataField>
+        </Field>
+        <Field Name="AMT7">
+          <DataField>AMT7</DataField>
+        </Field>
+        <Field Name="AMT7Format">
+          <DataField>AMT7Format</DataField>
+        </Field>
+        <Field Name="AMT6">
+          <DataField>AMT6</DataField>
+        </Field>
+        <Field Name="AMT6Format">
+          <DataField>AMT6Format</DataField>
+        </Field>
+        <Field Name="AMT5">
+          <DataField>AMT5</DataField>
+        </Field>
+        <Field Name="AMT5Format">
+          <DataField>AMT5Format</DataField>
+        </Field>
+        <Field Name="AMT4">
+          <DataField>AMT4</DataField>
+        </Field>
+        <Field Name="AMT4Format">
+          <DataField>AMT4Format</DataField>
+        </Field>
+        <Field Name="AMT3">
+          <DataField>AMT3</DataField>
+        </Field>
+        <Field Name="AMT3Format">
+          <DataField>AMT3Format</DataField>
+        </Field>
+        <Field Name="AMT2">
+          <DataField>AMT2</DataField>
+        </Field>
+        <Field Name="AMT2Format">
+          <DataField>AMT2Format</DataField>
+        </Field>
+        <Field Name="AMT1">
+          <DataField>AMT1</DataField>
+        </Field>
+        <Field Name="AMT1Format">
+          <DataField>AMT1Format</DataField>
+        </Field>
+        <Field Name="name">
+          <DataField>name</DataField>
+        </Field>
+        <Field Name="Payroll_Payslip_Lines___Employee_No_">
+          <DataField>Payroll_Payslip_Lines___Employee_No_</DataField>
+        </Field>
+        <Field Name="AMT14">
+          <DataField>AMT14</DataField>
+        </Field>
+        <Field Name="AMT14Format">
+          <DataField>AMT14Format</DataField>
+        </Field>
+        <Field Name="AMT13">
+          <DataField>AMT13</DataField>
+        </Field>
+        <Field Name="AMT13Format">
+          <DataField>AMT13Format</DataField>
+        </Field>
+        <Field Name="AMT12">
+          <DataField>AMT12</DataField>
+        </Field>
+        <Field Name="AMT12Format">
+          <DataField>AMT12Format</DataField>
+        </Field>
+        <Field Name="AMT11">
+          <DataField>AMT11</DataField>
+        </Field>
+        <Field Name="AMT11Format">
+          <DataField>AMT11Format</DataField>
+        </Field>
+        <Field Name="AMT10_Control1000000024">
+          <DataField>AMT10_Control1000000024</DataField>
+        </Field>
+        <Field Name="AMT10_Control1000000024Format">
+          <DataField>AMT10_Control1000000024Format</DataField>
+        </Field>
+        <Field Name="AMT9_Control1000000025">
+          <DataField>AMT9_Control1000000025</DataField>
+        </Field>
+        <Field Name="AMT9_Control1000000025Format">
+          <DataField>AMT9_Control1000000025Format</DataField>
+        </Field>
+        <Field Name="AMT8_Control1000000026">
+          <DataField>AMT8_Control1000000026</DataField>
+        </Field>
+        <Field Name="AMT8_Control1000000026Format">
+          <DataField>AMT8_Control1000000026Format</DataField>
+        </Field>
+        <Field Name="AMT7_Control1000000027">
+          <DataField>AMT7_Control1000000027</DataField>
+        </Field>
+        <Field Name="AMT7_Control1000000027Format">
+          <DataField>AMT7_Control1000000027Format</DataField>
+        </Field>
+        <Field Name="AMT6_Control1000000028">
+          <DataField>AMT6_Control1000000028</DataField>
+        </Field>
+        <Field Name="AMT6_Control1000000028Format">
+          <DataField>AMT6_Control1000000028Format</DataField>
+        </Field>
+        <Field Name="AMT5_Control1000000029">
+          <DataField>AMT5_Control1000000029</DataField>
+        </Field>
+        <Field Name="AMT5_Control1000000029Format">
+          <DataField>AMT5_Control1000000029Format</DataField>
+        </Field>
+        <Field Name="AMT4_Control1000000030">
+          <DataField>AMT4_Control1000000030</DataField>
+        </Field>
+        <Field Name="AMT4_Control1000000030Format">
+          <DataField>AMT4_Control1000000030Format</DataField>
+        </Field>
+        <Field Name="AMT3_Control1000000031">
+          <DataField>AMT3_Control1000000031</DataField>
+        </Field>
+        <Field Name="AMT3_Control1000000031Format">
+          <DataField>AMT3_Control1000000031Format</DataField>
+        </Field>
+        <Field Name="AMT2_Control1000000032">
+          <DataField>AMT2_Control1000000032</DataField>
+        </Field>
+        <Field Name="AMT2_Control1000000032Format">
+          <DataField>AMT2_Control1000000032Format</DataField>
+        </Field>
+        <Field Name="AMT1_Control1000000033">
+          <DataField>AMT1_Control1000000033</DataField>
+        </Field>
+        <Field Name="AMT1_Control1000000033Format">
+          <DataField>AMT1_Control1000000033Format</DataField>
+        </Field>
+        <Field Name="Payroll_Payslip_Lines___Employee_No__Control1000000034">
+          <DataField>Payroll_Payslip_Lines___Employee_No__Control1000000034</DataField>
+        </Field>
+        <Field Name="name_Control1000000035">
+          <DataField>name_Control1000000035</DataField>
+        </Field>
+        <Field Name="AMT14_Control1000000046">
+          <DataField>AMT14_Control1000000046</DataField>
+        </Field>
+        <Field Name="AMT14_Control1000000046Format">
+          <DataField>AMT14_Control1000000046Format</DataField>
+        </Field>
+        <Field Name="AMT13_Control1000000047">
+          <DataField>AMT13_Control1000000047</DataField>
+        </Field>
+        <Field Name="AMT13_Control1000000047Format">
+          <DataField>AMT13_Control1000000047Format</DataField>
+        </Field>
+        <Field Name="AMT12_Control1000000048">
+          <DataField>AMT12_Control1000000048</DataField>
+        </Field>
+        <Field Name="AMT12_Control1000000048Format">
+          <DataField>AMT12_Control1000000048Format</DataField>
+        </Field>
+        <Field Name="AMT11_Control1000000049">
+          <DataField>AMT11_Control1000000049</DataField>
+        </Field>
+        <Field Name="AMT11_Control1000000049Format">
+          <DataField>AMT11_Control1000000049Format</DataField>
+        </Field>
+        <Field Name="Cummulative_Payroll_ReportCaption">
+          <DataField>Cummulative_Payroll_ReportCaption</DataField>
+        </Field>
+        <Field Name="Emp_NameCaption">
+          <DataField>Emp_NameCaption</DataField>
+        </Field>
+        <Field Name="Emp_No_Caption">
+          <DataField>Emp_No_Caption</DataField>
+        </Field>
+        <Field Name="Emp_No_Caption_Control1000000003">
+          <DataField>Emp_No_Caption_Control1000000003</DataField>
+        </Field>
+        <Field Name="Emp_NameCaption_Control1000000006">
+          <DataField>Emp_NameCaption_Control1000000006</DataField>
+        </Field>
+        <Field Name="Payroll_Payslip_Lines__Payroll_Period">
+          <DataField>Payroll_Payslip_Lines__Payroll_Period</DataField>
+        </Field>
+        <Field Name="Payroll_Payslip_Lines__E_D_Code">
+          <DataField>Payroll_Payslip_Lines__E_D_Code</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
+</Report>

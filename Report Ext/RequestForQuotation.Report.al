@@ -141,7 +141,7 @@ report 50217 "Request For Quotation"
             trigger OnAfterGetRecord()
             begin
 
-                CurrReport.Language := Language.GetLanguageID("Language Code");
+                // CurrReport.Language := Language.GetLanguageID("Language Code");   //Refactor
                 if Usersrec.Get(ReqBy) then
                     ReqStrId := Usersrec."User Name"
                 else

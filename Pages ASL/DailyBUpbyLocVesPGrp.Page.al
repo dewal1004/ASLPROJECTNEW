@@ -6,9 +6,9 @@ page 50080 "Daily B/Up by Loc/Ves PGrp"
     PageType = Card;
     SaveValues = true;
     SourceTable = "Inventory Posting Group";
-    SourceTableView = SORTING ("S/No.")
-                      WHERE ("Statistics Group" = FILTER (> 0),
-                            "In Use" = CONST (true));
+    SourceTableView = SORTING("S/No.")
+                      WHERE("Statistics Group" = FILTER(> 0),
+                            "In Use" = CONST(true));
 
     layout
     {
@@ -60,7 +60,7 @@ page 50080 "Daily B/Up by Loc/Ves PGrp"
     begin
     end;
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure UpdateMatrix()
     begin
     end;

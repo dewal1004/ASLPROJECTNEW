@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -10,82 +10,6 @@
       <rd:SecurityType>None</rd:SecurityType>
     </DataSource>
   </DataSources>
-  <DataSets>
-    <DataSet Name="DataSet_Result">
-      <Query>
-        <DataSourceName>DataSource</DataSourceName>
-        <CommandText />
-      </Query>
-      <Fields>
-        <Field Name="FORMAT_TODAY_0_4_">
-          <DataField>FORMAT_TODAY_0_4_</DataField>
-        </Field>
-        <Field Name="COMPANYNAME">
-          <DataField>COMPANYNAME</DataField>
-        </Field>
-        <Field Name="CurrReport_PAGENO">
-          <DataField>CurrReport_PAGENO</DataField>
-        </Field>
-        <Field Name="USERID">
-          <DataField>USERID</DataField>
-        </Field>
-        <Field Name="Bank_Account_Ledger_Entry__Bank_Account_No__">
-          <DataField>Bank_Account_Ledger_Entry__Bank_Account_No__</DataField>
-        </Field>
-        <Field Name="Bank_Account_Ledger_Entry__Posting_Date_">
-          <DataField>Bank_Account_Ledger_Entry__Posting_Date_</DataField>
-        </Field>
-        <Field Name="Bank_Account_Ledger_Entry_Amount">
-          <DataField>Bank_Account_Ledger_Entry_Amount</DataField>
-        </Field>
-        <Field Name="Bank_Account_Ledger_Entry_AmountFormat">
-          <DataField>Bank_Account_Ledger_Entry_AmountFormat</DataField>
-        </Field>
-        <Field Name="Bank_Account_Ledger_Entry__Debit_Amount__LCY__">
-          <DataField>Bank_Account_Ledger_Entry__Debit_Amount__LCY__</DataField>
-        </Field>
-        <Field Name="Bank_Account_Ledger_Entry__Debit_Amount__LCY__Format">
-          <DataField>Bank_Account_Ledger_Entry__Debit_Amount__LCY__Format</DataField>
-        </Field>
-        <Field Name="TotalFor___FIELDCAPTION__Bank_Account_No___">
-          <DataField>TotalFor___FIELDCAPTION__Bank_Account_No___</DataField>
-        </Field>
-        <Field Name="Bank_Account_Ledger_Entry_Amount_Control20">
-          <DataField>Bank_Account_Ledger_Entry_Amount_Control20</DataField>
-        </Field>
-        <Field Name="Bank_Account_Ledger_Entry_Amount_Control20Format">
-          <DataField>Bank_Account_Ledger_Entry_Amount_Control20Format</DataField>
-        </Field>
-        <Field Name="Bank_Account_Ledger_Entry__Debit_Amount__LCY___Control21">
-          <DataField>Bank_Account_Ledger_Entry__Debit_Amount__LCY___Control21</DataField>
-        </Field>
-        <Field Name="Bank_Account_Ledger_Entry__Debit_Amount__LCY___Control21Format">
-          <DataField>Bank_Account_Ledger_Entry__Debit_Amount__LCY___Control21Format</DataField>
-        </Field>
-        <Field Name="Bank_Account_Ledger_EntryCaption">
-          <DataField>Bank_Account_Ledger_EntryCaption</DataField>
-        </Field>
-        <Field Name="CurrReport_PAGENOCaption">
-          <DataField>CurrReport_PAGENOCaption</DataField>
-        </Field>
-        <Field Name="Bank_Account_Ledger_Entry__Posting_Date_Caption">
-          <DataField>Bank_Account_Ledger_Entry__Posting_Date_Caption</DataField>
-        </Field>
-        <Field Name="Bank_Account_Ledger_Entry_AmountCaption">
-          <DataField>Bank_Account_Ledger_Entry_AmountCaption</DataField>
-        </Field>
-        <Field Name="Bank_Account_Ledger_Entry__Debit_Amount__LCY__Caption">
-          <DataField>Bank_Account_Ledger_Entry__Debit_Amount__LCY__Caption</DataField>
-        </Field>
-        <Field Name="Bank_Account_Ledger_Entry__Bank_Account_No__Caption">
-          <DataField>Bank_Account_Ledger_Entry__Bank_Account_No__Caption</DataField>
-        </Field>
-        <Field Name="Bank_Account_Ledger_Entry_Entry_No_">
-          <DataField>Bank_Account_Ledger_Entry_Entry_No_</DataField>
-        </Field>
-      </Fields>
-    </DataSet>
-  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -1032,4 +956,80 @@ End Function
   <Language>=User!Language</Language>
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="FORMAT_TODAY_0_4_">
+          <DataField>FORMAT_TODAY_0_4_</DataField>
+        </Field>
+        <Field Name="COMPANYNAME">
+          <DataField>COMPANYNAME</DataField>
+        </Field>
+        <Field Name="CurrReport_PAGENO">
+          <DataField>CurrReport_PAGENO</DataField>
+        </Field>
+        <Field Name="USERID">
+          <DataField>USERID</DataField>
+        </Field>
+        <Field Name="Bank_Account_Ledger_Entry__Bank_Account_No__">
+          <DataField>Bank_Account_Ledger_Entry__Bank_Account_No__</DataField>
+        </Field>
+        <Field Name="Bank_Account_Ledger_Entry__Posting_Date_">
+          <DataField>Bank_Account_Ledger_Entry__Posting_Date_</DataField>
+        </Field>
+        <Field Name="Bank_Account_Ledger_Entry_Amount">
+          <DataField>Bank_Account_Ledger_Entry_Amount</DataField>
+        </Field>
+        <Field Name="Bank_Account_Ledger_Entry_AmountFormat">
+          <DataField>Bank_Account_Ledger_Entry_AmountFormat</DataField>
+        </Field>
+        <Field Name="Bank_Account_Ledger_Entry__Debit_Amount__LCY__">
+          <DataField>Bank_Account_Ledger_Entry__Debit_Amount__LCY__</DataField>
+        </Field>
+        <Field Name="Bank_Account_Ledger_Entry__Debit_Amount__LCY__Format">
+          <DataField>Bank_Account_Ledger_Entry__Debit_Amount__LCY__Format</DataField>
+        </Field>
+        <Field Name="TotalFor___FIELDCAPTION__Bank_Account_No___">
+          <DataField>TotalFor___FIELDCAPTION__Bank_Account_No___</DataField>
+        </Field>
+        <Field Name="Bank_Account_Ledger_Entry_Amount_Control20">
+          <DataField>Bank_Account_Ledger_Entry_Amount_Control20</DataField>
+        </Field>
+        <Field Name="Bank_Account_Ledger_Entry_Amount_Control20Format">
+          <DataField>Bank_Account_Ledger_Entry_Amount_Control20Format</DataField>
+        </Field>
+        <Field Name="Bank_Account_Ledger_Entry__Debit_Amount__LCY___Control21">
+          <DataField>Bank_Account_Ledger_Entry__Debit_Amount__LCY___Control21</DataField>
+        </Field>
+        <Field Name="Bank_Account_Ledger_Entry__Debit_Amount__LCY___Control21Format">
+          <DataField>Bank_Account_Ledger_Entry__Debit_Amount__LCY___Control21Format</DataField>
+        </Field>
+        <Field Name="Bank_Account_Ledger_EntryCaption">
+          <DataField>Bank_Account_Ledger_EntryCaption</DataField>
+        </Field>
+        <Field Name="CurrReport_PAGENOCaption">
+          <DataField>CurrReport_PAGENOCaption</DataField>
+        </Field>
+        <Field Name="Bank_Account_Ledger_Entry__Posting_Date_Caption">
+          <DataField>Bank_Account_Ledger_Entry__Posting_Date_Caption</DataField>
+        </Field>
+        <Field Name="Bank_Account_Ledger_Entry_AmountCaption">
+          <DataField>Bank_Account_Ledger_Entry_AmountCaption</DataField>
+        </Field>
+        <Field Name="Bank_Account_Ledger_Entry__Debit_Amount__LCY__Caption">
+          <DataField>Bank_Account_Ledger_Entry__Debit_Amount__LCY__Caption</DataField>
+        </Field>
+        <Field Name="Bank_Account_Ledger_Entry__Bank_Account_No__Caption">
+          <DataField>Bank_Account_Ledger_Entry__Bank_Account_No__Caption</DataField>
+        </Field>
+        <Field Name="Bank_Account_Ledger_Entry_Entry_No_">
+          <DataField>Bank_Account_Ledger_Entry_Entry_No_</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
 </Report>

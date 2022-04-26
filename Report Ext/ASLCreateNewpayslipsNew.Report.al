@@ -11,7 +11,7 @@ report 50054 "ASL Create New payslips - New"
     {
         dataitem(Employee; Employee)
         {
-            DataItemTableView = SORTING ("No.") WHERE (Blocked = CONST (false), Suspended = CONST (false));
+            DataItemTableView = SORTING("No.") WHERE(Blocked = CONST(false), Suspended = CONST(false));
             RequestFilterFields = "No.", "Posting Group", "Global Dimension 1 Code", "Global Dimension 2 Code";
 
             trigger OnAfterGetRecord()
@@ -336,19 +336,19 @@ report 50054 "ASL Create New payslips - New"
     end;
 
     var
-        EdfileRec1: Record "Payroll ED Codes.";
+        EdfileRec1: Record "Payroll-E/D Codes.";
         "day Employeed": Integer;
         PayPeriodRec: Record "Payroll-Periods.";
         PayHeadRec: Record "Payroll-Payslip Header.";
         PayLinesRec: Record "Payroll-Payslip Lines.";
         EmpGrpLinesRec: Record "Payroll-Employee Group Lines.";
-        EDFileRec: Record "Payroll ED Codes.";
+        EDFileRec: Record "Payroll-E/D Codes.";
         BookGrLinesRec: Record "Payroll-Posting Group Line.";
         InfoCounter: Integer;
         Window: Dialog;
         LoanRec: Record "Loan.";
         EdgropRec: Record "Payroll-Employee Group Lines.";
-        EdRec: Record "Payroll ED Codes.";
+        EdRec: Record "Payroll-E/D Codes.";
         RecRate: Decimal;
         RecQty: Decimal;
         emploMonth: Integer;
@@ -389,14 +389,14 @@ report 50054 "ASL Create New payslips - New"
         HrsInDay: Integer;
         VarRec: Record "Monthly Variables Lines.";
         GenPCode: Codeunit "General Purpose Codeunit";
-        EDRec2: Record "Payroll ED Codes.";
+        EDRec2: Record "Payroll-E/D Codes.";
         "---": Integer;
         PG: Code[10];
         INSTD: Boolean;
         ServiceYear: Decimal;
         TotalBasHosTrans: Decimal;
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure partsalary(nodays: Integer; emplomonth: Integer) prodays: Integer
     begin
         if emplomonth = PayMonth then begin
@@ -408,7 +408,7 @@ report 50054 "ASL Create New payslips - New"
         end;
     end;
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure SendLines(EDToSend: Code[10]; EDAmount: Decimal; EDQty: Decimal; EDRate: Decimal)
     begin
         /*Use The Following Lines to send to Payslip Lines*/
@@ -484,7 +484,7 @@ report 50054 "ASL Create New payslips - New"
 
     end;
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure GetPayDays(): Integer
     begin
         PayPeriodRec.Get(PayHeadRec."Payroll Period");
@@ -514,7 +514,7 @@ report 50054 "ASL Create New payslips - New"
         //error(FORMAT(PayDays));
     end;
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure BIN()
     begin
 
@@ -552,7 +552,7 @@ report 50054 "ASL Create New payslips - New"
 
     end;
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure Seniority()
     begin
         //Set PayLines."Payslip Column" to 3

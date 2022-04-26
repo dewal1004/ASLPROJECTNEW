@@ -212,21 +212,21 @@ Confirm('You have not approved all item in this Requision Continue to Approve', 
         }
         field(28; "Approved Line items"; Integer)
         {
-            CalcFormula = Count ("Dynamics Procurement Register" WHERE (Approved = CONST (true),
-                                                                       "DPS Code" = FIELD ("DPS No.")));
+            CalcFormula = Count("Dynamics Procurement Register" WHERE(Approved = CONST(true),
+                                                                       "DPS Code" = FIELD("DPS No.")));
             Editable = false;
             FieldClass = FlowField;
         }
         field(29; "Total Line Items"; Integer)
         {
-            CalcFormula = Count ("Dynamics Procurement Register" WHERE ("DPS Code" = FIELD ("DPS No.")));
+            CalcFormula = Count("Dynamics Procurement Register" WHERE("DPS Code" = FIELD("DPS No.")));
             Editable = false;
             FieldClass = FlowField;
         }
         field(30; "Unapproved Line Items"; Integer)
         {
-            CalcFormula = Count ("Dynamics Procurement Register" WHERE (Approved = CONST (false),
-                                                                       "DPS Code" = FIELD ("DPS No.")));
+            CalcFormula = Count("Dynamics Procurement Register" WHERE(Approved = CONST(false),
+                                                                       "DPS Code" = FIELD("DPS No.")));
             Editable = false;
             FieldClass = FlowField;
         }
@@ -266,7 +266,7 @@ Confirm('You have not approved all item in this Requision Continue to Approve', 
         UserSecID: Guid;
         UserSetup: Record "User Setup";
 
-    //[Scope('Internal')]
+    //[Scope('OnPrem')]
     procedure AssistEdit(OldDPS: Record "Dynamics Procurement Header"): Boolean
     var
         DPSRec: Record "Dynamics Procurement Header";
@@ -283,7 +283,7 @@ Confirm('You have not approved all item in this Requision Continue to Approve', 
         end;
     end;
 
-   // [Scope('Internal')]
+    // [Scope('OnPrem')]
     procedure CreatePurchInv()
     var
         Purchheader: Record "Purchase Header";

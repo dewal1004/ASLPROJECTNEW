@@ -483,7 +483,7 @@ report 85703 "Transfer Orderxa"
         Approved_By_CaptionLbl: Label 'Approved By:';
         Line_DimensionsCaptionLbl: Label 'Line Dimensions';
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure ItemExpensed()
     begin
     end;

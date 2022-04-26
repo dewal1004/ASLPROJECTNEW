@@ -26,7 +26,7 @@ report 50061 "PRoll; Create Journal Entries"
     {
         dataitem("Payroll-Payslip Lines."; "Payroll-Payslip Lines.")
         {
-            DataItemTableView = SORTING ("Payroll Period", "Global Dimension 1 Code", "Global Dimension 2 Code", "Debit Acc. Type", "Debit Account", "Credit Acc. Type", "Credit Account", "Loan ID") ORDER(Ascending);
+            DataItemTableView = SORTING("Payroll Period", "Global Dimension 1 Code", "Global Dimension 2 Code", "Debit Acc. Type", "Debit Account", "Credit Acc. Type", "Credit Account", "Loan ID") ORDER(Ascending);
             RequestFilterFields = "Payroll Period", "Employee No", "Postg Group", "Global Dimension 1 Code", "Global Dimension 2 Code";
 
             trigger OnAfterGetRecord()
@@ -258,7 +258,7 @@ report 50061 "PRoll; Create Journal Entries"
         "The Transactions are Transferred to:": Text[150];
         "General Journal with Batch Name Salary": Text;
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure SEndToGL(GLLName: Text[30]; DebitAccNo: Code[20]; CreditAccNo: Code[20]; BookDate: Date; VouchNo: Text[30]; GLLtext: Text[30]; GLLAmount: Decimal; DeptCode: Code[10]; ProjCode: Code[10]; ConsNum: Integer; VoucherNum: Code[10]; DebAccType: Integer; CredAccType: Integer; BatchName: Code[10]; LoanIDEX: Code[10]): Integer
     begin
 
@@ -315,7 +315,7 @@ report 50061 "PRoll; Create Journal Entries"
 
     end;
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure ApplytoLoan(LnID: Code[15]): Code[20]
     begin
 

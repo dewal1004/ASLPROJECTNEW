@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -10,82 +10,6 @@
       <rd:SecurityType>None</rd:SecurityType>
     </DataSource>
   </DataSources>
-  <DataSets>
-    <DataSet Name="DataSet_Result">
-      <Query>
-        <DataSourceName>DataSource</DataSourceName>
-        <CommandText />
-      </Query>
-      <Fields>
-        <Field Name="FORMAT_TODAY_0_4_">
-          <DataField>FORMAT_TODAY_0_4_</DataField>
-        </Field>
-        <Field Name="COMPANYNAME">
-          <DataField>COMPANYNAME</DataField>
-        </Field>
-        <Field Name="CurrReport_PAGENO">
-          <DataField>CurrReport_PAGENO</DataField>
-        </Field>
-        <Field Name="USERID">
-          <DataField>USERID</DataField>
-        </Field>
-        <Field Name="Maintenance_Ledger_Entry__FA_Posting_Date_">
-          <DataField>Maintenance_Ledger_Entry__FA_Posting_Date_</DataField>
-        </Field>
-        <Field Name="Maintenance_Ledger_Entry_Description">
-          <DataField>Maintenance_Ledger_Entry_Description</DataField>
-        </Field>
-        <Field Name="Maintenance_Ledger_Entry__Document_No__">
-          <DataField>Maintenance_Ledger_Entry__Document_No__</DataField>
-        </Field>
-        <Field Name="Maintenance_Ledger_Entry_Amount">
-          <DataField>Maintenance_Ledger_Entry_Amount</DataField>
-        </Field>
-        <Field Name="Maintenance_Ledger_Entry_AmountFormat">
-          <DataField>Maintenance_Ledger_Entry_AmountFormat</DataField>
-        </Field>
-        <Field Name="Maintenance_Ledger_Entry__Debit_Amount_">
-          <DataField>Maintenance_Ledger_Entry__Debit_Amount_</DataField>
-        </Field>
-        <Field Name="Maintenance_Ledger_Entry__Debit_Amount_Format">
-          <DataField>Maintenance_Ledger_Entry__Debit_Amount_Format</DataField>
-        </Field>
-        <Field Name="Maintenance_Ledger_Entry__Credit_Amount_">
-          <DataField>Maintenance_Ledger_Entry__Credit_Amount_</DataField>
-        </Field>
-        <Field Name="Maintenance_Ledger_Entry__Credit_Amount_Format">
-          <DataField>Maintenance_Ledger_Entry__Credit_Amount_Format</DataField>
-        </Field>
-        <Field Name="Maintenance_Ledger_EntryCaption">
-          <DataField>Maintenance_Ledger_EntryCaption</DataField>
-        </Field>
-        <Field Name="CurrReport_PAGENOCaption">
-          <DataField>CurrReport_PAGENOCaption</DataField>
-        </Field>
-        <Field Name="Maintenance_Ledger_Entry__FA_Posting_Date_Caption">
-          <DataField>Maintenance_Ledger_Entry__FA_Posting_Date_Caption</DataField>
-        </Field>
-        <Field Name="Maintenance_Ledger_Entry_DescriptionCaption">
-          <DataField>Maintenance_Ledger_Entry_DescriptionCaption</DataField>
-        </Field>
-        <Field Name="Maintenance_Ledger_Entry__Document_No__Caption">
-          <DataField>Maintenance_Ledger_Entry__Document_No__Caption</DataField>
-        </Field>
-        <Field Name="Maintenance_Ledger_Entry_AmountCaption">
-          <DataField>Maintenance_Ledger_Entry_AmountCaption</DataField>
-        </Field>
-        <Field Name="Maintenance_Ledger_Entry__Debit_Amount_Caption">
-          <DataField>Maintenance_Ledger_Entry__Debit_Amount_Caption</DataField>
-        </Field>
-        <Field Name="Maintenance_Ledger_Entry__Credit_Amount_Caption">
-          <DataField>Maintenance_Ledger_Entry__Credit_Amount_Caption</DataField>
-        </Field>
-        <Field Name="Maintenance_Ledger_Entry_Entry_No_">
-          <DataField>Maintenance_Ledger_Entry_Entry_No_</DataField>
-        </Field>
-      </Fields>
-    </DataSet>
-  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -859,4 +783,80 @@ End Function
   <Language>=User!Language</Language>
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="FORMAT_TODAY_0_4_">
+          <DataField>FORMAT_TODAY_0_4_</DataField>
+        </Field>
+        <Field Name="COMPANYNAME">
+          <DataField>COMPANYNAME</DataField>
+        </Field>
+        <Field Name="CurrReport_PAGENO">
+          <DataField>CurrReport_PAGENO</DataField>
+        </Field>
+        <Field Name="USERID">
+          <DataField>USERID</DataField>
+        </Field>
+        <Field Name="Maintenance_Ledger_Entry__FA_Posting_Date_">
+          <DataField>Maintenance_Ledger_Entry__FA_Posting_Date_</DataField>
+        </Field>
+        <Field Name="Maintenance_Ledger_Entry_Description">
+          <DataField>Maintenance_Ledger_Entry_Description</DataField>
+        </Field>
+        <Field Name="Maintenance_Ledger_Entry__Document_No__">
+          <DataField>Maintenance_Ledger_Entry__Document_No__</DataField>
+        </Field>
+        <Field Name="Maintenance_Ledger_Entry_Amount">
+          <DataField>Maintenance_Ledger_Entry_Amount</DataField>
+        </Field>
+        <Field Name="Maintenance_Ledger_Entry_AmountFormat">
+          <DataField>Maintenance_Ledger_Entry_AmountFormat</DataField>
+        </Field>
+        <Field Name="Maintenance_Ledger_Entry__Debit_Amount_">
+          <DataField>Maintenance_Ledger_Entry__Debit_Amount_</DataField>
+        </Field>
+        <Field Name="Maintenance_Ledger_Entry__Debit_Amount_Format">
+          <DataField>Maintenance_Ledger_Entry__Debit_Amount_Format</DataField>
+        </Field>
+        <Field Name="Maintenance_Ledger_Entry__Credit_Amount_">
+          <DataField>Maintenance_Ledger_Entry__Credit_Amount_</DataField>
+        </Field>
+        <Field Name="Maintenance_Ledger_Entry__Credit_Amount_Format">
+          <DataField>Maintenance_Ledger_Entry__Credit_Amount_Format</DataField>
+        </Field>
+        <Field Name="Maintenance_Ledger_EntryCaption">
+          <DataField>Maintenance_Ledger_EntryCaption</DataField>
+        </Field>
+        <Field Name="CurrReport_PAGENOCaption">
+          <DataField>CurrReport_PAGENOCaption</DataField>
+        </Field>
+        <Field Name="Maintenance_Ledger_Entry__FA_Posting_Date_Caption">
+          <DataField>Maintenance_Ledger_Entry__FA_Posting_Date_Caption</DataField>
+        </Field>
+        <Field Name="Maintenance_Ledger_Entry_DescriptionCaption">
+          <DataField>Maintenance_Ledger_Entry_DescriptionCaption</DataField>
+        </Field>
+        <Field Name="Maintenance_Ledger_Entry__Document_No__Caption">
+          <DataField>Maintenance_Ledger_Entry__Document_No__Caption</DataField>
+        </Field>
+        <Field Name="Maintenance_Ledger_Entry_AmountCaption">
+          <DataField>Maintenance_Ledger_Entry_AmountCaption</DataField>
+        </Field>
+        <Field Name="Maintenance_Ledger_Entry__Debit_Amount_Caption">
+          <DataField>Maintenance_Ledger_Entry__Debit_Amount_Caption</DataField>
+        </Field>
+        <Field Name="Maintenance_Ledger_Entry__Credit_Amount_Caption">
+          <DataField>Maintenance_Ledger_Entry__Credit_Amount_Caption</DataField>
+        </Field>
+        <Field Name="Maintenance_Ledger_Entry_Entry_No_">
+          <DataField>Maintenance_Ledger_Entry_Entry_No_</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
 </Report>

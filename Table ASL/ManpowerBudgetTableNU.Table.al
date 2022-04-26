@@ -15,7 +15,7 @@ table 60011 "Manpower Budget Table NU*"
         field(3; "Global Dimension 1 Code"; Code[10])
         {
             CaptionClass = '1,1,1';
-            TableRelation = "Dimension Value".Code WHERE ("Global Dimension No." = CONST (1));
+            TableRelation = "Dimension Value".Code WHERE("Global Dimension No." = CONST(1));
 
             trigger OnValidate()
             begin
@@ -25,7 +25,7 @@ table 60011 "Manpower Budget Table NU*"
         field(4; "Global Dimension 2 Code"; Code[10])
         {
             CaptionClass = '1,1,2';
-            TableRelation = "Dimension Value".Code WHERE ("Global Dimension No." = CONST (2));
+            TableRelation = "Dimension Value".Code WHERE("Global Dimension No." = CONST(2));
 
             trigger OnValidate()
             begin
@@ -67,13 +67,13 @@ table 60011 "Manpower Budget Table NU*"
         {
             CaptionClass = '1,3,1';
             FieldClass = FlowFilter;
-            TableRelation = "Dimension Value".Code WHERE ("Global Dimension No." = CONST (1));
+            TableRelation = "Dimension Value".Code WHERE("Global Dimension No." = CONST(1));
         }
         field(10; "Global Dimension 2 Filter"; Code[10])
         {
             CaptionClass = '1,3,2';
             FieldClass = FlowFilter;
-            TableRelation = "Dimension Value".Code WHERE ("Global Dimension No." = CONST (2));
+            TableRelation = "Dimension Value".Code WHERE("Global Dimension No." = CONST(2));
         }
         field(11; "Date Filter"; Date)
         {
@@ -132,7 +132,7 @@ table 60011 "Manpower Budget Table NU*"
         EmpGrpRec: Record "Payroll-Employee Group Header.";
         EmpContRec: Record "Employment Contract";
 
-    //[Scope('Internal')]
+    //[Scope('OnPrem')]
     procedure UpdateCosts()
     begin
         if EmpContRec.Get("Job Code") then begin

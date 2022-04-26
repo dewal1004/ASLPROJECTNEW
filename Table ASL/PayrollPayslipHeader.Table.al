@@ -126,7 +126,7 @@ table 50007 "Payroll-Payslip Header."
         field(23; EDFILTER; Code[10])
         {
             FieldClass = FlowFilter;
-            TableRelation = "Payroll ED Codes."."E/D Code";
+            TableRelation = "Payroll-E/D Codes."."E/D Code";
         }
         field(24; Edvalue; Decimal)
         {
@@ -295,7 +295,7 @@ table 50007 "Payroll-Payslip Header."
         PayLinesRec: Record "Payroll-Payslip Lines.";
         EmpGrpRec: Record "Payroll-Employee Group Header.";
         EmpGrpLinesRec: Record "Payroll-Employee Group Lines.";
-        EDFileRec: Record "Payroll ED Codes.";
+        EDFileRec: Record "Payroll-E/D Codes.";
         BookGrLinesRec: Record "Payroll-Posting Group Line.";
 }
 

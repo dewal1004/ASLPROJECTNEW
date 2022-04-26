@@ -8,8 +8,8 @@ report 50002 "Standard Cost"
         {
             dataitem("Purchase Line"; "Purchase Line")
             {
-                DataItemLink = "Document No." = FIELD ("No.");
-                DataItemTableView = SORTING ("Document Type", "Document No.", "Line No.") WHERE (Type = FILTER (<> " " & <> "G/L Account"), "Outstanding Quantity" = FILTER (<> 0));
+                DataItemLink = "Document No." = FIELD("No.");
+                DataItemTableView = SORTING("Document Type", "Document No.", "Line No.") WHERE(Type = FILTER(<> " " & <> "G/L Account"), "Outstanding Quantity" = FILTER(<> 0));
 
                 trigger OnAfterGetRecord()
                 begin
@@ -118,7 +118,7 @@ report 50002 "Standard Cost"
         Vatables: Decimal;
         VatThis: array[5] of Decimal;
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure BIN()
     begin
     end;

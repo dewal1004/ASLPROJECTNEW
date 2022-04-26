@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -10,223 +10,6 @@
       <rd:SecurityType>None</rd:SecurityType>
     </DataSource>
   </DataSources>
-  <DataSets>
-    <DataSet Name="DataSet_Result">
-      <Query>
-        <DataSourceName>DataSource</DataSourceName>
-        <CommandText />
-      </Query>
-      <Fields>
-        <Field Name="FORMAT_TODAY_0_4_">
-          <DataField>FORMAT_TODAY_0_4_</DataField>
-        </Field>
-        <Field Name="COMPANYNAME">
-          <DataField>COMPANYNAME</DataField>
-        </Field>
-        <Field Name="CurrReport_PAGENO">
-          <DataField>CurrReport_PAGENO</DataField>
-        </Field>
-        <Field Name="USERID">
-          <DataField>USERID</DataField>
-        </Field>
-        <Field Name="Purchase_Header__Document_Type_">
-          <DataField>Purchase_Header__Document_Type_</DataField>
-        </Field>
-        <Field Name="USERID_Control1000000010">
-          <DataField>USERID_Control1000000010</DataField>
-        </Field>
-        <Field Name="COMPANYNAME_Control1000000011">
-          <DataField>COMPANYNAME_Control1000000011</DataField>
-        </Field>
-        <Field Name="CurrReport_PAGENO_Control1000000014">
-          <DataField>CurrReport_PAGENO_Control1000000014</DataField>
-        </Field>
-        <Field Name="FORMAT_TODAY_0_4__Control1000000015">
-          <DataField>FORMAT_TODAY_0_4__Control1000000015</DataField>
-        </Field>
-        <Field Name="Countz">
-          <DataField>Countz</DataField>
-        </Field>
-        <Field Name="Purchase_Header__Buy_from_Vendor_Name_">
-          <DataField>Purchase_Header__Buy_from_Vendor_Name_</DataField>
-        </Field>
-        <Field Name="Purchase_Header__Your_Reference_">
-          <DataField>Purchase_Header__Your_Reference_</DataField>
-        </Field>
-        <Field Name="Purchase_Header__Vendor_Order_No__">
-          <DataField>Purchase_Header__Vendor_Order_No__</DataField>
-        </Field>
-        <Field Name="Purchase_Header__Form_M_No__">
-          <DataField>Purchase_Header__Form_M_No__</DataField>
-        </Field>
-        <Field Name="Purchase_Header__LC_No__">
-          <DataField>Purchase_Header__LC_No__</DataField>
-        </Field>
-        <Field Name="Purchase_Header__LC_Opened_On_">
-          <DataField>Purchase_Header__LC_Opened_On_</DataField>
-        </Field>
-        <Field Name="Purchase_Header__Line_Amount_">
-          <DataField>Purchase_Header__Line_Amount_</DataField>
-        </Field>
-        <Field Name="Purchase_Header__Line_Amount_Format">
-          <DataField>Purchase_Header__Line_Amount_Format</DataField>
-        </Field>
-        <Field Name="Purchase_Header__Currency_Code_">
-          <DataField>Purchase_Header__Currency_Code_</DataField>
-        </Field>
-        <Field Name="Purchase_Header__Shipment_Status_">
-          <DataField>Purchase_Header__Shipment_Status_</DataField>
-        </Field>
-        <Field Name="Purchase_Header_Description">
-          <DataField>Purchase_Header_Description</DataField>
-        </Field>
-        <Field Name="Purchase_Header__Buy_from_Country_Region_Code_">
-          <DataField>Purchase_Header__Buy_from_Country_Region_Code_</DataField>
-        </Field>
-        <Field Name="Purchase_Header__Latest_Shipment_Date_">
-          <DataField>Purchase_Header__Latest_Shipment_Date_</DataField>
-        </Field>
-        <Field Name="Purchase_Header__Shipment_Status__Control1000000034">
-          <DataField>Purchase_Header__Shipment_Status__Control1000000034</DataField>
-        </Field>
-        <Field Name="Purchase_Header__Latest_Shipment_Date__Control1000000035">
-          <DataField>Purchase_Header__Latest_Shipment_Date__Control1000000035</DataField>
-        </Field>
-        <Field Name="Purchase_Header__Line_Amount__Control1000000036">
-          <DataField>Purchase_Header__Line_Amount__Control1000000036</DataField>
-        </Field>
-        <Field Name="Purchase_Header__Line_Amount__Control1000000036Format">
-          <DataField>Purchase_Header__Line_Amount__Control1000000036Format</DataField>
-        </Field>
-        <Field Name="Purchase_Header__Currency_Code__Control1000000037">
-          <DataField>Purchase_Header__Currency_Code__Control1000000037</DataField>
-        </Field>
-        <Field Name="Purchase_Header__LC_Opened_On__Control1000000038">
-          <DataField>Purchase_Header__LC_Opened_On__Control1000000038</DataField>
-        </Field>
-        <Field Name="Purchase_Header__LC_No___Control1000000039">
-          <DataField>Purchase_Header__LC_No___Control1000000039</DataField>
-        </Field>
-        <Field Name="Purchase_Header__Form_M_No___Control1000000040">
-          <DataField>Purchase_Header__Form_M_No___Control1000000040</DataField>
-        </Field>
-        <Field Name="Purchase_Header__Vendor_Order_No___Control1000000041">
-          <DataField>Purchase_Header__Vendor_Order_No___Control1000000041</DataField>
-        </Field>
-        <Field Name="Purchase_Header_Description_Control1000000042">
-          <DataField>Purchase_Header_Description_Control1000000042</DataField>
-        </Field>
-        <Field Name="Purchase_Header__Buy_from_Country_Region_Code__Control1000000043">
-          <DataField>Purchase_Header__Buy_from_Country_Region_Code__Control1000000043</DataField>
-        </Field>
-        <Field Name="Purchase_Header__Buy_from_Vendor_Name__Control1000000044">
-          <DataField>Purchase_Header__Buy_from_Vendor_Name__Control1000000044</DataField>
-        </Field>
-        <Field Name="Purchase_Header__Your_Reference__Control1000000045">
-          <DataField>Purchase_Header__Your_Reference__Control1000000045</DataField>
-        </Field>
-        <Field Name="Countz_Control1000000046">
-          <DataField>Countz_Control1000000046</DataField>
-        </Field>
-        <Field Name="Purchase_Import_StatusCaption">
-          <DataField>Purchase_Import_StatusCaption</DataField>
-        </Field>
-        <Field Name="CurrReport_PAGENOCaption">
-          <DataField>CurrReport_PAGENOCaption</DataField>
-        </Field>
-        <Field Name="Purchase_Header__Document_Type_Caption">
-          <DataField>Purchase_Header__Document_Type_Caption</DataField>
-        </Field>
-        <Field Name="Purchase_Import_StatusCaption_Control1000000012">
-          <DataField>Purchase_Import_StatusCaption_Control1000000012</DataField>
-        </Field>
-        <Field Name="CurrReport_PAGENO_Control1000000014Caption">
-          <DataField>CurrReport_PAGENO_Control1000000014Caption</DataField>
-        </Field>
-        <Field Name="CountzCaption">
-          <DataField>CountzCaption</DataField>
-        </Field>
-        <Field Name="Purchase_Header__Buy_from_Vendor_Name_Caption">
-          <DataField>Purchase_Header__Buy_from_Vendor_Name_Caption</DataField>
-        </Field>
-        <Field Name="Purchase_Header__Your_Reference_Caption">
-          <DataField>Purchase_Header__Your_Reference_Caption</DataField>
-        </Field>
-        <Field Name="Purchase_Header__Vendor_Order_No__Caption">
-          <DataField>Purchase_Header__Vendor_Order_No__Caption</DataField>
-        </Field>
-        <Field Name="Purchase_Header__Form_M_No__Caption">
-          <DataField>Purchase_Header__Form_M_No__Caption</DataField>
-        </Field>
-        <Field Name="Purchase_Header__LC_No__Caption">
-          <DataField>Purchase_Header__LC_No__Caption</DataField>
-        </Field>
-        <Field Name="Date_OpenedCaption">
-          <DataField>Date_OpenedCaption</DataField>
-        </Field>
-        <Field Name="Purchase_Header__Shipment_Status_Caption">
-          <DataField>Purchase_Header__Shipment_Status_Caption</DataField>
-        </Field>
-        <Field Name="Purchase_Header__Line_Amount_Caption">
-          <DataField>Purchase_Header__Line_Amount_Caption</DataField>
-        </Field>
-        <Field Name="FromCaption">
-          <DataField>FromCaption</DataField>
-        </Field>
-        <Field Name="Purchase_Header_DescriptionCaption">
-          <DataField>Purchase_Header_DescriptionCaption</DataField>
-        </Field>
-        <Field Name="Purchase_Header__Latest_Shipment_Date_Caption">
-          <DataField>Purchase_Header__Latest_Shipment_Date_Caption</DataField>
-        </Field>
-        <Field Name="Purchase_Header__Currency_Code_Caption">
-          <DataField>Purchase_Header__Currency_Code_Caption</DataField>
-        </Field>
-        <Field Name="Purchase_Header__Shipment_Status__Control1000000034Caption">
-          <DataField>Purchase_Header__Shipment_Status__Control1000000034Caption</DataField>
-        </Field>
-        <Field Name="Purchase_Header__Latest_Shipment_Date__Control1000000035Caption">
-          <DataField>Purchase_Header__Latest_Shipment_Date__Control1000000035Caption</DataField>
-        </Field>
-        <Field Name="Purchase_Header__Line_Amount__Control1000000036Caption">
-          <DataField>Purchase_Header__Line_Amount__Control1000000036Caption</DataField>
-        </Field>
-        <Field Name="Purchase_Header__Currency_Code__Control1000000037Caption">
-          <DataField>Purchase_Header__Currency_Code__Control1000000037Caption</DataField>
-        </Field>
-        <Field Name="Date_OpenedCaption_Control1000000020">
-          <DataField>Date_OpenedCaption_Control1000000020</DataField>
-        </Field>
-        <Field Name="Purchase_Header__LC_No___Control1000000039Caption">
-          <DataField>Purchase_Header__LC_No___Control1000000039Caption</DataField>
-        </Field>
-        <Field Name="Purchase_Header__Form_M_No___Control1000000040Caption">
-          <DataField>Purchase_Header__Form_M_No___Control1000000040Caption</DataField>
-        </Field>
-        <Field Name="Purchase_Header__Vendor_Order_No___Control1000000041Caption">
-          <DataField>Purchase_Header__Vendor_Order_No___Control1000000041Caption</DataField>
-        </Field>
-        <Field Name="Purchase_Header_Description_Control1000000042Caption">
-          <DataField>Purchase_Header_Description_Control1000000042Caption</DataField>
-        </Field>
-        <Field Name="FromCaption_Control1000000025">
-          <DataField>FromCaption_Control1000000025</DataField>
-        </Field>
-        <Field Name="Purchase_Header__Buy_from_Vendor_Name__Control1000000044Caption">
-          <DataField>Purchase_Header__Buy_from_Vendor_Name__Control1000000044Caption</DataField>
-        </Field>
-        <Field Name="Purchase_Header__Your_Reference__Control1000000045Caption">
-          <DataField>Purchase_Header__Your_Reference__Control1000000045Caption</DataField>
-        </Field>
-        <Field Name="Countz_Control1000000046Caption">
-          <DataField>Countz_Control1000000046Caption</DataField>
-        </Field>
-        <Field Name="Purchase_Header_No_">
-          <DataField>Purchase_Header_No_</DataField>
-        </Field>
-      </Fields>
-    </DataSet>
-  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -1810,4 +1593,221 @@ End Function
   <Language>=User!Language</Language>
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="FORMAT_TODAY_0_4_">
+          <DataField>FORMAT_TODAY_0_4_</DataField>
+        </Field>
+        <Field Name="COMPANYNAME">
+          <DataField>COMPANYNAME</DataField>
+        </Field>
+        <Field Name="CurrReport_PAGENO">
+          <DataField>CurrReport_PAGENO</DataField>
+        </Field>
+        <Field Name="USERID">
+          <DataField>USERID</DataField>
+        </Field>
+        <Field Name="Purchase_Header__Document_Type_">
+          <DataField>Purchase_Header__Document_Type_</DataField>
+        </Field>
+        <Field Name="USERID_Control1000000010">
+          <DataField>USERID_Control1000000010</DataField>
+        </Field>
+        <Field Name="COMPANYNAME_Control1000000011">
+          <DataField>COMPANYNAME_Control1000000011</DataField>
+        </Field>
+        <Field Name="CurrReport_PAGENO_Control1000000014">
+          <DataField>CurrReport_PAGENO_Control1000000014</DataField>
+        </Field>
+        <Field Name="FORMAT_TODAY_0_4__Control1000000015">
+          <DataField>FORMAT_TODAY_0_4__Control1000000015</DataField>
+        </Field>
+        <Field Name="Countz">
+          <DataField>Countz</DataField>
+        </Field>
+        <Field Name="Purchase_Header__Buy_from_Vendor_Name_">
+          <DataField>Purchase_Header__Buy_from_Vendor_Name_</DataField>
+        </Field>
+        <Field Name="Purchase_Header__Your_Reference_">
+          <DataField>Purchase_Header__Your_Reference_</DataField>
+        </Field>
+        <Field Name="Purchase_Header__Vendor_Order_No__">
+          <DataField>Purchase_Header__Vendor_Order_No__</DataField>
+        </Field>
+        <Field Name="Purchase_Header__Form_M_No__">
+          <DataField>Purchase_Header__Form_M_No__</DataField>
+        </Field>
+        <Field Name="Purchase_Header__LC_No__">
+          <DataField>Purchase_Header__LC_No__</DataField>
+        </Field>
+        <Field Name="Purchase_Header__LC_Opened_On_">
+          <DataField>Purchase_Header__LC_Opened_On_</DataField>
+        </Field>
+        <Field Name="Purchase_Header__Line_Amount_">
+          <DataField>Purchase_Header__Line_Amount_</DataField>
+        </Field>
+        <Field Name="Purchase_Header__Line_Amount_Format">
+          <DataField>Purchase_Header__Line_Amount_Format</DataField>
+        </Field>
+        <Field Name="Purchase_Header__Currency_Code_">
+          <DataField>Purchase_Header__Currency_Code_</DataField>
+        </Field>
+        <Field Name="Purchase_Header__Shipment_Status_">
+          <DataField>Purchase_Header__Shipment_Status_</DataField>
+        </Field>
+        <Field Name="Purchase_Header_Description">
+          <DataField>Purchase_Header_Description</DataField>
+        </Field>
+        <Field Name="Purchase_Header__Buy_from_Country_Region_Code_">
+          <DataField>Purchase_Header__Buy_from_Country_Region_Code_</DataField>
+        </Field>
+        <Field Name="Purchase_Header__Latest_Shipment_Date_">
+          <DataField>Purchase_Header__Latest_Shipment_Date_</DataField>
+        </Field>
+        <Field Name="Purchase_Header__Shipment_Status__Control1000000034">
+          <DataField>Purchase_Header__Shipment_Status__Control1000000034</DataField>
+        </Field>
+        <Field Name="Purchase_Header__Latest_Shipment_Date__Control1000000035">
+          <DataField>Purchase_Header__Latest_Shipment_Date__Control1000000035</DataField>
+        </Field>
+        <Field Name="Purchase_Header__Line_Amount__Control1000000036">
+          <DataField>Purchase_Header__Line_Amount__Control1000000036</DataField>
+        </Field>
+        <Field Name="Purchase_Header__Line_Amount__Control1000000036Format">
+          <DataField>Purchase_Header__Line_Amount__Control1000000036Format</DataField>
+        </Field>
+        <Field Name="Purchase_Header__Currency_Code__Control1000000037">
+          <DataField>Purchase_Header__Currency_Code__Control1000000037</DataField>
+        </Field>
+        <Field Name="Purchase_Header__LC_Opened_On__Control1000000038">
+          <DataField>Purchase_Header__LC_Opened_On__Control1000000038</DataField>
+        </Field>
+        <Field Name="Purchase_Header__LC_No___Control1000000039">
+          <DataField>Purchase_Header__LC_No___Control1000000039</DataField>
+        </Field>
+        <Field Name="Purchase_Header__Form_M_No___Control1000000040">
+          <DataField>Purchase_Header__Form_M_No___Control1000000040</DataField>
+        </Field>
+        <Field Name="Purchase_Header__Vendor_Order_No___Control1000000041">
+          <DataField>Purchase_Header__Vendor_Order_No___Control1000000041</DataField>
+        </Field>
+        <Field Name="Purchase_Header_Description_Control1000000042">
+          <DataField>Purchase_Header_Description_Control1000000042</DataField>
+        </Field>
+        <Field Name="Purchase_Header__Buy_from_Country_Region_Code__Control1000000043">
+          <DataField>Purchase_Header__Buy_from_Country_Region_Code__Control1000000043</DataField>
+        </Field>
+        <Field Name="Purchase_Header__Buy_from_Vendor_Name__Control1000000044">
+          <DataField>Purchase_Header__Buy_from_Vendor_Name__Control1000000044</DataField>
+        </Field>
+        <Field Name="Purchase_Header__Your_Reference__Control1000000045">
+          <DataField>Purchase_Header__Your_Reference__Control1000000045</DataField>
+        </Field>
+        <Field Name="Countz_Control1000000046">
+          <DataField>Countz_Control1000000046</DataField>
+        </Field>
+        <Field Name="Purchase_Import_StatusCaption">
+          <DataField>Purchase_Import_StatusCaption</DataField>
+        </Field>
+        <Field Name="CurrReport_PAGENOCaption">
+          <DataField>CurrReport_PAGENOCaption</DataField>
+        </Field>
+        <Field Name="Purchase_Header__Document_Type_Caption">
+          <DataField>Purchase_Header__Document_Type_Caption</DataField>
+        </Field>
+        <Field Name="Purchase_Import_StatusCaption_Control1000000012">
+          <DataField>Purchase_Import_StatusCaption_Control1000000012</DataField>
+        </Field>
+        <Field Name="CurrReport_PAGENO_Control1000000014Caption">
+          <DataField>CurrReport_PAGENO_Control1000000014Caption</DataField>
+        </Field>
+        <Field Name="CountzCaption">
+          <DataField>CountzCaption</DataField>
+        </Field>
+        <Field Name="Purchase_Header__Buy_from_Vendor_Name_Caption">
+          <DataField>Purchase_Header__Buy_from_Vendor_Name_Caption</DataField>
+        </Field>
+        <Field Name="Purchase_Header__Your_Reference_Caption">
+          <DataField>Purchase_Header__Your_Reference_Caption</DataField>
+        </Field>
+        <Field Name="Purchase_Header__Vendor_Order_No__Caption">
+          <DataField>Purchase_Header__Vendor_Order_No__Caption</DataField>
+        </Field>
+        <Field Name="Purchase_Header__Form_M_No__Caption">
+          <DataField>Purchase_Header__Form_M_No__Caption</DataField>
+        </Field>
+        <Field Name="Purchase_Header__LC_No__Caption">
+          <DataField>Purchase_Header__LC_No__Caption</DataField>
+        </Field>
+        <Field Name="Date_OpenedCaption">
+          <DataField>Date_OpenedCaption</DataField>
+        </Field>
+        <Field Name="Purchase_Header__Shipment_Status_Caption">
+          <DataField>Purchase_Header__Shipment_Status_Caption</DataField>
+        </Field>
+        <Field Name="Purchase_Header__Line_Amount_Caption">
+          <DataField>Purchase_Header__Line_Amount_Caption</DataField>
+        </Field>
+        <Field Name="FromCaption">
+          <DataField>FromCaption</DataField>
+        </Field>
+        <Field Name="Purchase_Header_DescriptionCaption">
+          <DataField>Purchase_Header_DescriptionCaption</DataField>
+        </Field>
+        <Field Name="Purchase_Header__Latest_Shipment_Date_Caption">
+          <DataField>Purchase_Header__Latest_Shipment_Date_Caption</DataField>
+        </Field>
+        <Field Name="Purchase_Header__Currency_Code_Caption">
+          <DataField>Purchase_Header__Currency_Code_Caption</DataField>
+        </Field>
+        <Field Name="Purchase_Header__Shipment_Status__Control1000000034Caption">
+          <DataField>Purchase_Header__Shipment_Status__Control1000000034Caption</DataField>
+        </Field>
+        <Field Name="Purchase_Header__Latest_Shipment_Date__Control1000000035Caption">
+          <DataField>Purchase_Header__Latest_Shipment_Date__Control1000000035Caption</DataField>
+        </Field>
+        <Field Name="Purchase_Header__Line_Amount__Control1000000036Caption">
+          <DataField>Purchase_Header__Line_Amount__Control1000000036Caption</DataField>
+        </Field>
+        <Field Name="Purchase_Header__Currency_Code__Control1000000037Caption">
+          <DataField>Purchase_Header__Currency_Code__Control1000000037Caption</DataField>
+        </Field>
+        <Field Name="Date_OpenedCaption_Control1000000020">
+          <DataField>Date_OpenedCaption_Control1000000020</DataField>
+        </Field>
+        <Field Name="Purchase_Header__LC_No___Control1000000039Caption">
+          <DataField>Purchase_Header__LC_No___Control1000000039Caption</DataField>
+        </Field>
+        <Field Name="Purchase_Header__Form_M_No___Control1000000040Caption">
+          <DataField>Purchase_Header__Form_M_No___Control1000000040Caption</DataField>
+        </Field>
+        <Field Name="Purchase_Header__Vendor_Order_No___Control1000000041Caption">
+          <DataField>Purchase_Header__Vendor_Order_No___Control1000000041Caption</DataField>
+        </Field>
+        <Field Name="Purchase_Header_Description_Control1000000042Caption">
+          <DataField>Purchase_Header_Description_Control1000000042Caption</DataField>
+        </Field>
+        <Field Name="FromCaption_Control1000000025">
+          <DataField>FromCaption_Control1000000025</DataField>
+        </Field>
+        <Field Name="Purchase_Header__Buy_from_Vendor_Name__Control1000000044Caption">
+          <DataField>Purchase_Header__Buy_from_Vendor_Name__Control1000000044Caption</DataField>
+        </Field>
+        <Field Name="Purchase_Header__Your_Reference__Control1000000045Caption">
+          <DataField>Purchase_Header__Your_Reference__Control1000000045Caption</DataField>
+        </Field>
+        <Field Name="Countz_Control1000000046Caption">
+          <DataField>Countz_Control1000000046Caption</DataField>
+        </Field>
+        <Field Name="Purchase_Header_No_">
+          <DataField>Purchase_Header_No_</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
 </Report>

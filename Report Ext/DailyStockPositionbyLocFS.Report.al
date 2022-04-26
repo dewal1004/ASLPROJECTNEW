@@ -694,7 +694,7 @@ report 50185 "Daily Stock Position by Loc-FS"
         Achieved_PriceCaptionLbl: Label 'Achieved Price';
         Price_ListCaptionLbl: Label 'Price List';
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure GetItPrice(Nos: Code[20]; PDays: Date): Decimal
     var
         Itempr: Record "Sales Price";

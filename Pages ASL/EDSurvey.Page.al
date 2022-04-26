@@ -2,7 +2,7 @@ page 50004 "Payroll ED Survey."
 {
     Editable = false;
     PageType = Card;
-    SourceTable = "Payroll ED Codes.";
+    SourceTable = "Payroll-E/D Codes.";
 
     layout
     {

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -10,154 +10,6 @@
       <rd:SecurityType>None</rd:SecurityType>
     </DataSource>
   </DataSources>
-  <DataSets>
-    <DataSet Name="DataSet_Result">
-      <Query>
-        <DataSourceName>DataSource</DataSourceName>
-        <CommandText />
-      </Query>
-      <Fields>
-        <Field Name="STRSUBSTNO_Text001_ItemDateFilter_">
-          <DataField>STRSUBSTNO_Text001_ItemDateFilter_</DataField>
-        </Field>
-        <Field Name="CurrReport_PAGENO">
-          <DataField>CurrReport_PAGENO</DataField>
-        </Field>
-        <Field Name="COMPANYNAME">
-          <DataField>COMPANYNAME</DataField>
-        </Field>
-        <Field Name="STRSUBSTNO_Text002_Sequence_Heading_">
-          <DataField>STRSUBSTNO_Text002_Sequence_Heading_</DataField>
-        </Field>
-        <Field Name="PrintAlsoIfZero">
-          <DataField>PrintAlsoIfZero</DataField>
-        </Field>
-        <Field Name="STRSUBSTNO___1___2__Item_TABLECAPTION_ItemFilter_">
-          <DataField>STRSUBSTNO___1___2__Item_TABLECAPTION_ItemFilter_</DataField>
-        </Field>
-        <Field Name="ItemFilter">
-          <DataField>ItemFilter</DataField>
-        </Field>
-        <Field Name="STRSUBSTNO_Text003_Heading_">
-          <DataField>STRSUBSTNO_Text003_Heading_</DataField>
-        </Field>
-        <Field Name="Integer_Number">
-          <DataField>Integer_Number</DataField>
-        </Field>
-        <Field Name="Item__No__">
-          <DataField>Item__No__</DataField>
-        </Field>
-        <Field Name="Item_Description">
-          <DataField>Item_Description</DataField>
-        </Field>
-        <Field Name="Item__Sales__LCY__">
-          <DataField>Item__Sales__LCY__</DataField>
-        </Field>
-        <Field Name="Item__Sales__LCY__Format">
-          <DataField>Item__Sales__LCY__Format</DataField>
-        </Field>
-        <Field Name="Item_Inventory">
-          <DataField>Item_Inventory</DataField>
-        </Field>
-        <Field Name="Item_InventoryFormat">
-          <DataField>Item_InventoryFormat</DataField>
-        </Field>
-        <Field Name="Unit_Pricee">
-          <DataField>Unit_Pricee</DataField>
-        </Field>
-        <Field Name="Unit_PriceeFormat">
-          <DataField>Unit_PriceeFormat</DataField>
-        </Field>
-        <Field Name="Sales_KGS">
-          <DataField>Sales_KGS</DataField>
-        </Field>
-        <Field Name="Sales_KGSFormat">
-          <DataField>Sales_KGSFormat</DataField>
-        </Field>
-        <Field Name="UOM">
-          <DataField>UOM</DataField>
-        </Field>
-        <Field Name="BarText">
-          <DataField>BarText</DataField>
-        </Field>
-        <Field Name="Item__Sales__LCY___Control24">
-          <DataField>Item__Sales__LCY___Control24</DataField>
-        </Field>
-        <Field Name="Item__Sales__LCY___Control24Format">
-          <DataField>Item__Sales__LCY___Control24Format</DataField>
-        </Field>
-        <Field Name="ItemSales">
-          <DataField>ItemSales</DataField>
-        </Field>
-        <Field Name="ItemSalesFormat">
-          <DataField>ItemSalesFormat</DataField>
-        </Field>
-        <Field Name="QtyOnHand">
-          <DataField>QtyOnHand</DataField>
-        </Field>
-        <Field Name="QtyOnHandFormat">
-          <DataField>QtyOnHandFormat</DataField>
-        </Field>
-        <Field Name="SalesAmountPct">
-          <DataField>SalesAmountPct</DataField>
-        </Field>
-        <Field Name="SalesAmountPctFormat">
-          <DataField>SalesAmountPctFormat</DataField>
-        </Field>
-        <Field Name="QtyOnHandPct">
-          <DataField>QtyOnHandPct</DataField>
-        </Field>
-        <Field Name="QtyOnHandPctFormat">
-          <DataField>QtyOnHandPctFormat</DataField>
-        </Field>
-        <Field Name="TotalItemBalance">
-          <DataField>TotalItemBalance</DataField>
-        </Field>
-        <Field Name="TotalItemBalanceFormat">
-          <DataField>TotalItemBalanceFormat</DataField>
-        </Field>
-        <Field Name="TotalItemSales">
-          <DataField>TotalItemSales</DataField>
-        </Field>
-        <Field Name="TotalItemSalesFormat">
-          <DataField>TotalItemSalesFormat</DataField>
-        </Field>
-        <Field Name="Inventory___Top_10_ListCaption">
-          <DataField>Inventory___Top_10_ListCaption</DataField>
-        </Field>
-        <Field Name="CurrReport_PAGENOCaption">
-          <DataField>CurrReport_PAGENOCaption</DataField>
-        </Field>
-        <Field Name="This_report_also_includes_items_not_on_inventory_or_that_are_not_sold_Caption">
-          <DataField>This_report_also_includes_items_not_on_inventory_or_that_are_not_sold_Caption</DataField>
-        </Field>
-        <Field Name="Integer_NumberCaption">
-          <DataField>Integer_NumberCaption</DataField>
-        </Field>
-        <Field Name="Item__No__Caption">
-          <DataField>Item__No__Caption</DataField>
-        </Field>
-        <Field Name="Item_DescriptionCaption">
-          <DataField>Item_DescriptionCaption</DataField>
-        </Field>
-        <Field Name="Item__Sales__LCY__Caption">
-          <DataField>Item__Sales__LCY__Caption</DataField>
-        </Field>
-        <Field Name="Item_InventoryCaption">
-          <DataField>Item_InventoryCaption</DataField>
-        </Field>
-        <Field Name="Item__Sales__LCY___Control24Caption">
-          <DataField>Item__Sales__LCY___Control24Caption</DataField>
-        </Field>
-        <Field Name="ItemSalesCaption">
-          <DataField>ItemSalesCaption</DataField>
-        </Field>
-        <Field Name="SalesAmountPctCaption">
-          <DataField>SalesAmountPctCaption</DataField>
-        </Field>
-      </Fields>
-    </DataSet>
-  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -1986,4 +1838,152 @@ End Function
   <Language>=User!Language</Language>
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="STRSUBSTNO_Text001_ItemDateFilter_">
+          <DataField>STRSUBSTNO_Text001_ItemDateFilter_</DataField>
+        </Field>
+        <Field Name="CurrReport_PAGENO">
+          <DataField>CurrReport_PAGENO</DataField>
+        </Field>
+        <Field Name="COMPANYNAME">
+          <DataField>COMPANYNAME</DataField>
+        </Field>
+        <Field Name="STRSUBSTNO_Text002_Sequence_Heading_">
+          <DataField>STRSUBSTNO_Text002_Sequence_Heading_</DataField>
+        </Field>
+        <Field Name="PrintAlsoIfZero">
+          <DataField>PrintAlsoIfZero</DataField>
+        </Field>
+        <Field Name="STRSUBSTNO___1___2__Item_TABLECAPTION_ItemFilter_">
+          <DataField>STRSUBSTNO___1___2__Item_TABLECAPTION_ItemFilter_</DataField>
+        </Field>
+        <Field Name="ItemFilter">
+          <DataField>ItemFilter</DataField>
+        </Field>
+        <Field Name="STRSUBSTNO_Text003_Heading_">
+          <DataField>STRSUBSTNO_Text003_Heading_</DataField>
+        </Field>
+        <Field Name="Integer_Number">
+          <DataField>Integer_Number</DataField>
+        </Field>
+        <Field Name="Item__No__">
+          <DataField>Item__No__</DataField>
+        </Field>
+        <Field Name="Item_Description">
+          <DataField>Item_Description</DataField>
+        </Field>
+        <Field Name="Item__Sales__LCY__">
+          <DataField>Item__Sales__LCY__</DataField>
+        </Field>
+        <Field Name="Item__Sales__LCY__Format">
+          <DataField>Item__Sales__LCY__Format</DataField>
+        </Field>
+        <Field Name="Item_Inventory">
+          <DataField>Item_Inventory</DataField>
+        </Field>
+        <Field Name="Item_InventoryFormat">
+          <DataField>Item_InventoryFormat</DataField>
+        </Field>
+        <Field Name="Unit_Pricee">
+          <DataField>Unit_Pricee</DataField>
+        </Field>
+        <Field Name="Unit_PriceeFormat">
+          <DataField>Unit_PriceeFormat</DataField>
+        </Field>
+        <Field Name="Sales_KGS">
+          <DataField>Sales_KGS</DataField>
+        </Field>
+        <Field Name="Sales_KGSFormat">
+          <DataField>Sales_KGSFormat</DataField>
+        </Field>
+        <Field Name="UOM">
+          <DataField>UOM</DataField>
+        </Field>
+        <Field Name="BarText">
+          <DataField>BarText</DataField>
+        </Field>
+        <Field Name="Item__Sales__LCY___Control24">
+          <DataField>Item__Sales__LCY___Control24</DataField>
+        </Field>
+        <Field Name="Item__Sales__LCY___Control24Format">
+          <DataField>Item__Sales__LCY___Control24Format</DataField>
+        </Field>
+        <Field Name="ItemSales">
+          <DataField>ItemSales</DataField>
+        </Field>
+        <Field Name="ItemSalesFormat">
+          <DataField>ItemSalesFormat</DataField>
+        </Field>
+        <Field Name="QtyOnHand">
+          <DataField>QtyOnHand</DataField>
+        </Field>
+        <Field Name="QtyOnHandFormat">
+          <DataField>QtyOnHandFormat</DataField>
+        </Field>
+        <Field Name="SalesAmountPct">
+          <DataField>SalesAmountPct</DataField>
+        </Field>
+        <Field Name="SalesAmountPctFormat">
+          <DataField>SalesAmountPctFormat</DataField>
+        </Field>
+        <Field Name="QtyOnHandPct">
+          <DataField>QtyOnHandPct</DataField>
+        </Field>
+        <Field Name="QtyOnHandPctFormat">
+          <DataField>QtyOnHandPctFormat</DataField>
+        </Field>
+        <Field Name="TotalItemBalance">
+          <DataField>TotalItemBalance</DataField>
+        </Field>
+        <Field Name="TotalItemBalanceFormat">
+          <DataField>TotalItemBalanceFormat</DataField>
+        </Field>
+        <Field Name="TotalItemSales">
+          <DataField>TotalItemSales</DataField>
+        </Field>
+        <Field Name="TotalItemSalesFormat">
+          <DataField>TotalItemSalesFormat</DataField>
+        </Field>
+        <Field Name="Inventory___Top_10_ListCaption">
+          <DataField>Inventory___Top_10_ListCaption</DataField>
+        </Field>
+        <Field Name="CurrReport_PAGENOCaption">
+          <DataField>CurrReport_PAGENOCaption</DataField>
+        </Field>
+        <Field Name="This_report_also_includes_items_not_on_inventory_or_that_are_not_sold_Caption">
+          <DataField>This_report_also_includes_items_not_on_inventory_or_that_are_not_sold_Caption</DataField>
+        </Field>
+        <Field Name="Integer_NumberCaption">
+          <DataField>Integer_NumberCaption</DataField>
+        </Field>
+        <Field Name="Item__No__Caption">
+          <DataField>Item__No__Caption</DataField>
+        </Field>
+        <Field Name="Item_DescriptionCaption">
+          <DataField>Item_DescriptionCaption</DataField>
+        </Field>
+        <Field Name="Item__Sales__LCY__Caption">
+          <DataField>Item__Sales__LCY__Caption</DataField>
+        </Field>
+        <Field Name="Item_InventoryCaption">
+          <DataField>Item_InventoryCaption</DataField>
+        </Field>
+        <Field Name="Item__Sales__LCY___Control24Caption">
+          <DataField>Item__Sales__LCY___Control24Caption</DataField>
+        </Field>
+        <Field Name="ItemSalesCaption">
+          <DataField>ItemSalesCaption</DataField>
+        </Field>
+        <Field Name="SalesAmountPctCaption">
+          <DataField>SalesAmountPctCaption</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
 </Report>

@@ -6,7 +6,7 @@ xmlport 90995 "50001 Payroll ED-Code import"
     {
         textelement(Rootnode)
         {
-            tableelement("Payroll-E/D Codes."; "Payroll ED Codes.")
+            tableelement("Payroll-E/D Codes."; "Payroll-E/D Codes.")
             {
                 XmlName = 'PayrollEDCodes';
                 fieldelement(ed; "Payroll-E/D Codes."."E/D Code")

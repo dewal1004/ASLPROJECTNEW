@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -10,31 +10,6 @@
       <rd:SecurityType>None</rd:SecurityType>
     </DataSource>
   </DataSources>
-  <DataSets>
-    <DataSet Name="DataSet_Result">
-      <Query>
-        <DataSourceName>DataSource</DataSourceName>
-        <CommandText />
-      </Query>
-      <Fields>
-        <Field Name="Item_No_">
-          <DataField>Item_No_</DataField>
-        </Field>
-        <Field Name="Value_Entry__Entry_No__">
-          <DataField>Value_Entry__Entry_No__</DataField>
-        </Field>
-        <Field Name="Value_Entry__Item_No__">
-          <DataField>Value_Entry__Item_No__</DataField>
-        </Field>
-        <Field Name="OLD_VAL">
-          <DataField>OLD_VAL</DataField>
-        </Field>
-        <Field Name="OLD_VALFormat">
-          <DataField>OLD_VALFormat</DataField>
-        </Field>
-      </Fields>
-    </DataSet>
-  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -224,4 +199,29 @@ End Function
   <Language>=User!Language</Language>
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="Item_No_">
+          <DataField>Item_No_</DataField>
+        </Field>
+        <Field Name="Value_Entry__Entry_No__">
+          <DataField>Value_Entry__Entry_No__</DataField>
+        </Field>
+        <Field Name="Value_Entry__Item_No__">
+          <DataField>Value_Entry__Item_No__</DataField>
+        </Field>
+        <Field Name="OLD_VAL">
+          <DataField>OLD_VAL</DataField>
+        </Field>
+        <Field Name="OLD_VALFormat">
+          <DataField>OLD_VALFormat</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
 </Report>

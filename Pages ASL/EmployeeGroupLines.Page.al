@@ -18,7 +18,7 @@ page 50016 "Employee Group Lines."
                 }
                 field("E/D Code"; "E/D Code")
                 {
-                  //  Lookup = true;
+                    //  Lookup = true;
                     //LookupPageID = "E/D Survey";
                 }
                 field(GetEDName; GetEDName)
@@ -42,7 +42,7 @@ page 50016 "Employee Group Lines."
                     DecimalPlaces = 0 :;
                     Editable = false;
                     NotBlank = true;
-                   // Numeric = false;
+                    // Numeric = false;
                 }
                 field("Old Default Amount"; "Old Default Amount")
                 {
@@ -62,9 +62,9 @@ page 50016 "Employee Group Lines."
     }
 
     var
-        EDRec: Record "Payroll ED Codes.";
+        EDRec: Record "Payroll-E/D Codes.";
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure GetEDName(): Text[30]
     begin
         if EDRec.Get("E/D Code") then exit(EDRec."Payslip Text");

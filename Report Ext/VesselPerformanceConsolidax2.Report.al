@@ -1351,7 +1351,7 @@ report 99192 "Vessel Performance Consolidax2"
         N_CaptionLbl: Label '=N=';
         VarianceCaption_Control1000000252Lbl: Label 'Variance';
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure Syntesis(Cd: Code[10]; Pk: Code[10]; Br: Code[10]) Itemno: Code[10]
     begin
         //Syntesis Item Code Name
@@ -1373,7 +1373,7 @@ report 99192 "Vessel Performance Consolidax2"
         if not TempExcelBuffer.Insert then TempExcelBuffer.Modify;
     end;
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure CellDefLn()
     begin
         ColumnNo := 1 + (level * 3);
@@ -1389,7 +1389,7 @@ report 99192 "Vessel Performance Consolidax2"
         end;
     end;
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure CellDefVT(RowN: Integer; Varn: Decimal; Actl: Decimal; Budg: Decimal; TotNo: Integer)
     begin
         ColumnNo := 1 + (level * 3);
@@ -1405,7 +1405,7 @@ report 99192 "Vessel Performance Consolidax2"
         end;
     end;
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure CellDefHd()
     begin
         RowNo := 5;
@@ -1431,12 +1431,12 @@ report 99192 "Vessel Performance Consolidax2"
         end;
     end;
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure BIN()
     begin
     end;
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure "Bin 2"()
     begin
     end;

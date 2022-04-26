@@ -1,0 +1,42 @@
+OBJECT Modification "Record Restriction Mgt."(Codeunit 1550)
+{
+  CHANGES
+  {
+    { CodeModification  ;OriginalCode=BEGIN
+                                        if Format(Rec) = Format(xRec) then
+                                          exit;
+                                        RestrictGenJournalLine(Rec);
+                                      END;
+
+                         ModifiedCode=BEGIN
+                                        RestrictGenJournalLine(Rec);
+                                      END;
+
+                         Target=RestrictGenJournalLineAfterModify(PROCEDURE 29) }
+    { CodeModification  ;OriginalCode=BEGIN
+                                        if GenJournalLine."System-Created Entry" or GenJournalLine.IsTemporary then
+                                          exit;
+
+                                        if ApprovalsMgmt.IsGeneralJournalLineApprovalsWorkflowEnabled(GenJournalLine) then
+                                          RestrictRecordUsage(GenJournalLine,RestrictLineUsageDetailsTxt);
+
+                                        if GenJournalBatch.Get(GenJournalLine."Journal Template Name",GenJournalLine."Journal Batch Name") then
+                                          if ApprovalsMgmt.IsGeneralJournalBatchApprovalsWorkflowEnabled(GenJournalBatch) then
+                                            RestrictRecordUsage(GenJournalLine,RestrictBatchUsageDetailsTxt);
+                                      END;
+
+                         ModifiedCode=BEGIN
+                                        if GenJournalLine."System-Created Entry" then
+                                        #2..9
+                                      END;
+
+                         Target=RestrictGenJournalLine(PROCEDURE 17) }
+  }
+  CODE
+  {
+
+    BEGIN
+    END.
+  }
+}
+

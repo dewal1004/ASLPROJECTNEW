@@ -1,0 +1,46 @@
+// OBJECT Modification "CAL Test Project Mgt."(Codeunit 130404)
+// {
+//   OBJECT-PROPERTIES
+//   {
+//     Date=20180919D;
+//     Time=120000T;
+//     Version List=NAVW113.00;
+//   }
+//   PROPERTIES
+//   {
+//     Target="CAL Test Project Mgt."(Codeunit 130404);
+//   }
+//   CHANGES
+//   {
+//     { Discard: Deletion          ;Target=Export(PROCEDURE 10).CALTestSuiteName(Parameter 1007);
+//                          ChangedElements=ParameterCollection
+//                          {
+//                            { 1007;CALTestSuiteName         ;Code         ;Length=10 }
+//                          }
+//                           }
+//     { Suspend :CodeModification  ;OriginalCode=BEGIN
+//                                         XMLDOMMgt.LoadXMLDocumentFromText(
+//                                           StrSubstNo(
+//                                             '<?xml version="1.0" encoding="UTF-16" standalone="yes"?><%1></%1>','CALTests'),
+//                                           ProjectXML);
+
+//                                         CALTestSuite.Get(CALTestSuiteName);
+//                                         DocumentElement := ProjectXML.DocumentElement;
+//                                         XMLDOMMgt.AddAttribute(DocumentElement,CALTestSuite.FieldName(Name),CALTestSuite.Name);
+//                                         XMLDOMMgt.AddAttribute(DocumentElement,CALTestSuite.FieldName(Description),CALTestSuite.Description);
+//                                         #10..25
+//                                         FileMgt.DownloadHandler(XMLDataFile,'Download','',FileFilter,ToFile);
+
+//                                         exit(true);
+//                                       END;
+
+//                          ModifiedCode=BEGIN
+//                                         #1..5
+//                                         CALTestSuite.FindFirst;
+//                                         #7..28
+//                                       END;
+
+//                          Target=Export(PROCEDURE 10) }
+//   }
+//   
+

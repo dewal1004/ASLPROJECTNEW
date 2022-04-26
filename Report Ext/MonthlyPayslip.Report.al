@@ -465,7 +465,7 @@ report 50051 "Monthly Payslip"
     var
         PayAdviceTitle: Text[80];
         CompanyData: Record "Company Information";
-        RecOfEDFile: Record "Payroll ED Codes.";
+        RecOfEDFile: Record "Payroll-E/D Codes.";
         PeriodRec: Record "Payroll-Periods.";
         PayEntryText: Text[35];
         AmountToPrint: Text[15];
@@ -495,7 +495,7 @@ report 50051 "Monthly Payslip"
         PaySetup: Record "Staff Log";
         BuLocation: Text[30];
         LocRec: Record Location;
-        payslsetup: Record "Payroll Setup";
+        payslsetup: Record "ASL Payroll Setup";
         wrkday: Integer;
         latehr: Integer;
         EARNINGS___ALLOWANCESCaptionLbl: Label 'EARNINGS & ALLOWANCES';

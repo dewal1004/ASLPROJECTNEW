@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -10,889 +10,6 @@
       <rd:SecurityType>None</rd:SecurityType>
     </DataSource>
   </DataSources>
-  <DataSets>
-    <DataSet Name="DataSet_Result">
-      <Query>
-        <DataSourceName>DataSource</DataSourceName>
-        <CommandText />
-      </Query>
-      <Fields>
-        <Field Name="FORMAT_TODAY_0_4_">
-          <DataField>FORMAT_TODAY_0_4_</DataField>
-        </Field>
-        <Field Name="COMPANYNAME">
-          <DataField>COMPANYNAME</DataField>
-        </Field>
-        <Field Name="CurrReport_PAGENO">
-          <DataField>CurrReport_PAGENO</DataField>
-        </Field>
-        <Field Name="USERID">
-          <DataField>USERID</DataField>
-        </Field>
-        <Field Name="Text18">
-          <DataField>Text18</DataField>
-        </Field>
-        <Field Name="GETFILTERS__">
-          <DataField>GETFILTERS__</DataField>
-        </Field>
-        <Field Name="Text27">
-          <DataField>Text27</DataField>
-        </Field>
-        <Field Name="Text26">
-          <DataField>Text26</DataField>
-        </Field>
-        <Field Name="Text25">
-          <DataField>Text25</DataField>
-        </Field>
-        <Field Name="Text24">
-          <DataField>Text24</DataField>
-        </Field>
-        <Field Name="Text23">
-          <DataField>Text23</DataField>
-        </Field>
-        <Field Name="Text22">
-          <DataField>Text22</DataField>
-        </Field>
-        <Field Name="Text21">
-          <DataField>Text21</DataField>
-        </Field>
-        <Field Name="Jobss_Vessel">
-          <DataField>Jobss_Vessel</DataField>
-        </Field>
-        <Field Name="PntStor_7_">
-          <DataField>PntStor_7_</DataField>
-        </Field>
-        <Field Name="PntStor_7_Format">
-          <DataField>PntStor_7_Format</DataField>
-        </Field>
-        <Field Name="PntStor_6_">
-          <DataField>PntStor_6_</DataField>
-        </Field>
-        <Field Name="PntStor_6_Format">
-          <DataField>PntStor_6_Format</DataField>
-        </Field>
-        <Field Name="PntStor_5_">
-          <DataField>PntStor_5_</DataField>
-        </Field>
-        <Field Name="PntStor_5_Format">
-          <DataField>PntStor_5_Format</DataField>
-        </Field>
-        <Field Name="PntStor_4_">
-          <DataField>PntStor_4_</DataField>
-        </Field>
-        <Field Name="PntStor_4_Format">
-          <DataField>PntStor_4_Format</DataField>
-        </Field>
-        <Field Name="PntStor_3_">
-          <DataField>PntStor_3_</DataField>
-        </Field>
-        <Field Name="PntStor_3_Format">
-          <DataField>PntStor_3_Format</DataField>
-        </Field>
-        <Field Name="PntStor_2_">
-          <DataField>PntStor_2_</DataField>
-        </Field>
-        <Field Name="PntStor_2_Format">
-          <DataField>PntStor_2_Format</DataField>
-        </Field>
-        <Field Name="PntStor_1_">
-          <DataField>PntStor_1_</DataField>
-        </Field>
-        <Field Name="PntStor_1_Format">
-          <DataField>PntStor_1_Format</DataField>
-        </Field>
-        <Field Name="PortDay">
-          <DataField>PortDay</DataField>
-        </Field>
-        <Field Name="PortDayFormat">
-          <DataField>PortDayFormat</DataField>
-        </Field>
-        <Field Name="LostDay">
-          <DataField>LostDay</DataField>
-        </Field>
-        <Field Name="LostDayFormat">
-          <DataField>LostDayFormat</DataField>
-        </Field>
-        <Field Name="FishgDay">
-          <DataField>FishgDay</DataField>
-        </Field>
-        <Field Name="FishgDayFormat">
-          <DataField>FishgDayFormat</DataField>
-        </Field>
-        <Field Name="CycleDay">
-          <DataField>CycleDay</DataField>
-        </Field>
-        <Field Name="CycleDayFormat">
-          <DataField>CycleDayFormat</DataField>
-        </Field>
-        <Field Name="Jobss__Ending_Date_">
-          <DataField>Jobss__Ending_Date_</DataField>
-        </Field>
-        <Field Name="Jobss__Starting_Date_">
-          <DataField>Jobss__Starting_Date_</DataField>
-        </Field>
-        <Field Name="Jobss__No__">
-          <DataField>Jobss__No__</DataField>
-        </Field>
-        <Field Name="PntStor_7__Countrs">
-          <DataField>PntStor_7__Countrs</DataField>
-        </Field>
-        <Field Name="PntStor_7__CountrsFormat">
-          <DataField>PntStor_7__CountrsFormat</DataField>
-        </Field>
-        <Field Name="PntStor_6__Control1000000233">
-          <DataField>PntStor_6__Control1000000233</DataField>
-        </Field>
-        <Field Name="PntStor_6__Control1000000233Format">
-          <DataField>PntStor_6__Control1000000233Format</DataField>
-        </Field>
-        <Field Name="PntStor_5__Control1000000234">
-          <DataField>PntStor_5__Control1000000234</DataField>
-        </Field>
-        <Field Name="PntStor_5__Control1000000234Format">
-          <DataField>PntStor_5__Control1000000234Format</DataField>
-        </Field>
-        <Field Name="PntStor_4__Control1000000235">
-          <DataField>PntStor_4__Control1000000235</DataField>
-        </Field>
-        <Field Name="PntStor_4__Control1000000235Format">
-          <DataField>PntStor_4__Control1000000235Format</DataField>
-        </Field>
-        <Field Name="PntStor_3__Control1000000236">
-          <DataField>PntStor_3__Control1000000236</DataField>
-        </Field>
-        <Field Name="PntStor_3__Control1000000236Format">
-          <DataField>PntStor_3__Control1000000236Format</DataField>
-        </Field>
-        <Field Name="PntStor_2__Control1000000237">
-          <DataField>PntStor_2__Control1000000237</DataField>
-        </Field>
-        <Field Name="PntStor_2__Control1000000237Format">
-          <DataField>PntStor_2__Control1000000237Format</DataField>
-        </Field>
-        <Field Name="PntStor_1__Control1000000238">
-          <DataField>PntStor_1__Control1000000238</DataField>
-        </Field>
-        <Field Name="PntStor_1__Control1000000238Format">
-          <DataField>PntStor_1__Control1000000238Format</DataField>
-        </Field>
-        <Field Name="PortDay_Control1000000239">
-          <DataField>PortDay_Control1000000239</DataField>
-        </Field>
-        <Field Name="PortDay_Control1000000239Format">
-          <DataField>PortDay_Control1000000239Format</DataField>
-        </Field>
-        <Field Name="LostDay_Control1000000240">
-          <DataField>LostDay_Control1000000240</DataField>
-        </Field>
-        <Field Name="LostDay_Control1000000240Format">
-          <DataField>LostDay_Control1000000240Format</DataField>
-        </Field>
-        <Field Name="FishgDay_Control1000000241">
-          <DataField>FishgDay_Control1000000241</DataField>
-        </Field>
-        <Field Name="FishgDay_Control1000000241Format">
-          <DataField>FishgDay_Control1000000241Format</DataField>
-        </Field>
-        <Field Name="CycleDay_Control1000000242">
-          <DataField>CycleDay_Control1000000242</DataField>
-        </Field>
-        <Field Name="CycleDay_Control1000000242Format">
-          <DataField>CycleDay_Control1000000242Format</DataField>
-        </Field>
-        <Field Name="TotalFor___FIELDCAPTION_Vessel_">
-          <DataField>TotalFor___FIELDCAPTION_Vessel_</DataField>
-        </Field>
-        <Field Name="PntStor_7__Countrs_Control1000000221">
-          <DataField>PntStor_7__Countrs_Control1000000221</DataField>
-        </Field>
-        <Field Name="PntStor_7__Countrs_Control1000000221Format">
-          <DataField>PntStor_7__Countrs_Control1000000221Format</DataField>
-        </Field>
-        <Field Name="PntStor_6__Control1000000222">
-          <DataField>PntStor_6__Control1000000222</DataField>
-        </Field>
-        <Field Name="PntStor_6__Control1000000222Format">
-          <DataField>PntStor_6__Control1000000222Format</DataField>
-        </Field>
-        <Field Name="PntStor_5__Control1000000223">
-          <DataField>PntStor_5__Control1000000223</DataField>
-        </Field>
-        <Field Name="PntStor_5__Control1000000223Format">
-          <DataField>PntStor_5__Control1000000223Format</DataField>
-        </Field>
-        <Field Name="PntStor_4__Control1000000224">
-          <DataField>PntStor_4__Control1000000224</DataField>
-        </Field>
-        <Field Name="PntStor_4__Control1000000224Format">
-          <DataField>PntStor_4__Control1000000224Format</DataField>
-        </Field>
-        <Field Name="PntStor_3__Control1000000225">
-          <DataField>PntStor_3__Control1000000225</DataField>
-        </Field>
-        <Field Name="PntStor_3__Control1000000225Format">
-          <DataField>PntStor_3__Control1000000225Format</DataField>
-        </Field>
-        <Field Name="PntStor_2__Control1000000226">
-          <DataField>PntStor_2__Control1000000226</DataField>
-        </Field>
-        <Field Name="PntStor_2__Control1000000226Format">
-          <DataField>PntStor_2__Control1000000226Format</DataField>
-        </Field>
-        <Field Name="PntStor_1__Control1000000227">
-          <DataField>PntStor_1__Control1000000227</DataField>
-        </Field>
-        <Field Name="PntStor_1__Control1000000227Format">
-          <DataField>PntStor_1__Control1000000227Format</DataField>
-        </Field>
-        <Field Name="PortDay_Control1000000228">
-          <DataField>PortDay_Control1000000228</DataField>
-        </Field>
-        <Field Name="PortDay_Control1000000228Format">
-          <DataField>PortDay_Control1000000228Format</DataField>
-        </Field>
-        <Field Name="LostDay_Control1000000229">
-          <DataField>LostDay_Control1000000229</DataField>
-        </Field>
-        <Field Name="LostDay_Control1000000229Format">
-          <DataField>LostDay_Control1000000229Format</DataField>
-        </Field>
-        <Field Name="FishgDay_Control1000000230">
-          <DataField>FishgDay_Control1000000230</DataField>
-        </Field>
-        <Field Name="FishgDay_Control1000000230Format">
-          <DataField>FishgDay_Control1000000230Format</DataField>
-        </Field>
-        <Field Name="CycleDay_Control1000000231">
-          <DataField>CycleDay_Control1000000231</DataField>
-        </Field>
-        <Field Name="CycleDay_Control1000000231Format">
-          <DataField>CycleDay_Control1000000231Format</DataField>
-        </Field>
-        <Field Name="Coutry_Name">
-          <DataField>Coutry_Name</DataField>
-        </Field>
-        <Field Name="Res_Name">
-          <DataField>Res_Name</DataField>
-        </Field>
-        <Field Name="Vess">
-          <DataField>Vess</DataField>
-        </Field>
-        <Field Name="SeaRange_20_">
-          <DataField>SeaRange_20_</DataField>
-        </Field>
-        <Field Name="SeaRange_19_">
-          <DataField>SeaRange_19_</DataField>
-        </Field>
-        <Field Name="SeaRange_18_">
-          <DataField>SeaRange_18_</DataField>
-        </Field>
-        <Field Name="SeaRange_17_">
-          <DataField>SeaRange_17_</DataField>
-        </Field>
-        <Field Name="SeaRange_16_">
-          <DataField>SeaRange_16_</DataField>
-        </Field>
-        <Field Name="SeaRange_15_">
-          <DataField>SeaRange_15_</DataField>
-        </Field>
-        <Field Name="SeaRange_14_">
-          <DataField>SeaRange_14_</DataField>
-        </Field>
-        <Field Name="SeaRange_13_">
-          <DataField>SeaRange_13_</DataField>
-        </Field>
-        <Field Name="SeaRange_12_">
-          <DataField>SeaRange_12_</DataField>
-        </Field>
-        <Field Name="SeaRange_11_">
-          <DataField>SeaRange_11_</DataField>
-        </Field>
-        <Field Name="SeaRange_10_">
-          <DataField>SeaRange_10_</DataField>
-        </Field>
-        <Field Name="SeaRange_9_">
-          <DataField>SeaRange_9_</DataField>
-        </Field>
-        <Field Name="SeaRange_8_">
-          <DataField>SeaRange_8_</DataField>
-        </Field>
-        <Field Name="SeaRange_7_">
-          <DataField>SeaRange_7_</DataField>
-        </Field>
-        <Field Name="SeaRange_6_">
-          <DataField>SeaRange_6_</DataField>
-        </Field>
-        <Field Name="SeaRange_5_">
-          <DataField>SeaRange_5_</DataField>
-        </Field>
-        <Field Name="SeaRange_4_">
-          <DataField>SeaRange_4_</DataField>
-        </Field>
-        <Field Name="SeaRange_3_">
-          <DataField>SeaRange_3_</DataField>
-        </Field>
-        <Field Name="SeaRange_2_">
-          <DataField>SeaRange_2_</DataField>
-        </Field>
-        <Field Name="SubHdr6A_5_">
-          <DataField>SubHdr6A_5_</DataField>
-        </Field>
-        <Field Name="SubHdr6A_5_Format">
-          <DataField>SubHdr6A_5_Format</DataField>
-        </Field>
-        <Field Name="SubHdr5A_5_">
-          <DataField>SubHdr5A_5_</DataField>
-        </Field>
-        <Field Name="SubHdr5A_5_Format">
-          <DataField>SubHdr5A_5_Format</DataField>
-        </Field>
-        <Field Name="SubHdr4A_5_">
-          <DataField>SubHdr4A_5_</DataField>
-        </Field>
-        <Field Name="SubHdr4A_5_Format">
-          <DataField>SubHdr4A_5_Format</DataField>
-        </Field>
-        <Field Name="SubHdr3A_5_">
-          <DataField>SubHdr3A_5_</DataField>
-        </Field>
-        <Field Name="SubHdr2A_5_">
-          <DataField>SubHdr2A_5_</DataField>
-        </Field>
-        <Field Name="SubHdr2A_5_Format">
-          <DataField>SubHdr2A_5_Format</DataField>
-        </Field>
-        <Field Name="SubHdr2A_4_">
-          <DataField>SubHdr2A_4_</DataField>
-        </Field>
-        <Field Name="SubHdr2A_4_Format">
-          <DataField>SubHdr2A_4_Format</DataField>
-        </Field>
-        <Field Name="SubHdr3A_4_">
-          <DataField>SubHdr3A_4_</DataField>
-        </Field>
-        <Field Name="SubHdr4A_4_">
-          <DataField>SubHdr4A_4_</DataField>
-        </Field>
-        <Field Name="SubHdr4A_4_Format">
-          <DataField>SubHdr4A_4_Format</DataField>
-        </Field>
-        <Field Name="SubHdr5A_4_">
-          <DataField>SubHdr5A_4_</DataField>
-        </Field>
-        <Field Name="SubHdr5A_4_Format">
-          <DataField>SubHdr5A_4_Format</DataField>
-        </Field>
-        <Field Name="SubHdr6A_4_">
-          <DataField>SubHdr6A_4_</DataField>
-        </Field>
-        <Field Name="SubHdr6A_4_Format">
-          <DataField>SubHdr6A_4_Format</DataField>
-        </Field>
-        <Field Name="SubHdr1A_4_">
-          <DataField>SubHdr1A_4_</DataField>
-        </Field>
-        <Field Name="SubHdr1A_5_">
-          <DataField>SubHdr1A_5_</DataField>
-        </Field>
-        <Field Name="SubHdr1A_3_">
-          <DataField>SubHdr1A_3_</DataField>
-        </Field>
-        <Field Name="SubHdr2A_3_">
-          <DataField>SubHdr2A_3_</DataField>
-        </Field>
-        <Field Name="SubHdr2A_3_Format">
-          <DataField>SubHdr2A_3_Format</DataField>
-        </Field>
-        <Field Name="SubHdr3A_3_">
-          <DataField>SubHdr3A_3_</DataField>
-        </Field>
-        <Field Name="SubHdr4A_3_">
-          <DataField>SubHdr4A_3_</DataField>
-        </Field>
-        <Field Name="SubHdr4A_3_Format">
-          <DataField>SubHdr4A_3_Format</DataField>
-        </Field>
-        <Field Name="SubHdr5A_3_">
-          <DataField>SubHdr5A_3_</DataField>
-        </Field>
-        <Field Name="SubHdr5A_3_Format">
-          <DataField>SubHdr5A_3_Format</DataField>
-        </Field>
-        <Field Name="SubHdr6A_3_">
-          <DataField>SubHdr6A_3_</DataField>
-        </Field>
-        <Field Name="SubHdr6A_3_Format">
-          <DataField>SubHdr6A_3_Format</DataField>
-        </Field>
-        <Field Name="SubHdr1A_2_">
-          <DataField>SubHdr1A_2_</DataField>
-        </Field>
-        <Field Name="SubHdr2A_2_">
-          <DataField>SubHdr2A_2_</DataField>
-        </Field>
-        <Field Name="SubHdr2A_2_Format">
-          <DataField>SubHdr2A_2_Format</DataField>
-        </Field>
-        <Field Name="SubHdr3A_2_">
-          <DataField>SubHdr3A_2_</DataField>
-        </Field>
-        <Field Name="SubHdr5A_2_">
-          <DataField>SubHdr5A_2_</DataField>
-        </Field>
-        <Field Name="SubHdr5A_2_Format">
-          <DataField>SubHdr5A_2_Format</DataField>
-        </Field>
-        <Field Name="SubHdr4A_2_">
-          <DataField>SubHdr4A_2_</DataField>
-        </Field>
-        <Field Name="SubHdr4A_2_Format">
-          <DataField>SubHdr4A_2_Format</DataField>
-        </Field>
-        <Field Name="SubHdr6A_2_">
-          <DataField>SubHdr6A_2_</DataField>
-        </Field>
-        <Field Name="SubHdr6A_2_Format">
-          <DataField>SubHdr6A_2_Format</DataField>
-        </Field>
-        <Field Name="PortDay_Control1000000609">
-          <DataField>PortDay_Control1000000609</DataField>
-        </Field>
-        <Field Name="PortDay_Control1000000609Format">
-          <DataField>PortDay_Control1000000609Format</DataField>
-        </Field>
-        <Field Name="LostDay_Control1000000611">
-          <DataField>LostDay_Control1000000611</DataField>
-        </Field>
-        <Field Name="LostDay_Control1000000611Format">
-          <DataField>LostDay_Control1000000611Format</DataField>
-        </Field>
-        <Field Name="FishgDay_Control1000000613">
-          <DataField>FishgDay_Control1000000613</DataField>
-        </Field>
-        <Field Name="FishgDay_Control1000000613Format">
-          <DataField>FishgDay_Control1000000613Format</DataField>
-        </Field>
-        <Field Name="ETACons">
-          <DataField>ETACons</DataField>
-        </Field>
-        <Field Name="VessEndr">
-          <DataField>VessEndr</DataField>
-        </Field>
-        <Field Name="VessEndrFormat">
-          <DataField>VessEndrFormat</DataField>
-        </Field>
-        <Field Name="SeaRange_1_">
-          <DataField>SeaRange_1_</DataField>
-        </Field>
-        <Field Name="CurrReport_PAGENOCaption">
-          <DataField>CurrReport_PAGENOCaption</DataField>
-        </Field>
-        <Field Name="FILTERSCaption">
-          <DataField>FILTERSCaption</DataField>
-        </Field>
-        <Field Name="Control1000000167Caption">
-          <DataField>Control1000000167Caption</DataField>
-        </Field>
-        <Field Name="Control1000000168Caption">
-          <DataField>Control1000000168Caption</DataField>
-        </Field>
-        <Field Name="Control1000000169Caption">
-          <DataField>Control1000000169Caption</DataField>
-        </Field>
-        <Field Name="Control1000000170Caption">
-          <DataField>Control1000000170Caption</DataField>
-        </Field>
-        <Field Name="Control1000000171Caption">
-          <DataField>Control1000000171Caption</DataField>
-        </Field>
-        <Field Name="Control1000000172Caption">
-          <DataField>Control1000000172Caption</DataField>
-        </Field>
-        <Field Name="Control1000000173Caption">
-          <DataField>Control1000000173Caption</DataField>
-        </Field>
-        <Field Name="Jobss_VesselCaption">
-          <DataField>Jobss_VesselCaption</DataField>
-        </Field>
-        <Field Name="VarianceCaption">
-          <DataField>VarianceCaption</DataField>
-        </Field>
-        <Field Name="ActualCaption">
-          <DataField>ActualCaption</DataField>
-        </Field>
-        <Field Name="BudgetCaption">
-          <DataField>BudgetCaption</DataField>
-        </Field>
-        <Field Name="VarianceCaption_Control1000000459">
-          <DataField>VarianceCaption_Control1000000459</DataField>
-        </Field>
-        <Field Name="ActualCaption_Control1000000460">
-          <DataField>ActualCaption_Control1000000460</DataField>
-        </Field>
-        <Field Name="BudgetCaption_Control1000000461">
-          <DataField>BudgetCaption_Control1000000461</DataField>
-        </Field>
-        <Field Name="VarianceCaption_Control1000000462">
-          <DataField>VarianceCaption_Control1000000462</DataField>
-        </Field>
-        <Field Name="ActualCaption_Control1000000463">
-          <DataField>ActualCaption_Control1000000463</DataField>
-        </Field>
-        <Field Name="BudgetCaption_Control1000000464">
-          <DataField>BudgetCaption_Control1000000464</DataField>
-        </Field>
-        <Field Name="VarianceCaption_Control1000000465">
-          <DataField>VarianceCaption_Control1000000465</DataField>
-        </Field>
-        <Field Name="ActualCaption_Control1000000466">
-          <DataField>ActualCaption_Control1000000466</DataField>
-        </Field>
-        <Field Name="BudgetCaption_Control1000000467">
-          <DataField>BudgetCaption_Control1000000467</DataField>
-        </Field>
-        <Field Name="VarianceCaption_Control1000000468">
-          <DataField>VarianceCaption_Control1000000468</DataField>
-        </Field>
-        <Field Name="ActualCaption_Control1000000469">
-          <DataField>ActualCaption_Control1000000469</DataField>
-        </Field>
-        <Field Name="BudgetCaption_Control1000000470">
-          <DataField>BudgetCaption_Control1000000470</DataField>
-        </Field>
-        <Field Name="VarianceCaption_Control1000000471">
-          <DataField>VarianceCaption_Control1000000471</DataField>
-        </Field>
-        <Field Name="ActualCaption_Control1000000472">
-          <DataField>ActualCaption_Control1000000472</DataField>
-        </Field>
-        <Field Name="BudgetCaption_Control1000000473">
-          <DataField>BudgetCaption_Control1000000473</DataField>
-        </Field>
-        <Field Name="VarianceCaption_Control1000000474">
-          <DataField>VarianceCaption_Control1000000474</DataField>
-        </Field>
-        <Field Name="ActualCaption_Control1000000475">
-          <DataField>ActualCaption_Control1000000475</DataField>
-        </Field>
-        <Field Name="BudgetCaption_Control1000000476">
-          <DataField>BudgetCaption_Control1000000476</DataField>
-        </Field>
-        <Field Name="VarianceCaption_Control1000000477">
-          <DataField>VarianceCaption_Control1000000477</DataField>
-        </Field>
-        <Field Name="ActualCaption_Control1000000478">
-          <DataField>ActualCaption_Control1000000478</DataField>
-        </Field>
-        <Field Name="BudgetCaption_Control1000000479">
-          <DataField>BudgetCaption_Control1000000479</DataField>
-        </Field>
-        <Field Name="VarianceCaption_Control1000000480">
-          <DataField>VarianceCaption_Control1000000480</DataField>
-        </Field>
-        <Field Name="ActualCaption_Control1000000481">
-          <DataField>ActualCaption_Control1000000481</DataField>
-        </Field>
-        <Field Name="BudgetCaption_Control1000000482">
-          <DataField>BudgetCaption_Control1000000482</DataField>
-        </Field>
-        <Field Name="VarianceCaption_Control1000000483">
-          <DataField>VarianceCaption_Control1000000483</DataField>
-        </Field>
-        <Field Name="ActualCaption_Control1000000484">
-          <DataField>ActualCaption_Control1000000484</DataField>
-        </Field>
-        <Field Name="BudgetCaption_Control1000000485">
-          <DataField>BudgetCaption_Control1000000485</DataField>
-        </Field>
-        <Field Name="VarianceCaption_Control1000000486">
-          <DataField>VarianceCaption_Control1000000486</DataField>
-        </Field>
-        <Field Name="ActualCaption_Control1000000487">
-          <DataField>ActualCaption_Control1000000487</DataField>
-        </Field>
-        <Field Name="BudgetCaption_Control1000000488">
-          <DataField>BudgetCaption_Control1000000488</DataField>
-        </Field>
-        <Field Name="VarianceCaption_Control1000000489">
-          <DataField>VarianceCaption_Control1000000489</DataField>
-        </Field>
-        <Field Name="ActualCaption_Control1000000490">
-          <DataField>ActualCaption_Control1000000490</DataField>
-        </Field>
-        <Field Name="BudgetCaption_Control1000000491">
-          <DataField>BudgetCaption_Control1000000491</DataField>
-        </Field>
-        <Field Name="VarianceCaption_Control1000000492">
-          <DataField>VarianceCaption_Control1000000492</DataField>
-        </Field>
-        <Field Name="ActualCaption_Control1000000493">
-          <DataField>ActualCaption_Control1000000493</DataField>
-        </Field>
-        <Field Name="BudgetCaption_Control1000000494">
-          <DataField>BudgetCaption_Control1000000494</DataField>
-        </Field>
-        <Field Name="VarianceCaption_Control1000000495">
-          <DataField>VarianceCaption_Control1000000495</DataField>
-        </Field>
-        <Field Name="ActualCaption_Control1000000496">
-          <DataField>ActualCaption_Control1000000496</DataField>
-        </Field>
-        <Field Name="BudgetCaption_Control1000000497">
-          <DataField>BudgetCaption_Control1000000497</DataField>
-        </Field>
-        <Field Name="VarianceCaption_Control1000000498">
-          <DataField>VarianceCaption_Control1000000498</DataField>
-        </Field>
-        <Field Name="ActualCaption_Control1000000499">
-          <DataField>ActualCaption_Control1000000499</DataField>
-        </Field>
-        <Field Name="BudgetCaption_Control1000000500">
-          <DataField>BudgetCaption_Control1000000500</DataField>
-        </Field>
-        <Field Name="VarianceCaption_Control1000000504">
-          <DataField>VarianceCaption_Control1000000504</DataField>
-        </Field>
-        <Field Name="ActualCaption_Control1000000505">
-          <DataField>ActualCaption_Control1000000505</DataField>
-        </Field>
-        <Field Name="BudgetCaption_Control1000000506">
-          <DataField>BudgetCaption_Control1000000506</DataField>
-        </Field>
-        <Field Name="QuantityCaption">
-          <DataField>QuantityCaption</DataField>
-        </Field>
-        <Field Name="BudgetCaption_Control1000000249">
-          <DataField>BudgetCaption_Control1000000249</DataField>
-        </Field>
-        <Field Name="ActualCaption_Control1000000244">
-          <DataField>ActualCaption_Control1000000244</DataField>
-        </Field>
-        <Field Name="VarianceCaption_Control1000000285">
-          <DataField>VarianceCaption_Control1000000285</DataField>
-        </Field>
-        <Field Name="VarianceCaption_Control1000000334">
-          <DataField>VarianceCaption_Control1000000334</DataField>
-        </Field>
-        <Field Name="ActualCaption_Control1000000447">
-          <DataField>ActualCaption_Control1000000447</DataField>
-        </Field>
-        <Field Name="BudgetCaption_Control1000000448">
-          <DataField>BudgetCaption_Control1000000448</DataField>
-        </Field>
-        <Field Name="VarianceCaption_Control1000000450">
-          <DataField>VarianceCaption_Control1000000450</DataField>
-        </Field>
-        <Field Name="ActualCaption_Control1000000451">
-          <DataField>ActualCaption_Control1000000451</DataField>
-        </Field>
-        <Field Name="BudgetCaption_Control1000000452">
-          <DataField>BudgetCaption_Control1000000452</DataField>
-        </Field>
-        <Field Name="VarianceCaption_Control1000000454">
-          <DataField>VarianceCaption_Control1000000454</DataField>
-        </Field>
-        <Field Name="ActualCaption_Control1000000455">
-          <DataField>ActualCaption_Control1000000455</DataField>
-        </Field>
-        <Field Name="BudgetCaption_Control1000000621">
-          <DataField>BudgetCaption_Control1000000621</DataField>
-        </Field>
-        <Field Name="PortDay_Control1000000609Caption">
-          <DataField>PortDay_Control1000000609Caption</DataField>
-        </Field>
-        <Field Name="LostDay_Control1000000611Caption">
-          <DataField>LostDay_Control1000000611Caption</DataField>
-        </Field>
-        <Field Name="FishgDay_Control1000000613Caption">
-          <DataField>FishgDay_Control1000000613Caption</DataField>
-        </Field>
-        <Field Name="ETAConsCaption">
-          <DataField>ETAConsCaption</DataField>
-        </Field>
-        <Field Name="VessEndrCaption">
-          <DataField>VessEndrCaption</DataField>
-        </Field>
-        <Field Name="SkipperCaption">
-          <DataField>SkipperCaption</DataField>
-        </Field>
-        <Field Name="BudgetCaption_Control1000000446">
-          <DataField>BudgetCaption_Control1000000446</DataField>
-        </Field>
-        <Field Name="ActualCaption_Control1000000445">
-          <DataField>ActualCaption_Control1000000445</DataField>
-        </Field>
-        <Field Name="VarianceCaption_Control1000000286">
-          <DataField>VarianceCaption_Control1000000286</DataField>
-        </Field>
-        <Field Name="EmptyStringCaption">
-          <DataField>EmptyStringCaption</DataField>
-        </Field>
-        <Field Name="QuantityCaption_Control1000000308">
-          <DataField>QuantityCaption_Control1000000308</DataField>
-        </Field>
-        <Field Name="Var___N_Caption">
-          <DataField>Var___N_Caption</DataField>
-        </Field>
-        <Field Name="Bud___N_Caption">
-          <DataField>Bud___N_Caption</DataField>
-        </Field>
-        <Field Name="Bud___Caption">
-          <DataField>Bud___Caption</DataField>
-        </Field>
-        <Field Name="Bud__Qty_Caption">
-          <DataField>Bud__Qty_Caption</DataField>
-        </Field>
-        <Field Name="RateCaption">
-          <DataField>RateCaption</DataField>
-        </Field>
-        <Field Name="N_Caption">
-          <DataField>N_Caption</DataField>
-        </Field>
-        <Field Name="VarianceCaption_Control1000000252">
-          <DataField>VarianceCaption_Control1000000252</DataField>
-        </Field>
-        <Field Name="Jb__No__">
-          <DataField>Jb__No__</DataField>
-        </Field>
-        <Field Name="Jb__Search_Description_">
-          <DataField>Jb__Search_Description_</DataField>
-        </Field>
-        <Field Name="Jb_Description">
-          <DataField>Jb_Description</DataField>
-        </Field>
-        <Field Name="Jb__Description_2_">
-          <DataField>Jb__Description_2_</DataField>
-        </Field>
-        <Field Name="Jb__Bill_to_Customer_No__">
-          <DataField>Jb__Bill_to_Customer_No__</DataField>
-        </Field>
-        <Field Name="Jb__Creation_Date_">
-          <DataField>Jb__Creation_Date_</DataField>
-        </Field>
-        <Field Name="Jb__No__Caption">
-          <DataField>Jb__No__Caption</DataField>
-        </Field>
-        <Field Name="Jb__Search_Description_Caption">
-          <DataField>Jb__Search_Description_Caption</DataField>
-        </Field>
-        <Field Name="Jb_DescriptionCaption">
-          <DataField>Jb_DescriptionCaption</DataField>
-        </Field>
-        <Field Name="Jb__Description_2_Caption">
-          <DataField>Jb__Description_2_Caption</DataField>
-        </Field>
-        <Field Name="Jb__Bill_to_Customer_No__Caption">
-          <DataField>Jb__Bill_to_Customer_No__Caption</DataField>
-        </Field>
-        <Field Name="Jb__Creation_Date_Caption">
-          <DataField>Jb__Creation_Date_Caption</DataField>
-        </Field>
-        <Field Name="JbLedMark__Entry_No__">
-          <DataField>JbLedMark__Entry_No__</DataField>
-        </Field>
-        <Field Name="JbLedMark__Job_No__">
-          <DataField>JbLedMark__Job_No__</DataField>
-        </Field>
-        <Field Name="JbLedMark__Posting_Date_">
-          <DataField>JbLedMark__Posting_Date_</DataField>
-        </Field>
-        <Field Name="JbLedMark__Document_No__">
-          <DataField>JbLedMark__Document_No__</DataField>
-        </Field>
-        <Field Name="JbLedMark_Type">
-          <DataField>JbLedMark_Type</DataField>
-        </Field>
-        <Field Name="JbLedMark__Entry_No__Caption">
-          <DataField>JbLedMark__Entry_No__Caption</DataField>
-        </Field>
-        <Field Name="JbLedMark__Job_No__Caption">
-          <DataField>JbLedMark__Job_No__Caption</DataField>
-        </Field>
-        <Field Name="JbLedMark__Posting_Date_Caption">
-          <DataField>JbLedMark__Posting_Date_Caption</DataField>
-        </Field>
-        <Field Name="JbLedMark__Document_No__Caption">
-          <DataField>JbLedMark__Document_No__Caption</DataField>
-        </Field>
-        <Field Name="JbLedMark_TypeCaption">
-          <DataField>JbLedMark_TypeCaption</DataField>
-        </Field>
-        <Field Name="JbCatchMark__Table_Name_">
-          <DataField>JbCatchMark__Table_Name_</DataField>
-        </Field>
-        <Field Name="JbCatchMark__No__">
-          <DataField>JbCatchMark__No__</DataField>
-        </Field>
-        <Field Name="JbCatchMark_Code">
-          <DataField>JbCatchMark_Code</DataField>
-        </Field>
-        <Field Name="JbCatchMark_Description">
-          <DataField>JbCatchMark_Description</DataField>
-        </Field>
-        <Field Name="JbCatchMark__Pack_Size_">
-          <DataField>JbCatchMark__Pack_Size_</DataField>
-        </Field>
-        <Field Name="JbCatchMark_Brand">
-          <DataField>JbCatchMark_Brand</DataField>
-        </Field>
-        <Field Name="JbCatchMark__Table_Name_Caption">
-          <DataField>JbCatchMark__Table_Name_Caption</DataField>
-        </Field>
-        <Field Name="JbCatchMark__No__Caption">
-          <DataField>JbCatchMark__No__Caption</DataField>
-        </Field>
-        <Field Name="JbCatchMark_CodeCaption">
-          <DataField>JbCatchMark_CodeCaption</DataField>
-        </Field>
-        <Field Name="JbCatchMark_DescriptionCaption">
-          <DataField>JbCatchMark_DescriptionCaption</DataField>
-        </Field>
-        <Field Name="JbCatchMark__Pack_Size_Caption">
-          <DataField>JbCatchMark__Pack_Size_Caption</DataField>
-        </Field>
-        <Field Name="JbCatchMark_BrandCaption">
-          <DataField>JbCatchMark_BrandCaption</DataField>
-        </Field>
-        <Field Name="ValEntMark__Entry_No__">
-          <DataField>ValEntMark__Entry_No__</DataField>
-        </Field>
-        <Field Name="ValEntMark__Item_No__">
-          <DataField>ValEntMark__Item_No__</DataField>
-        </Field>
-        <Field Name="ValEntMark__Posting_Date_">
-          <DataField>ValEntMark__Posting_Date_</DataField>
-        </Field>
-        <Field Name="ValEntMark__Item_Ledger_Entry_Type_">
-          <DataField>ValEntMark__Item_Ledger_Entry_Type_</DataField>
-        </Field>
-        <Field Name="ValEntMark__Source_No__">
-          <DataField>ValEntMark__Source_No__</DataField>
-        </Field>
-        <Field Name="ValEntMark__Document_No__">
-          <DataField>ValEntMark__Document_No__</DataField>
-        </Field>
-        <Field Name="ValEntMark__Entry_No__Caption">
-          <DataField>ValEntMark__Entry_No__Caption</DataField>
-        </Field>
-        <Field Name="ValEntMark__Item_No__Caption">
-          <DataField>ValEntMark__Item_No__Caption</DataField>
-        </Field>
-        <Field Name="ValEntMark__Posting_Date_Caption">
-          <DataField>ValEntMark__Posting_Date_Caption</DataField>
-        </Field>
-        <Field Name="ValEntMark__Item_Ledger_Entry_Type_Caption">
-          <DataField>ValEntMark__Item_Ledger_Entry_Type_Caption</DataField>
-        </Field>
-        <Field Name="ValEntMark__Source_No__Caption">
-          <DataField>ValEntMark__Source_No__Caption</DataField>
-        </Field>
-        <Field Name="ValEntMark__Document_No__Caption">
-          <DataField>ValEntMark__Document_No__Caption</DataField>
-        </Field>
-      </Fields>
-    </DataSet>
-  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -23821,4 +22938,887 @@ End Function
   <Language>=User!Language</Language>
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="FORMAT_TODAY_0_4_">
+          <DataField>FORMAT_TODAY_0_4_</DataField>
+        </Field>
+        <Field Name="COMPANYNAME">
+          <DataField>COMPANYNAME</DataField>
+        </Field>
+        <Field Name="CurrReport_PAGENO">
+          <DataField>CurrReport_PAGENO</DataField>
+        </Field>
+        <Field Name="USERID">
+          <DataField>USERID</DataField>
+        </Field>
+        <Field Name="Text18">
+          <DataField>Text18</DataField>
+        </Field>
+        <Field Name="GETFILTERS__">
+          <DataField>GETFILTERS__</DataField>
+        </Field>
+        <Field Name="Text27">
+          <DataField>Text27</DataField>
+        </Field>
+        <Field Name="Text26">
+          <DataField>Text26</DataField>
+        </Field>
+        <Field Name="Text25">
+          <DataField>Text25</DataField>
+        </Field>
+        <Field Name="Text24">
+          <DataField>Text24</DataField>
+        </Field>
+        <Field Name="Text23">
+          <DataField>Text23</DataField>
+        </Field>
+        <Field Name="Text22">
+          <DataField>Text22</DataField>
+        </Field>
+        <Field Name="Text21">
+          <DataField>Text21</DataField>
+        </Field>
+        <Field Name="Jobss_Vessel">
+          <DataField>Jobss_Vessel</DataField>
+        </Field>
+        <Field Name="PntStor_7_">
+          <DataField>PntStor_7_</DataField>
+        </Field>
+        <Field Name="PntStor_7_Format">
+          <DataField>PntStor_7_Format</DataField>
+        </Field>
+        <Field Name="PntStor_6_">
+          <DataField>PntStor_6_</DataField>
+        </Field>
+        <Field Name="PntStor_6_Format">
+          <DataField>PntStor_6_Format</DataField>
+        </Field>
+        <Field Name="PntStor_5_">
+          <DataField>PntStor_5_</DataField>
+        </Field>
+        <Field Name="PntStor_5_Format">
+          <DataField>PntStor_5_Format</DataField>
+        </Field>
+        <Field Name="PntStor_4_">
+          <DataField>PntStor_4_</DataField>
+        </Field>
+        <Field Name="PntStor_4_Format">
+          <DataField>PntStor_4_Format</DataField>
+        </Field>
+        <Field Name="PntStor_3_">
+          <DataField>PntStor_3_</DataField>
+        </Field>
+        <Field Name="PntStor_3_Format">
+          <DataField>PntStor_3_Format</DataField>
+        </Field>
+        <Field Name="PntStor_2_">
+          <DataField>PntStor_2_</DataField>
+        </Field>
+        <Field Name="PntStor_2_Format">
+          <DataField>PntStor_2_Format</DataField>
+        </Field>
+        <Field Name="PntStor_1_">
+          <DataField>PntStor_1_</DataField>
+        </Field>
+        <Field Name="PntStor_1_Format">
+          <DataField>PntStor_1_Format</DataField>
+        </Field>
+        <Field Name="PortDay">
+          <DataField>PortDay</DataField>
+        </Field>
+        <Field Name="PortDayFormat">
+          <DataField>PortDayFormat</DataField>
+        </Field>
+        <Field Name="LostDay">
+          <DataField>LostDay</DataField>
+        </Field>
+        <Field Name="LostDayFormat">
+          <DataField>LostDayFormat</DataField>
+        </Field>
+        <Field Name="FishgDay">
+          <DataField>FishgDay</DataField>
+        </Field>
+        <Field Name="FishgDayFormat">
+          <DataField>FishgDayFormat</DataField>
+        </Field>
+        <Field Name="CycleDay">
+          <DataField>CycleDay</DataField>
+        </Field>
+        <Field Name="CycleDayFormat">
+          <DataField>CycleDayFormat</DataField>
+        </Field>
+        <Field Name="Jobss__Ending_Date_">
+          <DataField>Jobss__Ending_Date_</DataField>
+        </Field>
+        <Field Name="Jobss__Starting_Date_">
+          <DataField>Jobss__Starting_Date_</DataField>
+        </Field>
+        <Field Name="Jobss__No__">
+          <DataField>Jobss__No__</DataField>
+        </Field>
+        <Field Name="PntStor_7__Countrs">
+          <DataField>PntStor_7__Countrs</DataField>
+        </Field>
+        <Field Name="PntStor_7__CountrsFormat">
+          <DataField>PntStor_7__CountrsFormat</DataField>
+        </Field>
+        <Field Name="PntStor_6__Control1000000233">
+          <DataField>PntStor_6__Control1000000233</DataField>
+        </Field>
+        <Field Name="PntStor_6__Control1000000233Format">
+          <DataField>PntStor_6__Control1000000233Format</DataField>
+        </Field>
+        <Field Name="PntStor_5__Control1000000234">
+          <DataField>PntStor_5__Control1000000234</DataField>
+        </Field>
+        <Field Name="PntStor_5__Control1000000234Format">
+          <DataField>PntStor_5__Control1000000234Format</DataField>
+        </Field>
+        <Field Name="PntStor_4__Control1000000235">
+          <DataField>PntStor_4__Control1000000235</DataField>
+        </Field>
+        <Field Name="PntStor_4__Control1000000235Format">
+          <DataField>PntStor_4__Control1000000235Format</DataField>
+        </Field>
+        <Field Name="PntStor_3__Control1000000236">
+          <DataField>PntStor_3__Control1000000236</DataField>
+        </Field>
+        <Field Name="PntStor_3__Control1000000236Format">
+          <DataField>PntStor_3__Control1000000236Format</DataField>
+        </Field>
+        <Field Name="PntStor_2__Control1000000237">
+          <DataField>PntStor_2__Control1000000237</DataField>
+        </Field>
+        <Field Name="PntStor_2__Control1000000237Format">
+          <DataField>PntStor_2__Control1000000237Format</DataField>
+        </Field>
+        <Field Name="PntStor_1__Control1000000238">
+          <DataField>PntStor_1__Control1000000238</DataField>
+        </Field>
+        <Field Name="PntStor_1__Control1000000238Format">
+          <DataField>PntStor_1__Control1000000238Format</DataField>
+        </Field>
+        <Field Name="PortDay_Control1000000239">
+          <DataField>PortDay_Control1000000239</DataField>
+        </Field>
+        <Field Name="PortDay_Control1000000239Format">
+          <DataField>PortDay_Control1000000239Format</DataField>
+        </Field>
+        <Field Name="LostDay_Control1000000240">
+          <DataField>LostDay_Control1000000240</DataField>
+        </Field>
+        <Field Name="LostDay_Control1000000240Format">
+          <DataField>LostDay_Control1000000240Format</DataField>
+        </Field>
+        <Field Name="FishgDay_Control1000000241">
+          <DataField>FishgDay_Control1000000241</DataField>
+        </Field>
+        <Field Name="FishgDay_Control1000000241Format">
+          <DataField>FishgDay_Control1000000241Format</DataField>
+        </Field>
+        <Field Name="CycleDay_Control1000000242">
+          <DataField>CycleDay_Control1000000242</DataField>
+        </Field>
+        <Field Name="CycleDay_Control1000000242Format">
+          <DataField>CycleDay_Control1000000242Format</DataField>
+        </Field>
+        <Field Name="TotalFor___FIELDCAPTION_Vessel_">
+          <DataField>TotalFor___FIELDCAPTION_Vessel_</DataField>
+        </Field>
+        <Field Name="PntStor_7__Countrs_Control1000000221">
+          <DataField>PntStor_7__Countrs_Control1000000221</DataField>
+        </Field>
+        <Field Name="PntStor_7__Countrs_Control1000000221Format">
+          <DataField>PntStor_7__Countrs_Control1000000221Format</DataField>
+        </Field>
+        <Field Name="PntStor_6__Control1000000222">
+          <DataField>PntStor_6__Control1000000222</DataField>
+        </Field>
+        <Field Name="PntStor_6__Control1000000222Format">
+          <DataField>PntStor_6__Control1000000222Format</DataField>
+        </Field>
+        <Field Name="PntStor_5__Control1000000223">
+          <DataField>PntStor_5__Control1000000223</DataField>
+        </Field>
+        <Field Name="PntStor_5__Control1000000223Format">
+          <DataField>PntStor_5__Control1000000223Format</DataField>
+        </Field>
+        <Field Name="PntStor_4__Control1000000224">
+          <DataField>PntStor_4__Control1000000224</DataField>
+        </Field>
+        <Field Name="PntStor_4__Control1000000224Format">
+          <DataField>PntStor_4__Control1000000224Format</DataField>
+        </Field>
+        <Field Name="PntStor_3__Control1000000225">
+          <DataField>PntStor_3__Control1000000225</DataField>
+        </Field>
+        <Field Name="PntStor_3__Control1000000225Format">
+          <DataField>PntStor_3__Control1000000225Format</DataField>
+        </Field>
+        <Field Name="PntStor_2__Control1000000226">
+          <DataField>PntStor_2__Control1000000226</DataField>
+        </Field>
+        <Field Name="PntStor_2__Control1000000226Format">
+          <DataField>PntStor_2__Control1000000226Format</DataField>
+        </Field>
+        <Field Name="PntStor_1__Control1000000227">
+          <DataField>PntStor_1__Control1000000227</DataField>
+        </Field>
+        <Field Name="PntStor_1__Control1000000227Format">
+          <DataField>PntStor_1__Control1000000227Format</DataField>
+        </Field>
+        <Field Name="PortDay_Control1000000228">
+          <DataField>PortDay_Control1000000228</DataField>
+        </Field>
+        <Field Name="PortDay_Control1000000228Format">
+          <DataField>PortDay_Control1000000228Format</DataField>
+        </Field>
+        <Field Name="LostDay_Control1000000229">
+          <DataField>LostDay_Control1000000229</DataField>
+        </Field>
+        <Field Name="LostDay_Control1000000229Format">
+          <DataField>LostDay_Control1000000229Format</DataField>
+        </Field>
+        <Field Name="FishgDay_Control1000000230">
+          <DataField>FishgDay_Control1000000230</DataField>
+        </Field>
+        <Field Name="FishgDay_Control1000000230Format">
+          <DataField>FishgDay_Control1000000230Format</DataField>
+        </Field>
+        <Field Name="CycleDay_Control1000000231">
+          <DataField>CycleDay_Control1000000231</DataField>
+        </Field>
+        <Field Name="CycleDay_Control1000000231Format">
+          <DataField>CycleDay_Control1000000231Format</DataField>
+        </Field>
+        <Field Name="Coutry_Name">
+          <DataField>Coutry_Name</DataField>
+        </Field>
+        <Field Name="Res_Name">
+          <DataField>Res_Name</DataField>
+        </Field>
+        <Field Name="Vess">
+          <DataField>Vess</DataField>
+        </Field>
+        <Field Name="SeaRange_20_">
+          <DataField>SeaRange_20_</DataField>
+        </Field>
+        <Field Name="SeaRange_19_">
+          <DataField>SeaRange_19_</DataField>
+        </Field>
+        <Field Name="SeaRange_18_">
+          <DataField>SeaRange_18_</DataField>
+        </Field>
+        <Field Name="SeaRange_17_">
+          <DataField>SeaRange_17_</DataField>
+        </Field>
+        <Field Name="SeaRange_16_">
+          <DataField>SeaRange_16_</DataField>
+        </Field>
+        <Field Name="SeaRange_15_">
+          <DataField>SeaRange_15_</DataField>
+        </Field>
+        <Field Name="SeaRange_14_">
+          <DataField>SeaRange_14_</DataField>
+        </Field>
+        <Field Name="SeaRange_13_">
+          <DataField>SeaRange_13_</DataField>
+        </Field>
+        <Field Name="SeaRange_12_">
+          <DataField>SeaRange_12_</DataField>
+        </Field>
+        <Field Name="SeaRange_11_">
+          <DataField>SeaRange_11_</DataField>
+        </Field>
+        <Field Name="SeaRange_10_">
+          <DataField>SeaRange_10_</DataField>
+        </Field>
+        <Field Name="SeaRange_9_">
+          <DataField>SeaRange_9_</DataField>
+        </Field>
+        <Field Name="SeaRange_8_">
+          <DataField>SeaRange_8_</DataField>
+        </Field>
+        <Field Name="SeaRange_7_">
+          <DataField>SeaRange_7_</DataField>
+        </Field>
+        <Field Name="SeaRange_6_">
+          <DataField>SeaRange_6_</DataField>
+        </Field>
+        <Field Name="SeaRange_5_">
+          <DataField>SeaRange_5_</DataField>
+        </Field>
+        <Field Name="SeaRange_4_">
+          <DataField>SeaRange_4_</DataField>
+        </Field>
+        <Field Name="SeaRange_3_">
+          <DataField>SeaRange_3_</DataField>
+        </Field>
+        <Field Name="SeaRange_2_">
+          <DataField>SeaRange_2_</DataField>
+        </Field>
+        <Field Name="SubHdr6A_5_">
+          <DataField>SubHdr6A_5_</DataField>
+        </Field>
+        <Field Name="SubHdr6A_5_Format">
+          <DataField>SubHdr6A_5_Format</DataField>
+        </Field>
+        <Field Name="SubHdr5A_5_">
+          <DataField>SubHdr5A_5_</DataField>
+        </Field>
+        <Field Name="SubHdr5A_5_Format">
+          <DataField>SubHdr5A_5_Format</DataField>
+        </Field>
+        <Field Name="SubHdr4A_5_">
+          <DataField>SubHdr4A_5_</DataField>
+        </Field>
+        <Field Name="SubHdr4A_5_Format">
+          <DataField>SubHdr4A_5_Format</DataField>
+        </Field>
+        <Field Name="SubHdr3A_5_">
+          <DataField>SubHdr3A_5_</DataField>
+        </Field>
+        <Field Name="SubHdr2A_5_">
+          <DataField>SubHdr2A_5_</DataField>
+        </Field>
+        <Field Name="SubHdr2A_5_Format">
+          <DataField>SubHdr2A_5_Format</DataField>
+        </Field>
+        <Field Name="SubHdr2A_4_">
+          <DataField>SubHdr2A_4_</DataField>
+        </Field>
+        <Field Name="SubHdr2A_4_Format">
+          <DataField>SubHdr2A_4_Format</DataField>
+        </Field>
+        <Field Name="SubHdr3A_4_">
+          <DataField>SubHdr3A_4_</DataField>
+        </Field>
+        <Field Name="SubHdr4A_4_">
+          <DataField>SubHdr4A_4_</DataField>
+        </Field>
+        <Field Name="SubHdr4A_4_Format">
+          <DataField>SubHdr4A_4_Format</DataField>
+        </Field>
+        <Field Name="SubHdr5A_4_">
+          <DataField>SubHdr5A_4_</DataField>
+        </Field>
+        <Field Name="SubHdr5A_4_Format">
+          <DataField>SubHdr5A_4_Format</DataField>
+        </Field>
+        <Field Name="SubHdr6A_4_">
+          <DataField>SubHdr6A_4_</DataField>
+        </Field>
+        <Field Name="SubHdr6A_4_Format">
+          <DataField>SubHdr6A_4_Format</DataField>
+        </Field>
+        <Field Name="SubHdr1A_4_">
+          <DataField>SubHdr1A_4_</DataField>
+        </Field>
+        <Field Name="SubHdr1A_5_">
+          <DataField>SubHdr1A_5_</DataField>
+        </Field>
+        <Field Name="SubHdr1A_3_">
+          <DataField>SubHdr1A_3_</DataField>
+        </Field>
+        <Field Name="SubHdr2A_3_">
+          <DataField>SubHdr2A_3_</DataField>
+        </Field>
+        <Field Name="SubHdr2A_3_Format">
+          <DataField>SubHdr2A_3_Format</DataField>
+        </Field>
+        <Field Name="SubHdr3A_3_">
+          <DataField>SubHdr3A_3_</DataField>
+        </Field>
+        <Field Name="SubHdr4A_3_">
+          <DataField>SubHdr4A_3_</DataField>
+        </Field>
+        <Field Name="SubHdr4A_3_Format">
+          <DataField>SubHdr4A_3_Format</DataField>
+        </Field>
+        <Field Name="SubHdr5A_3_">
+          <DataField>SubHdr5A_3_</DataField>
+        </Field>
+        <Field Name="SubHdr5A_3_Format">
+          <DataField>SubHdr5A_3_Format</DataField>
+        </Field>
+        <Field Name="SubHdr6A_3_">
+          <DataField>SubHdr6A_3_</DataField>
+        </Field>
+        <Field Name="SubHdr6A_3_Format">
+          <DataField>SubHdr6A_3_Format</DataField>
+        </Field>
+        <Field Name="SubHdr1A_2_">
+          <DataField>SubHdr1A_2_</DataField>
+        </Field>
+        <Field Name="SubHdr2A_2_">
+          <DataField>SubHdr2A_2_</DataField>
+        </Field>
+        <Field Name="SubHdr2A_2_Format">
+          <DataField>SubHdr2A_2_Format</DataField>
+        </Field>
+        <Field Name="SubHdr3A_2_">
+          <DataField>SubHdr3A_2_</DataField>
+        </Field>
+        <Field Name="SubHdr5A_2_">
+          <DataField>SubHdr5A_2_</DataField>
+        </Field>
+        <Field Name="SubHdr5A_2_Format">
+          <DataField>SubHdr5A_2_Format</DataField>
+        </Field>
+        <Field Name="SubHdr4A_2_">
+          <DataField>SubHdr4A_2_</DataField>
+        </Field>
+        <Field Name="SubHdr4A_2_Format">
+          <DataField>SubHdr4A_2_Format</DataField>
+        </Field>
+        <Field Name="SubHdr6A_2_">
+          <DataField>SubHdr6A_2_</DataField>
+        </Field>
+        <Field Name="SubHdr6A_2_Format">
+          <DataField>SubHdr6A_2_Format</DataField>
+        </Field>
+        <Field Name="PortDay_Control1000000609">
+          <DataField>PortDay_Control1000000609</DataField>
+        </Field>
+        <Field Name="PortDay_Control1000000609Format">
+          <DataField>PortDay_Control1000000609Format</DataField>
+        </Field>
+        <Field Name="LostDay_Control1000000611">
+          <DataField>LostDay_Control1000000611</DataField>
+        </Field>
+        <Field Name="LostDay_Control1000000611Format">
+          <DataField>LostDay_Control1000000611Format</DataField>
+        </Field>
+        <Field Name="FishgDay_Control1000000613">
+          <DataField>FishgDay_Control1000000613</DataField>
+        </Field>
+        <Field Name="FishgDay_Control1000000613Format">
+          <DataField>FishgDay_Control1000000613Format</DataField>
+        </Field>
+        <Field Name="ETACons">
+          <DataField>ETACons</DataField>
+        </Field>
+        <Field Name="VessEndr">
+          <DataField>VessEndr</DataField>
+        </Field>
+        <Field Name="VessEndrFormat">
+          <DataField>VessEndrFormat</DataField>
+        </Field>
+        <Field Name="SeaRange_1_">
+          <DataField>SeaRange_1_</DataField>
+        </Field>
+        <Field Name="CurrReport_PAGENOCaption">
+          <DataField>CurrReport_PAGENOCaption</DataField>
+        </Field>
+        <Field Name="FILTERSCaption">
+          <DataField>FILTERSCaption</DataField>
+        </Field>
+        <Field Name="Control1000000167Caption">
+          <DataField>Control1000000167Caption</DataField>
+        </Field>
+        <Field Name="Control1000000168Caption">
+          <DataField>Control1000000168Caption</DataField>
+        </Field>
+        <Field Name="Control1000000169Caption">
+          <DataField>Control1000000169Caption</DataField>
+        </Field>
+        <Field Name="Control1000000170Caption">
+          <DataField>Control1000000170Caption</DataField>
+        </Field>
+        <Field Name="Control1000000171Caption">
+          <DataField>Control1000000171Caption</DataField>
+        </Field>
+        <Field Name="Control1000000172Caption">
+          <DataField>Control1000000172Caption</DataField>
+        </Field>
+        <Field Name="Control1000000173Caption">
+          <DataField>Control1000000173Caption</DataField>
+        </Field>
+        <Field Name="Jobss_VesselCaption">
+          <DataField>Jobss_VesselCaption</DataField>
+        </Field>
+        <Field Name="VarianceCaption">
+          <DataField>VarianceCaption</DataField>
+        </Field>
+        <Field Name="ActualCaption">
+          <DataField>ActualCaption</DataField>
+        </Field>
+        <Field Name="BudgetCaption">
+          <DataField>BudgetCaption</DataField>
+        </Field>
+        <Field Name="VarianceCaption_Control1000000459">
+          <DataField>VarianceCaption_Control1000000459</DataField>
+        </Field>
+        <Field Name="ActualCaption_Control1000000460">
+          <DataField>ActualCaption_Control1000000460</DataField>
+        </Field>
+        <Field Name="BudgetCaption_Control1000000461">
+          <DataField>BudgetCaption_Control1000000461</DataField>
+        </Field>
+        <Field Name="VarianceCaption_Control1000000462">
+          <DataField>VarianceCaption_Control1000000462</DataField>
+        </Field>
+        <Field Name="ActualCaption_Control1000000463">
+          <DataField>ActualCaption_Control1000000463</DataField>
+        </Field>
+        <Field Name="BudgetCaption_Control1000000464">
+          <DataField>BudgetCaption_Control1000000464</DataField>
+        </Field>
+        <Field Name="VarianceCaption_Control1000000465">
+          <DataField>VarianceCaption_Control1000000465</DataField>
+        </Field>
+        <Field Name="ActualCaption_Control1000000466">
+          <DataField>ActualCaption_Control1000000466</DataField>
+        </Field>
+        <Field Name="BudgetCaption_Control1000000467">
+          <DataField>BudgetCaption_Control1000000467</DataField>
+        </Field>
+        <Field Name="VarianceCaption_Control1000000468">
+          <DataField>VarianceCaption_Control1000000468</DataField>
+        </Field>
+        <Field Name="ActualCaption_Control1000000469">
+          <DataField>ActualCaption_Control1000000469</DataField>
+        </Field>
+        <Field Name="BudgetCaption_Control1000000470">
+          <DataField>BudgetCaption_Control1000000470</DataField>
+        </Field>
+        <Field Name="VarianceCaption_Control1000000471">
+          <DataField>VarianceCaption_Control1000000471</DataField>
+        </Field>
+        <Field Name="ActualCaption_Control1000000472">
+          <DataField>ActualCaption_Control1000000472</DataField>
+        </Field>
+        <Field Name="BudgetCaption_Control1000000473">
+          <DataField>BudgetCaption_Control1000000473</DataField>
+        </Field>
+        <Field Name="VarianceCaption_Control1000000474">
+          <DataField>VarianceCaption_Control1000000474</DataField>
+        </Field>
+        <Field Name="ActualCaption_Control1000000475">
+          <DataField>ActualCaption_Control1000000475</DataField>
+        </Field>
+        <Field Name="BudgetCaption_Control1000000476">
+          <DataField>BudgetCaption_Control1000000476</DataField>
+        </Field>
+        <Field Name="VarianceCaption_Control1000000477">
+          <DataField>VarianceCaption_Control1000000477</DataField>
+        </Field>
+        <Field Name="ActualCaption_Control1000000478">
+          <DataField>ActualCaption_Control1000000478</DataField>
+        </Field>
+        <Field Name="BudgetCaption_Control1000000479">
+          <DataField>BudgetCaption_Control1000000479</DataField>
+        </Field>
+        <Field Name="VarianceCaption_Control1000000480">
+          <DataField>VarianceCaption_Control1000000480</DataField>
+        </Field>
+        <Field Name="ActualCaption_Control1000000481">
+          <DataField>ActualCaption_Control1000000481</DataField>
+        </Field>
+        <Field Name="BudgetCaption_Control1000000482">
+          <DataField>BudgetCaption_Control1000000482</DataField>
+        </Field>
+        <Field Name="VarianceCaption_Control1000000483">
+          <DataField>VarianceCaption_Control1000000483</DataField>
+        </Field>
+        <Field Name="ActualCaption_Control1000000484">
+          <DataField>ActualCaption_Control1000000484</DataField>
+        </Field>
+        <Field Name="BudgetCaption_Control1000000485">
+          <DataField>BudgetCaption_Control1000000485</DataField>
+        </Field>
+        <Field Name="VarianceCaption_Control1000000486">
+          <DataField>VarianceCaption_Control1000000486</DataField>
+        </Field>
+        <Field Name="ActualCaption_Control1000000487">
+          <DataField>ActualCaption_Control1000000487</DataField>
+        </Field>
+        <Field Name="BudgetCaption_Control1000000488">
+          <DataField>BudgetCaption_Control1000000488</DataField>
+        </Field>
+        <Field Name="VarianceCaption_Control1000000489">
+          <DataField>VarianceCaption_Control1000000489</DataField>
+        </Field>
+        <Field Name="ActualCaption_Control1000000490">
+          <DataField>ActualCaption_Control1000000490</DataField>
+        </Field>
+        <Field Name="BudgetCaption_Control1000000491">
+          <DataField>BudgetCaption_Control1000000491</DataField>
+        </Field>
+        <Field Name="VarianceCaption_Control1000000492">
+          <DataField>VarianceCaption_Control1000000492</DataField>
+        </Field>
+        <Field Name="ActualCaption_Control1000000493">
+          <DataField>ActualCaption_Control1000000493</DataField>
+        </Field>
+        <Field Name="BudgetCaption_Control1000000494">
+          <DataField>BudgetCaption_Control1000000494</DataField>
+        </Field>
+        <Field Name="VarianceCaption_Control1000000495">
+          <DataField>VarianceCaption_Control1000000495</DataField>
+        </Field>
+        <Field Name="ActualCaption_Control1000000496">
+          <DataField>ActualCaption_Control1000000496</DataField>
+        </Field>
+        <Field Name="BudgetCaption_Control1000000497">
+          <DataField>BudgetCaption_Control1000000497</DataField>
+        </Field>
+        <Field Name="VarianceCaption_Control1000000498">
+          <DataField>VarianceCaption_Control1000000498</DataField>
+        </Field>
+        <Field Name="ActualCaption_Control1000000499">
+          <DataField>ActualCaption_Control1000000499</DataField>
+        </Field>
+        <Field Name="BudgetCaption_Control1000000500">
+          <DataField>BudgetCaption_Control1000000500</DataField>
+        </Field>
+        <Field Name="VarianceCaption_Control1000000504">
+          <DataField>VarianceCaption_Control1000000504</DataField>
+        </Field>
+        <Field Name="ActualCaption_Control1000000505">
+          <DataField>ActualCaption_Control1000000505</DataField>
+        </Field>
+        <Field Name="BudgetCaption_Control1000000506">
+          <DataField>BudgetCaption_Control1000000506</DataField>
+        </Field>
+        <Field Name="QuantityCaption">
+          <DataField>QuantityCaption</DataField>
+        </Field>
+        <Field Name="BudgetCaption_Control1000000249">
+          <DataField>BudgetCaption_Control1000000249</DataField>
+        </Field>
+        <Field Name="ActualCaption_Control1000000244">
+          <DataField>ActualCaption_Control1000000244</DataField>
+        </Field>
+        <Field Name="VarianceCaption_Control1000000285">
+          <DataField>VarianceCaption_Control1000000285</DataField>
+        </Field>
+        <Field Name="VarianceCaption_Control1000000334">
+          <DataField>VarianceCaption_Control1000000334</DataField>
+        </Field>
+        <Field Name="ActualCaption_Control1000000447">
+          <DataField>ActualCaption_Control1000000447</DataField>
+        </Field>
+        <Field Name="BudgetCaption_Control1000000448">
+          <DataField>BudgetCaption_Control1000000448</DataField>
+        </Field>
+        <Field Name="VarianceCaption_Control1000000450">
+          <DataField>VarianceCaption_Control1000000450</DataField>
+        </Field>
+        <Field Name="ActualCaption_Control1000000451">
+          <DataField>ActualCaption_Control1000000451</DataField>
+        </Field>
+        <Field Name="BudgetCaption_Control1000000452">
+          <DataField>BudgetCaption_Control1000000452</DataField>
+        </Field>
+        <Field Name="VarianceCaption_Control1000000454">
+          <DataField>VarianceCaption_Control1000000454</DataField>
+        </Field>
+        <Field Name="ActualCaption_Control1000000455">
+          <DataField>ActualCaption_Control1000000455</DataField>
+        </Field>
+        <Field Name="BudgetCaption_Control1000000621">
+          <DataField>BudgetCaption_Control1000000621</DataField>
+        </Field>
+        <Field Name="PortDay_Control1000000609Caption">
+          <DataField>PortDay_Control1000000609Caption</DataField>
+        </Field>
+        <Field Name="LostDay_Control1000000611Caption">
+          <DataField>LostDay_Control1000000611Caption</DataField>
+        </Field>
+        <Field Name="FishgDay_Control1000000613Caption">
+          <DataField>FishgDay_Control1000000613Caption</DataField>
+        </Field>
+        <Field Name="ETAConsCaption">
+          <DataField>ETAConsCaption</DataField>
+        </Field>
+        <Field Name="VessEndrCaption">
+          <DataField>VessEndrCaption</DataField>
+        </Field>
+        <Field Name="SkipperCaption">
+          <DataField>SkipperCaption</DataField>
+        </Field>
+        <Field Name="BudgetCaption_Control1000000446">
+          <DataField>BudgetCaption_Control1000000446</DataField>
+        </Field>
+        <Field Name="ActualCaption_Control1000000445">
+          <DataField>ActualCaption_Control1000000445</DataField>
+        </Field>
+        <Field Name="VarianceCaption_Control1000000286">
+          <DataField>VarianceCaption_Control1000000286</DataField>
+        </Field>
+        <Field Name="EmptyStringCaption">
+          <DataField>EmptyStringCaption</DataField>
+        </Field>
+        <Field Name="QuantityCaption_Control1000000308">
+          <DataField>QuantityCaption_Control1000000308</DataField>
+        </Field>
+        <Field Name="Var___N_Caption">
+          <DataField>Var___N_Caption</DataField>
+        </Field>
+        <Field Name="Bud___N_Caption">
+          <DataField>Bud___N_Caption</DataField>
+        </Field>
+        <Field Name="Bud___Caption">
+          <DataField>Bud___Caption</DataField>
+        </Field>
+        <Field Name="Bud__Qty_Caption">
+          <DataField>Bud__Qty_Caption</DataField>
+        </Field>
+        <Field Name="RateCaption">
+          <DataField>RateCaption</DataField>
+        </Field>
+        <Field Name="N_Caption">
+          <DataField>N_Caption</DataField>
+        </Field>
+        <Field Name="VarianceCaption_Control1000000252">
+          <DataField>VarianceCaption_Control1000000252</DataField>
+        </Field>
+        <Field Name="Jb__No__">
+          <DataField>Jb__No__</DataField>
+        </Field>
+        <Field Name="Jb__Search_Description_">
+          <DataField>Jb__Search_Description_</DataField>
+        </Field>
+        <Field Name="Jb_Description">
+          <DataField>Jb_Description</DataField>
+        </Field>
+        <Field Name="Jb__Description_2_">
+          <DataField>Jb__Description_2_</DataField>
+        </Field>
+        <Field Name="Jb__Bill_to_Customer_No__">
+          <DataField>Jb__Bill_to_Customer_No__</DataField>
+        </Field>
+        <Field Name="Jb__Creation_Date_">
+          <DataField>Jb__Creation_Date_</DataField>
+        </Field>
+        <Field Name="Jb__No__Caption">
+          <DataField>Jb__No__Caption</DataField>
+        </Field>
+        <Field Name="Jb__Search_Description_Caption">
+          <DataField>Jb__Search_Description_Caption</DataField>
+        </Field>
+        <Field Name="Jb_DescriptionCaption">
+          <DataField>Jb_DescriptionCaption</DataField>
+        </Field>
+        <Field Name="Jb__Description_2_Caption">
+          <DataField>Jb__Description_2_Caption</DataField>
+        </Field>
+        <Field Name="Jb__Bill_to_Customer_No__Caption">
+          <DataField>Jb__Bill_to_Customer_No__Caption</DataField>
+        </Field>
+        <Field Name="Jb__Creation_Date_Caption">
+          <DataField>Jb__Creation_Date_Caption</DataField>
+        </Field>
+        <Field Name="JbLedMark__Entry_No__">
+          <DataField>JbLedMark__Entry_No__</DataField>
+        </Field>
+        <Field Name="JbLedMark__Job_No__">
+          <DataField>JbLedMark__Job_No__</DataField>
+        </Field>
+        <Field Name="JbLedMark__Posting_Date_">
+          <DataField>JbLedMark__Posting_Date_</DataField>
+        </Field>
+        <Field Name="JbLedMark__Document_No__">
+          <DataField>JbLedMark__Document_No__</DataField>
+        </Field>
+        <Field Name="JbLedMark_Type">
+          <DataField>JbLedMark_Type</DataField>
+        </Field>
+        <Field Name="JbLedMark__Entry_No__Caption">
+          <DataField>JbLedMark__Entry_No__Caption</DataField>
+        </Field>
+        <Field Name="JbLedMark__Job_No__Caption">
+          <DataField>JbLedMark__Job_No__Caption</DataField>
+        </Field>
+        <Field Name="JbLedMark__Posting_Date_Caption">
+          <DataField>JbLedMark__Posting_Date_Caption</DataField>
+        </Field>
+        <Field Name="JbLedMark__Document_No__Caption">
+          <DataField>JbLedMark__Document_No__Caption</DataField>
+        </Field>
+        <Field Name="JbLedMark_TypeCaption">
+          <DataField>JbLedMark_TypeCaption</DataField>
+        </Field>
+        <Field Name="JbCatchMark__Table_Name_">
+          <DataField>JbCatchMark__Table_Name_</DataField>
+        </Field>
+        <Field Name="JbCatchMark__No__">
+          <DataField>JbCatchMark__No__</DataField>
+        </Field>
+        <Field Name="JbCatchMark_Code">
+          <DataField>JbCatchMark_Code</DataField>
+        </Field>
+        <Field Name="JbCatchMark_Description">
+          <DataField>JbCatchMark_Description</DataField>
+        </Field>
+        <Field Name="JbCatchMark__Pack_Size_">
+          <DataField>JbCatchMark__Pack_Size_</DataField>
+        </Field>
+        <Field Name="JbCatchMark_Brand">
+          <DataField>JbCatchMark_Brand</DataField>
+        </Field>
+        <Field Name="JbCatchMark__Table_Name_Caption">
+          <DataField>JbCatchMark__Table_Name_Caption</DataField>
+        </Field>
+        <Field Name="JbCatchMark__No__Caption">
+          <DataField>JbCatchMark__No__Caption</DataField>
+        </Field>
+        <Field Name="JbCatchMark_CodeCaption">
+          <DataField>JbCatchMark_CodeCaption</DataField>
+        </Field>
+        <Field Name="JbCatchMark_DescriptionCaption">
+          <DataField>JbCatchMark_DescriptionCaption</DataField>
+        </Field>
+        <Field Name="JbCatchMark__Pack_Size_Caption">
+          <DataField>JbCatchMark__Pack_Size_Caption</DataField>
+        </Field>
+        <Field Name="JbCatchMark_BrandCaption">
+          <DataField>JbCatchMark_BrandCaption</DataField>
+        </Field>
+        <Field Name="ValEntMark__Entry_No__">
+          <DataField>ValEntMark__Entry_No__</DataField>
+        </Field>
+        <Field Name="ValEntMark__Item_No__">
+          <DataField>ValEntMark__Item_No__</DataField>
+        </Field>
+        <Field Name="ValEntMark__Posting_Date_">
+          <DataField>ValEntMark__Posting_Date_</DataField>
+        </Field>
+        <Field Name="ValEntMark__Item_Ledger_Entry_Type_">
+          <DataField>ValEntMark__Item_Ledger_Entry_Type_</DataField>
+        </Field>
+        <Field Name="ValEntMark__Source_No__">
+          <DataField>ValEntMark__Source_No__</DataField>
+        </Field>
+        <Field Name="ValEntMark__Document_No__">
+          <DataField>ValEntMark__Document_No__</DataField>
+        </Field>
+        <Field Name="ValEntMark__Entry_No__Caption">
+          <DataField>ValEntMark__Entry_No__Caption</DataField>
+        </Field>
+        <Field Name="ValEntMark__Item_No__Caption">
+          <DataField>ValEntMark__Item_No__Caption</DataField>
+        </Field>
+        <Field Name="ValEntMark__Posting_Date_Caption">
+          <DataField>ValEntMark__Posting_Date_Caption</DataField>
+        </Field>
+        <Field Name="ValEntMark__Item_Ledger_Entry_Type_Caption">
+          <DataField>ValEntMark__Item_Ledger_Entry_Type_Caption</DataField>
+        </Field>
+        <Field Name="ValEntMark__Source_No__Caption">
+          <DataField>ValEntMark__Source_No__Caption</DataField>
+        </Field>
+        <Field Name="ValEntMark__Document_No__Caption">
+          <DataField>ValEntMark__Document_No__Caption</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
 </Report>

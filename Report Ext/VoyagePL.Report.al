@@ -1155,7 +1155,7 @@ report 50027 "Voyage P &  L"
         TotalBudQtyM: Decimal;
         ExpBudQtyM: Decimal;
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure Syntesis2(Cd: Code[10]; Pk: Code[10]; Br: Code[10]) Itemno: Code[10]
     begin
         //Syntesis Item Code Name
@@ -1165,7 +1165,7 @@ report 50027 "Voyage P &  L"
         exit(ItemVar);
     end;
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure GetItPrice(JNos: Code[20]; Nos: Code[20]; PDays: Date): Decimal
     var
         job3: Record Job;
@@ -1208,7 +1208,7 @@ report 50027 "Voyage P &  L"
         exit(Price);
     end;
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure UpdateCell(Row: Integer; Col: Integer; ValueText: Text[200]; Bold: Boolean; Italic: Boolean; Underline: Boolean; FontSize: Integer)
     begin
 
@@ -1223,7 +1223,7 @@ report 50027 "Voyage P &  L"
 
     end;
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure GetCol(CN: Integer): Text[30]
     var
         xlColID: Text[10];

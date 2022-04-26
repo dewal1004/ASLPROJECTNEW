@@ -1,4 +1,4 @@
-table 50001 "Payroll ED Codes."
+table 50001 "Payroll-E/D Codes."
 {
     LookupPageID = "ED Codes.";
 
@@ -28,7 +28,7 @@ table 50001 "Payroll ED Codes."
         }
         field(7; Compute; Code[20])
         {
-            TableRelation = "Payroll ED Codes.";
+            TableRelation = "Payroll-E/D Codes.";
 
             trigger OnValidate()
             begin
@@ -41,7 +41,7 @@ table 50001 "Payroll ED Codes."
         }
         field(8; "Factor Of"; Code[20])
         {
-            TableRelation = "Payroll ED Codes.";
+            TableRelation = "Payroll-E/D Codes.";
 
             trigger OnValidate()
             begin
@@ -218,7 +218,7 @@ table 50001 "Payroll ED Codes."
     }
 
     var
-        "E/DFileRec": Record "Payroll ED Codes.";
+        "E/DFileRec": Record "Payroll-E/D Codes.";
         LookupRec: Record "Payroll-Lookup Header.";
 }
 

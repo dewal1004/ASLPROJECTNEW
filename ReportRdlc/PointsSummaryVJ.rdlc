@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -10,148 +10,6 @@
       <rd:SecurityType>None</rd:SecurityType>
     </DataSource>
   </DataSources>
-  <DataSets>
-    <DataSet Name="DataSet_Result">
-      <Query>
-        <DataSourceName>DataSource</DataSourceName>
-        <CommandText />
-      </Query>
-      <Fields>
-        <Field Name="FORMAT_TODAY_0_4_">
-          <DataField>FORMAT_TODAY_0_4_</DataField>
-        </Field>
-        <Field Name="COMPANYNAME">
-          <DataField>COMPANYNAME</DataField>
-        </Field>
-        <Field Name="CurrReport_PAGENO">
-          <DataField>CurrReport_PAGENO</DataField>
-        </Field>
-        <Field Name="Get_Filter">
-          <DataField>Get_Filter</DataField>
-        </Field>
-        <Field Name="Job_Ledger_Entry__Posting_Date_">
-          <DataField>Job_Ledger_Entry__Posting_Date_</DataField>
-        </Field>
-        <Field Name="Job_Ledger_Entry__Posting_Date__Control11">
-          <DataField>Job_Ledger_Entry__Posting_Date__Control11</DataField>
-        </Field>
-        <Field Name="Job_Ledger_Entry__Total_Price_">
-          <DataField>Job_Ledger_Entry__Total_Price_</DataField>
-        </Field>
-        <Field Name="Job_Ledger_Entry__Total_Price_Format">
-          <DataField>Job_Ledger_Entry__Total_Price_Format</DataField>
-        </Field>
-        <Field Name="No_JobLedgerEntry">
-          <DataField>No_JobLedgerEntry</DataField>
-        </Field>
-        <Field Name="VesselCount">
-          <DataField>VesselCount</DataField>
-        </Field>
-        <Field Name="TotalFor">
-          <DataField>TotalFor</DataField>
-        </Field>
-        <Field Name="Job_Ledger_Entry__Total_Price__Control17">
-          <DataField>Job_Ledger_Entry__Total_Price__Control17</DataField>
-        </Field>
-        <Field Name="Job_Ledger_Entry__Total_Price__Control17Format">
-          <DataField>Job_Ledger_Entry__Total_Price__Control17Format</DataField>
-        </Field>
-        <Field Name="Job_Ledger_Entry__Posting_Date__Control1000000000">
-          <DataField>Job_Ledger_Entry__Posting_Date__Control1000000000</DataField>
-        </Field>
-        <Field Name="VesselCount_Control1000000007">
-          <DataField>VesselCount_Control1000000007</DataField>
-        </Field>
-        <Field Name="DayofTide__Day_of_tide_">
-          <DataField>DayofTide__Day_of_tide_</DataField>
-        </Field>
-        <Field Name="AvgPt">
-          <DataField>AvgPt</DataField>
-        </Field>
-        <Field Name="AvgPtFormat">
-          <DataField>AvgPtFormat</DataField>
-        </Field>
-        <Field Name="WHOQty">
-          <DataField>WHOQty</DataField>
-        </Field>
-        <Field Name="WHOQtyFormat">
-          <DataField>WHOQtyFormat</DataField>
-        </Field>
-        <Field Name="BHOQty">
-          <DataField>BHOQty</DataField>
-        </Field>
-        <Field Name="BHOQtyFormat">
-          <DataField>BHOQtyFormat</DataField>
-        </Field>
-        <Field Name="WTQty">
-          <DataField>WTQty</DataField>
-        </Field>
-        <Field Name="WTQtyFormat">
-          <DataField>WTQtyFormat</DataField>
-        </Field>
-        <Field Name="GrandTot">
-          <DataField>GrandTot</DataField>
-        </Field>
-        <Field Name="GrandTotFormat">
-          <DataField>GrandTotFormat</DataField>
-        </Field>
-        <Field Name="Average">
-          <DataField>Average</DataField>
-        </Field>
-        <Field Name="AverageFormat">
-          <DataField>AverageFormat</DataField>
-        </Field>
-        <Field Name="CountDays">
-          <DataField>CountDays</DataField>
-        </Field>
-        <Field Name="Points_Summary_ReportCaption">
-          <DataField>Points_Summary_ReportCaption</DataField>
-        </Field>
-        <Field Name="CurrReport_PAGENOCaption">
-          <DataField>CurrReport_PAGENOCaption</DataField>
-        </Field>
-        <Field Name="Job_Ledger_Entry__Posting_Date__Control11Caption">
-          <DataField>Job_Ledger_Entry__Posting_Date__Control11Caption</DataField>
-        </Field>
-        <Field Name="Total_PointsCaption">
-          <DataField>Total_PointsCaption</DataField>
-        </Field>
-        <Field Name="Vessel_CountCaption">
-          <DataField>Vessel_CountCaption</DataField>
-        </Field>
-        <Field Name="Day_of_TideCaption">
-          <DataField>Day_of_TideCaption</DataField>
-        </Field>
-        <Field Name="Avg__PointsCaption">
-          <DataField>Avg__PointsCaption</DataField>
-        </Field>
-        <Field Name="WHOCaption">
-          <DataField>WHOCaption</DataField>
-        </Field>
-        <Field Name="BHOCaption">
-          <DataField>BHOCaption</DataField>
-        </Field>
-        <Field Name="WTCaption">
-          <DataField>WTCaption</DataField>
-        </Field>
-        <Field Name="Job_Ledger_Entry__Posting_Date_Caption">
-          <DataField>Job_Ledger_Entry__Posting_Date_Caption</DataField>
-        </Field>
-        <Field Name="Grand_TotalCaption">
-          <DataField>Grand_TotalCaption</DataField>
-        </Field>
-        <Field Name="Average_PointsCaption">
-          <DataField>Average_PointsCaption</DataField>
-        </Field>
-        <Field Name="CountDaysCaption">
-          <DataField>CountDaysCaption</DataField>
-        </Field>
-        <Field Name="Job_Ledger_Entry_Job_No_">
-          <DataField>Job_Ledger_Entry_Job_No_</DataField>
-        </Field>
-      </Fields>
-    </DataSet>
-  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -2208,4 +2066,146 @@ End Function
   <Language>=User!Language</Language>
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="FORMAT_TODAY_0_4_">
+          <DataField>FORMAT_TODAY_0_4_</DataField>
+        </Field>
+        <Field Name="COMPANYNAME">
+          <DataField>COMPANYNAME</DataField>
+        </Field>
+        <Field Name="CurrReport_PAGENO">
+          <DataField>CurrReport_PAGENO</DataField>
+        </Field>
+        <Field Name="Get_Filter">
+          <DataField>Get_Filter</DataField>
+        </Field>
+        <Field Name="Job_Ledger_Entry__Posting_Date_">
+          <DataField>Job_Ledger_Entry__Posting_Date_</DataField>
+        </Field>
+        <Field Name="Job_Ledger_Entry__Posting_Date__Control11">
+          <DataField>Job_Ledger_Entry__Posting_Date__Control11</DataField>
+        </Field>
+        <Field Name="Job_Ledger_Entry__Total_Price_">
+          <DataField>Job_Ledger_Entry__Total_Price_</DataField>
+        </Field>
+        <Field Name="Job_Ledger_Entry__Total_Price_Format">
+          <DataField>Job_Ledger_Entry__Total_Price_Format</DataField>
+        </Field>
+        <Field Name="No_JobLedgerEntry">
+          <DataField>No_JobLedgerEntry</DataField>
+        </Field>
+        <Field Name="VesselCount">
+          <DataField>VesselCount</DataField>
+        </Field>
+        <Field Name="TotalFor">
+          <DataField>TotalFor</DataField>
+        </Field>
+        <Field Name="Job_Ledger_Entry__Total_Price__Control17">
+          <DataField>Job_Ledger_Entry__Total_Price__Control17</DataField>
+        </Field>
+        <Field Name="Job_Ledger_Entry__Total_Price__Control17Format">
+          <DataField>Job_Ledger_Entry__Total_Price__Control17Format</DataField>
+        </Field>
+        <Field Name="Job_Ledger_Entry__Posting_Date__Control1000000000">
+          <DataField>Job_Ledger_Entry__Posting_Date__Control1000000000</DataField>
+        </Field>
+        <Field Name="VesselCount_Control1000000007">
+          <DataField>VesselCount_Control1000000007</DataField>
+        </Field>
+        <Field Name="DayofTide__Day_of_tide_">
+          <DataField>DayofTide__Day_of_tide_</DataField>
+        </Field>
+        <Field Name="AvgPt">
+          <DataField>AvgPt</DataField>
+        </Field>
+        <Field Name="AvgPtFormat">
+          <DataField>AvgPtFormat</DataField>
+        </Field>
+        <Field Name="WHOQty">
+          <DataField>WHOQty</DataField>
+        </Field>
+        <Field Name="WHOQtyFormat">
+          <DataField>WHOQtyFormat</DataField>
+        </Field>
+        <Field Name="BHOQty">
+          <DataField>BHOQty</DataField>
+        </Field>
+        <Field Name="BHOQtyFormat">
+          <DataField>BHOQtyFormat</DataField>
+        </Field>
+        <Field Name="WTQty">
+          <DataField>WTQty</DataField>
+        </Field>
+        <Field Name="WTQtyFormat">
+          <DataField>WTQtyFormat</DataField>
+        </Field>
+        <Field Name="GrandTot">
+          <DataField>GrandTot</DataField>
+        </Field>
+        <Field Name="GrandTotFormat">
+          <DataField>GrandTotFormat</DataField>
+        </Field>
+        <Field Name="Average">
+          <DataField>Average</DataField>
+        </Field>
+        <Field Name="AverageFormat">
+          <DataField>AverageFormat</DataField>
+        </Field>
+        <Field Name="CountDays">
+          <DataField>CountDays</DataField>
+        </Field>
+        <Field Name="Points_Summary_ReportCaption">
+          <DataField>Points_Summary_ReportCaption</DataField>
+        </Field>
+        <Field Name="CurrReport_PAGENOCaption">
+          <DataField>CurrReport_PAGENOCaption</DataField>
+        </Field>
+        <Field Name="Job_Ledger_Entry__Posting_Date__Control11Caption">
+          <DataField>Job_Ledger_Entry__Posting_Date__Control11Caption</DataField>
+        </Field>
+        <Field Name="Total_PointsCaption">
+          <DataField>Total_PointsCaption</DataField>
+        </Field>
+        <Field Name="Vessel_CountCaption">
+          <DataField>Vessel_CountCaption</DataField>
+        </Field>
+        <Field Name="Day_of_TideCaption">
+          <DataField>Day_of_TideCaption</DataField>
+        </Field>
+        <Field Name="Avg__PointsCaption">
+          <DataField>Avg__PointsCaption</DataField>
+        </Field>
+        <Field Name="WHOCaption">
+          <DataField>WHOCaption</DataField>
+        </Field>
+        <Field Name="BHOCaption">
+          <DataField>BHOCaption</DataField>
+        </Field>
+        <Field Name="WTCaption">
+          <DataField>WTCaption</DataField>
+        </Field>
+        <Field Name="Job_Ledger_Entry__Posting_Date_Caption">
+          <DataField>Job_Ledger_Entry__Posting_Date_Caption</DataField>
+        </Field>
+        <Field Name="Grand_TotalCaption">
+          <DataField>Grand_TotalCaption</DataField>
+        </Field>
+        <Field Name="Average_PointsCaption">
+          <DataField>Average_PointsCaption</DataField>
+        </Field>
+        <Field Name="CountDaysCaption">
+          <DataField>CountDaysCaption</DataField>
+        </Field>
+        <Field Name="Job_Ledger_Entry_Job_No_">
+          <DataField>Job_Ledger_Entry_Job_No_</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
 </Report>

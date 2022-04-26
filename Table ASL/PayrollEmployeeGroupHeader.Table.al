@@ -34,40 +34,40 @@ table 50009 "Payroll-Employee Group Header."
         }
         field(5; "Gross Pay"; Decimal)
         {
-            CalcFormula = Sum ("Payroll-Employee Group Lines."."Default Amount" WHERE ("Employee Group" = FIELD (Code),
-                                                                                      "Payslip Group ID" = FILTER ("GROSS PAY")));
+            CalcFormula = Sum("Payroll-Employee Group Lines."."Default Amount" WHERE("Employee Group" = FIELD(Code),
+                                                                                      "Payslip Group ID" = FILTER("GROSS PAY")));
             DecimalPlaces = 0 : 5;
             Editable = false;
             FieldClass = FlowField;
         }
         field(6; "Tax Charged"; Decimal)
         {
-            CalcFormula = Sum ("Payroll-Employee Group Lines."."Default Amount" WHERE ("Employee Group" = FIELD (Code),
-                                                                                      "Payslip Group ID" = FILTER ("TAX CHARGED")));
+            CalcFormula = Sum("Payroll-Employee Group Lines."."Default Amount" WHERE("Employee Group" = FIELD(Code),
+                                                                                      "Payslip Group ID" = FILTER("TAX CHARGED")));
             DecimalPlaces = 0 : 5;
             Editable = false;
             FieldClass = FlowField;
         }
         field(7; "Tax Deducted"; Decimal)
         {
-            CalcFormula = Sum ("Payroll-Employee Group Lines."."Default Amount" WHERE ("Employee Group" = FIELD (Code),
-                                                                                      "Payslip Group ID" = FILTER ("TAX DEDUCTED")));
+            CalcFormula = Sum("Payroll-Employee Group Lines."."Default Amount" WHERE("Employee Group" = FIELD(Code),
+                                                                                      "Payslip Group ID" = FILTER("TAX DEDUCTED")));
             DecimalPlaces = 0 : 5;
             Editable = false;
             FieldClass = FlowField;
         }
         field(8; "Taxable Pay"; Decimal)
         {
-            CalcFormula = Sum ("Payroll-Employee Group Lines."."Default Amount" WHERE ("Employee Group" = FIELD (Code),
-                                                                                      "Payslip Group ID" = FILTER ("TAXABLE PAY")));
+            CalcFormula = Sum("Payroll-Employee Group Lines."."Default Amount" WHERE("Employee Group" = FIELD(Code),
+                                                                                      "Payslip Group ID" = FILTER("TAXABLE PAY")));
             DecimalPlaces = 0 : 5;
             Editable = false;
             FieldClass = FlowField;
         }
         field(9; "Total Deductions"; Decimal)
         {
-            CalcFormula = Sum ("Payroll-Employee Group Lines."."Default Amount" WHERE ("Employee Group" = FIELD (Code),
-                                                                                      "Payslip Group ID" = FILTER ("TOTAL DEDUCTIONS")));
+            CalcFormula = Sum("Payroll-Employee Group Lines."."Default Amount" WHERE("Employee Group" = FIELD(Code),
+                                                                                      "Payslip Group ID" = FILTER("TOTAL DEDUCTIONS")));
             DecimalPlaces = 0 : 5;
             Editable = false;
             FieldClass = FlowField;
@@ -75,8 +75,8 @@ table 50009 "Payroll-Employee Group Header."
         field(10; "Net Pay Due"; Decimal)
         {
             BlankZero = true;
-            CalcFormula = Sum ("Payroll-Employee Group Lines."."Default Amount" WHERE ("Employee Group" = FIELD (Code),
-                                                                                      "Payslip Group ID" = FILTER ("NET PAY DUE")));
+            CalcFormula = Sum("Payroll-Employee Group Lines."."Default Amount" WHERE("Employee Group" = FIELD(Code),
+                                                                                      "Payslip Group ID" = FILTER("NET PAY DUE")));
             DecimalPlaces = 0 : 5;
             Editable = false;
             FieldClass = FlowField;
@@ -167,7 +167,7 @@ table 50009 "Payroll-Employee Group Header."
         Ok: Boolean;
         PostGrpRec: Record "Payroll-Posting Group Header.";
         PGrpCode: Code[10];
-        EDRec: Record "Payroll ED Codes.";
+        EDRec: Record "Payroll-E/D Codes.";
         GrossEDCode: Code[20];
         GenPCode: Codeunit "General Purpose Codeunit";
         EDType: Option " ","NSITF Employee","NSITF Employer","Gross Salary","Pension Employee","Pension Employer";
@@ -178,7 +178,7 @@ table 50009 "Payroll-Employee Group Header."
         EmpGrpStep: Code[10];
         BasicEDCode: Code[10];
 
-    //[Scope('Internal')]
+    //[Scope('OnPrem')]
     procedure GetGross(EmpGrpCode: Code[10]): Decimal
     begin
         //GrossEDCode := GenPCode.GetGrossED(EDType::"Gross Salary");
@@ -214,19 +214,19 @@ table 50009 "Payroll-Employee Group Header."
 
     end;
 
-    //[Scope('Internal')]
+    //[Scope('OnPrem')]
     procedure GetGrade(GrpCode: Code[10]): Code[2]
     begin
         if GrpCodeRec.Get(GrpCode) then exit(GrpCodeRec.Grade);
     end;
 
-    //[Scope('Internal')]
+    //[Scope('OnPrem')]
     procedure GetStep(GrpCode: Code[10]): Code[2]
     begin
         if GrpCodeRec.Get(GrpCode) then exit(GrpCodeRec.Step);
     end;
 
-    //[Scope('Internal')]
+    //[Scope('OnPrem')]
     procedure GetGrpCode(Grd: Code[2]; Stp: Code[2]): Code[10]
     begin
         GrpCodeRec.SetRange(Grade, Grd);
@@ -234,7 +234,7 @@ table 50009 "Payroll-Employee Group Header."
         if GrpCodeRec.Find('-') then exit(GrpCodeRec.Code);
     end;
 
-    //[Scope('Internal')]
+    //[Scope('OnPrem')]
     procedure GetGroupFromGross(GrossAmount: Decimal; Criteria: Option LT,GT,EQ,LE,GE,NE): Code[10]
     begin
         GrossEDCode := GenPCode.GetGrossED(EDType::"Gross Salary");
@@ -265,7 +265,7 @@ table 50009 "Payroll-Employee Group Header."
             exit(GrossEDCode);
     end;
 
-    //[Scope('Internal')]
+    //[Scope('OnPrem')]
     procedure GetBasic(EmpGrpCode: Code[10]): Decimal
     begin
 

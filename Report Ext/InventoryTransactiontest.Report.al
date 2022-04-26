@@ -357,7 +357,7 @@ report 50074 "Inventory - Transaction -test"
         TransFrVoy: Code[10];
         test: Decimal;
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure InitializeRequest(NewPrintOnlyOnePerPage: Boolean)
     begin
         PrintOnlyOnePerPage := NewPrintOnlyOnePerPage;

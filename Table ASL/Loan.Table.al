@@ -58,11 +58,11 @@ table 50005 "Loan."
         }
         field(7; "Acct. No."; Code[20])
         {
-            TableRelation = IF ("Acct. Type" = CONST (Finance)) "G/L Account"."No."
+            TableRelation = IF ("Acct. Type" = CONST(Finance)) "G/L Account"."No."
             ELSE
-            IF ("Acct. Type" = CONST (Staff)) Customer."No."
+            IF ("Acct. Type" = CONST(Staff)) Customer."No."
             ELSE
-            IF ("Acct. Type" = CONST (Supplier)) Vendor."No.";
+            IF ("Acct. Type" = CONST(Supplier)) Vendor."No.";
         }
         field(8; "Counter Acct. Type"; Option)
         {
@@ -70,11 +70,11 @@ table 50005 "Loan."
         }
         field(9; "Counter Acct. No."; Code[20])
         {
-            TableRelation = IF ("Counter Acct. Type" = CONST (Finance)) "G/L Account"."No."
+            TableRelation = IF ("Counter Acct. Type" = CONST(Finance)) "G/L Account"."No."
             ELSE
-            IF ("Counter Acct. Type" = CONST (Staff)) Customer."No." WHERE ("No." = FILTER ('E' .. 'F'))
+            IF ("Counter Acct. Type" = CONST(Staff)) Customer."No." WHERE("No." = FILTER('E' .. 'F'))
             ELSE
-            IF ("Counter Acct. Type" = CONST (Supplier)) Vendor."No.";
+            IF ("Counter Acct. Type" = CONST(Supplier)) Vendor."No.";
         }
         field(10; "Loan Amount"; Decimal)
         {
@@ -125,7 +125,7 @@ table 50005 "Loan."
         }
         field(16; "Loan ED"; Code[10])
         {
-            TableRelation = "Payroll ED Codes."."E/D Code";
+            TableRelation = "Payroll-E/D Codes."."E/D Code";
 
             trigger OnValidate()
             begin
@@ -135,8 +135,8 @@ table 50005 "Loan."
         }
         field(17; "Remaining Amount"; Decimal)
         {
-            CalcFormula = Sum ("Detailed Cust. Ledg. Entry"."Amount (LCY)" WHERE ("Customer No." = FIELD ("Acct. No."),
-                                                                                 "Loan ID" = FIELD ("Loan ID")));
+            CalcFormula = Sum("Detailed Cust. Ledg. Entry"."Amount (LCY)" WHERE("Customer No." = FIELD("Acct. No."),
+                                                                                 "Loan ID" = FIELD("Loan ID")));
             Editable = false;
             FieldClass = FlowField;
         }
@@ -277,7 +277,7 @@ table 50005 "Loan."
     var
         NoSeriesMgt: Codeunit NoSeriesManagement;
         StaffRec: Record Employee;
-        EDRec: Record "Payroll ED Codes.";
+        EDRec: Record "Payroll-E/D Codes.";
         GlRec: Record "Gen. Journal Line";
         GlRec1: Record "Gen. Journal Line";
         ACSETREC: Record "General Ledger Setup";
@@ -291,7 +291,7 @@ table 50005 "Loan."
         EmGrade: Code[10];
         userrec: Record "User Setup";
 
-    //[Scope('Internal')]
+    //[Scope('OnPrem')]
     procedure InserGlLine()
     begin
         userrec.Get(UserId);
@@ -389,7 +389,7 @@ table 50005 "Loan."
 
     end;
 
-    //[Scope('Internal')]
+    //[Scope('OnPrem')]
     procedure AssistEdit(LRec: Record "Loan."): Boolean
     begin
         with LoanRec do begin
@@ -407,13 +407,13 @@ table 50005 "Loan."
         end;
     end;
 
-    //[Scope('Internal')]
+    //[Scope('OnPrem')]
     procedure LPlusInt(): Decimal
     begin
         exit("Loan Amount" * ("Interest Percent" + 100) / 100);
     end;
 
-    //[Scope('Internal')]
+    //[Scope('OnPrem')]
     procedure ApprovedLoan()
     begin
         if CustRec.Get("Acct. No.") then begin

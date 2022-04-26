@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -10,787 +10,6 @@
       <rd:SecurityType>None</rd:SecurityType>
     </DataSource>
   </DataSources>
-  <DataSets>
-    <DataSet Name="DataSet_Result">
-      <Query>
-        <DataSourceName>DataSource</DataSourceName>
-        <CommandText />
-      </Query>
-      <Fields>
-        <Field Name="FORMAT_TODAY_0_4_">
-          <DataField>FORMAT_TODAY_0_4_</DataField>
-        </Field>
-        <Field Name="COMPANYNAME">
-          <DataField>COMPANYNAME</DataField>
-        </Field>
-        <Field Name="CurrReport_PAGENO">
-          <DataField>CurrReport_PAGENO</DataField>
-        </Field>
-        <Field Name="USERID">
-          <DataField>USERID</DataField>
-        </Field>
-        <Field Name="Text18">
-          <DataField>Text18</DataField>
-        </Field>
-        <Field Name="a">
-          <DataField>a</DataField>
-        </Field>
-        <Field Name="aFormat">
-          <DataField>aFormat</DataField>
-        </Field>
-        <Field Name="Job__Lost_Days_">
-          <DataField>Job__Lost_Days_</DataField>
-        </Field>
-        <Field Name="Job__Lost_Days_Format">
-          <DataField>Job__Lost_Days_Format</DataField>
-        </Field>
-        <Field Name="Job_Ledger_Entry__Job_No__">
-          <DataField>Job_Ledger_Entry__Job_No__</DataField>
-        </Field>
-        <Field Name="ETA">
-          <DataField>ETA</DataField>
-        </Field>
-        <Field Name="ETD">
-          <DataField>ETD</DataField>
-        </Field>
-        <Field Name="CycleDay">
-          <DataField>CycleDay</DataField>
-        </Field>
-        <Field Name="CycleDayFormat">
-          <DataField>CycleDayFormat</DataField>
-        </Field>
-        <Field Name="FishgDay">
-          <DataField>FishgDay</DataField>
-        </Field>
-        <Field Name="FishgDayFormat">
-          <DataField>FishgDayFormat</DataField>
-        </Field>
-        <Field Name="LostDay">
-          <DataField>LostDay</DataField>
-        </Field>
-        <Field Name="LostDayFormat">
-          <DataField>LostDayFormat</DataField>
-        </Field>
-        <Field Name="PortDay">
-          <DataField>PortDay</DataField>
-        </Field>
-        <Field Name="PortDayFormat">
-          <DataField>PortDayFormat</DataField>
-        </Field>
-        <Field Name="Vess">
-          <DataField>Vess</DataField>
-        </Field>
-        <Field Name="Text21">
-          <DataField>Text21</DataField>
-        </Field>
-        <Field Name="Text22">
-          <DataField>Text22</DataField>
-        </Field>
-        <Field Name="Text23">
-          <DataField>Text23</DataField>
-        </Field>
-        <Field Name="Text24">
-          <DataField>Text24</DataField>
-        </Field>
-        <Field Name="Text25">
-          <DataField>Text25</DataField>
-        </Field>
-        <Field Name="Text26">
-          <DataField>Text26</DataField>
-        </Field>
-        <Field Name="Text27">
-          <DataField>Text27</DataField>
-        </Field>
-        <Field Name="PntStor_1_">
-          <DataField>PntStor_1_</DataField>
-        </Field>
-        <Field Name="PntStor_1_Format">
-          <DataField>PntStor_1_Format</DataField>
-        </Field>
-        <Field Name="PntStor_2_">
-          <DataField>PntStor_2_</DataField>
-        </Field>
-        <Field Name="PntStor_2_Format">
-          <DataField>PntStor_2_Format</DataField>
-        </Field>
-        <Field Name="PntStor_3_">
-          <DataField>PntStor_3_</DataField>
-        </Field>
-        <Field Name="PntStor_3_Format">
-          <DataField>PntStor_3_Format</DataField>
-        </Field>
-        <Field Name="PntStor_4_">
-          <DataField>PntStor_4_</DataField>
-        </Field>
-        <Field Name="PntStor_4_Format">
-          <DataField>PntStor_4_Format</DataField>
-        </Field>
-        <Field Name="PntStor_5_">
-          <DataField>PntStor_5_</DataField>
-        </Field>
-        <Field Name="PntStor_5_Format">
-          <DataField>PntStor_5_Format</DataField>
-        </Field>
-        <Field Name="PntStor_6_">
-          <DataField>PntStor_6_</DataField>
-        </Field>
-        <Field Name="PntStor_6_Format">
-          <DataField>PntStor_6_Format</DataField>
-        </Field>
-        <Field Name="PntStor_7_">
-          <DataField>PntStor_7_</DataField>
-        </Field>
-        <Field Name="PntStor_7_Format">
-          <DataField>PntStor_7_Format</DataField>
-        </Field>
-        <Field Name="Coutry_Name">
-          <DataField>Coutry_Name</DataField>
-        </Field>
-        <Field Name="Res_Name">
-          <DataField>Res_Name</DataField>
-        </Field>
-        <Field Name="Job_Ledger_Entry__Work_Type_Code_">
-          <DataField>Job_Ledger_Entry__Work_Type_Code_</DataField>
-        </Field>
-        <Field Name="Job_Ledger_Entry__No__">
-          <DataField>Job_Ledger_Entry__No__</DataField>
-        </Field>
-        <Field Name="Job_Ledger_Entry__Work_Type_Code__Control17">
-          <DataField>Job_Ledger_Entry__Work_Type_Code__Control17</DataField>
-        </Field>
-        <Field Name="Qty">
-          <DataField>Qty</DataField>
-        </Field>
-        <Field Name="QtyFormat">
-          <DataField>QtyFormat</DataField>
-        </Field>
-        <Field Name="PrdPrc">
-          <DataField>PrdPrc</DataField>
-        </Field>
-        <Field Name="PrdPrcFormat">
-          <DataField>PrdPrcFormat</DataField>
-        </Field>
-        <Field Name="NairaVal">
-          <DataField>NairaVal</DataField>
-        </Field>
-        <Field Name="NairaValFormat">
-          <DataField>NairaValFormat</DataField>
-        </Field>
-        <Field Name="Qty_Control23">
-          <DataField>Qty_Control23</DataField>
-        </Field>
-        <Field Name="Qty_Control23Format">
-          <DataField>Qty_Control23Format</DataField>
-        </Field>
-        <Field Name="PrdPrc_Control1000000002">
-          <DataField>PrdPrc_Control1000000002</DataField>
-        </Field>
-        <Field Name="PrdPrc_Control1000000002Format">
-          <DataField>PrdPrc_Control1000000002Format</DataField>
-        </Field>
-        <Field Name="Job_Ledger_Entry__Work_Type_Code__Control1000000004">
-          <DataField>Job_Ledger_Entry__Work_Type_Code__Control1000000004</DataField>
-        </Field>
-        <Field Name="NairaVal_Control1000000005">
-          <DataField>NairaVal_Control1000000005</DataField>
-        </Field>
-        <Field Name="NairaVal_Control1000000005Format">
-          <DataField>NairaVal_Control1000000005Format</DataField>
-        </Field>
-        <Field Name="TotalFor">
-          <DataField>TotalFor</DataField>
-        </Field>
-        <Field Name="Qty_Control25">
-          <DataField>Qty_Control25</DataField>
-        </Field>
-        <Field Name="Qty_Control25Format">
-          <DataField>Qty_Control25Format</DataField>
-        </Field>
-        <Field Name="PrdPrc_Control1000000003">
-          <DataField>PrdPrc_Control1000000003</DataField>
-        </Field>
-        <Field Name="PrdPrc_Control1000000003Format">
-          <DataField>PrdPrc_Control1000000003Format</DataField>
-        </Field>
-        <Field Name="NairaVal_Control1000000007">
-          <DataField>NairaVal_Control1000000007</DataField>
-        </Field>
-        <Field Name="NairaVal_Control1000000007Format">
-          <DataField>NairaVal_Control1000000007Format</DataField>
-        </Field>
-        <Field Name="CurrReport_PAGENOCaption">
-          <DataField>CurrReport_PAGENOCaption</DataField>
-        </Field>
-        <Field Name="Job_Ledger_Entry__No__Caption">
-          <DataField>Job_Ledger_Entry__No__Caption</DataField>
-        </Field>
-        <Field Name="QtyCaption">
-          <DataField>QtyCaption</DataField>
-        </Field>
-        <Field Name="EmptyStringCaption">
-          <DataField>EmptyStringCaption</DataField>
-        </Field>
-        <Field Name="N_Caption">
-          <DataField>N_Caption</DataField>
-        </Field>
-        <Field Name="Job__Lost_Days_Caption">
-          <DataField>Job__Lost_Days_Caption</DataField>
-        </Field>
-        <Field Name="Job_Ledger_Entry__Job_No__Caption">
-          <DataField>Job_Ledger_Entry__Job_No__Caption</DataField>
-        </Field>
-        <Field Name="ETACaption">
-          <DataField>ETACaption</DataField>
-        </Field>
-        <Field Name="ETDCaption">
-          <DataField>ETDCaption</DataField>
-        </Field>
-        <Field Name="CycleDayCaption">
-          <DataField>CycleDayCaption</DataField>
-        </Field>
-        <Field Name="FishgDayCaption">
-          <DataField>FishgDayCaption</DataField>
-        </Field>
-        <Field Name="LostDayCaption">
-          <DataField>LostDayCaption</DataField>
-        </Field>
-        <Field Name="PortDayCaption">
-          <DataField>PortDayCaption</DataField>
-        </Field>
-        <Field Name="QtyCaption_Control1000000082">
-          <DataField>QtyCaption_Control1000000082</DataField>
-        </Field>
-        <Field Name="EmptyStringCaption_Control1000000083">
-          <DataField>EmptyStringCaption_Control1000000083</DataField>
-        </Field>
-        <Field Name="N_Caption_Control1000000084">
-          <DataField>N_Caption_Control1000000084</DataField>
-        </Field>
-        <Field Name="RateCaption">
-          <DataField>RateCaption</DataField>
-        </Field>
-        <Field Name="Bud__Qty_Caption">
-          <DataField>Bud__Qty_Caption</DataField>
-        </Field>
-        <Field Name="Bud___Caption">
-          <DataField>Bud___Caption</DataField>
-        </Field>
-        <Field Name="Bud___N_Caption">
-          <DataField>Bud___N_Caption</DataField>
-        </Field>
-        <Field Name="Var___N_Caption">
-          <DataField>Var___N_Caption</DataField>
-        </Field>
-        <Field Name="Job_Ledger_Entry_Entry_No_">
-          <DataField>Job_Ledger_Entry_Entry_No_</DataField>
-        </Field>
-        <Field Name="Sea_Food_categories__Sea_food_code_">
-          <DataField>Sea_Food_categories__Sea_food_code_</DataField>
-        </Field>
-        <Field Name="COPYSTR___Sea_food_code__5_">
-          <DataField>COPYSTR___Sea_food_code__5_</DataField>
-        </Field>
-        <Field Name="A1_3_">
-          <DataField>A1_3_</DataField>
-        </Field>
-        <Field Name="A1_3_Format">
-          <DataField>A1_3_Format</DataField>
-        </Field>
-        <Field Name="A1_2_">
-          <DataField>A1_2_</DataField>
-        </Field>
-        <Field Name="A1_2_Format">
-          <DataField>A1_2_Format</DataField>
-        </Field>
-        <Field Name="A1_1_">
-          <DataField>A1_1_</DataField>
-        </Field>
-        <Field Name="A1_1_Format">
-          <DataField>A1_1_Format</DataField>
-        </Field>
-        <Field Name="A1_4__1000">
-          <DataField>A1_4__1000</DataField>
-        </Field>
-        <Field Name="A1_4__1000Format">
-          <DataField>A1_4__1000Format</DataField>
-        </Field>
-        <Field Name="A2_4_">
-          <DataField>A2_4_</DataField>
-        </Field>
-        <Field Name="A2_4_Format">
-          <DataField>A2_4_Format</DataField>
-        </Field>
-        <Field Name="A2_1_">
-          <DataField>A2_1_</DataField>
-        </Field>
-        <Field Name="A2_1_Format">
-          <DataField>A2_1_Format</DataField>
-        </Field>
-        <Field Name="A2_2_">
-          <DataField>A2_2_</DataField>
-        </Field>
-        <Field Name="A2_2_Format">
-          <DataField>A2_2_Format</DataField>
-        </Field>
-        <Field Name="A2_3_">
-          <DataField>A2_3_</DataField>
-        </Field>
-        <Field Name="A2_3_Format">
-          <DataField>A2_3_Format</DataField>
-        </Field>
-        <Field Name="NairaVal2X_NairaValBX">
-          <DataField>NairaVal2X_NairaValBX</DataField>
-        </Field>
-        <Field Name="NairaVal2X_NairaValBXFormat">
-          <DataField>NairaVal2X_NairaValBXFormat</DataField>
-        </Field>
-        <Field Name="NairaValBX">
-          <DataField>NairaValBX</DataField>
-        </Field>
-        <Field Name="NairaValBXFormat">
-          <DataField>NairaValBXFormat</DataField>
-        </Field>
-        <Field Name="PrdPrcBX">
-          <DataField>PrdPrcBX</DataField>
-        </Field>
-        <Field Name="PrdPrcBXFormat">
-          <DataField>PrdPrcBXFormat</DataField>
-        </Field>
-        <Field Name="QtyBX">
-          <DataField>QtyBX</DataField>
-        </Field>
-        <Field Name="QtyBXFormat">
-          <DataField>QtyBXFormat</DataField>
-        </Field>
-        <Field Name="NairaVal2X">
-          <DataField>NairaVal2X</DataField>
-        </Field>
-        <Field Name="NairaVal2XFormat">
-          <DataField>NairaVal2XFormat</DataField>
-        </Field>
-        <Field Name="PrdPrc2X">
-          <DataField>PrdPrc2X</DataField>
-        </Field>
-        <Field Name="PrdPrc2XFormat">
-          <DataField>PrdPrc2XFormat</DataField>
-        </Field>
-        <Field Name="QtyX">
-          <DataField>QtyX</DataField>
-        </Field>
-        <Field Name="QtyXFormat">
-          <DataField>QtyXFormat</DataField>
-        </Field>
-        <Field Name="TotalForX">
-          <DataField>TotalForX</DataField>
-        </Field>
-        <Field Name="TotalFor_Control1000000133">
-          <DataField>TotalFor_Control1000000133</DataField>
-        </Field>
-        <Field Name="Qty_Control1000000134">
-          <DataField>Qty_Control1000000134</DataField>
-        </Field>
-        <Field Name="Qty_Control1000000134Format">
-          <DataField>Qty_Control1000000134Format</DataField>
-        </Field>
-        <Field Name="PrdPrc2">
-          <DataField>PrdPrc2</DataField>
-        </Field>
-        <Field Name="PrdPrc2Format">
-          <DataField>PrdPrc2Format</DataField>
-        </Field>
-        <Field Name="NairaVal2">
-          <DataField>NairaVal2</DataField>
-        </Field>
-        <Field Name="NairaVal2Format">
-          <DataField>NairaVal2Format</DataField>
-        </Field>
-        <Field Name="QtyB">
-          <DataField>QtyB</DataField>
-        </Field>
-        <Field Name="QtyBFormat">
-          <DataField>QtyBFormat</DataField>
-        </Field>
-        <Field Name="PrdPrcB">
-          <DataField>PrdPrcB</DataField>
-        </Field>
-        <Field Name="PrdPrcBFormat">
-          <DataField>PrdPrcBFormat</DataField>
-        </Field>
-        <Field Name="NairaValB">
-          <DataField>NairaValB</DataField>
-        </Field>
-        <Field Name="NairaValBFormat">
-          <DataField>NairaValBFormat</DataField>
-        </Field>
-        <Field Name="NairaVal2_NairaValB">
-          <DataField>NairaVal2_NairaValB</DataField>
-        </Field>
-        <Field Name="NairaVal2_NairaValBFormat">
-          <DataField>NairaVal2_NairaValBFormat</DataField>
-        </Field>
-        <Field Name="NairaVal2_NairaValB___NairaVal2X_NairaValBX_">
-          <DataField>NairaVal2_NairaValB___NairaVal2X_NairaValBX_</DataField>
-        </Field>
-        <Field Name="NairaVal2_NairaValB___NairaVal2X_NairaValBX_Format">
-          <DataField>NairaVal2_NairaValB___NairaVal2X_NairaValBX_Format</DataField>
-        </Field>
-        <Field Name="NairaValB_NairaValBX">
-          <DataField>NairaValB_NairaValBX</DataField>
-        </Field>
-        <Field Name="NairaValB_NairaValBXFormat">
-          <DataField>NairaValB_NairaValBXFormat</DataField>
-        </Field>
-        <Field Name="PrdPrcB_PrdPrcBX">
-          <DataField>PrdPrcB_PrdPrcBX</DataField>
-        </Field>
-        <Field Name="PrdPrcB_PrdPrcBXFormat">
-          <DataField>PrdPrcB_PrdPrcBXFormat</DataField>
-        </Field>
-        <Field Name="QtyB_QtyBX">
-          <DataField>QtyB_QtyBX</DataField>
-        </Field>
-        <Field Name="QtyB_QtyBXFormat">
-          <DataField>QtyB_QtyBXFormat</DataField>
-        </Field>
-        <Field Name="NairaVal2_NairaVal2X">
-          <DataField>NairaVal2_NairaVal2X</DataField>
-        </Field>
-        <Field Name="NairaVal2_NairaVal2XFormat">
-          <DataField>NairaVal2_NairaVal2XFormat</DataField>
-        </Field>
-        <Field Name="PrdPrc2_PrdPrc2X">
-          <DataField>PrdPrc2_PrdPrc2X</DataField>
-        </Field>
-        <Field Name="PrdPrc2_PrdPrc2XFormat">
-          <DataField>PrdPrc2_PrdPrc2XFormat</DataField>
-        </Field>
-        <Field Name="Qty_QtyX">
-          <DataField>Qty_QtyX</DataField>
-        </Field>
-        <Field Name="Qty_QtyXFormat">
-          <DataField>Qty_QtyXFormat</DataField>
-        </Field>
-        <Field Name="TotalFory">
-          <DataField>TotalFory</DataField>
-        </Field>
-        <Field Name="Sea_Food_categories__Sea_food_code_Caption">
-          <DataField>Sea_Food_categories__Sea_food_code_Caption</DataField>
-        </Field>
-        <Field Name="Job_Ledger_Entry_Rep_GroupSort">
-          <DataField>Job_Ledger_Entry_Rep_GroupSort</DataField>
-        </Field>
-        <Field Name="Job_Ledger_Entry_Rep__No__">
-          <DataField>Job_Ledger_Entry_Rep__No__</DataField>
-        </Field>
-        <Field Name="NairaVal2_Control1000000066">
-          <DataField>NairaVal2_Control1000000066</DataField>
-        </Field>
-        <Field Name="NairaVal2_Control1000000066Format">
-          <DataField>NairaVal2_Control1000000066Format</DataField>
-        </Field>
-        <Field Name="PrdPrc2_Control1000000067">
-          <DataField>PrdPrc2_Control1000000067</DataField>
-        </Field>
-        <Field Name="PrdPrc2_Control1000000067Format">
-          <DataField>PrdPrc2_Control1000000067Format</DataField>
-        </Field>
-        <Field Name="Qty_Control1000000068">
-          <DataField>Qty_Control1000000068</DataField>
-        </Field>
-        <Field Name="Qty_Control1000000068Format">
-          <DataField>Qty_Control1000000068Format</DataField>
-        </Field>
-        <Field Name="Job_Ledger_Entry_Rep_GroupSort_Control1000000069">
-          <DataField>Job_Ledger_Entry_Rep_GroupSort_Control1000000069</DataField>
-        </Field>
-        <Field Name="NairaVal2_Control1000000071">
-          <DataField>NairaVal2_Control1000000071</DataField>
-        </Field>
-        <Field Name="NairaVal2_Control1000000071Format">
-          <DataField>NairaVal2_Control1000000071Format</DataField>
-        </Field>
-        <Field Name="PrdPrc2_Control1000000072">
-          <DataField>PrdPrc2_Control1000000072</DataField>
-        </Field>
-        <Field Name="PrdPrc2_Control1000000072Format">
-          <DataField>PrdPrc2_Control1000000072Format</DataField>
-        </Field>
-        <Field Name="Qty_Control1000000073">
-          <DataField>Qty_Control1000000073</DataField>
-        </Field>
-        <Field Name="Qty_Control1000000073Format">
-          <DataField>Qty_Control1000000073Format</DataField>
-        </Field>
-        <Field Name="COPYSTR_GroupSort_5_">
-          <DataField>COPYSTR_GroupSort_5_</DataField>
-        </Field>
-        <Field Name="NairaVal2_Control1000000075">
-          <DataField>NairaVal2_Control1000000075</DataField>
-        </Field>
-        <Field Name="NairaVal2_Control1000000075Format">
-          <DataField>NairaVal2_Control1000000075Format</DataField>
-        </Field>
-        <Field Name="PrdPrc2_Control1000000076">
-          <DataField>PrdPrc2_Control1000000076</DataField>
-        </Field>
-        <Field Name="PrdPrc2_Control1000000076Format">
-          <DataField>PrdPrc2_Control1000000076Format</DataField>
-        </Field>
-        <Field Name="Qty_Control1000000077">
-          <DataField>Qty_Control1000000077</DataField>
-        </Field>
-        <Field Name="Qty_Control1000000077Format">
-          <DataField>Qty_Control1000000077Format</DataField>
-        </Field>
-        <Field Name="TotalFor_Control1000000078">
-          <DataField>TotalFor_Control1000000078</DataField>
-        </Field>
-        <Field Name="Job_Ledger_Entry_Rep_Entry_No_">
-          <DataField>Job_Ledger_Entry_Rep_Entry_No_</DataField>
-        </Field>
-        <Field Name="Job_Ledger_Entry_Rep_Job_No_">
-          <DataField>Job_Ledger_Entry_Rep_Job_No_</DataField>
-        </Field>
-        <Field Name="No_B_">
-          <DataField>No_B_</DataField>
-        </Field>
-        <Field Name="NairaValB_Control1000000115">
-          <DataField>NairaValB_Control1000000115</DataField>
-        </Field>
-        <Field Name="NairaValB_Control1000000115Format">
-          <DataField>NairaValB_Control1000000115Format</DataField>
-        </Field>
-        <Field Name="PrdPrcB_Control1000000116">
-          <DataField>PrdPrcB_Control1000000116</DataField>
-        </Field>
-        <Field Name="PrdPrcB_Control1000000116Format">
-          <DataField>PrdPrcB_Control1000000116Format</DataField>
-        </Field>
-        <Field Name="QtyB_Control1000000117">
-          <DataField>QtyB_Control1000000117</DataField>
-        </Field>
-        <Field Name="QtyB_Control1000000117Format">
-          <DataField>QtyB_Control1000000117Format</DataField>
-        </Field>
-        <Field Name="Job_catch_Default_GroupSort">
-          <DataField>Job_catch_Default_GroupSort</DataField>
-        </Field>
-        <Field Name="Job_catch_Default_Table_Name">
-          <DataField>Job_catch_Default_Table_Name</DataField>
-        </Field>
-        <Field Name="Job_catch_Default_No_">
-          <DataField>Job_catch_Default_No_</DataField>
-        </Field>
-        <Field Name="Job_catch_Default_Code">
-          <DataField>Job_catch_Default_Code</DataField>
-        </Field>
-        <Field Name="Job_catch_Default_Pack_Size">
-          <DataField>Job_catch_Default_Pack_Size</DataField>
-        </Field>
-        <Field Name="Value_Entry__Document_No__">
-          <DataField>Value_Entry__Document_No__</DataField>
-        </Field>
-        <Field Name="Value_Entry__Cost_Posted_to_G_L_">
-          <DataField>Value_Entry__Cost_Posted_to_G_L_</DataField>
-        </Field>
-        <Field Name="Value_Entry__Cost_Posted_to_G_L_Format">
-          <DataField>Value_Entry__Cost_Posted_to_G_L_Format</DataField>
-        </Field>
-        <Field Name="Value_Entry__Gen__Prod__Posting_Group_">
-          <DataField>Value_Entry__Gen__Prod__Posting_Group_</DataField>
-        </Field>
-        <Field Name="Cost_Posted_to_G_L_">
-          <DataField>Cost_Posted_to_G_L_</DataField>
-        </Field>
-        <Field Name="Cost_Posted_to_G_L_Format">
-          <DataField>Cost_Posted_to_G_L_Format</DataField>
-        </Field>
-        <Field Name="GPPGDesc">
-          <DataField>GPPGDesc</DataField>
-        </Field>
-        <Field Name="ValQty">
-          <DataField>ValQty</DataField>
-        </Field>
-        <Field Name="ValQtyFormat">
-          <DataField>ValQtyFormat</DataField>
-        </Field>
-        <Field Name="ValRate">
-          <DataField>ValRate</DataField>
-        </Field>
-        <Field Name="ValRateFormat">
-          <DataField>ValRateFormat</DataField>
-        </Field>
-        <Field Name="Cost_Posted_to_G_L__Control1000000090">
-          <DataField>Cost_Posted_to_G_L__Control1000000090</DataField>
-        </Field>
-        <Field Name="Cost_Posted_to_G_L__Control1000000090Format">
-          <DataField>Cost_Posted_to_G_L__Control1000000090Format</DataField>
-        </Field>
-        <Field Name="TotalFor_Control1000000091">
-          <DataField>TotalFor_Control1000000091</DataField>
-        </Field>
-        <Field Name="Value_Entry__Document_No__Caption">
-          <DataField>Value_Entry__Document_No__Caption</DataField>
-        </Field>
-        <Field Name="Value_Entry_Entry_No_">
-          <DataField>Value_Entry_Entry_No_</DataField>
-        </Field>
-        <Field Name="DataStor_3_">
-          <DataField>DataStor_3_</DataField>
-        </Field>
-        <Field Name="DataStor_3_Format">
-          <DataField>DataStor_3_Format</DataField>
-        </Field>
-        <Field Name="Text03">
-          <DataField>Text03</DataField>
-        </Field>
-        <Field Name="Text04">
-          <DataField>Text04</DataField>
-        </Field>
-        <Field Name="DataStor_4_">
-          <DataField>DataStor_4_</DataField>
-        </Field>
-        <Field Name="DataStor_4_Format">
-          <DataField>DataStor_4_Format</DataField>
-        </Field>
-        <Field Name="DataStor_5_">
-          <DataField>DataStor_5_</DataField>
-        </Field>
-        <Field Name="DataStor_5_Format">
-          <DataField>DataStor_5_Format</DataField>
-        </Field>
-        <Field Name="Text05">
-          <DataField>Text05</DataField>
-        </Field>
-        <Field Name="Text06">
-          <DataField>Text06</DataField>
-        </Field>
-        <Field Name="DataStor_6_">
-          <DataField>DataStor_6_</DataField>
-        </Field>
-        <Field Name="DataStor_6_Format">
-          <DataField>DataStor_6_Format</DataField>
-        </Field>
-        <Field Name="DataStor_7_">
-          <DataField>DataStor_7_</DataField>
-        </Field>
-        <Field Name="DataStor_7_Format">
-          <DataField>DataStor_7_Format</DataField>
-        </Field>
-        <Field Name="DataStor_8_">
-          <DataField>DataStor_8_</DataField>
-        </Field>
-        <Field Name="DataStor_8_Format">
-          <DataField>DataStor_8_Format</DataField>
-        </Field>
-        <Field Name="Text07">
-          <DataField>Text07</DataField>
-        </Field>
-        <Field Name="Text08">
-          <DataField>Text08</DataField>
-        </Field>
-        <Field Name="TotDirExp">
-          <DataField>TotDirExp</DataField>
-        </Field>
-        <Field Name="TotDirExpFormat">
-          <DataField>TotDirExpFormat</DataField>
-        </Field>
-        <Field Name="Text09">
-          <DataField>Text09</DataField>
-        </Field>
-        <Field Name="PeopleOnVoy">
-          <DataField>PeopleOnVoy</DataField>
-        </Field>
-        <Field Name="expcnt">
-          <DataField>expcnt</DataField>
-        </Field>
-        <Field Name="ResCount">
-          <DataField>ResCount</DataField>
-        </Field>
-        <Field Name="ExpTonnage">
-          <DataField>ExpTonnage</DataField>
-        </Field>
-        <Field Name="ExpTonnageFormat">
-          <DataField>ExpTonnageFormat</DataField>
-        </Field>
-        <Field Name="Text10">
-          <DataField>Text10</DataField>
-        </Field>
-        <Field Name="GrossPerct">
-          <DataField>GrossPerct</DataField>
-        </Field>
-        <Field Name="GrossPerctFormat">
-          <DataField>GrossPerctFormat</DataField>
-        </Field>
-        <Field Name="Text11">
-          <DataField>Text11</DataField>
-        </Field>
-        <Field Name="GrossMarg">
-          <DataField>GrossMarg</DataField>
-        </Field>
-        <Field Name="GrossMargFormat">
-          <DataField>GrossMargFormat</DataField>
-        </Field>
-        <Field Name="Text13">
-          <DataField>Text13</DataField>
-        </Field>
-        <Field Name="Text14">
-          <DataField>Text14</DataField>
-        </Field>
-        <Field Name="DataStor_13_">
-          <DataField>DataStor_13_</DataField>
-        </Field>
-        <Field Name="DataStor_13_Format">
-          <DataField>DataStor_13_Format</DataField>
-        </Field>
-        <Field Name="DataStor_14_">
-          <DataField>DataStor_14_</DataField>
-        </Field>
-        <Field Name="DataStor_14_Format">
-          <DataField>DataStor_14_Format</DataField>
-        </Field>
-        <Field Name="DataStor_12_">
-          <DataField>DataStor_12_</DataField>
-        </Field>
-        <Field Name="DataStor_12_Format">
-          <DataField>DataStor_12_Format</DataField>
-        </Field>
-        <Field Name="Text12">
-          <DataField>Text12</DataField>
-        </Field>
-        <Field Name="TotIndirExp">
-          <DataField>TotIndirExp</DataField>
-        </Field>
-        <Field Name="TotIndirExpFormat">
-          <DataField>TotIndirExpFormat</DataField>
-        </Field>
-        <Field Name="Text17">
-          <DataField>Text17</DataField>
-        </Field>
-        <Field Name="NetProfit">
-          <DataField>NetProfit</DataField>
-        </Field>
-        <Field Name="NetProfitFormat">
-          <DataField>NetProfitFormat</DataField>
-        </Field>
-        <Field Name="Text15">
-          <DataField>Text15</DataField>
-        </Field>
-        <Field Name="NetProfPerct">
-          <DataField>NetProfPerct</DataField>
-        </Field>
-        <Field Name="NetProfPerctFormat">
-          <DataField>NetProfPerctFormat</DataField>
-        </Field>
-        <Field Name="Text11_Control1000000064">
-          <DataField>Text11_Control1000000064</DataField>
-        </Field>
-        <Field Name="Integer_Number">
-          <DataField>Integer_Number</DataField>
-        </Field>
-      </Fields>
-    </DataSet>
-  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -11329,4 +10548,785 @@ End Function
   <Language>=User!Language</Language>
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="FORMAT_TODAY_0_4_">
+          <DataField>FORMAT_TODAY_0_4_</DataField>
+        </Field>
+        <Field Name="COMPANYNAME">
+          <DataField>COMPANYNAME</DataField>
+        </Field>
+        <Field Name="CurrReport_PAGENO">
+          <DataField>CurrReport_PAGENO</DataField>
+        </Field>
+        <Field Name="USERID">
+          <DataField>USERID</DataField>
+        </Field>
+        <Field Name="Text18">
+          <DataField>Text18</DataField>
+        </Field>
+        <Field Name="a">
+          <DataField>a</DataField>
+        </Field>
+        <Field Name="aFormat">
+          <DataField>aFormat</DataField>
+        </Field>
+        <Field Name="Job__Lost_Days_">
+          <DataField>Job__Lost_Days_</DataField>
+        </Field>
+        <Field Name="Job__Lost_Days_Format">
+          <DataField>Job__Lost_Days_Format</DataField>
+        </Field>
+        <Field Name="Job_Ledger_Entry__Job_No__">
+          <DataField>Job_Ledger_Entry__Job_No__</DataField>
+        </Field>
+        <Field Name="ETA">
+          <DataField>ETA</DataField>
+        </Field>
+        <Field Name="ETD">
+          <DataField>ETD</DataField>
+        </Field>
+        <Field Name="CycleDay">
+          <DataField>CycleDay</DataField>
+        </Field>
+        <Field Name="CycleDayFormat">
+          <DataField>CycleDayFormat</DataField>
+        </Field>
+        <Field Name="FishgDay">
+          <DataField>FishgDay</DataField>
+        </Field>
+        <Field Name="FishgDayFormat">
+          <DataField>FishgDayFormat</DataField>
+        </Field>
+        <Field Name="LostDay">
+          <DataField>LostDay</DataField>
+        </Field>
+        <Field Name="LostDayFormat">
+          <DataField>LostDayFormat</DataField>
+        </Field>
+        <Field Name="PortDay">
+          <DataField>PortDay</DataField>
+        </Field>
+        <Field Name="PortDayFormat">
+          <DataField>PortDayFormat</DataField>
+        </Field>
+        <Field Name="Vess">
+          <DataField>Vess</DataField>
+        </Field>
+        <Field Name="Text21">
+          <DataField>Text21</DataField>
+        </Field>
+        <Field Name="Text22">
+          <DataField>Text22</DataField>
+        </Field>
+        <Field Name="Text23">
+          <DataField>Text23</DataField>
+        </Field>
+        <Field Name="Text24">
+          <DataField>Text24</DataField>
+        </Field>
+        <Field Name="Text25">
+          <DataField>Text25</DataField>
+        </Field>
+        <Field Name="Text26">
+          <DataField>Text26</DataField>
+        </Field>
+        <Field Name="Text27">
+          <DataField>Text27</DataField>
+        </Field>
+        <Field Name="PntStor_1_">
+          <DataField>PntStor_1_</DataField>
+        </Field>
+        <Field Name="PntStor_1_Format">
+          <DataField>PntStor_1_Format</DataField>
+        </Field>
+        <Field Name="PntStor_2_">
+          <DataField>PntStor_2_</DataField>
+        </Field>
+        <Field Name="PntStor_2_Format">
+          <DataField>PntStor_2_Format</DataField>
+        </Field>
+        <Field Name="PntStor_3_">
+          <DataField>PntStor_3_</DataField>
+        </Field>
+        <Field Name="PntStor_3_Format">
+          <DataField>PntStor_3_Format</DataField>
+        </Field>
+        <Field Name="PntStor_4_">
+          <DataField>PntStor_4_</DataField>
+        </Field>
+        <Field Name="PntStor_4_Format">
+          <DataField>PntStor_4_Format</DataField>
+        </Field>
+        <Field Name="PntStor_5_">
+          <DataField>PntStor_5_</DataField>
+        </Field>
+        <Field Name="PntStor_5_Format">
+          <DataField>PntStor_5_Format</DataField>
+        </Field>
+        <Field Name="PntStor_6_">
+          <DataField>PntStor_6_</DataField>
+        </Field>
+        <Field Name="PntStor_6_Format">
+          <DataField>PntStor_6_Format</DataField>
+        </Field>
+        <Field Name="PntStor_7_">
+          <DataField>PntStor_7_</DataField>
+        </Field>
+        <Field Name="PntStor_7_Format">
+          <DataField>PntStor_7_Format</DataField>
+        </Field>
+        <Field Name="Coutry_Name">
+          <DataField>Coutry_Name</DataField>
+        </Field>
+        <Field Name="Res_Name">
+          <DataField>Res_Name</DataField>
+        </Field>
+        <Field Name="Job_Ledger_Entry__Work_Type_Code_">
+          <DataField>Job_Ledger_Entry__Work_Type_Code_</DataField>
+        </Field>
+        <Field Name="Job_Ledger_Entry__No__">
+          <DataField>Job_Ledger_Entry__No__</DataField>
+        </Field>
+        <Field Name="Job_Ledger_Entry__Work_Type_Code__Control17">
+          <DataField>Job_Ledger_Entry__Work_Type_Code__Control17</DataField>
+        </Field>
+        <Field Name="Qty">
+          <DataField>Qty</DataField>
+        </Field>
+        <Field Name="QtyFormat">
+          <DataField>QtyFormat</DataField>
+        </Field>
+        <Field Name="PrdPrc">
+          <DataField>PrdPrc</DataField>
+        </Field>
+        <Field Name="PrdPrcFormat">
+          <DataField>PrdPrcFormat</DataField>
+        </Field>
+        <Field Name="NairaVal">
+          <DataField>NairaVal</DataField>
+        </Field>
+        <Field Name="NairaValFormat">
+          <DataField>NairaValFormat</DataField>
+        </Field>
+        <Field Name="Qty_Control23">
+          <DataField>Qty_Control23</DataField>
+        </Field>
+        <Field Name="Qty_Control23Format">
+          <DataField>Qty_Control23Format</DataField>
+        </Field>
+        <Field Name="PrdPrc_Control1000000002">
+          <DataField>PrdPrc_Control1000000002</DataField>
+        </Field>
+        <Field Name="PrdPrc_Control1000000002Format">
+          <DataField>PrdPrc_Control1000000002Format</DataField>
+        </Field>
+        <Field Name="Job_Ledger_Entry__Work_Type_Code__Control1000000004">
+          <DataField>Job_Ledger_Entry__Work_Type_Code__Control1000000004</DataField>
+        </Field>
+        <Field Name="NairaVal_Control1000000005">
+          <DataField>NairaVal_Control1000000005</DataField>
+        </Field>
+        <Field Name="NairaVal_Control1000000005Format">
+          <DataField>NairaVal_Control1000000005Format</DataField>
+        </Field>
+        <Field Name="TotalFor">
+          <DataField>TotalFor</DataField>
+        </Field>
+        <Field Name="Qty_Control25">
+          <DataField>Qty_Control25</DataField>
+        </Field>
+        <Field Name="Qty_Control25Format">
+          <DataField>Qty_Control25Format</DataField>
+        </Field>
+        <Field Name="PrdPrc_Control1000000003">
+          <DataField>PrdPrc_Control1000000003</DataField>
+        </Field>
+        <Field Name="PrdPrc_Control1000000003Format">
+          <DataField>PrdPrc_Control1000000003Format</DataField>
+        </Field>
+        <Field Name="NairaVal_Control1000000007">
+          <DataField>NairaVal_Control1000000007</DataField>
+        </Field>
+        <Field Name="NairaVal_Control1000000007Format">
+          <DataField>NairaVal_Control1000000007Format</DataField>
+        </Field>
+        <Field Name="CurrReport_PAGENOCaption">
+          <DataField>CurrReport_PAGENOCaption</DataField>
+        </Field>
+        <Field Name="Job_Ledger_Entry__No__Caption">
+          <DataField>Job_Ledger_Entry__No__Caption</DataField>
+        </Field>
+        <Field Name="QtyCaption">
+          <DataField>QtyCaption</DataField>
+        </Field>
+        <Field Name="EmptyStringCaption">
+          <DataField>EmptyStringCaption</DataField>
+        </Field>
+        <Field Name="N_Caption">
+          <DataField>N_Caption</DataField>
+        </Field>
+        <Field Name="Job__Lost_Days_Caption">
+          <DataField>Job__Lost_Days_Caption</DataField>
+        </Field>
+        <Field Name="Job_Ledger_Entry__Job_No__Caption">
+          <DataField>Job_Ledger_Entry__Job_No__Caption</DataField>
+        </Field>
+        <Field Name="ETACaption">
+          <DataField>ETACaption</DataField>
+        </Field>
+        <Field Name="ETDCaption">
+          <DataField>ETDCaption</DataField>
+        </Field>
+        <Field Name="CycleDayCaption">
+          <DataField>CycleDayCaption</DataField>
+        </Field>
+        <Field Name="FishgDayCaption">
+          <DataField>FishgDayCaption</DataField>
+        </Field>
+        <Field Name="LostDayCaption">
+          <DataField>LostDayCaption</DataField>
+        </Field>
+        <Field Name="PortDayCaption">
+          <DataField>PortDayCaption</DataField>
+        </Field>
+        <Field Name="QtyCaption_Control1000000082">
+          <DataField>QtyCaption_Control1000000082</DataField>
+        </Field>
+        <Field Name="EmptyStringCaption_Control1000000083">
+          <DataField>EmptyStringCaption_Control1000000083</DataField>
+        </Field>
+        <Field Name="N_Caption_Control1000000084">
+          <DataField>N_Caption_Control1000000084</DataField>
+        </Field>
+        <Field Name="RateCaption">
+          <DataField>RateCaption</DataField>
+        </Field>
+        <Field Name="Bud__Qty_Caption">
+          <DataField>Bud__Qty_Caption</DataField>
+        </Field>
+        <Field Name="Bud___Caption">
+          <DataField>Bud___Caption</DataField>
+        </Field>
+        <Field Name="Bud___N_Caption">
+          <DataField>Bud___N_Caption</DataField>
+        </Field>
+        <Field Name="Var___N_Caption">
+          <DataField>Var___N_Caption</DataField>
+        </Field>
+        <Field Name="Job_Ledger_Entry_Entry_No_">
+          <DataField>Job_Ledger_Entry_Entry_No_</DataField>
+        </Field>
+        <Field Name="Sea_Food_categories__Sea_food_code_">
+          <DataField>Sea_Food_categories__Sea_food_code_</DataField>
+        </Field>
+        <Field Name="COPYSTR___Sea_food_code__5_">
+          <DataField>COPYSTR___Sea_food_code__5_</DataField>
+        </Field>
+        <Field Name="A1_3_">
+          <DataField>A1_3_</DataField>
+        </Field>
+        <Field Name="A1_3_Format">
+          <DataField>A1_3_Format</DataField>
+        </Field>
+        <Field Name="A1_2_">
+          <DataField>A1_2_</DataField>
+        </Field>
+        <Field Name="A1_2_Format">
+          <DataField>A1_2_Format</DataField>
+        </Field>
+        <Field Name="A1_1_">
+          <DataField>A1_1_</DataField>
+        </Field>
+        <Field Name="A1_1_Format">
+          <DataField>A1_1_Format</DataField>
+        </Field>
+        <Field Name="A1_4__1000">
+          <DataField>A1_4__1000</DataField>
+        </Field>
+        <Field Name="A1_4__1000Format">
+          <DataField>A1_4__1000Format</DataField>
+        </Field>
+        <Field Name="A2_4_">
+          <DataField>A2_4_</DataField>
+        </Field>
+        <Field Name="A2_4_Format">
+          <DataField>A2_4_Format</DataField>
+        </Field>
+        <Field Name="A2_1_">
+          <DataField>A2_1_</DataField>
+        </Field>
+        <Field Name="A2_1_Format">
+          <DataField>A2_1_Format</DataField>
+        </Field>
+        <Field Name="A2_2_">
+          <DataField>A2_2_</DataField>
+        </Field>
+        <Field Name="A2_2_Format">
+          <DataField>A2_2_Format</DataField>
+        </Field>
+        <Field Name="A2_3_">
+          <DataField>A2_3_</DataField>
+        </Field>
+        <Field Name="A2_3_Format">
+          <DataField>A2_3_Format</DataField>
+        </Field>
+        <Field Name="NairaVal2X_NairaValBX">
+          <DataField>NairaVal2X_NairaValBX</DataField>
+        </Field>
+        <Field Name="NairaVal2X_NairaValBXFormat">
+          <DataField>NairaVal2X_NairaValBXFormat</DataField>
+        </Field>
+        <Field Name="NairaValBX">
+          <DataField>NairaValBX</DataField>
+        </Field>
+        <Field Name="NairaValBXFormat">
+          <DataField>NairaValBXFormat</DataField>
+        </Field>
+        <Field Name="PrdPrcBX">
+          <DataField>PrdPrcBX</DataField>
+        </Field>
+        <Field Name="PrdPrcBXFormat">
+          <DataField>PrdPrcBXFormat</DataField>
+        </Field>
+        <Field Name="QtyBX">
+          <DataField>QtyBX</DataField>
+        </Field>
+        <Field Name="QtyBXFormat">
+          <DataField>QtyBXFormat</DataField>
+        </Field>
+        <Field Name="NairaVal2X">
+          <DataField>NairaVal2X</DataField>
+        </Field>
+        <Field Name="NairaVal2XFormat">
+          <DataField>NairaVal2XFormat</DataField>
+        </Field>
+        <Field Name="PrdPrc2X">
+          <DataField>PrdPrc2X</DataField>
+        </Field>
+        <Field Name="PrdPrc2XFormat">
+          <DataField>PrdPrc2XFormat</DataField>
+        </Field>
+        <Field Name="QtyX">
+          <DataField>QtyX</DataField>
+        </Field>
+        <Field Name="QtyXFormat">
+          <DataField>QtyXFormat</DataField>
+        </Field>
+        <Field Name="TotalForX">
+          <DataField>TotalForX</DataField>
+        </Field>
+        <Field Name="TotalFor_Control1000000133">
+          <DataField>TotalFor_Control1000000133</DataField>
+        </Field>
+        <Field Name="Qty_Control1000000134">
+          <DataField>Qty_Control1000000134</DataField>
+        </Field>
+        <Field Name="Qty_Control1000000134Format">
+          <DataField>Qty_Control1000000134Format</DataField>
+        </Field>
+        <Field Name="PrdPrc2">
+          <DataField>PrdPrc2</DataField>
+        </Field>
+        <Field Name="PrdPrc2Format">
+          <DataField>PrdPrc2Format</DataField>
+        </Field>
+        <Field Name="NairaVal2">
+          <DataField>NairaVal2</DataField>
+        </Field>
+        <Field Name="NairaVal2Format">
+          <DataField>NairaVal2Format</DataField>
+        </Field>
+        <Field Name="QtyB">
+          <DataField>QtyB</DataField>
+        </Field>
+        <Field Name="QtyBFormat">
+          <DataField>QtyBFormat</DataField>
+        </Field>
+        <Field Name="PrdPrcB">
+          <DataField>PrdPrcB</DataField>
+        </Field>
+        <Field Name="PrdPrcBFormat">
+          <DataField>PrdPrcBFormat</DataField>
+        </Field>
+        <Field Name="NairaValB">
+          <DataField>NairaValB</DataField>
+        </Field>
+        <Field Name="NairaValBFormat">
+          <DataField>NairaValBFormat</DataField>
+        </Field>
+        <Field Name="NairaVal2_NairaValB">
+          <DataField>NairaVal2_NairaValB</DataField>
+        </Field>
+        <Field Name="NairaVal2_NairaValBFormat">
+          <DataField>NairaVal2_NairaValBFormat</DataField>
+        </Field>
+        <Field Name="NairaVal2_NairaValB___NairaVal2X_NairaValBX_">
+          <DataField>NairaVal2_NairaValB___NairaVal2X_NairaValBX_</DataField>
+        </Field>
+        <Field Name="NairaVal2_NairaValB___NairaVal2X_NairaValBX_Format">
+          <DataField>NairaVal2_NairaValB___NairaVal2X_NairaValBX_Format</DataField>
+        </Field>
+        <Field Name="NairaValB_NairaValBX">
+          <DataField>NairaValB_NairaValBX</DataField>
+        </Field>
+        <Field Name="NairaValB_NairaValBXFormat">
+          <DataField>NairaValB_NairaValBXFormat</DataField>
+        </Field>
+        <Field Name="PrdPrcB_PrdPrcBX">
+          <DataField>PrdPrcB_PrdPrcBX</DataField>
+        </Field>
+        <Field Name="PrdPrcB_PrdPrcBXFormat">
+          <DataField>PrdPrcB_PrdPrcBXFormat</DataField>
+        </Field>
+        <Field Name="QtyB_QtyBX">
+          <DataField>QtyB_QtyBX</DataField>
+        </Field>
+        <Field Name="QtyB_QtyBXFormat">
+          <DataField>QtyB_QtyBXFormat</DataField>
+        </Field>
+        <Field Name="NairaVal2_NairaVal2X">
+          <DataField>NairaVal2_NairaVal2X</DataField>
+        </Field>
+        <Field Name="NairaVal2_NairaVal2XFormat">
+          <DataField>NairaVal2_NairaVal2XFormat</DataField>
+        </Field>
+        <Field Name="PrdPrc2_PrdPrc2X">
+          <DataField>PrdPrc2_PrdPrc2X</DataField>
+        </Field>
+        <Field Name="PrdPrc2_PrdPrc2XFormat">
+          <DataField>PrdPrc2_PrdPrc2XFormat</DataField>
+        </Field>
+        <Field Name="Qty_QtyX">
+          <DataField>Qty_QtyX</DataField>
+        </Field>
+        <Field Name="Qty_QtyXFormat">
+          <DataField>Qty_QtyXFormat</DataField>
+        </Field>
+        <Field Name="TotalFory">
+          <DataField>TotalFory</DataField>
+        </Field>
+        <Field Name="Sea_Food_categories__Sea_food_code_Caption">
+          <DataField>Sea_Food_categories__Sea_food_code_Caption</DataField>
+        </Field>
+        <Field Name="Job_Ledger_Entry_Rep_GroupSort">
+          <DataField>Job_Ledger_Entry_Rep_GroupSort</DataField>
+        </Field>
+        <Field Name="Job_Ledger_Entry_Rep__No__">
+          <DataField>Job_Ledger_Entry_Rep__No__</DataField>
+        </Field>
+        <Field Name="NairaVal2_Control1000000066">
+          <DataField>NairaVal2_Control1000000066</DataField>
+        </Field>
+        <Field Name="NairaVal2_Control1000000066Format">
+          <DataField>NairaVal2_Control1000000066Format</DataField>
+        </Field>
+        <Field Name="PrdPrc2_Control1000000067">
+          <DataField>PrdPrc2_Control1000000067</DataField>
+        </Field>
+        <Field Name="PrdPrc2_Control1000000067Format">
+          <DataField>PrdPrc2_Control1000000067Format</DataField>
+        </Field>
+        <Field Name="Qty_Control1000000068">
+          <DataField>Qty_Control1000000068</DataField>
+        </Field>
+        <Field Name="Qty_Control1000000068Format">
+          <DataField>Qty_Control1000000068Format</DataField>
+        </Field>
+        <Field Name="Job_Ledger_Entry_Rep_GroupSort_Control1000000069">
+          <DataField>Job_Ledger_Entry_Rep_GroupSort_Control1000000069</DataField>
+        </Field>
+        <Field Name="NairaVal2_Control1000000071">
+          <DataField>NairaVal2_Control1000000071</DataField>
+        </Field>
+        <Field Name="NairaVal2_Control1000000071Format">
+          <DataField>NairaVal2_Control1000000071Format</DataField>
+        </Field>
+        <Field Name="PrdPrc2_Control1000000072">
+          <DataField>PrdPrc2_Control1000000072</DataField>
+        </Field>
+        <Field Name="PrdPrc2_Control1000000072Format">
+          <DataField>PrdPrc2_Control1000000072Format</DataField>
+        </Field>
+        <Field Name="Qty_Control1000000073">
+          <DataField>Qty_Control1000000073</DataField>
+        </Field>
+        <Field Name="Qty_Control1000000073Format">
+          <DataField>Qty_Control1000000073Format</DataField>
+        </Field>
+        <Field Name="COPYSTR_GroupSort_5_">
+          <DataField>COPYSTR_GroupSort_5_</DataField>
+        </Field>
+        <Field Name="NairaVal2_Control1000000075">
+          <DataField>NairaVal2_Control1000000075</DataField>
+        </Field>
+        <Field Name="NairaVal2_Control1000000075Format">
+          <DataField>NairaVal2_Control1000000075Format</DataField>
+        </Field>
+        <Field Name="PrdPrc2_Control1000000076">
+          <DataField>PrdPrc2_Control1000000076</DataField>
+        </Field>
+        <Field Name="PrdPrc2_Control1000000076Format">
+          <DataField>PrdPrc2_Control1000000076Format</DataField>
+        </Field>
+        <Field Name="Qty_Control1000000077">
+          <DataField>Qty_Control1000000077</DataField>
+        </Field>
+        <Field Name="Qty_Control1000000077Format">
+          <DataField>Qty_Control1000000077Format</DataField>
+        </Field>
+        <Field Name="TotalFor_Control1000000078">
+          <DataField>TotalFor_Control1000000078</DataField>
+        </Field>
+        <Field Name="Job_Ledger_Entry_Rep_Entry_No_">
+          <DataField>Job_Ledger_Entry_Rep_Entry_No_</DataField>
+        </Field>
+        <Field Name="Job_Ledger_Entry_Rep_Job_No_">
+          <DataField>Job_Ledger_Entry_Rep_Job_No_</DataField>
+        </Field>
+        <Field Name="No_B_">
+          <DataField>No_B_</DataField>
+        </Field>
+        <Field Name="NairaValB_Control1000000115">
+          <DataField>NairaValB_Control1000000115</DataField>
+        </Field>
+        <Field Name="NairaValB_Control1000000115Format">
+          <DataField>NairaValB_Control1000000115Format</DataField>
+        </Field>
+        <Field Name="PrdPrcB_Control1000000116">
+          <DataField>PrdPrcB_Control1000000116</DataField>
+        </Field>
+        <Field Name="PrdPrcB_Control1000000116Format">
+          <DataField>PrdPrcB_Control1000000116Format</DataField>
+        </Field>
+        <Field Name="QtyB_Control1000000117">
+          <DataField>QtyB_Control1000000117</DataField>
+        </Field>
+        <Field Name="QtyB_Control1000000117Format">
+          <DataField>QtyB_Control1000000117Format</DataField>
+        </Field>
+        <Field Name="Job_catch_Default_GroupSort">
+          <DataField>Job_catch_Default_GroupSort</DataField>
+        </Field>
+        <Field Name="Job_catch_Default_Table_Name">
+          <DataField>Job_catch_Default_Table_Name</DataField>
+        </Field>
+        <Field Name="Job_catch_Default_No_">
+          <DataField>Job_catch_Default_No_</DataField>
+        </Field>
+        <Field Name="Job_catch_Default_Code">
+          <DataField>Job_catch_Default_Code</DataField>
+        </Field>
+        <Field Name="Job_catch_Default_Pack_Size">
+          <DataField>Job_catch_Default_Pack_Size</DataField>
+        </Field>
+        <Field Name="Value_Entry__Document_No__">
+          <DataField>Value_Entry__Document_No__</DataField>
+        </Field>
+        <Field Name="Value_Entry__Cost_Posted_to_G_L_">
+          <DataField>Value_Entry__Cost_Posted_to_G_L_</DataField>
+        </Field>
+        <Field Name="Value_Entry__Cost_Posted_to_G_L_Format">
+          <DataField>Value_Entry__Cost_Posted_to_G_L_Format</DataField>
+        </Field>
+        <Field Name="Value_Entry__Gen__Prod__Posting_Group_">
+          <DataField>Value_Entry__Gen__Prod__Posting_Group_</DataField>
+        </Field>
+        <Field Name="Cost_Posted_to_G_L_">
+          <DataField>Cost_Posted_to_G_L_</DataField>
+        </Field>
+        <Field Name="Cost_Posted_to_G_L_Format">
+          <DataField>Cost_Posted_to_G_L_Format</DataField>
+        </Field>
+        <Field Name="GPPGDesc">
+          <DataField>GPPGDesc</DataField>
+        </Field>
+        <Field Name="ValQty">
+          <DataField>ValQty</DataField>
+        </Field>
+        <Field Name="ValQtyFormat">
+          <DataField>ValQtyFormat</DataField>
+        </Field>
+        <Field Name="ValRate">
+          <DataField>ValRate</DataField>
+        </Field>
+        <Field Name="ValRateFormat">
+          <DataField>ValRateFormat</DataField>
+        </Field>
+        <Field Name="Cost_Posted_to_G_L__Control1000000090">
+          <DataField>Cost_Posted_to_G_L__Control1000000090</DataField>
+        </Field>
+        <Field Name="Cost_Posted_to_G_L__Control1000000090Format">
+          <DataField>Cost_Posted_to_G_L__Control1000000090Format</DataField>
+        </Field>
+        <Field Name="TotalFor_Control1000000091">
+          <DataField>TotalFor_Control1000000091</DataField>
+        </Field>
+        <Field Name="Value_Entry__Document_No__Caption">
+          <DataField>Value_Entry__Document_No__Caption</DataField>
+        </Field>
+        <Field Name="Value_Entry_Entry_No_">
+          <DataField>Value_Entry_Entry_No_</DataField>
+        </Field>
+        <Field Name="DataStor_3_">
+          <DataField>DataStor_3_</DataField>
+        </Field>
+        <Field Name="DataStor_3_Format">
+          <DataField>DataStor_3_Format</DataField>
+        </Field>
+        <Field Name="Text03">
+          <DataField>Text03</DataField>
+        </Field>
+        <Field Name="Text04">
+          <DataField>Text04</DataField>
+        </Field>
+        <Field Name="DataStor_4_">
+          <DataField>DataStor_4_</DataField>
+        </Field>
+        <Field Name="DataStor_4_Format">
+          <DataField>DataStor_4_Format</DataField>
+        </Field>
+        <Field Name="DataStor_5_">
+          <DataField>DataStor_5_</DataField>
+        </Field>
+        <Field Name="DataStor_5_Format">
+          <DataField>DataStor_5_Format</DataField>
+        </Field>
+        <Field Name="Text05">
+          <DataField>Text05</DataField>
+        </Field>
+        <Field Name="Text06">
+          <DataField>Text06</DataField>
+        </Field>
+        <Field Name="DataStor_6_">
+          <DataField>DataStor_6_</DataField>
+        </Field>
+        <Field Name="DataStor_6_Format">
+          <DataField>DataStor_6_Format</DataField>
+        </Field>
+        <Field Name="DataStor_7_">
+          <DataField>DataStor_7_</DataField>
+        </Field>
+        <Field Name="DataStor_7_Format">
+          <DataField>DataStor_7_Format</DataField>
+        </Field>
+        <Field Name="DataStor_8_">
+          <DataField>DataStor_8_</DataField>
+        </Field>
+        <Field Name="DataStor_8_Format">
+          <DataField>DataStor_8_Format</DataField>
+        </Field>
+        <Field Name="Text07">
+          <DataField>Text07</DataField>
+        </Field>
+        <Field Name="Text08">
+          <DataField>Text08</DataField>
+        </Field>
+        <Field Name="TotDirExp">
+          <DataField>TotDirExp</DataField>
+        </Field>
+        <Field Name="TotDirExpFormat">
+          <DataField>TotDirExpFormat</DataField>
+        </Field>
+        <Field Name="Text09">
+          <DataField>Text09</DataField>
+        </Field>
+        <Field Name="PeopleOnVoy">
+          <DataField>PeopleOnVoy</DataField>
+        </Field>
+        <Field Name="expcnt">
+          <DataField>expcnt</DataField>
+        </Field>
+        <Field Name="ResCount">
+          <DataField>ResCount</DataField>
+        </Field>
+        <Field Name="ExpTonnage">
+          <DataField>ExpTonnage</DataField>
+        </Field>
+        <Field Name="ExpTonnageFormat">
+          <DataField>ExpTonnageFormat</DataField>
+        </Field>
+        <Field Name="Text10">
+          <DataField>Text10</DataField>
+        </Field>
+        <Field Name="GrossPerct">
+          <DataField>GrossPerct</DataField>
+        </Field>
+        <Field Name="GrossPerctFormat">
+          <DataField>GrossPerctFormat</DataField>
+        </Field>
+        <Field Name="Text11">
+          <DataField>Text11</DataField>
+        </Field>
+        <Field Name="GrossMarg">
+          <DataField>GrossMarg</DataField>
+        </Field>
+        <Field Name="GrossMargFormat">
+          <DataField>GrossMargFormat</DataField>
+        </Field>
+        <Field Name="Text13">
+          <DataField>Text13</DataField>
+        </Field>
+        <Field Name="Text14">
+          <DataField>Text14</DataField>
+        </Field>
+        <Field Name="DataStor_13_">
+          <DataField>DataStor_13_</DataField>
+        </Field>
+        <Field Name="DataStor_13_Format">
+          <DataField>DataStor_13_Format</DataField>
+        </Field>
+        <Field Name="DataStor_14_">
+          <DataField>DataStor_14_</DataField>
+        </Field>
+        <Field Name="DataStor_14_Format">
+          <DataField>DataStor_14_Format</DataField>
+        </Field>
+        <Field Name="DataStor_12_">
+          <DataField>DataStor_12_</DataField>
+        </Field>
+        <Field Name="DataStor_12_Format">
+          <DataField>DataStor_12_Format</DataField>
+        </Field>
+        <Field Name="Text12">
+          <DataField>Text12</DataField>
+        </Field>
+        <Field Name="TotIndirExp">
+          <DataField>TotIndirExp</DataField>
+        </Field>
+        <Field Name="TotIndirExpFormat">
+          <DataField>TotIndirExpFormat</DataField>
+        </Field>
+        <Field Name="Text17">
+          <DataField>Text17</DataField>
+        </Field>
+        <Field Name="NetProfit">
+          <DataField>NetProfit</DataField>
+        </Field>
+        <Field Name="NetProfitFormat">
+          <DataField>NetProfitFormat</DataField>
+        </Field>
+        <Field Name="Text15">
+          <DataField>Text15</DataField>
+        </Field>
+        <Field Name="NetProfPerct">
+          <DataField>NetProfPerct</DataField>
+        </Field>
+        <Field Name="NetProfPerctFormat">
+          <DataField>NetProfPerctFormat</DataField>
+        </Field>
+        <Field Name="Text11_Control1000000064">
+          <DataField>Text11_Control1000000064</DataField>
+        </Field>
+        <Field Name="Integer_Number">
+          <DataField>Integer_Number</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
 </Report>

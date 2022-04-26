@@ -21,7 +21,7 @@ table 50010 "Payroll-Posting Group Line."
         field(2; "E/D Code"; Code[20])
         {
             NotBlank = true;
-            TableRelation = "Payroll ED Codes.";
+            TableRelation = "Payroll-E/D Codes.";
 
             trigger OnValidate()
             begin
@@ -103,7 +103,7 @@ table 50010 "Payroll-Posting Group Line."
     }
 
     var
-        EDFileRec: Record "Payroll ED Codes.";
+        EDFileRec: Record "Payroll-E/D Codes.";
         CustomerAccRec: Record Customer;
         FinanceAccRec: Record "G/L Account";
 }

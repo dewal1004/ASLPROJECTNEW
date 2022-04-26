@@ -355,7 +355,7 @@ report 50993 "Voyage P&L Ledger LineP"
         Bud___N_CaptionLbl: Label 'Bud. =N=';
         Var___N_CaptionLbl: Label 'Var. =N=';
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure Syntesis(Cd: Code[10]; Pk: Code[10]; Br: Code[10]) Itemno: Code[10]
     begin
         //Syntesis Item Code Name
@@ -364,7 +364,7 @@ report 50993 "Voyage P&L Ledger LineP"
         "No.B" := ItemVar;
     end;
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure BIN()
     begin
         /*  //AGO Credit from G/L Entry

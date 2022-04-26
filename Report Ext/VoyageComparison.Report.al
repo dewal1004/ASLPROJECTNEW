@@ -427,7 +427,7 @@ report 50114 "Voyage Comparison"
         TotalCaptionLbl: Label 'Total';
         Res: Record Resource;
 
-    /*[Scope('Internal')]
+    /*[Scope('OnPrem')]
     procedure UpdateCell(Row: Integer; Col: Integer; ValueText: Text[200]; Bold: Boolean; Italic: Boolean; Underline: Boolean; FontSize: Integer)
     begin
         xlSheet.Range(GetCol(Col) + Format(Row)).Value := ValueText;
@@ -440,7 +440,7 @@ report 50114 "Voyage Comparison"
         xlSheet.Range(GetCol(Col) + Format(Row)).Font.Size := FontSize;
     end;
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure GetCol(CN: Integer): Text[30]
     var
         xlColID: Text[10];

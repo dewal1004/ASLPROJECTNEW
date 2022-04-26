@@ -98,7 +98,7 @@ table 50031 "Store Requisition Header New"
         }
         field(10; "Transfer To."; Code[20])
         {
-            TableRelation = Location WHERE ("Use As In-Transit" = CONST (false));
+            TableRelation = Location WHERE("Use As In-Transit" = CONST(false));
 
             trigger OnValidate()
             begin
@@ -110,7 +110,7 @@ table 50031 "Store Requisition Header New"
         field(11; "Transfer From"; Code[20])
         {
             InitValue = 'GNRL ASL';
-            TableRelation = Location.Code WHERE ("Use As In-Transit" = CONST (false));
+            TableRelation = Location.Code WHERE("Use As In-Transit" = CONST(false));
 
             trigger OnValidate()
             begin
@@ -123,7 +123,7 @@ table 50031 "Store Requisition Header New"
         field(13; "1st Approval to"; Code[50])
         {
             Caption = '1st Approval to';
-            TableRelation = "User Setup"."User ID" WHERE ("Store Req 1st Approval" = CONST (true));
+            TableRelation = "User Setup"."User ID" WHERE("Store Req 1st Approval" = CONST(true));
 
             trigger OnValidate()
             begin
@@ -136,7 +136,7 @@ table 50031 "Store Requisition Header New"
         field(14; "Final Approval to"; Code[50])
         {
             Caption = 'Final Approval to';
-            TableRelation = "User Setup"."User ID" WHERE ("Store Req Final Approval" = CONST (true));
+            TableRelation = "User Setup"."User ID" WHERE("Store Req Final Approval" = CONST(true));
 
             trigger OnValidate()
             begin
@@ -211,7 +211,7 @@ table 50031 "Store Requisition Header New"
         {
             CaptionClass = '1,1,1';
             Caption = 'Global Dimension 1 Code';
-            TableRelation = "Dimension Value".Code WHERE ("Global Dimension No." = CONST (1));
+            TableRelation = "Dimension Value".Code WHERE("Global Dimension No." = CONST(1));
 
             trigger OnValidate()
             begin
@@ -222,7 +222,7 @@ table 50031 "Store Requisition Header New"
         {
             CaptionClass = '1,1,2';
             Caption = 'Global Dimension 2 Code';
-            TableRelation = "Dimension Value".Code WHERE ("Global Dimension No." = CONST (2));
+            TableRelation = "Dimension Value".Code WHERE("Global Dimension No." = CONST(2));
 
             trigger OnValidate()
             begin
@@ -315,16 +315,16 @@ table 50031 "Store Requisition Header New"
         }
         field(36; "Requisition Template"; Code[20])
         {
-            TableRelation = "Transfer Header"."No." WHERE ("Transfer Template" = CONST (true));
+            TableRelation = "Transfer Header"."No." WHERE("Transfer Template" = CONST(true));
         }
         field(37; "Issued By"; Text[50])
         {
         }
         field(38; "Journal Batch"; Code[20])
         {
-            TableRelation = IF ("Job Related" = CONST (false)) "Item Journal Batch".Name WHERE ("Journal Template Name" = CONST ('ITEM'))
+            TableRelation = IF ("Job Related" = CONST(false)) "Item Journal Batch".Name WHERE("Journal Template Name" = CONST('ITEM'))
             ELSE
-            IF ("Job Related" = CONST (true)) "Job Journal Batch".Name;
+            IF ("Job Related" = CONST(true)) "Job Journal Batch".Name;
         }
         field(39; "Reason Code"; Code[20])
         {
@@ -415,24 +415,24 @@ table 50031 "Store Requisition Header New"
         }
         field(48; "External Document No"; Code[20])
         {
-            TableRelation = IF ("Reason Code" = CONST ('USAGEFA')) "Fixed Asset" WHERE ("FA Class Code" = FILTER (<> 'TRAWLER'))
+            TableRelation = IF ("Reason Code" = CONST('USAGEFA')) "Fixed Asset" WHERE("FA Class Code" = FILTER(<> 'TRAWLER'))
             ELSE
-            IF ("Reason Code" = CONST ('USAGERES')) Location
+            IF ("Reason Code" = CONST('USAGERES')) Location
             ELSE
-            IF ("Reason Code" = CONST ('USAGEVES')) Location
+            IF ("Reason Code" = CONST('USAGEVES')) Location
             ELSE
-            IF ("Reason Code" = CONST ('USAGEOTR')) "Dimension Value".Code WHERE ("Global Dimension No." = CONST (1))
+            IF ("Reason Code" = CONST('USAGEOTR')) "Dimension Value".Code WHERE("Global Dimension No." = CONST(1))
             ELSE
-            IF ("Reason Code" = CONST ('USAGEACHD')) "Standard Text" WHERE (Others = CONST (true),
-                                                                                              Type = CONST (net))
+            IF ("Reason Code" = CONST('USAGEACHD')) "Standard Text" WHERE(Others = CONST(true),
+                                                                                              Type = CONST(net))
             ELSE
-            IF ("Reason Code" = CONST ('CONVTFA')) "Fixed Asset" WHERE ("FA Class Code" = FILTER (<> 'TRAWLER'))
+            IF ("Reason Code" = CONST('CONVTFA')) "Fixed Asset" WHERE("FA Class Code" = FILTER(<> 'TRAWLER'))
             ELSE
-            IF ("Reason Code" = CONST ('CRMISSUE')) "Standard Text" WHERE (Others = CONST (true),
-                                                                                                                                                               Type = CONST (crmissue))
+            IF ("Reason Code" = CONST('CRMISSUE')) "Standard Text" WHERE(Others = CONST(true),
+                                                                                                                                                               Type = CONST(crmissue))
             ELSE
-            IF ("Reason Code" = CONST ('LNADJ')) "Standard Text" WHERE (Others = CONST (true),
-                                                                                                                                                                                                                             Type = CONST (ItemLoan));
+            IF ("Reason Code" = CONST('LNADJ')) "Standard Text" WHERE(Others = CONST(true),
+                                                                                                                                                                                                                             Type = CONST(ItemLoan));
         }
         field(49; Rejected; Boolean)
         {
@@ -442,18 +442,18 @@ table 50031 "Store Requisition Header New"
         }
         field(51; "Job No."; Code[20])
         {
-            TableRelation = IF (DryDock = CONST (false)) Job."No." WHERE (Status = FILTER (<> completed),
-                                                                       "No." = FILTER ('*J*'))
+            TableRelation = IF (DryDock = CONST(false)) Job."No." WHERE(Status = FILTER(<> completed),
+                                                                       "No." = FILTER('*J*'))
             ELSE
-            IF (DryDock = CONST (true)) Job."No." WHERE (Status = FILTER (<> Completed),
-                                                                                                                      "No." = FILTER ('*C*'));
+            IF (DryDock = CONST(true)) Job."No." WHERE(Status = FILTER(<> Completed),
+                                                                                                                      "No." = FILTER('*C*'));
         }
         field(52; DryDock; Boolean)
         {
         }
         field(53; "No Of Lines"; Integer)
         {
-            CalcFormula = Count ("Store Requisition Line New" WHERE ("Req. No." = FIELD ("Req. No")));
+            CalcFormula = Count("Store Requisition Line New" WHERE("Req. No." = FIELD("Req. No")));
             Editable = false;
             FieldClass = FlowField;
             TableRelation = "Store Requisition Line New";
@@ -544,7 +544,7 @@ table 50031 "Store Requisition Header New"
         selection: Integer;
         Text50007: Label '&Add to Purchase Requisition Register,&Create Purchase Order';
 
-    // [Scope('Internal')]
+    // [Scope('OnPrem')]
     procedure AssistEdit(OldRequisition: Record "Store Requisition Header New"): Boolean
     var
         ReqRec: Record "Store Requisition Header New";
@@ -561,7 +561,7 @@ table 50031 "Store Requisition Header New"
         end;
     end;
 
-    // [Scope('Internal')]
+    // [Scope('OnPrem')]
     procedure CreatesalesInv()
     var
         Salesheader: Record "Sales Header";
@@ -628,7 +628,7 @@ table 50031 "Store Requisition Header New"
         Message(Text50004, DocNo);
     end;
 
-    // [Scope('Internal')]
+    // [Scope('OnPrem')]
     procedure CreateAdjSmt()
     var
         ItemJnl: Record "Item Journal Line";
@@ -696,7 +696,7 @@ table 50031 "Store Requisition Header New"
         Message(Text50005, "Journal Batch");
     end;
 
-    // [Scope('Internal')]
+    // [Scope('OnPrem')]
     procedure CreateJobJnl()
     var
         JobJnl: Record "Job Journal Line";
@@ -764,7 +764,7 @@ table 50031 "Store Requisition Header New"
 
     end;
 
-    // // [Scope('Internal')]
+    // // [Scope('OnPrem')]
     procedure TransferOrder()
     var
         Transheader: Record "Transfer Header";
@@ -831,7 +831,7 @@ table 50031 "Store Requisition Header New"
             Message(Text50003, "Req. No");
     end;
 
-    // [Scope('Internal')]
+    // [Scope('OnPrem')]
     procedure CreatePurchInv()
     var
         Purchheader: Record "Purchase Header";
@@ -905,7 +905,7 @@ table 50031 "Store Requisition Header New"
         Modify;
     end;
 
-    // [Scope('Internal')]
+    // [Scope('OnPrem')]
     procedure CheckReplacement()
     var
         NicsArt: Record "Misc. Article Information";
@@ -936,7 +936,7 @@ table 50031 "Store Requisition Header New"
             until StoreLine.Next = 0;
     end;
 
-    // [Scope('Internal')]
+    // [Scope('OnPrem')]
     procedure LoadTemplate()
     var
         Transline: Record "Transfer Line";
@@ -964,7 +964,7 @@ table 50031 "Store Requisition Header New"
             Error('Specify the Requisition Template to Copy');
     end;
 
-    // [Scope('Internal')]
+    // [Scope('OnPrem')]
     procedure GenerateStoreOrder()
     begin
     end;

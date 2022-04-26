@@ -116,7 +116,7 @@ table 50002 "Payroll-Lookup Header."
     var
         LookLinesRec: Record "Payroll-Lookup Lines.";
 
-    //[Scope('Internal')]
+    //[Scope('OnPrem')]
     procedure SpecialRelation("FieldNo.": Integer)
     begin
         exit;

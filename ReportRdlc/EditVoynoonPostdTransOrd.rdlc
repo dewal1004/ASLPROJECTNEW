@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -10,76 +10,6 @@
       <rd:SecurityType>None</rd:SecurityType>
     </DataSource>
   </DataSources>
-  <DataSets>
-    <DataSet Name="DataSet_Result">
-      <Query>
-        <DataSourceName>DataSource</DataSourceName>
-        <CommandText />
-      </Query>
-      <Fields>
-        <Field Name="FORMAT_TODAY_0_4_">
-          <DataField>FORMAT_TODAY_0_4_</DataField>
-        </Field>
-        <Field Name="COMPANYNAME">
-          <DataField>COMPANYNAME</DataField>
-        </Field>
-        <Field Name="CurrReport_PAGENO">
-          <DataField>CurrReport_PAGENO</DataField>
-        </Field>
-        <Field Name="USERID">
-          <DataField>USERID</DataField>
-        </Field>
-        <Field Name="Transfer_Receipt_Header__No__">
-          <DataField>Transfer_Receipt_Header__No__</DataField>
-        </Field>
-        <Field Name="Transfer_Receipt_Header__Transfer_from_Code_">
-          <DataField>Transfer_Receipt_Header__Transfer_from_Code_</DataField>
-        </Field>
-        <Field Name="Transfer_Receipt_Header__Transfer_from_Name_">
-          <DataField>Transfer_Receipt_Header__Transfer_from_Name_</DataField>
-        </Field>
-        <Field Name="Transfer_Receipt_Header__Transfer_to_Code_">
-          <DataField>Transfer_Receipt_Header__Transfer_to_Code_</DataField>
-        </Field>
-        <Field Name="Transfer_Receipt_Header__Transfer_Order_Date_">
-          <DataField>Transfer_Receipt_Header__Transfer_Order_Date_</DataField>
-        </Field>
-        <Field Name="Transfer_Receipt_Header__Transfer_Order_No__">
-          <DataField>Transfer_Receipt_Header__Transfer_Order_No__</DataField>
-        </Field>
-        <Field Name="Transfer_Receipt_Header__Transfer_To_Voy__No__">
-          <DataField>Transfer_Receipt_Header__Transfer_To_Voy__No__</DataField>
-        </Field>
-        <Field Name="Transfer_Receipt_HeaderCaption">
-          <DataField>Transfer_Receipt_HeaderCaption</DataField>
-        </Field>
-        <Field Name="CurrReport_PAGENOCaption">
-          <DataField>CurrReport_PAGENOCaption</DataField>
-        </Field>
-        <Field Name="Transfer_Receipt_Header__No__Caption">
-          <DataField>Transfer_Receipt_Header__No__Caption</DataField>
-        </Field>
-        <Field Name="Transfer_Receipt_Header__Transfer_from_Code_Caption">
-          <DataField>Transfer_Receipt_Header__Transfer_from_Code_Caption</DataField>
-        </Field>
-        <Field Name="Transfer_Receipt_Header__Transfer_from_Name_Caption">
-          <DataField>Transfer_Receipt_Header__Transfer_from_Name_Caption</DataField>
-        </Field>
-        <Field Name="Transfer_Receipt_Header__Transfer_to_Code_Caption">
-          <DataField>Transfer_Receipt_Header__Transfer_to_Code_Caption</DataField>
-        </Field>
-        <Field Name="Transfer_Receipt_Header__Transfer_Order_Date_Caption">
-          <DataField>Transfer_Receipt_Header__Transfer_Order_Date_Caption</DataField>
-        </Field>
-        <Field Name="Transfer_Receipt_Header__Transfer_Order_No__Caption">
-          <DataField>Transfer_Receipt_Header__Transfer_Order_No__Caption</DataField>
-        </Field>
-        <Field Name="Transfer_Receipt_Header__Transfer_To_Voy__No__Caption">
-          <DataField>Transfer_Receipt_Header__Transfer_To_Voy__No__Caption</DataField>
-        </Field>
-      </Fields>
-    </DataSet>
-  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -982,4 +912,74 @@ End Function
   <Language>=User!Language</Language>
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="FORMAT_TODAY_0_4_">
+          <DataField>FORMAT_TODAY_0_4_</DataField>
+        </Field>
+        <Field Name="COMPANYNAME">
+          <DataField>COMPANYNAME</DataField>
+        </Field>
+        <Field Name="CurrReport_PAGENO">
+          <DataField>CurrReport_PAGENO</DataField>
+        </Field>
+        <Field Name="USERID">
+          <DataField>USERID</DataField>
+        </Field>
+        <Field Name="Transfer_Receipt_Header__No__">
+          <DataField>Transfer_Receipt_Header__No__</DataField>
+        </Field>
+        <Field Name="Transfer_Receipt_Header__Transfer_from_Code_">
+          <DataField>Transfer_Receipt_Header__Transfer_from_Code_</DataField>
+        </Field>
+        <Field Name="Transfer_Receipt_Header__Transfer_from_Name_">
+          <DataField>Transfer_Receipt_Header__Transfer_from_Name_</DataField>
+        </Field>
+        <Field Name="Transfer_Receipt_Header__Transfer_to_Code_">
+          <DataField>Transfer_Receipt_Header__Transfer_to_Code_</DataField>
+        </Field>
+        <Field Name="Transfer_Receipt_Header__Transfer_Order_Date_">
+          <DataField>Transfer_Receipt_Header__Transfer_Order_Date_</DataField>
+        </Field>
+        <Field Name="Transfer_Receipt_Header__Transfer_Order_No__">
+          <DataField>Transfer_Receipt_Header__Transfer_Order_No__</DataField>
+        </Field>
+        <Field Name="Transfer_Receipt_Header__Transfer_To_Voy__No__">
+          <DataField>Transfer_Receipt_Header__Transfer_To_Voy__No__</DataField>
+        </Field>
+        <Field Name="Transfer_Receipt_HeaderCaption">
+          <DataField>Transfer_Receipt_HeaderCaption</DataField>
+        </Field>
+        <Field Name="CurrReport_PAGENOCaption">
+          <DataField>CurrReport_PAGENOCaption</DataField>
+        </Field>
+        <Field Name="Transfer_Receipt_Header__No__Caption">
+          <DataField>Transfer_Receipt_Header__No__Caption</DataField>
+        </Field>
+        <Field Name="Transfer_Receipt_Header__Transfer_from_Code_Caption">
+          <DataField>Transfer_Receipt_Header__Transfer_from_Code_Caption</DataField>
+        </Field>
+        <Field Name="Transfer_Receipt_Header__Transfer_from_Name_Caption">
+          <DataField>Transfer_Receipt_Header__Transfer_from_Name_Caption</DataField>
+        </Field>
+        <Field Name="Transfer_Receipt_Header__Transfer_to_Code_Caption">
+          <DataField>Transfer_Receipt_Header__Transfer_to_Code_Caption</DataField>
+        </Field>
+        <Field Name="Transfer_Receipt_Header__Transfer_Order_Date_Caption">
+          <DataField>Transfer_Receipt_Header__Transfer_Order_Date_Caption</DataField>
+        </Field>
+        <Field Name="Transfer_Receipt_Header__Transfer_Order_No__Caption">
+          <DataField>Transfer_Receipt_Header__Transfer_Order_No__Caption</DataField>
+        </Field>
+        <Field Name="Transfer_Receipt_Header__Transfer_To_Voy__No__Caption">
+          <DataField>Transfer_Receipt_Header__Transfer_To_Voy__No__Caption</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
 </Report>

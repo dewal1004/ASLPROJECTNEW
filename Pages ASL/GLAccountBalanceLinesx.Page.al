@@ -101,7 +101,7 @@ page 50416 "G/L Account Balance Linesx"
         AmountType: Option "Net Change","Balance at Date";
         ClosingEntryFilter: Option Include,Exclude;
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure Set(var NewGLAcc: Record "G/L Account"; NewGLPeriodLength: Integer; NewAmountType: Option "Net Change",Balance; NewClosingEntryFilter: Option Include,Exclude)
     begin
         GLAcc.Copy(NewGLAcc);

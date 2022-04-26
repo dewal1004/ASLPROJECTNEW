@@ -109,8 +109,8 @@ table 90029 "Sea CatchY"
         field(1002; "0A"; Code[10])
         {
             Caption = 'U - 10';
-            TableRelation = "Unit of Measure" WHERE ("In Use" = CONST (true),
-                                                     "Catch Code" = FILTER (<> ''));
+            TableRelation = "Unit of Measure" WHERE("In Use" = CONST(true),
+                                                     "Catch Code" = FILTER(<> ''));
 
             trigger OnValidate()
             begin
@@ -122,8 +122,8 @@ table 90029 "Sea CatchY"
         field(1003; "1A"; Code[10])
         {
             Caption = '10 - 20';
-            TableRelation = "Unit of Measure" WHERE ("In Use" = CONST (true),
-                                                     "Catch Code" = FILTER (<> ''));
+            TableRelation = "Unit of Measure" WHERE("In Use" = CONST(true),
+                                                     "Catch Code" = FILTER(<> ''));
 
             trigger OnValidate()
             begin
@@ -135,8 +135,8 @@ table 90029 "Sea CatchY"
         field(1004; "2A"; Code[10])
         {
             Caption = '20 - 30';
-            TableRelation = "Unit of Measure" WHERE ("In Use" = CONST (true),
-                                                     "Catch Code" = FILTER (<> ''));
+            TableRelation = "Unit of Measure" WHERE("In Use" = CONST(true),
+                                                     "Catch Code" = FILTER(<> ''));
 
             trigger OnValidate()
             begin
@@ -148,8 +148,8 @@ table 90029 "Sea CatchY"
         field(1005; "3A"; Code[10])
         {
             Caption = '30 - 40';
-            TableRelation = "Unit of Measure" WHERE ("In Use" = CONST (true),
-                                                     "Catch Code" = FILTER (<> ''));
+            TableRelation = "Unit of Measure" WHERE("In Use" = CONST(true),
+                                                     "Catch Code" = FILTER(<> ''));
 
             trigger OnValidate()
             begin
@@ -161,8 +161,8 @@ table 90029 "Sea CatchY"
         field(1006; "4A"; Code[10])
         {
             Caption = '40 - 60';
-            TableRelation = "Unit of Measure" WHERE ("In Use" = CONST (true),
-                                                     "Catch Code" = FILTER (<> ''));
+            TableRelation = "Unit of Measure" WHERE("In Use" = CONST(true),
+                                                     "Catch Code" = FILTER(<> ''));
 
             trigger OnValidate()
             begin
@@ -174,8 +174,8 @@ table 90029 "Sea CatchY"
         field(1007; "5A"; Code[10])
         {
             Caption = '60 - 80';
-            TableRelation = "Unit of Measure" WHERE ("In Use" = CONST (true),
-                                                     "Catch Code" = FILTER (<> ''));
+            TableRelation = "Unit of Measure" WHERE("In Use" = CONST(true),
+                                                     "Catch Code" = FILTER(<> ''));
 
             trigger OnValidate()
             begin
@@ -207,8 +207,8 @@ table 90029 "Sea CatchY"
         field(2002; "0B"; Code[10])
         {
             Caption = 'U - 10';
-            TableRelation = "Reason Code" WHERE ("In Use" = CONST (true),
-                                                 Type = CONST (Brands));
+            TableRelation = "Reason Code" WHERE("In Use" = CONST(true),
+                                                 Type = CONST(Brands));
 
             trigger OnValidate()
             begin
@@ -220,8 +220,8 @@ table 90029 "Sea CatchY"
         field(2003; "1B"; Code[10])
         {
             Caption = '10 - 20';
-            TableRelation = "Reason Code" WHERE ("In Use" = CONST (true),
-                                                 Type = CONST (Brands));
+            TableRelation = "Reason Code" WHERE("In Use" = CONST(true),
+                                                 Type = CONST(Brands));
 
             trigger OnValidate()
             begin
@@ -233,8 +233,8 @@ table 90029 "Sea CatchY"
         field(2004; "2B"; Code[10])
         {
             Caption = '20 - 30';
-            TableRelation = "Reason Code" WHERE ("In Use" = CONST (true),
-                                                 Type = CONST (Brands));
+            TableRelation = "Reason Code" WHERE("In Use" = CONST(true),
+                                                 Type = CONST(Brands));
 
             trigger OnValidate()
             begin
@@ -246,8 +246,8 @@ table 90029 "Sea CatchY"
         field(2005; "3B"; Code[10])
         {
             Caption = '30 - 40';
-            TableRelation = "Reason Code" WHERE ("In Use" = CONST (true),
-                                                 Type = CONST (Brands));
+            TableRelation = "Reason Code" WHERE("In Use" = CONST(true),
+                                                 Type = CONST(Brands));
 
             trigger OnValidate()
             begin
@@ -259,8 +259,8 @@ table 90029 "Sea CatchY"
         field(2006; "4B"; Code[10])
         {
             Caption = '40 - 60';
-            TableRelation = "Reason Code" WHERE ("In Use" = CONST (true),
-                                                 Type = CONST (Brands));
+            TableRelation = "Reason Code" WHERE("In Use" = CONST(true),
+                                                 Type = CONST(Brands));
 
             trigger OnValidate()
             begin
@@ -272,8 +272,8 @@ table 90029 "Sea CatchY"
         field(2007; "5B"; Code[10])
         {
             Caption = '60 - 80';
-            TableRelation = "Reason Code" WHERE ("In Use" = CONST (true),
-                                                 Type = CONST (Brands));
+            TableRelation = "Reason Code" WHERE("In Use" = CONST(true),
+                                                 Type = CONST(Brands));
 
             trigger OnValidate()
             begin
@@ -331,7 +331,7 @@ table 90029 "Sea CatchY"
         I: Integer;
         Content: array[3000] of Text[30];
 
-    //[Scope('Internal')]
+    //[Scope('OnPrem')]
     procedure AssistEdit(): Boolean
     begin
         GetJobSetup;
@@ -342,7 +342,7 @@ table 90029 "Sea CatchY"
         end;
     end;
 
-    //[Scope('Internal')]
+    //[Scope('OnPrem')]
     procedure GetJobSetup()
     begin
         if not HasInvtSetup then begin
@@ -351,7 +351,7 @@ table 90029 "Sea CatchY"
         end;
     end;
 
-    //[Scope('Internal')]
+    //[Scope('OnPrem')]
     procedure UpdateCatchMatrix(var Fldno: Integer; var FldContent: Text[30])
     begin
         CatchMatrix.Init;

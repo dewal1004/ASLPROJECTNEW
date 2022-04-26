@@ -48,14 +48,14 @@ page 50040 "Medical Treatment Costs"
             }
             part("Hospital Treatments"; "Medical Record List")
             {
-                SubPageLink = "Region Code" = FIELD ("Region Filter"),
-                              "Global Dimension 1 Code" = FIELD ("Global Dimension 1 Filter"),
-                              "Global Dimension 2 Code" = FIELD ("Global Dimension 2 Filter"),
-                              "Employee No" = FIELD ("Employee Filter"),
-                              Beneficiary = FIELD ("Beneficiary Filter"),
-                              "Transaction Type" = FIELD ("Transaction  Filter"),
-                              "Transaction Date" = FIELD ("Date Filter"),
-                              "Hospital Code" = FIELD ("Hospital Filter");
+                SubPageLink = "Region Code" = FIELD("Region Filter"),
+                              "Global Dimension 1 Code" = FIELD("Global Dimension 1 Filter"),
+                              "Global Dimension 2 Code" = FIELD("Global Dimension 2 Filter"),
+                              "Employee No" = FIELD("Employee Filter"),
+                              Beneficiary = FIELD("Beneficiary Filter"),
+                              "Transaction Type" = FIELD("Transaction  Filter"),
+                              "Transaction Date" = FIELD("Date Filter"),
+                              "Hospital Code" = FIELD("Hospital Filter");
             }
         }
     }
@@ -71,7 +71,7 @@ page 50040 "Medical Treatment Costs"
         BenFilter: Option " ",Self,Dependant;
         TransFilter: Option " ",C,R,H;
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure UpdateFilter()
     begin
         Rec."Beneficiary Filter" := BenFilter;

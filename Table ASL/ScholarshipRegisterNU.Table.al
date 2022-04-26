@@ -21,7 +21,7 @@ table 60032 "Scholarship Register NU*"
         field(4; Institution; Code[6])
         {
             NotBlank = true;
-            TableRelation = "Educational Institute NU*"."Institute Code" WHERE ("Institute Grp" = FIELD ("Institution Group"));
+            TableRelation = "Educational Institute NU*"."Institute Code" WHERE("Institute Grp" = FIELD("Institution Group"));
         }
         field(5; "Course Group"; Code[10])
         {
@@ -31,7 +31,7 @@ table 60032 "Scholarship Register NU*"
         field(6; "Course Code"; Code[10])
         {
             NotBlank = true;
-            TableRelation = "Scholarship Courses NU*"."Course Code" WHERE (Group = FIELD ("Course Group"));
+            TableRelation = "Scholarship Courses NU*"."Course Code" WHERE(Group = FIELD("Course Group"));
         }
         field(7; Duration; Code[10])
         {
@@ -75,8 +75,8 @@ table 60032 "Scholarship Register NU*"
         }
         field(11; "Date Last Paid"; Date)
         {
-            CalcFormula = Max ("Scholarship Payment NU*"."Date Paid" WHERE ("Employee No" = FIELD ("Employee No"),
-                                                                           "Register No" = FIELD ("Reg No")));
+            CalcFormula = Max("Scholarship Payment NU*"."Date Paid" WHERE("Employee No" = FIELD("Employee No"),
+                                                                           "Register No" = FIELD("Reg No")));
             FieldClass = FlowField;
         }
         field(12; "Date Authorized"; Date)
@@ -109,15 +109,15 @@ table 60032 "Scholarship Register NU*"
         }
         field(19; "Amount Paid"; Decimal)
         {
-            CalcFormula = Sum ("Scholarship Payment NU*".Amount WHERE ("Register No" = FIELD ("Reg No"),
-                                                                      Amount = FILTER (> 0)));
+            CalcFormula = Sum("Scholarship Payment NU*".Amount WHERE("Register No" = FIELD("Reg No"),
+                                                                      Amount = FILTER(> 0)));
             Editable = false;
             FieldClass = FlowField;
         }
         field(20; "Amount Refunded"; Decimal)
         {
-            CalcFormula = Sum ("Scholarship Payment NU*".Amount WHERE ("Register No" = FIELD ("Reg No"),
-                                                                      Amount = FILTER (< 0)));
+            CalcFormula = Sum("Scholarship Payment NU*".Amount WHERE("Register No" = FIELD("Reg No"),
+                                                                      Amount = FILTER(< 0)));
             Editable = false;
             FieldClass = FlowField;
         }
@@ -174,7 +174,7 @@ table 60032 "Scholarship Register NU*"
         SchRec: Record "Scholarship Register NU*";
         PayRec: Record "Scholarship Payment NU*";
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure AmountAuthorized("Regist. No": Integer): Decimal
     var
         Registrec: Record "Scholarship Register NU*";
@@ -185,7 +185,7 @@ table 60032 "Scholarship Register NU*"
             exit(0);
     end;
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure AmountPaid("Regist. No": Integer): Decimal
     var
         Registrec: Record "Scholarship Register NU*";

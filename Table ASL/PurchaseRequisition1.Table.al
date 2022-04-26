@@ -7,7 +7,7 @@ table 50045 "Purchase Requisition1"
     {
         field(1; "Req No."; Code[20])
         {
-            TableRelation = "Store Requisition Header New"."Req. No" WHERE ("Req. Type" = CONST (Purchase));
+            TableRelation = "Store Requisition Header New"."Req. No" WHERE("Req. Type" = CONST(Purchase));
             ValidateTableRelation = false;
         }
         field(2; "Req Department"; Code[20])
@@ -332,7 +332,7 @@ table 50045 "Purchase Requisition1"
         VendRec: Record Vendor;
         purreq: Record "Purchase Requisition1";
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure CreatePurchInv()
     var
         Purchheader: Record "Purchase Header";

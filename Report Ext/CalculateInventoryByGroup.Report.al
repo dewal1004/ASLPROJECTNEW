@@ -6,11 +6,11 @@ report 50084 "Calculate Inventory By Group"
     {
         dataitem(Item; Item)
         {
-            DataItemTableView = SORTING ("No.");
+            DataItemTableView = SORTING("No.");
             RequestFilterFields = "No.", "Global Dimension 1 Filter", "Global Dimension 2 Filter", "Location Filter", "Bin Filter";
             dataitem("Integer"; "Integer")
             {
-                DataItemTableView = SORTING (Number);
+                DataItemTableView = SORTING(Number);
 
                 trigger OnAfterGetRecord()
                 begin
@@ -203,7 +203,7 @@ report 50084 "Calculate Inventory By Group"
         A1: Code[10];
         A2: Code[10];
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure SetItemJnlLine(var NewItemJnlLine: Record "Item Journal Line")
     begin
         ItemJnlLine := NewItemJnlLine;
@@ -220,7 +220,7 @@ report 50084 "Calculate Inventory By Group"
         end;
     end;
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure InsertItemJnlLine(var ItemNo: Code[20]; var VariantCode2: Code[10]; var DeptCode2: Code[10]; var ProjCode2: Code[10]; var LocationCode2: Code[10]; var BinCode2: Code[10]; var Quantity2: Decimal)
     var
         ItemLedgEntry: Record "Item Ledger Entry";
@@ -269,7 +269,7 @@ report 50084 "Calculate Inventory By Group"
         end;
     end;
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure InitializeRequest(NewPostingDate: Date; DocNo: Code[20]; ItemsNotOnInvt: Boolean; ByDept2: Boolean; ByProj2: Boolean; ByLocation2: Boolean; ByBin2: Boolean)
     begin
         PostingDate := NewPostingDate;

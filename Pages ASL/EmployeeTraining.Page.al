@@ -73,8 +73,8 @@ page 50042 "Employee Training"
             }
             part("Training Lines"; "Employee Training sub form")
             {
-                SubPageLink = "Training Course Code" = FIELD ("Courses Code");
-                SubPageView = SORTING ("Training Group", "Training Course Code", "Course Line No.");
+                SubPageLink = "Training Course Code" = FIELD("Courses Code");
+                SubPageView = SORTING("Training Group", "Training Course Code", "Course Line No.");
             }
         }
     }
@@ -120,7 +120,7 @@ page 50042 "Employee Training"
         [InDataSet]
         "Vendor nameEnable": Boolean;
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure EnableControls()
     begin
         if ("Training Group" = 0) or ("Training Group" = "Training Group"::"In-House") then begin

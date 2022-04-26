@@ -559,7 +559,7 @@ report 50024 "Account Schedule BS"
         ColumnLayoutNameCaptionLbl: Label 'Column Layout';
         AnalysisView__Dimension_1_Code_CaptionLbl: Label 'Dimension Code';
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure InitAccSched()
     begin
         StDat := Format(CalcDate('CM-2M+1D'));
@@ -606,13 +606,13 @@ report 50024 "Account Schedule BS"
         end;
     end;
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure SetColumnLayoutName(ColLayoutName: Code[10])
     begin
         ColumnLayoutNameHidden := ColLayoutName;
     end;
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure CalcColumns(): Boolean
     var
         NonZero: Boolean;
@@ -643,7 +643,7 @@ report 50024 "Account Schedule BS"
         exit(NonZero);
     end;
 
-    [Scope('Internal')]
+    [Scope('OnPrem')]
     procedure ShowLine(Bold: Boolean; Italic: Boolean): Boolean
     var
         NonZero: Boolean;

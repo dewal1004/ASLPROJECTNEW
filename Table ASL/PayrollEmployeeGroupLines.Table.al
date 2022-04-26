@@ -32,7 +32,7 @@ table 50008 "Payroll-Employee Group Lines."
         field(2; "E/D Code"; Code[20])
         {
             NotBlank = true;
-            TableRelation = "Payroll ED Codes.";
+            TableRelation = "Payroll-E/D Codes.";
 
             trigger OnValidate()
             begin
@@ -273,8 +273,8 @@ table 50008 "Payroll-Employee Group Lines."
     end;
 
     var
-        "E/DFileRec": Record "Payroll ED Codes.";
-        ConstEdFileRec: Record "Payroll ED Codes.";
+        "E/DFileRec": Record "Payroll-E/D Codes.";
+        ConstEdFileRec: Record "Payroll-E/D Codes.";
         LineFactorRec: Record "Payroll-Employee Group Lines.";
         LookHeaderRec: Record "Payroll-Lookup Header.";
         LookLinesRec: Record "Payroll-Lookup Lines.";
@@ -295,7 +295,7 @@ table 50008 "Payroll-Employee Group Lines."
         MaxChangeCount: Integer;
         EMPGRPHEADER: Record "Payroll-Employee Group Header.";
 
-    ////[Scope('Internal')]
+    ////[Scope('OnPrem')]
     procedure SpecialRelation("FieldNo.": Integer)
     begin
         /*””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””
@@ -308,8 +308,8 @@ table 50008 "Payroll-Employee Group Lines."
 
     end;
 
-    ////[Scope('Internal')]
-    procedure CalcAmount(EDFileRec: Record "Payroll ED Codes."; EntryLineRec: Record "Payroll-Employee Group Lines."; EntryLineAmount: Decimal): Decimal
+    ////[Scope('OnPrem')]
+    procedure CalcAmount(EDFileRec: Record "Payroll-E/D Codes."; EntryLineRec: Record "Payroll-Employee Group Lines."; EntryLineAmount: Decimal): Decimal
     begin
         /*””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””
         ‚ Calculate the amount based on Factor Of and Percentage fields in the file  ‚
@@ -452,7 +452,7 @@ table 50008 "Payroll-Employee Group Lines."
 
     end;
 
-    ////[Scope('Internal')]
+    ////[Scope('OnPrem')]
     procedure CalcCompute(EntryRecParam: Record "Payroll-Employee Group Lines."; AmountInLine: Decimal; "CalledFromEdCode?": Boolean)
     begin
         /*”””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””
@@ -564,7 +564,7 @@ table 50008 "Payroll-Employee Group Lines."
 
     end;
 
-    ////[Scope('Internal')]
+    ////[Scope('OnPrem')]
     procedure CalcFactor1(CurrentEntryLine: Record "Payroll-Employee Group Lines.")
     begin
         /*””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””
@@ -606,8 +606,8 @@ table 50008 "Payroll-Employee Group Lines."
 
     end;
 
-    ////[Scope('Internal')]
-    procedure "CalcFactor1.1"(CurrLineRec: Record "Payroll-Employee Group Lines."; LineToChangeRec: Record "Payroll-Employee Group Lines."; EDFileRec: Record "Payroll ED Codes."): Decimal
+    ////[Scope('OnPrem')]
+    procedure "CalcFactor1.1"(CurrLineRec: Record "Payroll-Employee Group Lines."; LineToChangeRec: Record "Payroll-Employee Group Lines."; EDFileRec: Record "Payroll-E/D Codes."): Decimal
     begin
         /*””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””
         ‚ Calculate the amount based on Factor Of and Percentage fields of the       ‚
@@ -730,7 +730,7 @@ table 50008 "Payroll-Employee Group Lines."
 
     end;
 
-    ////[Scope('Internal')]
+    ////[Scope('OnPrem')]
     procedure ChangeAllOver(CurrentRec: Record "Payroll-Employee Group Lines."; CurrWasDeleted: Boolean)
     begin
         /*””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””
@@ -779,7 +779,7 @@ table 50008 "Payroll-Employee Group Lines."
 
     end;
 
-    ////[Scope('Internal')]
+    ////[Scope('OnPrem')]
     procedure ComputeAgain(ParamLine: Record "Payroll-Employee Group Lines."; CurrentRec: Record "Payroll-Employee Group Lines."; CurrWasDeleted: Boolean)
     begin
         /*”””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””
@@ -890,7 +890,7 @@ table 50008 "Payroll-Employee Group Lines."
 
     end;
 
-    ////[Scope('Internal')]
+    ////[Scope('OnPrem')]
     procedure CalcFactorAgain(ParamLine: Record "Payroll-Employee Group Lines."; CurrentRec: Record "Payroll-Employee Group Lines."; CurrWasDeleted: Boolean)
     begin
         /*””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””
@@ -942,7 +942,7 @@ table 50008 "Payroll-Employee Group Lines."
 
     end;
 
-    ////[Scope('Internal')]
+    ////[Scope('OnPrem')]
     procedure ResetChangeFlags(CurrentRec: Record "Payroll-Employee Group Lines.")
     begin
         /*””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””
@@ -972,7 +972,7 @@ table 50008 "Payroll-Employee Group Lines."
 
     end;
 
-    //[Scope('Internal')]
+    //[Scope('OnPrem')]
     procedure CalcTaxAmt(var LDetailsRec: Record "Payroll-Lookup Lines."; TaxTableInput: Decimal): Decimal
     begin
         /*””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””
@@ -1028,7 +1028,7 @@ table 50008 "Payroll-Employee Group Lines."
 
     end;
 
-    //[Scope('Internal')]
+    //[Scope('OnPrem')]
     procedure CalcGraduated(var WantedLookRec: Record "Payroll-Lookup Lines."; InputToTable: Decimal): Decimal
     begin
         /*”””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””
@@ -1061,7 +1061,7 @@ table 50008 "Payroll-Employee Group Lines."
 
     end;
 
-    //[Scope('Internal')]
+    //[Scope('OnPrem')]
     procedure AmountIsComputed(var ReturnAmount: Decimal; EntryRecParam: Record "Payroll-Employee Group Lines."; NewAmount: Decimal): Boolean
     begin
         /*”””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””
@@ -1116,7 +1116,7 @@ table 50008 "Payroll-Employee Group Lines."
 
     end;
 
-    //[Scope('Internal')]
+    //[Scope('OnPrem')]
     procedure ChangeDueToDelete(DeletedRec: Record "Payroll-Employee Group Lines.")
     begin
         /*”””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””
@@ -1142,8 +1142,8 @@ table 50008 "Payroll-Employee Group Lines."
 
     end;
 
-    //[Scope('Internal')]
-    procedure ChkRoundMaxMin(EDRecord: Record "Payroll ED Codes."; TheAmount: Decimal): Decimal
+    //[Scope('OnPrem')]
+    procedure ChkRoundMaxMin(EDRecord: Record "Payroll-E/D Codes."; TheAmount: Decimal): Decimal
     begin
         /*”””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””
         ‚ Round an amount and check for Max and Min. Return the amended amount.     ‚
@@ -1179,7 +1179,7 @@ table 50008 "Payroll-Employee Group Lines."
 
     end;
 
-    //[Scope('Internal')]
+    //[Scope('OnPrem')]
     procedure BIN()
     begin
         /*
