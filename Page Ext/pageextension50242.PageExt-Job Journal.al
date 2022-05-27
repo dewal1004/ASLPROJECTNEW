@@ -72,8 +72,12 @@ pageextension 50242 pageextension50242 extends "Job Journal"
         {
             field(Groupsort; Groupsort)
             {
+                Importance = Additional;
             }
             field("Reason Code"; "Reason Code")
+            {
+            }
+            field(ROB;ROB)
             {
             }
         }

@@ -357,11 +357,11 @@ pageextension 50353 pageextension50353 extends "Job Card"
     {
         modify(JobPlanningLines)
         {
-            Visible = false;
+            Visible = true;
         }
         modify("Plan&ning")
         {
-            Visible = false;
+            Visible = true;
         }
         modify("Resource &Allocated per Job")
         {
@@ -481,6 +481,7 @@ pageextension 50353 pageextension50353 extends "Job Card"
                 Caption = 'Job Budget';
                 Visible = false;
             }
+            
         }
         addfirst(Processing)
         {
@@ -534,6 +535,7 @@ pageextension 50353 pageextension50353 extends "Job Card"
             {
                 Caption = 'Daily BreakUp by Vessel Rep 1';
                 Image = "Report";
+                RunObject = report "Daily Break Up By Vessel";
             }
             action("Daily BreakUp by Vessel Rep 2")
             {

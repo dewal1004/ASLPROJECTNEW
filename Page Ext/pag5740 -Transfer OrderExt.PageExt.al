@@ -1,7 +1,18 @@
-// pageextension 50322 pageextension50322 extends "Transfer Order"
-// {
-//     layout
-//     {
+pageextension 50322 pageextension50322 extends "Transfer Order"
+{
+    layout
+    {
+        addafter("Transfer-from")
+        {
+            field("Transfer From Voy. No."; "Transfer From Voy. No.")
+            { }
+            field("Transfer To Voy. No."; "Transfer To Voy. No.")
+            { }
+        }
+
+    }
+
+}
 //         moveafter("Transfer-to Code"; "Direct Transfer")
 //         modify("Direct Transfer")
 //         {
@@ -95,7 +106,7 @@
 //                       Subject := STRSUBSTNO('Processed Transfer Order for Production - %1',"No.");
 //                       Mail.NewMessage('','','',Subject,MailBody,'',TRUE);
 //                     END;
-                    
+
 //                 end;
 //             }
 //             group(Notification)

@@ -68,6 +68,7 @@ pageextension 50354 pageextension50354 extends "Job List"
         modify(Status)
         {
             StyleExpr = StyleText;
+            OptionCaption = 'Budget,Preparation,Voyage Start,Close Job Card';
         }
 
     }

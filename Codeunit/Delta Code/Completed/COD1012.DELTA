@@ -119,7 +119,7 @@ OBJECT Modification "Job Jnl.-Post Line"(Codeunit 1012)
 
                          ModifiedCode=BEGIN
                                         #1..3
-                                          SetRange("Source Subtype",Job.Status::"Voyage Start");
+                                          SetRange("Source Subtype",Job.Status::"Open");
                                         #5..7
                                       END;
 

@@ -15,6 +15,7 @@ page 50136 "Role Center ID"
                 }
                 part(Control20; "Account Manager Activities")
                 {
+                
                 }
                 part(Control19; "My Customers")
                 {

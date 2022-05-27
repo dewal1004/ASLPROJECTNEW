@@ -6,6 +6,27 @@ pageextension 50311 pageextension50311 extends "Production Journal"
         {
             OptionCaption = 'Work Center,Machine Center';
         }
+        movebefore("Consump. Qty."; Quantity)
+        modify(Quantity)
+        {
+          Visible = True;
+        }
+        modify("Location Code")
+        {
+          Visible = true;
+        }
+        modify("Gen. Prod. Posting Group")
+        {
+          Visible = true;
+        }
+    }
+
+
+
+    var
+        ConsumedQuantityEditable: Boolean;
+
+
 
         //Unsupported feature: Property Deletion (CaptionML) on "Quantity(Control 23)".
 
@@ -24,9 +45,6 @@ pageextension 50311 pageextension50311 extends "Production Journal"
          }
         */
         //end;
-    }
-
-
     //Unsupported feature: Property Modification (Id) on "DimVisible8(Variable 1000)".
 
     //var
@@ -36,11 +54,6 @@ pageextension 50311 pageextension50311 extends "Production Journal"
     //>>>> MODIFIED VALUE:
     //DimVisible8 : 1100;
     //Variable type has not been exported.
-
-    var
-        ConsumedQuantityEditable: Boolean;
-
-
     //Unsupported feature: Code Modification on "ControlsMngt(PROCEDURE 1)".
 
     //procedure ControlsMngt();
