@@ -8,7 +8,7 @@ codeunit 50024 JobJnlCheckLineSubscriber
         Job: Record Job;
     begin
         Job.Get(JobJnlLine."Job No.");
-        Job.TestField(Status, Job.Status::"Voyage Start");
+        Job.TestField(Status, Job.Status::"Open");
         IsHandled := true;
     end;
 

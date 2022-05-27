@@ -41,7 +41,7 @@ OBJECT Modification "Job Jnl.-Check Line"(Codeunit 1011)
                          ModifiedCode=BEGIN
                                         #1..9
 
-                                          Job.TestField(Status,Job.Status::"Voyage Start");
+                                          Job.TestField(Status,Job.Status::"Open");
                                         #11..14
                                           {IF ("Document Date" <> 0D) AND ("Document Date" <> NORMALDATE("Document Date")) THEN
                                             FIELDERROR("Document Date",Text000);}

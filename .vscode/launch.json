@@ -1,16 +1,17 @@
 {
     "version": "0.2.0",
     "configurations": [
+
         {
             "name": "Your own server",
             "request": "launch",
             "type": "al",
             "environmentType": "OnPrem",
-            "server": "http://localhost:8080/HO365web",
-            "serverInstance": "HO356V18",
+            "server": "http://localhost:8080/BC180",
+            "serverInstance": "BC180",
             "authentication": "Windows",
-            "port": 7049,
-            "startupObjectId": 22,
+            "port": 8049,
+            "startupObjectId": 289,//22,
             "startupObjectType": "Page",
             "breakOnError": true,
             "launchBrowser": true,

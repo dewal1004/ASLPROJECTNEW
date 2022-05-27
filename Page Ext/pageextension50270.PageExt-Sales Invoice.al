@@ -6,6 +6,42 @@ pageextension 50270 pageextension50270 extends "Sales Invoice"
         {
             Visible = true;
         }
+        modify("Sell-to Customer No.")
+        {
+            Visible = false;
+        }
+        addafter("No.")
+        {
+        }
+    }
+       /* Actions()
+            {
+            addfirst(Action9)
+            {
+                group(Posting)
+                {
+                    action("Sales Delivery Note")
+                    {
+                        Caption = 'Print Delivery Note';
+                        Image = Delivery;
+                        RunObject = report 50093
+                            
+                    }
+                    action("Sales Register Report" )
+                    {
+                        Caption ='Sales Register Report';
+                        Image = Register;
+                        RunObject = report "Sales Register";
+                    }    
+                }
+            }
+        }
+
+
+    }
+var
+ */
+}
 
         //Unsupported feature: Property Modification (Level) on ""Sell-to Post Code"(Control 81)".
 
@@ -99,16 +135,7 @@ pageextension 50270 pageextension50270 extends "Sales Invoice"
 
         //Unsupported feature: Property Modification (Level) on ""Bill-to County"(Control 92)".
 
-        modify("Sell-to Customer No.")
-        {
-            Visible = false;
-        }
-        addafter("No.")
-        {
             //***field("Sell-to Customer No."; "Sell-to Customer No.")
-        }
-    }
-}
 //         // {
 //         //     ApplicationArea = Basic, Suite;
 //         //     Caption = 'Customer No.';

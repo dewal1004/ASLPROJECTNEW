@@ -178,6 +178,21 @@ tableextension 50301 tableextension50301 extends "Transfer Header"
         field(50318; "Transfer Template"; Boolean)
         {
         }
+        modify("Transfer-from Code")
+        {
+         trigger OnAfterValidate()
+         begin
+             Validate("In-Transit Code",'OWN LOG.');
+             Validate("Transfer From Voy. No.");
+         end;   
+        }
+        modify("Transfer-to Code")
+        {
+            trigger OnAfterValidate()
+            begin
+                Validate("Transfer To Voy. No.");
+            end;
+        }
     }
 
 

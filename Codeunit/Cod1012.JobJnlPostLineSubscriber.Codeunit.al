@@ -45,7 +45,7 @@ codeunit 50025 JobJnlPostLineSubscriber
         with ReservationEntry do begin
             SetRange("Item No.", ItemNo);
             SetRange("Source Type", DATABASE::"Job Planning Line");
-            SetRange("Source Subtype", Job.Status::"Voyage Start");
+            SetRange("Source Subtype", Job.Status::"Open");
             SetRange("Source ID", JobNo);
             exit(not IsEmpty);
         end;

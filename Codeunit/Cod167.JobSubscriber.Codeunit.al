@@ -12,14 +12,14 @@ codeunit 50037 JobSbuscriber
         Job."Creation Date" := Today;
         Job."Creation Date" := Today;
         Job."Last Date Modified" := Job."Creation Date";
-        if (Job."Project Manager" <> '') and (Job.Status = Job.Status::"Voyage Start") then;
+        if (Job."Project Manager" <> '') and (Job.Status = Job.Status::"Open") then;
         //Job.AddToMyJobs(Job."Project Manager"); //Revisit
     end;
 
     [EventSubscriber(ObjectType::Table, Database::Job, 'OnAfterValidateEvent', 'No.', true, true)]
     local procedure OnAfterValidateNo(var Rec: Record Job)
     begin
-        rec.Status := rec.Status::Budget;
+        rec.Status := rec.Status::Planning;
     end;
 
     [EventSubscriber(ObjectType::Table, Database::Job, 'OnAfterValidateEvent', 'Global Dimension 2 Code', true, true)]

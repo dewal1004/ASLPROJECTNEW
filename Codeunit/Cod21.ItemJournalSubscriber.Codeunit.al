@@ -28,13 +28,15 @@ codeunit 50004 "ItemJournalSubsriber"
         if (ItemJnlLine."Entry Type" = ItemJnlLine."Entry Type"::Sale) or
            (ItemJnlLine."Entry Type" = ItemJnlLine."Entry Type"::"Negative Adjmt.") then begin
             Item.Get(ItemJnlLine."Item No.");
-            Item.SetRange(Item."Global Dimension 2 Filter", ItemJnlLine."Shortcut Dimension 2 Code");
+            If ItemJnlLine."Shortcut Dimension 2 Code" <> '' then
+            Item.Setrange(Item."Global Dimension 2 Filter", ItemJnlLine."Shortcut Dimension 2 Code");
             Item.SetRange(Item."Location Filter", ItemJnlLine."Location Code");
-            Item.SetRange(Item."Variant Filter", ItemJnlLine."Variant Code");
+            if ItemJnlLine."Variant Code" <> '' then
+            Item.Setrange(Item."Variant Filter", ItemJnlLine."Variant Code");
             Item.CalcFields(Inventory);
             if Item.Inventory <= 0 then
                 Error('Item No. %1, is not in Inventory at\' +
-                       ' Location ' + '"%2."', Item."No.", ItemJnlLine."Location Code");
+                      ' Location ' + '"%2."', Item."No.", ItemJnlLine."Location Code");
             if Item.Inventory < ItemJnlLine.Quantity then
                 Error('Quantity is more than Inventory in Item No. %1.\' +
                        'at Location ' + '"%2."', Item."No.", ItemJnlLine."Location Code");
@@ -42,7 +44,7 @@ codeunit 50004 "ItemJournalSubsriber"
 
         if (ItemJnlLine."Entry Type" = ItemJnlLine."Entry Type"::"Positive Adjmt.") then begin
             if (ItemJnlLine.Quantity < 0) then
-                Error('Quantity Should be not be Negative\' + 'in Line No. %1', ItemJnlLine."Line No.");
+                Error('Quantity Should not be Negative\' + 'in Line No. %1', ItemJnlLine."Line No.");
         end;
     end;
 }
