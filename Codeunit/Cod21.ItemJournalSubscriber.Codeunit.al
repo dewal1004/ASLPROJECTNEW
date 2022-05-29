@@ -2,23 +2,23 @@ codeunit 50004 "ItemJournalSubsriber"
 {
     EventSubscriberInstance = StaticAutomatic;
 
-    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Item Jnl.-Check Line", 'OnAfterGetItem', '', true, true)]
-    local procedure ItemJnlChkLineOn(var ItemJournalLine: Record "Item Journal Line")
-    var
-    begin
-        NegCheck(ItemJournalLine);
-    end;
+    // [EventSubscriber(ObjectType::Codeunit, Codeunit::"Item Jnl.-Check Line", 'OnAfterGetItem', '', true, true)]
+    // local procedure ItemJnlChkLineOn(var ItemJournalLine: Record "Item Journal Line")
+    // var
+    // begin
+    //     NegCheck(ItemJournalLine);
+    // end;
 
-    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Item Jnl.-Check Line", 'OnBeforeCheckBins', '', true, true)]
-    local procedure ItemJnlChkLineOnBeforeChkBins(var ItemJournalLine: Record "Item Journal Line")
-    var
-        chki: Integer;
-        Vend: Record 23;
-        AllowedQty: Decimal;
-        ChkArray: ARRAY[3, 3] OF Text[200];
-    begin
+    // [EventSubscriber(ObjectType::Codeunit, Codeunit::"Item Jnl.-Check Line", 'OnBeforeCheckBins', '', true, true)]
+    // local procedure ItemJnlChkLineOnBeforeChkBins(var ItemJournalLine: Record "Item Journal Line")
+    // var
+    //     chki: Integer;
+    //     Vend: Record 23;
+    //     AllowedQty: Decimal;
+    //     ChkArray: ARRAY[3, 3] OF Text[200];
+    // begin
 
-    end;
+    // end;
 
 
     local procedure NegCheck(var ItemJnlLine: Record "Item Journal Line")

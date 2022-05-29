@@ -69,6 +69,14 @@ pageextension 50265 pageextension50265 extends "General Journal"
             field("Job No."; "Job No.")
             {
             }
+            field("Deposit ID"; "Deposit ID")
+            {
+                Visible = true;
+            }
+        }
+        modify("Applies-to Doc. No.")
+        {
+            Visible = true;
         }
     }
 
@@ -260,18 +268,27 @@ pageextension 50265 pageextension50265 extends "General Journal"
 
     procedure ShowView()
     begin
-        /*IF "Reason Code"<>'' THEN
-        BEGIN
-          CurrForm."Reason Code".VISIBLE(TRUE);
-          CurrForm."External Document No.".VISIBLE(TRUE);
+      /*  IF "Reason Code" = '' THEN BEGIN
+            Modify("Reason Code")
+        {
+            Visible(false);
+        }     
+                modify("External Document No.") 
+          {
+              VISIBLE(False);
+          }
         END
         ELSE
         BEGIN
-          CurrForm."Reason Code".VISIBLE(FALSE);
-          CurrForm."External Document No.".VISIBLE(FALSE);
-        END;
-        */
-
+         Modify("Reason Code")
+         {
+             VISIBLE(True);
+         }
+          Modify("External Document No.")
+          {
+              VISIBLE(True);
+          }
+        END;*/
     end;
 }
 

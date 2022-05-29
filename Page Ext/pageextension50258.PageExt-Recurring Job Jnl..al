@@ -154,7 +154,32 @@ pageextension 50258 pageextension50258 extends "Recurring Job Jnl."
             PromotedIsBig = true;
             PromotedCategory = Process;
         }
-
+        modify("P&ost")
+        {
+            trigger OnBeforeAction()
+            begin
+                SetFilter(Quantity, '<>%1', 0);
+                SetRange("Location Code");
+            end;
+            trigger OnAfterAction()
+            begin
+                SetRange(Quantity);
+               
+            end;
+        }
+        modify("Post and &Print")
+        {
+            trigger OnBeforeAction()
+            begin
+                SetFilter(Quantity, '<>%1', 0);
+                SetRange("Location Code");
+            end;
+            trigger OnAfterAction()
+            begin
+                SetRange(Quantity);
+               
+            end;
+        }
 
         //Unsupported feature: Code Modification on ""P&ost"(Action 56).OnAction".
 
