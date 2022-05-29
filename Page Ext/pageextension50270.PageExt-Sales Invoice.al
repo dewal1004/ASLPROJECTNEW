@@ -14,128 +14,148 @@ pageextension 50270 pageextension50270 extends "Sales Invoice"
         {
         }
     }
-       /* Actions()
+    actions
+    {
+        addfirst(Action9)
+        {
+            group("Other Documents")
             {
-            addfirst(Action9)
-            {
-                group(Posting)
+                action("Sales Delivery Note")
                 {
-                    action("Sales Delivery Note")
-                    {
-                        Caption = 'Print Delivery Note';
-                        Image = Delivery;
-                        RunObject = report 50093
-                            
-                    }
-                    action("Sales Register Report" )
-                    {
-                        Caption ='Sales Register Report';
-                        Image = Register;
-                        RunObject = report "Sales Register";
-                    }    
+                    Caption = 'Sales Delivery Note';
+                    Image = Delivery;
+                    RunObject = Report 50093;
+
                 }
+                action("Sales Register Report")
+                {
+                    Caption = 'Sales Register Report';
+                    Image = Register;
+                    RunObject = report "Sales Register";
+                }
+                action("Local Sales Report 1")
+                {
+                    Caption = 'Sales Delivery Note';
+                    Image = Sales;
+                    RunObject = Report "Local Sales Report";
+                }
+                action("Local Sales Report 2")
+                {
+                    Caption = 'Local Sales Report 2';
+                    Image = Register;
+                    RunObject = report "Local Sales Report 2";
+                }
+                action("Generate FS Sales")
+                {
+                    Caption = 'Generate FS Sales';
+                    Image = Import;
+                    RunObject = xmlport "Import FS daily sales";
+                }
+
+
             }
         }
-
-
     }
-var
- */
+
+
 }
+//var
 
-        //Unsupported feature: Property Modification (Level) on ""Sell-to Post Code"(Control 81)".
+//}
 
-
-        //Unsupported feature: Property Modification (Level) on ""Sell-to Country/Region Code"(Control 73)".
-
-
-        //Unsupported feature: Property Modification (Level) on ""Sell-to Contact No."(Control 87)".
+//Unsupported feature: Property Modification (Level) on ""Sell-to Post Code"(Control 81)".
 
 
-        //Unsupported feature: Property Modification (Level) on ""Sell-to Contact"(Control 8)".
+//Unsupported feature: Property Modification (Level) on ""Sell-to Country/Region Code"(Control 73)".
 
 
-        //Unsupported feature: Property Modification (Level) on ""Your Reference"(Control 19)".
+//Unsupported feature: Property Modification (Level) on ""Sell-to Contact No."(Control 87)".
 
 
-        //Unsupported feature: Property Modification (Level) on ""Document Date"(Control 43)".
+//Unsupported feature: Property Modification (Level) on ""Sell-to Contact"(Control 8)".
 
 
-        //Unsupported feature: Property Modification (Level) on ""Posting Date"(Control 12)".
+//Unsupported feature: Property Modification (Level) on ""Your Reference"(Control 19)".
 
 
-        //Unsupported feature: Property Modification (Level) on ""Due Date"(Control 28)".
+//Unsupported feature: Property Modification (Level) on ""Document Date"(Control 43)".
 
 
-        //Unsupported feature: Property Modification (Level) on ""Incoming Document Entry No."(Control 13)".
+//Unsupported feature: Property Modification (Level) on ""Posting Date"(Control 12)".
 
 
-        //Unsupported feature: Property Modification (Level) on ""External Document No."(Control 126)".
+//Unsupported feature: Property Modification (Level) on ""Due Date"(Control 28)".
 
 
-        //Unsupported feature: Property Modification (Level) on ""Salesperson Code"(Control 10)".
+//Unsupported feature: Property Modification (Level) on ""Incoming Document Entry No."(Control 13)".
 
 
-        //Unsupported feature: Property Modification (Level) on ""Campaign No."(Control 129)".
+//Unsupported feature: Property Modification (Level) on ""External Document No."(Control 126)".
 
 
-        //Unsupported feature: Property Modification (Level) on ""Responsibility Center"(Control 118)".
+//Unsupported feature: Property Modification (Level) on ""Salesperson Code"(Control 10)".
 
 
-        //Unsupported feature: Property Modification (Level) on ""Assigned User ID"(Control 67)".
+//Unsupported feature: Property Modification (Level) on ""Campaign No."(Control 129)".
 
 
-        //Unsupported feature: Property Modification (Level) on "Status(Control 112)".
+//Unsupported feature: Property Modification (Level) on ""Responsibility Center"(Control 118)".
 
 
-        //Unsupported feature: Property Modification (Level) on ""Job Queue Status"(Control 5)".
+//Unsupported feature: Property Modification (Level) on ""Assigned User ID"(Control 67)".
 
 
-        //Unsupported feature: Property Modification (Level) on ""Prices Including VAT"(Control 121)".
+//Unsupported feature: Property Modification (Level) on "Status(Control 112)".
 
 
-        //Unsupported feature: Property Modification (Level) on ""VAT Bus. Posting Group"(Control 156)".
+//Unsupported feature: Property Modification (Level) on ""Job Queue Status"(Control 5)".
 
 
-        //Unsupported feature: Property Modification (Level) on ""Payment Terms Code"(Control 26)".
+//Unsupported feature: Property Modification (Level) on ""Prices Including VAT"(Control 121)".
 
 
-        //Unsupported feature: Property Modification (Level) on ""Payment Method Code"(Control 101)".
+//Unsupported feature: Property Modification (Level) on ""VAT Bus. Posting Group"(Control 156)".
 
 
-        //Unsupported feature: Property Modification (Level) on ""EU 3-Party Trade"(Control 72)".
+//Unsupported feature: Property Modification (Level) on ""Payment Terms Code"(Control 26)".
 
 
-        //Unsupported feature: Property Modification (Level) on ""Shortcut Dimension 1 Code"(Control 84)".
+//Unsupported feature: Property Modification (Level) on ""Payment Method Code"(Control 101)".
 
 
-        //Unsupported feature: Property Modification (Level) on ""Shortcut Dimension 2 Code"(Control 88)".
+//Unsupported feature: Property Modification (Level) on ""EU 3-Party Trade"(Control 72)".
 
 
-        //Unsupported feature: Property Modification (Level) on ""Payment Discount %"(Control 30)".
+//Unsupported feature: Property Modification (Level) on ""Shortcut Dimension 1 Code"(Control 84)".
 
 
-        //Unsupported feature: Property Modification (Level) on ""Pmt. Discount Date"(Control 32)".
+//Unsupported feature: Property Modification (Level) on ""Shortcut Dimension 2 Code"(Control 88)".
 
 
-        //Unsupported feature: Property Modification (Level) on ""Direct Debit Mandate ID"(Control 15)".
+//Unsupported feature: Property Modification (Level) on ""Payment Discount %"(Control 30)".
 
 
-        //Unsupported feature: Property Modification (Level) on ""Location Code"(Control 90)".
+//Unsupported feature: Property Modification (Level) on ""Pmt. Discount Date"(Control 32)".
 
 
-        //Unsupported feature: Property Modification (Level) on ""Ship-to Post Code"(Control 80)".
+//Unsupported feature: Property Modification (Level) on ""Direct Debit Mandate ID"(Control 15)".
 
 
-        //Unsupported feature: Property Modification (Level) on ""Ship-to Country/Region Code"(Control 17)".
+//Unsupported feature: Property Modification (Level) on ""Location Code"(Control 90)".
 
 
-        //Unsupported feature: Property Modification (Level) on ""Ship-to Contact"(Control 44)".
+//Unsupported feature: Property Modification (Level) on ""Ship-to Post Code"(Control 80)".
 
 
-        //Unsupported feature: Property Modification (Level) on ""Bill-to County"(Control 92)".
+//Unsupported feature: Property Modification (Level) on ""Ship-to Country/Region Code"(Control 17)".
 
-            //***field("Sell-to Customer No."; "Sell-to Customer No.")
+
+//Unsupported feature: Property Modification (Level) on ""Ship-to Contact"(Control 44)".
+
+
+//Unsupported feature: Property Modification (Level) on ""Bill-to County"(Control 92)".
+
+//***field("Sell-to Customer No."; "Sell-to Customer No.")
 //         // {
 //         //     ApplicationArea = Basic, Suite;
 //         //     Caption = 'Customer No.';

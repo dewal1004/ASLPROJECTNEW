@@ -591,6 +591,7 @@ tableextension 50241 tableextension50241 extends "Job Journal Line"
                     JJLine."Journal Batch Name" := "Journal Batch Name";
                     JJLine.Validate(JJLine."Job No.", JBat."Job No.");
                     JJLine."Posting Date" := JBat."Catch Date";
+                    JJLine."Document Date" := JBat."Catch Date";
                     JJLine."Phase Code" := JBat."Fishing Ground";
                     JJLine."Document No." := JBat.Name + Format(JBat."Catch Date");
                     JJLine.Type := JJLine.Type::Item;
@@ -679,6 +680,7 @@ tableextension 50241 tableextension50241 extends "Job Journal Line"
                     i := i + 1;
                     Window.Update(2, i);
                     JJLine."Posting Date" := JBat."Catch Date";
+                    JJLine."Document Date" := JBat."Catch Date";
                     JJLine."Phase Code" := JBat."Fishing Ground";
                     JJLine."Document No." := JBat.Name + Format(JBat."Catch Date");
 

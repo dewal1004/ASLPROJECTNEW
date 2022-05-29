@@ -77,7 +77,7 @@ pageextension 50242 pageextension50242 extends "Job Journal"
             field("Reason Code"; "Reason Code")
             {
             }
-            field(ROB;ROB)
+            field(ROB; ROB)
             {
             }
         }
@@ -132,9 +132,39 @@ pageextension 50242 pageextension50242 extends "Job Journal"
     }
     actions
     {
+        modify("P&ost")
+        {
+            trigger OnBeforeAction()
+            begin
+                SetFilter(Quantity, '<>%1', 0);
+                SetRange("Location Code");
+            end;
 
+            trigger OnAfterAction()
+            begin
+                SetRange(Quantity);
+                Catigo;
+                if (User."Global Dimension 2 Code" <> 'MRKT') then
+                    SetRange("Location Code", 'CRM-ASL');
+            end;
+        }
+        modify("Post and &Print")
+        {            
+            trigger OnBeforeAction()
+            begin
+                SetFilter(Quantity, '<>%1', 0);
+                SetRange("Location Code");
+            end;
 
-        //Unsupported feature: Code Modification on ""P&ost"(Action 56).OnAction".
+            trigger OnAfterAction()
+            begin
+                SetRange(Quantity);
+                Catigo;
+                if (User."Global Dimension 2 Code" <> 'MRKT') then
+                    SetRange("Location Code", 'CRM-ASL');
+            end;
+        }
+
 
         //trigger OnAction()
         //Parameters and return type have not been exported.
@@ -389,6 +419,7 @@ pageextension 50242 pageextension50242 extends "Job Journal"
                     JobJournalLine."Journal Batch Name" := "Journal Batch Name";
                     JobJournalLine.Validate(JobJournalLine."Job No.", JBat."Job No.");
                     JobJournalLine."Posting Date" := JBat."Catch Date";
+                    JobJournalLine."Document Date" := JBat."Catch Date";
                     JobJournalLine."Document No." := JBat.Name + Format(JBat."Catch Date");
                     JobJournalLine.Type := JobJournalLine.Type::Item;
                     JobJournalLine."Line No." := i * 10000;
