@@ -1,6 +1,6 @@
 page 50105 "Dry Docking/Job  list"
 {
-    Caption = 'Job List';
+    Caption = ' All Jobs List';
     CardPageID = "Job Card";
     Editable = false;
     PageType = List;
@@ -147,7 +147,7 @@ page 50105 "Dry Docking/Job  list"
     }
     trigger OnOpenPage()
     begin
-        rec.SetFilter("No.", '*C*');
+        //rec.SetFilter("No.", '*C*');
     end;
 
     trigger OnAfterGetRecord()

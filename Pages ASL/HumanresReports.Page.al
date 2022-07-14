@@ -1,6 +1,8 @@
 page 50166 "Human res-Reports"
 {
-
+    UsageCategory= Administration;
+    ApplicationArea = all;
+    
     layout
     {
     }

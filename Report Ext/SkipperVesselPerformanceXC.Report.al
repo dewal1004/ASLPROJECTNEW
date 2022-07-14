@@ -7,6 +7,8 @@ report 50149 "Skipper/Vessel Performance XC"
     // CurrReport.SHOWOUTPUT(FALSE);
     DefaultLayout = RDLC;
     RDLCLayout = './ReportRdlc/SkipperVesselPerformanceXC.rdlc';
+    UsageCategory = ReportsAndAnalysis;
+    ApplicationArea = All,Basic,Suite;
 
 
     dataset

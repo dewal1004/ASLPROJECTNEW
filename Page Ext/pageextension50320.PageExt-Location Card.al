@@ -54,6 +54,10 @@ pageextension 50320 pageextension50320 extends "Location Card"
                 field("Vessel Type"; "Vessel Type")
                 {
                 }
+                field("FA Code";"FA Code")
+                {}
+                field("Sea Days";"Sea Days")
+                {}
             }
             group("Vessel Schedules")
             {

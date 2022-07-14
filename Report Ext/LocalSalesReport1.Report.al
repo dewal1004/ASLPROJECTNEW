@@ -3,6 +3,8 @@ report 50017 "Local Sales Report1"
     DefaultLayout = RDLC;
     RDLCLayout = './ReportRdlc/LocalSalesReport1.rdlc';
     Caption = 'Local Sales Report1';
+    UsageCategory = ReportsAndAnalysis;
+    ApplicationArea = All,Basic,Suite;
 
     dataset
     {

@@ -2,7 +2,8 @@ page 50120 "Dynamics Procurement System"
 {
     PageType = Card;
     SourceTable = "Dynamics Procurement Header";
-
+    UsageCategory = Administration;
+    ApplicationArea = All,Basic;
     layout
     {
         area(content)

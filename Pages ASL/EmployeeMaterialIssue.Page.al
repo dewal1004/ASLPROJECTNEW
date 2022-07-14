@@ -5,6 +5,8 @@ page 50074 "Employee Material Issue"
     ModifyAllowed = false;
     PageType = ListPart;
     SourceTable = "Store Requisition Line New";
+    UsageCategory = Lists;
+    ApplicationArea =All;
 
     layout
     {

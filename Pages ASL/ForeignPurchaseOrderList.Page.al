@@ -3,8 +3,12 @@ page 50095 "Foreign Purchase Order List"
     CardPageID = "Purchase Order Foreign";
     Editable = false;
     PageType = List;
+    UsageCategory = Lists;
+    ApplicationArea= all;
+
     SourceTable = "Purchase Header";
-    SourceTableView = WHERE ("Document Type" = CONST (Order));
+    SourceTableView = WHERE ("Document Type" = CONST (Order),
+                            "Order Type" = FILTER(Foreign));
 
     layout
     {

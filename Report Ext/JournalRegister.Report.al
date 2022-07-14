@@ -2,6 +2,8 @@ report 50144 "Journal Register"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './ReportRdlc/JournalRegister.rdlc';
+    UsageCategory = ReportsAndAnalysis;
+    ApplicationArea = All,Basic,Suite;
 
     dataset
     {

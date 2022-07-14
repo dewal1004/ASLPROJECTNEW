@@ -2,26 +2,17 @@ pageextension 50204 pageextension50204 extends "Job Planning Lines"
 {
     layout
     {
+
         modify("Planning Date")
         {
-
-            //Unsupported feature: Property Modification (Name) on ""Planning Date"(Control 7)".
-
-
-            //Unsupported feature: Property Modification (SourceExpr) on ""Planning Date"(Control 7)".
-
-            Caption = 'Starting Date';
+            //Caption = 'Starting Date';
+            Visible = false;
         }
         modify("Planned Delivery Date")
         {
-
-            //Unsupported feature: Property Modification (Name) on ""Planned Delivery Date"(Control 3)".
-
-
-            //Unsupported feature: Property Modification (SourceExpr) on ""Planned Delivery Date"(Control 3)".
-
-            Caption = 'Ending Date';
+            //Caption = 'Ending Date';
             Editable = EndingDateEditable;
+            Visible = false;
         }
 
         //Unsupported feature: Code Modification on ""No."(Control 23).OnAfterValidate".
@@ -36,18 +27,33 @@ pageextension 50204 pageextension50204 extends "Job Planning Lines"
         //end;
         //>>>> MODIFIED CODE:
         //begin
-        /*
-        NoOnAfterValidate;
-        {IF Res.GET("No.") THEN
-          BEGIN
-            Res.Selected:=TRUE;
-            Res.MODIFY;
-          END;}
+        /*modify("No.")
+        {
+            trigger OnAfterValidate()
+            Var res: Record Resource;
+        IF Res.GET("No.") THEN
+                BEGIN
+                    Res.Selected := TRUE;
+                    Res.MODIFY;
+                END;
+        }
         */
         //end;
+        addafter("Line Type")
+        {
+            field("Starting Date"; "Starting Date")
+            {
+            }
+            field("Ending Date"; "Ending Date")
+            {
+            }
+        }
         addafter(Description)
         {
             field("Resource Group"; "Resource Group")
+            {
+            }
+            field("Allocation %"; "Allocation %")
             {
             }
             field("Allocation Quantity"; "Allocation Quantity")
@@ -58,6 +64,7 @@ pageextension 50204 pageextension50204 extends "Job Planning Lines"
             }
             field(Incentive; Incentive)
             {
+                Editable = true;
             }
             field("Hook Inc"; "Hook Inc")
             {
@@ -78,26 +85,37 @@ pageextension 50204 pageextension50204 extends "Job Planning Lines"
     }
     actions
     {
-        modify("Job Actual to Budget")
+        addafter("Job Actual to Budget")
         {
+            action("Crew List")
+            {
+                Caption = 'Çrew List';
+                ApplicationArea = All;
+                RunObject = report "Crew List";
+                RunPageOnRec = true;
+            }
+            action("Catch Incentive")
+            {
+                Caption = 'Catch Incentive';
+                ApplicationArea = All;
+                RunObject = report "Catch Incentive";
+                RunPageOnRec = true;
+            }
 
-            //Unsupported feature: Property Modification (Name) on ""Job Actual to Budget"(Action 1903776506)".
-
-            Caption = 'Crew List';
 
             //Unsupported feature: Property Modification (RunObject) on ""Job Actual to Budget"(Action 1903776506)".
 
         }
-        modify("Job Analysis")
-        {
+        // modify("Job Analysis")
+        // {
 
-            //Unsupported feature: Property Modification (Name) on ""Job Analysis"(Action 1901542506)".
+        //     //Unsupported feature: Property Modification (Name) on ""Job Analysis"(Action 1901542506)".
 
-            Caption = 'Catch Incentive';
+        //     Caption = 'Catch Incentive';
 
-            //Unsupported feature: Property Modification (RunObject) on ""Job Analysis"(Action 1901542506)".
+        //     //Unsupported feature: Property Modification (RunObject) on ""Job Analysis"(Action 1901542506)".
 
-        }
+        // }
     }
 
 

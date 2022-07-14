@@ -8,7 +8,27 @@ pageextension 50265 pageextension50265 extends "General Journal"
     layout
     {
 
+        modify("External Document No.")
+        {
+            trigger OnAfterValidate()
+            var
+                myInt: Integer;
+            begin
+                if ("Reason Code" = 'EMPLOYEE') and ("External Document No." <> '') then begin
+                    Employee.Get("External Document No.");
+                    if Employee.Blocked then begin
+                        UserSetup.SetRange(UserSetup."User ID", UserId);
+                        UserSetup.SetRange(UserSetup."Pick Blocked Empl in Journal", true);
+                        if UserSetup.Find('-') then begin
+                            if not Confirm('Employee is blocked, do you want to continue?', false) then
+                                Employee.TestField(Blocked, false);
+                        end else
+                            Employee.TestField(Blocked, false);
+                    end;
+                end;
 
+            end;
+        }
         //Unsupported feature: Code Insertion on ""External Document No."(Control 81)".
 
         //trigger OnAfterValidate()
@@ -52,19 +72,19 @@ pageextension 50265 pageextension50265 extends "General Journal"
         {
             field("FA Posting Type"; "FA Posting Type")
             {
-                Visible = false;
+                Visible = true;
             }
             field("FA Posting Date"; "FA Posting Date")
             {
-                Visible = false;
+                Visible = true;
             }
             field("Loan ID"; "Loan ID")
             {
-                Visible = false;
+                Visible = true;
             }
             field("Maintenance Code"; "Maintenance Code")
             {
-                Visible = false;
+                Visible = true;
             }
             field("Job No."; "Job No.")
             {
@@ -268,27 +288,27 @@ pageextension 50265 pageextension50265 extends "General Journal"
 
     procedure ShowView()
     begin
-      /*  IF "Reason Code" = '' THEN BEGIN
-            Modify("Reason Code")
-        {
-            Visible(false);
-        }     
-                modify("External Document No.") 
+        /*  IF "Reason Code" = '' THEN BEGIN
+              Modify("Reason Code")
           {
-              VISIBLE(False);
-          }
-        END
-        ELSE
-        BEGIN
-         Modify("Reason Code")
-         {
-             VISIBLE(True);
-         }
-          Modify("External Document No.")
-          {
-              VISIBLE(True);
-          }
-        END;*/
+              Visible(false);
+          }     
+                  modify("External Document No.") 
+            {
+                VISIBLE(False);
+            }
+          END
+          ELSE
+          BEGIN
+           Modify("Reason Code")
+           {
+               VISIBLE(True);
+           }
+            Modify("External Document No.")
+            {
+                VISIBLE(True);
+            }
+          END;*/
     end;
 }
 

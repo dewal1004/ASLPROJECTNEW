@@ -8,6 +8,7 @@
         <ConnectString />
       </ConnectionProperties>
       <rd:SecurityType>None</rd:SecurityType>
+      <rd:DataSourceID>afe5f56e-c5f0-4e76-b15c-89d61e7c198c</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <ReportSections>
@@ -2341,9 +2342,14 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=First(Fields!KNOWING_THAT_WE_CAN_BE_HELD_LIABLE_FOR_FALSIFYING_INFORMATION__WE_CERTIFY_THIS_REPORT_TO_BE_TRUE_AND_ACCURATE_TO_THE_BEST_OF_OUR_KNOWLEDGECaption.Value)</Value>
+                                  <Value>KNOWING THAT WE CAN BE HELD LIABLE FOR FALSIFYING INFORMATION, WE CERTIFY THIS REPORT TO BE TRUE AND ACCURATE TO THE BEST OF OUR KNOWLEDGE</Value>
                                   <Style>
-                                    <FontSize>7pt</FontSize>
+                                    <FontStyle>Normal</FontStyle>
+                                    <FontFamily>Consolas</FontFamily>
+                                    <FontSize>0.14583in</FontSize>
+                                    <FontWeight>Normal</FontWeight>
+                                    <TextDecoration>None</TextDecoration>
+                                    <Color>#ce9178</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -6848,6 +6854,7 @@ End FUnction
   <Language>=User!Language</Language>
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
+  <rd:ReportID>2f23a06f-0b2f-48c3-b87f-cb4031ab262c</rd:ReportID>
   <DataSets>
     <DataSet Name="DataSet_Result">
       <Fields>
@@ -7054,9 +7061,6 @@ End FUnction
         </Field>
         <Field Name="SkipperCaption">
           <DataField>SkipperCaption</DataField>
-        </Field>
-        <Field Name="DataItem1000000028">
-          <DataField>DataItem1000000028</DataField>
         </Field>
         <Field Name="Job_Journal_Line_Journal_Template_Name">
           <DataField>Job_Journal_Line_Journal_Template_Name</DataField>

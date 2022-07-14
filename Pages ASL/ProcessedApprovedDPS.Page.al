@@ -5,6 +5,8 @@ page 50127 "Processed Approved DPS"
     InsertAllowed = false;
     ModifyAllowed = false;
     PageType = List;
+    UsageCategory = Lists;
+    ApplicationArea = All,Basic;
     SourceTable = "Dynamics Procurement Header";
     SourceTableView = SORTING ("DPS No.")
                       WHERE (Processed = CONST (true),

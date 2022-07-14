@@ -3,6 +3,8 @@ page 50012 "Table Lookup Survey."
     Editable = false;
     PageType = Card;
     SourceTable = "Payroll-Lookup Header.";
+    UsageCategory = Documents;
+    ApplicationArea = All,Basic;
 
     layout
     {

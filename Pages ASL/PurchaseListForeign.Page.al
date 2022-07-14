@@ -4,6 +4,8 @@ page 50553 "Purchase List Foreign"
     DataCaptionFields = "Document Type";
     Editable = false;
     PageType = List;
+    UsageCategory = Lists;
+    ApplicationArea = All,Basic;
     SourceTable = "Purchase Header";
     SourceTableView = SORTING ("Document Type", "No.")
                       WHERE ("Document Type" = CONST (Order));

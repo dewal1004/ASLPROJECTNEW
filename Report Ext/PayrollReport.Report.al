@@ -10,6 +10,8 @@ report 50062 "Payroll Report"
     // instead of the ED.Codes.
     DefaultLayout = RDLC;
     RDLCLayout = './ReportRdlc/PayrollReport.rdlc';
+    UsageCategory = Lists;
+    ApplicationArea = All, Basic, Suite;
 
 
     dataset

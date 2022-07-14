@@ -1,5 +1,8 @@
 page 50053 Reports
 {
+    Caption = 'ASL Reports List';
+    UsageCategory = Administration;
+    ApplicationArea = all;
 
     layout
     {

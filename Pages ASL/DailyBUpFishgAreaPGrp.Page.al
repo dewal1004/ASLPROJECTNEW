@@ -2,6 +2,8 @@ page 50082 "Daily B/Up Fishg Area/PGrp"
 {
     PageType = Card;
     SaveValues = true;
+    UsageCategory = Administration;
+    ApplicationArea= all;
     SourceTable = "Inventory Posting Group";
     SourceTableView = SORTING("S/No.")
                       WHERE(Category = FILTER('1' ..),

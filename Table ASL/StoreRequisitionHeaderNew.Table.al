@@ -136,7 +136,9 @@ table 50031 "Store Requisition Header New"
         field(14; "Final Approval to"; Code[50])
         {
             Caption = 'Final Approval to';
-            TableRelation = "User Setup"."User ID" WHERE("Store Req Final Approval" = CONST(true));
+            TableRelation = if ("Fish Store Requisition" = Const(true)) "User Setup"."User ID" WHERE ("Fish Stk Req F.Approval" = Const(True)) 
+            else 
+            if ("Fish Store Requisition" = const(false)) "User Setup"."User ID" WHERE("Store Req Final Approval" = CONST(true));
 
             trigger OnValidate()
             begin
@@ -460,6 +462,9 @@ table 50031 "Store Requisition Header New"
         }
         field(54; "Purchase Requsition Updated"; Boolean)
         {
+        }
+        field(55; "Fish Store Requisition"; Boolean)
+        {            
         }
     }
 
@@ -788,6 +793,7 @@ table 50031 "Store Requisition Header New"
         Transheader.Insert(true);
         Transheader.Validate(Transheader."Transfer-from Code", "Transfer From");
         Transheader.Validate(Transheader."Transfer-to Code", "Transfer To.");
+        Transheader."In-Transit Code" := 'Own Log,';
         Transheader.Validate(Transheader."Posting Date", "Processed Date");
         Transheader.Validate(Transheader."Shipment Date", "Processed Date");
         Transheader.Validate(Transheader."Receipt Date", "Processed Date");

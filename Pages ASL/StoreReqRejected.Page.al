@@ -5,6 +5,8 @@ page 50102 "Store Req.  Rejected"
     InsertAllowed = false;
     ModifyAllowed = false;
     PageType = List;
+    UsageCategory = Lists;
+    ApplicationArea = All,Basic;
     SourceTable = "Store Requisition Header New";
     SourceTableView = WHERE ("Send for Approval" = CONST (true),
                             Rejected = CONST (true));

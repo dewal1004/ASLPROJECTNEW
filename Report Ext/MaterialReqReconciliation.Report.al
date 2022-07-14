@@ -2,6 +2,8 @@ report 50081 "Material Req Reconciliation"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './ReportRdlc/MaterialReqReconciliation.rdlc';
+    UsageCategory = ReportsAndAnalysis;
+    ApplicationArea = All,Basic,Suite;
 
     dataset
     {

@@ -7,6 +7,8 @@ report 50243 "Inventory-Trans.Detail-barge"
 
     Caption = 'Inventory - Transaction Detail';
     Permissions = TableData "Sales Shipment Header" = rimd;
+    UsageCategory = ReportsAndAnalysis;
+    ApplicationArea = All,Basic,Suite;
 
     dataset
     {

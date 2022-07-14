@@ -8,6 +8,9 @@ page 50128 "Approved DPS Line"
     SourceTable = "Dynamics Procurement Register";
     SourceTableView = WHERE (processed = CONST (false),
                             Approved = CONST (true));
+    UsageCategory= Administration;
+    ApplicationArea = all;
+    
 
     layout
     {

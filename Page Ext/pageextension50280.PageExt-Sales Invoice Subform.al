@@ -10,12 +10,12 @@ pageextension 50280 pageextension50280 extends "Sales Invoice Subform"
         }
         modify("Line Discount %")
         {
-            Caption = 'Invoice Discount Amount';
+            Caption = 'Line Discount %';
             Style = Subordinate;
         }
         modify("Line Amount")
         {
-            Visible = false;
+            Visible = true;
         }
         modify("Job Task No.")
         {
@@ -137,7 +137,7 @@ pageextension 50280 pageextension50280 extends "Sales Invoice Subform"
         }
         modify("Invoice Discount Amount")
         {
-            Visible = false;
+            Visible = true;
         }
         modify("Invoice Disc. Pct.")
         {
@@ -145,7 +145,7 @@ pageextension 50280 pageextension50280 extends "Sales Invoice Subform"
         }
         modify("VAT Prod. Posting Group")
         {
-            Visible = false;
+            Visible = true;
 
             trigger OnafterValidate()
             begin

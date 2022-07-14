@@ -2,6 +2,8 @@ report 50233 "Purchase Request List"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './ReportRdlc/PurchaseRequestList.rdlc';
+    UsageCategory = ReportsAndAnalysis;
+    ApplicationArea = All,Basic,Suite;
 
     dataset
     {

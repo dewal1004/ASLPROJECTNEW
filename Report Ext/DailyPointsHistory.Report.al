@@ -4,6 +4,8 @@ report 50104 "Daily Points History"
     // -> new reoprt, to retrieve historical daily points information
     DefaultLayout = RDLC;
     RDLCLayout = './ReportRdlc/DailyPointsHistory.rdlc';
+    UsageCategory = ReportsAndAnalysis;
+    ApplicationArea = All,Basic,Suite;
 
 
     dataset

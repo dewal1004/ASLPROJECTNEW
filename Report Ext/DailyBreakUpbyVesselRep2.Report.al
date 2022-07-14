@@ -2,6 +2,8 @@ report 50008 "Daily BreakUp by Vessel Rep 2"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './ReportRdlc/DailyBreakUpbyVesselRep2.rdlc';
+    UsageCategory = ReportsAndAnalysis;
+    ApplicationArea = All,Basic,Suite;
 
     dataset
     {

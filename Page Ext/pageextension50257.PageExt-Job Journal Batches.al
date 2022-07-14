@@ -74,7 +74,7 @@ pageextension 50257 pageextension50257 extends "Job Journal Batches"
             }
         }
     }
-}
+   }
 
 //Unsupported feature: Code Modification on "OnOpenPage".
     //trigger OnOpenPage()

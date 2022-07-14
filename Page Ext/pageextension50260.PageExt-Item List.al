@@ -68,6 +68,14 @@ pageextension 50260 pageextension50260 extends "Item List"
             //Unsupported feature: Property Modification (Name) on "CancelApprovalRequest(Action 86)".
             //Unsupported feature: Property Insertion (RunObject) on "CancelApprovalRequest(Action 86)".
         }
+        modify("Physical Inventory Journal")
+        {
+            Visible = false;
+        }
+        modify("Item Reclassification Journal")
+        {
+            Visible = false;
+        }
         modify("Sales_Prices")
         {
             Visible = false;

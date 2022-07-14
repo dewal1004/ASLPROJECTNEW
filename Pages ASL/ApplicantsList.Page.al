@@ -1,8 +1,9 @@
 page 50026 "Applicants List"
 {
-    PageType = Card;
+    PageType = List;
     SourceTable = Applicants;
-
+    UsageCategory = Lists;
+    ApplicationArea = All,Basic,Suites;
     layout
     {
         area(content)

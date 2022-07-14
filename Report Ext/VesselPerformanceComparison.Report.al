@@ -2,6 +2,8 @@ report 50201 "Vessel Performance Comparison"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './ReportRdlc/VesselPerformanceComparison.rdlc';
+    UsageCategory = ReportsAndAnalysis;
+    ApplicationArea = All,Basic,Suite;
 
     dataset
     {

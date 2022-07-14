@@ -1,6 +1,6 @@
 page 50099 "Dry Docking list"
 {
-    Caption = 'Job List';
+    Caption = 'Job Dry Docking List';
     CardPageID = "Job Card";
     Editable = false;
     PageType = List;

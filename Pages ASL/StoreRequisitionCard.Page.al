@@ -32,6 +32,9 @@ page 50059 "Store Requisition Card"
                 {
                     Importance = Additional;
                 }
+                field("Fish Store Requisition"; "Fish Store Requisition")
+                {                    
+                }
                 field("To Be Collected By"; "To Be Collected By")
                 {
                 }
@@ -99,6 +102,7 @@ page 50059 "Store Requisition Card"
                 {
                     DrillDownPageID = "Dry Docking/Job  list";
                     LookupPageID = "Dry Docking/Job  list";
+                    
                 }
                 field("External Document No"; "External Document No")
                 {

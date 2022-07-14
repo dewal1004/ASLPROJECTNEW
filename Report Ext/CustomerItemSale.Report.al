@@ -3,6 +3,8 @@ report 50102 "Customer/Item Sale"
     DefaultLayout = RDLC;
     RDLCLayout = './ReportRdlc/CustomerItemSale.rdlc';
     Caption = 'Customer/Item Sales';
+    UsageCategory = ReportsAndAnalysis;
+    ApplicationArea = All,Basic,Suite;
 
     dataset
     {

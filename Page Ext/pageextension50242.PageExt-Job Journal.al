@@ -199,6 +199,7 @@ pageextension 50242 pageextension50242 extends "Job Journal"
             {
                 Caption = 'Fish Caught/Reconciliation';
                 Image = Reconcile;
+                RunObject = report "Vessel Catches";
 
                 trigger OnAction()
                 begin
@@ -426,6 +427,7 @@ pageextension 50242 pageextension50242 extends "Job Journal"
                     JobJournalLine.Code1 := JobcatchDefault.Code;
                     JobJournalLine.Pack := JobcatchDefault."Pack Size";
                     JobJournalLine.Brand := JobcatchDefault.Brand;
+                    //JobJournalLine."Job Task No.":= 'Temp';
                     if UnitofMeasure.Get(JobJournalLine.Pack) then UnitofMeasureCd := UnitofMeasure."Catch Code"; //Get Unit of measure Code
                     ITVars := Format(JobJournalLine.Code1) + UnitofMeasureCd + CopyStr(JobJournalLine.Brand, 1, 1);   //Requip Code Name
                     JobJournalLine.Validate(JobJournalLine."No.", ITVars);         //Updates JobJournalLine."Task Code"
@@ -467,5 +469,16 @@ pageextension 50242 pageextension50242 extends "Job Journal"
             until JobJournalLine.Next = 0;
         Message('Line Coppied from Vessel %1', "Copy From  Vesel");
     end;
+trigger OnModifyRecord(): Boolean
+begin
+    if "Lock Qty" then begin 
+        if ("No." <> xRec."No.") or (Quantity <> xRec.Quantity) or (Description <> xRec.Description) then
+    Error('You Can Not Modify Line Generated from Requisition');
+    end;
+end;
+trigger OnDeleteRecord(): Boolean
+begin
+    if "Lock Qty" then Error('You Can Not Delete Line Generated from Requisition');
+end;
 }
 

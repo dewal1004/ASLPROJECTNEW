@@ -10,7 +10,8 @@ page 50126 "Approved DPS For Processing"
                       WHERE (Processed = CONST (false),
                             "Send For Approval" = CONST (true),
                             Approved = CONST (true));
-
+    UsageCategory = Lists;
+    ApplicationArea = All,Basic,Suites;
     layout
     {
         area(content)

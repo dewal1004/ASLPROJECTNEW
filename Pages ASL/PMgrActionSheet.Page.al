@@ -1,8 +1,11 @@
 page 50122 "PMgr Action Sheet"
 {
+    Caption = 'Procurement Manager Action Sheet';
     DeleteAllowed = false;
     InsertAllowed = false;
     PageType = List;
+    UsageCategory = Lists;
+    ApplicationArea = All,Basic;
     SourceTable = "Purchase Requisition1";
     SourceTableView = WHERE ("QCC Check" = CONST (true),
                             Process = CONST (false),

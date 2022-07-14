@@ -2,6 +2,8 @@ report 50171 "Issued Consumed to Vesse"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './ReportRdlc/IssuedConsumedtoVesse.rdlc';
+    UsageCategory = ReportsAndAnalysis;
+    ApplicationArea = All,Basic,Suite;
 
     dataset
     {

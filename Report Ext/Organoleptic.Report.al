@@ -5,6 +5,8 @@ report 50148 Organoleptic
     // "Comment Line"."Loose Neck%"
     DefaultLayout = RDLC;
     RDLCLayout = './ReportRdlc/Organoleptic.rdlc';
+    UsageCategory = ReportsAndAnalysis;
+    ApplicationArea = All,Basic,Suite;
 
 
     dataset

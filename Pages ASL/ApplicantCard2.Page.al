@@ -2,7 +2,8 @@ page 60122 "Applicant Card2"
 {
     PageType = Card;
     SourceTable = Applicants;
-
+    UsageCategory = Documents;
+    ApplicationArea = All,Basic,Suites;
     layout
     {
         area(content)

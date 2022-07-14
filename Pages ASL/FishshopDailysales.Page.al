@@ -2,6 +2,8 @@ page 50061 "Fishshop Daily sales"
 {
     PageType = List;
     SourceTable = "Fish Shop Daily Sales";
+    UsageCategory = Lists;
+    ApplicationArea = All;
 
     layout
     {

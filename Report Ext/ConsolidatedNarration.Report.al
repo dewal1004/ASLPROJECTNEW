@@ -2,6 +2,8 @@ report 50004 "Consolidated Narration"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './ReportRdlc/ConsolidatedNarration.rdlc';
+    UsageCategory = ReportsAndAnalysis;
+    ApplicationArea = All,Basic,Suite;
 
     dataset
     {

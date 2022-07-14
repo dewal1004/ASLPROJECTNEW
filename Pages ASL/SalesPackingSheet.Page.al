@@ -6,6 +6,8 @@ page 50067 "Sales Packing Sheet"
     Caption = 'Comment Sheet';
     DataCaptionFields = "Document Type", "No.";
     DelayedInsert = true;
+    UsageCategory = Lists;
+    ApplicationArea = All;
     MultipleNewLines = true;
     PageType = Card;
     SourceTable = "Sales Comment Line";

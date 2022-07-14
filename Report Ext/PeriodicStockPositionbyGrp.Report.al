@@ -5,6 +5,8 @@ report 50184 "Periodic Stock Position by Grp"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './ReportRdlc/PeriodicStockPositionbyGrp.rdlc';
+    UsageCategory = ReportsAndAnalysis;
+    ApplicationArea = All,Basic,Suite;
 
     dataset
     {

@@ -4,6 +4,8 @@ report 50154 "Consolidated Value  & Ratio"
     RDLCLayout = './ReportRdlc/ConsolidatedValueRatio.rdlc';
     Permissions = TableData "Job Ledger Entry" = rimd,
                   TableData "Value Entry" = rimd;
+    UsageCategory = ReportsAndAnalysis;
+    ApplicationArea = All,Basic,Suite;
 
     dataset
     {

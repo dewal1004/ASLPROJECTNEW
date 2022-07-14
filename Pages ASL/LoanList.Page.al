@@ -3,6 +3,8 @@ page 50020 "Loan List"
     CardPageID = "Loan Card.";
     PageType = List;
     SourceTable = "Loan.";
+    UsageCategory = Lists;
+    ApplicationArea = All,Basic;
 
     layout
     {

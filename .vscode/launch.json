@@ -11,7 +11,7 @@
             "serverInstance": "BC180",
             "authentication": "Windows",
             "port": 8049,
-            "startupObjectId": 289,//22,
+            "startupObjectId": 1007,
             "startupObjectType": "Page",
             "breakOnError": true,
             "launchBrowser": true,

@@ -8,7 +8,8 @@ report 50101 "Customer Balance At Dates"
     // Customer."Date Filter":=0D;
     DefaultLayout = RDLC;
     RDLCLayout = './ReportRdlc/CustomerBalanceAtDates.rdlc';
-
+    UsageCategory = ReportsAndAnalysis;
+    ApplicationArea = All,Basic,Suite;
 
     dataset
     {

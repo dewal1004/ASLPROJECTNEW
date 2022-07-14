@@ -7,6 +7,8 @@ report 50176 "New Daily Points by Capt Rep"
     // SeaDaysTot:=0;SeaDayA:=0;
     DefaultLayout = RDLC;
     RDLCLayout = './ReportRdlc/NewDailyPointsbyCaptRep.rdlc';
+    UsageCategory = ReportsAndAnalysis;
+    ApplicationArea = All,Basic,Suite;
 
     Caption = 'New Daily Points Report';
 

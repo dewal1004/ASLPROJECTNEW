@@ -6,6 +6,8 @@ report 50189 "Skipper/Vessel Performce Excel"
     // CurrReport.SHOWOUTPUT(FALSE);
     DefaultLayout = RDLC;
     RDLCLayout = './ReportRdlc/SkipperVesselPerformceExcel.rdlc';
+    UsageCategory = ReportsAndAnalysis;
+    ApplicationArea = All,Basic,Suite;
 
 
     dataset

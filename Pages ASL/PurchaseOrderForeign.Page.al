@@ -5,8 +5,11 @@ page 50097 "Purchase Order Foreign"
     PromotedActionCategories = 'New,Process,Report,Approve,Release,Posting,Prepare,Invoice,Request Approval';
     RefreshOnActivate = true;
     SourceTable = "Purchase Header";
+    UsageCategory = Documents;
+    ApplicationArea = All,Basic,Suites;
     SourceTableView = WHERE("Document Type" = FILTER(Order),
                             "Order Type" = FILTER(Foreign));
+
 
     layout
     {

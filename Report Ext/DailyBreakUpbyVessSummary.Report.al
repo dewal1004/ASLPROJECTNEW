@@ -4,6 +4,8 @@ report 50012 "Daily BreakUp by Vess Summary"
     //     ShrimpPointTot:=ShrimpPointTot+ShrimpPoint[Countx];FishPointTot:=FishPointTot+FishPoint[Countx];
     DefaultLayout = RDLC;
     RDLCLayout = './ReportRdlc/DailyBreakUpbyVessSummary.rdlc';
+    UsageCategory = ReportsAndAnalysis;
+    ApplicationArea = All,Basic,Suite;
 
 
     dataset

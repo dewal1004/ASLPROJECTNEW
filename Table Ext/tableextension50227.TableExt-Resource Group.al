@@ -11,6 +11,15 @@ tableextension 50227 tableextension50227 extends "Resource Group"
         field(50302; Level; Integer)
         {
         }
+        modify("Global Dimension 2 Code")
+        {
+          trigger OnAfterValidate()
+          var
+            myInt: Integer;
+          begin
+            "Global Dimension 2 Code" := 'ATLANTIC';
+          end;
+        }
     }
 
 

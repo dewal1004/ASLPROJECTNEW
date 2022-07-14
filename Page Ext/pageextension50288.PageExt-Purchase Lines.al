@@ -1,5 +1,5 @@
 pageextension 50288 pageextension50288 extends "Purchase Lines"
-{
+{    
       layout
       {
           modify("Document Type")
@@ -30,5 +30,7 @@ pageextension 50288 pageextension50288 extends "Purchase Lines"
           {
               Visible = true;
           }
+    
       }
+    
 } 

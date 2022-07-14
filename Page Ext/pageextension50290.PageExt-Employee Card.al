@@ -2,25 +2,13 @@ pageextension 50290 pageextension50290 extends "Employee Card"
 {
     layout
     {
-
-        //Unsupported feature: Property Modification (Level) on "County(Control 20)".
-
         modify("Emplymt. Contract Code")
-        {
-
-            //Unsupported feature: Property Modification (Name) on ""Emplymt. Contract Code"(Control 42)".
-
-
-            //Unsupported feature: Property Modification (SourceExpr) on ""Emplymt. Contract Code"(Control 42)".
-
-
-            //Unsupported feature: Property Insertion (Lookup) on ""Emplymt. Contract Code"(Control 42)".
-
+        {           
             LookupPageID = "Employment Contracts";
         }
         modify("Resource No.")
         {
-            Editable = false;
+            Editable = True;
         }
         // modify("Application Method")
         // {
@@ -54,6 +42,9 @@ pageextension 50290 pageextension50290 extends "Employee Card"
             }
             field("Posting Group"; "Posting Group")
             {
+            }
+            field("Employee Group";"Employee Group")
+            {                
             }
         }
         addafter("Resource No.")
@@ -106,7 +97,7 @@ pageextension 50290 pageextension50290 extends "Employee Card"
         }
         addafter("Employee Posting Group")
         {
-            // field("Application Method"; "Application Method")
+                      // field("Application Method"; "Application Method")
             // {
             //     ApplicationArea = BasicHR;
             //     ToolTip = 'Specifies how to apply payments to entries for this employee.';
@@ -124,7 +115,6 @@ pageextension 50290 pageextension50290 extends "Employee Card"
 
                 trigger OnAction()
                 begin
-
                     I := 1;
                     Res.Init;
                     /*IF ("Global Dimension 1 Code"<>'FLST') THEN

@@ -4,6 +4,9 @@ page 50058 "Store Requisitions"
     PageType = List;
     SourceTable = "Store Requisition Header New";
     SourceTableView = WHERE ("Send for Approval" = CONST (false));
+    Editable = false;
+    UsageCategory = Lists;
+    ApplicationArea = All,Basic;
 
     layout
     {
@@ -22,6 +25,9 @@ page 50058 "Store Requisitions"
                 }
                 field("Req Date"; "Req Date")
                 {
+                }
+                field("Fish Store Requisition";"Fish Store Requisition")
+                {                    
                 }
                 field("Send for Approval"; "Send for Approval")
                 {

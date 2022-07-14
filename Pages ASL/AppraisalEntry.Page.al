@@ -5,7 +5,8 @@ page 50028 "Appraisal Entry"
     RefreshOnActivate = true;
     SourceTable = "Sales Header";
     SourceTableView = WHERE("Document Type" = FILTER("Return Order"));
-
+    UsageCategory = History;
+    ApplicationArea = All;
     layout
     {
         area(content)

@@ -6,8 +6,9 @@ report 50082 "Catch Reconsiliation Statement"
     // Job."Sea Days"
     DefaultLayout = RDLC;
     RDLCLayout = './ReportRdlc/CatchReconsiliationStatement.rdlc';
-
-    Caption = 'Job Journal - Test';
+    UsageCategory = ReportsAndAnalysis;
+    ApplicationArea = All,Basic,Suite;
+    Caption = 'Catch Reconsiliation Statement';
 
     dataset
     {

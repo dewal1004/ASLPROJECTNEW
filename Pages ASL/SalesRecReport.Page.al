@@ -1,6 +1,8 @@
 page 50162 "Sales& Rec-Report"
 {
-
+    UsageCategory= Administration;
+    ApplicationArea = all;
+    
     layout
     {
     }

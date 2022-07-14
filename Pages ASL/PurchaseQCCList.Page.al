@@ -1,6 +1,8 @@
 page 50117 "Purchase QCC List"
 {
     PageType = List;
+    UsageCategory = Lists;
+    ApplicationArea = All,Basic;
     SourceTable = "Purchase Requisition1";
     SourceTableView = WHERE ("Security checked" = CONST (true),
                             "QCC Check" = CONST (false),

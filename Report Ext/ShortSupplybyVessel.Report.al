@@ -4,6 +4,8 @@ report 50076 "Short Supply by Vessel"
     // "Transfer Line"."Qty. Reqd."
     DefaultLayout = RDLC;
     RDLCLayout = './ReportRdlc/ShortSupplybyVessel.rdlc';
+    UsageCategory = ReportsAndAnalysis;
+    ApplicationArea = All,Basic,Suite;
 
 
     dataset

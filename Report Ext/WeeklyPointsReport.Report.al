@@ -8,6 +8,8 @@ report 50103 "Weekly Points Report"
     //   block report from checking for sea days less than 8 or 9, added functionality for sending report results to excel.
     DefaultLayout = RDLC;
     RDLCLayout = './ReportRdlc/WeeklyPointsReport.rdlc';
+    UsageCategory = ReportsAndAnalysis;
+    ApplicationArea = All,Basic,Suite;
 
 
     dataset

@@ -5,6 +5,8 @@ page 50062 "Store Req. ready For Approval"
     InsertAllowed = false;
     ModifyAllowed = false;
     PageType = List;
+    UsageCategory = Lists;
+    ApplicationArea = All,Basic;
     SourceTable = "Store Requisition Header New";
     SourceTableView = WHERE ("Send for Approval" = CONST (true),
                             "1st Approved" = FILTER (<> Approved));

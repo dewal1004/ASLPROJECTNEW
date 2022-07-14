@@ -15,13 +15,13 @@ tableextension 50331 tableextension50331 extends "User Setup"
         {
             CaptionClass = '1,2,1';
             Caption = 'Shortcut Dimension 1 Code';
-            TableRelation = "Dimension Value".Code WHERE ("Global Dimension No." = CONST (1));
+            TableRelation = "Dimension Value".Code WHERE("Global Dimension No." = CONST(1));
         }
         field(50317; "Global Dimension 2 Code"; Code[20])
         {
             CaptionClass = '1,1,2';
             Caption = 'Global Dimension 2 Code';
-            TableRelation = "Dimension Value".Code WHERE ("Global Dimension No." = CONST (2));
+            TableRelation = "Dimension Value".Code WHERE("Global Dimension No." = CONST(2));
         }
         field(50330; Category; Option)
         {
@@ -89,6 +89,9 @@ tableextension 50331 tableextension50331 extends "User Setup"
         {
         }
         field(50349; "Use Item Journal"; Boolean)
+        {
+        }
+        field(50350; "Fish Stk Req F.Approval"; Boolean)
         {
         }
     }

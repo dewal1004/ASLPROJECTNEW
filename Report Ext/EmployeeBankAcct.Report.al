@@ -10,6 +10,8 @@ report 50029 "Employee-Bank Acct"
     // instead of the ED.Codes.
     DefaultLayout = RDLC;
     RDLCLayout = './ReportRdlc/EmployeeBankAcct.rdlc';
+    UsageCategory = ReportsAndAnalysis;
+    ApplicationArea = All,Basic,Suite;
 
 
     dataset

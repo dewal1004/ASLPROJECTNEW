@@ -2,6 +2,8 @@ page 50050 "Monthly Variables Header Card."
 {
     PageType = Card;
     SourceTable = "Monthly Variables Header.";
+    UsageCategory = Documents;
+    ApplicationArea = All,Basic;
 
     layout
     {

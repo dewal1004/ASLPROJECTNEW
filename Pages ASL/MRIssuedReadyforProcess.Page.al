@@ -4,13 +4,17 @@ page 50103 "MR. Issued Ready for Process"
     DeleteAllowed = false;
     InsertAllowed = false;
     ModifyAllowed = false;
+    Caption = 'MR. Issued Ready for Process';
     PageType = List;
     SourceTable = "Store Requisition Header New";
+    UsageCategory = Lists;
+    ApplicationArea = All,Basic;
     SourceTableView = WHERE ("Send for Approval" = CONST (true),
                             "1st Approved" = CONST (Approved),
                             "Final Approved" = CONST (Approved),
                             Processed = CONST (false),
                             "Issued Captured" = CONST (true));
+
 
     layout
     {
