@@ -7062,6 +7062,9 @@ End FUnction
         <Field Name="SkipperCaption">
           <DataField>SkipperCaption</DataField>
         </Field>
+        <Field Name="KNOWING">
+          <DataField>KNOWING</DataField>
+        </Field>
         <Field Name="Job_Journal_Line_Journal_Template_Name">
           <DataField>Job_Journal_Line_Journal_Template_Name</DataField>
         </Field>

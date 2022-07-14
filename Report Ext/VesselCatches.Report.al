@@ -500,6 +500,7 @@ report 50085 "Vessel Catches"
 
     requestpage
     {
+        SaveValues = true;
 
         layout
         {

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -8,6 +8,7 @@
         <ConnectString />
       </ConnectionProperties>
       <rd:SecurityType>None</rd:SecurityType>
+      <rd:DataSourceID>bcc06182-60a3-45ac-af8e-948f996ed383</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
@@ -118,7 +119,7 @@
                   <Width>0.625in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.70833in</Width>
+                  <Width>1.37499in</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>0.69444in</Width>
@@ -1210,7 +1211,7 @@
                       <TablixMembers>
                         <TablixMember>
                           <TablixHeader>
-                            <Size>0.71528in</Size>
+                            <Size>0.51736in</Size>
                             <CellContents>
                               <Textbox Name="Textbox27">
                                 <CanGrow>true</CanGrow>
@@ -1302,7 +1303,7 @@
                   <TablixMembers>
                     <TablixMember>
                       <TablixHeader>
-                        <Size>1.28126in</Size>
+                        <Size>1.08334in</Size>
                         <CellContents>
                           <Textbox Name="Textbox39">
                             <CanGrow>true</CanGrow>
@@ -1388,7 +1389,7 @@
                       <TablixMembers>
                         <TablixMember>
                           <TablixHeader>
-                            <Size>0.71528in</Size>
+                            <Size>0.51736in</Size>
                             <CellContents>
                               <Textbox Name="Textbox28">
                                 <CanGrow>true</CanGrow>
@@ -1438,7 +1439,7 @@
                             </SortExpression>
                           </SortExpressions>
                           <TablixHeader>
-                            <Size>0.71528in</Size>
+                            <Size>0.51736in</Size>
                             <CellContents>
                               <Textbox Name="EntryType_ItemLedgerEntry1">
                                 <CanGrow>true</CanGrow>
@@ -1479,7 +1480,7 @@
                         </TablixMember>
                         <TablixMember>
                           <TablixHeader>
-                            <Size>0.71528in</Size>
+                            <Size>0.51736in</Size>
                             <CellContents>
                               <Textbox Name="Textbox15">
                                 <CanGrow>true</CanGrow>
@@ -1530,7 +1531,7 @@
             <Top>0.37375in</Top>
             <Left>0.21056in</Left>
             <Height>1.25in</Height>
-            <Width>8.7257in</Width>
+            <Width>8.19444in</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1763,7 +1764,7 @@
             <Top>0.10986in</Top>
             <Left>0.21056in</Left>
             <Height>0.19444in</Height>
-            <Width>8.7257in</Width>
+            <Width>8.19444in</Width>
             <ZIndex>7</ZIndex>
             <Style>
               <Border>
@@ -1779,7 +1780,7 @@
         <Height>2.67583in</Height>
         <Style />
       </Body>
-      <Width>9.29042in</Width>
+      <Width>8.405in</Width>
       <Page>
         <PageHeader>
           <Height>0.77083in</Height>
@@ -1829,6 +1830,12 @@
       </Page>
     </ReportSection>
   </ReportSections>
+  <ReportParametersLayout>
+    <GridLayoutDefinition>
+      <NumberOfColumns>4</NumberOfColumns>
+      <NumberOfRows>2</NumberOfRows>
+    </GridLayoutDefinition>
+  </ReportParametersLayout>
   <Code>Public Function BlankZero(ByVal Value As Decimal)
     if Value = 0 then
         Return ""
@@ -1867,4 +1874,5 @@ End Function
   <Language>=User!Language</Language>
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>9a71fedc-e3af-4a57-990e-0693dc67675f</rd:ReportID>
 </Report>
