@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -8,6 +8,7 @@
         <ConnectString />
       </ConnectionProperties>
       <rd:SecurityType>None</rd:SecurityType>
+      <rd:DataSourceID>c1d64ef3-a4a2-42d4-84e0-c37d4ef5fd95</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
@@ -958,6 +959,7 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -4332,35 +4334,16 @@
                   </Visibility>
                 </TablixMember>
                 <TablixMember>
-                  <Group Name="Payroll_Payslip_Lines___Employee_No_2">
+                  <Group Name="Details">
                     <GroupExpressions>
-                      <GroupExpression>=Fields!Payroll_Payslip_Lines___Employee_No_.Value</GroupExpression>
-                      <GroupExpression>=Fields!GlobalDim1.Value</GroupExpression>
-                      <GroupExpression>=Fields!GlobalDim2.Value</GroupExpression>
+                      <GroupExpression xml:space="preserve"> </GroupExpression>
                     </GroupExpressions>
                   </Group>
                   <SortExpressions>
                     <SortExpression>
-                      <Value>=Fields!Payroll_Payslip_Lines___Employee_No_.Value</Value>
+                      <Value>=Fields!S_No.Value</Value>
                     </SortExpression>
                   </SortExpressions>
-                  <TablixMembers>
-                    <TablixMember>
-                      <Group Name="Details">
-                        <GroupExpressions>
-                          <GroupExpression>=Fields!Payroll_Payslip_Lines___Employee_No_.Value</GroupExpression>
-                        </GroupExpressions>
-                      </Group>
-                      <SortExpressions>
-                        <SortExpression>
-                          <Value>=Fields!S_No.Value</Value>
-                        </SortExpression>
-                      </SortExpressions>
-                    </TablixMember>
-                  </TablixMembers>
-                  <Visibility>
-                    <Hidden>=Last(Fields!RowSum.Value)=0</Hidden>
-                  </Visibility>
                 </TablixMember>
                 <TablixMember />
                 <TablixMember />
@@ -4563,7 +4546,6 @@
                   <Style />
                 </Paragraph>
               </Paragraphs>
-              <Top>0cm</Top>
               <Left>0.1852cm</Left>
               <Height>0.423cm</Height>
               <Width>11.421cm</Width>
@@ -4585,6 +4567,12 @@
       </Page>
     </ReportSection>
   </ReportSections>
+  <ReportParametersLayout>
+    <GridLayoutDefinition>
+      <NumberOfColumns>4</NumberOfColumns>
+      <NumberOfRows>2</NumberOfRows>
+    </GridLayoutDefinition>
+  </ReportParametersLayout>
   <Code>Public Function BlankZero(ByVal Value As Decimal)
     if Value = 0 then
         Return ""
@@ -4633,4 +4621,5 @@ End Function</Code>
   <Language>=User!Language</Language>
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
+  <rd:ReportID>8da3ed45-7cc7-42d6-9fc2-28f4b98159a2</rd:ReportID>
 </Report>
