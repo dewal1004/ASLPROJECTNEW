@@ -208,36 +208,36 @@ pageextension 50291 pageextension50291 extends "Employee List"
         StyleText: Text[20];
 
 
-        //Unsupported feature: Code Insertion on "OnAfterGetRecord".
+    //Unsupported feature: Code Insertion on "OnAfterGetRecord".
 
-        //trigger OnAfterGetRecord()
-        //begin
-        /*
-        //SETRANGE("No.");
-        StyleText:='';
-        if Status = Status ::Inactive then begin
-          StyleText := 'Unfavorable';
+    trigger OnAfterGetRecord()
+    begin
+
+        SETRANGE("No.");
+        StyleText := '';
+        if Status = Status::Inactive then begin
+            StyleText := 'Unfavorable';
         end else begin
-          StyleText := 'standard'
+            StyleText := 'standard'
         end;
 
         if Rec.Blocked = true then
-          StyleText:='Unfavorable'
-        */
-        //end;
+            StyleText := 'Unfavorable'
+
+    end;
 
 
-        //Unsupported feature: Code Insertion on "OnInit".
+    //Unsupported feature: Code Insertion on "OnInit".
 
-        //trigger OnInit()
-        //Parameters and return type have not been exported.
-        //begin
-        /*
-        EDNO[2]:='4000';//Basic+Hous+Transp
-        EDNO[3]:='2600';//Housing
-        EDNO[4]:='2700';//Transport
-        */
-        //end;
+    trigger OnOpenPage()
+    //Parameters and return type have not been exported.
+    begin
+    
+    EDNO[2]:='4000';//Basic+Hous+Transp
+    EDNO[3]:='2600';//Housing
+    EDNO[4]:='2700';//Transport
+    
+    end;
 
     local procedure AssistEdit(OldEmployee: Record Employee): Boolean
     begin
@@ -259,6 +259,6 @@ pageextension 50291 pageextension50291 extends "Employee List"
         )
         */
 
-    end;
+    end; 
 }
 

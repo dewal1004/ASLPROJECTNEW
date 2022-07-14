@@ -4,6 +4,8 @@ page 50125 "DPS Waiting For Approval"
     DeleteAllowed = false;
     InsertAllowed = false;
     ModifyAllowed = false;
+    UsageCategory= Administration;
+    ApplicationArea = all;    
     PageType = List;
     SourceTable = "Dynamics Procurement Header";
     SourceTableView = SORTING ("DPS No.")

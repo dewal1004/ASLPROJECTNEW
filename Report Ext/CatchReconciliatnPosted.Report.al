@@ -6,7 +6,8 @@ report 50182 "Catch Reconciliatn Posted"
     // GroupSort.
     DefaultLayout = RDLC;
     RDLCLayout = './ReportRdlc/CatchReconciliatnPosted.rdlc';
-
+    UsageCategory = ReportsAndAnalysis;
+    ApplicationArea = All,Basic,Suite;
 
     dataset
     {

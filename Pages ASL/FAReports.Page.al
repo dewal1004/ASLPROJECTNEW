@@ -1,6 +1,8 @@
 page 50139 "FA.Reports"
 {
-
+    UsageCategory= Administration;
+    ApplicationArea = all;
+    
     layout
     {
     }

@@ -1,6 +1,8 @@
 page 50164 "Inventory-Report"
 {
-
+    UsageCategory= Administration;
+    ApplicationArea = all;
+    
     layout
     {
     }

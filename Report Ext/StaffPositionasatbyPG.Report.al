@@ -7,6 +7,8 @@ report 50180 "Staff Position as at by PG"
     // 4 : Termination in Period
     DefaultLayout = RDLC;
     RDLCLayout = './ReportRdlc/StaffPositionasatbyPG.rdlc';
+    UsageCategory = ReportsAndAnalysis;
+    ApplicationArea = All,Basic,Suite;
 
 
     dataset

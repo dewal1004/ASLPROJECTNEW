@@ -2,6 +2,8 @@ page 50056 "P & Rate at Date"
 {
     PageType = Card;
     SourceTable = "P & L Rates";
+    UsageCategory = Lists;
+    ApplicationArea = Basic,Suite;
 
     layout
     {

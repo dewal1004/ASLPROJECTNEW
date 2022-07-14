@@ -2,6 +2,8 @@ page 83921 "Object Menu"
 {
     PageType = Card;
     SourceTable = "Object";
+    UsageCategory = Administration;
+    ApplicationArea = All,Basic;
 
     layout
     {

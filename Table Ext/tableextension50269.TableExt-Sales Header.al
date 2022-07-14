@@ -149,9 +149,9 @@ tableextension 50269 tableextension50269 extends "Sales Header"
         }
         field(50303; "Skill Score"; Decimal)
         {
-            CalcFormula = Sum ("Sales Line".Quantity WHERE (Type = CONST (Resource),
-                                                           "Document No." = FIELD ("No."),
-                                                           "Document Type" = CONST (Quote)));
+            CalcFormula = Sum("Sales Line".Quantity WHERE(Type = CONST(Resource),
+                                                           "Document No." = FIELD("No."),
+                                                           "Document Type" = CONST(Quote)));
             Editable = false;
             FieldClass = FlowField;
             //The property 'ValidateTableRelation' can only be set if the property 'TableRelation' is set
@@ -159,9 +159,9 @@ tableextension 50269 tableextension50269 extends "Sales Header"
         }
         field(50304; "Skill Total"; Decimal)
         {
-            CalcFormula = Sum ("Sales Line".TTSkill WHERE (Type = CONST (Resource),
-                                                          "Document No." = FIELD ("No."),
-                                                          "Document Type" = CONST (Quote)));
+            CalcFormula = Sum("Sales Line".TTSkill WHERE(Type = CONST(Resource),
+                                                          "Document No." = FIELD("No."),
+                                                          "Document Type" = CONST(Quote)));
             Editable = false;
             FieldClass = FlowField;
         }
@@ -187,17 +187,17 @@ tableextension 50269 tableextension50269 extends "Sales Header"
         }
         field(50306; "Performance Score"; Decimal)
         {
-            CalcFormula = Sum ("Sales Line".Quantity WHERE (Type = CONST (Item),
-                                                           "Document No." = FIELD ("No."),
-                                                           "Document Type" = CONST (Quote)));
+            CalcFormula = Sum("Sales Line".Quantity WHERE(Type = CONST(Item),
+                                                           "Document No." = FIELD("No."),
+                                                           "Document Type" = CONST(Quote)));
             Editable = false;
             FieldClass = FlowField;
         }
         field(50307; "Performance Total"; Decimal)
         {
-            CalcFormula = Sum ("Sales Line".TTPerformance WHERE (Type = CONST (Item),
-                                                                "Document No." = FIELD ("No."),
-                                                                "Document Type" = CONST (Quote)));
+            CalcFormula = Sum("Sales Line".TTPerformance WHERE(Type = CONST(Item),
+                                                                "Document No." = FIELD("No."),
+                                                                "Document Type" = CONST(Quote)));
             Editable = false;
             FieldClass = FlowField;
         }
@@ -248,8 +248,8 @@ tableextension 50269 tableextension50269 extends "Sales Header"
         }
         field(50312; Cedamount; Decimal)
         {
-            CalcFormula = Sum ("Payroll-Employee Group Lines."."Default Amount" WHERE ("Employee Group" = FIELD (CGrp),
-                                                                                      "Payslip Group ID" = CONST ("GROSS PAY")));
+            CalcFormula = Sum("Payroll-Employee Group Lines."."Default Amount" WHERE("Employee Group" = FIELD(CGrp),
+                                                                                      "Payslip Group ID" = CONST("GROSS PAY")));
             Editable = false;
             FieldClass = FlowField;
         }
@@ -276,8 +276,8 @@ tableextension 50269 tableextension50269 extends "Sales Header"
         }
         field(50316; Redamount; Decimal)
         {
-            CalcFormula = Sum ("Payroll-Employee Group Lines."."Default Amount" WHERE ("Employee Group" = FIELD (RGrp),
-                                                                                      "Payslip Group ID" = CONST ("GROSS PAY")));
+            CalcFormula = Sum("Payroll-Employee Group Lines."."Default Amount" WHERE("Employee Group" = FIELD(RGrp),
+                                                                                      "Payslip Group ID" = CONST("GROSS PAY")));
             Editable = false;
             FieldClass = FlowField;
         }
@@ -313,8 +313,8 @@ tableextension 50269 tableextension50269 extends "Sales Header"
         }
         field(50334; Aedamount; Decimal)
         {
-            CalcFormula = Sum ("Payroll-Employee Group Lines."."Default Amount" WHERE ("Employee Group" = FIELD (AGrp),
-                                                                                      "Payslip Group ID" = CONST ("GROSS PAY")));
+            CalcFormula = Sum("Payroll-Employee Group Lines."."Default Amount" WHERE("Employee Group" = FIELD(AGrp),
+                                                                                      "Payslip Group ID" = CONST("GROSS PAY")));
             Editable = false;
             FieldClass = FlowField;
         }
@@ -456,8 +456,8 @@ tableextension 50269 tableextension50269 extends "Sales Header"
         }
         field(50385; "Total Qty"; Decimal)
         {
-            CalcFormula = Sum ("Sales Line".Quantity WHERE ("Document Type" = FIELD ("Document Type"),
-                                                           "Document No." = FIELD ("No.")));
+            CalcFormula = Sum("Sales Line".Quantity WHERE("Document Type" = FIELD("Document Type"),
+                                                           "Document No." = FIELD("No.")));
             FieldClass = FlowField;
             TableRelation = Item.Inventory;
         }
@@ -661,37 +661,41 @@ tableextension 50269 tableextension50269 extends "Sales Header"
     //end;
     //>>>> MODIFIED CODE:
     //begin
-    /*
-    LNO := 10000;
-    FSdailySale.SetFilter(FSdailySale.Location,'%1',"Location Code");
-    FSdailySale.SetFilter(FSdailySale.Processed,'%1',false);
-    FSdailySale.SetFilter(FSdailySale."Transaction Date",'%1',"Document Date");
-    FSdailySale.SetFilter(FSdailySale."Payment Type",'%1',"Payment Method Code");
-    if FSdailySale.FindFirst then repeat
-      //FSdailySale.REPEAT
-        FsdailyFilter.CopyFilters(FSdailySale);
-        FsdailyFilter.SetFilter(FsdailyFilter."Item No.",'%1',FSdailySale."Item No.");
-        if FsdailyFilter.FindSet then
-        begin
-          FsdailyFilter.CalcFields(FsdailyFilter."Day Sale Qty",FsdailyFilter."Day Sale Value");
-          SalesRecLine.Init;
-          SalesRecLine."Document No." := "No.";
-          SalesRecLine."Document Type" := "Document Type";
-          SalesRecLine."Line No." := LNO;
-          SalesRecLine."Sell-to Customer No." := "Sell-to Customer No.";
-          SalesRecLine.Type := SalesRecLine.Type::Item;
-          SalesRecLine.Validate(SalesRecLine."No.",FsdailyFilter."Item No.");
-          SalesRecLine."Location Code" := FsdailyFilter.Location;
-          SalesRecLine.Validate(SalesRecLine.Quantity,FsdailyFilter."Day Sale Qty");
-          SalesRecLine.Validate(SalesRecLine."Line Amount",FsdailyFilter."Day Sale Value");
-          SalesRecLine.Validate(SalesRecLine."Shipment Date",FsdailyFilter."Transaction Date");
-         SalesRecLine.Insert(true);
-         FsdailyFilter.ModifyAll(FsdailyFilter.Processed,true);
-        end;
-        LNO := LNO +10000;
-        until FSdailySale.Next = 0;
-    */
-    //end;
+    procedure GenerateFSDailySales()
+    var
+        FSdailySale: Record "Fish Shop Daily Sales";
+        FSdailyFilter: Record "Fish Shop Daily Sales";
+        SalesRecLine: Record "Sales Line";
+        LNO: Integer;
+    begin
+        LNO := 10000;
+        FSdailySale.SetFilter(FSdailySale.Location, '%1', "Location Code");
+        FSdailySale.SetFilter(FSdailySale.Processed, '%1', false);
+        FSdailySale.SetFilter(FSdailySale."Transaction Date", '%1', "Document Date");
+        FSdailySale.SetFilter(FSdailySale."Payment Type", '%1', "Payment Method Code");
+        if FSdailySale.FindFirst then
+            repeat
+                FsdailyFilter.CopyFilters(FSdailySale);
+                FsdailyFilter.SetFilter(FsdailyFilter."Item No.", '%1', FSdailySale."Item No.");
+                if FsdailyFilter.FindSet then begin
+                    FsdailyFilter.CalcFields(FsdailyFilter."Day Sale Qty", FsdailyFilter."Day Sale Value");
+                    SalesRecLine.Init;
+                    SalesRecLine."Document No." := "No.";
+                    SalesRecLine."Document Type" := "Document Type";
+                    SalesRecLine."Line No." := LNO;
+                    SalesRecLine."Sell-to Customer No." := "Sell-to Customer No.";
+                    SalesRecLine.Type := SalesRecLine.Type::Item;
+                    SalesRecLine.Validate(SalesRecLine."No.", FsdailyFilter."Item No.");
+                    SalesRecLine."Location Code" := FsdailyFilter.Location;
+                    SalesRecLine.Validate(SalesRecLine.Quantity, FsdailyFilter."Day Sale Qty");
+                    SalesRecLine.Validate(SalesRecLine."Line Amount", FsdailyFilter."Day Sale Value");
+                    SalesRecLine.Validate(SalesRecLine."Shipment Date", FsdailyFilter."Transaction Date");
+                    SalesRecLine.Insert(true);
+                    FsdailyFilter.ModifyAll(FsdailyFilter.Processed, true);
+                end;
+                LNO := LNO + 10000;
+            until FSdailySale.Next = 0;
+    end;
 
     procedure DeferralHeadersExist1(): Boolean
     var
@@ -728,7 +732,7 @@ tableextension 50269 tableextension50269 extends "Sales Header"
     //RecreateSalesLinesCancelErr : 1204;
     //Variable type has not been exported.
 
-    
+
     var
         "--------": Integer;
         Emp: Record Employee;

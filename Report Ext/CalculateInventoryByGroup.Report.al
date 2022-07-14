@@ -1,7 +1,8 @@
 report 50084 "Calculate Inventory By Group"
 {
     ProcessingOnly = true;
-
+    UsageCategory = ReportsAndAnalysis;
+    ApplicationArea = All,Basic,Suite;
     dataset
     {
         dataitem(Item; Item)

@@ -4,6 +4,8 @@ report 50046 "Voyage Ended Expense"
     // ItemUOV== Items Used On Vessel
     DefaultLayout = RDLC;
     RDLCLayout = './ReportRdlc/VoyageEndedExpense.rdlc';
+    UsageCategory = ReportsAndAnalysis;
+    ApplicationArea = All,Basic,Suite;
 
 
     dataset

@@ -54,6 +54,9 @@ pageextension 50209 pageextension50209 extends "User Setup"
             field("Store Req Final Approval"; "Store Req Final Approval")
             {
             }
+            field("Fish Stk Req F.Approval";"Fish Stk Req F.Approval")
+            {                
+            }
             field("Print DN"; "Print DN")
             {
             }

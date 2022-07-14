@@ -2,6 +2,8 @@ page 50000 "Payroll Menu"
 {
     Caption = 'Payroll Menu';
     PageType = Card;
+    UsageCategory = Administration;
+    ApplicationArea = All,Basic,Suite;
 
     layout
     {
@@ -9,17 +11,17 @@ page 50000 "Payroll Menu"
         {
             label(Control1)
             {
-                ShowCaption = false;
+                ShowCaption = true;
             }
             label(Control9)
             {
                 CaptionClass = Text19062951;
-                ShowCaption = false;
+                ShowCaption = true;
             }
             label(Control3)
             {
                 CaptionClass = Text19034387;
-                ShowCaption = false;
+                ShowCaption = true;
                 Style = Standard;
                 StyleExpr = TRUE;
             }
@@ -64,92 +66,99 @@ page 50000 "Payroll Menu"
                 }
             }
         }
-        area(processing)
+    
+    area(processing)
+    {
+        action(Periods)
         {
-            action(Periods)
-            {
-                Caption = 'Periods';
-                Promoted = true;
-                PromotedCategory = Process;
-                RunObject = Page "Payroll Periods.";
-            }
-            action(Banks)
-            {
-                Caption = 'Banks';
-                Promoted = true;
-                PromotedCategory = Process;
-                RunObject = Page "Banks.";
-            }
-            action("Monthly Payroll")
-            {
-                Caption = 'Monthly Payroll';
-                Promoted = true;
-                PromotedCategory = Process;
-                RunObject = Page "Payslip Header Card.";
-            }
-            action("Monthly Variables")
-            {
-                Caption = 'Monthly Variables';
-                Promoted = true;
-                PromotedCategory = Process;
-                RunObject = Page "Monthly Variables Header Card.";
-            }
-            action("Create G/L Journal")
-            {
-                Caption = 'Create G/L Journal';
-                Promoted = true;
-                PromotedCategory = Process;
-                RunObject = Report "PRoll; Create Journal Entries";
-            }
-            action("Staff Loans")
-            {
-                Caption = 'Staff Loans';
-                Promoted = true;
-                PromotedCategory = Process;
-                RunObject = Page "Loan Card.";
-            }
-            action("General Journals")
-            {
-                Caption = 'General Journals';
-                Promoted = true;
-                PromotedCategory = Process;
-
-                trigger OnAction()
-                begin
-                    //GenJnlManagement.TemplateSelection(0,FALSE);
-                end;
-            }
-            action(Reports)
-            {
-                Caption = 'Reports';
-                Promoted = true;
-                PromotedCategory = Process;
-
-                trigger OnAction()
-                begin
-                    /*WITH ReportList DO
-                      ShowList(FIELDNO("Payroll Reports"));
-                      */
-
-                end;
-            }
-            action(Utilities)
-            {
-                Caption = 'Utilities';
-                Promoted = true;
-                PromotedCategory = Process;
-                RunObject = Page "Utilities.";
-                Visible = false;
-            }
-            action(Navigate)
-            {
-                Caption = 'Navigate';
-                Image = Navigate;
-                Promoted = true;
-                PromotedCategory = Process;
-                RunObject = Page Navigate;
-            }
+            Caption = 'Periods';
+            Promoted = true;
+            PromotedCategory = Process;
+            RunObject = Page "Payroll Periods.";
         }
+        action(Banks)
+        {
+            Caption = 'Banks';
+            Promoted = true;
+            PromotedCategory = Process;
+            RunObject = Page "Banks.";
+        }
+        action("Monthly Payroll")
+        {
+            Caption = 'Monthly Payroll';
+            Promoted = true;
+            PromotedCategory = Process;
+            RunObject = Page "Payslip Header Card.";
+        }
+        action("Payroll Process")
+        {
+            Caption = 'Generate Payroll ';
+            Promoted = true;
+            PromotedCategory = Process;
+            RunObject = Report 50054;
+        }
+        action("Monthly Variables")
+        {
+            Caption = 'Monthly Variables';
+            Promoted = true;
+            PromotedCategory = Process;
+            RunObject = Page "Monthly Variables Header Card.";
+        }
+        action("Create G/L Journal")
+        {
+            Caption = 'Create G/L Journal';
+            Promoted = true;
+            PromotedCategory = Process;
+            RunObject = Report "PRoll; Create Journal Entries";
+        }
+        action("Staff Loans")
+        {
+            Caption = 'Staff Loans';
+            Promoted = true;
+            PromotedCategory = Process;
+            RunObject = Page "Loan Card.";
+        }
+        action("General Journals")
+        {
+            Caption = 'General Journals';
+            Promoted = true;
+            PromotedCategory = Process;
+
+            trigger OnAction()
+            begin
+                //GenJnlManagement.TemplateSelection(0,FALSE);
+            end;
+        }
+        action(Reports)
+        {
+            Caption = 'Reports';
+            Promoted = true;
+            PromotedCategory = Process;
+
+            trigger OnAction()
+            var Reportlist: Record "Report Selections";
+            Begin;
+                WITH Reportlist DO;
+                    //reportlist.ShowList(FIELDNO("Payroll Reports"));                   
+            end;
+        }
+        action(Utilities)
+        {
+            Caption = 'Utilities';
+            Promoted = true;
+            PromotedCategory = Process;
+            RunObject = Page "Utilities.";
+            Visible = true;
+        }
+        action(Navigate)
+        {
+            Caption = 'Navigate';
+            Image = Navigate;
+            Promoted = true;
+            PromotedCategory = Process;
+            RunObject = Page Navigate;
+        }
+    }
     }
 
     trigger OnInit()

@@ -3,6 +3,8 @@ report 50146 "Inventory Aging"
     //  Item."CRM / STR"
     DefaultLayout = RDLC;
     RDLCLayout = './ReportRdlc/InventoryAging.rdlc';
+    UsageCategory = ReportsAndAnalysis;
+    ApplicationArea = All,Basic,Suite;
 
 
     dataset

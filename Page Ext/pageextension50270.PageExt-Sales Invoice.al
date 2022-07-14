@@ -16,49 +16,75 @@ pageextension 50270 pageextension50270 extends "Sales Invoice"
     }
     actions
     {
-        addfirst(Action9)
+        addafter("F&unctions")
         {
             group("Other Documents")
             {
+
                 action("Sales Delivery Note")
                 {
+                    ApplicationArea = Basic, Suite;
                     Caption = 'Sales Delivery Note';
                     Image = Delivery;
-                    RunObject = Report 50093;
+                   // RunObject = Report "Sales Delivery Note";
+                    //RunPageOnRec = true;
+                    Promoted = true;
+
+                    trigger OnAction()
+                    var
+                        TrasRec: Record "Sales Header";
+                    begin
+                        TrasRec.SetRange(TrasRec."No.", "No.");
+                        TrasRec.SetRange(TrasRec."Document Type", "Document Type");
+                        if TrasRec.FindFirst then
+                            REPORT.RunModal(50093, true, false, TrasRec);
+                    end;
 
                 }
                 action("Sales Register Report")
                 {
+                    ApplicationArea = Basic, Suite;
                     Caption = 'Sales Register Report';
                     Image = Register;
                     RunObject = report "Sales Register";
                 }
                 action("Local Sales Report 1")
                 {
-                    Caption = 'Sales Delivery Note';
+                    ApplicationArea = Basic, Suite;
+                    Caption = 'Local Sales Report 1';
                     Image = Sales;
                     RunObject = Report "Local Sales Report";
                 }
                 action("Local Sales Report 2")
                 {
+                    ApplicationArea = Basic, Suite;
                     Caption = 'Local Sales Report 2';
                     Image = Register;
                     RunObject = report "Local Sales Report 2";
                 }
                 action("Generate FS Sales")
                 {
+                    ApplicationArea = Basic, Suite;
                     Caption = 'Generate FS Sales';
                     Image = Import;
-                    RunObject = xmlport "Import FS daily sales";
+                    //RunObject = xmlport "Import FS daily sales";
+                    Promoted = true;
+                    trigger OnAction()
+                    var
+                        myInt: Integer;
+                    begin
+                     rec.GenerateFSDailySales();  
+                    end;                  
                 }
-
-
             }
+
+
         }
     }
-
-
 }
+
+
+
 //var
 
 //}

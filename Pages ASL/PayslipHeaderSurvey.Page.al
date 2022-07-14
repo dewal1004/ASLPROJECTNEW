@@ -3,6 +3,8 @@ page 50022 "Payslip Header Survey."
     CardPageID = "Payslip Header Card.";
     PageType = List;
     SourceTable = "Payroll-Payslip Header.";
+    UsageCategory = Lists;
+    ApplicationArea = All;
 
     layout
     {

@@ -1,7 +1,9 @@
 page 50091 IOU
 {
-    PageType = Card;
+    PageType = List;
     SourceTable = IOU;
+    UsageCategory = Lists;
+    ApplicationArea = All,Basic;
 
     layout
     {

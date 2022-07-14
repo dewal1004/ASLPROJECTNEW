@@ -1,9 +1,11 @@
 page 50008 "Employee Card."
 {
-    Caption = 'Employee Card';
+    Caption = 'ASL Employee Card';
     PageType = Card;
     RefreshOnActivate = true;
     SourceTable = Employee;
+    UsageCategory = Administration;
+    ApplicationArea = All;
 
     layout
     {

@@ -36,9 +36,9 @@ table 50006 "Payroll-Payslip Lines."
                 GetParam2();
 
                 /* If Period+Employee has already been closed then stop edit */
-                //***if CheckClosed then
-                Error('Entries for Employee %1 for period %2 ' +
-                       'have already been closed.', "Employee No", "Payroll Period");
+                if CheckClosed then
+                    Error('Entries for Employee %1 for period %2 ' +
+                           'have already been closed.', "Employee No", "Payroll Period");
 
                 "E/DFileRec".Get("E/D Code");
                 "Payslip Text" := "E/DFileRec"."Payslip Text";
@@ -458,8 +458,10 @@ table 50006 "Payroll-Payslip Lines."
     local procedure CheckClosed(): Boolean
     var
         myInt: Integer;
-    begin
 
+    begin
+        ProllHeader.GET("Payroll Period", "Employee No");
+        EXIT(ProllHeader."Closed?");
     end;
 
     // ****

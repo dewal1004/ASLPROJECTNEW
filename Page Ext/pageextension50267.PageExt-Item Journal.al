@@ -42,7 +42,13 @@ pageextension 50267 pageextension50267 extends "Item Journal"
     }
     var
         UserRec: Record "User Setup";
-
+    trigger OnOpenPage()
+    var
+        myInt: Integer;
+    begin
+         if UserRec.Get(UserId) then
+          if not UserRec."Use Item Journal" then Error('You Can Not Use Item Journal');        
+    end;
 
         //Unsupported feature: Code Modification on "OnInsertRecord".
 

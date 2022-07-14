@@ -1,6 +1,8 @@
 page 50138 "GL-Report"
 {
-
+    UsageCategory= Administration;
+    ApplicationArea = all;
+    
     layout
     {
     }

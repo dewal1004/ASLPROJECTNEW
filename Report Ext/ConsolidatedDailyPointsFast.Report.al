@@ -4,6 +4,8 @@ report 50218 "Consolidated Daily Points Fast"
     // -> modified report to write output data to the Entry/Exit Table. the data will be stored as historical data.
     DefaultLayout = RDLC;
     RDLCLayout = './ReportRdlc/ConsolidatedDailyPointsFast.rdlc';
+    UsageCategory = ReportsAndAnalysis;
+    ApplicationArea = All,Basic,Suite;
 
     Caption = 'New Daily Points Report';
 

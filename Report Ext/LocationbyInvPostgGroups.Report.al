@@ -2,6 +2,8 @@ report 50246 "Location by Inv. Postg Groups"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './ReportRdlc/LocationbyInvPostgGroups.rdlc';
+    UsageCategory = ReportsAndAnalysis;
+    ApplicationArea = All,Basic,Suite;
 
     dataset
     {

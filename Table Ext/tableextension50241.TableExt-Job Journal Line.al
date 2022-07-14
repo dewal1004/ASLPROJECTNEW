@@ -445,6 +445,7 @@ tableextension 50241 tableextension50241 extends "Job Journal Line"
         }
         field(50354; "Lock Qty"; Boolean)
         {
+            Editable = false;
         }
         field(50355; "Vessel Type"; Option)
         {

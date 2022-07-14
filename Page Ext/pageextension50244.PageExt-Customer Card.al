@@ -18,6 +18,7 @@ pageextension 50244 pageextension50244 extends "Customer Card"
                     VATRegistrationLogMgt.AssistEditCustomerVATReg(Rec);
                 end;
             }
+
         }
     }
 

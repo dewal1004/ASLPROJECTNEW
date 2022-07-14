@@ -3,6 +3,8 @@ page 50112 "Requisition without Header"
     PageType = List;
     SourceTable = "Store Requisition Line New";
     SourceTableView = WHERE ("No Header" = CONST (true));
+    UsageCategory = Lists;
+    ApplicationArea = all;      
 
     layout
     {

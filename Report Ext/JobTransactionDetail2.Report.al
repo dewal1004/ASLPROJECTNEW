@@ -3,6 +3,8 @@ report 50013 "Job - Transaction Detail 2"
     DefaultLayout = RDLC;
     RDLCLayout = './ReportRdlc/JobTransactionDetail2.rdlc';
     Caption = 'Job - Transaction Detail';
+    UsageCategory = ReportsAndAnalysis;
+    ApplicationArea = All,Basic,Suite;
 
     dataset
     {

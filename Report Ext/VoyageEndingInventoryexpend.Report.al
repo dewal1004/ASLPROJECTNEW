@@ -4,6 +4,8 @@ report 50043 "Voyage Ending Inventory expend"
     // ItemUOV== Items Used On Vessel
     DefaultLayout = RDLC;
     RDLCLayout = './ReportRdlc/VoyageEndingInventoryexpend.rdlc';
+    UsageCategory = ReportsAndAnalysis;
+    ApplicationArea = All,Basic,Suite;
 
 
     dataset

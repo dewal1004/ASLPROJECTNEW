@@ -1,5 +1,8 @@
 page 50163 "Purchase&Pay-Reports"
 {
+    UsageCategory= Administration;
+    ApplicationArea = all;
+    
 
     layout
     {

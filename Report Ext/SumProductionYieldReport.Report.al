@@ -2,6 +2,8 @@ report 50000 "Sum. Production Yield Report"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './ReportRdlc/SumProductionYieldReport.rdlc';
+    UsageCategory = ReportsAndAnalysis;
+    ApplicationArea = All,Basic,Suite;
 
     dataset
     {

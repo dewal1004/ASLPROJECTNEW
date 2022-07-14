@@ -3,6 +3,8 @@ page 50118 "Purch. Req. Process List"
     DeleteAllowed = false;
     InsertAllowed = false;
     PageType = List;
+    UsageCategory = Lists;
+    ApplicationArea = All,Basic;
     SourceTable = "Purchase Requisition1";
     SourceTableView = WHERE ("QCC Check" = CONST (true),
                             "Security checked" = CONST (true),

@@ -6,8 +6,10 @@ report 50136 "Inventory - BINCARD 704"
     DefaultLayout = RDLC;
     RDLCLayout = './ReportRdlc/InventoryBINCARD704.rdlc';
 
-    Caption = 'Inventory - Transaction Detail';
+    Caption = 'Inventory - Bincard Detail';
     Permissions = TableData "Sales Shipment Header" = rimd;
+    UsageCategory = ReportsAndAnalysis;
+    ApplicationArea = All, Basic, Suite;
 
     dataset
     {
@@ -110,7 +112,6 @@ report 50136 "Inventory - BINCARD 704"
                 }
                 column(StartOnHand; StartOnHand)
                 {
-
                 }
                 column(Unit_CostCaption_Control1000000001; Unit_CostCaption_Control1000000001Lbl)
                 {
@@ -125,7 +126,6 @@ report 50136 "Inventory - BINCARD 704"
                     DataItemTableView = SORTING("Item No.", "Variant Code", "Drop Shipment", "Location Code", "Posting Date") WHERE("Transport Method" = FILTER(<> '10'));
                     column(StartOnHand___Quantity; StartOnHand + Quantity)
                     {
-
                     }
                     column(Item_Ledger_Entry__Posting_Date_; "Posting Date")
                     {
@@ -136,55 +136,53 @@ report 50136 "Inventory - BINCARD 704"
                     column(Item_Ledger_Entry__Document_No__; "Document No.")
                     {
                     }
+                    column(IssueNo; IssueNo)
+                    {
+                    }
                     column(IncreasesQty; IncreasesQty)
                     {
-
                     }
                     column(DecreasesQty; DecreasesQty)
                     {
-
                     }
                     column(ItemOnHand; ItemOnHand)
                     {
-
                     }
                     column(Item_Ledger_Entry__Entry_No__; "Entry No.")
                     {
                     }
                     column(TransFr; TransFr)
                     {
-
                     }
                     column(TransTo; TransTo)
                     {
-
                     }
                     column(StartOnHand___Quantity_Control31; StartOnHand + Quantity)
                     {
-
                     }
                     column(Item_Description_Control32; Item.Description)
                     {
                     }
+                    Column(Requisition_No;IssueNo)
+                    {                        
+                    }
                     column(IncreasesQty_Control33; IncreasesQty)
                     {
-
                     }
                     column(DecreasesQty_Control34; DecreasesQty)
                     {
-
                     }
                     column(StartOnHand___Quantity_Control35; StartOnHand + Quantity)
                     {
-
+                    }
+                    Column(RequisitionNo;IssueNo)
+                    {                        
                     }
                     column(DecreasesQty_Control1000000044; DecreasesQty)
                     {
-
                     }
                     column(IncreasesQty_Control1000000045; IncreasesQty)
                     {
-
                     }
                     column(Item_Description_Control1000000046; Item.Description)
                     {
@@ -210,22 +208,18 @@ report 50136 "Inventory - BINCARD 704"
                     column(Item_Ledger_Entry_Global_Dimension_2_Code; "Global Dimension 2 Code")
                     {
                     }
+                    column(ReqNo; IssueNo)
+                    {
+                    }
+
 
                     trigger OnAfterGetRecord()
-                    begin
-                        if "Print Bin Card" then
-                            ItemOnHand := 0
-                        else
-                            ItemOnHand := ItemOnHand + Quantity;
-                        if Quantity > 0 then
-                            IncreasesQty := Quantity
-                        else
-                            DecreasesQty := Abs(Quantity);
-                    end;
-
-                    trigger OnPreDataItem()
+                    var
+                        HandQty: Decimal;
+                        IssueNo: Text[30];
                     begin
                         CurrReport.CreateTotals(Quantity, IncreasesQty, DecreasesQty);
+                        HandQty := 0;
                         if "Print Bin Card" then begin
                             ItLentry.CopyFilters("Item Ledger Entry");
                             if ItLentry.Find('+') then
@@ -233,8 +227,63 @@ report 50136 "Inventory - BINCARD 704"
                             ItLentry.Next(-2);
                             SetRange("Entry No.", ItLentry."Entry No.", LastrecEntNo);
                         end;
+                        "Item Ledger Entry".SETFILTER("Posting Date", ItemDateFilter);
+
+                        IF InvtSetUp.GET THEN;
+                        TransTo := '';
+                        TransFr := '';
+                        //g_EntryFound := FALSE;
+                        CASE "Entry Type" OF
+                            0, 2:
+                                BEGIN
+                                    TransTo := InvtSetUp."Default Store";
+                                    TransFr := "External Document No.";
+                                END;
+                            1, 3:
+                                BEGIN
+                                    TransTo := "External Document No.";
+                                    TransFr := InvtSetUp."Default Store";//negative adjustment and sales
+                                END;
+                            4:
+                                BEGIN
+                                    IF TransShip.GET("Document No.") THEN BEGIN
+                                        TransTo := TransShip."Transfer-to Code";
+                                        TransFr := TransShip."Transfer-from Code";
+                                        IssueNo := TransShip."Transfer Order No.";
+                                    end;
+                                End;
+
+                        end;
+                        PurchRec.SETRANGE(PurchRec."No.", "Document No.");
+                        IF PurchRec.FINDFIRST THEN BEGIN
+                            TransFr := PurchRec."Buy-from Vendor No.";
+                            IssueNo := PurchRec."Order No.";
+                        END;
+                        SalesShi.SETRANGE(SalesShi."No.", "Document No.");
+                        IF SalesShi.FINDFIRST THEN BEGIN
+                            TransTo := SalesShi."Sell-to Customer No.";
+                            IssueNo := SalesShi."Order No.";
+                        end;
+                        ItemOnHand := ItemOnHand + Quantity;
+                        IF Quantity > 0 THEN begin
+                            IncreasesQty := Quantity;
+                            DecreasesQty := 0;
+                        end
+                        ELSE begin
+                            DecreasesQty := ABS(Quantity);
+                            IncreasesQty := 0;
+                        end;
+                        HandQty := HandQty + "Item Ledger Entry".Quantity + StartOnHand;
+
+                    end;
+
+                    trigger OnPreDataItem()
+                    begin
+                        CurrReport.CreateTotals(Quantity, IncreasesQty, DecreasesQty);
+                        HandQty := 0;
                     end;
                 }
+
             }
             dataitem("Integer"; "Integer")
             {
@@ -262,8 +311,8 @@ report 50136 "Inventory - BINCARD 704"
                 CurrReport.NewPagePerRecord := PrintOnlyOnePerPage;
             end;
         }
-    }
 
+    }
     requestpage
     {
 
@@ -321,5 +370,7 @@ report 50136 "Inventory - BINCARD 704"
         Unit_CostCaption_Control1000000001Lbl: Label 'Unit Cost';
         ContinuedCaptionLbl: Label 'Continued';
         ContinuedCaption_Control30Lbl: Label 'Continued';
+        HandQty: Decimal;
+        IssueNo: Text[30];
 }
 

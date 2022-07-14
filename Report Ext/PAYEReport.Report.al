@@ -10,6 +10,8 @@ report 50064 "PAYE Report"
     // instead of the ED.Codes.
     DefaultLayout = RDLC;
     RDLCLayout = './ReportRdlc/PAYEReport.rdlc';
+    UsageCategory = ReportsAndAnalysis;
+    ApplicationArea = All,Basic,Suite;
 
 
     dataset

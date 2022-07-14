@@ -2,6 +2,8 @@ page 50068 "Payroll-Payslip Header List"
 {
     PageType = List;
     SourceTable = "Payroll-Payslip Header.";
+    UsageCategory = Lists;
+    ApplicationArea= all;
 
     layout
     {

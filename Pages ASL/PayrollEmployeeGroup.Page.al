@@ -2,6 +2,9 @@ page 50101 PayrollEmployeeGroup
 {
     PageType = List;
     SourceTable = "Payroll-Employee Group Header.";
+    Caption = 'Payroll-Employee Group Header';
+    UsageCategory = Lists;
+    ApplicationArea = All,Basic;
 
     layout
     {

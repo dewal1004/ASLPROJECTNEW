@@ -7,23 +7,25 @@ import-Module "C:\Program Files\Microsoft Dynamics 365 Business Central\180\Serv
 # With BC Admin Shell version 18 (Run as Admin)
 # Invoke-NAVApplicationDatabaseConversion -DatabaseServer <database server name>\<database server instance> -DatabaseName "<database name>"
 
-$DbSrvrName = 'NAV365TEST\ASLHO2016'
+$DbSrvrName = 'NAV365SRV\NAVSQLLIVE'
 $SrvrInstName = 'BC180'
-$DbName = "Atlantic ASL V18fromV14"
+$DbName = "Atlantic ASL 2A"
 $TabMigrExtId = "9cb1232b-94cb-4aa6-bab3-c15ec6ea7bc0"
 $TabMigrExtName = "bc14baseapptablesonly"
 $TabMigrExtPubr = "SSNL"
-$LicenseFilePath = "C:\LIC\SSNL365V180122.flf"
-
+$LicenseFilePath = "C:\NAV AND SQL SETUP FILES\LIC\ssnl365v19.flf"
 
 ##7,8&9
-Invoke-NAVApplicationDatabaseConversion -DatabaseServer NAV365TEST\ASLHO2016 -DatabaseName "Atlantic ASL V18fromV14"
+Invoke-NAVApplicationDatabaseConversion -DatabaseServer NAV365TEST\ASLHO2016 -DatabaseName "Atlantic ASL 2A"
 # Set-NAVServerConfiguration -ServerInstance <server instance name?> -KeyName DatabaseName -KeyValue "<database name>"
-Set-NAVServerConfiguration -ServerInstance BC180 -KeyName DatabaseName -KeyValue "Atlantic ASL V18fromV14"
+Set-NAVServerConfiguration -ServerInstance BC180 -KeyName DatabaseName -KeyValue "Atlantic ASL 2A"
 Set-NAVServerConfiguration -ServerInstance BC180 -KeyName "DestinationAppsForMigration" -KeyValue '[{"appId": "9cb1232b-94cb-4aa6-bab3-c15ec6ea7bc0", "name":"bc14baseapptablesonly", "publisher": "SSNL"}]'
 Set-NavServerConfiguration -ServerInstance BC180 -KeyName "EnableTaskScheduler" -KeyValue false
 
-Import-NAVServerLicense -ServerInstance BC180 -LicenseFile "C:\LIC\SSNL365V19.flf"
+Import-NAVServerLicense -ServerInstance BC180 -LicenseFile "C:\LIC\ASL.flf"
+Restart-NAVServerInstance -ServerInstance HOLive
+
+Import-NAVServerLicense -ServerInstance BC180 -LicenseFile "C:\LIC\SSNL140922.flf"
 Restart-NAVServerInstance -ServerInstance BC180
 
 
@@ -61,7 +63,8 @@ Install-NAVApp -ServerInstance BC180 -Name "ASL Upgrade Operation" -Version 14.0
 Publish-NAVApp -ServerInstance bc180 -Path "C:\ALs\MSMigrationExtCus\SSNL_bc14baseapptablesonly_14.0.0.1.app" -skipverification
 Publish-NAVApp -ServerInstance bc180 -Path "C:\BC365V185\Applications\system application\source\Microsoft_System Application.app"
 Publish-NAVApp -ServerInstance bc180 -Path "C:\BC365V185\Applications\BaseApp\Source\Microsoft_Base Application.app"
-Publish-NAVApp -ServerInstance bc180 -Path "C:\ALs\ASLPROJECTNEW-1\SSNL_ASL Upgrade Operation_14.5.1.1.app"  -SkipVerification
+Publish-NAVApp -ServerInstance bc180 -Path "C:\BC365V185\Applications\Application\Source\Microsoft_Application.app"
+Publish-NAVApp -ServerInstance bc180 -Path "C:\ALs\ASLPROJECTNEW\SSNL_ASL Upgrade Operation_14.5.1.1.app"  -SkipVerification
 ##13.5: Application extension.
 Publish-NAVApp -ServerInstance bc180 -Path "C:\BC365V185\Applications\Application\Source\Microsoft_Application.app"
 ##13.6: Microsoft and third-party extensions.
@@ -99,10 +102,10 @@ Sync-NAVApp -ServerInstance bc180 -Name "bc14baseapptablesonly" -Version 14.0.0.
 Start-NAVAppDataUpgrade -ServerInstance BC180 -Name "bc14baseapptablesonly" -version 14.0.0.1
 
 ##16: Clean sync and unpublish table migration extensions
-Uninstall-NAVApp -ServerInstance BC180 -Tenant default -Name "<table migration extension>" -Version 14.0.0.1
-Sync-NAVApp -ServerInstance BC180 -Tenant default -Name "<table migration extension>" -Version 14.0.0.1 -Mode clean
-Unpublish-NAVApp -ServerInstance BC180 -Tenant default -Name "<table migration extension>" -Version 14.0.0.1
-Unpublish-NAVApp -ServerInstance BC180 -Tenant default -Name "<table migration extension>" -Version 14.0.0.0
+Uninstall-NAVApp -ServerInstance BC180 -Tenant default -Name "bc14baseapptablesonly" -Version 14.0.0.1
+Sync-NAVApp -ServerInstance BC180 -Tenant default -Name "bc14baseapptablesonly" -Version 14.0.0.1 -Mode clean
+Unpublish-NAVApp -ServerInstance BC180 -Name "bc14baseapptablesonly" -Version 14.0.0.1
+Unpublish-NAVApp -ServerInstance BC180 -Name "bc14baseapptablesonly" -Version 14.0.0.0
 
 # Task 17: Upgrade and install final extensions
 #  Use the Start-NAVAppDataUpgrade or Install-NAVApp cmdlets

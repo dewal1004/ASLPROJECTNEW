@@ -14,6 +14,8 @@ report 50059 "Transfer Processing/Fish Shop"
     // -> modified report to add all Fish Shop locations (total 9 as of this editing).
     DefaultLayout = RDLC;
     RDLCLayout = './ReportRdlc/TransferProcessingFishShop.rdlc';
+    UsageCategory = ReportsAndAnalysis;
+    ApplicationArea = All,Basic,Suite;
 
 
     dataset

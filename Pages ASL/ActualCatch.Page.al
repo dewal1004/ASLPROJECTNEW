@@ -11,6 +11,8 @@ page 50092 "Actual Catch"
     
                       WHERE("Statistics Group" = FILTER(> 0),
                             "In Use" = CONST(true));
+     UsageCategory = Documents;
+     ApplicationArea = All;                       
 
     layout
     {

@@ -8,7 +8,8 @@ report 50086 "Balance At Date (Cust/Vend)"
     // Customer."Date Filter":=0D;
     DefaultLayout = RDLC;
     RDLCLayout = './ReportRdlc/BalanceAtDateCustVend.rdlc';
-
+    UsageCategory = ReportsAndAnalysis;
+    ApplicationArea = All,Basic,Suite;
 
     dataset
     {

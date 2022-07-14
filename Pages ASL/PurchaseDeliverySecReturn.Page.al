@@ -1,6 +1,8 @@
 page 50123 "Purchase Delivery Sec. Return"
 {
     PageType = List;
+    UsageCategory = Lists;
+    ApplicationArea = All,Basic;
     SourceTable = "Purchase Requisition1";
     SourceTableView = WHERE ("Sent to Security" = CONST (true),
                             "QCC Check" = CONST (true),

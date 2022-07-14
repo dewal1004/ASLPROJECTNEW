@@ -3,6 +3,8 @@ report 50063 "Cash Payroll Schedule"
     // This report prints the amounts for the required E/D;
     DefaultLayout = RDLC;
     RDLCLayout = './ReportRdlc/CashPayrollSchedule.rdlc';
+    UsageCategory = ReportsAndAnalysis;
+    ApplicationArea = All,Basic,Suite;
 
 
     dataset

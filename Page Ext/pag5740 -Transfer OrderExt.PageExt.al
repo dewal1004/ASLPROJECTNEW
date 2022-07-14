@@ -11,8 +11,32 @@ pageextension 50322 pageextension50322 extends "Transfer Order"
         }
 
     }
+    actions
+    {
+        addafter(PostAndPrint)
+        {
+            action("Transfer Waybill")
+            {
+                ApplicationArea = Basic, Suite;
+                Caption = 'Transfer Waybill';
+                Image = Delivery;
+                //RunObject = Report "Transfer Waybill";
+                //RunPageOnRec = true;
+                Promoted = true;
 
-}
+                trigger OnAction()
+                var
+                    TrasRec: Record "Transfer Header";
+                begin
+                    TrasRec.SetRange(TrasRec."No.", "No.");
+                    if TrasRec.FindFirst() then
+                        REPORT.runmodal(50033, true, false, TrasRec);
+                end;
+            }
+        }
+
+    }
+    
 //         moveafter("Transfer-to Code"; "Direct Transfer")
 //         modify("Direct Transfer")
 //         {
@@ -60,21 +84,21 @@ pageextension 50322 pageextension50322 extends "Transfer Order"
 //                 RunObject = Report "Sales Register";
 //             }
 //         }
-//         addafter("&Print")
-//         {
-//             action("Print Delivery Note")
-//             {
-//                 Image = Delivery;
-//                 RunPageOnRec = true;
+/* addafter("&Print")
+ {
+     action("Print Delivery Note")
+     {
+         Image = Delivery;
+         RunPageOnRec = true;
 
-//                 trigger OnAction()
-//                 begin
-//                     TrasRec.SetRange(TrasRec."No.", "No.");
-//                     if TrasRec.FindFirst() then
-//                         REPORT.RunModal(50033, true, false, TrasRec);
-//                 end;
-//             }
-//         }
+         trigger OnAction()
+         begin
+             TrasRec.SetRange(TrasRec."No.", "No.");
+             if TrasRec.FindFirst() then
+                 REPORT.runmodal(50033, true, false, TrasRec);
+         end;
+     }
+ }*/
 //         addafter(PostAndPrint)
 //         {
 //             action("Post Through")
@@ -138,3 +162,4 @@ pageextension 50322 pageextension50322 extends "Transfer Order"
 // // */
 // // //end;
 
+}

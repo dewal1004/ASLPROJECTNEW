@@ -4,6 +4,8 @@ report 50015 "Vessel Daily Log"
     // Jobs."Voyage No."
     DefaultLayout = RDLC;
     RDLCLayout = './ReportRdlc/VesselDailyLog.rdlc';
+    UsageCategory = ReportsAndAnalysis;
+    ApplicationArea = All,Basic,Suite;
 
 
     dataset

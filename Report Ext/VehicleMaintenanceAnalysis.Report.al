@@ -6,6 +6,8 @@ report 50155 "Vehicle Maintenance - Analysis"
     // EndingDate:=013103D;
     DefaultLayout = RDLC;
     RDLCLayout = './ReportRdlc/VehicleMaintenanceAnalysis.rdlc';
+    UsageCategory = ReportsAndAnalysis;
+    ApplicationArea = All,Basic,Suite;
 
     Caption = 'Vehicle Maintenance - Analysis';
 

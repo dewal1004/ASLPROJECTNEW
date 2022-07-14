@@ -1,9 +1,8 @@
 pageextension 50259 pageextension50259 extends "Item Card"
 {
+
     layout
     {
-
-        //Unsupported feature: Property Modification (Level) on "GTIN(Control 135)".
 
         modify("Item Category Code")
         {
@@ -14,115 +13,44 @@ pageextension 50259 pageextension50259 extends "Item Card"
             Caption = 'Phy. Verification Date';
         }
 
-        //Unsupported feature: Property Modification (Level) on "Inventory(Control 14)".
 
-
-        //Unsupported feature: Property Modification (Name) on "Inventory(Control 14)".
-
-
-        //Unsupported feature: Property Modification (SourceExpr) on "Inventory(Control 14)".
-
-
-        //Unsupported feature: Property Modification (Level) on "InventoryNonFoundation(Control 205)".
 
         modify("Qty. on Prod. Order")
         {
-            Visible = false;
+            Visible = true;
+            Importance = Additional;
         }
         modify("Qty. on Component Lines")
         {
-            Visible = false;
+            Visible = true;
+            Importance = Additional;
         }
-
-        //Unsupported feature: Property Modification (Level) on ""Net Weight"(Control 196)".
-
-
-        //Unsupported feature: Property Modification (Level) on ""Gross Weight"(Control 235)".
-
-
-        //Unsupported feature: Property Modification (Level) on ""Unit Volume"(Control 60)".
-
         modify("Costing Method")
         {
-
-            //Unsupported feature: Property Modification (Level) on ""Costing Method"(Control 24)".
 
             Editable = false;
         }
         modify("Standard Cost")
         {
 
-            //Unsupported feature: Property Modification (Level) on ""Standard Cost"(Control 28)".
-
             Editable = false;
         }
-
-        //Unsupported feature: Property Modification (Level) on ""Unit Cost"(Control 30)".
-
-
-        //Unsupported feature: Property Modification (Level) on ""Indirect Cost %"(Control 155)".
-
-
-        //Unsupported feature: Property Modification (Name) on ""Indirect Cost %"(Control 155)".
-
-
-        //Unsupported feature: Property Modification (SourceExpr) on ""Indirect Cost %"(Control 155)".
-
-
-        //Unsupported feature: Property Modification (ImplicitType) on ""Indirect Cost %"(Control 155)".
 
         modify("Last Direct Cost")
         {
-
-            //Unsupported feature: Property Modification (Level) on ""Last Direct Cost"(Control 32)".
-
             Editable = false;
         }
-
-        //Unsupported feature: Property Modification (Level) on ""Cost is Adjusted"(Control 238)".
-
-
-        //Unsupported feature: Property Modification (Level) on ""Cost is Posted to G/L"(Control 26)".
-
-
-        //Unsupported feature: Property Modification (Level) on ""Gen. Prod. Posting Group"(Control 95)".
-
-
-        //Unsupported feature: Property Modification (Level) on ""VAT Prod. Posting Group"(Control 66)".
-
-
-        //Unsupported feature: Property Modification (Level) on ""Inventory Posting Group"(Control 40)".
-
-
-        //Unsupported feature: Property Modification (Level) on ""Default Deferral Template Code"(Control 136)".
-
-
-        //Unsupported feature: Property Modification (Level) on ""Tariff No."(Control 62)".
-
-
-        //Unsupported feature: Property Modification (Level) on ""Country/Region of Origin Code"(Control 93)".
-
+        modify("Indirect Cost %")
+        {
+            Visible=true;
+            Importance = Standard;
+        
+        
+        }
         modify("Allow Invoice Disc.")
         {
             Visible = false;
         }
-
-        //Unsupported feature: Property Modification (Level) on ""Purchasing Blocked"(Control 216)".
-
-
-        //Unsupported feature: Property Modification (Level) on ""Overhead Rate"(Control 153)".
-
-
-        //Unsupported feature: Property Modification (Level) on "Control8(Control 8)".
-
-
-        //Unsupported feature: Property Modification (Name) on "Reserve(Control 59)".
-
-
-        //Unsupported feature: Property Modification (SourceExpr) on "Reserve(Control 59)".
-
-
-        //Unsupported feature: Property Modification (ImplicitType) on "Reserve(Control 59)".
 
         modify("Stockkeeping Unit Exists")
         {
@@ -148,11 +76,7 @@ pageextension 50259 pageextension50259 extends "Item Card"
         {
             Visible = true;
         }
-
-        //Unsupported feature: Property Deletion (Importance) on "Inventory(Control 14)".
-
-        //***modify(ItemAttributesFactbox) {Visible = false;}
-
+        
         addafter("Item Category Code")
         {
             field("Last Imported Cost"; "Last Imported Cost")
@@ -167,7 +91,98 @@ pageextension 50259 pageextension50259 extends "Item Card"
             field("Local Posting Group"; "Local Posting Group")
             {
             }
+            field("Last Purchase Cost";"Last Purchase Cost")
+            {                
+            }
+            field("Last Local Cost";"Last Local Cost")
+            {}
+            field("Last Direct Cost2";"Last Direct Cost2")
+            {}
         }
+
+        //Unsupported feature: Property Modification (Level) on "GTIN(Control 135)".
+        //Unsupported feature: Property Modification (Level) on "Inventory(Control 14)".
+        //Unsupported feature: Property Modification (Name) on "Inventory(Control 14)".
+
+
+        //Unsupported feature: Property Modification (SourceExpr) on "Inventory(Control 14)".
+
+
+        //Unsupported feature: Property Modification (Level) on "InventoryNonFoundation(Control 205)".
+
+
+        //Unsupported feature: Property Modification (Level) on ""Net Weight"(Control 196)".
+
+
+        //Unsupported feature: Property Modification (Level) on ""Gross Weight"(Control 235)".
+
+
+        //Unsupported feature: Property Modification (Level) on ""Unit Volume"(Control 60)".
+
+        //Unsupported feature: Property Modification (Level) on ""Costing Method"(Control 24)".
+
+
+        //Unsupported feature: Property Modification (Level) on ""Standard Cost"(Control 28)".
+        //Unsupported feature: Property Modification (Level) on ""Unit Cost"(Control 30)".
+
+
+        //Unsupported feature: Property Modification (Level) on ""Indirect Cost %"(Control 155)".
+
+
+        //Unsupported feature: Property Modification (Name) on ""Indirect Cost %"(Control 155)".
+
+
+        //Unsupported feature: Property Modification (SourceExpr) on ""Indirect Cost %"(Control 155)".
+
+
+        //Unsupported feature: Property Modification (ImplicitType) on ""Indirect Cost %"(Control 155)".
+
+        //Unsupported feature: Property Modification (Level) on ""Last Direct Cost"(Control 32)".
+
+        //Unsupported feature: Property Modification (Level) on ""Cost is Adjusted"(Control 238)".
+
+
+        //Unsupported feature: Property Modification (Level) on ""Cost is Posted to G/L"(Control 26)".
+
+
+        //Unsupported feature: Property Modification (Level) on ""Gen. Prod. Posting Group"(Control 95)".
+
+
+        //Unsupported feature: Property Modification (Level) on ""VAT Prod. Posting Group"(Control 66)".
+
+
+        //Unsupported feature: Property Modification (Level) on ""Inventory Posting Group"(Control 40)".
+
+
+        //Unsupported feature: Property Modification (Level) on ""Default Deferral Template Code"(Control 136)".
+
+
+        //Unsupported feature: Property Modification (Level) on ""Tariff No."(Control 62)".
+
+
+        //Unsupported feature: Property Modification (Level) on ""Country/Region of Origin Code"(Control 93)".
+
+
+        //Unsupported feature: Property Modification (Level) on ""Purchasing Blocked"(Control 216)".
+
+
+        //Unsupported feature: Property Modification (Level) on ""Overhead Rate"(Control 153)".
+
+
+        //Unsupported feature: Property Modification (Level) on "Control8(Control 8)".
+
+
+        //Unsupported feature: Property Modification (Name) on "Reserve(Control 59)".
+
+
+        //Unsupported feature: Property Modification (SourceExpr) on "Reserve(Control 59)".
+
+
+        //Unsupported feature: Property Modification (ImplicitType) on "Reserve(Control 59)".
+
+        //Unsupported feature: Property Deletion (Importance) on "Inventory(Control 14)".
+
+        //***modify(ItemAttributesFactbox) {Visible = false;}
         // addfirst("Order Modifiers")
         // {
         //     field("Monthly Consumption"; rec."Monthly Consumption")
@@ -182,6 +197,8 @@ pageextension 50259 pageextension50259 extends "Item Card"
             field("SF Cat"; "SF Cat")
             {
             }
+            field("S/No.";"S/No.")
+            {}
             field("Pack Size (Kg)."; "Pack Size (Kg).")
             {
             }
@@ -203,6 +220,16 @@ pageextension 50259 pageextension50259 extends "Item Card"
             field("Transferred (Qty.)"; "Transferred (Qty.)")
             {
             }
+        }
+        addafter("Base Unit of Measure")
+        {
+            field(Points;Points)
+            {}
+        }
+        addafter("Use Cross-Docking")
+        {
+            field("Statistics Group";"Statistics Group")
+            {}
         }
         addafter("Attached Documents")
         {
@@ -254,6 +281,14 @@ pageextension 50259 pageextension50259 extends "Item Card"
         {
             Visible = false;
         }
+        modify("Item Journal")
+        {
+            Visible = false;
+        }
+        modify("Item Reclassification Journal")
+        {
+            Visible = false;
+        }
 
         //Unsupported feature: Property Deletion (Level) on "ActionContainer1900000003(Action 1900000003)".
 
@@ -265,5 +300,18 @@ pageextension 50259 pageextension50259 extends "Item Card"
             }
         }
     }
+
+    trigger OnOpenPage()
+    var
+        UserSetup: Record "User Setup";
+    begin
+        if UserSetup.geT(UserId) then begin
+            if not UserSetup."Modify Item" then
+                CurrPage.Editable(false)
+                else
+                CurrPage.Editable(true);
+        end;
+
+    end;
 }
 

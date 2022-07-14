@@ -2,6 +2,8 @@ report 50227 "Vesselwise Consumption 3years"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './ReportRdlc/VesselwiseConsumption3years.rdlc';
+    UsageCategory = ReportsAndAnalysis;
+    ApplicationArea = All,Basic,Suite;
 
     dataset
     {

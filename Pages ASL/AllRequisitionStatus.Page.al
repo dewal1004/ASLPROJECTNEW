@@ -6,6 +6,8 @@ page 50104 "All Requisition Status"
     PageType = List;
     SourceTable = "Store Requisition Header New";
     SourceTableView = WHERE ("Send for Approval" = CONST (true));
+    UsageCategory = Lists;
+    ApplicationArea = all;
 
     layout
     {

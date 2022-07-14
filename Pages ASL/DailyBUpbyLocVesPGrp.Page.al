@@ -6,6 +6,8 @@ page 50080 "Daily B/Up by Loc/Ves PGrp"
     PageType = Card;
     SaveValues = true;
     SourceTable = "Inventory Posting Group";
+    UsageCategory = Administration;
+    ApplicationArea = all;
     SourceTableView = SORTING("S/No.")
                       WHERE("Statistics Group" = FILTER(> 0),
                             "In Use" = CONST(true));

@@ -4,6 +4,8 @@ page 50098 "MR Reconciliation"
     InsertAllowed = false;
     ModifyAllowed = false;
     PageType = List;
+    UsageCategory = Lists;
+    ApplicationArea = All,Basic;
     SourceTable = "Store Requisition Line New";
     SourceTableView = WHERE ("Final Approval" = CONST (Approved),
                             "Issues Captured Date" = FILTER (<> 0D));

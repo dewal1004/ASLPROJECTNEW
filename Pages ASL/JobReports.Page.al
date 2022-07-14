@@ -1,6 +1,8 @@
 page 50165 "Job-Reports"
 {
     PageType = List;
+    UsageCategory = Lists;
+    ApplicationArea = All,Basic;
 
     layout
     {

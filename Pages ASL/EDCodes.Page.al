@@ -1,8 +1,9 @@
 page 50003 "ED Codes."
 {
-    PageType = Card;
+    PageType = List;
     SourceTable = "Payroll-E/D Codes.";
-
+    UsageCategory = Lists;
+    ApplicationArea = All,Basic;
     layout
     {
         area(content)

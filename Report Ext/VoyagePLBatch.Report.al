@@ -3,6 +3,8 @@ report 50028 "Voyage P & L Batch"
     DefaultLayout = RDLC;
     RDLCLayout = './ReportRdlc/VoyagePLBatch.rdlc';
     Permissions = TableData "Job Ledger Entry" = rimd;
+    UsageCategory = ReportsAndAnalysis;
+    ApplicationArea = All,Basic,Suite;
 
     dataset
     {

@@ -59,6 +59,7 @@ table 50032 "Store Requisition Line New"
         }
         field(4; "Item Description"; Text[50])
         {
+            Editable = false;
         }
         field(5; "Requested Quantity"; Decimal)
         {
@@ -80,8 +81,8 @@ table 50032 "Store Requisition Line New"
                     ItemRec.Get(StoreLine."Item No.");
                     ItemRec.SetFilter(ItemRec."Location Filter", '%1', StoreLine."Store Location");
                     ItemRec.CalcFields(ItemRec.Inventory, ItemRec."MR Approved Qty", ItemRec."MR Pending  Qty");
-                    StoreLine.CalcFields(StoreLine."Pending Approved Qty");
-                    "Available Quantity" := (ItemRec.Inventory - StoreLine."Pending Approved Qty");
+                    StoreLine.CalcFields(StoreLine."Pending Approved Qty", "Doc Line Qty");
+                    "Available Quantity" := (ItemRec.Inventory - (StoreLine."Pending Approved Qty" + "Doc Line Qty" - "Requested Quantity"));
                     if "Available Quantity" < 0 then "Available Quantity" := 0;
                 end;
                 if (("Requested Quantity" > "Available Quantity") and ("Req. Type" < 5)) then begin
@@ -209,12 +210,12 @@ table 50032 "Store Requisition Line New"
         }
         field(14; "Pending Approved Qty"; Decimal)
         {
-            CalcFormula = Sum ("Store Requisition Line New"."Approved Quantity" WHERE ("Final Approval" = FILTER (Approved),
-                                                                                      Processed = CONST (false),
-                                                                                      "Req. Type" = FILTER (Issue | Invoice | Complementary | Transfer),
-                                                                                      "Item No." = FIELD ("Item No."),
-                                                                                      "Store Location" = FIELD ("Store Location"),
-                                                                                      Rejected = CONST (false)));
+            CalcFormula = Sum("Store Requisition Line New"."Approved Quantity" WHERE("Final Approval" = FILTER(Approved),
+                                                                                      Processed = CONST(false),
+                                                                                      "Req. Type" = FILTER(Issue | Invoice | Complementary | Transfer),
+                                                                                      "Item No." = FIELD("Item No."),
+                                                                                      "Store Location" = FIELD("Store Location"),
+                                                                                      Rejected = CONST(false)));
             Editable = false;
             FieldClass = FlowField;
         }
@@ -309,7 +310,7 @@ table 50032 "Store Requisition Line New"
         }
         field(36; "No Header"; Boolean)
         {
-            CalcFormula = - Exist ("Store Requisition Header New" WHERE ("Req. No" = FIELD ("Req. No.")));
+            CalcFormula = - Exist("Store Requisition Header New" WHERE("Req. No" = FIELD("Req. No.")));
             Editable = false;
             FieldClass = FlowField;
         }
@@ -358,10 +359,16 @@ table 50032 "Store Requisition Line New"
         }
         field(48; "Supply Quantity"; Decimal)
         {
-            CalcFormula = Sum ("Purchase Requisition1"."QCC Check Quantity" WHERE ("Req No." = FIELD ("Req. No."),
-                                                                                  "Req. Line No." = FIELD ("Line No."),
-                                                                                  "QCC Check" = CONST (true)));
+            CalcFormula = Sum("Purchase Requisition1"."QCC Check Quantity" WHERE("Req No." = FIELD("Req. No."),
+                                                                                  "Req. Line No." = FIELD("Line No."),
+                                                                                  "QCC Check" = CONST(true)));
             FieldClass = FlowField;
+        }
+        Field(49; "Doc Line Qty"; Decimal)
+        {
+            CalcFormula = sum("Store Requisition Line New"."Requested Quantity" where("Req. No." = field("Req. No.")));
+            FieldClass = FlowField;
+            Editable = false;
         }
     }
 
@@ -409,7 +416,9 @@ table 50032 "Store Requisition Line New"
         StoreHead.SetFilter(StoreHead."Req. No", '%1', "Req. No.");
         if StoreHead.FindFirst then
             if StoreHead."Document No." <> '' then Error('You Can Not Modify Processed Requisition');
-    end;
+            if StoreHead."Final Approved" <> StoreHead."Final Approved"::" " then 
+            Error('ÝOu Can Not Modify The Line After Final Approval');
+    End;
 
     var
         ItemRec: Record Item;

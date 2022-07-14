@@ -2,6 +2,8 @@ report 50006 "Transfer To Vessel"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './ReportRdlc/TransferToVessel.rdlc';
+    UsageCategory = ReportsAndAnalysis;
+    ApplicationArea = All,Basic,Suite;
 
     dataset
     {

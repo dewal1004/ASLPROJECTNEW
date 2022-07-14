@@ -1,7 +1,10 @@
 page 50115 "Purchase Requist List"
 {
     PageType = List;
+    Caption = 'Purchase Requisition List';
     SourceTable = "Purchase Requisition1";
+    UsageCategory = Lists;
+    ApplicationArea = All,Basic;
 
     layout
     {

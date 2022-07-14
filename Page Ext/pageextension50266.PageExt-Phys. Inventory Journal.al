@@ -33,5 +33,6 @@ pageextension 50266 pageextension50266 extends "Phys. Inventory Journal"
             }
         }
     }
+
 }
 

@@ -4,6 +4,8 @@ report 50116 "IOU Status Report"
     // StartBalanceLCY
     DefaultLayout = RDLC;
     RDLCLayout = './ReportRdlc/IOUStatusReport.rdlc';
+    UsageCategory = ReportsAndAnalysis;
+    ApplicationArea = All,Basic,Suite;
 
 
     dataset

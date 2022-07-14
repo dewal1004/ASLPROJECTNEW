@@ -3,7 +3,8 @@ report 50021 "ALL Fish Shop Sales Report"
     //   "Sea Food categories"
     DefaultLayout = RDLC;
     RDLCLayout = './ReportRdlc/ALLFishShopSalesReport.rdlc';
-
+    UsageCategory = ReportsAndAnalysis;
+    ApplicationArea = All,Basic,Suite;
 
     dataset
     {

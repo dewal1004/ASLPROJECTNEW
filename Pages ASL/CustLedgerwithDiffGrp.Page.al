@@ -1,6 +1,8 @@
 page 50106 "Cust.  Ledger with Diff. Grp"
 {
     PageType = List;
+    UsageCategory= Administration;
+    ApplicationArea = all;
     SourceTable = "Cust. Ledger Entry";
     SourceTableView = WHERE ("Customer Group Map" = CONST (false));
 

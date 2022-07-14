@@ -4,6 +4,8 @@ report 58015 "Daily Cash Summaryd"
     // StartBalanceLCY
     DefaultLayout = RDLC;
     RDLCLayout = './ReportRdlc/DailyCashSummaryd.rdlc';
+    UsageCategory = ReportsAndAnalysis;
+    ApplicationArea = All,Basic,Suite;
 
 
     dataset

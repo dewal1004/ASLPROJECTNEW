@@ -247,6 +247,10 @@ pageextension 50353 pageextension50353 extends "Job Card"
 
         addafter("Bill-to Contact No.")
         {
+            field(Captain;Captain)
+            {
+                Caption = 'Captain Name';
+            }
             field(Captain97940; Rec.Captain)
             {
                 ApplicationArea = All;

@@ -2,6 +2,8 @@ page 50013 "Posting Group Header."
 {
     PageType = Card;
     SourceTable = "Payroll-Posting Group Header.";
+    UsageCategory = Lists;
+    ApplicationArea = All,Basic;
 
     layout
     {

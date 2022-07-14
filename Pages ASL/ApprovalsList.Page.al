@@ -2,7 +2,8 @@ page 51115 "Approvals List"
 {
     PageType = List;
     SourceTable = "User Setup";
-    
+    UsageCategory = Lists;
+    ApplicationArea = All,Basic,Suites;
 
     layout
     {

@@ -2,6 +2,8 @@ report 50005 "Points Summary VJ"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './ReportRdlc/PointsSummaryVJ.rdlc';
+    UsageCategory = ReportsAndAnalysis;
+    ApplicationArea = All,Basic,Suite;
 
     dataset
     {

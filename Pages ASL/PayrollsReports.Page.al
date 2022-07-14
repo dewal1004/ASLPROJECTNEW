@@ -1,6 +1,8 @@
 page 50167 "Payrolls-Reports"
 {
-
+    UsageCategory= Administration;
+    ApplicationArea = all;
+    
     layout
     {
     }

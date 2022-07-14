@@ -4,6 +4,8 @@ page 50052 "Monthly Var. Header Survey."
     DelayedInsert = false;
     PageType = List;
     SourceTable = "Monthly Variables Header.";
+    UsageCategory = Lists;
+    ApplicationArea = All,Basic;
 
     layout
     {

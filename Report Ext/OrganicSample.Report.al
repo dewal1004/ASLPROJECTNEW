@@ -5,6 +5,8 @@ report 50040 Organic_Sample
     // "Comment Line"."Loose Neck%"
     DefaultLayout = RDLC;
     RDLCLayout = './ReportRdlc/OrganicSample.rdlc';
+    UsageCategory = ReportsAndAnalysis;
+    ApplicationArea = All,Basic,Suite;
 
 
     dataset

@@ -6,8 +6,10 @@ report 50085 "Vessel Catches"
     // Job."Sea Days"
     DefaultLayout = RDLC;
     RDLCLayout = './ReportRdlc/VesselCatches.rdlc';
+    UsageCategory = ReportsAndAnalysis;
+    ApplicationArea = All, Basic, Suite;
 
-    Caption = 'Job Journal - Test';
+    Caption = 'Vessel Catches';
 
     dataset
     {
@@ -198,7 +200,7 @@ report 50085 "Vessel Catches"
                     column(SkipperCaption; SkipperCaptionLbl)
                     {
                     }
-                    column(DataItem1000000028; KNOWING)
+                    column(KNOWING; KNOWINGLb1)
                     {
                     }
                     column(Job_Journal_Line_Journal_Template_Name; "Journal Template Name")
@@ -417,7 +419,7 @@ report 50085 "Vessel Catches"
                         //IF NOT DimMgt.CheckJnlLineDimValuePosting(JnlLineDim,TableID,No) THEN
                         //AddError(DimMgt.GetDimValuePostingErr);
 
-                        /*IF Item.GET("No.") THEN
+                        IF Item.GET("No.") THEN
                         BEGIN
                           IF InvtPostgGro.GET(Item."Inventory Posting Group") THEN
                             "Work Type Code Sort":=InvtPostgGro.Category;
@@ -425,8 +427,7 @@ report 50085 "Vessel Catches"
                         ELSE
                           "Work Type Code Sort":='XX';
                         MODIFY();
-                        */
-
+                        
 
                         if Catch = 0 then Validate(Catch);
                         //MODIFY;
@@ -605,7 +606,7 @@ report 50085 "Vessel Catches"
         Grand_TotalCaptionLbl: Label 'Grand Total';
         Port_CaptainCaptionLbl: Label 'Port Captain';
         SkipperCaptionLbl: Label 'Skipper';
-        KNOWING: Label 'KNOWING THAT WE CAN BE HELD LIABLE FOR FALSIFYING INFORMATION, WE CERTIFY THIS REPORT TO BE TRUE AND ACCURATE TO THE BEST OF OUR KNOWLEDGE';
+        KNOWINGLb1: Label 'KNOWING THAT WE CAN BE HELD LIABLE FOR FALSIFYING INFORMATION, WE CERTIFY THIS REPORT TO BE TRUE AND ACCURATE TO THE BEST OF OUR KNOWLEDGE';
         DimensionsCaptionLbl: Label 'Dimensions';
         ErrorText_Number_CaptionLbl: Label 'Warning!';
         ReccatchQuantity1: Decimal;

@@ -2,6 +2,8 @@ report 50045 "Sales Register"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './ReportRdlc/SalesRegister.rdlc';
+    UsageCategory = ReportsAndAnalysis;
+    ApplicationArea = All,Basic,Suite;
 
     dataset
     {

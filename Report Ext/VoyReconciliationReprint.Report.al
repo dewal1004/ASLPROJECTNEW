@@ -2,6 +2,8 @@ report 50143 "Voy Reconciliation Reprint"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './ReportRdlc/VoyReconciliationReprint.rdlc';
+    UsageCategory = ReportsAndAnalysis;
+    ApplicationArea = All,Basic,Suite;
 
     dataset
     {
