@@ -104,6 +104,10 @@ report 50085 "Vessel Catches"
                 column(Skipper; RESP)
                 {
                 }
+                column(KNOWING;KNOWINGLb1)
+                {                    
+                }
+
                 dataitem("Job Journal Line"; "Job Journal Line")
                 {
                     DataItemLink = "Journal Template Name" = FIELD("Journal Template Name"), "Journal Batch Name" = FIELD(Name);
@@ -200,7 +204,7 @@ report 50085 "Vessel Catches"
                     column(SkipperCaption; SkipperCaptionLbl)
                     {
                     }
-                    column(KNOWING; KNOWINGLb1)
+                    column(KNOWINGCa; KNOWINGLb1)
                     {
                     }
                     column(Job_Journal_Line_Journal_Template_Name; "Journal Template Name")
@@ -501,6 +505,7 @@ report 50085 "Vessel Catches"
     requestpage
     {
         SaveValues = true;
+        
 
         layout
         {

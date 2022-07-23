@@ -1,6 +1,5 @@
 tableextension 50296 tableextension50296 extends "Prod. Order Component"
 {
-
     //Unsupported feature: Code Modification on "UpdateUnitCost(PROCEDURE 12)".
 
     //procedure UpdateUnitCost();

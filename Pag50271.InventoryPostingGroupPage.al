@@ -1,8 +1,10 @@
-page 50071 "Inventory Posting Group Page "
+page 50271 "Inventory Posting Group Page"
 {
     Caption = 'Inventory Posting Group Page ';
     PageType = Card;
     SourceTable = "Inventory Posting Group";
+    UsageCategory = Administration;
+    ApplicationArea = all;
     
     layout
     {
@@ -24,51 +26,61 @@ page 50071 "Inventory Posting Group Page "
                 {
                     ApplicationArea = All;
                     ToolTip = 'Specifies the value of the Inventory Total field.';
+                    Importance = Additional;
                 }
                 field("Inventory Incentive"; Rec."Inventory Incentive")
                 {
                     ApplicationArea = All;
                     ToolTip = 'Specifies the value of the Inventory Incentive field.';
+                    Importance = Additional;
                 }
                 field("Inventory total1"; Rec."Inventory total1")
                 {
                     ApplicationArea = All;
                     ToolTip = 'Specifies the value of the Inventory Total Vessel field.';
+                    Importance = Additional;
                 }
                 field("Inventory total2"; Rec."Inventory total2")
                 {
                     ApplicationArea = All;
                     ToolTip = 'Specifies the value of the Inventory Total Fishing Grd field.';
+                    Importance = Additional;
                 }
                 field("Inventory total3"; Rec."Inventory total3")
                 {
                     ApplicationArea = All;
                     ToolTip = 'Specifies the value of the Inventory total3 field.';
+                    Importance = Additional;
                 }
                 field("Inventory total4"; Rec."Inventory total4")
                 {
                     ApplicationArea = All;
                     ToolTip = 'Specifies the value of the Inventory total4 field.';
+                    Importance = Additional;
                 }
                 field(Inventory1; Rec.Inventory1)
                 {
                     ApplicationArea = All;
                     ToolTip = 'Specifies the value of the Inventory1 field.';
+                    Importance = Additional;
                 }
                 field(Inventory2; Rec.Inventory2)
                 {
                     ApplicationArea = All;
                     ToolTip = 'Specifies the value of the Inventory2 field.';
+                    Importance = Additional;
                 }
                 field(Inventory3; Rec.Inventory3)
                 {
                     ApplicationArea = All;
                     ToolTip = 'Specifies the value of the Inventory3 field.';
+                    Importance = Additional;
                 }
                 field(Inventory4; Rec.Inventory4)
                 {
                     ApplicationArea = All;
                     ToolTip = 'Specifies the value of the Inventory4 field.';
+                    Importance = Additional;
                 }
                 field(Points; Rec.Points)
                 {
@@ -94,6 +106,7 @@ page 50071 "Inventory Posting Group Page "
                 {
                     ApplicationArea = All;
                     ToolTip = 'Specifies the value of the Value field.';
+                    Importance = Additional;
                 }
             }
         }
