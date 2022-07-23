@@ -216,7 +216,7 @@ report 50136 "Inventory - BINCARD 704"
                     trigger OnAfterGetRecord()
                     var
                         HandQty: Decimal;
-                        IssueNo: Text[30];
+                       // IssueNo: Text[30];
                     begin
                         CurrReport.CreateTotals(Quantity, IncreasesQty, DecreasesQty);
                         HandQty := 0;
@@ -314,7 +314,8 @@ report 50136 "Inventory - BINCARD 704"
 
     }
     requestpage
-    {
+    { 
+        SaveValues = true;
 
         layout
         {

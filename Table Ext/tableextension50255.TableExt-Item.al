@@ -85,6 +85,12 @@ tableextension 50255 tableextension50255 extends Item
         "Item Category No.":=ItCat."No.";
         */
         //end;
+        Field(50003;"ASL Indirect Cost %";integer)
+        {
+            Caption = 'ASL Indirect Cost %';
+            MinValue = -100;
+
+        }
         field(50000; "Responsibility Center"; Text[30])
         {
         }
@@ -178,6 +184,7 @@ tableextension 50255 tableextension50255 extends Item
             FieldClass = FlowFilter;
             TableRelation = "Purch. Rcpt. Header"."No.";
         }
+ 
         field(50322; "Inventory Entry Type Filter"; Option)
         {
             FieldClass = FlowFilter;

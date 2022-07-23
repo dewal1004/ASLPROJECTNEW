@@ -61,6 +61,10 @@ pageextension 50290 pageextension50290 extends "Employee Card"
             field("Suspension Modified Date"; "Suspension Modified Date")
             {
             }
+            field("Global Dimension 1 Code";"Global Dimension 1 Code")
+            {
+                Caption = 'Department Code';
+            }
         }
         addafter("Salespers./Purch. Code")
         {
@@ -76,8 +80,11 @@ pageextension 50290 pageextension50290 extends "Employee Card"
         }
         addafter("Union Code")
         {
+            field("Acct. type";"Acct. type")
+            {                
+            }
             field("Acct. No"; "Acct. No")
-            {
+            {                
             }
         }
         addafter("Union Membership No.")

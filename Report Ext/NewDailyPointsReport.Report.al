@@ -369,8 +369,7 @@ report 50075 "New Daily Points Report"
 
             trigger OnPreDataItem()
             begin
-                SETFILTER("Starting Date",'<=%1',RepDate);//ETD= Starting Date
-                SETFILTER("Ending Date",'>=%1',RepDate);  //ETA= Ending Date
+                
                 if not Historical then SetRange(Status, 2);
                 SetFilter(AvgPtSortBay, '<>0');
                 if Find('-') then

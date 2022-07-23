@@ -687,7 +687,7 @@ tableextension 50269 tableextension50269 extends "Sales Header"
                     SalesRecLine.Type := SalesRecLine.Type::Item;
                     SalesRecLine.Validate(SalesRecLine."No.", FsdailyFilter."Item No.");
                     SalesRecLine."Location Code" := FsdailyFilter.Location;
-                    SalesRecLine.Validate(SalesRecLine.Quantity, FsdailyFilter."Day Sale Qty");
+                    SalesRecLine.Quantity := FsdailyFilter."Day Sale Qty";
                     SalesRecLine.Validate(SalesRecLine."Line Amount", FsdailyFilter."Day Sale Value");
                     SalesRecLine.Validate(SalesRecLine."Shipment Date", FsdailyFilter."Transaction Date");
                     SalesRecLine.Insert(true);

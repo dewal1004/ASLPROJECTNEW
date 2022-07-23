@@ -22,6 +22,8 @@ pageextension 50207 pageextension50207 extends "Inventory Posting Groups"
             }
             field(Inventory; Inventory)
             {
+                Visible =false;
+                Importance = Additional;
             }
             field("Location Filter"; "Location Filter")
             {
@@ -49,7 +51,7 @@ pageextension 50207 pageextension50207 extends "Inventory Posting Groups"
             }
             field("Inventory Incentive"; "Inventory Incentive")
             {
-                Visible = true;
+                Visible = false;
             }
             field("S/No."; "S/No.")
             {
@@ -59,30 +61,39 @@ pageextension 50207 pageextension50207 extends "Inventory Posting Groups"
             {
                 Visible = false;
             }
-           /* field(Inventory1; Inventory1)
+           field(Inventory1; Inventory1)
             {
+                Visible =false;
             }
             field(Inventory2; Inventory2)
             {
+            Visible =false;
             }
             field("Inventory total2"; "Inventory total2")
             {
+                Visible =false;
             }
             field("Inventory total4"; "Inventory total4")
             {
+                Visible =false;
             }
             field(Inventory4; Inventory4)
             {
+                Visible =false;
             }
             field("Inventory total3"; "Inventory total3")
             {
+                Visible =false;
             }
             field(Inventory3; Inventory3)
             {
+                Visible =false;
             }            
+        }
+    }
             // area(factboxes)
-             //{                
-             //}
+            //  {                
+            //  }
             // systempart(Control29;Links)
             // {
             //     Visible = false;
@@ -90,11 +101,8 @@ pageextension 50207 pageextension50207 extends "Inventory Posting Groups"
             // systempart(Control28;Notes)
             // {
             //     Visible = false;
-            // }
-            */
+            // }        
         
-        }
-    }
     actions
     {
         addafter("&Setup")
@@ -103,8 +111,9 @@ pageextension 50207 pageextension50207 extends "Inventory Posting Groups"
             {
                 Caption = 'InV. Post. Group Detailes';
                 ApplicationArea = All;
-                RunObject = page 50071;
+                RunObject = page "Inventory Posting Group Page";
                 RunPageOnRec = true;
+                
             }
         }
     }

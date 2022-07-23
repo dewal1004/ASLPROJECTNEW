@@ -86,7 +86,7 @@ tableextension 50281 tableextension50281 extends Employee
 
             trigger OnValidate()
             begin
-                /*EmpGrpRec.SETRANGE(Code,"Employee Group");
+                EmpGrpRec.SETRANGE(Code,"Employee Group");
                 IF EmpGrpRec.FIND('-') THEN
                   BEGIN
                    Grade:= EmpGrpRec.Grade;
@@ -95,7 +95,7 @@ tableextension 50281 tableextension50281 extends Employee
                    EDAmount:=EmpGrpRec."Gross Pay";
 
                   END;
-               CheckMod;*/
+               CheckMod;
 
             end;
         }

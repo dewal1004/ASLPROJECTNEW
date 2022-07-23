@@ -13,7 +13,6 @@ report 50062 "Payroll Report"
     UsageCategory = Lists;
     ApplicationArea = All, Basic, Suite;
 
-
     dataset
     {
         dataitem("Payroll-Payslip Lines."; "Payroll-Payslip Lines.")
@@ -408,7 +407,7 @@ report 50062 "Payroll Report"
 
     requestpage
     {
-
+        SaveValues = true;
         layout
         {
             area(content)
