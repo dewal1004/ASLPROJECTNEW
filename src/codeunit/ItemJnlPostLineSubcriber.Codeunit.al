@@ -1,6 +1,33 @@
-codeunit 50028 ItemJnlPostLineSubcriber
+codeunit 50028 "ItemJnlPostLineSubcriber"
 {
     EventSubscriberInstance = StaticAutomatic;
+
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Item Jnl.-Post Line", 'OnBeforePostItem', '', true, true)]
+    local procedure ItemJnlPostLineOnBeforePostItem()
+    begin
+    end;
+
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Item Jnl.-Post Line", 'OnItemQtyPostingOnBeforeApplyItemLedgEntry', '', true, true)]
+    local procedure ItemJnlPostLineOnItemQtyPostingOnBeforeApplyItemLedgEntry(var ItemJournalLine: Record "Item Journal Line")
+    begin
+        ItemJournalLine."Unit Cost" := 0;
+    end;
+
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Purch.-Post", 'OnBeforePostItemLine', '', true, true)]
+    local procedure MyProcedure()
+    begin
+    end;
+
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Item Jnl.-Post Line", 'OnInitValueEntryOnAfterAssignFields', '', true, true)]
+
+
+    local procedure OnInitValueEntryOnAfterAssignFields(var ValueEntry: Record "Value Entry")
+    var
+        item: Record Item;
+    begin
+        ValueEntry."Cost Amount (Actual)" := 0;
+
+    end;
 
     // [EventSubscriber(ObjectType::Codeunit, Codeunit::"Item Jnl.-Post Line", 'OnBeforePostItem', '', true, true)]
     // local procedure ItemJnlPostLineOnBeforePostItem(var ItemJournalLine: Record "Item Journal Line")

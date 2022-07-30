@@ -13,9 +13,9 @@
     "window.zoomLevel": 1,
     "al.enableCodeAnalysis": true,
     "al.enableCodeActions": true,
-    "al.codeAnalyzers": [
-        "${CodeCop}",
-        "${AppSourceCop}",
-        "${UICop}"
-    ]
+    //  "al.codeAnalyzers": [
+    //     "${CodeCop}",
+    //     "${AppSourceCop}",
+    //     "${UICop}"
+// ]
 }
