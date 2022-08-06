@@ -283,9 +283,9 @@ pageextension 50284 pageextension50284 extends "Purchase Order"
             field("Total Ancillary Charges(LCY)";"Total Ancillary Charges(LCY)")
             {                
             }
-        //}
-        //addafter("Requested Receipt Date")
-        //{
+            field(Overhead;Overhead)
+            {                
+            }
             field("Interest Expense(LCY)"; "Interest Expense(LCY)")
             {
             }
@@ -299,6 +299,9 @@ pageextension 50284 pageextension50284 extends "Purchase Order"
             {            
             }
         }
+        //}
+        //addafter("Requested Receipt Date")
+        //{
         addfirst(Control95)
         {
             group(Control1230)
@@ -306,8 +309,8 @@ pageextension 50284 pageextension50284 extends "Purchase Order"
                 ShowCaption = true;
                 //Visible = IsPayToCountyVisible;
             }
-        }
-        /*moveafter("Buy-from Contact"; "Assigned User ID")
+        }/*
+        moveafter("Buy-from Contact"; "Assigned User ID")
         moveafter("Document Date"; "Vendor Invoice No.")
         moveafter("Vendor Shipment No."; "Vendor Order No.")
         moveafter("Order Address Code"; "Purchaser Code")
@@ -349,7 +352,7 @@ pageextension 50284 pageextension50284 extends "Purchase Order"
         moveafter("Prepayment %"; "Payment Reference")
         moveafter("Compress Prepayment"; "Pay-to Address")
         moveafter("Prepmt. Payment Terms Code"; "Creditor No.")
-        moveafter("Prepayment Due Date"; "Pay-to Name") */
+        moveafter("Prepayment Due Date"; "Pay-to Name")*/
     }
     actions
     {

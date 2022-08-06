@@ -11,277 +11,6 @@
       <rd:DataSourceID>afe5f56e-c5f0-4e76-b15c-89d61e7c198c</rd:DataSourceID>
     </DataSource>
   </DataSources>
-  <DataSets>
-    <DataSet Name="DataSet_Result">
-      <Query>
-        <DataSourceName>DataSource</DataSourceName>
-        <CommandText />
-      </Query>
-      <Fields>
-        <Field Name="Job_Journal_Batch_Journal_Template_Name">
-          <DataField>Job_Journal_Batch_Journal_Template_Name</DataField>
-        </Field>
-        <Field Name="Job_Journal_Batch_Name">
-          <DataField>Job_Journal_Batch_Name</DataField>
-        </Field>
-        <Field Name="COMPANYNAME">
-          <DataField>COMPANYNAME</DataField>
-        </Field>
-        <Field Name="FORMAT_TODAY_0_4_">
-          <DataField>FORMAT_TODAY_0_4_</DataField>
-        </Field>
-        <Field Name="USERID">
-          <DataField>USERID</DataField>
-        </Field>
-        <Field Name="CurrReport_PAGENO">
-          <DataField>CurrReport_PAGENO</DataField>
-        </Field>
-        <Field Name="Job_Journal_Batch___Journal_Template_Name_">
-          <DataField>Job_Journal_Batch___Journal_Template_Name_</DataField>
-        </Field>
-        <Field Name="Job_Journal_Batch__Name">
-          <DataField>Job_Journal_Batch__Name</DataField>
-        </Field>
-        <Field Name="Job_Journal_Line__TABLECAPTION__________JobJnlLineFilter">
-          <DataField>Job_Journal_Line__TABLECAPTION__________JobJnlLineFilter</DataField>
-        </Field>
-        <Field Name="Engr">
-          <DataField>Engr</DataField>
-        </Field>
-        <Field Name="Catch_Reconciliation_Statement__All_Values_in_Kilos_Caption">
-          <DataField>Catch_Reconciliation_Statement__All_Values_in_Kilos_Caption</DataField>
-        </Field>
-        <Field Name="CurrReport_PAGENOCaption">
-          <DataField>CurrReport_PAGENOCaption</DataField>
-        </Field>
-        <Field Name="Job_Journal_Batch___Journal_Template_Name_Caption">
-          <DataField>Job_Journal_Batch___Journal_Template_Name_Caption</DataField>
-        </Field>
-        <Field Name="Job_Journal_Batch__NameCaption">
-          <DataField>Job_Journal_Batch__NameCaption</DataField>
-        </Field>
-        <Field Name="Control2Caption">
-          <DataField>Control2Caption</DataField>
-        </Field>
-        <Field Name="VesslCaption">
-          <DataField>VesslCaption</DataField>
-        </Field>
-        <Field Name="RESPCaption">
-          <DataField>RESPCaption</DataField>
-        </Field>
-        <Field Name="Job__Starting_Date_Caption">
-          <DataField>Job__Starting_Date_Caption</DataField>
-        </Field>
-        <Field Name="Job__Ending_Date_Caption">
-          <DataField>Job__Ending_Date_Caption</DataField>
-        </Field>
-        <Field Name="Job__Sea_Days_Caption">
-          <DataField>Job__Sea_Days_Caption</DataField>
-        </Field>
-        <Field Name="EngrCaption">
-          <DataField>EngrCaption</DataField>
-        </Field>
-        <Field Name="Quantity__1Caption">
-          <DataField>Quantity__1Caption</DataField>
-        </Field>
-        <Field Name="Job_Journal_Line__No__Caption">
-          <DataField>Job_Journal_Line__No__Caption</DataField>
-        </Field>
-        <Field Name="DescriptionCaption">
-          <DataField>DescriptionCaption</DataField>
-        </Field>
-        <Field Name="Vessel_Catch_Report__VCR_Caption">
-          <DataField>Vessel_Catch_Report__VCR_Caption</DataField>
-        </Field>
-        <Field Name="Quantity__Reconciliation_Catch_Quantity______1Caption">
-          <DataField>Quantity__Reconciliation_Catch_Quantity______1Caption</DataField>
-        </Field>
-        <Field Name="Integer_Number">
-          <DataField>Integer_Number</DataField>
-        </Field>
-        <Field Name="Skipper">
-          <DataField>Skipper</DataField>
-        </Field>
-        <Field Name="KNOWING">
-          <DataField>KNOWING</DataField>
-        </Field>
-        <Field Name="Job_Journal_Line__Work_Type_Code_">
-          <DataField>Job_Journal_Line__Work_Type_Code_</DataField>
-        </Field>
-        <Field Name="Job_Journal_Line__No__">
-          <DataField>Job_Journal_Line__No__</DataField>
-        </Field>
-        <Field Name="Quantity__1">
-          <DataField>Quantity__1</DataField>
-        </Field>
-        <Field Name="Quantity__1Format">
-          <DataField>Quantity__1Format</DataField>
-        </Field>
-        <Field Name="S_G">
-          <DataField>S_G</DataField>
-        </Field>
-        <Field Name="Work_Types">
-          <DataField>Work_Types</DataField>
-        </Field>
-        <Field Name="Job_Journal_Line_Description">
-          <DataField>Job_Journal_Line_Description</DataField>
-        </Field>
-        <Field Name="Reconciliation_Catch_Quantity___1">
-          <DataField>Reconciliation_Catch_Quantity___1</DataField>
-        </Field>
-        <Field Name="Reconciliation_Catch_Quantity___1Format">
-          <DataField>Reconciliation_Catch_Quantity___1Format</DataField>
-        </Field>
-        <Field Name="Quantity__Reconciliation_Catch_Quantity______1">
-          <DataField>Quantity__Reconciliation_Catch_Quantity______1</DataField>
-        </Field>
-        <Field Name="Quantity__Reconciliation_Catch_Quantity______1Format">
-          <DataField>Quantity__Reconciliation_Catch_Quantity______1Format</DataField>
-        </Field>
-        <Field Name="Error_txt">
-          <DataField>Error_txt</DataField>
-        </Field>
-        <Field Name="Job_Journal_Line_Type">
-          <DataField>Job_Journal_Line_Type</DataField>
-        </Field>
-        <Field Name="Quantity__1_Control1000000004">
-          <DataField>Quantity__1_Control1000000004</DataField>
-        </Field>
-        <Field Name="Quantity__1_Control1000000004Format">
-          <DataField>Quantity__1_Control1000000004Format</DataField>
-        </Field>
-        <Field Name="Total_For_Catch_Type_Code__">
-          <DataField>Total_For_Catch_Type_Code__</DataField>
-        </Field>
-        <Field Name="Reconciliation_Catch_Quantity___1_Control1000000007">
-          <DataField>Reconciliation_Catch_Quantity___1_Control1000000007</DataField>
-        </Field>
-        <Field Name="Reconciliation_Catch_Quantity___1_Control1000000007Format">
-          <DataField>Reconciliation_Catch_Quantity___1_Control1000000007Format</DataField>
-        </Field>
-        <Field Name="Voyage_No">
-          <DataField>Voyage_No</DataField>
-        </Field>
-        <Field Name="Quantity__Reconciliation_Catch_Quantity______1_Control1000000013">
-          <DataField>Quantity__Reconciliation_Catch_Quantity______1_Control1000000013</DataField>
-        </Field>
-        <Field Name="Quantity__Reconciliation_Catch_Quantity______1_Control1000000013Format">
-          <DataField>Quantity__Reconciliation_Catch_Quantity______1_Control1000000013Format</DataField>
-        </Field>
-        <Field Name="Quantity__1_Control1000000002">
-          <DataField>Quantity__1_Control1000000002</DataField>
-        </Field>
-        <Field Name="Quantity__1_Control1000000002Format">
-          <DataField>Quantity__1_Control1000000002Format</DataField>
-        </Field>
-        <Field Name="TotalFor____FIELDCAPTION__Statistics_Group__">
-          <DataField>TotalFor____FIELDCAPTION__Statistics_Group__</DataField>
-        </Field>
-        <Field Name="Reconciliation_Catch_Quantity___1_Control1000000006">
-          <DataField>Reconciliation_Catch_Quantity___1_Control1000000006</DataField>
-        </Field>
-        <Field Name="Reconciliation_Catch_Quantity___1_Control1000000006Format">
-          <DataField>Reconciliation_Catch_Quantity___1_Control1000000006Format</DataField>
-        </Field>
-        <Field Name="Quantity__Reconciliation_Catch_Quantity_____1">
-          <DataField>Quantity__Reconciliation_Catch_Quantity_____1</DataField>
-        </Field>
-        <Field Name="Quantity__Reconciliation_Catch_Quantity_____1Format">
-          <DataField>Quantity__Reconciliation_Catch_Quantity_____1Format</DataField>
-        </Field>
-        <Field Name="Reconciliation_Catch_Quantity___1_Control1000000018">
-          <DataField>Reconciliation_Catch_Quantity___1_Control1000000018</DataField>
-        </Field>
-        <Field Name="Reconciliation_Catch_Quantity___1_Control1000000018Format">
-          <DataField>Reconciliation_Catch_Quantity___1_Control1000000018Format</DataField>
-        </Field>
-        <Field Name="Quantity__1_Control1000000019">
-          <DataField>Quantity__1_Control1000000019</DataField>
-        </Field>
-        <Field Name="Quantity__1_Control1000000019Format">
-          <DataField>Quantity__1_Control1000000019Format</DataField>
-        </Field>
-        <Field Name="Quantity__Reconciliation_Catch_Quantity_____1_Control1000000020">
-          <DataField>Quantity__Reconciliation_Catch_Quantity_____1_Control1000000020</DataField>
-        </Field>
-        <Field Name="Quantity__Reconciliation_Catch_Quantity_____1_Control1000000020Format">
-          <DataField>Quantity__Reconciliation_Catch_Quantity_____1_Control1000000020Format</DataField>
-        </Field>
-        <Field Name="Capt0">
-          <DataField>Capt0</DataField>
-        </Field>
-        <Field Name="Control1000000009Caption">
-          <DataField>Control1000000009Caption</DataField>
-        </Field>
-        <Field Name="Catch_Type_CodeCaption">
-          <DataField>Catch_Type_CodeCaption</DataField>
-        </Field>
-        <Field Name="Grand_TotalCaption">
-          <DataField>Grand_TotalCaption</DataField>
-        </Field>
-        <Field Name="Port_CaptainCaption">
-          <DataField>Port_CaptainCaption</DataField>
-        </Field>
-        <Field Name="SkipperCaption">
-          <DataField>SkipperCaption</DataField>
-        </Field>
-        <Field Name="KNOWINGCa">
-          <DataField>KNOWINGCa</DataField>
-        </Field>
-        <Field Name="Job_Journal_Line_Journal_Template_Name">
-          <DataField>Job_Journal_Line_Journal_Template_Name</DataField>
-        </Field>
-        <Field Name="Job_Journal_Line_Journal_Batch_Name">
-          <DataField>Job_Journal_Line_Journal_Batch_Name</DataField>
-        </Field>
-        <Field Name="ReccatchQuantity1">
-          <DataField>ReccatchQuantity1</DataField>
-        </Field>
-        <Field Name="ReccatchQuantity1Format">
-          <DataField>ReccatchQuantity1Format</DataField>
-        </Field>
-        <Field Name="RESP">
-          <DataField>RESP</DataField>
-        </Field>
-        <Field Name="Job__Starting_Date_">
-          <DataField>Job__Starting_Date_</DataField>
-        </Field>
-        <Field Name="Job__Ending_Date_">
-          <DataField>Job__Ending_Date_</DataField>
-        </Field>
-        <Field Name="Job__Sea_Days_">
-          <DataField>Job__Sea_Days_</DataField>
-        </Field>
-        <Field Name="Vessl">
-          <DataField>Vessl</DataField>
-        </Field>
-        <Field Name="Job_Journal_Line_Line_No_">
-          <DataField>Job_Journal_Line_Line_No_</DataField>
-        </Field>
-        <Field Name="DimText">
-          <DataField>DimText</DataField>
-        </Field>
-        <Field Name="DimText_Control42">
-          <DataField>DimText_Control42</DataField>
-        </Field>
-        <Field Name="DimensionsCaption">
-          <DataField>DimensionsCaption</DataField>
-        </Field>
-        <Field Name="DimensionLoop_Number">
-          <DataField>DimensionLoop_Number</DataField>
-        </Field>
-        <Field Name="ErrorText_Number_">
-          <DataField>ErrorText_Number_</DataField>
-        </Field>
-        <Field Name="ErrorText_Number_Caption">
-          <DataField>ErrorText_Number_Caption</DataField>
-        </Field>
-        <Field Name="ErrorLoop_Number">
-          <DataField>ErrorLoop_Number</DataField>
-        </Field>
-      </Fields>
-    </DataSet>
-  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -3284,12 +3013,6 @@
       </Page>
     </ReportSection>
   </ReportSections>
-  <ReportParametersLayout>
-    <GridLayoutDefinition>
-      <NumberOfColumns>4</NumberOfColumns>
-      <NumberOfRows>2</NumberOfRows>
-    </GridLayoutDefinition>
-  </ReportParametersLayout>
   <Code>Public Function BlankZero(ByVal Value As Decimal)
     if Value = 0 then
         Return ""
@@ -3368,4 +3091,275 @@ End FUnction
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
   <rd:ReportID>2f23a06f-0b2f-48c3-b87f-cb4031ab262c</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="Job_Journal_Batch_Journal_Template_Name">
+          <DataField>Job_Journal_Batch_Journal_Template_Name</DataField>
+        </Field>
+        <Field Name="Job_Journal_Batch_Name">
+          <DataField>Job_Journal_Batch_Name</DataField>
+        </Field>
+        <Field Name="COMPANYNAME">
+          <DataField>COMPANYNAME</DataField>
+        </Field>
+        <Field Name="FORMAT_TODAY_0_4_">
+          <DataField>FORMAT_TODAY_0_4_</DataField>
+        </Field>
+        <Field Name="USERID">
+          <DataField>USERID</DataField>
+        </Field>
+        <Field Name="CurrReport_PAGENO">
+          <DataField>CurrReport_PAGENO</DataField>
+        </Field>
+        <Field Name="Job_Journal_Batch___Journal_Template_Name_">
+          <DataField>Job_Journal_Batch___Journal_Template_Name_</DataField>
+        </Field>
+        <Field Name="Job_Journal_Batch__Name">
+          <DataField>Job_Journal_Batch__Name</DataField>
+        </Field>
+        <Field Name="Job_Journal_Line__TABLECAPTION__________JobJnlLineFilter">
+          <DataField>Job_Journal_Line__TABLECAPTION__________JobJnlLineFilter</DataField>
+        </Field>
+        <Field Name="Engr">
+          <DataField>Engr</DataField>
+        </Field>
+        <Field Name="Catch_Reconciliation_Statement__All_Values_in_Kilos_Caption">
+          <DataField>Catch_Reconciliation_Statement__All_Values_in_Kilos_Caption</DataField>
+        </Field>
+        <Field Name="CurrReport_PAGENOCaption">
+          <DataField>CurrReport_PAGENOCaption</DataField>
+        </Field>
+        <Field Name="Job_Journal_Batch___Journal_Template_Name_Caption">
+          <DataField>Job_Journal_Batch___Journal_Template_Name_Caption</DataField>
+        </Field>
+        <Field Name="Job_Journal_Batch__NameCaption">
+          <DataField>Job_Journal_Batch__NameCaption</DataField>
+        </Field>
+        <Field Name="Control2Caption">
+          <DataField>Control2Caption</DataField>
+        </Field>
+        <Field Name="VesslCaption">
+          <DataField>VesslCaption</DataField>
+        </Field>
+        <Field Name="RESPCaption">
+          <DataField>RESPCaption</DataField>
+        </Field>
+        <Field Name="Job__Starting_Date_Caption">
+          <DataField>Job__Starting_Date_Caption</DataField>
+        </Field>
+        <Field Name="Job__Ending_Date_Caption">
+          <DataField>Job__Ending_Date_Caption</DataField>
+        </Field>
+        <Field Name="Job__Sea_Days_Caption">
+          <DataField>Job__Sea_Days_Caption</DataField>
+        </Field>
+        <Field Name="EngrCaption">
+          <DataField>EngrCaption</DataField>
+        </Field>
+        <Field Name="Quantity__1Caption">
+          <DataField>Quantity__1Caption</DataField>
+        </Field>
+        <Field Name="Job_Journal_Line__No__Caption">
+          <DataField>Job_Journal_Line__No__Caption</DataField>
+        </Field>
+        <Field Name="DescriptionCaption">
+          <DataField>DescriptionCaption</DataField>
+        </Field>
+        <Field Name="Vessel_Catch_Report__VCR_Caption">
+          <DataField>Vessel_Catch_Report__VCR_Caption</DataField>
+        </Field>
+        <Field Name="Quantity__Reconciliation_Catch_Quantity______1Caption">
+          <DataField>Quantity__Reconciliation_Catch_Quantity______1Caption</DataField>
+        </Field>
+        <Field Name="Integer_Number">
+          <DataField>Integer_Number</DataField>
+        </Field>
+        <Field Name="Skipper">
+          <DataField>Skipper</DataField>
+        </Field>
+        <Field Name="KNOWING">
+          <DataField>KNOWING</DataField>
+        </Field>
+        <Field Name="Job_Journal_Line__Work_Type_Code_">
+          <DataField>Job_Journal_Line__Work_Type_Code_</DataField>
+        </Field>
+        <Field Name="Job_Journal_Line__No__">
+          <DataField>Job_Journal_Line__No__</DataField>
+        </Field>
+        <Field Name="Quantity__1">
+          <DataField>Quantity__1</DataField>
+        </Field>
+        <Field Name="Quantity__1Format">
+          <DataField>Quantity__1Format</DataField>
+        </Field>
+        <Field Name="S_G">
+          <DataField>S_G</DataField>
+        </Field>
+        <Field Name="Work_Types">
+          <DataField>Work_Types</DataField>
+        </Field>
+        <Field Name="Job_Journal_Line_Description">
+          <DataField>Job_Journal_Line_Description</DataField>
+        </Field>
+        <Field Name="Reconciliation_Catch_Quantity___1">
+          <DataField>Reconciliation_Catch_Quantity___1</DataField>
+        </Field>
+        <Field Name="Reconciliation_Catch_Quantity___1Format">
+          <DataField>Reconciliation_Catch_Quantity___1Format</DataField>
+        </Field>
+        <Field Name="Quantity__Reconciliation_Catch_Quantity______1">
+          <DataField>Quantity__Reconciliation_Catch_Quantity______1</DataField>
+        </Field>
+        <Field Name="Quantity__Reconciliation_Catch_Quantity______1Format">
+          <DataField>Quantity__Reconciliation_Catch_Quantity______1Format</DataField>
+        </Field>
+        <Field Name="Error_txt">
+          <DataField>Error_txt</DataField>
+        </Field>
+        <Field Name="Job_Journal_Line_Type">
+          <DataField>Job_Journal_Line_Type</DataField>
+        </Field>
+        <Field Name="Quantity__1_Control1000000004">
+          <DataField>Quantity__1_Control1000000004</DataField>
+        </Field>
+        <Field Name="Quantity__1_Control1000000004Format">
+          <DataField>Quantity__1_Control1000000004Format</DataField>
+        </Field>
+        <Field Name="Total_For_Catch_Type_Code__">
+          <DataField>Total_For_Catch_Type_Code__</DataField>
+        </Field>
+        <Field Name="Reconciliation_Catch_Quantity___1_Control1000000007">
+          <DataField>Reconciliation_Catch_Quantity___1_Control1000000007</DataField>
+        </Field>
+        <Field Name="Reconciliation_Catch_Quantity___1_Control1000000007Format">
+          <DataField>Reconciliation_Catch_Quantity___1_Control1000000007Format</DataField>
+        </Field>
+        <Field Name="Voyage_No">
+          <DataField>Voyage_No</DataField>
+        </Field>
+        <Field Name="Quantity__Reconciliation_Catch_Quantity______1_Control1000000013">
+          <DataField>Quantity__Reconciliation_Catch_Quantity______1_Control1000000013</DataField>
+        </Field>
+        <Field Name="Quantity__Reconciliation_Catch_Quantity______1_Control1000000013Format">
+          <DataField>Quantity__Reconciliation_Catch_Quantity______1_Control1000000013Format</DataField>
+        </Field>
+        <Field Name="Quantity__1_Control1000000002">
+          <DataField>Quantity__1_Control1000000002</DataField>
+        </Field>
+        <Field Name="Quantity__1_Control1000000002Format">
+          <DataField>Quantity__1_Control1000000002Format</DataField>
+        </Field>
+        <Field Name="TotalFor____FIELDCAPTION__Statistics_Group__">
+          <DataField>TotalFor____FIELDCAPTION__Statistics_Group__</DataField>
+        </Field>
+        <Field Name="Reconciliation_Catch_Quantity___1_Control1000000006">
+          <DataField>Reconciliation_Catch_Quantity___1_Control1000000006</DataField>
+        </Field>
+        <Field Name="Reconciliation_Catch_Quantity___1_Control1000000006Format">
+          <DataField>Reconciliation_Catch_Quantity___1_Control1000000006Format</DataField>
+        </Field>
+        <Field Name="Quantity__Reconciliation_Catch_Quantity_____1">
+          <DataField>Quantity__Reconciliation_Catch_Quantity_____1</DataField>
+        </Field>
+        <Field Name="Quantity__Reconciliation_Catch_Quantity_____1Format">
+          <DataField>Quantity__Reconciliation_Catch_Quantity_____1Format</DataField>
+        </Field>
+        <Field Name="Reconciliation_Catch_Quantity___1_Control1000000018">
+          <DataField>Reconciliation_Catch_Quantity___1_Control1000000018</DataField>
+        </Field>
+        <Field Name="Reconciliation_Catch_Quantity___1_Control1000000018Format">
+          <DataField>Reconciliation_Catch_Quantity___1_Control1000000018Format</DataField>
+        </Field>
+        <Field Name="Quantity__1_Control1000000019">
+          <DataField>Quantity__1_Control1000000019</DataField>
+        </Field>
+        <Field Name="Quantity__1_Control1000000019Format">
+          <DataField>Quantity__1_Control1000000019Format</DataField>
+        </Field>
+        <Field Name="Quantity__Reconciliation_Catch_Quantity_____1_Control1000000020">
+          <DataField>Quantity__Reconciliation_Catch_Quantity_____1_Control1000000020</DataField>
+        </Field>
+        <Field Name="Quantity__Reconciliation_Catch_Quantity_____1_Control1000000020Format">
+          <DataField>Quantity__Reconciliation_Catch_Quantity_____1_Control1000000020Format</DataField>
+        </Field>
+        <Field Name="Capt0">
+          <DataField>Capt0</DataField>
+        </Field>
+        <Field Name="Control1000000009Caption">
+          <DataField>Control1000000009Caption</DataField>
+        </Field>
+        <Field Name="Catch_Type_CodeCaption">
+          <DataField>Catch_Type_CodeCaption</DataField>
+        </Field>
+        <Field Name="Grand_TotalCaption">
+          <DataField>Grand_TotalCaption</DataField>
+        </Field>
+        <Field Name="Port_CaptainCaption">
+          <DataField>Port_CaptainCaption</DataField>
+        </Field>
+        <Field Name="SkipperCaption">
+          <DataField>SkipperCaption</DataField>
+        </Field>
+        <Field Name="KNOWINGCa">
+          <DataField>KNOWINGCa</DataField>
+        </Field>
+        <Field Name="Job_Journal_Line_Journal_Template_Name">
+          <DataField>Job_Journal_Line_Journal_Template_Name</DataField>
+        </Field>
+        <Field Name="Job_Journal_Line_Journal_Batch_Name">
+          <DataField>Job_Journal_Line_Journal_Batch_Name</DataField>
+        </Field>
+        <Field Name="ReccatchQuantity1">
+          <DataField>ReccatchQuantity1</DataField>
+        </Field>
+        <Field Name="ReccatchQuantity1Format">
+          <DataField>ReccatchQuantity1Format</DataField>
+        </Field>
+        <Field Name="RESP">
+          <DataField>RESP</DataField>
+        </Field>
+        <Field Name="Job__Starting_Date_">
+          <DataField>Job__Starting_Date_</DataField>
+        </Field>
+        <Field Name="Job__Ending_Date_">
+          <DataField>Job__Ending_Date_</DataField>
+        </Field>
+        <Field Name="Job__Sea_Days_">
+          <DataField>Job__Sea_Days_</DataField>
+        </Field>
+        <Field Name="Vessl">
+          <DataField>Vessl</DataField>
+        </Field>
+        <Field Name="Job_Journal_Line_Line_No_">
+          <DataField>Job_Journal_Line_Line_No_</DataField>
+        </Field>
+        <Field Name="DimText">
+          <DataField>DimText</DataField>
+        </Field>
+        <Field Name="DimText_Control42">
+          <DataField>DimText_Control42</DataField>
+        </Field>
+        <Field Name="DimensionsCaption">
+          <DataField>DimensionsCaption</DataField>
+        </Field>
+        <Field Name="DimensionLoop_Number">
+          <DataField>DimensionLoop_Number</DataField>
+        </Field>
+        <Field Name="ErrorText_Number_">
+          <DataField>ErrorText_Number_</DataField>
+        </Field>
+        <Field Name="ErrorText_Number_Caption">
+          <DataField>ErrorText_Number_Caption</DataField>
+        </Field>
+        <Field Name="ErrorLoop_Number">
+          <DataField>ErrorLoop_Number</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
 </Report>

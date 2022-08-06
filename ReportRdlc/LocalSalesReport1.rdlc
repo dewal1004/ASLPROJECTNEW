@@ -18,40 +18,100 @@
       </Body>
       <Width>6.5in</Width>
       <Page>
-                <PageHeader>
-
+        <PageHeader>
+          <Height>1.39281cm</Height>
+          <PrintOnFirstPage>true</PrintOnFirstPage>
+          <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
-            <Textbox Name="COMPANYNAME">
-              <Paragraphs>
-                <Paragraph>
-                  <TextRuns>
-                    <TextRun>
-                      <h2>Atlantic Shrimpers Limited</h2>
-					    <h3>Sales Report</h3>
+            <TablixCell>
+              <CellContents>
+                <Textbox Name="CurrReport_PAGENOCaption">
+                  <KeepTogether>true</KeepTogether>
+                  <Paragraphs>
+                    <Paragraph>
+                      <TextRuns>
+                        <TextRun>
+                          <Value>=Fields!CurrReport_PAGENOCaption.Value</Value>
+                          <Style>
+                            <Color>#ff0000</Color>
+                          </Style>
+                        </TextRun>
+                      </TextRuns>
+                      <Style />
+                    </Paragraph>
+                  </Paragraphs>
+                  <Visibility>
+                    <Hidden>true</Hidden>
+                  </Visibility>
+                  <Style>
+                    <VerticalAlign>Middle</VerticalAlign>
+                    <PaddingLeft>2pt</PaddingLeft>
+                    <PaddingRight>2pt</PaddingRight>
+                    <PaddingTop>2pt</PaddingTop>
+                    <PaddingBottom>2pt</PaddingBottom>
+                  </Style>
+                </Textbox>
+              </CellContents>
+            </TablixCell>
+            <TablixCell>
+              <CellContents>
+                <Textbox Name="CurrReport_PAGENOCaption1">
+                  <KeepTogether>true</KeepTogether>
+                  <Paragraphs>
+                    <Paragraph>
+                      <TextRuns>
+                        <TextRun>
+                          <Value>=ReportItems!CurrReport_PAGENOCaption.Value</Value>
+                          <Style>
+                            <FontSize>7pt</FontSize>
+                          </Style>
+                        </TextRun>
+                      </TextRuns>
+                      <Style />
+                    </Paragraph>
+                  </Paragraphs>
+                  <Top>0.423cm</Top>
+                  <Left>16.95cm</Left>
+                  <Height>0.423cm</Height>
+                  <Width>0.75cm</Width>
+                  <ZIndex>1</ZIndex>
+                  <Style>
+                    <VerticalAlign>Middle</VerticalAlign>
+                  </Style>
+                </Textbox>
+              </CellContents>
+            </TablixCell>
+            <TablixCell>
+              <CellContents>
+                <Textbox Name="PageNumberTextBox">
+                  <KeepTogether>true</KeepTogether>
+                  <Paragraphs>
+                    <Paragraph>
+                      <TextRuns>
+                        <TextRun>
+                          <Value>=Globals!PageNumber</Value>
+                          <Style>
+                            <FontSize>7pt</FontSize>
+                          </Style>
+                        </TextRun>
+                      </TextRuns>
                       <Style>
-                        <FontSize>7pt</FontSize>
+                        <TextAlign>Right</TextAlign>
                       </Style>
-                    </TextRun>
-                  </TextRuns>
-                  <Style />
-                </Paragraph>
-              </Paragraphs>
-              <Top>0.846cm</Top>
-              <Height>0.423cm</Height>
-              <Width>7.5cm</Width>
-              <Style>
-                <VerticalAlign>Middle</VerticalAlign>
-              </Style>
-            </Textbox>
-
-
-
-
-     
-      
-
+                    </Paragraph>
+                  </Paragraphs>
+                  <Top>0.423cm</Top>
+                  <Left>17.7cm</Left>
+                  <Height>0.423cm</Height>
+                  <Width>0.45cm</Width>
+                  <ZIndex>3</ZIndex>
+                  <Style>
+                    <VerticalAlign>Middle</VerticalAlign>
+                  </Style>
+                </Textbox>
+              </CellContents>
+            </TablixCell>
           </ReportItems>
-
           <Style />
         </PageHeader>
         <PageHeight>29.7cm</PageHeight>
