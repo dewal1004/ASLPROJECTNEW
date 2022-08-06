@@ -7,9 +7,9 @@ codeunit 50026 MyCodeunit
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Document Report Mgt.", 'OnAfterConvertToPdf', '', true, true)]
     local procedure MyProcedure()
     begin
-        
+
     end;
 
-    
-    
+
+
 }

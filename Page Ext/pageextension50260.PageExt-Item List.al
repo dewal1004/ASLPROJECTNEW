@@ -17,6 +17,13 @@ pageextension 50260 pageextension50260 extends "Item List"
                 Visible = false;
             }
         }
+            addafter("Indirect Cost %")
+            {
+            field("Inventory Value Zero";"Inventory Value Zero")
+            {
+               Importance = Additional; 
+            }
+        }
         addafter("Default Deferral Template Code")
         {
             field("Statistics Group"; "Statistics Group")

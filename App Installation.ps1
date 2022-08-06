@@ -6,4 +6,5 @@ Unpublish-NavApp -ServerInstance BC180 -Name "ASL Upgrade Operation" -Version 14
 Publish-NAVApp -ServerInstance BC180 -Path "C:\ASLHO\ASLPROJECTNEW\SSNL_ASL Upgrade Operation_14.5.1.19.app" -SkipVerification
 
 Install-NAVApp -ServerInstance BC180 -Name "ASL Upgrade Operation" -Version 14.5.1.19
+Start-NAVAppDataUpgrade 
 Sync-NAVApp -ServerInstance BC180 -Name "ASL Upgrade Operation" -Version 14.5.1.19

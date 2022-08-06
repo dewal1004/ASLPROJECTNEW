@@ -3,6 +3,19 @@ pageextension 50259 pageextension50259 extends "Item Card"
 
     layout
     {
+        addafter("Indirect Cost %")
+        {
+            field("Inventory Value Zero"; "Inventory Value Zero")
+            {
+                ApplicationArea = all;
+
+                trigger OnValidate()
+                begin
+                    if "Indirect Cost %" < 0 then
+                        "Indirect Cost %" := 0;                        
+                end;
+            }
+        }
 
         modify("Item Category Code")
         {
@@ -42,16 +55,13 @@ pageextension 50259 pageextension50259 extends "Item Card"
         }
         modify("Indirect Cost %")
         {
-            Visible=true;
+            Visible = true;
             Importance = Standard;
-        
-        
         }
         modify("Allow Invoice Disc.")
         {
             Visible = false;
         }
-
         modify("Stockkeeping Unit Exists")
         {
             Visible = false;
@@ -76,7 +86,6 @@ pageextension 50259 pageextension50259 extends "Item Card"
         {
             Visible = true;
         }
-        
         addafter("Item Category Code")
         {
             field("Last Imported Cost"; "Last Imported Cost")
@@ -91,13 +100,13 @@ pageextension 50259 pageextension50259 extends "Item Card"
             field("Local Posting Group"; "Local Posting Group")
             {
             }
-            field("Last Purchase Cost";"Last Purchase Cost")
-            {                
+            field("Last Purchase Cost"; "Last Purchase Cost")
+            {
             }
-            field("Last Local Cost";"Last Local Cost")
-            {}
-            field("Last Direct Cost2";"Last Direct Cost2")
-            {}
+            field("Last Local Cost"; "Last Local Cost")
+            { }
+            field("Last Direct Cost2"; "Last Direct Cost2")
+            { }
         }
 
         //Unsupported feature: Property Modification (Level) on "GTIN(Control 135)".
@@ -197,8 +206,8 @@ pageextension 50259 pageextension50259 extends "Item Card"
             field("SF Cat"; "SF Cat")
             {
             }
-            field("S/No.";"S/No.")
-            {}
+            field("S/No."; "S/No.")
+            { }
             field("Pack Size (Kg)."; "Pack Size (Kg).")
             {
             }
@@ -223,13 +232,13 @@ pageextension 50259 pageextension50259 extends "Item Card"
         }
         addafter("Base Unit of Measure")
         {
-            field(Points;Points)
-            {}
+            field(Points; Points)
+            { }
         }
         addafter("Use Cross-Docking")
         {
-            field("Statistics Group";"Statistics Group")
-            {}
+            field("Statistics Group"; "Statistics Group")
+            { }
         }
         addafter("Attached Documents")
         {
@@ -308,7 +317,7 @@ pageextension 50259 pageextension50259 extends "Item Card"
         if UserSetup.geT(UserId) then begin
             if not UserSetup."Modify Item" then
                 CurrPage.Editable(false)
-                else
+            else
                 CurrPage.Editable(true);
         end;
 
