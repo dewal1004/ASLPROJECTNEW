@@ -1,4 +1,4 @@
-pageextension 50284 pageextension50284 extends "Purchase Order"
+pageextension 50284 "pageextension50284" extends "Purchase Order"
 {
     layout
     {
@@ -62,7 +62,7 @@ pageextension 50284 pageextension50284 extends "Purchase Order"
         modify("Posting Description")
         {
             Visible = true;
-        }       
+        }
         modify("Purchaser Code")
         {
             Visible = true;
@@ -71,7 +71,7 @@ pageextension 50284 pageextension50284 extends "Purchase Order"
         {
             Visible = true;
             Importance = Additional;
-        }        
+        }
         modify("Currency Code")
         {
             Visible = True;
@@ -106,7 +106,7 @@ pageextension 50284 pageextension50284 extends "Purchase Order"
         {
             Visible = false;
         }
-        
+
         //trigger OnAssistEdit()
         //begin
         /*
@@ -135,7 +135,7 @@ pageextension 50284 pageextension50284 extends "Purchase Order"
         */
         //end;
 
-        
+
         //trigger OnAfterValidate()
         //Parameters and return type have not been exported.
         //begin
@@ -182,7 +182,7 @@ pageextension 50284 pageextension50284 extends "Purchase Order"
         {
             Visible = true;
             Caption = 'Foreign Trade';
-            
+
         }
         modify(Prepayment)
         {
@@ -221,7 +221,7 @@ pageextension 50284 pageextension50284 extends "Purchase Order"
         //     // {
         //     // }
         // }
-    addafter("Buy-from Contact")
+        addafter("Buy-from Contact")
         {
             field("Your Reference"; "Your Reference")
             {
@@ -240,10 +240,10 @@ pageextension 50284 pageextension50284 extends "Purchase Order"
             field("Created By"; "Created By")
             {
             }
-            field("Order Type";"Order Type")
-            {}
-            field("Posting No.";"Posting No.")
-            {}
+            field("Order Type"; "Order Type")
+            { }
+            field("Posting No."; "Posting No.")
+            { }
         }
         addfirst("Invoice Details")
         {
@@ -261,7 +261,7 @@ pageextension 50284 pageextension50284 extends "Purchase Order"
         //     Visible = true;
         //     Importance = Promoted;
         // }
-        
+
         /*addafter("Order Address Code")
         {
             ("Ship-to City"; "Ship-to City")
@@ -271,8 +271,8 @@ pageextension 50284 pageextension50284 extends "Purchase Order"
         //addafter(Status)
         addafter("Foreign Trade")
         {
-            field("Clearing(LCY)";"Clearing(LCY)")
-            {                
+            field("Clearing(LCY)"; "Clearing(LCY)")
+            {
             }
             field("Totat Freight"; "Totat Freight")
             {
@@ -280,11 +280,11 @@ pageextension 50284 pageextension50284 extends "Purchase Order"
             field("Total Ancillary Charges"; "Total Ancillary Charges")
             {
             }
-            field("Total Ancillary Charges(LCY)";"Total Ancillary Charges(LCY)")
-            {                
+            field("Total Ancillary Charges(LCY)"; "Total Ancillary Charges(LCY)")
+            {
             }
-            field(Overhead;Overhead)
-            {                
+            field(Overhead; Overhead)
+            {
             }
             field("Interest Expense(LCY)"; "Interest Expense(LCY)")
             {
@@ -292,13 +292,14 @@ pageextension 50284 pageextension50284 extends "Purchase Order"
             field("Total Freight (LCY)"; "Total Freight (LCY)")
             {
             }
-            field("Total Amount Item (LCY)";"Total Amount Item (LCY)")
-            {                
+            field("Total Amount Item (LCY)"; "Total Amount Item (LCY)")
+            {
             }
-            field("Approved By";"Approved By")
-            {            
+            field("Approved By"; "Approved By")
+            {
             }
         }
+
         //}
         //addafter("Requested Receipt Date")
         //{
@@ -354,6 +355,7 @@ pageextension 50284 pageextension50284 extends "Purchase Order"
         moveafter("Prepmt. Payment Terms Code"; "Creditor No.")
         moveafter("Prepayment Due Date"; "Pay-to Name")*/
     }
+    
     actions
     {
 
@@ -396,7 +398,7 @@ pageextension 50284 pageextension50284 extends "Purchase Order"
                 trigger OnAction()
                 begin
                     PAGE.Run(PAGE::"Approvals List", UserSetup);
-                end; 
+                end;
             }
         }
     }

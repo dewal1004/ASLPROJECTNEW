@@ -1,4 +1,4 @@
-pageextension 50308 pageextension50308 extends "Purchase Order Subform"
+pageextension 50308 "pageextension50308" extends "Purchase Order Subform"
 {
     layout
     {
@@ -99,9 +99,7 @@ pageextension 50308 pageextension50308 extends "Purchase Order Subform"
             //Unsupported feature: Property Modification (Level) on ""Total Amount Incl. VAT"(Control 13)".
 
 
-            //Unsupported feature: Property Modification (Name) on ""Total Amount Incl. VAT"(Control 13)".
-
-
+            //Unsupported feature: Property Modification (Name) on ""Total Amount Incl. VAT"(Control 13)"
             //Unsupported feature: Property Modification (SourceExpr) on ""Total Amount Incl. VAT"(Control 13)".
 
 
@@ -187,58 +185,80 @@ pageextension 50308 pageextension50308 extends "Purchase Order Subform"
                 RedistributeTotalsOnAfterValidate;
             end;
         }
-
-        addafter("Allow Item Charge Assignment")
+        modify("Indirect Cost %")
         {
+            Editable = false;
+            visible = true;
         }
-        addafter("Quantity Received")
+        Addafter("Indirect Cost %")
         {
-            field("Clearing(LCY)"; "Clearing(LCY)")
+            field("ASL Indirect Cost %"; rec."ASL Indirect Cost %")
             {
+                ApplicationArea = all;
             }
-        }
-        addafter("Allow Invoice Disc.")
-        {
-            field("ActualFreight(LCY)"; "ActualFreight(LCY)")
+            field("Insurance(LCY)";rec."Insurance(LCY)")
             {
+                ApplicationArea = all;
             }
-        }
-        addafter("Line Discount Amount")
-        {
-            field("ActualDuty(LCY)"; "ActualDuty(LCY)")
+            field("Interest(LCY)";rec."Interest(LCY)")
             {
+                ApplicationArea = all;
             }
-            field("ActualInsurance(LCY)"; "ActualInsurance(LCY)")
+            field("Duty(LCY)";rec."Duty(LCY)")
             {
+                ApplicationArea = all;
             }
-            field("ActualSurcharge Duty(LCY)"; "ActualSurcharge Duty(LCY)")
+            field("Clearing(LCY)"; rec."Clearing(LCY)")
             {
+                ApplicationArea = all;
+            }
+            field("ActualFreight(LCY)"; rec."ActualFreight(LCY)")
+            {
+                ApplicationArea = all;
+            }
+            field("ActualInsurance(LCY)"; rec."ActualInsurance(LCY)")
+            {
+                ApplicationArea = all;
+            }
+            field("ActualSurcharge Duty(LCY)"; rec."ActualSurcharge Duty(LCY)")
+            {
+                ApplicationArea = all;
+            }
+            field("ActualCISS(LCY)"; rec."ActualCISS(LCY)")
+            {
+                ApplicationArea = all;
+            }
+            field("ActualVat (LCY)"; rec."ActualVat (LCY)")
+            {
+                ApplicationArea = all;
+            }
+            field("ActualClearing(LCY)"; rec."ActualClearing(LCY)")
+            {
+                ApplicationArea = all;
+            }
+            field("ActualInterest(LCY)"; rec."ActualInterest(LCY)")
+            {
+                ApplicationArea = all;
+            }
+            field("ActualTotal Overhead(LCY)"; rec."ActualTotal Overhead(LCY)")
+            {
+                ApplicationArea = All;
+            }
+            field("ActualLandedAmount(LCY)";rec."ActualLandedAmount(LCY)")
+            {
+                ApplicationArea = all;
+            }
+            field("ActualDuty(LCY)"; rec."ActualDuty(LCY)")
+            {
+                Applicationarea = all;
             }
         }
         addafter("Qty. to Assign")
         {
-            field("ActualCISS(LCY)"; "ActualCISS(LCY)")
+            field("Previous Purchase Price(LCY)"; rec."Previous Purchase Price(LCY)")
             {
             }
-            field("ActualVat (LCY)"; "ActualVat (LCY)")
-            {
-            }
-            field("ActualClearing(LCY)"; "ActualClearing(LCY)")
-            {
-            }
-            field("ActualInterest(LCY)"; "ActualInterest(LCY)")
-            {
-            }
-            field("ActualTotal Overhead(LCY)"; "ActualTotal Overhead(LCY)")
-            {
-            }
-            field("ActualLandedAmount(LCY)"; "ActualLandedAmount(LCY)")
-            {
-            }
-            field("Previous Purchase Price(LCY)"; "Previous Purchase Price(LCY)")
-            {
-            }
-            field("Quantity Ordered"; "Quantity Ordered")
+            field("Quantity Ordered"; rec."Quantity Ordered")
             {
             }
         }
@@ -272,6 +292,7 @@ pageextension 50308 pageextension50308 extends "Purchase Order Subform"
         // moveafter(InvoiceDiscountPct; "Total VAT Amount")
         // moveafter("ActualAncillary(LCY)"; "Qty. to Assign")
     }
+
 
     var
         TotalAmountStyle: Text;

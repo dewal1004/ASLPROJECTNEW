@@ -1,4 +1,4 @@
-tableextension 50269 tableextension50269 extends "Sales Header"
+tableextension 50269 "tableextension50269" extends "Sales Header"
 {
     fields
     {
@@ -667,6 +667,7 @@ tableextension 50269 tableextension50269 extends "Sales Header"
         FSdailyFilter: Record "Fish Shop Daily Sales";
         SalesRecLine: Record "Sales Line";
         LNO: Integer;
+        newprice: Decimal;
     begin
         LNO := 10000;
         FSdailySale.SetFilter(FSdailySale.Location, '%1', "Location Code");
@@ -688,6 +689,9 @@ tableextension 50269 tableextension50269 extends "Sales Header"
                     SalesRecLine.Validate(SalesRecLine."No.", FsdailyFilter."Item No.");
                     SalesRecLine."Location Code" := FsdailyFilter.Location;
                     SalesRecLine.Quantity := FsdailyFilter."Day Sale Qty";
+                    newprice := FSdailyFilter."Day Sale Value" / FSdailyFilter."Day Sale Qty";
+                    if newprice > SalesRecLine."Unit Price" then
+                        SalesRecLine.Validate(SalesRecLine."Unit Price", newprice);
                     SalesRecLine.Validate(SalesRecLine."Line Amount", FsdailyFilter."Day Sale Value");
                     SalesRecLine.Validate(SalesRecLine."Shipment Date", FsdailyFilter."Transaction Date");
                     SalesRecLine.Insert(true);
