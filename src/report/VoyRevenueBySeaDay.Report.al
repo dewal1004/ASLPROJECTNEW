@@ -5,6 +5,7 @@ report 50197 "Voy Revenue By Sea Day"
     RDLCLayout = './ReportRdlc/VoyRevenueBySeaDay.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All,Basic,Suite;
+    Caption = 'Voy Revenue By Sea Day';  
 
 
     dataset

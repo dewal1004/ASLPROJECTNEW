@@ -1,21 +1,8 @@
-pageextension 50259 pageextension50259 extends "Item Card"
+pageextension 50259 "pageextension50259" extends "Item Card"
 {
 
     layout
     {
-        addafter("Indirect Cost %")
-        {
-            field("Inventory Value Zero"; "Inventory Value Zero")
-            {
-                ApplicationArea = all;
-
-                trigger OnValidate()
-                begin
-                    if "Indirect Cost %" < 0 then
-                        "Indirect Cost %" := 0;                        
-                end;
-            }
-        }
 
         modify("Item Category Code")
         {
@@ -25,8 +12,6 @@ pageextension 50259 pageextension50259 extends "Item Card"
         {
             Caption = 'Phy. Verification Date';
         }
-
-
 
         modify("Qty. on Prod. Order")
         {
@@ -57,6 +42,7 @@ pageextension 50259 pageextension50259 extends "Item Card"
         {
             Visible = true;
             Importance = Standard;
+            Editable = false;
         }
         modify("Allow Invoice Disc.")
         {
@@ -96,19 +82,48 @@ pageextension 50259 pageextension50259 extends "Item Card"
         {
             field("Foreign Posting Group"; "Foreign Posting Group")
             {
+                ApplicationArea = Basic, Suite;
+                    Importance = Additional;
             }
             field("Local Posting Group"; "Local Posting Group")
             {
+                ApplicationArea = Basic, Suite;
+                    Importance = Additional;
             }
             field("Last Purchase Cost"; "Last Purchase Cost")
             {
+                ApplicationArea = Basic, Suite;
+                    Importance = Additional;
             }
             field("Last Local Cost"; "Last Local Cost")
-            { }
+            {
+                ApplicationArea = Basic, Suite;
+                    Importance = Additional;
+             }
             field("Last Direct Cost2"; "Last Direct Cost2")
-            { }
+            { 
+                ApplicationArea = Basic, Suite;
+                    Importance = Additional;
+            }
         }
+        
+        addafter("Indirect Cost %")
+        {
+            field("Inventory Value Zero"; "Inventory Value Zero")
+            {
+                ApplicationArea = all;
 
+                trigger OnValidate()
+                begin
+                    "Indirect Cost %" := "ASL Indirect Cost %";                        
+                end;
+            }
+            field("ASL Indirect Cost %";"ASL Indirect Cost %")
+            {
+              ApplicationArea = Basic, Suite;
+                    Importance = Additional;  
+            }
+        }
         //Unsupported feature: Property Modification (Level) on "GTIN(Control 135)".
         //Unsupported feature: Property Modification (Level) on "Inventory(Control 14)".
         //Unsupported feature: Property Modification (Name) on "Inventory(Control 14)".

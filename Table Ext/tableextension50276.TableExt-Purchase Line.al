@@ -2,40 +2,19 @@ tableextension 50276 tableextension50276 extends "Purchase Line"
 {
     fields
     {
-
+        modify(Quantity)
+        {
+            Trigger OnAfterValidate()
+            begin
+                "QtytoReceiveAmount(LCY)" := "Outstanding Amount (LCY)";
+                IF ("Qty. to Receive" <> "Outstanding Quantity") THEN
+                    "QtytoReceiveAmount(LCY)" := ROUND(("Qty. to Receive" * "Outstanding Amount (LCY)") / "Outstanding Quantity");
+            end;
+        }
         //Unsupported feature: Property Insertion (InitValue) on ""Indirect Cost %"(Field 54)".
 
 
-        //Unsupported feature: Code Modification on "Quantity(Field 15).OnValidate".
-
-        //trigger OnValidate()
-        //Parameters and return type have not been exported.
-        //>>>> ORIGINAL CODE:
-        //begin
-        /*
-        TestStatusOpen;
-        IsHandled := false;
-        OnValidateQuanthttps://github.com/dewal1004/ASL-Transport-Management.gitnBeforeDropShptCheck(Rec,xRec,CurrFieldNo,IsHandled);
-        #4..85
-        end;
-
-        CheckWMS;
-        */
-        //end;
-        //>>>> MODIFIED CODE:
-        //begin
-        /*
-        #1..88
-
-        //AAA-BPR-Oct2000-Start
-        "QtytoReceiveAmount(LCY)":="Outstanding Amount (LCY)";
-        if ("Qty. to Receive"<>"Outstanding Quantity") then
-                   "QtytoReceiveAmount(LCY)":=Round(("Qty. to Receive"*"Outstanding Amount (LCY)")/"Outstanding Quantity");
-        //AAA-BPR-Oct2000-Start
-        */
-        //end;
-
-
+        
         //Unsupported feature: Code Modification on ""Direct Unit Cost"(Field 22).OnValidate".
 
         //trigger OnValidate()
@@ -48,14 +27,19 @@ tableextension 50276 tableextension50276 extends "Purchase Line"
         //end;
         //>>>> MODIFIED CODE:
         //begin
-        /*
-        Validate("Line Discount %");
-        //SSNL-Jul2020-Start
-        "QtytoReceiveAmount(LCY)":="Outstanding Amount (LCY)";
-        if ("Qty. to Receive"<>"Outstanding Quantity") then
-                   "QtytoReceiveAmount(LCY)":=Round(("Qty. to Receive"*"Outstanding Amount (LCY)")/"Outstanding Quantity");
-        //SSNL-Jul2020-End
-        */
+
+        modify("Direct Unit Cost")
+        {
+            trigger OnAfterValidate()
+            begin
+                Validate("Line Discount %");
+                //SSNL-Jul2020-Start
+                "QtytoReceiveAmount(LCY)" := "Outstanding Amount (LCY)";
+                if("Qty. to Receive" <> "Outstanding Quantity") then
+                   "QtytoReceiveAmount(LCY)" := Round(("Qty. to Receive" * "Outstanding Amount (LCY)") / "Outstanding Quantity");
+            end;
+            //SSNL-Jul2020-End
+        }
         //end;
 
         //Unsupported feature: Property Deletion (MinValue) on ""Indirect Cost %"(Field 54)".
@@ -248,6 +232,14 @@ tableextension 50276 tableextension50276 extends "Purchase Line"
                 //IF "Reason Code"='USAGE' THEN "Gen. Bus. Posting Group":='LOCAL';
             end;
         }
+        field(50365; "ASL Indirect Cost %";Decimal)
+        {
+            trigger OnValidate()
+            begin
+                Validate("Indirect Cost %","ASL Indirect Cost %")
+            end;
+
+        }
     }
 
 
@@ -328,7 +320,6 @@ tableextension 50276 tableextension50276 extends "Purchase Line"
 
 
     //Unsupported feature: Property Deletion (Local) on "GetFAPostingGroup(PROCEDURE 10)".
-
 
     procedure "-----"()
     begin

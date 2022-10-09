@@ -50,9 +50,10 @@ report 50002 "Standard Cost"
                         if J <> 0 then
                             "Purchase Line"."Indirect Cost %" := ("Purchase Line"."Total Overhead(LCY)" / J) * 100;
 
-                    end;
 
-                    "Purchase Line".Validate("Purchase Line"."Indirect Cost %");
+                    end;
+                    if "Purchase Line".Type = "Purchase Line".Type::Item then
+                        "Purchase Line".Validate("Purchase Line"."Indirect Cost %");
                     "Purchase Line".Modify(true);
                 end;
             }

@@ -4,7 +4,7 @@ report 50143 "Voy Reconciliation Reprint"
     RDLCLayout = './ReportRdlc/VoyReconciliationReprint.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All,Basic,Suite;
-
+    
     dataset
     {
         dataitem(Job; Job)

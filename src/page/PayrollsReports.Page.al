@@ -4,7 +4,7 @@ page 50167 "Payrolls-Reports"
     ApplicationArea = all;
     
     layout
-    {
+    {        
     }
 
     actions

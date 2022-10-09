@@ -1,4 +1,4 @@
-codeunit 50028 ItemJnlPostLineSubcriber
+codeunit 50028 "ItemJnlPostLineSubcriber"
 {
     EventSubscriberInstance = StaticAutomatic;
 

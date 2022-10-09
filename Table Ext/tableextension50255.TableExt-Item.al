@@ -1,4 +1,4 @@
-tableextension 50255 tableextension50255 extends Item
+tableextension 50255 "tableextension50255" extends Item
 {
     fields
     {
@@ -89,6 +89,11 @@ tableextension 50255 tableextension50255 extends Item
         {
             Caption = 'ASL Indirect Cost %';
             MinValue = -100;
+        trigger OnValidate()
+        begin
+            "Indirect Cost %" := "ASL Indirect Cost %";
+        end;
+
 
         }
         field(50000; "Responsibility Center"; Text[30])

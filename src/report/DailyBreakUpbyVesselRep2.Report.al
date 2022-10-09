@@ -1,9 +1,11 @@
-report 50007 "Daily BreakUp by Vessel Rep 1"
+report 50008 "Daily BreakUp by Vessel Rep 2"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/DailyBreakUpbyVesselRep1.rdlc';
+    RDLCLayout = './ReportRdlc/DailyBreakUpbyVesselRep2.rdlc';
     UsageCategory = ReportsAndAnalysis;
-    ApplicationArea = All, Basic, Suite;
+    ApplicationArea = All,Basic,Suite;
+    Caption = 'Daily BreakUp by Vessel Rep 2';
+    
 
     dataset
     {
@@ -14,58 +16,58 @@ report 50007 "Daily BreakUp by Vessel Rep 1"
             column(test; Test)
             {
             }
-            column(testc_18; testc[1])
+            column(testc_18; testc[18])
             {
             }
-            column(testc_19; testc[2])
+            column(testc_19; testc[19])
             {
             }
-            column(testc_20; testc[3])
+            column(testc_20; testc[20])
             {
             }
-            column(testc_21; testc[4])
+            column(testc_21; testc[21])
             {
             }
-            column(testc_22; testc[5])
+            column(testc_22; testc[22])
             {
             }
-            column(testc_23; testc[6])
+            column(testc_23; testc[23])
             {
             }
-            column(testc_24; testc[7])
+            column(testc_24; testc[24])
             {
             }
-            column(testc_25; testc[8])
+            column(testc_25; testc[25])
             {
             }
-            column(testc_26; testc[9])
+            column(testc_26; testc[26])
             {
             }
-            column(testc_27; testc[10])
+            column(testc_27; testc[27])
             {
             }
-            column(testc_28; testc[11])
+            column(testc_28; testc[28])
             {
             }
-            column(testc_29; testc[12])
+            column(testc_29; testc[29])
             {
             }
-            column(testc_30; testc[13])
+            column(testc_30; testc[30])
             {
             }
-            column(testc_31; testc[14])
+            column(testc_31; testc[31])
             {
             }
-            column(testc_32; testc[15])
+            column(testc_32; testc[32])
             {
             }
-            column(testc_33; testc[16])
+            column(testc_33; testc[33])
             {
             }
-            column(testc_34; testc[17])
+            column(testc_34; testc[34])
             {
             }
-            column(testc_35; testc[18])
+            column(testc_35; testc[35])
             {
             }
             column(Total_Vessels; TotLoc)
