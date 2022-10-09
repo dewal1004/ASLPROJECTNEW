@@ -2338,7 +2338,7 @@ report 50007 "Daily BreakUp by Vessel Rep 1"
 
             trigger OnPreDataItem()
             begin
-   /             TotLoc := 0;
+                TotLoc := 0;
                 VesselCounter := 0;
                 DateFilter := "Inventory Posting G Cat Tot".GetFilter("Date Filter");
 
