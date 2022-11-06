@@ -2420,7 +2420,7 @@ report 50007 "Daily BreakUp by Vessel Rep 1"
             DataItemTableView = SORTING("Statistics Group", Category, "S/No.") WHERE("In Use" = CONST(true), "Statistics Group" = FILTER(> 0));
             column(testing123; testing123)
             {
-            }
+            } 
             column(Inventory_Posting_G_Cat_Tot_Category; Category)
             {
             }

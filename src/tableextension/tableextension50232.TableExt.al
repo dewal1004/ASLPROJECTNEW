@@ -1,4 +1,4 @@
-tableextension 50232 tableextension50232 extends "Job Ledger Entry"
+tableextension 50232 "tableextension50232" extends "Job Ledger Entry"
 {
     fields
     {
@@ -95,6 +95,10 @@ tableextension 50232 tableextension50232 extends "Job Ledger Entry"
 
     keys
     {
+        Key(Key9; GroupSort,"Inventory posting Group")
+            {
+            }
+
     //     key(Key1; "Job No.", "Location Code", "Posting Date", "Journal Batch Name", Type, "Gen. Prod. Posting Group", "Task Code");
     //     {
     //        SumIndexFields = "Total Price";
