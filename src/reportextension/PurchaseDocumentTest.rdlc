@@ -1090,6 +1090,18 @@ End Function
         <Field Name="Signature">
           <DataField>Signature</DataField>
         </Field>
+        <Field Name="S_No">
+          <DataField>S_No</DataField>
+        </Field>
+        <Field Name="UOM">
+          <DataField>UOM</DataField>
+        </Field>
+        <Field Name="Unit_Rate">
+          <DataField>Unit_Rate</DataField>
+        </Field>
+        <Field Name="Unit_RateFormat">
+          <DataField>Unit_RateFormat</DataField>
+        </Field>
       </Fields>
       <Query>
         <DataSourceName>DataSource</DataSourceName>

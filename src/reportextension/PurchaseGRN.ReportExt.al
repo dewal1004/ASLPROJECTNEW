@@ -17,7 +17,6 @@ reportextension 55000 "PurchaseGRN" extends "Purchase Document - Test"
         }
     }
 
-
     var
         Signature: Label 'Signature: ';
         ApprovedBy: Label 'Approved By: ';
