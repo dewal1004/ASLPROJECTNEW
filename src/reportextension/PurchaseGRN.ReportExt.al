@@ -9,6 +9,7 @@ reportextension 55000 "PurchaseGRN" extends "Purchase Document - Test"
         add("Purchase Header")
         {
             column(PreparedBy; PreparedBy) { }
+            column(CreatedBy; UserId) { }
             column(ApprovedBy; ApprovedBy) { }
             column(Signature; Signature) { }
             column(S_No; S_No) { }
@@ -29,6 +30,7 @@ reportextension 55000 "PurchaseGRN" extends "Purchase Document - Test"
         Signature: Label 'Signature: ';
         ApprovedBy: Label 'Approved By: ';
         PreparedBy: Label 'Prepared By: ';
+        CreatedBy: Label 'Created By';
         S_No: integer;
         UOM: Code[20];
         Unit_Rate: Decimal;
