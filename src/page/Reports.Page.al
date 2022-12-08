@@ -1,4 +1,4 @@
-page 50053 Reports
+page 50053 "Reports"
 {
     Caption = 'ASL Reports List';
     UsageCategory = Administration;
@@ -53,7 +53,7 @@ page 50053 Reports
                 action("Purchase variance report")
                 {
                     Image = "report";
-                    RunObject = Report "Sales Returns Register.";
+                    RunObject = Report "Sales Returns Register";
                 }
                 action("Purchase reorder")
                 {
@@ -400,7 +400,7 @@ page 50053 Reports
                 action("ABUJA  Fishshop Sales Report")
                 {
                     Image = "report";
-                    RunObject = Report "ABUJA Fish Shop Sales Report";
+                    RunObject = Report "ABUJA Fish Shop Sales Report.";
                 }
                 action("IKEJA  Fishshop Sales Report")
                 {

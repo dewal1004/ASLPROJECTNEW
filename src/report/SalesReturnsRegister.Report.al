@@ -233,6 +233,12 @@ report 50147 "Sales Returns Register"
                     CurrReport.CreateTotals(InvAmount, VatAmount, DiscAmount);
                 end;
             }
+            trigger OnAfterGetRecord()
+            begin
+                Customer.GET("Sales Cr.Memo Header"."Sell-to Customer No.");
+                SalesInvHeader := "Sales Cr.Memo Header";
+
+            end;
 
             trigger OnPreDataItem()
             begin

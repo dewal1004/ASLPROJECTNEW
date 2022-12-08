@@ -1,4 +1,4 @@
-permissionset 50000 GeneratedPermission
+permissionset 50000 "GeneratedPermission"
 {
     Assignable = true;
     Permissions = tabledata "AGO Table"=RIMD,
@@ -164,7 +164,7 @@ permissionset 50000 GeneratedPermission
         table "Training Courses"=X,
         table "Vessel Performance By Sea Day"=X,
         report "!Sales Document - Test"=X,
-        report "ABUJA Fish Shop Sales Report"=X,
+        report "ABUJA Fish Shop Sales Report."=X,
         report "Account Schedule 9"=X,
         report "Account Schedule BS"=X,
         report "Account Schedule CAP MMT"=X,
@@ -452,7 +452,6 @@ permissionset 50000 GeneratedPermission
         report "Sales Packing List"=X,
         report "Sales Register"=X,
         report "Sales Returns Register"=X,
-        report "Sales Returns Register."=X,
         report "Sales Test/Confirmation Report"=X,
         report "SAMPLE 2"=X,
         report "Sample Vessel Groupg"=X,

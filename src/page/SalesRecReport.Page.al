@@ -66,7 +66,7 @@ page 50162 "Sales& Rec-Report"
                 action("ABUJA  Fishshop Sales Report")
                 {
                     Image = "report";
-                    RunObject = Report "ABUJA Fish Shop Sales Report";
+                    RunObject = Report "ABUJA Fish Shop Sales Report.";
                 }
                 action("IKEJA  Fishshop Sales Report")
                 {

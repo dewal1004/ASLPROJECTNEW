@@ -56,7 +56,7 @@ page 50163 "Purchase&Pay-Reports"
                 action("Purchase variance report")
                 {
                     Image = "report";
-                    RunObject = Report "Sales Returns Register.";
+                    RunObject = Report "Sales Returns Register";
                 }
                 action("Purchase reorder")
                 {
