@@ -501,19 +501,33 @@ report 50085 "Vessel Catches"
             end;
         }
     }
-
     requestpage
     {
         SaveValues = true;
-        
 
         layout
         {
+            area(Content) 
+            {
+                group(Options)
+                {
+                    field(Location;JobJnl."Location Code"){}
+                    field(Batch;JobJnl."Journal Batch Name"){}
+                    field(Template;JobJnl."Journal Template Name"){}
+
+                }
+
+            }
         }
 
-        actions
-        {
-        }
+       
+        var
+          JobJnl: Record "Job Journal Line";
+
+
+        
+
+        
     }
 
     labels
