@@ -6,7 +6,7 @@
     "CRS.FileNamePattern": "<ObjectNameShort>.<ObjectTypeShortPascalCase>.al",
     "CRS.FileNamePatternExtensions": "<ObjectNameShort>.<ObjectTypeShortPascalCase>.al",
     "CRS.FileNamePatternPageCustomizations": "<ObjectNameShort>.<ObjectTypeShortPascalCase>.al",
-    "CRS.OnSaveAlFileAction": "Reorganize",
+    "CRS.OnSaveAlFileAction": "DoNothing",
     "CRS.RenameWithGit": true,
     "editor.accessibilityPageSize": 10,
     "editor.formatOnSave": true,
