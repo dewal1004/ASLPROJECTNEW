@@ -7,7 +7,7 @@
         <DataProvider>SQL</DataProvider>
         <ConnectString />
       </ConnectionProperties>
-      <rd:SecurityType>None</rd:SecurityType>
+      <rd:DataSourceID>b2a51c53-6254-462b-af80-2adcf7b3f596</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
@@ -1713,7 +1713,8 @@
                                 <TextRun>
                                   <Value>=Sum(Fields!ItemSalesLCY.Value, "DataSet_Result")</Value>
                                   <Style>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>8pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
                                     <Format>#,0.00;(#,0.00)</Format>
                                   </Style>
                                 </TextRun>
@@ -2052,7 +2053,8 @@
                                 <TextRun>
                                   <Value>=Code.CalcPct(Sum(Fields!ItemSalesLCY.Value),Fields!TotalItemSales.Value)</Value>
                                   <Style>
-                                    <FontSize>7pt</FontSize>
+                                    <FontSize>8pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
                                     <Format>=First(Fields!SalesAmountPctFormat.Value)</Format>
                                   </Style>
                                 </TextRun>
@@ -2403,6 +2405,7 @@
                       <Value>=ReportItems!STRSUBSTNO_Text001_ItemDateFilter_.Value</Value>
                       <Style>
                         <FontSize>7pt</FontSize>
+                        <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -2436,7 +2439,6 @@
               </ReportItems>
               <KeepTogether>true</KeepTogether>
               <Top>1.23155cm</Top>
-              <Left>0cm</Left>
               <Height>0.23813cm</Height>
               <Width>18.409cm</Width>
               <ZIndex>6</ZIndex>
@@ -2584,6 +2586,12 @@
       </Page>
     </ReportSection>
   </ReportSections>
+  <ReportParametersLayout>
+    <GridLayoutDefinition>
+      <NumberOfColumns>4</NumberOfColumns>
+      <NumberOfRows>2</NumberOfRows>
+    </GridLayoutDefinition>
+  </ReportParametersLayout>
   <Code>Public Function BlankZero(ByVal Value As Decimal)
     if Value = 0 then
         Return ""
@@ -2633,4 +2641,5 @@ End Function
   <Language>=User!Language</Language>
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
+  <rd:ReportID>3214c79c-46f1-4ee9-9417-3850026b009a</rd:ReportID>
 </Report>

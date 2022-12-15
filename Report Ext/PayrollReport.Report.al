@@ -9,10 +9,10 @@ report 50062 "Payroll Report"
     // The user can specify that the ED.Descriptions appear in the column headers
     // instead of the ED.Codes.
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/PayrollReport.rdlc';
+    RDLCLayout = './ReportRdlcNew/PayrollReport.rdlc';
     UsageCategory = Lists;
     ApplicationArea = All, Basic, Suite;
-
+    Caption = 'ASL Payroll Report';
 
     dataset
     {
@@ -408,7 +408,7 @@ report 50062 "Payroll Report"
 
     requestpage
     {
-
+        SaveValues = true;
         layout
         {
             area(content)
@@ -548,7 +548,7 @@ report 50062 "Payroll Report"
         NameCaptionLbl: Label 'Name';
         S_No_CaptionLbl: Label 'S/No.';
         AmountsCaptionLbl: Label 'Amounts';
-        No__of_records_Processed_CaptionLbl: Label 'No. of records Processed:';
+        No__of_records_Processed_CaptionLbl: Label 'No. of record Processed:';
         No__of_employees_Shown_CaptionLbl: Label 'No. of employees Shown:';
         S_no: Integer;
         PayEmp: Record Employee;

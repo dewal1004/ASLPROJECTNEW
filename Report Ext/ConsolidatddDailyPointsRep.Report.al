@@ -263,7 +263,7 @@ report 50130 "Consolidatdd Daily Points Rep!"
 
             trigger OnAfterGetRecord()
             begin
-                /*
+                
                 IF RepDate<>0D THEN Workdat:=RepDate
                 ELSE Workdat:=TODAY;
                 
@@ -283,7 +283,7 @@ report 50130 "Consolidatdd Daily Points Rep!"
                 JobLdgr.SETRANGE(JobLdgr.Type,0,1);
                 IF JobLdgr.FIND('+') THEN
                 BEGIN
-                  SeTemp:= JobLdgr."Step Code";
+                  //SeTemp:= JobLdgr."Step Code";
                   SeArea:=JobLdgr."Phase Code";
                 END
                 ELSE
@@ -333,12 +333,12 @@ report 50130 "Consolidatdd Daily Points Rep!"
                 
                 //No Catch Record Exist
                 job1.SETRANGE(job1."Task Filter");
-                job1.SETRANGE(job1."Type Filter",0);
+                //job1.SETRANGE(job1."Type Filter",0);
                 job1.CALCFIELDS(job1.NoCatchExist);
                 NoCatch:=job1.NoCatchExist;
                 
                 //SeaDaysTot:=SeaDaysTot+SeaDays;
-                */ //#1
+                 //#1
 
             end;
         }

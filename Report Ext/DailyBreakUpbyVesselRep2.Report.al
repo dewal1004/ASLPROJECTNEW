@@ -4,6 +4,8 @@ report 50008 "Daily BreakUp by Vessel Rep 2"
     RDLCLayout = './ReportRdlc/DailyBreakUpbyVesselRep2.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All,Basic,Suite;
+    Caption = 'Daily BreakUp by Vessel Rep 2';
+    
 
     dataset
     {
