@@ -46,7 +46,8 @@ report 50003 "Landed Cost"
                     if J <> 0 then
                         "Purchase Line"."Indirect Cost %" := ("Purchase Line"."ActualTotal Overhead(LCY)" / J) * 100;
                     //    MESSAGE('Indirect % %1 and J is %2',"Purchase Line"."Indirect Cost %",J);
-                    "Purchase Line".Validate("Purchase Line"."Indirect Cost %");
+                    if "Purchase Line".Type = "Purchase Line".Type::Item then
+                        "Purchase Line".Validate("Purchase Line"."Indirect Cost %");
                     "Purchase Line".Modify(true);
                 end;
 
