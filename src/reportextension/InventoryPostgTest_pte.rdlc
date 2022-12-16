@@ -7,7 +7,6 @@
         <DataProvider>SQL</DataProvider>
         <ConnectString />
       </ConnectionProperties>
-      <rd:SecurityType>None</rd:SecurityType>
       <rd:DataSourceID>e56411cf-62e8-430d-afb6-85912503c069</rd:DataSourceID>
     </DataSource>
   </DataSources>
@@ -9232,7 +9231,7 @@
             </PageBreak>
             <Filters>
               <Filter>
-                <FilterExpression>=Fields!CurrReport_PAGENO.Value</FilterExpression>
+                <FilterExpression>=Fields!COMPANYNAME.Value</FilterExpression>
                 <Operator>GreaterThan</Operator>
                 <FilterValues>
                   <FilterValue>=0</FilterValue>
@@ -9318,8 +9317,8 @@
                   <Style />
                 </Paragraph>
               </Paragraphs>
-              <Top>1.51343cm</Top>
-              <Left>13.9655cm</Left>
+              <Top>2.78243cm</Top>
+              <Left>17.34524cm</Left>
               <Height>0.423cm</Height>
               <Width>0.75cm</Width>
               <ZIndex>2</ZIndex>
