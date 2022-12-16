@@ -26,13 +26,16 @@ reportextension 55000 "PurchaseGRN" extends "Purchase Document - Test"
             column(OutstandingAmountLCY_PurchaseLine; "Purchase Line"."Outstanding Amount (LCY)") { }
             column(InvPosGrp; "Purchase Line"."Posting Group") { }
         }
-       /* modify(RoundLoop) 
+
+       /* 
+       modify(RoundLoop) 
         {
             trigger OnBeforePostDataItem()
             begin
                 S_No := S_No+1;
             end;
-        }*/
+        } 
+        */
 
 
     }
