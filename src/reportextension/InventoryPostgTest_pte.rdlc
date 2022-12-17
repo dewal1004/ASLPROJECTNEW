@@ -10075,12 +10075,6 @@ End Function
         <Field Name="External_Document_No_">
           <DataField>External_Document_No_</DataField>
         </Field>
-        <Field Name="ExtTxt">
-          <DataField>ExtTxt</DataField>
-        </Field>
-        <Field Name="DOcNo">
-          <DataField>DOcNo</DataField>
-        </Field>
       </Fields>
       <Query>
         <DataSourceName>DataSource</DataSourceName>
