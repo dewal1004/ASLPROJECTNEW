@@ -3,7 +3,7 @@ reportextension 55000 "PurchaseGRN" extends "Purchase Document - Test"
 
     // RDLCLayout = './ReportRdlc/PurchaseDocumentTest.rdlc';
     RDLCLayout = './src/reportextension/PurchaseDocumentTest.rdlc';
-    
+
 
 
     dataset
@@ -27,17 +27,19 @@ reportextension 55000 "PurchaseGRN" extends "Purchase Document - Test"
             column(InvPosGrp; "Purchase Line"."Posting Group") { }
         }
 
-       /* 
-       modify(RoundLoop) 
+        /* */
+        modify(RoundLoop)
         {
+            trigger OnAfterPreDataItem()
+            begin
+                S_No := 0;
+            end;
+
             trigger OnBeforePostDataItem()
             begin
-                S_No := S_No+1;
+                S_No := S_No + 1;
             end;
-        } 
-        */
-
-
+        }
     }
 
     var
@@ -49,5 +51,5 @@ reportextension 55000 "PurchaseGRN" extends "Purchase Document - Test"
         UOM: Code[20];
         Unit_Rate: Decimal;
 
-    
+
 }
