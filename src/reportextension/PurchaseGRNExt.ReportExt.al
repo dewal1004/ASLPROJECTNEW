@@ -1584,8 +1584,6 @@ report 50037 PurchaseGRNExt
                 PricesInclVATtxt := Format("Prices Including VAT");
 
                 OnAfterCheckPurchaseDoc("Purchase Header", ErrorText, ErrorCounter);
-
-                S_No := 0;
             end;
 
             trigger OnPreDataItem()
@@ -1616,6 +1614,8 @@ report 50037 PurchaseGRNExt
                     end;
                     ShipInvoiceText := StrSubstNo(Text030, ShipInvoiceText);
                 end;
+
+                S_No := 0;
             end;
         }
     }
