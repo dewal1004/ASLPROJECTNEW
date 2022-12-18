@@ -11,8 +11,8 @@ reportextension 55000 "PurchaseGRN" extends "Purchase Document - Test"
         add("Purchase Header")
         {
             column(PreparedBy; PreparedBy) { }
-            column(CreatedBy; UserId) { }
-            column(ApprovedBy; ApprovedBy) { }
+            column(Created_By;"Created By") { IncludeCaption = true;}
+            column(Approved_By;"Approved By") { IncludeCaption = true;}
             column(Signature; Signature) { }
         }
 
@@ -35,7 +35,7 @@ reportextension 55000 "PurchaseGRN" extends "Purchase Document - Test"
                 S_No := 0;
             end;
 
-            trigger OnBeforePostDataItem()
+            trigger OnAfterAfterGetRecord()
             begin
                 S_No := S_No + 1;
             end;
@@ -44,12 +44,8 @@ reportextension 55000 "PurchaseGRN" extends "Purchase Document - Test"
 
     var
         Signature: Label 'Signature: ';
-        ApprovedBy: Label 'Approved By: ';
         PreparedBy: Label 'Prepared By: ';
-        CreatedBy: Label 'Created By';
         S_No: integer;
         UOM: Code[20];
         Unit_Rate: Decimal;
-
-
 }

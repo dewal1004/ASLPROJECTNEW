@@ -11,4 +11,3 @@ tableextension 50310 tableextension50310 extends "Phys. Invt. Record Line"
     //UOMMgt : 1105;
     //Variable type has not been exported.
 }
-
