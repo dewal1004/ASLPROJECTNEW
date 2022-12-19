@@ -1514,7 +1514,7 @@
                                               <Paragraph>
                                                 <TextRuns>
                                                   <TextRun>
-                                                    <Value EvaluationMode="Constant">=last(Fields!SumOutstandingAmountLCY.Value)</Value>
+                                                    <Value EvaluationMode="Constant">=Fields!SumOutstandingAmountLCY.Value</Value>
                                                     <Style>
                                                       <FontSize>7pt</FontSize>
                                                       <Format>#,0.00;(#,0.00)</Format>
