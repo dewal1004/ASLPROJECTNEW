@@ -1623,7 +1623,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>XXX</Value>
+                                  <Value>=Fields!ExternalDCNO.Value</Value>
                                   <Style>
                                     <FontSize>7pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -2012,7 +2012,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>XXX</Value>
+                                  <Value>=Fields!ExternalDCNO.Value</Value>
                                   <Style>
                                     <FontSize>7pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -2425,7 +2425,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>XXX</Value>
+                                  <Value>=Fields!ExternalDCNO.Value</Value>
                                   <Style>
                                     <FontSize>7pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -3561,7 +3561,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>XXX</Value>
+                                  <Value>=Fields!ExternalDCNO.Value</Value>
                                   <Style>
                                     <FontSize>7pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -3953,7 +3953,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>XXX</Value>
+                                  <Value>=Fields!ExternalDCNO.Value</Value>
                                   <Style>
                                     <FontSize>7pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -4320,7 +4320,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>XXX</Value>
+                                  <Value>=Fields!ExternalDCNO.Value</Value>
                                   <Style>
                                     <FontSize>7pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -5089,7 +5089,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>XXX</Value>
+                                  <Value>=Fields!ExternalDCNO.Value</Value>
                                   <Style>
                                     <FontSize>7pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
