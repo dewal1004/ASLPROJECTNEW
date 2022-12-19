@@ -20,6 +20,7 @@ reportextension 50001 "InventPostgTest_pte" extends "Inventory Posting - Test"
             column(External_Document_No_; "External Document No.") { }
             column(ExtTxt; ExtTxt) { }
             column(DOcNo; DOcNo) { }
+            column(ExternalDCNO; "External Document No.") { }
 
         }
         modify("Item Journal Line")
