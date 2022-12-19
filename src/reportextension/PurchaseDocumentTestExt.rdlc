@@ -1514,7 +1514,7 @@
                                               <Paragraph>
                                                 <TextRuns>
                                                   <TextRun>
-                                                    <Value EvaluationMode="Constant">last(Fields!SumOutstandingAmountLCY.Value)</Value>
+                                                    <Value>=Sum(Fields!OutstandingAmountLCY_PurchaseLine.Value)</Value>
                                                     <Style>
                                                       <FontSize>7pt</FontSize>
                                                       <Format>#,0.00;(#,0.00)</Format>
@@ -1546,6 +1546,7 @@
                                             </Style>
                                           </Textbox>
                                           <ColSpan>3</ColSpan>
+                                          <rd:Selected>true</rd:Selected>
                                         </CellContents>
                                       </TablixCell>
                                       <TablixCell />
@@ -2056,7 +2057,6 @@
                                             </Style>
                                           </Textbox>
                                           <ColSpan>2</ColSpan>
-                                          <rd:Selected>true</rd:Selected>
                                         </CellContents>
                                       </TablixCell>
                                       <TablixCell />

@@ -10081,6 +10081,9 @@ End Function
         <Field Name="DOcNo">
           <DataField>DOcNo</DataField>
         </Field>
+        <Field Name="ExternalDCNO">
+          <DataField>ExternalDCNO</DataField>
+        </Field>
       </Fields>
       <Query>
         <DataSourceName>DataSource</DataSourceName>
