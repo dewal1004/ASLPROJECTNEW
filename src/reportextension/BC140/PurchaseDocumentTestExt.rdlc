@@ -1507,23 +1507,24 @@
                                       </TablixCell>
                                       <TablixCell>
                                         <CellContents>
-                                          <Textbox Name="Textbox37">
+                                          <Textbox Name="Textbox28">
                                             <CanGrow>true</CanGrow>
                                             <KeepTogether>true</KeepTogether>
                                             <Paragraphs>
                                               <Paragraph>
                                                 <TextRuns>
                                                   <TextRun>
-                                                    <Value>=Sum(Fields!OutstandingAmountLCY_PurchaseLine.Value)/2</Value>
+                                                    <Value>=Sum(Fields!OutstandingAmountLCY_PurchaseLine.Value)</Value>
                                                     <Style>
                                                       <FontSize>7pt</FontSize>
+                                                      <Format>#,0.00;(#,0.00)</Format>
                                                     </Style>
                                                   </TextRun>
                                                 </TextRuns>
                                                 <Style />
                                               </Paragraph>
                                             </Paragraphs>
-                                            <rd:DefaultName>Textbox32</rd:DefaultName>
+                                            <rd:DefaultName>Textbox28</rd:DefaultName>
                                             <Style>
                                               <Border>
                                                 <Style>None</Style>
@@ -1838,11 +1839,39 @@
                                               <PaddingBottom>2pt</PaddingBottom>
                                             </Style>
                                           </Textbox>
-                                          <ColSpan>3</ColSpan>
+                                          <ColSpan>2</ColSpan>
                                         </CellContents>
                                       </TablixCell>
                                       <TablixCell />
-                                      <TablixCell />
+                                      <TablixCell>
+                                        <CellContents>
+                                          <Textbox Name="Textbox37">
+                                            <CanGrow>true</CanGrow>
+                                            <KeepTogether>true</KeepTogether>
+                                            <Paragraphs>
+                                              <Paragraph>
+                                                <TextRuns>
+                                                  <TextRun>
+                                                    <Value />
+                                                    <Style>
+                                                      <FontSize>7pt</FontSize>
+                                                      <FontWeight>Bold</FontWeight>
+                                                    </Style>
+                                                  </TextRun>
+                                                </TextRuns>
+                                                <Style />
+                                              </Paragraph>
+                                            </Paragraphs>
+                                            <rd:DefaultName>Textbox37</rd:DefaultName>
+                                            <Style>
+                                              <PaddingLeft>2pt</PaddingLeft>
+                                              <PaddingRight>2pt</PaddingRight>
+                                              <PaddingTop>2pt</PaddingTop>
+                                              <PaddingBottom>2pt</PaddingBottom>
+                                            </Style>
+                                          </Textbox>
+                                        </CellContents>
+                                      </TablixCell>
                                       <TablixCell>
                                         <CellContents>
                                           <Textbox Name="Textbox38">
@@ -2010,7 +2039,7 @@
                                               <Paragraph>
                                                 <TextRuns>
                                                   <TextRun>
-                                                    <Value>=Fields!Created_By.Value</Value>
+                                                    <Value>=Fields!CreatedBy.Value</Value>
                                                     <Style>
                                                       <FontSize>7pt</FontSize>
                                                     </Style>
@@ -2027,11 +2056,39 @@
                                               <PaddingBottom>2pt</PaddingBottom>
                                             </Style>
                                           </Textbox>
-                                          <ColSpan>3</ColSpan>
+                                          <ColSpan>2</ColSpan>
                                         </CellContents>
                                       </TablixCell>
                                       <TablixCell />
-                                      <TablixCell />
+                                      <TablixCell>
+                                        <CellContents>
+                                          <Textbox Name="Textbox18">
+                                            <CanGrow>true</CanGrow>
+                                            <KeepTogether>true</KeepTogether>
+                                            <Paragraphs>
+                                              <Paragraph>
+                                                <TextRuns>
+                                                  <TextRun>
+                                                    <Value />
+                                                    <Style>
+                                                      <FontSize>7pt</FontSize>
+                                                      <FontWeight>Bold</FontWeight>
+                                                    </Style>
+                                                  </TextRun>
+                                                </TextRuns>
+                                                <Style />
+                                              </Paragraph>
+                                            </Paragraphs>
+                                            <rd:DefaultName>Textbox18</rd:DefaultName>
+                                            <Style>
+                                              <PaddingLeft>2pt</PaddingLeft>
+                                              <PaddingRight>2pt</PaddingRight>
+                                              <PaddingTop>2pt</PaddingTop>
+                                              <PaddingBottom>2pt</PaddingBottom>
+                                            </Style>
+                                          </Textbox>
+                                        </CellContents>
+                                      </TablixCell>
                                       <TablixCell>
                                         <CellContents>
                                           <Textbox Name="Textbox20">
@@ -2099,7 +2156,7 @@
                                               <Paragraph>
                                                 <TextRuns>
                                                   <TextRun>
-                                                    <Value>=Fields!Approved_By.Value</Value>
+                                                    <Value>=Fields!ApprovedBy.Value</Value>
                                                     <Style>
                                                       <FontSize>7pt</FontSize>
                                                       <FontWeight>Bold</FontWeight>
@@ -6225,7 +6282,6 @@
                                   </FilterValues>
                                 </Filter>
                               </Filters>
-                              <Top>0.3175cm</Top>
                               <Left>0.20047in</Left>
                               <Height>5.38642cm</Height>
                               <Width>19.47291cm</Width>
@@ -9436,44 +9492,6 @@
       </Page>
     </ReportSection>
   </ReportSections>
-  <ReportParameters>
-    <ReportParameter Name="Created_ByCaption">
-      <DataType>String</DataType>
-      <DefaultValue>
-        <Values>
-          <Value>Created_ByCaption</Value>
-        </Values>
-      </DefaultValue>
-      <Prompt>Created_ByCaption</Prompt>
-    </ReportParameter>
-    <ReportParameter Name="Approved_ByCaption">
-      <DataType>String</DataType>
-      <DefaultValue>
-        <Values>
-          <Value>Approved_ByCaption</Value>
-        </Values>
-      </DefaultValue>
-      <Prompt>Approved_ByCaption</Prompt>
-    </ReportParameter>
-  </ReportParameters>
-  <ReportParametersLayout>
-    <GridLayoutDefinition>
-      <NumberOfColumns>1</NumberOfColumns>
-      <NumberOfRows>2</NumberOfRows>
-      <CellDefinitions>
-        <CellDefinition>
-          <ColumnIndex>0</ColumnIndex>
-          <RowIndex>0</RowIndex>
-          <ParameterName>Created_ByCaption</ParameterName>
-        </CellDefinition>
-        <CellDefinition>
-          <ColumnIndex>0</ColumnIndex>
-          <RowIndex>1</RowIndex>
-          <ParameterName>Approved_ByCaption</ParameterName>
-        </CellDefinition>
-      </CellDefinitions>
-    </GridLayoutDefinition>
-  </ReportParametersLayout>
   <Code>Public Function BlankZero(ByVal Value As Decimal)
     if Value = 0 then
         Return ""
@@ -9558,6 +9576,18 @@ End Function</Code>
         </Field>
         <Field Name="Purchase_Header_No_">
           <DataField>Purchase_Header_No_</DataField>
+        </Field>
+        <Field Name="PreparedBy">
+          <DataField>PreparedBy</DataField>
+        </Field>
+        <Field Name="CreatedBy">
+          <DataField>CreatedBy</DataField>
+        </Field>
+        <Field Name="ApprovedBy">
+          <DataField>ApprovedBy</DataField>
+        </Field>
+        <Field Name="Signature">
+          <DataField>Signature</DataField>
         </Field>
         <Field Name="FORMAT_TODAY_0_4_">
           <DataField>FORMAT_TODAY_0_4_</DataField>
@@ -10183,6 +10213,33 @@ End Function</Code>
         <Field Name="VATDiscountAmountCaption">
           <DataField>VATDiscountAmountCaption</DataField>
         </Field>
+        <Field Name="S_No">
+          <DataField>S_No</DataField>
+        </Field>
+        <Field Name="UOM">
+          <DataField>UOM</DataField>
+        </Field>
+        <Field Name="Unit_Rate">
+          <DataField>Unit_Rate</DataField>
+        </Field>
+        <Field Name="Unit_RateFormat">
+          <DataField>Unit_RateFormat</DataField>
+        </Field>
+        <Field Name="UnitCostLCY_PurchaseLine">
+          <DataField>UnitCostLCY_PurchaseLine</DataField>
+        </Field>
+        <Field Name="UnitCostLCY_PurchaseLineFormat">
+          <DataField>UnitCostLCY_PurchaseLineFormat</DataField>
+        </Field>
+        <Field Name="OutstandingAmountLCY_PurchaseLine">
+          <DataField>OutstandingAmountLCY_PurchaseLine</DataField>
+        </Field>
+        <Field Name="OutstandingAmountLCY_PurchaseLineFormat">
+          <DataField>OutstandingAmountLCY_PurchaseLineFormat</DataField>
+        </Field>
+        <Field Name="InvPosGrp">
+          <DataField>InvPosGrp</DataField>
+        </Field>
         <Field Name="DimText_Control165">
           <DataField>DimText_Control165</DataField>
         </Field>
@@ -10569,51 +10626,6 @@ End Function</Code>
         </Field>
         <Field Name="ContinuedCaption_Control192">
           <DataField>ContinuedCaption_Control192</DataField>
-        </Field>
-        <Field Name="PreparedBy">
-          <DataField>PreparedBy</DataField>
-        </Field>
-        <Field Name="Created_By">
-          <DataField>Created_By</DataField>
-        </Field>
-        <Field Name="Approved_By">
-          <DataField>Approved_By</DataField>
-        </Field>
-        <Field Name="Signature">
-          <DataField>Signature</DataField>
-        </Field>
-        <Field Name="UOM">
-          <DataField>UOM</DataField>
-        </Field>
-        <Field Name="Unit_Rate">
-          <DataField>Unit_Rate</DataField>
-        </Field>
-        <Field Name="Unit_RateFormat">
-          <DataField>Unit_RateFormat</DataField>
-        </Field>
-        <Field Name="UnitCostLCY_PurchaseLine">
-          <DataField>UnitCostLCY_PurchaseLine</DataField>
-        </Field>
-        <Field Name="UnitCostLCY_PurchaseLineFormat">
-          <DataField>UnitCostLCY_PurchaseLineFormat</DataField>
-        </Field>
-        <Field Name="OutstandingAmountLCY_PurchaseLine">
-          <DataField>OutstandingAmountLCY_PurchaseLine</DataField>
-        </Field>
-        <Field Name="OutstandingAmountLCY_PurchaseLineFormat">
-          <DataField>OutstandingAmountLCY_PurchaseLineFormat</DataField>
-        </Field>
-        <Field Name="InvPosGrp">
-          <DataField>InvPosGrp</DataField>
-        </Field>
-        <Field Name="S_No">
-          <DataField>S_No</DataField>
-        </Field>
-        <Field Name="SumOutstadingAmountLCY">
-          <DataField>SumOutstadingAmountLCY</DataField>
-        </Field>
-        <Field Name="SumOutstadingAmountLCYFormat">
-          <DataField>SumOutstadingAmountLCYFormat</DataField>
         </Field>
       </Fields>
       <Query>
