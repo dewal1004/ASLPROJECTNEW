@@ -21,6 +21,7 @@ reportextension 50001 "InventPostgTest_pte" extends "Inventory Posting - Test"
             column(ExtTxt; ExtTxt) { }
             column(DOcNo; DOcNo) { }
             column(ExternalDCNO; "External Document No.") { } 
+            column(Reatxt;Reatxt) { }
         }
         
         modify("Item Journal Line")
@@ -32,7 +33,6 @@ reportextension 50001 "InventPostgTest_pte" extends "Inventory Posting - Test"
 
             trigger OnAfterAfterGetRecord()
             var
-                Reatxt: Text;
                 Locrec: Record Location;
                 ReaCd: Record "Reason Code";
                 ExtDoc: Record "Standard Sales Code";
@@ -67,4 +67,5 @@ reportextension 50001 "InventPostgTest_pte" extends "Inventory Posting - Test"
         ExpenseCtr: Label 'Expense Centre';
         DOcNo: Code[50];
         ExtTxt: Text[50];
+                Reatxt: Text;
 }
