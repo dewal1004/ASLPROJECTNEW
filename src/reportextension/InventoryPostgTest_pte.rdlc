@@ -862,7 +862,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value />
+                                  <Value>Ext Txt</Value>
                                   <Style />
                                 </TextRun>
                               </TextRuns>
@@ -2071,7 +2071,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>XXX</Value>
+                                  <Value>=Fields!ExternalDCNO.Value</Value>
                                   <Style>
                                     <FontSize>7pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -2092,6 +2092,7 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -3485,14 +3486,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox15">
+                        <Textbox Name="Unit_of_Measure_Code">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value EvaluationMode="Constant">Fields!UnitofMeasureCode_ItemJournalLine.Value</Value>
+                                  <Value>=Fields!Unit_of_Measure_Code.Value</Value>
                                   <Style>
                                     <FontSize>7pt</FontSize>
                                   </Style>
@@ -3503,7 +3504,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox15</rd:DefaultName>
+                          <rd:DefaultName>Unit_of_Measure_Code</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>None</Style>
