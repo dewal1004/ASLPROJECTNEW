@@ -3037,14 +3037,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Unit_of_Measure_Code">
+                        <Textbox Name="Textbox15">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!Unit_of_Measure_Code.Value</Value>
+                                  <Value EvaluationMode="Constant">Fields!UnitofMeasureCode_ItemJournalLine.Value</Value>
                                   <Style>
                                     <FontSize>7pt</FontSize>
                                   </Style>
@@ -3055,7 +3055,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Unit_of_Measure_Code</rd:DefaultName>
+                          <rd:DefaultName>Textbox15</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>None</Style>
@@ -5856,6 +5856,7 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -9229,6 +9230,15 @@
             <PageBreak>
               <BreakLocation>End</BreakLocation>
             </PageBreak>
+            <Filters>
+              <Filter>
+                <FilterExpression>=Fields!COMPANYNAME.Value</FilterExpression>
+                <Operator>GreaterThan</Operator>
+                <FilterValues>
+                  <FilterValue>=0</FilterValue>
+                </FilterValues>
+              </Filter>
+            </Filters>
             <Top>0.03175cm</Top>
             <Left>1.21708cm</Left>
             <Height>12.13943cm</Height>
