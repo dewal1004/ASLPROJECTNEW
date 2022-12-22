@@ -1232,6 +1232,7 @@ report 50037 PurchaseGRNExt
                             CurrExchRate.FindCurrency("Purchase Header"."Posting Date", "Purchase Header"."Currency Code", 1);
                             CurrExchRate."Relational Exch. Rate Amount" := CurrExchRate."Exchange Rate Amount" / "Purchase Header"."Currency Factor";
                             VALExchRate := StrSubstNo(Text052, CurrExchRate."Relational Exch. Rate Amount", CurrExchRate."Exchange Rate Amount");
+                            S_No := 0;
                         end;
                     }
                     dataitem("Item Charge Assignment (Purch)"; "Item Charge Assignment (Purch)")
