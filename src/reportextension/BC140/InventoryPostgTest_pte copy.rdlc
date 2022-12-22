@@ -414,7 +414,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Ext Txt</Value>
+                                  <Value />
                                   <Style />
                                 </TextRun>
                               </TextRuns>
@@ -1262,7 +1262,6 @@
                           </Style>
                         </Textbox>
                         <ColSpan>2</ColSpan>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell />
@@ -3038,14 +3037,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Unit_of_Measure_Code">
+                        <Textbox Name="Textbox15">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!Unit_of_Measure_Code.Value</Value>
+                                  <Value>=Fields!UnitofMeasureCode_ItemJournalLine.Value</Value>
                                   <Style>
                                     <FontSize>7pt</FontSize>
                                   </Style>
@@ -3056,7 +3055,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Unit_of_Measure_Code</rd:DefaultName>
+                          <rd:DefaultName>Textbox15</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>None</Style>
@@ -5090,7 +5089,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>XXX</Value>
+                                  <Value>=Fields!ExternalDCNO.Value</Value>
                                   <Style>
                                     <FontSize>7pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -9230,6 +9229,15 @@
             <PageBreak>
               <BreakLocation>End</BreakLocation>
             </PageBreak>
+            <Filters>
+              <Filter>
+                <FilterExpression>=Fields!COMPANYNAME.Value</FilterExpression>
+                <Operator>GreaterThan</Operator>
+                <FilterValues>
+                  <FilterValue>=0</FilterValue>
+                </FilterValues>
+              </Filter>
+            </Filters>
             <Top>0.03175cm</Top>
             <Left>1.21708cm</Left>
             <Height>12.13943cm</Height>
@@ -10075,9 +10083,6 @@ End Function
         </Field>
         <Field Name="ExternalDCNO">
           <DataField>ExternalDCNO</DataField>
-        </Field>
-        <Field Name="Reatxt">
-          <DataField>Reatxt</DataField>
         </Field>
       </Fields>
       <Query>

@@ -1,4 +1,5 @@
 .vscode/.alcache/*.*
+.vscode/rad.json
 # .vscode/*.*
 .alpackages/*.*
 .snapshots/*.*
