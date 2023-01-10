@@ -793,7 +793,7 @@ table 50031 "Store Requisition Header New"
         Transheader.Insert(true);
         Transheader.Validate(Transheader."Transfer-from Code", "Transfer From");
         Transheader.Validate(Transheader."Transfer-to Code", "Transfer To.");
-        Transheader."In-Transit Code" := 'Own Log,';
+        Transheader."In-Transit Code" := 'Own Log.';
         Transheader.Validate(Transheader."Posting Date", "Processed Date");
         Transheader.Validate(Transheader."Shipment Date", "Processed Date");
         Transheader.Validate(Transheader."Receipt Date", "Processed Date");
@@ -832,7 +832,11 @@ table 50031 "Store Requisition Header New"
         Modify;
         InveSetup.Get();
         if InveSetup."Auto Post Transfer Req" then
+        begin
+            Transheader.Validate(Transheader."Direct Transfer",true);
+            Transheader.Modify(true);            
             posttrans.Run(Transheader)
+        end
         else
             Message(Text50003, "Req. No");
     end;

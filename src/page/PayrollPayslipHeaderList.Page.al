@@ -4,6 +4,7 @@ page 50068 "Payroll-Payslip Header List"
     SourceTable = "Payroll-Payslip Header.";
     UsageCategory = Lists;
     ApplicationArea= all;
+    CardPageId = "Payslip Header Card.";
 
     layout
     {

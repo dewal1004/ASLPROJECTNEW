@@ -57,7 +57,7 @@ page 50000 "Payroll Menu"
                 action("Employee Groups")
                 {
                     Caption = 'Employee Groups';
-                    RunObject = Page "Employee Group Header.";
+                    RunObject = Page 50101;
                 }
                 action("Posting Groups")
                 {
@@ -88,7 +88,7 @@ page 50000 "Payroll Menu"
             Caption = 'Monthly Payroll';
             Promoted = true;
             PromotedCategory = Process;
-            RunObject = Page "Payslip Header Card.";
+            RunObject = Page "Payslip Header Survey.";
         }
         action("Payroll Process")
         {
@@ -102,7 +102,8 @@ page 50000 "Payroll Menu"
             Caption = 'Monthly Variables';
             Promoted = true;
             PromotedCategory = Process;
-            RunObject = Page "Monthly Variables Header Card.";
+            RunObject = Page "Monthly Var. Header Survey.";
+    
         }
         action("Create G/L Journal")
         {
@@ -116,7 +117,7 @@ page 50000 "Payroll Menu"
             Caption = 'Staff Loans';
             Promoted = true;
             PromotedCategory = Process;
-            RunObject = Page "Loan Card.";
+            RunObject = Page "Loan List";
         }
         action("General Journals")
         {
@@ -168,8 +169,6 @@ page 50000 "Payroll Menu"
 
     trigger OnOpenPage()
     begin
-
-
         if Users.Get(UserId) then begin
             SetupEnable := Users."Periodic Activits/SetUp Access";
         end;
