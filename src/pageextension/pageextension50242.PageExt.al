@@ -205,7 +205,7 @@ pageextension 50242 "pageextension50242" extends "Job Journal"
                 trigger OnAction()
                 begin
                     SetRange("Journal Batch Name","Journal Batch Name");
-                    SetRange("Journal Template Name,");
+                    // SetRange("Journal Template Name,");
                     //***P ReportPrint.PrintJobJnlLinefish(Rec);
                 end;
             }
