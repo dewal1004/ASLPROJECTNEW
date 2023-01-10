@@ -119,7 +119,7 @@ report 50002 "Standard Cost"
         Vatables: Decimal;
         VatThis: array[5] of Decimal;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure BIN()
     begin
     end;

@@ -1278,7 +1278,7 @@ report 50991 "Voyage P&L Ledger LineO"
         LostDay_Control1000000210CaptionLbl: Label 'Lost At Sea';
         PortDay_Control1000000216CaptionLbl: Label 'Port Day';
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure Syntesis(Cd: Code[10]; Pk: Code[10]; Br: Code[10]) Itemno: Code[10]
     begin
         /*
@@ -1290,7 +1290,7 @@ report 50991 "Voyage P&L Ledger LineO"
 
     end;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure BIN()
     begin
 

@@ -535,7 +535,7 @@ table 50006 "Payroll-Payslip Lines."
         if ("Employee No" <> '') then BasicPay := EmployeeRec.GetBasic("Employee No");
     end;
 
-    //[Scope('OnPrem')]
+    ////[Scope('OnPrem')]
     procedure ChkRoundMaxMin(EDRecord: Record "Payroll-E/D Codes."; TheAmount: Decimal): Decimal
     begin
         /*”””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””
@@ -576,7 +576,7 @@ table 50006 "Payroll-Payslip Lines."
 
 
 
-    //[Scope('OnPrem')]
+    ////[Scope('OnPrem')]
     procedure SpecialRelation("FieldNo.": Integer)
     var
         Checkclosed1: Boolean;
@@ -598,7 +598,7 @@ table 50006 "Payroll-Payslip Lines."
 
     end;
 
-    //[Scope('OnPrem')]
+    ////[Scope('OnPrem')]
     procedure CalcAmount(EDFileRec: Record "Payroll-E/D Codes."; EntryLineRec: Record "Payroll-Payslip Lines."; EntryLineAmount: Decimal; EDCode: Code[20]): Decimal
     begin
         /*””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””
@@ -849,7 +849,7 @@ table 50006 "Payroll-Payslip Lines."
 
 // end;
 
-// //[Scope('OnPrem')]
+// ////[Scope('OnPrem')]
 // local var 
 // procedure CheckClosed(): Boolean
 // begin
@@ -861,7 +861,7 @@ table 50006 "Payroll-Payslip Lines."
 
 // end;
 
-// //[Scope('OnPrem')]
+// ////[Scope('OnPrem')]
 // procedure CalcTaxAmt(var LDetailsRec: Record "Payroll-Lookup Lines.";TaxTableInput: Decimal): Decimal
 // begin
 //     /*””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””
@@ -921,7 +921,7 @@ table 50006 "Payroll-Payslip Lines."
 
 //     end;
 
-//     //[Scope('OnPrem')]
+//     ////[Scope('OnPrem')]
 //     procedure CalcGraduated(var WantedLookRec: Record "Payroll-Lookup Lines.";InputToTable: Decimal): Decimal
 //     begin
 //         /*”””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””
@@ -960,7 +960,7 @@ table 50006 "Payroll-Payslip Lines."
 
 //     end;
 
-//     //[Scope('OnPrem')]
+//     ////[Scope('OnPrem')]
 //     procedure CalcCompute(EntryRecParam: Record "Payroll-Payslip Lines.";AmountInLine: Decimal;"CalledFromEdCode?": Boolean;EDCode: Code[20])
 //     begin
 //         /*”””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””
@@ -1067,7 +1067,7 @@ table 50006 "Payroll-Payslip Lines."
 
 //     end;
 
-//     //[Scope('OnPrem')]
+//     ////[Scope('OnPrem')]
 //     procedure CalcFactor1(CurrentEntryLine: Record "Payroll-Payslip Lines.")
 //     begin
 //         /*””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””
@@ -1111,7 +1111,7 @@ table 50006 "Payroll-Payslip Lines."
 
 //     end;
 
-//     //[Scope('OnPrem')]
+//     ////[Scope('OnPrem')]
 //     procedure "CalcFactor1.1"(CurrLineRec: Record "Payroll-Payslip Lines.";LineToChangeRec: Record "Payroll-Payslip Lines.";EDFileRec: Record "Payroll-E/D Codes."): Decimal
 //     begin
 //         /*””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””
@@ -1235,7 +1235,7 @@ table 50006 "Payroll-Payslip Lines."
 
 //     end;
 
-//     //[Scope('OnPrem')]
+//     ////[Scope('OnPrem')]
 //     procedure ChangeAllOver(CurrentRec: Record "Payroll-Payslip Lines.";CurrWasDeleted: Boolean)
 //     begin
 //         /*”””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””
@@ -1289,7 +1289,7 @@ table 50006 "Payroll-Payslip Lines."
 
 //     end;
 
-//     //[Scope('OnPrem')]
+//     ////[Scope('OnPrem')]
 //     procedure ComputeAgain(ParamLine: Record "Payroll-Payslip Lines.";CurrentRec: Record "Payroll-Payslip Lines.";CurrWasDeleted: Boolean)
 //     begin
 //         /*”””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””
@@ -1400,7 +1400,7 @@ table 50006 "Payroll-Payslip Lines."
 
 //     end;
 
-//     //[Scope('OnPrem')]
+//     ////[Scope('OnPrem')]
 //     procedure CalcFactorAgain(ParamLine: Record "Payroll-Payslip Lines.";CurrentRec: Record "Payroll-Payslip Lines.";CurrWasDeleted: Boolean)
 //     begin
 //         /*””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””
@@ -1456,7 +1456,7 @@ table 50006 "Payroll-Payslip Lines."
 
 //     end;
 
-//     //[Scope('OnPrem')]
+//     ////[Scope('OnPrem')]
 //     procedure ResetChangeFlags(CurrentRec: Record "Payroll-Payslip Lines.")
 //     begin
 //         /*””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””
@@ -1488,7 +1488,7 @@ table 50006 "Payroll-Payslip Lines."
 
 //     end;
 
-//     //[Scope('OnPrem')]
+//     ////[Scope('OnPrem')]
 //     procedure AmountIsComputed(var ReturnAmount: Decimal;EntryLineRec: Record "Payroll-Payslip Lines.";EDFileRec: Record "Payroll-E/D Codes.";NewAmount: Decimal;EDCode: Code[20]): Boolean
 //     begin
 //         /*”””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””
@@ -1545,7 +1545,7 @@ table 50006 "Payroll-Payslip Lines."
 
 //     end;
 
-//     //[Scope('OnPrem')]
+//     ////[Scope('OnPrem')]
 //     procedure ChangeDueToDelete(DeletedRec: Record "Payroll-Payslip Lines.")
 //     begin
 //         /*”””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””
@@ -1576,7 +1576,7 @@ table 50006 "Payroll-Payslip Lines."
 
 //     
 
-//     [Scope('Onprem')]
+//     //[Scope('OnPrem')]
 //     procedure EDAmountToDate(EmpNo: Code[10];CurPeriod: Code[10];EDCode: Code[10]): Decimal
 //     var
 //         AmountBack: Decimal;
@@ -1606,7 +1606,7 @@ table 50006 "Payroll-Payslip Lines."
 //         exit(AmountBack);
 //     end;
 
-//     //[Scope('OnPrem')]
+//     ////[Scope('OnPrem')]
 //     local procedure GetParam2()
 //     begin
 //         PaySetup.Reset;
@@ -1617,7 +1617,7 @@ table 50006 "Payroll-Payslip Lines."
 //         if ("Employee No" <>'') then BasicPay := EmployeeRec.GetBasic("Employee No");
 //     end;
 
-//     [Scope('Onprem')]
+//     //[Scope('OnPrem')]
 //     procedure PreTaxCalc(): Decimal
 //     var
 //         Ret1: Decimal;

@@ -101,7 +101,7 @@ table 50049 "Item Points"
         PriceGr: Record "Customer Price Group";
         Item: Record Item;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure Description(): Text[100]
     begin
         if Item.Get("Item No.") then exit(Item.Description);

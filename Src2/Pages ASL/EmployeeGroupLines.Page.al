@@ -64,7 +64,7 @@ page 50016 "Employee Group Lines."
     var
         EDRec: Record "Payroll-E/D Codes.";
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure GetEDName(): Text[30]
     begin
         if EDRec.Get("E/D Code") then exit(EDRec."Payslip Text");

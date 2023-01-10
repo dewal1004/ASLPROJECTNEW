@@ -11,7 +11,7 @@ codeunit 50007 "Export to Excel"
         intArrayLength: Integer;
         txtTestArray: array[255] of Text[250];
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure ExportToExcel(txtExportValue: array[255] of Text[250]; intColumnCount: Integer; intRowNo: Integer; blnBold: Boolean; blnUnderline: Boolean)
     begin
         intArrayLength := intColumnCount;
@@ -25,7 +25,7 @@ codeunit 50007 "Export to Excel"
         end;
     end;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure CreateWorkbook(txtSheetName: Text[250]; txtDescription: Text[250])
     begin
         //recExcelBuffer.CreateBook('Sheet1');
@@ -34,12 +34,12 @@ codeunit 50007 "Export to Excel"
         //recExcelBuffer.UpdateBookStream;
     end;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure "---mcrsw037---"()
     begin
     end;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure OpenWorkbook(txtFileName: Text[250]; txtSheetName: Text[250]; txtDescription: Text[250]; txtSaveFileName: Text[250])
     begin
         // recExcelBuffer.OpenBook(txtFileName, txtSheetName);//***  //Outofscope Other Fns available for Exporrt to Excel

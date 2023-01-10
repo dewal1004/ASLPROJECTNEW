@@ -120,7 +120,7 @@ page 50042 "Employee Training"
         [InDataSet]
         "Vendor nameEnable": Boolean;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure EnableControls()
     begin
         if ("Training Group" = 0) or ("Training Group" = "Training Group"::"In-House") then begin

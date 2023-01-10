@@ -1868,7 +1868,7 @@ report 50111 "Payment Report"
 
     end;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure TestPostingType()
     begin
         /*
@@ -1881,13 +1881,13 @@ report 50111 "Payment Report"
 
     end;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure createsheet()
     begin
         ExcelBuff.CreateBookAndOpenExcel('Sales', 'Hai', CompanyName, UserId, '');
     end;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure header()
     begin
         ExcelBuff.AddColumn('Posting Date', false, '', false, false, false, '', 0);
@@ -1895,7 +1895,7 @@ report 50111 "Payment Report"
         ExcelBuff.AddColumn('Quantity', false, '', false, false, false, '', 0);
     end;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure body()
     begin
         ExcelBuff.NewRow;

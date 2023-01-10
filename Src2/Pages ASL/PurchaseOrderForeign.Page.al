@@ -6,7 +6,7 @@ page 50097 "Purchase Order Foreign"
     RefreshOnActivate = true;
     SourceTable = "Purchase Header";
     UsageCategory = Documents;
-    ApplicationArea = All,Basic,Suites;
+    ApplicationArea = All, Basic, Suites;
     SourceTableView = WHERE("Document Type" = FILTER(Order),
                             "Order Type" = FILTER(Foreign));
 
@@ -1395,7 +1395,7 @@ page 50097 "Purchase Order Foreign"
         OpenApprovalEntriesExist := ApprovalsMgmt.HasOpenApprovalEntries(RecordId);
     end;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure UpdatePurchLinesX(ChangedFieldName: Text[30])
     var
         UpdateConfirmed: Boolean;

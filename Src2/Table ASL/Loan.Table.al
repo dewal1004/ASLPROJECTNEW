@@ -291,7 +291,7 @@ table 50005 "Loan."
         EmGrade: Code[10];
         userrec: Record "User Setup";
 
-    //[Scope('OnPrem')]
+    ////[Scope('OnPrem')]
     procedure InserGlLine()
     begin
         userrec.Get(UserId);
@@ -389,7 +389,7 @@ table 50005 "Loan."
 
     end;
 
-    //[Scope('OnPrem')]
+    ////[Scope('OnPrem')]
     procedure AssistEdit(LRec: Record "Loan."): Boolean
     begin
         with LoanRec do begin
@@ -407,13 +407,13 @@ table 50005 "Loan."
         end;
     end;
 
-    //[Scope('OnPrem')]
+    ////[Scope('OnPrem')]
     procedure LPlusInt(): Decimal
     begin
         exit("Loan Amount" * ("Interest Percent" + 100) / 100);
     end;
 
-    //[Scope('OnPrem')]
+    ////[Scope('OnPrem')]
     procedure ApprovedLoan()
     begin
         if CustRec.Get("Acct. No.") then begin

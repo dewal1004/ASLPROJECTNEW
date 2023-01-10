@@ -781,7 +781,7 @@ report 58151 "Voyage P&L Ledger LineXX"
         Bud___N_CaptionLbl: Label 'Bud. =N=';
         Var___N_CaptionLbl: Label 'Var. =N=';
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure Syntesis(Cd: Code[10]; Pk: Code[10]; Br: Code[10]) Itemno: Code[10]
     begin
         //Syntesis Item Code Name
@@ -790,7 +790,7 @@ report 58151 "Voyage P&L Ledger LineXX"
         "No.B" := ItemVar;
     end;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure BIN()
     begin
     end;

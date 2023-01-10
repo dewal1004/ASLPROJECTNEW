@@ -138,7 +138,7 @@ report 59018 "Group Inventory Valuationx"
         VESSELSCaptionLbl: Label 'VESSELS';
         STORESCaptionLbl: Label 'STORES';
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure GetValue(Loc: Option Store,Vessel): Decimal
     begin
         InvValue := 0;

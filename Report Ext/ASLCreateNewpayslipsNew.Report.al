@@ -8,7 +8,7 @@ report 50054 "ASL Create New payslips - New"
     ProcessingOnly = true;
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
-    
+
     dataset
     {
         dataitem(Employee; Employee)
@@ -65,152 +65,152 @@ report 50054 "ASL Create New payslips - New"
                             PayLinesRec."Payroll Period" := PayHeadRec."Payroll Period";
                             PayLinesRec."Employee No" := PayHeadRec."Employee No";
                         end;
-                                                               repeat /*WHILE (EmpGrpLinesRec."Employee Group" = "Employee Group") */
-                                                                   RecRate := 0;
-                                                                   RecQty := 0;
-                                                                   PayLinesRec.Init;
-                                                                   EDFileRec.Get(EmpGrpLinesRec."E/D Code");
-                                                                   EdfileRec1 := EDFileRec;
+                        repeat /*WHILE (EmpGrpLinesRec."Employee Group" = "Employee Group") */
+                            RecRate := 0;
+                            RecQty := 0;
+                            PayLinesRec.Init;
+                            EDFileRec.Get(EmpGrpLinesRec."E/D Code");
+                            EdfileRec1 := EDFileRec;
 
-                                                                   /******  Begins Overtime & Other VAriables Calculation SGG  **********/
-                                                                   PaySetup.Reset;
-                                                                   PaySetup.Find('-');
-                                                                   TaxFreeED := PaySetup."Taxfree Pay ED";
-                                                                   if TaxFreeED <> '' then
-                                                                       SendLines(TaxFreeED, Employee."Annual Tax Freepay" / 12, 0, 0);
-                                                                   MonthlyDays := PaySetup."Monthly Working Days";
-                                                                   HrsInDay := PaySetup."Daily Working Hours";
+                            /******  Begins Overtime & Other VAriables Calculation SGG  **********/
+                            PaySetup.Reset;
+                            PaySetup.Find('-');
+                            TaxFreeED := PaySetup."Taxfree Pay ED";
+                            if TaxFreeED <> '' then
+                                SendLines(TaxFreeED, Employee."Annual Tax Freepay" / 12, 0, 0);
+                            MonthlyDays := PaySetup."Monthly Working Days";
+                            HrsInDay := PaySetup."Daily Working Hours";
 
-                                                                   /*
-                                                                    EdRec.RESET;
-                                                                    EdRec.SETRANGE(EdRec."Monthly Variable",TRUE);
-                                                                    IF EdRec.FIND('-') THEN
-                                                                    REPEAT
-                                                                      SendLines(EdRec."E/D Code",0,0,0);
-                                                                    UNTIL(EdRec.NEXT=0);
-                                                                   */
+                            /*
+                             EdRec.RESET;
+                             EdRec.SETRANGE(EdRec."Monthly Variable",TRUE);
+                             IF EdRec.FIND('-') THEN
+                             REPEAT
+                               SendLines(EdRec."E/D Code",0,0,0);
+                             UNTIL(EdRec.NEXT=0);
+                            */
 
-                                                                   VarRec.Reset;
-                                                                   VarRec.SetRange(VarRec."Payroll Period", PayLinesRec."Payroll Period");
-                                                                   VarRec.SetRange(VarRec."Employee No", PayLinesRec."Employee No");
-                                                                   if VarRec.Find('-') then
-                                                                       repeat
-                                                                               SendLines(VarRec."E/D Code", VarRec.Amount, VarRec.Quantity, VarRec.Rate);
-                                                                       until (VarRec.Next = 0);
+                            VarRec.Reset;
+                            VarRec.SetRange(VarRec."Payroll Period", PayLinesRec."Payroll Period");
+                            VarRec.SetRange(VarRec."Employee No", PayLinesRec."Employee No");
+                            if VarRec.Find('-') then
+                                repeat
+                                    SendLines(VarRec."E/D Code", VarRec.Amount, VarRec.Quantity, VarRec.Rate);
+                                until (VarRec.Next = 0);
 
-                                                                   /******  Overtime & Other VAriables Calculation Ends SGG  **********/
-                                                                   /*AAA Nov 2002*/
-                                                                   EDFileRec.Reset;
-                                                                   EDFileRec.SetRange(EDFileRec."Payslip Print Column", EDFileRec."Payslip Print Column"::"Total Earning");
-                                                                   if EDFileRec.Find('-') then
-                                                                       TaxableED := EDFileRec."E/D Code";
+                            /******  Overtime & Other VAriables Calculation Ends SGG  **********/
+                            /*AAA Nov 2002*/
+                            EDFileRec.Reset;
+                            EDFileRec.SetRange(EDFileRec."Payslip Print Column", EDFileRec."Payslip Print Column"::"Total Earning");
+                            if EDFileRec.Find('-') then
+                                TaxableED := EDFileRec."E/D Code";
 
-                                                                   EDFileRec.Reset;
-                                                                   EDFileRec.SetRange(EDFileRec."Payslip Group ID", EDFileRec."Payslip Group ID"::"TAX DEDUCTED");
-                                                                   if EDFileRec.Find('-') then TaxED := EDFileRec."E/D Code";
+                            EDFileRec.Reset;
+                            EDFileRec.SetRange(EDFileRec."Payslip Group ID", EDFileRec."Payslip Group ID"::"TAX DEDUCTED");
+                            if EDFileRec.Find('-') then TaxED := EDFileRec."E/D Code";
 
-                                                                   //SendLines(TaxFreeED,0,0,0);
-                                                                   //SendLines(TaxED,0,0,0);
-                                                                   //SendLines(TaxFreeED,Employee."Annual Tax Freepay"/12,0,0);
+                            //SendLines(TaxFreeED,0,0,0);
+                            //SendLines(TaxED,0,0,0);
+                            //SendLines(TaxFreeED,Employee."Annual Tax Freepay"/12,0,0);
 
-                                                                   PaySetup.Reset;
-                                                                   PaySetup.Find('-');
-                                                                   /*AAA Nov 2002*/
+                            PaySetup.Reset;
+                            PaySetup.Find('-');
+                            /*AAA Nov 2002*/
 
-                                                                   PayLinesRec."E/D Code" := EmpGrpLinesRec."E/D Code";
+                            PayLinesRec."E/D Code" := EmpGrpLinesRec."E/D Code";
 
-                                                               begin
-                                                                   PayLinesRec."Payslip Group ID" := EDFileRec."Payslip Group ID";
-                                                                   PayLinesRec."Pos. In Payslip Grp." := EDFileRec."Pos. In Payslip Grp.";
-                                                                   PayLinesRec."Payslip appearance" := EDFileRec."Payslip appearance";
-                                                                   PayLinesRec.Units := EDFileRec.Units;
-                                                                   PayLinesRec.Rate := EDFileRec.Rate;
-                                                                   PayLinesRec."Overline Column" := EDFileRec."Overline Column";
-                                                                   PayLinesRec."Payslip Print Column" := EDFileRec."Payslip Print Column";
-                                                                   PayLinesRec."Underline Amount" := EDFileRec."Underline Amount";
-                                                               end;        /* Payslip Grp/Pos */
-                                                               begin
-                                                                   PayLinesRec."E/D Code" := EmpGrpLinesRec."E/D Code";
-                                                                   PayLinesRec.Units := EmpGrpLinesRec.Units;
-                                                                   PayLinesRec.Rate := EmpGrpLinesRec.Rate;
-                                                                   PayLinesRec.Quantity := EmpGrpLinesRec.Quantity;
-                                                                   PayLinesRec.Flag := EmpGrpLinesRec.Flag;
-                                                                   PayLinesRec.Amount := EmpGrpLinesRec."Default Amount";
-                                                                   PayLinesRec."Postg Group" := PG;
-                                                               end;   /* Rate,Units,Amount,... */
+                            begin
+                                PayLinesRec."Payslip Group ID" := EDFileRec."Payslip Group ID";
+                                PayLinesRec."Pos. In Payslip Grp." := EDFileRec."Pos. In Payslip Grp.";
+                                PayLinesRec."Payslip appearance" := EDFileRec."Payslip appearance";
+                                PayLinesRec.Units := EDFileRec.Units;
+                                PayLinesRec.Rate := EDFileRec.Rate;
+                                PayLinesRec."Overline Column" := EDFileRec."Overline Column";
+                                PayLinesRec."Payslip Print Column" := EDFileRec."Payslip Print Column";
+                                PayLinesRec."Underline Amount" := EDFileRec."Underline Amount";
+                            end;        /* Payslip Grp/Pos */
+                            begin
+                                PayLinesRec."E/D Code" := EmpGrpLinesRec."E/D Code";
+                                PayLinesRec.Units := EmpGrpLinesRec.Units;
+                                PayLinesRec.Rate := EmpGrpLinesRec.Rate;
+                                PayLinesRec.Quantity := EmpGrpLinesRec.Quantity;
+                                PayLinesRec.Flag := EmpGrpLinesRec.Flag;
+                                PayLinesRec.Amount := EmpGrpLinesRec."Default Amount";
+                                PayLinesRec."Postg Group" := PG;
+                            end;   /* Rate,Units,Amount,... */
 
-                                                                   if BookGrLinesRec.Get("Posting Group", PayLinesRec."E/D Code")
-                                                                   then begin
-                                                                       begin
-                                                                           PayLinesRec."Debit Account" := BookGrLinesRec."Debit Account No.";
-                                                                           PayLinesRec."Credit Account" := BookGrLinesRec."Credit Account No.";
-                                                                           PayLinesRec."Debit Acc. Type" := BookGrLinesRec."Debit Acc. Type";
-                                                                           PayLinesRec."Credit Acc. Type" := BookGrLinesRec."Credit Acc. Type";
-                                                                           PayLinesRec."Global Dimension 1 Code" := "Global Dimension 1 Code";
-                                                                           PayLinesRec."Global Dimension 2 Code" := "Global Dimension 2 Code";
-                                                                       end; /* Debit/Credit accounts*/
-                                                                            //AAA
-                                                                            /*No Dept/Proj from Booking Gr.
+                            if BookGrLinesRec.Get("Posting Group", PayLinesRec."E/D Code")
+                            then begin
+                                begin
+                                    PayLinesRec."Debit Account" := BookGrLinesRec."Debit Account No.";
+                                    PayLinesRec."Credit Account" := BookGrLinesRec."Credit Account No.";
+                                    PayLinesRec."Debit Acc. Type" := BookGrLinesRec."Debit Acc. Type";
+                                    PayLinesRec."Credit Acc. Type" := BookGrLinesRec."Credit Acc. Type";
+                                    PayLinesRec."Global Dimension 1 Code" := "Global Dimension 1 Code";
+                                    PayLinesRec."Global Dimension 2 Code" := "Global Dimension 2 Code";
+                                end; /* Debit/Credit accounts*/
+                                     //AAA
+                                     /*No Dept/Proj from Booking Gr.
 
-                                                                             IF NOT BookGrLinesRec."Transfer Department" THEN
-                                                                               PayLinesRec."Department Code" := ''
-                                                                             ELSE
-                                                                             IF PayLinesRec."Department Code" = '' THEN
-                                                                               PayLinesRec."Department Code" := Department;
+                                      IF NOT BookGrLinesRec."Transfer Department" THEN
+                                        PayLinesRec."Department Code" := ''
+                                      ELSE
+                                      IF PayLinesRec."Department Code" = '' THEN
+                                        PayLinesRec."Department Code" := Department;
 
-                                                                             IF NOT BookGrLinesRec."Transfer Project" THEN
-                                                                               PayLinesRec."Project Code" := ''
-                                                                             ELSE
-                                                                             IF PayLinesRec."Project Code" = '' THEN
-                                                                               PayLinesRec."Project Code" := Project;
+                                      IF NOT BookGrLinesRec."Transfer Project" THEN
+                                        PayLinesRec."Project Code" := ''
+                                      ELSE
+                                      IF PayLinesRec."Project Code" = '' THEN
+                                        PayLinesRec."Project Code" := Project;
 
-                                                                             IF BookGrLinesRec."Debit Acc. Type" = 1 THEN
-                                                                               IF "Customer Number" <> '' THEN
-                                                                                 PayLinesRec."Debit Account" := "Customer Number" ;
+                                      IF BookGrLinesRec."Debit Acc. Type" = 1 THEN
+                                        IF "Customer Number" <> '' THEN
+                                          PayLinesRec."Debit Account" := "Customer Number" ;
 
-                                                                             IF BookGrLinesRec."Credit Acc. Type" = 1 THEN
-                                                                               IF "Customer Number" <> '' THEN
-                                                                                 PayLinesRec."Credit Account" := "Customer Number" ;
-                                                                              */
-                                                                       if BookGrLinesRec."Transfer Department" then
-                                                                           PayLinesRec."Global Dimension 1 Code" := "Global Dimension 1 Code";
-                                                                       if BookGrLinesRec."Transfer Business Units" then
-                                                                           PayLinesRec."Global Dimension 2 Code" := "Global Dimension 2 Code";
+                                      IF BookGrLinesRec."Credit Acc. Type" = 1 THEN
+                                        IF "Customer Number" <> '' THEN
+                                          PayLinesRec."Credit Account" := "Customer Number" ;
+                                       */
+                                if BookGrLinesRec."Transfer Department" then
+                                    PayLinesRec."Global Dimension 1 Code" := "Global Dimension 1 Code";
+                                if BookGrLinesRec."Transfer Business Units" then
+                                    PayLinesRec."Global Dimension 2 Code" := "Global Dimension 2 Code";
 
-                                                                       //AAA - Found Here Taxable ref allowed values to be inseted for taxable insertion and calculation
-                                                                       if (EmpGrpLinesRec."Default Amount" <> 0) or (EDFileRec."Monthly Variable") or (EdfileRec1."Taxable Ref") then begin
-                                                                           if not EDFileRec."OverTime(Y/N)" then
-                                                                               PayLinesRec.Validate(PayLinesRec."E/D Code");
-                                                                           /*BIN 1 & 2*/
-                                                                           //inserted To Calculate Prorated Payment begin Based on Employment Date
-                                                                           GetPayDays;
+                                //AAA - Found Here Taxable ref allowed values to be inseted for taxable insertion and calculation
+                                if (EmpGrpLinesRec."Default Amount" <> 0) or (EDFileRec."Monthly Variable") or (EdfileRec1."Taxable Ref") then begin
+                                    if not EDFileRec."OverTime(Y/N)" then
+                                        PayLinesRec.Validate(PayLinesRec."E/D Code");
+                                    /*BIN 1 & 2*/
+                                    //inserted To Calculate Prorated Payment begin Based on Employment Date
+                                    GetPayDays;
 
-                                                                           if (Employee."No of Days") <> 0 then PayDays := Employee."No of Days";
+                                    if (Employee."No of Days") <> 0 then PayDays := Employee."No of Days";
 
-                                                                           if (PayDays <> 0) and (EDFileRec.Prorate) then begin
-                                                                               if PayDays > MonthlyDays then begin
-                                                                                   if (Date2DMY(Employee."Employment Date", 2) + 1) = Date2DMY(PayPeriodRec."Start Date", 2) then
-                                                                                       "day Employeed" := DMY2Date(1, (Date2DMY(PayPeriodRec."Start Date", 2))) - Employee."Employment Date";
+                                    if (PayDays <> 0) and (EDFileRec.Prorate) then begin
+                                        if PayDays > MonthlyDays then begin
+                                            if (Date2DMY(Employee."Employment Date", 2) + 1) = Date2DMY(PayPeriodRec."Start Date", 2) then
+                                                "day Employeed" := DMY2Date(1, (Date2DMY(PayPeriodRec."Start Date", 2))) - Employee."Employment Date";
 
-                                                                                   if PayDays > (MonthlyDays + "day Employeed") then
-                                                                                       if not Confirm(
-                                                                          'Excess of Payment Days Specified for staff is More Than Carried Forward day(s)\\ Continue Calculation')
-                                                                                         then
-                                                                                           CurrReport.Skip;
-                                                                               end;
-                                                                               // and (EDFileRec."Control Type" = EDFileRec."Control Type"::Basic)
-                                                                               if not (EDFileRec."Absent Deduction") then
-                                                                                   PayLinesRec.Amount := Round(PayDays / MonthlyDays * PayLinesRec.Amount);
-                                                                           end;
-                                                                           if PayLinesRec.Insert(true) then
-                                                                               INSTD := true
-                                                                           else
-                                                                               PayLinesRec.Modify;
-                                                                       end;
-                                                                   end;
-                                                                   if PayLinesRec."E/D Code" = PaySetup."Basic+Hous+Transp" then
-                                                                       TotalBasHosTrans := PayLinesRec.Amount;
-                                                               until (EmpGrpLinesRec.Next = 0);
+                                            if PayDays > (MonthlyDays + "day Employeed") then
+                                                if not Confirm(
+                                   'Excess of Payment Days Specified for staff is More Than Carried Forward day(s)\\ Continue Calculation')
+                                                  then
+                                                    CurrReport.Skip;
+                                        end;
+                                        // and (EDFileRec."Control Type" = EDFileRec."Control Type"::Basic)
+                                        if not (EDFileRec."Absent Deduction") then
+                                            PayLinesRec.Amount := Round(PayDays / MonthlyDays * PayLinesRec.Amount);
+                                    end;
+                                    if PayLinesRec.Insert(true) then
+                                        INSTD := true
+                                    else
+                                        PayLinesRec.Modify;
+                                end;
+                            end;
+                            if PayLinesRec."E/D Code" = PaySetup."Basic+Hous+Transp" then
+                                TotalBasHosTrans := PayLinesRec.Amount;
+                        until (EmpGrpLinesRec.Next = 0);
                         Employee."No of Days" := 0;
                         Employee.Modify;
                     end;
@@ -227,7 +227,7 @@ report 50054 "ASL Create New payslips - New"
                     LoanRec.SetRange("Suspended(Y/N)", false);
                     if LoanRec.Find('-') then
                         repeat
-                                LoanRec.CalcFields(LoanRec."Remaining Amount");
+                            LoanRec.CalcFields(LoanRec."Remaining Amount");
                             if LoanRec."Remaining Amount" > 0 then begin
 
                                 PayLinesRec.Init;
@@ -398,7 +398,7 @@ report 50054 "ASL Create New payslips - New"
         ServiceYear: Decimal;
         TotalBasHosTrans: Decimal;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure partsalary(nodays: Integer; emplomonth: Integer) prodays: Integer
     begin
         if emplomonth = PayMonth then begin
@@ -410,7 +410,7 @@ report 50054 "ASL Create New payslips - New"
         end;
     end;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure SendLines(EDToSend: Code[10]; EDAmount: Decimal; EDQty: Decimal; EDRate: Decimal)
     begin
         /*Use The Following Lines to send to Payslip Lines*/
@@ -486,7 +486,7 @@ report 50054 "ASL Create New payslips - New"
 
     end;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure GetPayDays(): Integer
     begin
         PayPeriodRec.Get(PayHeadRec."Payroll Period");
@@ -516,7 +516,7 @@ report 50054 "ASL Create New payslips - New"
         //error(FORMAT(PayDays));
     end;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure BIN()
     begin
 
@@ -554,7 +554,7 @@ report 50054 "ASL Create New payslips - New"
 
     end;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure Seniority()
     begin
         //Set PayLines."Payslip Column" to 3

@@ -39,7 +39,7 @@ page 60089 "Lost Days (Vessel)X"
     begin
     end;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure UpdateMatrix()
     begin
     end;

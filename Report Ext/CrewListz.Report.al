@@ -224,7 +224,7 @@ report 60081 "Crew List z"
         countzCaptionLbl: Label 'S/N';
         SkipperCaption_Control1000000007Lbl: Label 'Skipper';
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure BIN()
     begin
         CurrReport.ShowOutput(CrewList);

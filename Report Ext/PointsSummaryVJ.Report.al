@@ -3,7 +3,7 @@ report 50005 "Points Summary VJ"
     DefaultLayout = RDLC;
     RDLCLayout = './ReportRdlc/PointsSummaryVJ.rdlc';
     UsageCategory = ReportsAndAnalysis;
-    ApplicationArea = All,Basic,Suite;
+    ApplicationArea = All, Basic, Suite;
 
     dataset
     {
@@ -344,7 +344,7 @@ report 50005 "Points Summary VJ"
         PreJob: Code[20];
         Date: Integer;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure UpdateCell(Row: Integer; Col: Integer; ValueText: Text[200]; Bold: Boolean; Italic: Boolean; Underline: Boolean; FontSize: Integer)
     begin
         // //**R  xlSheet.Range(GetCol(Col) + Format(Row)).Value := ValueText;
@@ -358,7 +358,7 @@ report 50005 "Points Summary VJ"
 
     end;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure GetCol(CN: Integer): Text[30]
     var
         xlColID: Text[10];

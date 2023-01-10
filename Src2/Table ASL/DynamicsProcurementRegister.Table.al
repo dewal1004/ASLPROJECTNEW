@@ -413,7 +413,7 @@ table 50052 "Dynamics Procurement Register"
         StocS: Text;
         Text0001: Label 'Purchase Order No. ''%1'' has been Created for %2 ';
 
-    //[Scope('OnPrem')]
+    ////[Scope('OnPrem')]
     procedure CreatePurchInv()
     var
         Purchheader: Record "Purchase Header";
@@ -482,7 +482,7 @@ table 50052 "Dynamics Procurement Register"
         end;
     end;
 
-    //[Scope('OnPrem')]
+    ////[Scope('OnPrem')]
     procedure UpdatePurReq()
     var
         Purcreq: Record "Purchase Requisition1";

@@ -4,7 +4,7 @@ report 50151 "Voyage P&L Ledger Line"
     RDLCLayout = './ReportRdlc/VoyagePLLedgerLine.rdlc';
     Permissions = TableData "Job Ledger Entry" = rimd;
     UsageCategory = ReportsAndAnalysis;
-    ApplicationArea = All,Basic,Suite;
+    ApplicationArea = All, Basic, Suite;
 
     dataset
     {
@@ -591,7 +591,7 @@ report 50151 "Voyage P&L Ledger Line"
         EmptyStringCaption_Control1000000210Lbl: Label '$';
         QuantityCaption_Control1000000211Lbl: Label 'Quantity';
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure Syntesis2(Cd: Code[10]; Pk: Code[10]; Br: Code[10]) Itemno: Code[10]
     begin
         //Syntesis Item Code Name
@@ -600,7 +600,7 @@ report 50151 "Voyage P&L Ledger Line"
         "No.B" := ItemVar;
     end;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure GetItPrice(JNos: Code[20]; Nos: Code[20]; PDays: Date): Decimal
     var
         job3: Record Job;

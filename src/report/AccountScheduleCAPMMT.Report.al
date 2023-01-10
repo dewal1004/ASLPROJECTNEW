@@ -558,7 +558,7 @@ report 50124 "Account Schedule CAP MMT"
         ColumnLayoutNameCaptionLbl: Label 'Column Layout';
         AnalysisView__Dimension_1_Code_CaptionLbl: Label 'Dimension Code';
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure InitAccSched()
     begin
         StDat := Format(CalcDate('CM-2M+1D'));
@@ -605,13 +605,13 @@ report 50124 "Account Schedule CAP MMT"
         end;
     end;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure SetColumnLayoutName(ColLayoutName: Code[10])
     begin
         ColumnLayoutNameHidden := ColLayoutName;
     end;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure CalcColumns(): Boolean
     var
         NonZero: Boolean;
@@ -642,7 +642,7 @@ report 50124 "Account Schedule CAP MMT"
         exit(NonZero);
     end;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure ShowLine(Bold: Boolean; Italic: Boolean): Boolean
     var
         NonZero: Boolean;

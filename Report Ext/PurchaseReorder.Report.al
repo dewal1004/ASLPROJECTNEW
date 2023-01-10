@@ -162,7 +162,7 @@ report 50038 "Purchase Re-order"
         CurrReport_PAGENOCaptionLbl: Label 'Page';
         Expected_Arrival_DateCaptionLbl: Label 'Expected Arrival Date';
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure SetReqWkshLine(NewReqWkshLine: Record "Requisition Line")
     begin
         //ReqLine := NewReqWkshLine;  ///AAA

@@ -47,7 +47,7 @@ page 50111 "Daily B/Up by Loc/Ves PGrp cat"
     begin
     end;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure UpdateMatrix()
     begin
     end;

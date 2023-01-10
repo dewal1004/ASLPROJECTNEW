@@ -6,7 +6,7 @@ page 50096 "Purchase Order Subform Local"
     MultipleNewLines = true;
     PageType = Card;
     SourceTable = "Purchase Line";
-    SourceTableView = WHERE ("Document Type" = FILTER (Order));
+    SourceTableView = WHERE("Document Type" = FILTER(Order));
 
     layout
     {
@@ -506,31 +506,31 @@ page 50096 "Purchase Order Subform Local"
         [InDataSet]
         BrandVisible: Boolean;
 
-[Scope('Onprem')]
+    //[Scope('OnPrem')]
     procedure ApproveCalcInvDisc()
     begin
         CODEUNIT.Run(CODEUNIT::"Purch.-Disc. (Yes/No)", Rec);
     end;
 
-[Scope('Onprem')]
+    //[Scope('OnPrem')]
     procedure CalcInvDisc()
     begin
         CODEUNIT.Run(CODEUNIT::"Purch.-Calc.Discount", Rec);
     end;
 
-[Scope('Onprem')]
+    //[Scope('OnPrem')]
     procedure ExplodeBOM()
     begin
         CODEUNIT.Run(CODEUNIT::"Purch.-Explode BOM", Rec);
     end;
 
-[Scope('Onprem')]
+    //[Scope('OnPrem')]
     procedure GetPhaseTaskStep()
     begin
-      //***  CODEUNIT.Run(CODEUNIT::Codeunit75, Rec);
+        //***  CODEUNIT.Run(CODEUNIT::Codeunit75, Rec);
     end;
 
-[Scope('Onprem')]
+    //[Scope('OnPrem')]
     procedure OpenSalesOrderForm()
     var
         SalesHeader: Record "Sales Header";
@@ -542,7 +542,7 @@ page 50096 "Purchase Order Subform Local"
         SalesOrder.Run;
     end;
 
-[Scope('Onprem')]
+    //[Scope('OnPrem')]
     procedure InsertExtendedText(Unconditionally: Boolean)
     begin
         if TransferExtendedText.PurchCheckIfAnyExtText(Rec, Unconditionally) then begin
@@ -553,26 +553,26 @@ page 50096 "Purchase Order Subform Local"
             UpdateForm(true);
     end;
 
-[Scope('Onprem')]
+    //[Scope('OnPrem')]
     procedure ShowReservation()
     begin
         Find;
         Rec.ShowReservation;
     end;
 
-[Scope('Onprem')]
+    //[Scope('OnPrem')]
     procedure ItemAvailability(AvailabilityType: Option Date,Variant,Location,Bin)
     begin
         //Rec.ItemAvailability(AvailabilityType);
     end;
 
-[Scope('Onprem')]
+    //[Scope('OnPrem')]
     procedure ShowReservationEntries()
     begin
         Rec.ShowReservationEntries(true);
     end;
 
-[Scope('Onprem')]
+    //[Scope('OnPrem')]
     procedure ShowTracking()
     var
         Trackingpage: Page "Order Tracking";
@@ -581,25 +581,25 @@ page 50096 "Purchase Order Subform Local"
         Trackingpage.RunModal;
     end;
 
-[Scope('Onprem')]
+    //[Scope('OnPrem')]
     procedure ShowDimensions()
     begin
         Rec.ShowDimensions;
     end;
 
-[Scope('Onprem')]
+    //[Scope('OnPrem')]
     procedure ItemChargeAssgnt()
     begin
         Rec.ShowItemChargeAssgnt;
     end;
 
-[Scope('Onprem')]
+    //[Scope('OnPrem')]
     procedure OpenItemTrackingLines()
     begin
         Rec.OpenItemTrackingLines;
     end;
 
-[Scope('Onprem')]
+    //[Scope('OnPrem')]
     procedure OpenSpecOrderSalesOrderForm()
     var
         SalesHeader: Record "Sales Header";
@@ -611,14 +611,14 @@ page 50096 "Purchase Order Subform Local"
         SalesOrder.Run;
     end;
 
-[Scope('Onprem')]
+    //[Scope('OnPrem')]
     procedure UpdateForm(SetSaveRecord: Boolean)
     begin
         CurrPage.Update(SetSaveRecord);
         UpdateEnabled();
     end;
 
-[Scope('Onprem')]
+    //[Scope('OnPrem')]
     procedure UpdateEnabled()
     begin
         /*IF PurchHeader.GET("Document Type","Document No.") THEN;
@@ -684,7 +684,7 @@ page 50096 "Purchase Order Subform Local"
 
     end;
 
-[Scope('Onprem')]
+    //[Scope('OnPrem')]
     procedure UpdateUsageForm()
     begin
         if PurchHeader.Get("Document Type", "Document No.") then

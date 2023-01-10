@@ -94,7 +94,7 @@ report 90998 "Item Comp List Gen"
         ItemCaptionLbl: Label 'Item';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure ValidateItemUOM(Itemsno: Code[10])
     begin
         ItemUOM.Init;

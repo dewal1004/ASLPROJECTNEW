@@ -138,7 +138,7 @@ table 50011 "Payroll-Posting Group Header."
         BookGrpLinesRec: Record "Payroll-Posting Group Line.";
         CursorPos: Integer;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure SetupNewPGrp(OldEmpPGrp: Record "Payroll-Posting Group Header."; BelowOldEmpPGrp: Boolean)
     var
         OldEmpPGrp2: Record "Payroll-Posting Group Header.";

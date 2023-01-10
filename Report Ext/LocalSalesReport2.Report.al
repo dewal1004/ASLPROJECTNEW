@@ -4,7 +4,7 @@ report 50018 "Local Sales Report 2"
     RDLCLayout = './ReportRdlc/LocalSalesReport2.rdlc';
     Caption = 'Local Sales Report 2';
     UsageCategory = ReportsAndAnalysis;
-    ApplicationArea = All,Basic,Suite;
+    ApplicationArea = All, Basic, Suite;
 
     dataset
     {
@@ -336,7 +336,7 @@ report 50018 "Local Sales Report 2"
         ClsStk: Decimal;
         DatFilt: Date;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure InitializeRequest(NewShowSorting: Option; NewShowType: Option; NewNoOfRecordsToPrint: Integer; NewPrintAlsoIfZero: Boolean)
     begin
         ShowSorting := NewShowSorting;

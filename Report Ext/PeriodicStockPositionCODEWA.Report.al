@@ -3,7 +3,7 @@ report 50022 "Periodic Stock Position-CODEWA"
     DefaultLayout = RDLC;
     RDLCLayout = './ReportRdlc/PeriodicStockPositionCODEWA.rdlc';
     UsageCategory = ReportsAndAnalysis;
-    ApplicationArea = All,Basic,Suite;
+    ApplicationArea = All, Basic, Suite;
 
     dataset
     {
@@ -419,7 +419,7 @@ report 50022 "Periodic Stock Position-CODEWA"
         TSL: Record "Transfer Shipment Line";
         Stk_9__CaptionLbl: Label 'Transfer Receipt';
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure UpdateCell(Row: Integer; Col: Integer; ValueText: Text[200]; Bold: Boolean; Italic: Boolean; Underline: Boolean; FontSize: Integer)
     begin
         /*xlSheet.Range(GetCol(Col)+FORMAT(Row)).Value := ValueText;
@@ -433,7 +433,7 @@ report 50022 "Periodic Stock Position-CODEWA"
 
     end;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure GetCol(CN: Integer): Text[30]
     var
         xlColID: Text[10];

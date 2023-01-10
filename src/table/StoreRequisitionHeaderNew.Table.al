@@ -136,8 +136,8 @@ table 50031 "Store Requisition Header New"
         field(14; "Final Approval to"; Code[50])
         {
             Caption = 'Final Approval to';
-            TableRelation = if ("Fish Store Requisition" = Const(true)) "User Setup"."User ID" WHERE ("Fish Stk Req F.Approval" = Const(True)) 
-            else 
+            TableRelation = if ("Fish Store Requisition" = Const(true)) "User Setup"."User ID" WHERE("Fish Stk Req F.Approval" = Const(True))
+            else
             if ("Fish Store Requisition" = const(false)) "User Setup"."User ID" WHERE("Store Req Final Approval" = CONST(true));
 
             trigger OnValidate()
@@ -464,7 +464,7 @@ table 50031 "Store Requisition Header New"
         {
         }
         field(55; "Fish Store Requisition"; Boolean)
-        {            
+        {
         }
     }
 
@@ -549,7 +549,7 @@ table 50031 "Store Requisition Header New"
         selection: Integer;
         Text50007: Label '&Add to Purchase Requisition Register,&Create Purchase Order';
 
-    // [Scope('OnPrem')]
+    // //[Scope('OnPrem')]
     procedure AssistEdit(OldRequisition: Record "Store Requisition Header New"): Boolean
     var
         ReqRec: Record "Store Requisition Header New";
@@ -566,7 +566,7 @@ table 50031 "Store Requisition Header New"
         end;
     end;
 
-    // [Scope('OnPrem')]
+    // //[Scope('OnPrem')]
     procedure CreatesalesInv()
     var
         Salesheader: Record "Sales Header";
@@ -633,7 +633,7 @@ table 50031 "Store Requisition Header New"
         Message(Text50004, DocNo);
     end;
 
-    // [Scope('OnPrem')]
+    // //[Scope('OnPrem')]
     procedure CreateAdjSmt()
     var
         ItemJnl: Record "Item Journal Line";
@@ -701,7 +701,7 @@ table 50031 "Store Requisition Header New"
         Message(Text50005, "Journal Batch");
     end;
 
-    // [Scope('OnPrem')]
+    // //[Scope('OnPrem')]
     procedure CreateJobJnl()
     var
         JobJnl: Record "Job Journal Line";
@@ -769,7 +769,7 @@ table 50031 "Store Requisition Header New"
 
     end;
 
-    // // [Scope('OnPrem')]
+    // // //[Scope('OnPrem')]
     procedure TransferOrder()
     var
         Transheader: Record "Transfer Header";
@@ -831,17 +831,16 @@ table 50031 "Store Requisition Header New"
             "Processed By" := UserRec."Full Name";
         Modify;
         InveSetup.Get();
-        if InveSetup."Auto Post Transfer Req" then
-        begin
-            Transheader.Validate(Transheader."Direct Transfer",true);
-            Transheader.Modify(true);            
+        if InveSetup."Auto Post Transfer Req" then begin
+            Transheader.Validate(Transheader."Direct Transfer", true);
+            Transheader.Modify(true);
             posttrans.Run(Transheader)
         end
         else
             Message(Text50003, "Req. No");
     end;
 
-    // [Scope('OnPrem')]
+    // //[Scope('OnPrem')]
     procedure CreatePurchInv()
     var
         Purchheader: Record "Purchase Header";
@@ -915,7 +914,7 @@ table 50031 "Store Requisition Header New"
         Modify;
     end;
 
-    // [Scope('OnPrem')]
+    // //[Scope('OnPrem')]
     procedure CheckReplacement()
     var
         NicsArt: Record "Misc. Article Information";
@@ -946,7 +945,7 @@ table 50031 "Store Requisition Header New"
             until StoreLine.Next = 0;
     end;
 
-    // [Scope('OnPrem')]
+    // //[Scope('OnPrem')]
     procedure LoadTemplate()
     var
         Transline: Record "Transfer Line";
@@ -974,7 +973,7 @@ table 50031 "Store Requisition Header New"
             Error('Specify the Requisition Template to Copy');
     end;
 
-    // [Scope('OnPrem')]
+    // //[Scope('OnPrem')]
     procedure GenerateStoreOrder()
     begin
     end;

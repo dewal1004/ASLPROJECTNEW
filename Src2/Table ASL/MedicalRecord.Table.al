@@ -248,7 +248,7 @@ table 50029 "Medical Record"
         TText: Text[50];
         YTD: Text[30];
 
-    // [Scope('OnPrem')]
+    // //[Scope('OnPrem')]
     procedure "Per Hospital Cost"(HospNo: Code[10]; PerStr: Text[30]): Decimal
     begin
         MedRec.SetFilter(MedRec."Transaction  Filter", Format(MedRec."Transaction  Filter"::H));
@@ -258,7 +258,7 @@ table 50029 "Medical Record"
         exit(MedRec."Treatment Cost");
     end;
 
-    //[Scope('OnPrem')]
+    ////[Scope('OnPrem')]
     procedure "Per No Treated"(HospNo: Code[10]; PerStr: Text[30]): Decimal
     begin
         MedRec.SetFilter(MedRec."Transaction  Filter", Format(MedRec."Transaction  Filter"::H));
@@ -268,7 +268,7 @@ table 50029 "Medical Record"
         exit(MedRec."No Treated");
     end;
 
-    //[Scope('OnPrem')]
+    ////[Scope('OnPrem')]
     procedure FullName(): Text[100]
     begin
         //Univision Start 20/01/03

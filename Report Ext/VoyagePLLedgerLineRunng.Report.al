@@ -575,7 +575,7 @@ report 50161 "Voyage P&L Ledger Line Runng"
         Bud___N_CaptionLbl: Label 'Bud. =N=';
         Var___N_CaptionLbl: Label 'Var. =N=';
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure Syntesis(Cd: Code[10]; Pk: Code[10]; Br: Code[10]) Itemno: Code[10]
     begin
         //Syntesis Item Code Name
@@ -584,7 +584,7 @@ report 50161 "Voyage P&L Ledger Line Runng"
         "No.B" := ItemVar;
     end;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure GetItPrice(JNos: Code[20]; Nos: Code[20]; PDays: Date): Decimal
     var
         job3: Record Job;
@@ -606,7 +606,7 @@ report 50161 "Voyage P&L Ledger Line Runng"
         exit(Prc);
     end;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure calcActl(var recs: Record "Job catch Default")
     begin
         PrdPrc2 := Qty * Prc;
@@ -637,7 +637,7 @@ report 50161 "Voyage P&L Ledger Line Runng"
 
     end;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure BIN()
     begin
     end;

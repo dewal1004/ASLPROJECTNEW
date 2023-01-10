@@ -1,8 +1,8 @@
-report 50127 "Account Schedule FUNDS OP"
+report 50126 "Account Schedule FA  MMT"
 {
-    //  //Text004 ///AAA
+    // // Text004 ///AAA
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/AccountScheduleFUNDSOP.rdlc';
+    RDLCLayout = './ReportRdlc/AccountScheduleFAMMT.rdlc';
 
     Caption = 'Account Schedule';
 
@@ -491,7 +491,7 @@ report 50127 "Account Schedule FUNDS OP"
 
             trigger OnPreDataItem()
             begin
-                if GLSetup.Get then SetFilter(Name, GLSetup."Schedule Name 7");
+                if GLSetup.Get then SetFilter(Name, GLSetup."Schedule Name 6");
             end;
         }
     }
@@ -558,7 +558,7 @@ report 50127 "Account Schedule FUNDS OP"
         ColumnLayoutNameCaptionLbl: Label 'Column Layout';
         AnalysisView__Dimension_1_Code_CaptionLbl: Label 'Dimension Code';
 
-    [Scope('OnPrem')]
+    // //[Scope('OnPrem')]
     procedure InitAccSched()
     begin
         StDat := Format(CalcDate('CM-2M+1D'));
@@ -605,13 +605,13 @@ report 50127 "Account Schedule FUNDS OP"
         end;
     end;
 
-    [Scope('OnPrem')]
+    // //[Scope('OnPrem')]
     procedure SetColumnLayoutName(ColLayoutName: Code[10])
     begin
         ColumnLayoutNameHidden := ColLayoutName;
     end;
 
-    [Scope('OnPrem')]
+    // //[Scope('OnPrem')]
     procedure CalcColumns(): Boolean
     var
         NonZero: Boolean;
@@ -642,7 +642,7 @@ report 50127 "Account Schedule FUNDS OP"
         exit(NonZero);
     end;
 
-    [Scope('OnPrem')]
+    // //[Scope('OnPrem')]
     procedure ShowLine(Bold: Boolean; Italic: Boolean): Boolean
     var
         NonZero: Boolean;

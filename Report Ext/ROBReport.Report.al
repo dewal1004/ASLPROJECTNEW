@@ -2,7 +2,7 @@ report 50226 "ROB Report"
 {
     ProcessingOnly = true;
     UsageCategory = ReportsAndAnalysis;
-    ApplicationArea = All,Basic,Suite;
+    ApplicationArea = All, Basic, Suite;
 
     dataset
     {
@@ -156,7 +156,7 @@ report 50226 "ROB Report"
         Text001: Label 'Filters';
         Text002: Label 'Update Workbook';
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure UpdateRequestForm()
     begin
         /*

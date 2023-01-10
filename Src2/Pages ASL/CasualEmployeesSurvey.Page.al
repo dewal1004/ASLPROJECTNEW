@@ -50,7 +50,7 @@ page 50047 "Casual Employees Survey"
         HospName: Text[60];
         MediRec: Record "Medical Record";
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure SumCost(): Decimal
     begin
     end;

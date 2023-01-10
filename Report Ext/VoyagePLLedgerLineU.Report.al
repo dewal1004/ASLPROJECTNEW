@@ -790,7 +790,7 @@ report 50997 "Voyage P&L Ledger LineU"
         Bud___N_CaptionLbl: Label 'Bud. =N=';
         Var___N_CaptionLbl: Label 'Var. =N=';
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure Syntesis(Cd: Code[10]; Pk: Code[10]; Br: Code[10]) Itemno: Code[10]
     begin
         /*
@@ -802,7 +802,7 @@ report 50997 "Voyage P&L Ledger LineU"
 
     end;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure BIN()
     begin
         /*  //AGO Credit from G/L Entry

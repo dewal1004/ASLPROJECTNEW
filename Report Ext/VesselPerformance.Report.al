@@ -4,7 +4,7 @@ report 50190 "Vessel Performance"
     DefaultLayout = RDLC;
     RDLCLayout = './ReportRdlc/VesselPerformance.rdlc';
     UsageCategory = ReportsAndAnalysis;
-    ApplicationArea = All,Basic,Suite;
+    ApplicationArea = All, Basic, Suite;
 
 
     dataset
@@ -724,7 +724,7 @@ report 50190 "Vessel Performance"
         Export_ValueCaptionLbl: Label 'Export Value';
         "S.No": Integer;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure Syntesis(Cd: Code[10]; Pk: Code[10]; Br: Code[10]) Itemno: Code[10]
     begin
         //Syntesis Item Code Name
@@ -732,7 +732,7 @@ report 50190 "Vessel Performance"
         "No.B" := Format(Cd) + UOMCd + CopyStr(Br, 1, 1);    //Requip Code Name
     end;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure GetItPrice(JNos: Code[20]; Nos: Code[20]; PDays: Date): Decimal
     var
         job3: Record Job;
@@ -754,7 +754,7 @@ report 50190 "Vessel Performance"
 
     end;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure Cost()
     begin
     end;

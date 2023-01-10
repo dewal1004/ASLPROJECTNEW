@@ -4,7 +4,7 @@ report 50026 "Consolidated Voyage P &  L2"
     RDLCLayout = './ReportRdlc/ConsolidatedVoyagePL2.rdlc';
     Caption = 'Consolidated Voyage P&L2';
     UsageCategory = ReportsAndAnalysis;
-    ApplicationArea = All,Basic,Suite;
+    ApplicationArea = All, Basic, Suite;
     Permissions = TableData "Job Ledger Entry" = rimd,
                   TableData "Value Entry" = rimd;
 
@@ -1915,7 +1915,7 @@ report 50026 "Consolidated Voyage P &  L2"
         Cycledays: Integer;
         TotalPrice: Decimal;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure Syntesis2(Cd: Code[10]; Pk: Code[10]; Br: Code[10]) Itemno: Code[10]
     begin
         //Syntesis Item Code Name
@@ -1924,7 +1924,7 @@ report 50026 "Consolidated Voyage P &  L2"
         "No.B" := ItemVar;
     end;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure GetItPrice(JNos: Code[20]; Nos: Code[20]; PDays: Date): Decimal
     var
         job3: Record Job;
@@ -1948,7 +1948,7 @@ report 50026 "Consolidated Voyage P &  L2"
         exit(Prc);
     end;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure JBDate(var JbNos: Code[20]): Date
     var
         JobJob: Record Job;
@@ -1956,7 +1956,7 @@ report 50026 "Consolidated Voyage P &  L2"
         if JobJob.Get(JbNos) then exit(JobJob."Ending Date") else exit(0D);
     end;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure BIN()
     begin
     end;

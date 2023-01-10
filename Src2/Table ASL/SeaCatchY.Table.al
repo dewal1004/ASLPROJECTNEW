@@ -331,7 +331,7 @@ table 90029 "Sea CatchY"
         I: Integer;
         Content: array[3000] of Text[30];
 
-    //[Scope('OnPrem')]
+    ////[Scope('OnPrem')]
     procedure AssistEdit(): Boolean
     begin
         GetJobSetup;
@@ -342,7 +342,7 @@ table 90029 "Sea CatchY"
         end;
     end;
 
-    //[Scope('OnPrem')]
+    ////[Scope('OnPrem')]
     procedure GetJobSetup()
     begin
         if not HasInvtSetup then begin
@@ -351,7 +351,7 @@ table 90029 "Sea CatchY"
         end;
     end;
 
-    //[Scope('OnPrem')]
+    ////[Scope('OnPrem')]
     procedure UpdateCatchMatrix(var Fldno: Integer; var FldContent: Text[30])
     begin
         CatchMatrix.Init;

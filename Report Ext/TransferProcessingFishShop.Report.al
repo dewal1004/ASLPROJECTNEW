@@ -15,7 +15,7 @@ report 50059 "Transfer Processing/Fish Shop"
     DefaultLayout = RDLC;
     RDLCLayout = './ReportRdlc/TransferProcessingFishShop.rdlc';
     UsageCategory = ReportsAndAnalysis;
-    ApplicationArea = All,Basic,Suite;
+    ApplicationArea = All, Basic, Suite;
 
 
     dataset
@@ -287,7 +287,7 @@ report 50059 "Transfer Processing/Fish Shop"
         Test2: Boolean;
         ValQty: Decimal;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure UpdateCell(Row: Integer; Col: Integer; ValueText: Text[1024]; Bold: Boolean; Italic: Boolean; Underline: Boolean; FontSize: Integer)
     begin
         // xlSheet.Range(GetCol(Col) + Format(Row)).Value := ValueText;
@@ -300,7 +300,7 @@ report 50059 "Transfer Processing/Fish Shop"
         // xlSheet.Range(GetCol(Col) + Format(Row)).Font.Size := FontSize;
     end;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure GetCol(CN: Integer): Text[30]
     var
         xlColID: Text[10];

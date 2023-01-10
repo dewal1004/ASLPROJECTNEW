@@ -5,7 +5,7 @@ report 50154 "Consolidated Value  & Ratio"
     Permissions = TableData "Job Ledger Entry" = rimd,
                   TableData "Value Entry" = rimd;
     UsageCategory = ReportsAndAnalysis;
-    ApplicationArea = All,Basic,Suite;
+    ApplicationArea = All, Basic, Suite;
 
     dataset
     {
@@ -1324,7 +1324,7 @@ report 50154 "Consolidated Value  & Ratio"
         RatioCaptionLbl: Label 'Ratio';
         PointsCaptionLbl: Label 'Points';
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure Syntesis(Cd: Code[10]; Pk: Code[10]; Br: Code[10]) Itemno: Code[10]
     begin
         //Syntesis Item Code Name
@@ -1333,7 +1333,7 @@ report 50154 "Consolidated Value  & Ratio"
         "No.B" := ItemVar;
     end;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure GetItPrice(JNos: Code[20]; Nos: Code[20]; PDays: Date): Decimal
     var
         Job3: Record Job;
@@ -1354,7 +1354,7 @@ report 50154 "Consolidated Value  & Ratio"
         exit(Prc);
     end;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure JBDate(var JbNos: Code[20]): Date
     var
         JobJob: Record Job;
@@ -1362,12 +1362,12 @@ report 50154 "Consolidated Value  & Ratio"
         if JobJob.Get(JbNos) then exit(JobJob."Ending Date") else exit(0D);
     end;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure BIN()
     begin
     end;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure SeaCdList()
     begin
         Countx := 1;
@@ -1390,7 +1390,7 @@ report 50154 "Consolidated Value  & Ratio"
         until SF.Next = 0;
     end;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure GetSFVal(SFcat: Code[20]; Prc: Decimal; pnts: Decimal)
     begin
         Countx := 1;
@@ -1407,7 +1407,7 @@ report 50154 "Consolidated Value  & Ratio"
         until Countx = 20;
     end;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure TotRatio()
     begin
         Countx := 1;

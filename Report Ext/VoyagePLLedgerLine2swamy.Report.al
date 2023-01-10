@@ -793,7 +793,7 @@ report 50247 "Voyage P&L Ledger Line 2.swamy"
         Bud___N_CaptionLbl: Label 'Bud. =N=';
         Var___N_CaptionLbl: Label 'Var. =N=';
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure Syntesis2(Cd: Code[10]; Pk: Code[10]; Br: Code[10]) Itemno: Code[10]
     begin
         //Syntesis Item Code Name
@@ -802,7 +802,7 @@ report 50247 "Voyage P&L Ledger Line 2.swamy"
         "No.B" := ItemVar;
     end;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure GetItPrice(JNos: Code[20]; Nos: Code[20]; PDays: Date): Decimal
     var
         job3: Record Job;
@@ -824,7 +824,7 @@ report 50247 "Voyage P&L Ledger Line 2.swamy"
         exit(Prc);
     end;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure BIN()
     begin
     end;

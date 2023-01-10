@@ -9,7 +9,7 @@ codeunit 50101 "Cust. Entry-SetAppl.ID."
     var
         CustEntryApplID: Code[20];
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure SetApplId(var CustLedgEntry: Record "Cust. Ledger Entry"; AppliesToID: Code[20])
     begin
         CustLedgEntry.LockTable;

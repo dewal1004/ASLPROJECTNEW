@@ -730,7 +730,7 @@ page 50028 "Appraisal Entry"
         Text19052518: Label 'Performance';
         Text19003762: Label 'Total %';
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure UpdateAllowed(): Boolean
     begin
         if CurrPage.Editable = false then

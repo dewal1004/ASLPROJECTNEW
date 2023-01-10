@@ -161,7 +161,7 @@ table 50037 "Job catch Default"
         Fine: Boolean;
         UOM: Record "Unit of Measure";
 
-    //[Scope('OnPrem')]
+    ////[Scope('OnPrem')]
     procedure SetUpNewLine()
     var
         CatchDefault: Record "Training Courses";
@@ -170,7 +170,7 @@ table 50037 "Job catch Default"
         //CatchDefault.SETRANGE("No.","No.");
     end;
 
-    //[Scope('OnPrem')]
+    ////[Scope('OnPrem')]
     procedure Syntesis(Cd: Code[10]; Pk: Code[10]; Br: Code[10]): Code[10]
     begin
         //Syntesis Item Code Name

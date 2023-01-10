@@ -258,7 +258,7 @@ report 50061 "PRoll; Create Journal Entries"
         "The Transactions are Transferred to:": Text[150];
         "General Journal with Batch Name Salary": Text;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure SEndToGL(GLLName: Text[30]; DebitAccNo: Code[20]; CreditAccNo: Code[20]; BookDate: Date; VouchNo: Text[30]; GLLtext: Text[30]; GLLAmount: Decimal; DeptCode: Code[10]; ProjCode: Code[10]; ConsNum: Integer; VoucherNum: Code[10]; DebAccType: Integer; CredAccType: Integer; BatchName: Code[10]; LoanIDEX: Code[10]): Integer
     begin
 
@@ -315,7 +315,7 @@ report 50061 "PRoll; Create Journal Entries"
 
     end;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure ApplytoLoan(LnID: Code[15]): Code[20]
     begin
 

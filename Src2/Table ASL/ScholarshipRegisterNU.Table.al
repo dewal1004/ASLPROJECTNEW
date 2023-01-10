@@ -174,7 +174,7 @@ table 60032 "Scholarship Register NU*"
         SchRec: Record "Scholarship Register NU*";
         PayRec: Record "Scholarship Payment NU*";
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure AmountAuthorized("Regist. No": Integer): Decimal
     var
         Registrec: Record "Scholarship Register NU*";
@@ -185,7 +185,7 @@ table 60032 "Scholarship Register NU*"
             exit(0);
     end;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure AmountPaid("Regist. No": Integer): Decimal
     var
         Registrec: Record "Scholarship Register NU*";

@@ -144,7 +144,7 @@ report 90002 "Landed & Standard Cost1"
         Vatables: Decimal;
         VatThis: array[5] of Decimal;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure BIN()
     begin
     end;

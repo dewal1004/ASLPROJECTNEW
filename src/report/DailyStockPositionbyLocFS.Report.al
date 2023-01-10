@@ -3,7 +3,7 @@ report 50185 "Daily Stock Position by Loc-FS"
     DefaultLayout = RDLC;
     RDLCLayout = './ReportRdlc/DailyStockPositionbyLocFS.rdlc';
     UsageCategory = ReportsAndAnalysis;
-    ApplicationArea = All,Basic,Suite;
+    ApplicationArea = All, Basic, Suite;
 
     dataset
     {
@@ -696,7 +696,7 @@ report 50185 "Daily Stock Position by Loc-FS"
         Achieved_PriceCaptionLbl: Label 'Achieved Price';
         Price_ListCaptionLbl: Label 'Price List';
 
-    [Scope('OnPrem')]
+    // //[Scope('OnPrem')]
     procedure GetItPrice(Nos: Code[20]; PDays: Date): Decimal
     var
         Itempr: Record "Sales Price";

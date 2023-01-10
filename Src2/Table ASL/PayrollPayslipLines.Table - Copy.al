@@ -522,7 +522,7 @@
 
 
 
-//     //[Scope('OnPrem')]
+//     ////[Scope('OnPrem')]
 //     procedure SpecialRelation("FieldNo.": Integer)
 //     var
 //         Checkclosed1: Boolean;
@@ -544,7 +544,7 @@
 
 //     end;
 
-//     //[Scope('OnPrem')]
+//     ////[Scope('OnPrem')]
 //     procedure CalcAmount(EDFileRec: Record "Payroll ED Codes."; EntryLineRec: Record "Payroll-Payslip Lines."; EntryLineAmount: Decimal; EDCode: Code[20]): Decimal
 //     begin
 //         /*””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””
@@ -683,7 +683,7 @@
 
 
 //         //MESSAGE('TaxYTD: ' + FORMAT(TaxYTD) + '  ReturnAmount_before : ' +FORMAT(ReturnAmount));
-        
+
 //             // { Adjust the amount as per the maximum/minimum in the LookupHeader}
 //             IF (LookHeaderRec."Max. Extract Amount" <> 0) AND
 //                (ReturnAmount > LookHeaderRec."Max. Extract Amount") THEN
@@ -691,7 +691,7 @@
 //             ELSE
 //               IF (ReturnAmount < LookHeaderRec."Min. Extract Amount") THEN
 //                 ReturnAmount := LookHeaderRec."Min. Extract Amount";
-        
+
 //             { Check for rounding }
 //             IF LookHeaderRec."Rounding Precision" = 0 THEN
 //               RoundPrec := 0.01
@@ -703,16 +703,16 @@
 //               ELSE RoundDir := '=';
 //             END;
 //             ReturnAmount := ROUND (ReturnAmount, RoundPrec, RoundDir);
-        
+
 //              LookLinesRec.RESET
 //           END;
-        
+
 //         {Check for rounding, Maximum and minimum }
-        
+
 //         ReturnAmount := ChkRoundMaxMin (EDFileRec, ReturnAmount);
-        
+
 //         //MESSAGE('TaxYTD: ' + FORMAT(TaxYTD) + '  ReturnAmount_After : ' +FORMAT(ReturnAmount));
-        
+
 //         EXIT (ReturnAmount);
 //         */
 //             case LookHeaderRec.Type of
@@ -736,13 +736,13 @@
 //                  LookLinesRec.SetRange("Lower Amount",0);
 //               end
 //             end; /* Case*/
-        
+
 //             case LookHeaderRec.Type of
 //             0,1: begin
 //                /* Extract amount as follows; First find line where Lower Amount or
 //                  lower code is just greater than the Factor Amount then move one
 //                  line back.*/
-        
+
 //               if  LookLinesRec.Find( '=') then
 //                 ReturnAmount := LookLinesRec."Extract Amount"
 //               else
@@ -759,12 +759,12 @@
 //                 else
 //                   exit (EntryLineRec.Amount);
 //               end;
-        
+
 //             2: /*  Extract amount from tax table*/
 //               ReturnAmount := (CalcTaxAmt (LookLinesRec, InputAmount)) *
 //                               LookHeaderRec."Output Factor";
 //             end; /* Case */
-        
+
 //             /* Adjust the amount as per the maximum/minimum in the LookupHeader*/
 //             if (LookHeaderRec."Max. Extract Amount" <> 0) and
 //                (ReturnAmount > LookHeaderRec."Max. Extract Amount") then
@@ -772,7 +772,7 @@
 //             else
 //               if (ReturnAmount < LookHeaderRec."Min. Extract Amount") then
 //                 ReturnAmount := LookHeaderRec."Min. Extract Amount";
-        
+
 //             /* Check for rounding */
 //             if LookHeaderRec."Rounding Precision" = 0 then
 //               RoundPrec := 0.01
@@ -784,18 +784,18 @@
 //               else RoundDir := '=';
 //             end;
 //             ReturnAmount := Round (ReturnAmount, RoundPrec, RoundDir);
-        
+
 //              LookLinesRec.Reset
 //           end;
-        
+
 //         /*Check for rounding, Maximum and minimum */
 //         ReturnAmount := ChkRoundMaxMin (EDFileRec, ReturnAmount);
-        
+
 //         exit (ReturnAmount);
 
 //     end;
 
-//     //[Scope('OnPrem')]
+//     ////[Scope('OnPrem')]
 //     local var 
 //     procedure CheckClosed(): Boolean
 //     begin
@@ -807,7 +807,7 @@
 
 //     end;
 
-//     //[Scope('OnPrem')]
+//     ////[Scope('OnPrem')]
 //     procedure CalcTaxAmt(var LDetailsRec: Record "Payroll-Lookup Lines.";TaxTableInput: Decimal): Decimal
 //     begin
 //         /*””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””
@@ -819,21 +819,21 @@
 //                               are still in effect.
 //           by value      : The amount to be taxed = TaxTableInput
 //         */
-        
+
 //         //MESSAGE('Tax Table Input:' + FORMAT(TaxTableInput));
-        
+
 //         /* Copy all current filters of LookUpRec */
 //         PrevLookRec := LDetailsRec;
 //         /* COPYFILTERS(LDetailsRec );          */
 //         /*BDC
 //         PrevLookRec.COPYFILTERS(LDetailsRec);
 //         */
-        
+
 //         if  PrevLookRec.Next(-1) = 0 then
 //           ReturnAmount := (TaxTableInput * LDetailsRec."Tax Rate %")/100
 //         //ELSE  ReturnAmount := CalcGraduated (LDetailsRec, TaxTableInput);
 //         else ReturnAmount := (TaxTableInput * LDetailsRec."Tax Rate %")/100;
-        
+
 //         if  LDetailsRec.Find( '=') then
 //           /*Record found where Lower Amount is equal to TaxTableInput*/
 //           if  PrevLookRec.Next(-1) = 0 then
@@ -861,13 +861,13 @@
 //             /* Call function to get the tax amount from the graduated tax table.*/
 //           //  ReturnAmount := CalcGraduated (LDetailsRec, TaxTableInput);
 //              ReturnAmount := (TaxTableInput * LDetailsRec."Tax Rate %")/100;
-        
+
 //         //MESSAGE('Tax Table Output:' + FORMAT(ReturnAmount));
 //         exit (ReturnAmount);
 
 //     end;
 
-//     //[Scope('OnPrem')]
+//     ////[Scope('OnPrem')]
 //     procedure CalcGraduated(var WantedLookRec: Record "Payroll-Lookup Lines.";InputToTable: Decimal): Decimal
 //     begin
 //         /*”””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””
@@ -879,17 +879,17 @@
 //         ‚                    are still in effect.                                   ‚
 //         ‚ by value     : The amount to be taxed = InputToTable                      ‚
 //         ”””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””*/
-        
+
 //         /* Create a copy of the valid Look Up table Record */
 //         PrevLookRec :=  WantedLookRec;
 //          /*BDC
 //          COPYFILTERS(WantedLookRec );
 //         */
-        
+
 //         //message('Input to Graduated table: ' + FORMAT(InputToTable));
 //         //MESSAGE('Rate Percent to Graduated table: ' + FORMAT(WantedLookRec."Tax Rate %"));
 //         //message(format(PrevLookRec.count));
-        
+
 //         if  PrevLookRec.Next(-1) = 0 then
 //          ReturnAmount := (InputToTable * WantedLookRec."Tax Rate %")/100
 //         else
@@ -906,7 +906,7 @@
 
 //     end;
 
-//     //[Scope('OnPrem')]
+//     ////[Scope('OnPrem')]
 //     procedure CalcCompute(EntryRecParam: Record "Payroll-Payslip Lines.";AmountInLine: Decimal;"CalledFromEdCode?": Boolean;EDCode: Code[20])
 //     begin
 //         /*”””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””
@@ -918,22 +918,22 @@
 //         ‚   "CalledFromEdCode?"     : True if the trigger code was called from the  ‚
 //         ‚                            "E/D Code" field                               ‚
 //         ”””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””*/
-        
+
 //          ConstEDFileRec.Get( EntryRecParam."E/D Code");
 //         "E/DFileRec" := ConstEDFileRec;
 //         if "E/DFileRec".Compute = '' then
 //           exit;
-        
+
 //          ProllEntryRec.Init;
 //          ProllEntryRec.SetRange("Payroll Period", EntryRecParam."Payroll Period");
 //          ProllEntryRec.SetRange("Employee No", EntryRecParam."Employee No");
-        
+
 //         /* If the entry line to be computed does not exist then EXIT */
 //         ProllEntryRec := EntryRecParam;
 //         ProllEntryRec."E/D Code" := ConstEDFileRec.Compute;
 //         if not  ProllEntryRec.Find( '=') then
 //           exit;
-        
+
 //         /* Initialise the variable to store the computed total. Note if the trigger
 //           code was called from the "E/D Code" field then that record is a new one.
 //           This implies that a search of the records in the file will not find this
@@ -950,12 +950,12 @@
 //         end
 //         else
 //          ComputedTotal := 0;
-        
+
 //         /*Get first record in P.Roll Entry file for this Period/Employee combination*/
 //         ProllEntryRec := EntryRecParam;
 //         ProllEntryRec."E/D Code" := '';
 //          ProllEntryRec.Find( '>');
-        
+
 //         /* Go through all the entry lines for this Period/Employee record and sum up
 //           all those that contribute to the E/D specified in the Compute field for
 //           the current entry line */
@@ -969,7 +969,7 @@
 //             AmountToAdd := AmountInLine
 //           else
 //             AmountToAdd := ProllEntryRec.Amount;
-        
+
 //            "E/DFileRec".Get( ProllEntryRec."E/D Code");
 //           if "E/DFileRec".Compute = ConstEDFileRec.Compute then
 //             if "E/DFileRec"."Add/Subtract" = 2 then
@@ -980,7 +980,7 @@
 //               ComputedTotal := ComputedTotal + AmountToAdd;
 //         end
 //         until ( ProllEntryRec.Next(1) = 0);
-        
+
 //         /* Move the computed amount to the line whose E/D Code is the one that has
 //           just been calculated.*/
 //          ProllEntryRec.Init;
@@ -989,10 +989,10 @@
 //         /*FTN No Need
 //         dbTRANSFERFIELDS ("E/DFileRec", ProllEntryRec);
 //         */
-        
+
 //         /*Check for rounding, Maximum and minimum */
 //         ComputedTotal := ChkRoundMaxMin ("E/DFileRec", ComputedTotal);
-        
+
 //         /*ProllEntryRec.Amount := ComputedTotal;
 //         ProllRecStore := ProllEntryRec;*/
 //          ProllEntryRec.LockTable();
@@ -1007,13 +1007,13 @@
 //            ProllEntryRec.Modify;
 //         end;
 //         Commit;
-        
+
 //          ProllEntryRec.SetRange("Payroll Period");
 //          ProllEntryRec.SetRange("Employee No");
 
 //     end;
 
-//     //[Scope('OnPrem')]
+//     ////[Scope('OnPrem')]
 //     procedure CalcFactor1(CurrentEntryLine: Record "Payroll-Payslip Lines.")
 //     begin
 //         /*””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””
@@ -1022,7 +1022,7 @@
 //         ‚ Parameters :                                                               ‚
 //         ‚   CurrentEntryLine        : Current entry line                             ‚
 //         ””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””*/
-        
+
 //         /* Get first record in Entry Lines file for this Employee/Period */
 //         ProllEntryRec := CurrentEntryLine;
 //          ProllEntryRec.Init;
@@ -1030,16 +1030,16 @@
 //          ProllEntryRec.SetRange("Payroll Period", ProllEntryRec."Payroll Period");
 //         ProllEntryRec."E/D Code" := '';
 //          ProllEntryRec.Find( '>');
-        
+
 //         /* Go through all the entry lines for this Period/Employee record and where
 //           the current entry line's value is a factor, calculate that amount. */
 //         repeat
-        
+
 //            "E/DFileRec".Get( ProllEntryRec."E/D Code");
-        
+
 //           if "E/DFileRec"."Factor Of" = CurrentEntryLine."E/D Code" then
 //           begin
-        
+
 //             FactorRecAmount := ProllEntryRec.Amount;
 //             ProllEntryRec.Amount := "CalcFactor1.1" (CurrentEntryLine,
 //                                                        ProllEntryRec,"E/DFileRec");
@@ -1051,13 +1051,13 @@
 //                ProllEntryRec.Modify;
 //             end
 //           end;
-        
+
 //         until ( ProllEntryRec.Next(1) = 0);
 //         Commit;
 
 //     end;
 
-//     //[Scope('OnPrem')]
+//     ////[Scope('OnPrem')]
 //     procedure "CalcFactor1.1"(CurrLineRec: Record "Payroll-Payslip Lines.";LineToChangeRec: Record "Payroll-Payslip Lines.";EDFileRec: Record "Payroll-E/D Codes."): Decimal
 //     begin
 //         /*””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””
@@ -1068,28 +1068,28 @@
 //         ‚    LineToChangeRec: The entry line to be changed.
 //         ‚    EDFileRec      : EDFile Record for the E/D Code of LineToChangeRec      ‚
 //         ””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””*/
-        
+
 //         /* If NO is in the flag field return amount to 0 */
 //         if (EDFileRec."Yes/No Req.?") and not (LineToChangeRec.Flag) then
 //           exit (0);
-        
+
 //         /* Calculate the amount based on values in Table Look Up or Percentage fields
 //           of E/D file */
 //         if EDFileRec."Table Look Up" = '' then
 //           ReturnAmount := (CurrLineRec.Amount * EDFileRec.Percentage) / 100
 //         else /* Extract relevant amount from Table Look Up */
-        
+
 //           if not  LookHeaderRec.Get( EDFileRec."Table Look Up") then
 //           begin
 //             Message ('Table Lookup Not Registered Yet');
 //             exit (LineToChangeRec.Amount)
 //           end
 //           else begin /* Table lookup exists*/
-        
+
 //             /* Filter Lookupline records to those of current Table Id Only*/
 //             LookLinesRec.TableId := EDFileRec."Table Look Up";
 //              LookLinesRec.SetRange(TableId, EDFileRec."Table Look Up");
-        
+
 //             /* Depending on whether input parameter is code or numeric, set dbSETRANGE
 //               appropraitely and initialise the record to use as a parameter to
 //               dbFINDREC */
@@ -1114,13 +1114,13 @@
 //                  LookLinesRec.SetRange("Lower Amount",0);
 //               end
 //             end; /* Case*/
-        
+
 //             case LookHeaderRec.Type of
 //             0,1: begin
 //                /* Extract amount as follows; First find line where Lower Amount or
 //                  Lower Code is just greater than the CurrLineRec then move one line
 //                  back.*/
-        
+
 //               if  LookLinesRec.Find( '=') then
 //                 ReturnAmount := LookLinesRec."Extract Amount"
 //               else
@@ -1141,14 +1141,14 @@
 //                   /*CurrLineRec.EDCode is > than the table's greatest "Lower code"*/
 //                   exit (LineToChangeRec.Amount);
 //               end;
-        
+
 //             2: /*  Extract amount from tax table*/
 //                   ReturnAmount := (CalcTaxAmt (LookLinesRec, PreTaxCalc *
 //                                                LookHeaderRec."Input Factor")) *
 //                                                LookHeaderRec."Output Factor";
-        
+
 //                end; /* Case */
-        
+
 //             /* Adjust the amount as per the maximum/minimum in the LookupHeader*/
 //             if (LookHeaderRec."Max. Extract Amount" <> 0) and
 //                (ReturnAmount > LookHeaderRec."Max. Extract Amount") then
@@ -1156,7 +1156,7 @@
 //             else
 //               if (ReturnAmount < LookHeaderRec."Min. Extract Amount") then
 //                 ReturnAmount := LookHeaderRec."Min. Extract Amount";
-        
+
 //             /* Check for rounding */
 //             if LookHeaderRec."Rounding Precision" = 0 then
 //               RoundPrec := 0.01
@@ -1168,20 +1168,20 @@
 //               else RoundDir := '=';
 //             end;
 //             ReturnAmount := Round (ReturnAmount, RoundPrec, RoundDir);
-        
+
 //              LookLinesRec.Reset
 //           end;
-        
-        
+
+
 //         /* Adjust amount as per maximum/minimum set in the E/D file. This will overide
 //           any max/min. values set in the Table Lookup Header file*/
 //         ReturnAmount := ChkRoundMaxMin (EDFileRec, ReturnAmount);
-        
+
 //         exit (ReturnAmount);
 
 //     end;
 
-//     //[Scope('OnPrem')]
+//     ////[Scope('OnPrem')]
 //     procedure ChangeAllOver(CurrentRec: Record "Payroll-Payslip Lines.";CurrWasDeleted: Boolean)
 //     begin
 //         /*”””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””
@@ -1191,23 +1191,23 @@
 //         ‚   CurrentRec      : Current Entry line                                    ‚
 //         ‚   CurrWasDeleted  : True if the current record was deleted                ‚
 //         ”””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””*/
-        
+
 //         ChangeOthersRec := CurrentRec;
 //          ChangeOthersRec.SetRange("Payroll Period", CurrentRec."Payroll Period");
 //          ChangeOthersRec.SetRange("Employee No", CurrentRec."Employee No");
 //          ChangeOthersRec.SetRange(ChangeOthers, true);
-        
+
 //         ChangeOthersRec."E/D Code" := '';
 //         if not  ChangeOthersRec.Find( '>') then
 //           exit;
-        
+
 //         /*Set the maximum number of times the Amount can be changed for any one line.
 //          This will be used to ensure that this function does not execute 'forever',
 //          when the user has defined 'cyclic' E/Ds*/
 //         MaxChangeCount := 50;
-        
+
 //         repeat
-        
+
 //           /* Process the record to change others only if it isn't the deleted one */
 //           if not (CurrWasDeleted and (ChangeOthersRec."E/D Code" =
 //                                       CurrentRec."E/D Code"))
@@ -1226,16 +1226,16 @@
 //          ChangeOthersRec.SetRange("Payroll Period");
 //          ChangeOthersRec.SetRange("Employee No");
 //          ChangeOthersRec.SetRange(ChangeOthers);
-        
+
 //         if (ProllRecStore.ChangeCounter > MaxChangeCount) then
 //           Message ('The E/D Code %1, / seems to have been defined with CYCLIC' +
 //                    ' characteristics', ProllRecStore."E/D Code");
-        
+
 //         exit;
 
 //     end;
 
-//     //[Scope('OnPrem')]
+//     ////[Scope('OnPrem')]
 //     procedure ComputeAgain(ParamLine: Record "Payroll-Payslip Lines.";CurrentRec: Record "Payroll-Payslip Lines.";CurrWasDeleted: Boolean)
 //     begin
 //         /*”””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””
@@ -1246,27 +1246,27 @@
 //         ‚   CurrentRec      : Current Entry line                                    ‚
 //         ‚   CurrWasDeleted  : True if the current record was deleted                ‚
 //         ”””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””*/
-        
+
 //          ConstEDFileRec.Get( ParamLine."E/D Code");
 //         "E/DFileRec" := ConstEDFileRec;
 //         if "E/DFileRec".Compute = '' then
 //           exit;
-        
+
 //          ProllEntryRec.Reset;
 //          ProllEntryRec.Init;
 //          ProllEntryRec.SetRange("Payroll Period", CurrentRec."Payroll Period");
 //          ProllEntryRec.SetRange("Employee No", CurrentRec."Employee No");
-        
+
 //         /* If the entry line to be computed does not exist then EXIT */
 //         ProllEntryRec := ParamLine;
 //         ProllEntryRec."E/D Code" := ConstEDFileRec.Compute;
 //         if not  ProllEntryRec.Find( '=') then
 //           exit;
-        
+
 //         /* If CurrentRec is to be deleted, then no need to re-compute it */
 //         if (CurrWasDeleted and (ProllEntryRec."E/D Code" = CurrentRec."E/D Code"))
 //         then exit;
-        
+
 //         /*
 //           Initialise the variable to store the computed total. If a record was
 //           deleted then initialise to 0. Otherwise if the current line (i.e that
@@ -1287,19 +1287,19 @@
 //          end
 //          else
 //           ComputedTotal := 0;
-        
+
 //         /*Get first record in P.Roll Entry file for this Employee group*/
 //         ProllEntryRec := ParamLine;
 //         ProllEntryRec."E/D Code" := '';
 //          ProllEntryRec.Find( '>');
-        
+
 //         /* Go through all the entry lines for this Employee group and sum up
 //           all those that contribute to the E/D specified in the Compute field for
 //           the current entry line */
 //         repeat
-        
+
 //           if ProllEntryRec."E/D Code" <> CurrentRec."E/D Code" then begin
-        
+
 //              "E/DFileRec".Get( ProllEntryRec."E/D Code");
 //             if "E/DFileRec".Compute = ConstEDFileRec.Compute then
 //               if "E/DFileRec"."Add/Subtract" = 2 then
@@ -1308,29 +1308,29 @@
 //               else
 //                 /* Add */
 //                 ComputedTotal := ComputedTotal + ProllEntryRec.Amount
-        
+
 //           end
 //         until ( ProllEntryRec.Next(1) = 0);
-        
+
 //         /* Move the computed amount to the line whose E/D Code is the one that has
 //           just been calculated.*/
 //          ProllEntryRec.Init;
 //         ProllEntryRec."E/D Code" := ConstEDFileRec.Compute;
 //          "E/DFileRec".Get( ConstEDFileRec.Compute);
 //         /*dbTRANSFERFIELDS ("E/DFileRec", ProllEntryRec);*/
-        
+
 //         /*Check for rounding, Maximum and minimum */
 //         ComputedTotal := ChkRoundMaxMin ("E/DFileRec", ComputedTotal);
-        
+
 //         /*ProllEntryRec.Amount := ComputedTotal;
 //         ProllRecStore := ProllEntryRec;*/
-        
+
 //          ProllEntryRec.LockTable();
 //         if  ProllEntryRec.Find( '=') then
 //         begin
 //           /*FactorRecAmount := ProllEntryRec.Amount;*/
 //           /*ProllEntryRec := ProllRecStore;*/
-        
+
 //           /*The new entry in this line should now be used to Compute another and
 //            also entries where it is a Factor, therefore set ChangeOthers to True*/
 //           if ProllEntryRec.Amount <> ComputedTotal then
@@ -1341,12 +1341,12 @@
 //           end
 //         end;
 //         Commit;
-        
+
 //          ProllEntryRec.Reset;
 
 //     end;
 
-//     //[Scope('OnPrem')]
+//     ////[Scope('OnPrem')]
 //     procedure CalcFactorAgain(ParamLine: Record "Payroll-Payslip Lines.";CurrentRec: Record "Payroll-Payslip Lines.";CurrWasDeleted: Boolean)
 //     begin
 //         /*””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””
@@ -1358,7 +1358,7 @@
 //         ‚   CurrentRec        : Current Entry line                                   ‚
 //         ‚   CurrWasDeleted    : True if CurrentRec is to be deleted                  ‚
 //         ””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””*/
-        
+
 //         /*Get first record in Employee Group Lines file for this Employee group*/
 //          ProllEntryRec.Reset;
 //          ProllEntryRec.Init;
@@ -1368,16 +1368,16 @@
 //         ProllEntryRec."E/D Code" := '';
 //         if not  ProllEntryRec.Find( '>') then
 //           exit;
-        
+
 //         /* Go through all the entry lines for this Employee Group record and where
 //           the current entry line's value is a factor, calculate that amount. */
 //         repeat
-        
+
 //            "E/DFileRec".Get( ProllEntryRec."E/D Code");
-        
+
 //           if "E/DFileRec"."Factor Of" = ParamLine."E/D Code" then
 //           begin
-        
+
 //             FactorRecAmount := ProllEntryRec.Amount;
 //             if (CurrWasDeleted and (ParamLine."E/D Code" = CurrentRec."E/D Code"))
 //             then
@@ -1385,7 +1385,7 @@
 //             else
 //               ProllEntryRec.Amount := "CalcFactor1.1" (ParamLine, ProllEntryRec,
 //                                                        "E/DFileRec");
-        
+
 //             /*The new entry in this line should now be used to Compute another and
 //              also entries where it is a Factor, therefore set ChangeOthers to True*/
 //             if FactorRecAmount <> ProllEntryRec.Amount then
@@ -1394,15 +1394,15 @@
 //                ProllEntryRec.Modify
 //             end
 //           end;
-        
+
 //         until ( ProllEntryRec.Next(1) = 0);
 //         Commit;
-        
+
 //          ProllEntryRec.Reset;
 
 //     end;
 
-//     //[Scope('OnPrem')]
+//     ////[Scope('OnPrem')]
 //     procedure ResetChangeFlags(CurrentRec: Record "Payroll-Payslip Lines.")
 //     begin
 //         /*””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””
@@ -1417,24 +1417,24 @@
 //          ProllEntryRec.SetRange("Employee No", CurrentRec."Employee No");
 //         ProllEntryRec."E/D Code" := '';
 //          ProllEntryRec.Find( '>');
-        
+
 //         /* Reset ChangeOthers for this Employee Group */
 //         repeat
-        
+
 //           ProllEntryRec.ChangeOthers   := false;
 //           ChangeOthersRec.ChangeCounter := 0;
 //         /*BDC - Do not modify the one to be deleted*/
 //           if ProllEntryRec."E/D Code" <> CurrentRec."E/D Code" then
 //            ProllEntryRec.Modify;
-        
+
 //         until ( ProllEntryRec.Next(1) = 0);
 //         Commit;
-        
+
 //          ProllEntryRec.Reset;
 
 //     end;
 
-//     //[Scope('OnPrem')]
+//     ////[Scope('OnPrem')]
 //     procedure AmountIsComputed(var ReturnAmount: Decimal;EntryLineRec: Record "Payroll-Payslip Lines.";EDFileRec: Record "Payroll-E/D Codes.";NewAmount: Decimal;EDCode: Code[20]): Boolean
 //     begin
 //         /*”””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””
@@ -1449,20 +1449,20 @@
 //         ‚   EDFileRec   :  The E/D file record of the E/D of the P.Roll Entry Record‚
 //         ‚   NewAmount   :  The new calculated or entered amount in the current rec. ‚
 //         ”””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””*/
-        
+
 //         ProllRecStore := EntryLineRec;
-        
+
 //         /*Get first record in P.Roll Entry file for this Period/Employee combination*/
 //          ProllRecStore.SetRange("Payroll Period", EntryLineRec."Payroll Period");
 //          ProllRecStore.SetRange("Employee No", EntryLineRec."Employee No");
 //         ProllRecStore."E/D Code" := '';
 //         if not  ProllRecStore.Find( '>') then
 //           exit (false);
-        
+
 //         /* Initialise the variable to store the computed total. */
 //         ReturnAmount := 0;
 //         IsComputed := false;
-        
+
 //         /* Go through all the entry lines for this Period/Employee record and sum up
 //           all those that contribute to the E/D of the given payroll entry line */
 //         repeat
@@ -1475,23 +1475,23 @@
 //               AmtToAdd := NewAmount
 //             else
 //               AmtToAdd := ProllRecStore.Amount;
-        
+
 //             if "E/DFileRec"."Add/Subtract" = 2 then
 //               /* Subtract */
 //               ReturnAmount := ReturnAmount - AmtToAdd
 //             else
 //               /* Add */
 //               ReturnAmount := ReturnAmount + AmtToAdd;
-        
+
 //             IsComputed := true
 //           end
 //         until ( ProllRecStore.Next(1) = 0);
-        
+
 //         exit (IsComputed);
 
 //     end;
 
-//     //[Scope('OnPrem')]
+//     ////[Scope('OnPrem')]
 //     procedure ChangeDueToDelete(DeletedRec: Record "Payroll-Payslip Lines.")
 //     begin
 //         /*”””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””
@@ -1504,23 +1504,23 @@
 //         ProllEntryRec := DeletedRec;
 //          ProllEntryRec.SetRange("Payroll Period", DeletedRec."Payroll Period");
 //          ProllEntryRec.SetRange("Employee No", DeletedRec."Employee No");
-        
+
 //         /* If the deleted record was 'COMPUTING' another then make changes */
 //          "E/DFileRec".Get( DeletedRec."E/D Code");
 //         ProllEntryRec."E/D Code" := "E/DFileRec".Compute;
 //         if  ProllEntryRec.Find( '=') then
 //           ComputeAgain (DeletedRec, DeletedRec, true);
-        
+
 //         /* If another record is a 'FACTOR OF' the deleted one then make changes */
 //         CalcFactorAgain (DeletedRec, DeletedRec, true);
-        
+
 //         /* Due to these changes adjust AMOUNTS in all lines */
 //         ChangeAllOver (DeletedRec, true);
 //         exit;
 
 //     end;
 
-//     [Scope('Onprem')]
+//     //[Scope('OnPrem')]
 //      procedure ChkRoundMaxMin(EDRecord: Record "Payroll-E/D Codes.";TheAmount: Decimal): Decimal
 //     begin
 //         /*”””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””
@@ -1529,7 +1529,7 @@
 //         ‚   EDRecord : The ED file record to use to check Round, Max. and Min       ‚
 //         ‚   TheAmount: The amounht to Round, and check for Max. and Min             ‚
 //         ”””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””*/
-        
+
 //         /* Adjust amount as per maximum/minimum set in the E/D file. */
 //         if (EDRecord."Max. Amount" <> 0) and
 //            (TheAmount > EDRecord."Max. Amount") then
@@ -1537,7 +1537,7 @@
 //         else
 //           if (TheAmount < EDRecord."Min. Amount") and ("Payslip Group ID"<>"Payslip Group ID"::"TAX DEDUCTED") then
 //               TheAmount := EDRecord."Min. Amount";
-        
+
 //         /* Check for rounding */
 //         if EDRecord."Rounding Precision" = 0 then
 //           RoundPrec := 0.01
@@ -1548,14 +1548,14 @@
 //           2: RoundDir := '<';
 //           else RoundDir := '=';
 //         end;
-        
+
 //         TheAmount := Round (TheAmount, RoundPrec, RoundDir);
-        
+
 //         exit (TheAmount);
 
 //     end;
 
-//     [Scope('Onprem')]
+//     //[Scope('OnPrem')]
 //     procedure EDAmountToDate(EmpNo: Code[10];CurPeriod: Code[10];EDCode: Code[10]): Decimal
 //     var
 //         AmountBack: Decimal;
@@ -1585,7 +1585,7 @@
 //         exit(AmountBack);
 //     end;
 
-//     //[Scope('OnPrem')]
+//     ////[Scope('OnPrem')]
 //     local procedure GetParam2()
 //     begin
 //         PaySetup.Reset;
@@ -1596,7 +1596,7 @@
 //         if ("Employee No" <>'') then BasicPay := EmployeeRec.GetBasic("Employee No");
 //     end;
 
-//     [Scope('Onprem')]
+//     //[Scope('OnPrem')]
 //     procedure PreTaxCalc(): Decimal
 //     var
 //         Ret1: Decimal;

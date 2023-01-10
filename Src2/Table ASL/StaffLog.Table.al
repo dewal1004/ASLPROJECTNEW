@@ -126,7 +126,7 @@ table 50015 "Staff Log"
         WAVs: Text[200];
         LOGREC1: Record "Monthly Variables Lines.";
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure RunAutomate(var FileName: Text[80])
     begin
     end;

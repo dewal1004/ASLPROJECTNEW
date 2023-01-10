@@ -19,7 +19,7 @@ codeunit 50001 "General Purpose Codeunit"
         TempDate: Date;
         EDRec: Record "Payroll-E/D Codes.";
 
-    //[Scope('OnPrem')]
+    ////[Scope('OnPrem')]
     procedure Parents2Components(SalesHeader: Record "Sales Header")
     var
         SalesLine: Record "Sales Line";
@@ -74,12 +74,12 @@ codeunit 50001 "General Purpose Codeunit"
 
     end;
 
-    //[Scope('OnPrem')]
+    ////[Scope('OnPrem')]
     procedure Components2Parents(SalesHeader: Record "Sales Header")
     begin
     end;
 
-    //[Scope('OnPrem')]
+    ////[Scope('OnPrem')]
     procedure GetGroup(ItemNo: Code[20]): Code[10]
     var
         ItemRec: Record Item;
@@ -88,7 +88,7 @@ codeunit 50001 "General Purpose Codeunit"
         exit(ItemRec."Item Category Code");
     end;
 
-    //[Scope('OnPrem')]
+    ////[Scope('OnPrem')]
     procedure ExplodeSalesHeader(SalesHeader: Record "Sales Header")
     var
         SalesLines: Record "Sales Line";
@@ -126,7 +126,7 @@ codeunit 50001 "General Purpose Codeunit"
         end;
     end;
 
-   // [Scope('OnPrem')]
+    // //[Scope('OnPrem')]
     procedure ExplodeSalesLine(SalesLine: Record "Sales Line")
     var
         ToSalesLine: Record "Sales Line";
@@ -244,7 +244,7 @@ codeunit 50001 "General Purpose Codeunit"
         Commit;
     end;
 
-   // [Scope('OnPrem')]
+    // //[Scope('OnPrem')]
     procedure AfterPostSalesDeleteExplode(SalesHeader: Record "Sales Header")
     var
         SalesLineRec: Record "Sales Line";
@@ -260,7 +260,7 @@ codeunit 50001 "General Purpose Codeunit"
         end;
     end;
 
-   // [Scope('OnPrem')]
+    // //[Scope('OnPrem')]
     procedure IsHoliday(CheckDate: Date): Boolean
     begin
         Dy := Date2DMY(CheckDate, 1);
@@ -291,7 +291,7 @@ codeunit 50001 "General Purpose Codeunit"
         end;
     end;
 
-    //[Scope('OnPrem')]
+    ////[Scope('OnPrem')]
     procedure GetEndDate(StartD: Date; NoOfDays: Integer): Date
     begin
         TmpDate := StartD - 1;
@@ -303,7 +303,7 @@ codeunit 50001 "General Purpose Codeunit"
         exit(TmpDate);
     end;
 
-    //[Scope('OnPrem')]
+    ////[Scope('OnPrem')]
     procedure GetStartDate(EndD: Date; NoOfDays: Integer): Date
     begin
         TmpDate := EndD + 1;
@@ -315,7 +315,7 @@ codeunit 50001 "General Purpose Codeunit"
         exit(TmpDate);
     end;
 
-    //[Scope('OnPrem')]
+    ////[Scope('OnPrem')]
     procedure GetNoOfDays(StartD: Date; EndD: Date): Integer
     begin
         TmpDate := StartD - 1;
@@ -327,7 +327,7 @@ codeunit 50001 "General Purpose Codeunit"
         exit(Cnt);
     end;
 
-    // [Scope('OnPrem')]
+    // //[Scope('OnPrem')]
     procedure GetGrossED(SearchED: Option " ","NSITF Employee","NSITF Employer","Gross Salary","Pension Employee","Pension Employer"): Code[20]
     begin
         EDRec.SetCurrentKey(EDRec."ED Type");

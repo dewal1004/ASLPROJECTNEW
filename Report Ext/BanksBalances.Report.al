@@ -2,8 +2,8 @@ report 50011 "Banks Balances"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './ReportRdlc/BanksBalances.rdlc';
-    UsageCategory = ReportsAndAnalysis; 
-    ApplicationArea = All,Basic,Suite;
+    UsageCategory = ReportsAndAnalysis;
+    ApplicationArea = All, Basic, Suite;
     dataset
     {
         dataitem("Bank Account"; "Bank Account")
@@ -536,13 +536,13 @@ report 50011 "Banks Balances"
         Window: Dialog;
         intExportStatus: Integer;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure CreateSheet()
     begin
         //ExcelBuf.CreateBookAndOpenExcel('Total Sales',Text002,COMPANYNAME,USERID);
     end;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure Header()
     begin
 
@@ -557,7 +557,7 @@ report 50011 "Banks Balances"
         ExcelBuf.AddColumn('Closing Balance ', false, '', true, false, false, '', 0);
     end;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure Body()
     begin
         ExcelBuf.NewRow;

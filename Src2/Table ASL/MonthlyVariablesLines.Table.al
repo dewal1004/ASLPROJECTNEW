@@ -508,7 +508,7 @@ table 50014 "Monthly Variables Lines."
         NewEDRec: Record "Payroll-E/D Codes.";
         EDPage: Page "ED Codes.";
 
-    //[Scope('OnPrem')]
+    ////[Scope('OnPrem')]
     procedure SpecialRelation("FieldNo.": Integer)
     begin
         /*””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””
@@ -527,7 +527,7 @@ table 50014 "Monthly Variables Lines."
 
     end;
 
-    //[Scope('OnPrem')]
+    ////[Scope('OnPrem')]
     procedure CalcAmount(EDFileRec: Record "Payroll-E/D Codes."; EntryLineRec: Record "Monthly Variables Lines."; EntryLineAmount: Decimal; EDCode: Code[20]): Decimal
     begin
         /*””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””
@@ -608,11 +608,11 @@ table 50014 "Monthly Variables Lines."
                         end;
                     else  /*Lookup table is searched with variables of type code*/
                       begin
-                            LookLinesRec."Lower Amount" := 0;
-                            LookLinesRec."Lower Code" := EDFileRec."E/D Code";
-                            LookLinesRec.SetRange("Upper Amount", 0);
-                            LookLinesRec.SetRange("Lower Amount", 0);
-                        end
+                        LookLinesRec."Lower Amount" := 0;
+                        LookLinesRec."Lower Code" := EDFileRec."E/D Code";
+                        LookLinesRec.SetRange("Upper Amount", 0);
+                        LookLinesRec.SetRange("Lower Amount", 0);
+                    end
                 end; /* Case*/
 
                 case LookHeaderRec.Type of
@@ -677,7 +677,7 @@ table 50014 "Monthly Variables Lines."
 
     end;
 
-    //[Scope('OnPrem')]
+    ////[Scope('OnPrem')]
     procedure CheckClosed(): Boolean
     begin
         /*””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””
@@ -688,7 +688,7 @@ table 50014 "Monthly Variables Lines."
 
     end;
 
-    //[Scope('OnPrem')]
+    ////[Scope('OnPrem')]
     procedure CalcTaxAmt(var LDetailsRec: Record "Payroll-Lookup Lines."; TaxTableInput: Decimal): Decimal
     begin
         /*””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””
@@ -735,7 +735,7 @@ table 50014 "Monthly Variables Lines."
 
     end;
 
-    //[Scope('OnPrem')]
+    ////[Scope('OnPrem')]
     procedure CalcGraduated(var WantedLookRec: Record "Payroll-Lookup Lines."; InputToTable: Decimal): Decimal
     begin
         /*”””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””
@@ -768,7 +768,7 @@ table 50014 "Monthly Variables Lines."
 
     end;
 
-    //[Scope('OnPrem')]
+    ////[Scope('OnPrem')]
     procedure CalcCompute(EntryRecParam: Record "Monthly Variables Lines."; AmountInLine: Decimal; "CalledFromEdCode?": Boolean; EDCode: Code[20])
     begin
         /*”””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””
@@ -873,7 +873,7 @@ table 50014 "Monthly Variables Lines."
 
     end;
 
-    //[Scope('OnPrem')]
+    ////[Scope('OnPrem')]
     procedure CalcFactor1(CurrentEntryLine: Record "Monthly Variables Lines.")
     begin
         /*””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””
@@ -915,7 +915,7 @@ table 50014 "Monthly Variables Lines."
 
     end;
 
-    //[Scope('OnPrem')]
+    ////[Scope('OnPrem')]
     procedure "CalcFactor1.1"(CurrLineRec: Record "Monthly Variables Lines."; LineToChangeRec: Record "Monthly Variables Lines."; EDFileRec: Record "Payroll-E/D Codes."): Decimal
     begin
         /*””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””
@@ -965,11 +965,11 @@ table 50014 "Monthly Variables Lines."
                         end;
                     else  /*Lookup table is searched with variables of type code*/
                       begin
-                            LookLinesRec."Lower Amount" := 0;
-                            LookLinesRec."Lower Code" := CurrLineRec."E/D Code";
-                            LookLinesRec.SetRange("Upper Amount", 0);
-                            LookLinesRec.SetRange("Lower Amount", 0);
-                        end
+                        LookLinesRec."Lower Amount" := 0;
+                        LookLinesRec."Lower Code" := CurrLineRec."E/D Code";
+                        LookLinesRec.SetRange("Upper Amount", 0);
+                        LookLinesRec.SetRange("Lower Amount", 0);
+                    end
                 end; /* Case*/
 
                 case LookHeaderRec.Type of
@@ -1040,7 +1040,7 @@ table 50014 "Monthly Variables Lines."
 
     end;
 
-    //[Scope('OnPrem')]
+    ////[Scope('OnPrem')]
     procedure ChangeAllOver(CurrentRec: Record "Monthly Variables Lines."; CurrWasDeleted: Boolean)
     begin
         /*”””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””
@@ -1094,7 +1094,7 @@ table 50014 "Monthly Variables Lines."
 
     end;
 
-    //[Scope('OnPrem')]
+    ////[Scope('OnPrem')]
     procedure ComputeAgain(ParamLine: Record "Monthly Variables Lines."; CurrentRec: Record "Monthly Variables Lines."; CurrWasDeleted: Boolean)
     begin
         /*”””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””
@@ -1204,7 +1204,7 @@ table 50014 "Monthly Variables Lines."
 
     end;
 
-    //[Scope('OnPrem')]
+    ////[Scope('OnPrem')]
     procedure CalcFactorAgain(ParamLine: Record "Monthly Variables Lines."; CurrentRec: Record "Monthly Variables Lines."; CurrWasDeleted: Boolean)
     begin
         /*””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””
@@ -1258,7 +1258,7 @@ table 50014 "Monthly Variables Lines."
 
     end;
 
-    //[Scope('OnPrem')]
+    ////[Scope('OnPrem')]
     procedure ResetChangeFlags(CurrentRec: Record "Monthly Variables Lines.")
     begin
         /*””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””
@@ -1290,7 +1290,7 @@ table 50014 "Monthly Variables Lines."
 
     end;
 
-    //[Scope('OnPrem')]
+    ////[Scope('OnPrem')]
     procedure AmountIsComputed(var ReturnAmount: Decimal; EntryLineRec: Record "Monthly Variables Lines."; EDFileRec: Record "Payroll-E/D Codes."; NewAmount: Decimal; EDCode: Code[20]): Boolean
     begin
         /*”””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””
@@ -1347,7 +1347,7 @@ table 50014 "Monthly Variables Lines."
 
     end;
 
-    //[Scope('OnPrem')]
+    ////[Scope('OnPrem')]
     procedure ChangeDueToDelete(DeletedRec: Record "Monthly Variables Lines.")
     begin
         /*”””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””
@@ -1376,7 +1376,7 @@ table 50014 "Monthly Variables Lines."
 
     end;
 
-    //[Scope('OnPrem')]
+    ////[Scope('OnPrem')]
     procedure ChkRoundMaxMin(EDRecord: Record "Payroll-E/D Codes."; TheAmount: Decimal): Decimal
     begin
         /*”””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””
@@ -1413,7 +1413,7 @@ table 50014 "Monthly Variables Lines."
 
     end;
 
-    //[Scope('OnPrem')]
+    ////[Scope('OnPrem')]
     procedure GetParam()
     begin
         PaySetup.Reset;

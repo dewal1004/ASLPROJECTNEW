@@ -1044,7 +1044,7 @@ report 50192 "Vessel Performances Grpg2"
         Export_ValueCaptionLbl: Label 'Export Value';
         Itempr: Record "Sales Price";
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure Syntesis(Cd: Code[10]; Pk: Code[10]; Br: Code[10]) Itemno: Code[10]
     begin
         //Syntesis Item Code Name
@@ -1052,7 +1052,7 @@ report 50192 "Vessel Performances Grpg2"
         "No.B" := Format(Cd) + UOMCd + CopyStr(Br, 1, 1);     //Requip Code Name
     end;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure GetItPrice(JNos: Code[20]; Nos: Code[20]; PDays: Date): Decimal
     var
         job3: Record Job;
@@ -1073,12 +1073,12 @@ report 50192 "Vessel Performances Grpg2"
         exit(Prc);
     end;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure Cost()
     begin
     end;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure RepStr()
     begin
         ReportStore.Init;
@@ -1106,7 +1106,7 @@ report 50192 "Vessel Performances Grpg2"
         if not ReportStore.Insert then ReportStore.Modify;
     end;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure Bin()
     begin
         /*

@@ -71,7 +71,7 @@ page 50040 "Medical Treatment Costs"
         BenFilter: Option " ",Self,Dependant;
         TransFilter: Option " ",C,R,H;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure UpdateFilter()
     begin
         Rec."Beneficiary Filter" := BenFilter;

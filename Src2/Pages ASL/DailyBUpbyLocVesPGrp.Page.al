@@ -62,7 +62,7 @@ page 50080 "Daily B/Up by Loc/Ves PGrp"
     begin
     end;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure UpdateMatrix()
     begin
     end;

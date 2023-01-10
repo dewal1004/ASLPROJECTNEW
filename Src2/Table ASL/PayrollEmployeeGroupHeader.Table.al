@@ -178,7 +178,7 @@ table 50009 "Payroll-Employee Group Header."
         EmpGrpStep: Code[10];
         BasicEDCode: Code[10];
 
-    //[Scope('OnPrem')]
+    ////[Scope('OnPrem')]
     procedure GetGross(EmpGrpCode: Code[10]): Decimal
     begin
         //GrossEDCode := GenPCode.GetGrossED(EDType::"Gross Salary");
@@ -214,19 +214,19 @@ table 50009 "Payroll-Employee Group Header."
 
     end;
 
-    //[Scope('OnPrem')]
+    ////[Scope('OnPrem')]
     procedure GetGrade(GrpCode: Code[10]): Code[2]
     begin
         if GrpCodeRec.Get(GrpCode) then exit(GrpCodeRec.Grade);
     end;
 
-    //[Scope('OnPrem')]
+    ////[Scope('OnPrem')]
     procedure GetStep(GrpCode: Code[10]): Code[2]
     begin
         if GrpCodeRec.Get(GrpCode) then exit(GrpCodeRec.Step);
     end;
 
-    //[Scope('OnPrem')]
+    ////[Scope('OnPrem')]
     procedure GetGrpCode(Grd: Code[2]; Stp: Code[2]): Code[10]
     begin
         GrpCodeRec.SetRange(Grade, Grd);
@@ -234,7 +234,7 @@ table 50009 "Payroll-Employee Group Header."
         if GrpCodeRec.Find('-') then exit(GrpCodeRec.Code);
     end;
 
-    //[Scope('OnPrem')]
+    ////[Scope('OnPrem')]
     procedure GetGroupFromGross(GrossAmount: Decimal; Criteria: Option LT,GT,EQ,LE,GE,NE): Code[10]
     begin
         GrossEDCode := GenPCode.GetGrossED(EDType::"Gross Salary");
@@ -265,7 +265,7 @@ table 50009 "Payroll-Employee Group Header."
             exit(GrossEDCode);
     end;
 
-    //[Scope('OnPrem')]
+    ////[Scope('OnPrem')]
     procedure GetBasic(EmpGrpCode: Code[10]): Decimal
     begin
 

@@ -332,7 +332,7 @@ table 50045 "Purchase Requisition1"
         VendRec: Record Vendor;
         purreq: Record "Purchase Requisition1";
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure CreatePurchInv()
     var
         Purchheader: Record "Purchase Header";

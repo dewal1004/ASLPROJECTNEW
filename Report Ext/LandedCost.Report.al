@@ -180,7 +180,7 @@ report 50003 "Landed Cost"
         Vatables: Decimal;
         VatThis: array[5] of Decimal;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure BIN()
     begin
     end;

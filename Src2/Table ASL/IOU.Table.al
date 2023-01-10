@@ -54,7 +54,7 @@ table 50040 IOU
     var
         Employee: Record Employee;
 
-    //[Scope('OnPrem')]
+    ////[Scope('OnPrem')]
     procedure EmployeeName(): Text[30]
     begin
         if Employee.Get("Employee No.") then

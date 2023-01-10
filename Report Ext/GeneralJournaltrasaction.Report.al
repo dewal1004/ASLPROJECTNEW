@@ -1896,7 +1896,7 @@ report 50014 "General Journal - trasaction"
         end;
     end;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure TestPostingType()
     begin
         case true of
@@ -2136,7 +2136,7 @@ report 50014 "General Journal - trasaction"
         end;
     end;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure InitializeRequest(NewShowDim: Boolean)
     begin
         ShowDim := NewShowDim;

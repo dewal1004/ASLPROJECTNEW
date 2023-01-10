@@ -6,7 +6,7 @@ page 50155 "PO Subform Local - FIS"
     MultipleNewLines = true;
     PageType = Card;
     SourceTable = "Purchase Line";
-    SourceTableView = WHERE ("Document Type" = FILTER (Order));
+    SourceTableView = WHERE("Document Type" = FILTER(Order));
 
     layout
     {
@@ -723,31 +723,31 @@ page 50155 "PO Subform Local - FIS"
         [InDataSet]
         BrandVisible: Boolean;
 
-[Scope('Onprem')]
+    //[Scope('OnPrem')]
     procedure ApproveCalcInvDisc()
     begin
         CODEUNIT.Run(CODEUNIT::"Purch.-Disc. (Yes/No)", Rec);
     end;
 
-[Scope('Onprem')]
+    //[Scope('OnPrem')]
     procedure CalcInvDisc()
     begin
         CODEUNIT.Run(CODEUNIT::"Purch.-Calc.Discount", Rec);
     end;
 
-[Scope('Onprem')]
+    //[Scope('OnPrem')]
     procedure ExplodeBOM()
     begin
         CODEUNIT.Run(CODEUNIT::"Purch.-Explode BOM", Rec);
     end;
 
-[Scope('Onprem')]
+    //[Scope('OnPrem')]
     procedure GetPhaseTaskStep()
     begin
-       //*** CODEUNIT.Run(CODEUNIT::Codeunit75, Rec);
+        //*** CODEUNIT.Run(CODEUNIT::Codeunit75, Rec);
     end;
 
-[Scope('Onprem')]
+    //[Scope('OnPrem')]
     procedure OpenSalesOrderForm()
     var
         SalesHeader: Record "Sales Header";
@@ -759,7 +759,7 @@ page 50155 "PO Subform Local - FIS"
         SalesOrder.Run;
     end;
 
-[Scope('Onprem')]
+    //[Scope('OnPrem')]
     procedure _InsertExtendedText(Unconditionally: Boolean)
     begin
         if TransferExtendedText.PurchCheckIfAnyExtText(Rec, Unconditionally) then begin
@@ -770,7 +770,7 @@ page 50155 "PO Subform Local - FIS"
             UpdateForm(true);
     end;
 
-[Scope('Onprem')]
+    //[Scope('OnPrem')]
     procedure InsertExtendedText(Unconditionally: Boolean)
     begin
         if TransferExtendedText.PurchCheckIfAnyExtText(Rec, Unconditionally) then begin
@@ -781,45 +781,45 @@ page 50155 "PO Subform Local - FIS"
             UpdateForm(true);
     end;
 
-[Scope('Onprem')]
+    //[Scope('OnPrem')]
     procedure _ShowReservation()
     begin
         Find;
         Rec.ShowReservation;
     end;
 
-[Scope('Onprem')]
+    //[Scope('OnPrem')]
     procedure ASLShowReservation()
     begin
         Find;
         Rec.ShowReservation;
     end;
 
-[Scope('Onprem')]
+    //[Scope('OnPrem')]
     procedure _ItemAvailability(AvailabilityType: Option Date,Variant,Location,Bin)
     begin
         //Rec.ItemAvailability(AvailabilityType);
     end;
 
-    [Scope('onprem')]
+    //[Scope('OnPrem')]
     procedure ItemAvailability(AvailabilityType: Option Date,Variant,Location,Bin)
     begin
         //Rec.ItemAvailability(AvailabilityType);
     end;
 
-[Scope('Onprem')]
+    //[Scope('OnPrem')]
     procedure _ShowReservationEntries()
     begin
         Rec.ShowReservationEntries(true);
     end;
 
-[Scope('Onprem')]
+    //[Scope('OnPrem')]
     procedure ShowReservationEntries()
     begin
         Rec.ShowReservationEntries(true);
     end;
 
-[Scope('Onprem')]
+    //[Scope('OnPrem')]
     procedure ShowTracking()
     var
         TrackingForm: Page "Order Tracking";
@@ -828,37 +828,37 @@ page 50155 "PO Subform Local - FIS"
         TrackingForm.RunModal;
     end;
 
-[Scope('Onprem')]
+    //[Scope('OnPrem')]
     procedure _ShowDimensions()
     begin
         Rec.ShowDimensions;
     end;
 
-[Scope('Onprem')]
+    //[Scope('OnPrem')]
     procedure ShowDimensions()
     begin
         Rec.ShowDimensions;
     end;
 
-[Scope('Onprem')]
+    //[Scope('OnPrem')]
     procedure ItemChargeAssgnt()
     begin
         Rec.ShowItemChargeAssgnt;
     end;
 
-[Scope('Onprem')]
+    //[Scope('OnPrem')]
     procedure _OpenItemTrackingLines()
     begin
         Rec.OpenItemTrackingLines;
     end;
 
-[Scope('Onprem')]
+    //[Scope('OnPrem')]
     procedure OpenItemTrackingLines()
     begin
         Rec.OpenItemTrackingLines;
     end;
 
-[Scope('Onprem')]
+    //[Scope('OnPrem')]
     procedure OpenSpecOrderSalesOrderForm()
     var
         SalesHeader: Record "Sales Header";
@@ -870,14 +870,14 @@ page 50155 "PO Subform Local - FIS"
         SalesOrder.Run;
     end;
 
-[Scope('Onprem')]
+    //[Scope('OnPrem')]
     procedure UpdateForm(SetSaveRecord: Boolean)
     begin
         CurrPage.Update(SetSaveRecord);
         UpdateEnabled();
     end;
 
-[Scope('Onprem')]
+    //[Scope('OnPrem')]
     procedure UpdateEnabled()
     begin
         /*IF PurchHeader.GET("Document Type","Document No.") THEN;
@@ -943,7 +943,7 @@ page 50155 "PO Subform Local - FIS"
 
     end;
 
-[Scope('Onprem')]
+    //[Scope('OnPrem')]
     procedure UpdateUsageForm()
     begin
         if PurchHeader.Get("Document Type", "Document No.") then

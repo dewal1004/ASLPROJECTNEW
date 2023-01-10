@@ -266,7 +266,7 @@ Confirm('You have not approved all item in this Requision Continue to Approve', 
         UserSecID: Guid;
         UserSetup: Record "User Setup";
 
-    //[Scope('OnPrem')]
+    ////[Scope('OnPrem')]
     procedure AssistEdit(OldDPS: Record "Dynamics Procurement Header"): Boolean
     var
         DPSRec: Record "Dynamics Procurement Header";
@@ -283,7 +283,7 @@ Confirm('You have not approved all item in this Requision Continue to Approve', 
         end;
     end;
 
-    // [Scope('OnPrem')]
+    // //[Scope('OnPrem')]
     procedure CreatePurchInv()
     var
         Purchheader: Record "Purchase Header";

@@ -815,7 +815,7 @@ report 50112 "Vessel Performances Grpg OLD"
         Export_ValueCaptionLbl: Label 'Export Value';
         Task_CodeCaptionLbl: Label 'Task Code';
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure Syntesis(Cd: Code[10]; Pk: Code[10]; Br: Code[10]) Itemno: Code[10]
     begin
         //Syntesis Item Code Name
@@ -823,7 +823,7 @@ report 50112 "Vessel Performances Grpg OLD"
         "No.B" := Format(Cd) + UOMCd + CopyStr(Br, 1, 1);     //Requip Code Name
     end;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure GetItPrice(JNos: Code[20]; Nos: Code[20]; PDays: Date): Decimal
     var
         job3: Record Job;
@@ -844,7 +844,7 @@ report 50112 "Vessel Performances Grpg OLD"
         exit(Prc);
     end;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure Cost()
     begin
     end;

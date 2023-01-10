@@ -1043,7 +1043,7 @@ report 98197 "Vessel Performances Grpg2xx"
         Export_ValueCaptionLbl: Label 'Export Value';
         Task_CodeCaptionLbl: Label 'Task Code';
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure Syntesis(Cd: Code[10]; Pk: Code[10]; Br: Code[10]) Itemno: Code[10]
     begin
         //Syntesis Item Code Name
@@ -1051,7 +1051,7 @@ report 98197 "Vessel Performances Grpg2xx"
         "No.B" := Format(Cd) + UOMCd + CopyStr(Br, 1, 1);     //Requip Code Name
     end;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure GetItPrice(JNos: Code[20]; Nos: Code[20]; PDays: Date): Decimal
     var
         job3: Record Job;
@@ -1072,12 +1072,12 @@ report 98197 "Vessel Performances Grpg2xx"
         exit(Prc);
     end;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure Cost()
     begin
     end;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure RepStr()
     begin
         ReportStore.Init;
@@ -1105,7 +1105,7 @@ report 98197 "Vessel Performances Grpg2xx"
         if not ReportStore.Insert then ReportStore.Modify;
     end;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure Bin()
     begin
         /*IF Job3.GET(Job."No.") THEN

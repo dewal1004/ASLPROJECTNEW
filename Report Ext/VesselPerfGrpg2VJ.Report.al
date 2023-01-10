@@ -1079,7 +1079,7 @@ report 50210 "Vessel Perf Grpg2 VJ"
         Naira_ValueCaptionLbl: Label 'Naira Value';
         Export_ValueCaptionLbl: Label 'Export Value';
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure Syntesis2(Cd: Code[10]; Pk: Code[10]; Br: Code[10]) Itemno: Code[10]
     begin
         //Syntesis Item Code Name
@@ -1087,7 +1087,7 @@ report 50210 "Vessel Perf Grpg2 VJ"
         "No.B" := Format(Cd) + UOMCd + CopyStr(Br, 1, 1);     //Requip Code Name
     end;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure GetItPrice(JNos: Code[20]; Nos: Code[20]; PDays: Date): Decimal
     var
         job3: Record Job;
@@ -1110,12 +1110,12 @@ report 50210 "Vessel Perf Grpg2 VJ"
         //#1
     end;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure Cost()
     begin
     end;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure RepStr()
     begin
         ReportStore.Init;
@@ -1143,7 +1143,7 @@ report 50210 "Vessel Perf Grpg2 VJ"
         if not ReportStore.Insert then ReportStore.Modify;
     end;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure Bin()
     begin
         /*IF Job3.GET(Job."No.") THEN

@@ -3,7 +3,7 @@ page 50082 "Daily B/Up Fishg Area/PGrp"
     PageType = Card;
     SaveValues = true;
     UsageCategory = Administration;
-    ApplicationArea= all;
+    ApplicationArea = all;
     SourceTable = "Inventory Posting Group";
     SourceTableView = SORTING("S/No.")
                       WHERE(Category = FILTER('1' ..),
@@ -43,7 +43,7 @@ page 50082 "Daily B/Up Fishg Area/PGrp"
     begin
     end;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure UpdateMatrix()
     begin
     end;

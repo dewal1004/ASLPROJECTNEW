@@ -4,15 +4,15 @@ page 50092 "Actual Catch"
     // //
 
     PageType = Card;
-    
+
     SaveValues = true;
     SourceTable = "Inventory Posting Group";
     SourceTableView = SORTING("S/No.")
-    
+
                       WHERE("Statistics Group" = FILTER(> 0),
                             "In Use" = CONST(true));
-     UsageCategory = Documents;
-     ApplicationArea = All;                       
+    UsageCategory = Documents;
+    ApplicationArea = All;
 
     layout
     {
@@ -51,7 +51,7 @@ page 50092 "Actual Catch"
     begin
     end;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure UpdateMatrix()
     begin
     end;

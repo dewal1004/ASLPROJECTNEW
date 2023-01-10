@@ -153,7 +153,7 @@ report 50213 "Stock On Board"
         Item__No__CaptionLbl: Label 'Code';
         Stk_6__CaptionLbl: Label 'Closing Stock';
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure UpdateCell(Row: Integer; Col: Integer; ValueText: Text[200]; Bold: Boolean; Italic: Boolean; Underline: Boolean; FontSize: Integer)
     begin
         // xlSheet.Range(GetCol(Col) + Format(Row)).Value := ValueText;
@@ -166,7 +166,7 @@ report 50213 "Stock On Board"
         // xlSheet.Range(GetCol(Col) + Format(Row)).Font.Size := FontSize;
     end;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure GetCol(CN: Integer): Text[30]
     var
         xlColID: Text[10];

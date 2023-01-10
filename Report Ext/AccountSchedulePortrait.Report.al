@@ -547,7 +547,7 @@ report 50120 "Account Schedule Portrait"
         ColumnLayoutNameCaptionLbl: Label 'Column Layout';
         AnalysisView__Dimension_1_Code_CaptionLbl: Label 'Dimension Code';
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure InitAccSched()
     begin
         StartDate := "Acc. Schedule Line".GetRangeMin("Date Filter");
@@ -587,13 +587,13 @@ report 50120 "Account Schedule Portrait"
         end;
     end;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure SetColumnLayoutName(ColLayoutName: Code[10])
     begin
         ColumnLayoutNameHidden := ColLayoutName;
     end;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure ShowLine(Bold: Boolean; Italic: Boolean): Boolean
     var
         NonZero: Boolean;
@@ -610,7 +610,7 @@ report 50120 "Account Schedule Portrait"
         exit(true);
     end;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure CalcColumns(): Boolean
     var
         NonZero: Boolean;

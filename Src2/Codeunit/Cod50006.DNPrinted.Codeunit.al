@@ -27,7 +27,7 @@ codeunit 50006 "DN-Printed"
     var
         Usersetup: Record "User Setup";
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure "Transfer DN Printer"(var TranRec: Record "Transfer Header")
     begin
         with TranRec do begin

@@ -133,7 +133,7 @@ table 50018 Applicants
 
             trigger OnValidate()
             begin
-                ValidateShortcutDimCode(1,"Global Dimension 1 Code");
+                ValidateShortcutDimCode(1, "Global Dimension 1 Code");
                 MODIFY;
             end;
         }
@@ -145,14 +145,14 @@ table 50018 Applicants
 
             trigger OnValidate()
             begin
-                ValidateShortcutDimCode(2,"Global Dimension 2 Code");
+                ValidateShortcutDimCode(2, "Global Dimension 2 Code");
                 MODIFY;
             end;
         }
         field(39; Comment; Boolean)
         {
-            CalcFormula = Exist ("Human Resource Comment Line" WHERE ("Table Name" = CONST (Applicants),
-             "No." = FIELD ("No.")));
+            CalcFormula = Exist("Human Resource Comment Line" WHERE("Table Name" = CONST(Applicants),
+             "No." = FIELD("No.")));
             Editable = false;
             FieldClass = FlowField;
         }
@@ -447,7 +447,7 @@ table 50018 Applicants
         CCRec: Record "Dimension Value";
         DimMgt: Codeunit DimensionManagement;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure AssistEdit(OldApplicant: Record Applicants): Boolean
     begin
         with ApplicantRec do begin
@@ -464,7 +464,7 @@ table 50018 Applicants
         end;
     end;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure FullName(): Text[100]
     begin
         if "Middle Name" = '' then
@@ -473,7 +473,7 @@ table 50018 Applicants
             exit(Surname + ' ' + "First Name" + ' ' + "Middle Name");
     end;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure ComputeAverage(): Decimal
     begin
         InterCount := 0;
@@ -513,7 +513,7 @@ table 50018 Applicants
         exit(AllAvg);
     end;
 
-    // [Scope('OnPrem')]
+    // //[Scope('OnPrem')]
     procedure ValidateShortcutDimCode(FieldNo: Integer; var ShortcutDimCode: Code[20])
     begin
         DimMgt.ValidateDimValueCode(FieldNo, ShortcutDimCode);

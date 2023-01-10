@@ -12,12 +12,12 @@ codeunit 50003 Library
         Words: Text[250];
         Ands: Text[10];
 
-    //[Scope('OnPrem')]
+    ////[Scope('OnPrem')]
     procedure "A-A-A-----------------"()
     begin
     end;
 
-    //[Scope('OnPrem')]
+    ////[Scope('OnPrem')]
     procedure C1000_Infinity(Value: Decimal) retvalue: Text[250]
     var
         t: Decimal;
@@ -47,7 +47,7 @@ codeunit 50003 Library
         end;
     end;
 
-    //[Scope('OnPrem')]
+    ////[Scope('OnPrem')]
     procedure C0_9(digit: Integer): Text[20]
     begin
         begin
@@ -76,7 +76,7 @@ codeunit 50003 Library
         end;
     end;
 
-    //[Scope('OnPrem')]
+    ////[Scope('OnPrem')]
     procedure C0_999(ThreeDigit: Integer): Text[100]
     var
         text1: Text[30];
@@ -144,7 +144,7 @@ codeunit 50003 Library
         end;
     end;
 
-    //[Scope('OnPrem')]
+    ////[Scope('OnPrem')]
     procedure ToWords(Value: Decimal; Currency: Text[30]; CurrencyUnit: Text[30]; ConversionRate: Integer; LanguageCodes: Text[250]): Text[250]
     var
         WholeNumber: Decimal;

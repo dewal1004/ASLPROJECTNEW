@@ -1,8 +1,8 @@
-report 50129 "Account Schedule 9"
+report 50127 "Account Schedule FUNDS OP"
 {
-    // // Text004 //AAA
+    //  //Text004 ///AAA
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/AccountSchedule9.rdlc';
+    RDLCLayout = './ReportRdlc/AccountScheduleFUNDSOP.rdlc';
 
     Caption = 'Account Schedule';
 
@@ -461,7 +461,8 @@ report 50129 "Account Schedule 9"
                             ColumnValuesDisplayed[i] := 0;
                             ColumnValuesAsText[i] := '';
                         end;
-                        SetRange("Date Filter", CalcDate('CM-2M+1D'), CalcDate('CM', CalcDate('CM-1M')));
+                        if GetFilter("Date Filter") = '' then
+                            SetRange("Date Filter", CalcDate('CM-2M+1D'), CalcDate('CM', CalcDate('CM-1M')));
                     end;
                 }
             }
@@ -490,7 +491,7 @@ report 50129 "Account Schedule 9"
 
             trigger OnPreDataItem()
             begin
-                if GLSetup.Get then SetFilter(Name, GLSetup."Schedule Name 9");
+                if GLSetup.Get then SetFilter(Name, GLSetup."Schedule Name 7");
             end;
         }
     }
@@ -513,7 +514,7 @@ report 50129 "Account Schedule 9"
 
     trigger OnPreReport()
     begin
-        //InitAccSched; }///AAA
+        InitAccSched;
     end;
 
     var
@@ -557,13 +558,14 @@ report 50129 "Account Schedule 9"
         ColumnLayoutNameCaptionLbl: Label 'Column Layout';
         AnalysisView__Dimension_1_Code_CaptionLbl: Label 'Dimension Code';
 
-    [Scope('OnPrem')]
+    // //[Scope('OnPrem')]
     procedure InitAccSched()
     begin
         StDat := Format(CalcDate('CM-2M+1D'));
         EnDat := Format(CalcDate('CM', CalcDate('CM-1M')));
         DatFilt := StDat + '..' + EnDat;
-        "Acc. Schedule Line".SetFilter("Acc. Schedule Line"."Date Filter", DatFilt);
+        if "Acc. Schedule Line".GetFilter("Date Filter") = '' then
+            "Acc. Schedule Line".SetFilter("Acc. Schedule Line"."Date Filter", DatFilt);
         //MESSAGE('Date Filter is %1',"Acc. Schedule Line".GETFILTER("Date Filter"));
 
         StartDate := "Acc. Schedule Line".GetRangeMin("Date Filter");
@@ -603,14 +605,13 @@ report 50129 "Account Schedule 9"
         end;
     end;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure SetColumnLayoutName(ColLayoutName: Code[10])
     begin
-
-        //ColumnLayoutNameHidden := ColLayoutName; }///AA
+        ColumnLayoutNameHidden := ColLayoutName;
     end;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure CalcColumns(): Boolean
     var
         NonZero: Boolean;
@@ -641,7 +642,7 @@ report 50129 "Account Schedule 9"
         exit(NonZero);
     end;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure ShowLine(Bold: Boolean; Italic: Boolean): Boolean
     var
         NonZero: Boolean;

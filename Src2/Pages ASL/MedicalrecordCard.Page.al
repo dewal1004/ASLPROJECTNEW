@@ -111,7 +111,7 @@ page 50044 "Medical record Card"
         [InDataSet]
         "ASL Ref NoEditable": Boolean;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure CheckTransType()
     begin
 

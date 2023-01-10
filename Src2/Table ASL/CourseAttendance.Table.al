@@ -135,7 +135,7 @@ table 50028 "Course Attendance"
         AvgCost: Decimal;
         RecCount: Integer;
 
-    //[Scope('OnPrem')]
+    ////[Scope('OnPrem')]
     procedure CalcAvgCost(Normalizer: Integer)
     begin
         TCourseRec.Get("Training Course Code");

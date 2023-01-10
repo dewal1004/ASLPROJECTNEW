@@ -132,7 +132,7 @@ table 60011 "Manpower Budget Table NU*"
         EmpGrpRec: Record "Payroll-Employee Group Header.";
         EmpContRec: Record "Employment Contract";
 
-    //[Scope('OnPrem')]
+    ////[Scope('OnPrem')]
     procedure UpdateCosts()
     begin
         if EmpContRec.Get("Job Code") then begin

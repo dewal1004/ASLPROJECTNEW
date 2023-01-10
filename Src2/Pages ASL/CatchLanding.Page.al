@@ -47,7 +47,7 @@ page 50069 "Catch Landing"
     begin
     end;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure UpdateMatrix()
     begin
     end;

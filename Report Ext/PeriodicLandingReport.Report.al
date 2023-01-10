@@ -221,7 +221,7 @@ report 50016 "Periodic Landing Report"
         Job_Posting_GroupCaptionLbl: Label 'Job Posting Group';
         GroupSortCaptionLbl: Label 'GroupSort';
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure UpdateCell(Row: Integer; Col: Integer; ValueText: Text[200]; Bold: Boolean; Italic: Boolean; Underline: Boolean; FontSize: Integer)
     begin
         // //xlSheet.Range(GetCol(Col) + Format(Row)).Value := ValueText;
@@ -234,7 +234,7 @@ report 50016 "Periodic Landing Report"
         // //xlSheet.Range(GetCol(Col) + Format(Row)).Font.Size := FontSize;
     end;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure GetCol(CN: Integer): Text[30]
     var
         xlColID: Text[10];

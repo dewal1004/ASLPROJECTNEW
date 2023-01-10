@@ -9,7 +9,7 @@ report 50103 "Weekly Points Report"
     DefaultLayout = RDLC;
     RDLCLayout = './ReportRdlc/WeeklyPointsReport.rdlc';
     UsageCategory = ReportsAndAnalysis;
-    ApplicationArea = All,Basic,Suite;
+    ApplicationArea = All, Basic, Suite;
 
 
     dataset
@@ -332,7 +332,7 @@ report 50103 "Weekly Points Report"
         TOTALCaptionLbl: Label 'TOTAL';
         Res: Record Resource;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure UpdateCell(Row: Integer; Col: Integer; ValueText: Text[200]; Bold: Boolean; Italic: Boolean; Underline: Boolean; FontSize: Integer)
     begin
         // xlSheet.Range(GetCol(Col) + Format(Row)).Value := ValueText;
@@ -345,7 +345,7 @@ report 50103 "Weekly Points Report"
         // xlSheet.Range(GetCol(Col) + Format(Row)).Font.Size := FontSize;
     end;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure GetCol(CN: Integer): Text[30]
     var
         xlColID: Text[10];

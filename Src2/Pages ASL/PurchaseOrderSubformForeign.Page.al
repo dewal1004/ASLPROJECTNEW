@@ -875,7 +875,7 @@ page 50055 "Purchase Order Subform Foreign"
         RefreshMessageText: Text;
         TypeChosen: Boolean;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure ApproveCalcInvDisc()
     begin
         CODEUNIT.Run(CODEUNIT::"Purch.-Disc. (Yes/No)", Rec);
@@ -915,7 +915,7 @@ page 50055 "Purchase Order Subform Foreign"
             UpdateForm(true);
     end;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure ShowTracking()
     var
         TrackingForm: Page "Order Tracking";
@@ -936,13 +936,13 @@ page 50055 "Purchase Order Subform Foreign"
         SalesOrder.Run;
     end;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure UpdateForm(SetSaveRecord: Boolean)
     begin
         CurrPage.Update(SetSaveRecord);
     end;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure SetUpdateAllowed(UpdateAllowed: Boolean)
     begin
         UpdateAllowedVar := UpdateAllowed;

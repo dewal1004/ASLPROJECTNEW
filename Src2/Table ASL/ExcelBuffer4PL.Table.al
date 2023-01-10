@@ -123,7 +123,7 @@ table 50047 "Excel Buffer 4 P&L"
         //XlRange: Automation BC;
         FormulaUnitErr: Text[250];
         ReportedLns: Record "Excel Buffer 4 P&L";
-    //[Scope('OnPrem')]
+    ////[Scope('OnPrem')]
     /*    procedure CreateBook()
         begin
             IF NOT CREATE(XlApplication,TRUE) THEN
@@ -135,7 +135,7 @@ table 50047 "Excel Buffer 4 P&L"
 
         end;
 
-       // [Scope('OnPrem')]
+       // //[Scope('OnPrem')]
         procedure OpenBook(FileName: Text[250]; SheetName: Text[250])
         var
             i: Integer;
@@ -176,7 +176,7 @@ table 50047 "Excel Buffer 4 P&L"
 
         end;
 
-       // [Scope('OnPrem')]
+       // //[Scope('OnPrem')]
         procedure CreateSheet(SheetName: Text[250]; ReportHeader: Text[80]; CompanyName: Text[30]; UserID2: Text[30])
         var
             XlEdgeBottom: Integer;
@@ -235,7 +235,7 @@ table 50047 "Excel Buffer 4 P&L"
             Window.Close;
         end;
 
-        [Scope('OnPrem')]
+        //[Scope('OnPrem')]
         procedure CreateRangeName(RangeName: Text[30]; FromColumnNo: Integer; FromRowNo: Integer)
         var
             TempExcelBuf: Record "Excel Buffer" temporary;
@@ -253,7 +253,7 @@ table 50047 "Excel Buffer 4 P&L"
               ':' + GetExcelReference(4) + TempExcelBuf.xlColID + GetExcelReference(4) + ToxlRowID);
         end;
 
-        [Scope('OnPrem')]
+        //[Scope('OnPrem')]
         procedure GiveUserControl()
         begin
             XlApplication.Visible(true);
@@ -261,7 +261,7 @@ table 50047 "Excel Buffer 4 P&L"
             Clear(XlApplication);
         end;
 
-        [Scope('OnPrem')]
+        //[Scope('OnPrem')]
         procedure ReadSheet()
         var
             i: Integer;
@@ -301,7 +301,7 @@ table 50047 "Excel Buffer 4 P&L"
             Window.Close;
         end;
 
-        [Scope('OnPrem')]
+        //[Scope('OnPrem')]
         procedure SelectSheetsName(FileName: Text[250]): Text[250]
         var
             i: Integer;
@@ -344,7 +344,7 @@ table 50047 "Excel Buffer 4 P&L"
 
         end;
 
-      //  [Scope('OnPrem')]
+      //  //[Scope('OnPrem')]
         procedure FilterToFormula("Filter": Text[250]; Ref1: Text[250]; Ref2: Text[250]) Formula: Text[250]
         var
             FormulaUnit: array[250] of Code[20];
@@ -496,13 +496,13 @@ table 50047 "Excel Buffer 4 P&L"
               Ref2 + ')');
         end;
 
-       // [Scope('OnPrem')]
+       // //[Scope('OnPrem')]
         procedure GetFormulaUnitErr(): Text[250]
         begin
             exit(FormulaUnitErr);
         end;
 
-        //[Scope('OnPrem')]
+        ////[Scope('OnPrem')]
         procedure GetExcelReference(Which: Integer): Text[250]
         begin
 
@@ -540,7 +540,7 @@ table 50047 "Excel Buffer 4 P&L"
             end;
         end;
 
-        //[Scope('OnPrem')]
+        ////[Scope('OnPrem')]
         procedure CreateSheet2(SheetName: Text[250]; ReportHeader: Text[80]; CompanyName: Text[30]; UserID2: Text[30])
         var
             XlEdgeBottom: Integer;

@@ -275,7 +275,7 @@ report 50105 "ASL Adjust Exchenge Rate"
                 if not AdjCustVendBank then
                     CurrReport.Break();
                 if Not AdjCust then
-                CurrReport.Break();
+                    CurrReport.Break();
 
                 DtldCustLedgEntry.LockTable();
                 CustLedgerEntry.LockTable();
@@ -1804,7 +1804,7 @@ report 50105 "ASL Adjust Exchenge Rate"
         end;
     end;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure AdjustExchRateCust(GenJournalLine: Record "Gen. Journal Line"; var TempCustLedgerEntry: Record "Cust. Ledger Entry" temporary)
     var
         CustLedgerEntry: Record "Cust. Ledger Entry";
@@ -1838,7 +1838,7 @@ report 50105 "ASL Adjust Exchenge Rate"
         end;
     end;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure AdjustExchRateVend(GenJournalLine: Record "Gen. Journal Line"; var TempVendLedgerEntry: Record "Vendor Ledger Entry" temporary)
     var
         VendLedgerEntry: Record "Vendor Ledger Entry";
@@ -2064,30 +2064,30 @@ report 50105 "ASL Adjust Exchenge Rate"
 
 
 
-   /* ApplicationArea = All;
-    Caption = 'ASL Adjust Exchenge Rate';
-    UsageCategory = Administration;
-    dataset
-    {
-        dataitem(; "")
-        {
-        }
-    }
-    requestpage
-    {
-        layout
-        {
-            area(content)
-            {
-                group(GroupName)
-                {
-                }
-            }
-        }
-        actions
-        {
-            area(processing)
-            {
-            }
-        }
-    }*/
+/* ApplicationArea = All;
+ Caption = 'ASL Adjust Exchenge Rate';
+ UsageCategory = Administration;
+ dataset
+ {
+     dataitem(; "")
+     {
+     }
+ }
+ requestpage
+ {
+     layout
+     {
+         area(content)
+         {
+             group(GroupName)
+             {
+             }
+         }
+     }
+     actions
+     {
+         area(processing)
+         {
+         }
+     }
+ }*/

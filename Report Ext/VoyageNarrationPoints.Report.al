@@ -343,7 +343,7 @@ report 50214 "Voyage Narration (Points)"
         PointsCaptionLbl: Label 'Points';
         DayofTide__Day_of_tide_CaptionLbl: Label 'Day of Tide';
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure UpdateCell(Row: Integer; Col: Integer; ValueText: Text[200]; Bold: Boolean; Italic: Boolean; Underline: Boolean; FontSize: Integer)
     begin
         // xlSheet.Range(GetCol(Col) + Format(Row)).Value := ValueText;
@@ -356,7 +356,7 @@ report 50214 "Voyage Narration (Points)"
         // xlSheet.Range(GetCol(Col) + Format(Row)).Font.Size := FontSize;
     end;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure GetCol(CN: Integer): Text[30]
     var
         c: Integer;

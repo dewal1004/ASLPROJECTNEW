@@ -3,7 +3,7 @@ report 50027 "Voyage P &  L"
     DefaultLayout = RDLC;
     RDLCLayout = './ReportRdlc/VoyagePL.rdlc';
     UsageCategory = ReportsAndAnalysis;
-    ApplicationArea = All,Basic,Suite;
+    ApplicationArea = All, Basic, Suite;
 
     dataset
     {
@@ -1157,7 +1157,7 @@ report 50027 "Voyage P &  L"
         TotalBudQtyM: Decimal;
         ExpBudQtyM: Decimal;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure Syntesis2(Cd: Code[10]; Pk: Code[10]; Br: Code[10]) Itemno: Code[10]
     begin
         //Syntesis Item Code Name
@@ -1167,7 +1167,7 @@ report 50027 "Voyage P &  L"
         exit(ItemVar);
     end;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure GetItPrice(JNos: Code[20]; Nos: Code[20]; PDays: Date): Decimal
     var
         job3: Record Job;
@@ -1210,7 +1210,7 @@ report 50027 "Voyage P &  L"
         exit(Price);
     end;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure UpdateCell(Row: Integer; Col: Integer; ValueText: Text[200]; Bold: Boolean; Italic: Boolean; Underline: Boolean; FontSize: Integer)
     begin
 
@@ -1225,7 +1225,7 @@ report 50027 "Voyage P &  L"
 
     end;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure GetCol(CN: Integer): Text[30]
     var
         xlColID: Text[10];

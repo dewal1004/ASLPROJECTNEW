@@ -55,7 +55,7 @@ page 90491 "Daily B/Up by Locatn (Vessel)x"
     begin
     end;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure "----------------"()
     begin
     end;

@@ -702,7 +702,7 @@ table 60019 "Leave Plan Lines Rev 2 NU*"
         OldRemDur: Integer;
         OldTotal: Integer;
 
-    //[Scope('OnPrem')]
+    ////[Scope('OnPrem')]
     procedure RegisterLeave(LeaveType: Option PLAN,ACTUAL)
     begin
 
@@ -723,7 +723,7 @@ table 60019 "Leave Plan Lines Rev 2 NU*"
         ExplodeRec();
     end;
 
-    //[Scope('OnPrem')]
+    ////[Scope('OnPrem')]
     procedure ExplodeRec()
     begin
 
@@ -738,7 +738,7 @@ table 60019 "Leave Plan Lines Rev 2 NU*"
             end;
     end;
 
-    //[Scope('OnPrem')]
+    ////[Scope('OnPrem')]
     procedure IsConsuming(LCat: Code[10]): Boolean
     begin
         if LCategory.Get(LCat) then
@@ -747,14 +747,14 @@ table 60019 "Leave Plan Lines Rev 2 NU*"
             exit(false);
     end;
 
-    //[Scope('OnPrem')]
+    ////[Scope('OnPrem')]
     procedure RemainingLeave(): Integer
     begin
         CalcFields("Total Consuming");
         exit("Total Leaves Due" - "Total Consuming");
     end;
 
-    //[Scope('OnPrem')]
+    ////[Scope('OnPrem')]
     procedure GetAmountDue()
     begin
 
@@ -775,7 +775,7 @@ table 60019 "Leave Plan Lines Rev 2 NU*"
         end;
     end;
 
-    //[Scope('OnPrem')]
+    ////[Scope('OnPrem')]
     procedure CheckTotalDuration(Cnt: Integer)
     begin
         case Cnt of
@@ -799,7 +799,7 @@ table 60019 "Leave Plan Lines Rev 2 NU*"
         end;
     end;
 
-    //[Scope('OnPrem')]
+    ////[Scope('OnPrem')]
     procedure RegPlan()
     begin
         if Registered then

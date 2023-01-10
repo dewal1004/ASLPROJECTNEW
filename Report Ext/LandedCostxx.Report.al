@@ -173,7 +173,7 @@ report 90003 "Landed Costxx"
         Vatables: Decimal;
         VatThis: array[5] of Decimal;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure BIN()
     begin
         /*IF "Purchase Header"."Document Type"=1 THEN
