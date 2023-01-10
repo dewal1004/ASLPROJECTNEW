@@ -2775,7 +2775,7 @@ report 50012 "Daily BreakUp by Vess Summary"
                                 VesselCounter += 1;
                             Countx := Countx + 1;
                         end;
-                    until locate.Next = 0;
+                   until locate.Next = 0;
 
                 if locate.VSDVal = 0 then
                     CurrReport.Skip;
@@ -2789,7 +2789,8 @@ report 50012 "Daily BreakUp by Vess Summary"
     }
 
     requestpage
-    {
+    {  
+        SaveValues = true;
 
         layout
         {

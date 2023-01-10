@@ -1,10 +1,11 @@
-report 50007 "Daily BreakUp by Vessel Rep 1"
+report 50008 "Daily BreakUp by Vessel Rep 2"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/DailyBreakUpbyVesselRep1.rdlc';
+    RDLCLayout = './ReportRdlc/DailyBreakUpbyVesselRep2.rdlc';
     UsageCategory = ReportsAndAnalysis;
-    ApplicationArea = All, Basic, Suite;
-    Caption = 'Daily BreakUp by Vessel Rep 1';
+    ApplicationArea = All,Basic,Suite;
+    Caption = 'Daily BreakUp by Vessel Rep 2';
+    
 
     dataset
     {
@@ -15,58 +16,58 @@ report 50007 "Daily BreakUp by Vessel Rep 1"
             column(test; Test)
             {
             }
-            column(testc_18; testc[1])
+            column(testc_18; testc[18])
             {
             }
-            column(testc_19; testc[2])
+            column(testc_19; testc[19])
             {
             }
-            column(testc_20; testc[3])
+            column(testc_20; testc[20])
             {
             }
-            column(testc_21; testc[4])
+            column(testc_21; testc[21])
             {
             }
-            column(testc_22; testc[5])
+            column(testc_22; testc[22])
             {
             }
-            column(testc_23; testc[6])
+            column(testc_23; testc[23])
             {
             }
-            column(testc_24; testc[7])
+            column(testc_24; testc[24])
             {
             }
-            column(testc_25; testc[8])
+            column(testc_25; testc[25])
             {
             }
-            column(testc_26; testc[9])
+            column(testc_26; testc[26])
             {
             }
-            column(testc_27; testc[10])
+            column(testc_27; testc[27])
             {
             }
-            column(testc_28; testc[11])
+            column(testc_28; testc[28])
             {
             }
-            column(testc_29; testc[12])
+            column(testc_29; testc[29])
             {
             }
-            column(testc_30; testc[13])
+            column(testc_30; testc[30])
             {
             }
-            column(testc_31; testc[14])
+            column(testc_31; testc[31])
             {
             }
-            column(testc_32; testc[15])
+            column(testc_32; testc[32])
             {
             }
-            column(testc_33; testc[16])
+            column(testc_33; testc[33])
             {
             }
-            column(testc_34; testc[17])
+            column(testc_34; testc[34])
             {
             }
-            column(testc_35; testc[18])
+            column(testc_35; testc[35])
             {
             }
             column(Total_Vessels; TotLoc)
@@ -2283,12 +2284,41 @@ report 50007 "Daily BreakUp by Vessel Rep 1"
 
             trigger OnAfterGetRecord()
             begin
-                
+
+                /*
+                IF COPYSTR(Category,5) ='SNB' THEN
+                CurrReport.SKIP;
+                IF COPYSTR(Category,5) ='SOLE' THEN
+                CurrReport.SKIP;
+                IF COPYSTR(Category,5) ='CROAKER' THEN
+                CurrReport.SKIP;
+                */
+                //IF COPYSTR(Category,5) ='MIX' THEN
+                //CurrReport.SKIP;
+                /*
+                IF COPYSTR(Category,5) ='OTHER FISH' THEN
+                CurrReport.SKIP;
+                */
                 if (CopyStr(Category, 5) = 'SNB') or (CopyStr(Category, 5) = 'SOLE') or
                    (CopyStr(Category, 5) = 'CROAKER') or (CopyStr(Category, 5) = 'MIX') or
                    (CopyStr(Category, 5) = 'OTHER FISH') then
                     Test += InvtTot;
-                
+                /*
+                IF ("Inventory Posting Group".Category = 'B12.OTHER FISH') OR (Category = 'B08.SNB') OR (Category ='B09.CROAKER') OR (Category ='B10.SOLE') OR (Category ='B11.MIX') THEN BEGIN
+                  testing123 += ROUND("Inventory total2",2);
+                  level:=TotLoc;
+                  WHILE level>0 DO BEGIN
+                    SETFILTER("Location Filter",SeaRange[level]);
+                    CALCFIELDS(Inventory1,Inventory2);
+                    IF ReportBy=0 THEN
+                      testc[level]:=Inventory2
+                    ELSE
+                      testc[level]:=Inventory1;
+                    level:=level-1;
+                  END;
+                END;
+                */
+
                 if ("Inventory Posting G Cat Tot".Category = 'B12.OTHER FISH') or ("Inventory Posting G Cat Tot".Category = 'B08.SNB')
                  or ("Inventory Posting G Cat Tot".Category = 'B09.CROAKER') or ("Inventory Posting G Cat Tot".Category = 'B10.SOLE')
                   or ("Inventory Posting G Cat Tot".Category = 'B11.MIX') then begin
@@ -2313,7 +2343,10 @@ report 50007 "Daily BreakUp by Vessel Rep 1"
                     SetFilter("Location Filter", SeaRange[level]);
                     CalcFields(Inventory1, Inventory2);
                     //Inventory2 := InventoryTwo(Code,SeaRange[level],DateFilter);
-                   
+                    /*IF ReportBy = 0 THEN
+                      SeaRangeC[level] := Inventory2;
+                      `('%1',SeaRangeC[1]);*///Test
+
                     if ReportBy = 0 then
                         SeaRangeC[level] := Inventory2
                     else
@@ -2420,7 +2453,7 @@ report 50007 "Daily BreakUp by Vessel Rep 1"
             DataItemTableView = SORTING("Statistics Group", Category, "S/No.") WHERE("In Use" = CONST(true), "Statistics Group" = FILTER(> 0));
             column(testing123; testing123)
             {
-            } 
+            }
             column(Inventory_Posting_G_Cat_Tot_Category; Category)
             {
             }
@@ -5244,7 +5277,7 @@ report 50007 "Daily BreakUp by Vessel Rep 1"
 
     requestpage
     {
-
+        SaveValues = true; 
         layout
         {
             area(content)

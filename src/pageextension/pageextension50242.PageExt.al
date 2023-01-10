@@ -1,4 +1,4 @@
-pageextension 50242 pageextension50242 extends "Job Journal"
+pageextension 50242 "pageextension50242" extends "Job Journal"
 {
     layout
     {
@@ -199,10 +199,13 @@ pageextension 50242 pageextension50242 extends "Job Journal"
             {
                 Caption = 'Fish Caught/Reconciliation';
                 Image = Reconcile;
+                
                 RunObject = report "Vessel Catches";
 
                 trigger OnAction()
                 begin
+                    SetRange("Journal Batch Name","Journal Batch Name");
+                    SetRange("Journal Template Name,");
                     //***P ReportPrint.PrintJobJnlLinefish(Rec);
                 end;
             }
