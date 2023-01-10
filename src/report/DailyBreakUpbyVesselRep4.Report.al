@@ -5274,7 +5274,7 @@ report 50010 "Daily BreakUp by Vessel Rep 4"
 
     requestpage
     {
-
+        SaveValues = true;        
         layout
         {
             area(content)

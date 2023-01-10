@@ -1,11 +1,9 @@
-report 50008 "Daily BreakUp by Vessel Rep 2"
+report 50009 "Daily BreakUp by Vessel Rep 3"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/DailyBreakUpbyVesselRep2.rdlc';
+    RDLCLayout = './ReportRdlc/DailyBreakUpbyVesselRep3.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All,Basic,Suite;
-    Caption = 'Daily BreakUp by Vessel Rep 2';
-    
 
     dataset
     {
@@ -16,58 +14,58 @@ report 50008 "Daily BreakUp by Vessel Rep 2"
             column(test; Test)
             {
             }
-            column(testc_18; testc[18])
+            column(testc_18; testc[35])
             {
             }
-            column(testc_19; testc[19])
+            column(testc_19; testc[36])
             {
             }
-            column(testc_20; testc[20])
+            column(testc_20; testc[37])
             {
             }
-            column(testc_21; testc[21])
+            column(testc_21; testc[38])
             {
             }
-            column(testc_22; testc[22])
+            column(testc_22; testc[39])
             {
             }
-            column(testc_23; testc[23])
+            column(testc_23; testc[40])
             {
             }
-            column(testc_24; testc[24])
+            column(testc_24; testc[41])
             {
             }
-            column(testc_25; testc[25])
+            column(testc_25; testc[42])
             {
             }
-            column(testc_26; testc[26])
+            column(testc_26; testc[43])
             {
             }
-            column(testc_27; testc[27])
+            column(testc_27; testc[44])
             {
             }
-            column(testc_28; testc[28])
+            column(testc_28; testc[45])
             {
             }
-            column(testc_29; testc[29])
+            column(testc_29; testc[46])
             {
             }
-            column(testc_30; testc[30])
+            column(testc_30; testc[47])
             {
             }
-            column(testc_31; testc[31])
+            column(testc_31; testc[48])
             {
             }
-            column(testc_32; testc[32])
+            column(testc_32; testc[49])
             {
             }
-            column(testc_33; testc[33])
+            column(testc_33; testc[50])
             {
             }
-            column(testc_34; testc[34])
+            column(testc_34; testc[51])
             {
             }
-            column(testc_35; testc[35])
+            column(testc_35; testc[18])
             {
             }
             column(Total_Vessels; TotLoc)
@@ -91,139 +89,139 @@ report 50008 "Daily BreakUp by Vessel Rep 2"
             column(Inventory_Posting_G_Cat_Tot__Inventory_total2_; Inventory2)
             {
             }
-            column(ShrimpPoint_18_; ShrimpPoint[18])
+            column(ShrimpPoint_18_; ShrimpPoint[35])
             {
 
             }
-            column(FishPoint_18_; FishPoint[18])
+            column(FishPoint_18_; FishPoint[35])
             {
 
             }
-            column(ShrimpPoint_19_; ShrimpPoint[19])
+            column(ShrimpPoint_19_; ShrimpPoint[36])
             {
 
             }
-            column(FishPoint_19_; FishPoint[19])
+            column(FishPoint_19_; FishPoint[36])
             {
 
             }
-            column(ShrimpPoint_20_; ShrimpPoint[20])
+            column(ShrimpPoint_20_; ShrimpPoint[37])
             {
 
             }
-            column(FishPoint_20_; FishPoint[20])
+            column(FishPoint_20_; FishPoint[37])
             {
 
             }
-            column(ShrimpPoint_21_; ShrimpPoint[21])
+            column(ShrimpPoint_21_; ShrimpPoint[38])
             {
 
             }
-            column(FishPoint_21_; FishPoint[21])
+            column(FishPoint_21_; FishPoint[38])
             {
 
             }
-            column(ShrimpPoint_22_; ShrimpPoint[22])
+            column(ShrimpPoint_22_; ShrimpPoint[39])
             {
 
             }
-            column(FishPoint_22_; FishPoint[22])
+            column(FishPoint_22_; FishPoint[39])
             {
 
             }
-            column(ShrimpPoint_23_; ShrimpPoint[23])
+            column(ShrimpPoint_23_; ShrimpPoint[40])
             {
 
             }
-            column(FishPoint_23_; FishPoint[23])
+            column(FishPoint_23_; FishPoint[40])
             {
 
             }
-            column(ShrimpPoint_24_; ShrimpPoint[24])
+            column(ShrimpPoint_24_; ShrimpPoint[41])
             {
 
             }
-            column(FishPoint_24_; FishPoint[24])
+            column(FishPoint_24_; FishPoint[41])
             {
 
             }
-            column(ShrimpPoint_25_; ShrimpPoint[25])
+            column(ShrimpPoint_25_; ShrimpPoint[42])
             {
 
             }
-            column(FishPoint_25_; FishPoint[25])
+            column(FishPoint_25_; FishPoint[42])
             {
 
             }
-            column(ShrimpPoint_26_; ShrimpPoint[26])
+            column(ShrimpPoint_26_; ShrimpPoint[43])
             {
 
             }
-            column(FishPoint_26_; FishPoint[26])
+            column(FishPoint_26_; FishPoint[43])
             {
 
             }
-            column(ShrimpPoint_27_; ShrimpPoint[27])
+            column(ShrimpPoint_27_; ShrimpPoint[44])
             {
 
             }
-            column(FishPoint_27_; FishPoint[27])
+            column(FishPoint_27_; FishPoint[44])
             {
 
             }
-            column(ShrimpPoint_28_; ShrimpPoint[28])
+            column(ShrimpPoint_28_; ShrimpPoint[45])
             {
 
             }
-            column(FishPoint_28_; FishPoint[28])
+            column(FishPoint_28_; FishPoint[45])
             {
 
             }
-            column(ShrimpPoint_29_; ShrimpPoint[29])
+            column(ShrimpPoint_29_; ShrimpPoint[46])
             {
 
             }
-            column(FishPoint_29_; FishPoint[29])
+            column(FishPoint_29_; FishPoint[46])
             {
 
             }
-            column(ShrimpPoint_30_; ShrimpPoint[30])
+            column(ShrimpPoint_30_; ShrimpPoint[47])
             {
 
             }
-            column(FishPoint_30_; FishPoint[30])
+            column(FishPoint_30_; FishPoint[47])
             {
 
             }
-            column(ShrimpPoint_31_; ShrimpPoint[31])
+            column(ShrimpPoint_31_; ShrimpPoint[48])
             {
 
             }
-            column(FishPoint_31_; FishPoint[31])
+            column(FishPoint_31_; FishPoint[48])
             {
 
             }
-            column(ShrimpPoint_32_; ShrimpPoint[32])
+            column(ShrimpPoint_32_; ShrimpPoint[49])
             {
 
             }
-            column(FishPoint_32_; FishPoint[32])
+            column(FishPoint_32_; FishPoint[49])
             {
 
             }
-            column(ShrimpPoint_33_; ShrimpPoint[33])
+            column(ShrimpPoint_33_; ShrimpPoint[50])
             {
 
             }
-            column(FishPoint_33_; FishPoint[33])
+            column(FishPoint_33_; FishPoint[50])
             {
 
             }
-            column(ShrimpPoint_34_; ShrimpPoint[34])
+            column(ShrimpPoint_34_; ShrimpPoint[51])
             {
 
             }
-            column(FishPoint_34_; FishPoint[34])
+            column(FishPoint_34_; FishPoint[51])
             {
 
             }
@@ -675,71 +673,71 @@ report 50008 "Daily BreakUp by Vessel Rep 2"
             {
 
             }
-            column(VesselPoint_18_; VesselPoint[18])
+            column(VesselPoint_18_; VesselPoint[35])
             {
 
             }
-            column(VesselPoint_19_; VesselPoint[19])
+            column(VesselPoint_19_; VesselPoint[36])
             {
 
             }
-            column(VesselPoint_20_; VesselPoint[20])
+            column(VesselPoint_20_; VesselPoint[37])
             {
 
             }
-            column(VesselPoint_21_; VesselPoint[21])
+            column(VesselPoint_21_; VesselPoint[38])
             {
 
             }
-            column(VesselPoint_22_; VesselPoint[22])
+            column(VesselPoint_22_; VesselPoint[39])
             {
 
             }
-            column(VesselPoint_23_; VesselPoint[23])
+            column(VesselPoint_23_; VesselPoint[40])
             {
 
             }
-            column(VesselPoint_24_; VesselPoint[24])
+            column(VesselPoint_24_; VesselPoint[41])
             {
 
             }
-            column(VesselPoint_25_; VesselPoint[25])
+            column(VesselPoint_25_; VesselPoint[42])
             {
 
             }
-            column(VesselPoint_26_; VesselPoint[26])
+            column(VesselPoint_26_; VesselPoint[43])
             {
 
             }
-            column(VesselPoint_27_; VesselPoint[27])
+            column(VesselPoint_27_; VesselPoint[44])
             {
 
             }
-            column(VesselPoint_28_; VesselPoint[28])
+            column(VesselPoint_28_; VesselPoint[45])
             {
 
             }
-            column(VesselPoint_29_; VesselPoint[29])
+            column(VesselPoint_29_; VesselPoint[46])
             {
 
             }
-            column(VesselPoint_30_; VesselPoint[30])
+            column(VesselPoint_30_; VesselPoint[47])
             {
 
             }
-            column(VesselPoint_31_; VesselPoint[31])
+            column(VesselPoint_31_; VesselPoint[48])
             {
 
             }
-            column(VesselPoint_32_; VesselPoint[32])
+            column(VesselPoint_32_; VesselPoint[49])
             {
 
             }
-            column(VesselPoint_33_; VesselPoint[33])
+            column(VesselPoint_33_; VesselPoint[50])
             {
 
             }
-            column(VesselPoint_34_; VesselPoint[34])
+            column(VesselPoint_34_; VesselPoint[51])
             {
 
             }
@@ -1039,55 +1037,55 @@ report 50008 "Daily BreakUp by Vessel Rep 2"
             {
 
             }
-            column(SeaRangeD_18_; SeaRangeD[18])
+            column(SeaRangeD_18_; SeaRangeD[35])
             {
 
             }
-            column(SeaRangeD_20_; SeaRangeD[20])
+            column(SeaRangeD_20_; SeaRangeD[37])
             {
 
             }
-            column(SeaRangeD_19_; SeaRangeD[19])
+            column(SeaRangeD_19_; SeaRangeD[36])
             {
 
             }
-            column(SeaRangeD_30_; SeaRangeD[30])
+            column(SeaRangeD_30_; SeaRangeD[47])
             {
 
             }
-            column(SeaRangeD_29_; SeaRangeD[29])
+            column(SeaRangeD_29_; SeaRangeD[46])
             {
 
             }
-            column(SeaRangeD_28_; SeaRangeD[28])
+            column(SeaRangeD_28_; SeaRangeD[45])
             {
 
             }
-            column(SeaRangeD_27_; SeaRangeD[27])
+            column(SeaRangeD_27_; SeaRangeD[44])
             {
 
             }
-            column(SeaRangeD_26_; SeaRangeD[26])
+            column(SeaRangeD_26_; SeaRangeD[43])
             {
 
             }
-            column(SeaRangeD_25_; SeaRangeD[25])
+            column(SeaRangeD_25_; SeaRangeD[42])
             {
 
             }
-            column(SeaRangeD_24_; SeaRangeD[24])
+            column(SeaRangeD_24_; SeaRangeD[41])
             {
 
             }
-            column(SeaRangeD_23_; SeaRangeD[23])
+            column(SeaRangeD_23_; SeaRangeD[40])
             {
 
             }
-            column(SeaRangeD_22_; SeaRangeD[22])
+            column(SeaRangeD_22_; SeaRangeD[39])
             {
 
             }
-            column(SeaRangeD_21_; SeaRangeD[21])
+            column(SeaRangeD_21_; SeaRangeD[38])
             {
 
             }
@@ -1115,19 +1113,19 @@ report 50008 "Daily BreakUp by Vessel Rep 2"
             {
 
             }
-            column(SeaRangeD_34_; SeaRangeD[34])
+            column(SeaRangeD_34_; SeaRangeD[51])
             {
 
             }
-            column(SeaRangeD_33_; SeaRangeD[33])
+            column(SeaRangeD_33_; SeaRangeD[50])
             {
 
             }
-            column(SeaRangeD_32_; SeaRangeD[32])
+            column(SeaRangeD_32_; SeaRangeD[49])
             {
 
             }
-            column(SeaRangeD_31_; SeaRangeD[31])
+            column(SeaRangeD_31_; SeaRangeD[48])
             {
 
             }
@@ -1355,57 +1353,57 @@ report 50008 "Daily BreakUp by Vessel Rep 2"
             {
 
             }
-            column(SeaRange_18_; SeaRange[18])
+            column(SeaRange_18_; SeaRange[1])
             {
 
             }
-            column(SeaRange_19_; SeaRange[19])
+            column(SeaRange_19_; SeaRange[2])
             {
             }
-            column(SeaRange_20_; SeaRange[20])
+            column(SeaRange_20_; SeaRange[3])
             {
             }
-            column(SeaRange_21_; SeaRange[21])
+            column(SeaRange_21_; SeaRange[4])
             {
 
             }
-            column(SeaRange_22_; SeaRange[22])
+            column(SeaRange_22_; SeaRange[5])
             {
             }
-            column(SeaRange_23_; SeaRange[23])
+            column(SeaRange_23_; SeaRange[6])
             {
             }
-            column(SeaRange_24_; SeaRange[24])
+            column(SeaRange_24_; SeaRange[7])
             {
             }
-            column(SeaRange_25_; SeaRange[25])
+            column(SeaRange_25_; SeaRange[8])
             {
             }
-            column(SeaRange_26_; SeaRange[26])
+            column(SeaRange_26_; SeaRange[9])
             {
             }
-            column(SeaRange_27_; SeaRange[27])
+            column(SeaRange_27_; SeaRange[10])
             {
             }
-            column(SeaRange_28_; SeaRange[28])
+            column(SeaRange_28_; SeaRange[11])
             {
             }
-            column(SeaRange_29_; SeaRange[29])
+            column(SeaRange_29_; SeaRange[12])
             {
             }
-            column(SeaRange_30_; SeaRange[30])
+            column(SeaRange_30_; SeaRange[13])
             {
             }
-            column(SeaRange_31_; SeaRange[31])
+            column(SeaRange_31_; SeaRange[14])
             {
             }
-            column(SeaRange_32_; SeaRange[32])
+            column(SeaRange_32_; SeaRange[15])
             {
             }
-            column(SeaRange_33_; SeaRange[33])
+            column(SeaRange_33_; SeaRange[16])
             {
             }
-            column(SeaRange_34_; SeaRange[34])
+            column(SeaRange_34_; SeaRange[17])
             {
             }
             column(SeaRange_35_; SeaRange[35])
@@ -1611,71 +1609,71 @@ report 50008 "Daily BreakUp by Vessel Rep 2"
             {
 
             }
-            column(SeaRangeC_34_; SeaRangeC[34])
+            column(SeaRangeC_34_; SeaRangeC[17])
             {
 
             }
-            column(SeaRangeC_33_; SeaRangeC[33])
+            column(SeaRangeC_33_; SeaRangeC[16])
             {
 
             }
-            column(SeaRangeC_32_; SeaRangeC[32])
+            column(SeaRangeC_32_; SeaRangeC[15])
             {
 
             }
-            column(SeaRangeC_31_; SeaRangeC[31])
+            column(SeaRangeC_31_; SeaRangeC[14])
             {
 
             }
-            column(SeaRangeC_30_; SeaRangeC[30])
+            column(SeaRangeC_30_; SeaRangeC[13])
             {
 
             }
-            column(SeaRangeC_29_; SeaRangeC[29])
+            column(SeaRangeC_29_; SeaRangeC[12])
             {
 
             }
-            column(SeaRangeC_28_; SeaRangeC[28])
+            column(SeaRangeC_28_; SeaRangeC[11])
             {
 
             }
-            column(SeaRangeC_27_; SeaRangeC[27])
+            column(SeaRangeC_27_; SeaRangeC[10])
             {
 
             }
-            column(SeaRangeC_26_; SeaRangeC[26])
+            column(SeaRangeC_26_; SeaRangeC[9])
             {
 
             }
-            column(SeaRangeC_25_; SeaRangeC[25])
+            column(SeaRangeC_25_; SeaRangeC[8])
             {
 
             }
-            column(SeaRangeC_24_; SeaRangeC[24])
+            column(SeaRangeC_24_; SeaRangeC[7])
             {
 
             }
-            column(SeaRangeC_23_; SeaRangeC[23])
+            column(SeaRangeC_23_; SeaRangeC[6])
             {
 
             }
-            column(SeaRangeC_22_; SeaRangeC[22])
+            column(SeaRangeC_22_; SeaRangeC[5])
             {
 
             }
-            column(SeaRangeC_21_; SeaRangeC[21])
+            column(SeaRangeC_21_; SeaRangeC[4])
             {
 
             }
-            column(SeaRangeC_20_; SeaRangeC[20])
+            column(SeaRangeC_20_; SeaRangeC[3])
             {
 
             }
-            column(SeaRangeC_19_; SeaRangeC[19])
+            column(SeaRangeC_19_; SeaRangeC[2])
             {
 
             }
-            column(SeaRangeC_18_; SeaRangeC[18])
+            column(SeaRangeC_18_; SeaRangeC[1])
             {
 
             }
@@ -2284,7 +2282,6 @@ report 50008 "Daily BreakUp by Vessel Rep 2"
 
             trigger OnAfterGetRecord()
             begin
-
                 /*
                 IF COPYSTR(Category,5) ='SNB' THEN
                 CurrReport.SKIP;
@@ -2326,13 +2323,11 @@ report 50008 "Daily BreakUp by Vessel Rep 2"
                     level := TotLoc;
                     while level > 0 do begin
                         SetFilter("Location Filter", SeaRange[level]);
-                        "Inventory Posting G Cat Tot".CalcFields("Inventory Posting G Cat Tot".Inventory2);
-                        "Inventory Posting G Cat Tot".CalcFields("Inventory Posting G Cat Tot".Inventory1);
-                        if ReportBy = 0 then begin
+                        CalcFields(Inventory1, Inventory2);
+                        if ReportBy = 0 then
                             testc[level] := "Inventory Posting G Cat Tot".Inventory2
-                        end else begin
+                        else
                             testc[level] := "Inventory Posting G Cat Tot".Inventory1;
-                        end;
                         level := level - 1;
                     end;
                 end;
@@ -2357,7 +2352,7 @@ report 50008 "Daily BreakUp by Vessel Rep 2"
                 SetFilter("Location Filter", '');  //OCT 10,2002 AAA
                 CalcFields(Inventory1, Inventory2);
 
-                //"Inventory total2" := InventoryTotal2(Code,DateFilter);
+                //"Inventory2" := InventoryTotal2(Code,DateFilter);
                 if ReportBy = 0 then
                     InvtTot := Inventory2
                 else
@@ -2371,6 +2366,8 @@ report 50008 "Daily BreakUp by Vessel Rep 2"
 
             trigger OnPreDataItem()
             begin
+
+
                 TotLoc := 0;
                 VesselCounter := 0;
                 DateFilter := "Inventory Posting G Cat Tot".GetFilter("Date Filter");
@@ -2410,7 +2407,7 @@ report 50008 "Daily BreakUp by Vessel Rep 2"
 
                 Countx := 1;
 
-                //locate.SETFILTER(locate."Catch Date",DateFilter);//Entropy
+                //locate.SETFILTER(locate."Catch Date",DateFilter);//nitin
                 TotLoc := locate.Count;
                 if locate.FindFirst then
                     repeat
@@ -5276,8 +5273,8 @@ report 50008 "Daily BreakUp by Vessel Rep 2"
     }
 
     requestpage
-    {
-
+    {  
+        SaveValues = true;
         layout
         {
             area(content)
