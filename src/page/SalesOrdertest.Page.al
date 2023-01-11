@@ -970,7 +970,7 @@ page 90000 "Sales Order test"
 
                     trigger OnAction()
                     begin
-                        Post(CODEUNIT::"Sales-Post (Yes/No)");
+                        // Post(CODEUNIT::"Sales-Post (Yes/No)");
                     end;
                 }
                 action("Post and &Print")
@@ -985,7 +985,7 @@ page 90000 "Sales Order test"
 
                     trigger OnAction()
                     begin
-                        Post(CODEUNIT::"Sales-Post + Print");
+                        // Post(CODEUNIT::"Sales-Post + Print");
                     end;
                 }
                 action("Post and Email")

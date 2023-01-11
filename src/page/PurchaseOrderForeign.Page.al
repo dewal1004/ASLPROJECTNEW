@@ -1093,7 +1093,7 @@ page 50097 "Purchase Order Foreign"
 
                     trigger OnAction()
                     begin
-                        Post(CODEUNIT::"Purch.-Post (Yes/No)");
+                        // Post(CODEUNIT::"Purch.-Post (Yes/No)");
                     end;
                 }
                 action(Preview)
@@ -1120,7 +1120,7 @@ page 50097 "Purchase Order Foreign"
 
                     trigger OnAction()
                     begin
-                        Post(CODEUNIT::"Purch.-Post + Print");
+                        // Post(CODEUNIT::"Purch.-Post + Print");  //Build error Action Post cannot be used like a method.
                     end;
                 }
                 action("Test Report")
