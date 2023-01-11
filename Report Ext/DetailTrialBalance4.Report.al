@@ -4,7 +4,7 @@ report 50133 "Detail Trial Balance-4"
     RDLCLayout = './ReportRdlc/DetailTrialBalance4.rdlc';
     Caption = 'Detail Trial Balance';
     UsageCategory = ReportsAndAnalysis;
-    ApplicationArea = All,Basic,Suite;
+    ApplicationArea = All, Basic, Suite;
 
     dataset
     {
@@ -254,7 +254,7 @@ report 50133 "Detail Trial Balance-4"
 
                 trigger OnAfterGetRecord()
                 begin
-                    CurrReport.PrintOnlyIfDetail := not (PrintAllHavingBal and (StartBalance <> 0));
+                    //  CurrReport.PrintOnlyIfDetail := not (PrintAllHavingBal and (StartBalance <> 0));
                 end;
             }
 

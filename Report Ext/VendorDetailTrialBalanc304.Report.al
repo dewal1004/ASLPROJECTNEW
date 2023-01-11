@@ -265,7 +265,7 @@ report 50134 "Vendor-Detail Trial Balanc-304"
                         StartBalanceLCY := -"Net Change (LCY)";
                         SetFilter("Date Filter", VendDateFilter);
                     end;
-                CurrReport.PrintOnlyIfDetail := not (PrintAllHavingBal and (StartBalanceLCY <> 0));
+                //  CurrReport.PrintOnlyIfDetail := not (PrintAllHavingBal and (StartBalanceLCY <> 0));
                 VendBalanceLCY := StartBalanceLCY;
             end;
 

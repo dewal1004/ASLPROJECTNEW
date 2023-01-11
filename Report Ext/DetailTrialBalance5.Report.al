@@ -246,7 +246,7 @@ report 53177 "Detail Trial Balance - 5"
 
                 trigger OnAfterGetRecord()
                 begin
-                    CurrReport.PrintOnlyIfDetail := not (PrintAllHavingBal and (StartBalance <> 0));
+                    //  CurrReport.PrintOnlyIfDetail := not (PrintAllHavingBal and (StartBalance <> 0));
                 end;
             }
 

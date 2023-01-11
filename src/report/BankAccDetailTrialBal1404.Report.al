@@ -4,7 +4,7 @@ report 50132 "Bank Acc-Detail Trial Bal-1404"
     RDLCLayout = './ReportRdlc/BankAccDetailTrialBal1404.rdlc';
     Caption = 'Bank Acc. - Detail Trial Bal.';
     UsageCategory = ReportsAndAnalysis;
-    ApplicationArea = All,Basic,Suite;
+    ApplicationArea = All, Basic, Suite;
 
     dataset
     {
@@ -248,7 +248,7 @@ report 50132 "Bank Acc-Detail Trial Bal-1404"
                         StartBalanceLCY := "Net Change (LCY)";
                         SetFilter("Date Filter", BankAccDateFilter);
                     end;
-                CurrReport.PrintOnlyIfDetail := not (PrintAllHavingBal and (StartBalance <> 0));
+                //  CurrReport.PrintOnlyIfDetail := not (PrintAllHavingBal and (StartBalance <> 0));  //Rev
                 BankAccBalance := StartBalance;
                 BankAccBalanceLCY := StartBalanceLCY;
                 BankTotal_Debit := 0;

@@ -239,7 +239,7 @@ report 51404 "Bank Acc. - Detail Trial Bal.S"
                         StartBalanceLCY := "Net Change (LCY)";
                         SetFilter("Date Filter", BankAccDateFilter);
                     end;
-                CurrReport.PrintOnlyIfDetail := not (PrintAllHavingBal and (StartBalance <> 0));
+                //  CurrReport.PrintOnlyIfDetail := not (PrintAllHavingBal and (StartBalance <> 0));
                 BankAccBalance := StartBalance;
                 BankAccBalanceLCY := StartBalanceLCY;
             end;
