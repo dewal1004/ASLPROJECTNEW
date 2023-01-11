@@ -1,4 +1,4 @@
-tableextension 50288 tableextension50288 extends "Employee Absence"
+tableextension 50288 "tableextension50288" extends "Employee Absence"
 {
     fields
     {
@@ -107,70 +107,5 @@ tableextension 50288 tableextension50288 extends "Employee Absence"
         if (UserId <> GenSetUp.Administrator) and (UserId <> PayrsetUp."HR Officer") then Error(Text001);
         if (UserId <> GenSetUp.Administrator) and ("From Date" < payPrd."Start Date") then Error(Text003, payPrd."Start Date");
     end;
-
-
-    //Unsupported feature: Property Modification (Id) on "Employee(Variable 1001)".
-
-    //var
-    //>>>> ORIGINAL VALUE:
-    //Employee : 1001;
-    //Variable type has not been exported.
-    //>>>> MODIFIED VALUE:
-    //Employee : 1101;
-    //Variable type has not been exported.
-
-
-    //Unsupported feature: Property Modification (Id) on "EmployeeAbsence(Variable 1002)".
-
-    //var
-    //>>>> ORIGINAL VALUE:
-    //EmployeeAbsence : 1002;
-    //Variable type has not been exported.
-    //>>>> MODIFIED VALUE:
-    //EmployeeAbsence : 1102;
-    //Variable type has not been exported.
-
-
-    //Unsupported feature: Property Modification (Id) on "HumanResUnitOfMeasure(Variable 1003)".
-
-    //var
-    //>>>> ORIGINAL VALUE:
-    //HumanResUnitOfMeasure : 1003;
-    //Variable type has not been exported.
-    //>>>> MODIFIED VALUE:
-    //HumanResUnitOfMeasure : 1103;
-    //Variable type has not been exported.
-
-
-    //Unsupported feature: Property Modification (Id) on "BlockedErr(Variable 1004)".
-
-    //var
-    //>>>> ORIGINAL VALUE:
-    //BlockedErr : 1004;
-    //Variable type has not been exported.
-    //>>>> MODIFIED VALUE:
-    //BlockedErr : 1104;
-    //Variable type has not been exported.
-
-
-    //Unsupported feature: Property Modification (Id) on "UOMMgt(Variable 1005)".
-
-    //var
-    //>>>> ORIGINAL VALUE:
-    //UOMMgt : 1005;
-    //Variable type has not been exported.
-    //>>>> MODIFIED VALUE:
-    //UOMMgt : 1105;
-    //Variable type has not been exported.
-
-    var
-        approved: Boolean;
-        approv: Record "Object";
-        fieldval: Text[30];
-        Deptrec: Record "Dimension Value";
-        MPentry: Record "MP Budget Name";
-        MPentryAvail: Record "MP Budget Entry";
-        DatDif: array[2] of Decimal;
-        DayCount: Decimal;
 }
 

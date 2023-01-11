@@ -1252,7 +1252,7 @@ page 90000 "Sales Order test"
         CRMIsCoupledToRecord: Boolean;
         ShowWorkflowStatus: Boolean;
 
-    local procedure Post(PostingCodeunitID: Integer)
+    local procedure Post2(PostingCodeunitID: Integer)
     begin
         SendToPosting(PostingCodeunitID);
         if "Job Queue Status" = "Job Queue Status"::"Scheduled for Posting" then

@@ -455,7 +455,7 @@ report 50011 "Banks Balances"
     begin
 
 
-        ExcelBuf.CreateBookAndOpenExcel('', 'Balance Report', 'Balance Report', CompanyName, UserId);
+        ///R ExcelBuf.CreateBookAndOpenExcel('', 'Balance Report', 'Balance Report', CompanyName, UserId);
     end;
 
     var
@@ -539,7 +539,7 @@ report 50011 "Banks Balances"
     //[Scope('OnPrem')]
     procedure CreateSheet()
     begin
-        //ExcelBuf.CreateBookAndOpenExcel('Total Sales',Text002,COMPANYNAME,USERID);
+        /////R ExcelBuf.CreateBookAndOpenExcel('Total Sales',Text002,COMPANYNAME,USERID);
     end;
 
     //[Scope('OnPrem')]

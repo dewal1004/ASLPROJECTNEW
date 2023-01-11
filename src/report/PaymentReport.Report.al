@@ -1884,7 +1884,7 @@ report 50111 "Payment Report"
     //[Scope('OnPrem')]
     procedure createsheet()
     begin
-        ExcelBuff.CreateBookAndOpenExcel('Sales', 'Hai', CompanyName, UserId, '');
+        // ExcelBuff.CreateBookAndOpenExcel('Sales', 'Hai', CompanyName, UserId, '');
     end;
 
     //[Scope('OnPrem')]

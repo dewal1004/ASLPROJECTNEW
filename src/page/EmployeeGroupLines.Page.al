@@ -21,7 +21,7 @@ page 50016 "Employee Group Lines."
                     //  Lookup = true;
                     //LookupPageID = "E/D Survey";
                 }
-                field(GetEDName; GetEDName)
+                field(GetEDNameF; GetEDName)
                 {
                     Caption = 'Payslip Text';
                 }
