@@ -6,9 +6,11 @@ pageextension 50351 pageextension50351 extends "Resource List"
         {
             field(Posted; Posted)
             {
+                ApplicationArea = All;
             }
             field("Posted To Operation Voyage No."; "Posted To Operation Voyage No.")
             {
+                ApplicationArea = All;
             }
         }
     }
@@ -23,6 +25,7 @@ pageextension 50351 pageextension50351 extends "Resource List"
                 Promoted = true;
                 PromotedCategory = "Report";
                 RunObject = Report "Catch Incentive";
+                ApplicationArea = All;
             }
             action("Crew List Report")
             {
@@ -31,6 +34,7 @@ pageextension 50351 pageextension50351 extends "Resource List"
                 Promoted = true;
                 PromotedCategory = "Report";
                 RunObject = Report "Material Req Reconciliation";
+                ApplicationArea = All;
             }
         }
     }

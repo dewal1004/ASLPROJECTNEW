@@ -874,9 +874,11 @@ report 50014 "General Journal - trasaction"
                     field(ShowDim; ShowDim)
                     {
                         Caption = 'Show Dimensions';
+                        ApplicationArea = All;
                     }
                     field(ShowReconciliation; ShowReconciliation)
                     {
+                        ApplicationArea = All;
                     }
                 }
             }
@@ -1590,9 +1592,9 @@ report 50014 "General Journal - trasaction"
                                 TableCaption, BankAcc.TableCaption));
 
                 if BankAccPostingGr.Get(BankAcc."Bank Acc. Posting Group") then
-                    if BankAccPostingGr."G/L Bank Account No." <> '' then
+                    if BankAccPostingGr."G/L Account No." <> '' then
                         ReconcileGLAccNo(
-                          BankAccPostingGr."G/L Bank Account No.",
+                          BankAccPostingGr."G/L Account No.",
                           Round("Amount (LCY)" / (1 + "VAT %" / 100)));
             end;
     end;

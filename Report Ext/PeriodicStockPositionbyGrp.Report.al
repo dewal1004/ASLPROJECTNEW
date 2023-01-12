@@ -6,7 +6,7 @@ report 50184 "Periodic Stock Position by Grp"
     DefaultLayout = RDLC;
     RDLCLayout = './ReportRdlc/PeriodicStockPositionbyGrp.rdlc';
     UsageCategory = ReportsAndAnalysis;
-    ApplicationArea = All,Basic,Suite;
+    ApplicationArea = All, Basic, Suite;
 
     dataset
     {
@@ -324,12 +324,15 @@ report 50184 "Periodic Stock Position by Grp"
                 {
                     field("Ending Date"; PeriodStartDate[5])
                     {
+                        ApplicationArea = All;
                     }
                     field("Period Length"; PeriodLength)
                     {
+                        ApplicationArea = All;
                     }
                     field("Days Only"; DaysOnly)
                     {
+                        ApplicationArea = All;
                     }
                 }
             }

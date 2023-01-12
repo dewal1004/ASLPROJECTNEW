@@ -921,6 +921,7 @@ report 50027 "Voyage P &  L"
                     {
                         Caption = 'Location';
                         TableRelation = Location;
+                        ApplicationArea = All;
                     }
                 }
             }

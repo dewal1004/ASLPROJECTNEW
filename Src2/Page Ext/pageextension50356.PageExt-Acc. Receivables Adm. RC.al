@@ -7,6 +7,7 @@ pageextension 50356 pageextension50356 extends "Acc. Receivables Adm. RC"
             action("Requisition Register")
             {
                 RunObject = Page "Store Requisitions";
+                ApplicationArea = All;
             }
         }
     }

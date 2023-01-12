@@ -229,6 +229,7 @@ report 50059 "Transfer Processing/Fish Shop"
                     field("Transfer To:"; ReportOptions)
                     {
                         Caption = 'Transfer To:';
+                        ApplicationArea = All;
                     }
                 }
             }

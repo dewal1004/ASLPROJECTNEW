@@ -17,10 +17,12 @@ page 50416 "G/L Account Balance Linesx"
                 field("Period Start"; "Period Start")
                 {
                     Editable = false;
+                    ApplicationArea = All;
                 }
                 field("Period Name"; "Period Name")
                 {
                     Editable = false;
+                    ApplicationArea = All;
                 }
                 field("GLAcc.""Debit Amount"""; GLAcc."Debit Amount")
                 {
@@ -29,6 +31,7 @@ page 50416 "G/L Account Balance Linesx"
                     Caption = 'Debit Amount';
                     DrillDown = true;
                     Editable = false;
+                    ApplicationArea = All;
 
                     trigger OnDrillDown()
                     begin
@@ -42,6 +45,7 @@ page 50416 "G/L Account Balance Linesx"
                     Caption = 'Credit Amount';
                     DrillDown = true;
                     Editable = false;
+                    ApplicationArea = All;
 
                     trigger OnDrillDown()
                     begin
@@ -56,6 +60,7 @@ page 50416 "G/L Account Balance Linesx"
                     DrillDown = true;
                     Editable = false;
                     Visible = false;
+                    ApplicationArea = All;
 
                     trigger OnDrillDown()
                     begin

@@ -4,14 +4,14 @@ report 50075 "New Daily Points Report"
     RDLCLayout = './ReportRdlc/NewDailyPointsReport.rdlc';
     Caption = 'New Daily Points Report';
     UsageCategory = ReportsAndAnalysis;
-    ApplicationArea = All,Basic,Suite;
+    ApplicationArea = All, Basic, Suite;
 
     dataset
     {
         dataitem("Integer"; "Integer")
         {
             DataItemTableView = SORTING(Number) WHERE(Number = CONST(1));
-            
+
 
             trigger OnAfterGetRecord()
             begin
@@ -39,7 +39,7 @@ report 50075 "New Daily Points Report"
         dataitem(Job; Job)
         {
             DataItemTableView = SORTING("Points Sort Bay", Status) ORDER(Descending) WHERE("No." = FILTER('I' .. 'K'));
-            
+
             column(FORMAT_TODAY_0_4_; Format(Today, 0, 4))
             {
             }
@@ -369,7 +369,7 @@ report 50075 "New Daily Points Report"
 
             trigger OnPreDataItem()
             begin
-                
+
                 if not Historical then SetRange(Status, 2);
                 SetFilter(AvgPtSortBay, '<>0');
                 if Find('-') then
@@ -752,6 +752,7 @@ report 50075 "New Daily Points Report"
             {
                 field(RepDate; RepDate)
                 {
+                    ApplicationArea = All;
 
                     trigger OnValidate()
                     begin
@@ -767,6 +768,7 @@ report 50075 "New Daily Points Report"
                 }
                 field("Day Of Tide"; DOT)
                 {
+                    ApplicationArea = All;
 
                     trigger OnValidate()
                     begin
@@ -784,6 +786,7 @@ report 50075 "New Daily Points Report"
                 }
                 field(Historical; Historical)
                 {
+                    ApplicationArea = All;
                 }
             }
         }

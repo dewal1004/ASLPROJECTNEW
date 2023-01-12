@@ -21,9 +21,11 @@ page 50080 "Daily B/Up by Loc/Ves PGrp"
                 Caption = 'General';
                 field("Code"; Code)
                 {
+                    ApplicationArea = All;
                 }
                 field(Description; Description)
                 {
+                    ApplicationArea = All;
                 }
             }
         }

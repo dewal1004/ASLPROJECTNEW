@@ -16,6 +16,7 @@ page 50028 "Appraisal Entry"
                 Caption = 'General';
                 field("No."; "No.")
                 {
+                    ApplicationArea = All;
 
                     trigger OnAssistEdit()
                     begin
@@ -25,10 +26,12 @@ page 50028 "Appraisal Entry"
                 }
                 field("Appraisal Selection"; "Appraisal Selection")
                 {
+                    ApplicationArea = All;
                 }
                 field("Sell-to Customer No."; "Sell-to Customer No.")
                 {
                     Caption = 'Appraisee No.';
+                    ApplicationArea = All;
 
                     trigger OnValidate()
                     begin
@@ -38,37 +41,47 @@ page 50028 "Appraisal Entry"
                 field("Sell-to Customer Name"; "Sell-to Customer Name")
                 {
                     Caption = 'Name';
+                    ApplicationArea = All;
                 }
                 field("Sell-to Address"; "Sell-to Address")
                 {
                     Caption = 'Address';
+                    ApplicationArea = All;
                 }
                 field("Sell-to Address 2"; "Sell-to Address 2")
                 {
                     Caption = 'Address 2';
+                    ApplicationArea = All;
                 }
                 field("Sell-to Post Code"; "Sell-to Post Code")
                 {
                     Caption = 'Post Code/City';
+                    ApplicationArea = All;
                 }
                 field("Sell-to City"; "Sell-to City")
                 {
+                    ApplicationArea = All;
                 }
                 field("Sell-to Contact"; "Sell-to Contact")
                 {
                     Caption = 'Contact';
+                    ApplicationArea = All;
                 }
                 field("Contr. Code/Postn.  Applied"; "Contr. Code/Postn.  Applied")
                 {
+                    ApplicationArea = All;
                 }
                 field("Posting Date"; "Posting Date")
                 {
+                    ApplicationArea = All;
                 }
                 field("Document Date"; "Document Date")
                 {
+                    ApplicationArea = All;
                 }
                 field("Shortcut Dimension 1 Code"; "Shortcut Dimension 1 Code")
                 {
+                    ApplicationArea = All;
 
                     trigger OnValidate()
                     begin
@@ -77,6 +90,7 @@ page 50028 "Appraisal Entry"
                 }
                 field("Shortcut Dimension 2 Code"; "Shortcut Dimension 2 Code")
                 {
+                    ApplicationArea = All;
 
                     trigger OnValidate()
                     begin
@@ -85,14 +99,17 @@ page 50028 "Appraisal Entry"
                 }
                 field(Status; Status)
                 {
+                    ApplicationArea = All;
                 }
                 field("Posting No. Series"; "Posting No. Series")
                 {
+                    ApplicationArea = All;
                 }
             }
             part(SalesLines; "Appraisal Entry Subform.")
             {
                 SubPageLink = "Document No." = FIELD("No.");
+                ApplicationArea = All;
             }
             group(Interview)
             {
@@ -101,246 +118,314 @@ page 50028 "Appraisal Entry"
                 {
                     CaptionClass = Text19064607;
                     ShowCaption = false;
+                    ApplicationArea = All;
                 }
                 label(Control1000000021)
                 {
                     CaptionClass = Text19060600;
                     ShowCaption = false;
+                    ApplicationArea = All;
                 }
                 field("Skill Score"; "Skill Score")
                 {
+                    ApplicationArea = All;
                 }
                 field("Skill Total"; "Skill Total")
                 {
+                    ApplicationArea = All;
                 }
                 field("Performance Score"; "Performance Score")
                 {
+                    ApplicationArea = All;
                 }
                 label(Control1000000023)
                 {
                     CaptionClass = Text19012021;
                     ShowCaption = false;
+                    ApplicationArea = All;
                 }
                 field(Cgrade; Cgrade)
                 {
                     Caption = 'Current';
                     Editable = false;
+                    ApplicationArea = All;
                 }
                 field(Rgrade; Rgrade)
                 {
                     Caption = 'Recommended';
+                    ApplicationArea = All;
                 }
                 field(Agrade; Agrade)
                 {
                     Caption = 'Approved';
+                    ApplicationArea = All;
                 }
                 label(Control1000000022)
                 {
                     CaptionClass = Text19068379;
                     ShowCaption = false;
+                    ApplicationArea = All;
                 }
                 field("Skill Percentage"; "Skill Percentage")
                 {
                     Editable = false;
+                    ApplicationArea = All;
                 }
                 field("Performance Total"; "Performance Total")
                 {
+                    ApplicationArea = All;
                 }
                 field("Performance Percentage"; "Performance Percentage")
                 {
                     Editable = false;
+                    ApplicationArea = All;
                 }
                 field("Total Percentage"; "Total Percentage")
                 {
                     Editable = false;
+                    ApplicationArea = All;
                 }
                 label(Control1000000014)
                 {
                     CaptionClass = Text19015031;
                     ShowCaption = false;
+                    ApplicationArea = All;
                 }
                 label(Control1000000019)
                 {
                     CaptionClass = Text19080001;
                     ShowCaption = false;
+                    ApplicationArea = All;
                 }
                 label(Control1000000020)
                 {
                     CaptionClass = Text19080002;
                     ShowCaption = false;
+                    ApplicationArea = All;
                 }
                 label(Control1000000024)
                 {
                     CaptionClass = Text19032492;
                     ShowCaption = false;
+                    ApplicationArea = All;
                 }
                 label(Control1000000031)
                 {
                     CaptionClass = Text19055220;
                     ShowCaption = false;
+                    ApplicationArea = All;
                 }
                 field(Cstep; Cstep)
                 {
                     Editable = false;
+                    ApplicationArea = All;
                 }
                 field(Cedamount; Cedamount)
                 {
                     Editable = false;
+                    ApplicationArea = All;
                 }
                 field(Rstep; Rstep)
                 {
+                    ApplicationArea = All;
                 }
                 field(Redamount; Redamount)
                 {
+                    ApplicationArea = All;
                 }
                 field(Astep; Astep)
                 {
+                    ApplicationArea = All;
                 }
                 label(Control1000000042)
                 {
                     CaptionClass = Text19000744;
                     ShowCaption = false;
+                    ApplicationArea = All;
                 }
                 field(Date1; Date1)
                 {
+                    ApplicationArea = All;
                 }
                 field(Date2; Date2)
                 {
+                    ApplicationArea = All;
                 }
                 field(Date3; Date3)
                 {
+                    ApplicationArea = All;
                 }
                 field(Date4; Date4)
                 {
+                    ApplicationArea = All;
                 }
                 field(Date5; Date5)
                 {
+                    ApplicationArea = All;
                 }
                 field(Date6; Date6)
                 {
+                    ApplicationArea = All;
                 }
                 field(Date7; Date7)
                 {
+                    ApplicationArea = All;
                 }
                 label(Control1000000039)
                 {
                     CaptionClass = Text19015056;
                     ShowCaption = false;
+                    ApplicationArea = All;
                 }
                 field(Date8; Date8)
                 {
+                    ApplicationArea = All;
                 }
                 label(Control1000000040)
                 {
                     CaptionClass = Text19080003;
                     ShowCaption = false;
+                    ApplicationArea = All;
                 }
                 field(Aedamount; Aedamount)
                 {
+                    ApplicationArea = All;
                 }
                 label(Control1000000043)
                 {
                     CaptionClass = Text19051066;
                     ShowCaption = false;
+                    ApplicationArea = All;
                 }
                 field(Skill1; Skill1)
                 {
+                    ApplicationArea = All;
                 }
                 field(Skill2; Skill2)
                 {
+                    ApplicationArea = All;
                 }
                 field(Date9; Date9)
                 {
+                    ApplicationArea = All;
                 }
                 label(Control1000000041)
                 {
                     CaptionClass = Text19080004;
                     ShowCaption = false;
+                    ApplicationArea = All;
                 }
                 label(Control1000000044)
                 {
                     CaptionClass = Text19052518;
                     ShowCaption = false;
+                    ApplicationArea = All;
                 }
                 label(Control1000000046)
                 {
                     CaptionClass = Text19003762;
                     ShowCaption = false;
+                    ApplicationArea = All;
                 }
                 field(Performance1; Performance1)
                 {
+                    ApplicationArea = All;
                 }
                 field(Tpercent1; Tpercent1)
                 {
+                    ApplicationArea = All;
                 }
                 field(Performance2; Performance2)
                 {
+                    ApplicationArea = All;
                 }
                 field(Skill3; Skill3)
                 {
+                    ApplicationArea = All;
                 }
                 field(Performance3; Performance3)
                 {
+                    ApplicationArea = All;
                 }
                 field(Skill4; Skill4)
                 {
+                    ApplicationArea = All;
                 }
                 field(Performance4; Performance4)
                 {
+                    ApplicationArea = All;
                 }
                 field(Skill5; Skill5)
                 {
+                    ApplicationArea = All;
                 }
                 field(Performance5; Performance5)
                 {
+                    ApplicationArea = All;
                 }
                 field(Skill6; Skill6)
                 {
+                    ApplicationArea = All;
                 }
                 field(Performance6; Performance6)
                 {
+                    ApplicationArea = All;
                 }
                 field(Skill7; Skill7)
                 {
+                    ApplicationArea = All;
                 }
                 field(Performance7; Performance7)
                 {
+                    ApplicationArea = All;
                 }
                 field(Skill8; Skill8)
                 {
+                    ApplicationArea = All;
                 }
                 field(Skill9; Skill9)
                 {
+                    ApplicationArea = All;
                 }
                 field(Tpercent2; Tpercent2)
                 {
+                    ApplicationArea = All;
                 }
                 field(Tpercent3; Tpercent3)
                 {
+                    ApplicationArea = All;
                 }
                 field(Tpercent4; Tpercent4)
                 {
+                    ApplicationArea = All;
                 }
                 field(Tpercent5; Tpercent5)
                 {
+                    ApplicationArea = All;
                 }
                 field(Tpercent6; Tpercent6)
                 {
+                    ApplicationArea = All;
                 }
                 field(Tpercent7; Tpercent7)
                 {
+                    ApplicationArea = All;
                 }
                 field(Performance8; Performance8)
                 {
+                    ApplicationArea = All;
                 }
                 field(Tpercent8; Tpercent8)
                 {
+                    ApplicationArea = All;
                 }
                 field(Performance9; Performance9)
                 {
+                    ApplicationArea = All;
                 }
                 field(Tpercent9; Tpercent9)
                 {
+                    ApplicationArea = All;
                 }
             }
         }
@@ -357,6 +442,7 @@ page 50028 "Appraisal Entry"
                 action(List)
                 {
                     ShortCutKey = 'F5';
+                    ApplicationArea = All;
                 }
                 action(Statistics)
                 {
@@ -366,6 +452,7 @@ page 50028 "Appraisal Entry"
                     PromotedCategory = Process;
                     ShortCutKey = 'F7';
                     Visible = true;
+                    ApplicationArea = All;
 
                     trigger OnAction()
                     begin
@@ -385,6 +472,7 @@ page 50028 "Appraisal Entry"
                     // RunPageLink = "No." = FIELD ("Sell-to Customer No.");
                     ShortCutKey = 'Shift+F7';
                     Visible = true;
+                    ApplicationArea = All;
                 }
                 action(Action1000000007)
                 {
@@ -392,6 +480,7 @@ page 50028 "Appraisal Entry"
                     Image = EditLines;
                     RunObject = Page "Employee Card";
                     ShortCutKey = 'Shift+F7';
+                    ApplicationArea = All;
                 }
                 action("Co&mments")
                 {
@@ -400,6 +489,7 @@ page 50028 "Appraisal Entry"
                     RunObject = Page "Sales Comment Sheet";
                     RunPageLink = "Document Type" = FIELD("Document Type"),
                                   "No." = FIELD("No.");
+                    ApplicationArea = All;
                 }
                 action("S&hipments")
                 {
@@ -408,6 +498,7 @@ page 50028 "Appraisal Entry"
                     RunPageLink = "Order No." = FIELD("No.");
                     RunPageView = SORTING("Order No.");
                     Visible = true;
+                    ApplicationArea = All;
                 }
                 action(Invoices)
                 {
@@ -417,6 +508,7 @@ page 50028 "Appraisal Entry"
                     RunPageLink = "Order No." = FIELD("No.");
                     RunPageView = SORTING("Order No.");
                     Visible = true;
+                    ApplicationArea = All;
                 }
                 action(Action122)
                 {
@@ -424,6 +516,7 @@ page 50028 "Appraisal Entry"
                     Image = Dimensions;
                     RunObject = Page "Dimension Values";
                     Visible = true;
+                    ApplicationArea = All;
                 }
                 separator(Action120)
                 {
@@ -434,31 +527,40 @@ page 50028 "Appraisal Entry"
                 Caption = 'Line';
                 action("Item Availability by")
                 {
+                    ApplicationArea = All;
                 }
                 action(Period)
                 {
+                    ApplicationArea = All;
                 }
                 action(Variant)
                 {
+                    ApplicationArea = All;
                 }
                 action(Location)
                 {
+                    ApplicationArea = All;
                 }
                 action("Reservation Entries")
                 {
+                    ApplicationArea = All;
                 }
                 action("Select Item Substitution")
                 {
+                    ApplicationArea = All;
                 }
                 action(Dimensions)
                 {
                     ShortCutKey = 'Shift+Ctrl+D';
+                    ApplicationArea = All;
                 }
                 action("Item Charge &Assignment")
                 {
+                    ApplicationArea = All;
                 }
                 action("Item &Tracking Lines")
                 {
+                    ApplicationArea = All;
                 }
             }
             group(Functions)
@@ -467,10 +569,12 @@ page 50028 "Appraisal Entry"
                 action("Calculate &Invoice Discount")
                 {
                     Caption = 'Calculate &Invoice Discount';
+                    ApplicationArea = All;
                 }
                 action("E&xplode BOM")
                 {
                     Caption = 'E&xplode BOM';
+                    ApplicationArea = All;
                 }
                 action("Copy Document")
                 {
@@ -478,6 +582,7 @@ page 50028 "Appraisal Entry"
                     Ellipsis = true;
                     Image = CopyDocument;
                     Visible = true;
+                    ApplicationArea = All;
 
                     trigger OnAction()
                     begin
@@ -489,28 +594,34 @@ page 50028 "Appraisal Entry"
                 action("Insert &Ext. Texts")
                 {
                     Caption = 'Insert &Ext. Texts';
+                    ApplicationArea = All;
                 }
                 action("Drop Shipment")
                 {
                     Caption = 'Drop Shipment';
+                    ApplicationArea = All;
                 }
                 action("Purchase &Order")
                 {
                     Caption = 'Purchase &Order';
+                    ApplicationArea = All;
                 }
                 action("Special Order")
                 {
                     Caption = 'Special Order';
+                    ApplicationArea = All;
                 }
                 action("&Reserve")
                 {
                     Caption = '&Reserve';
+                    ApplicationArea = All;
                 }
                 action("Nonstoc&k Items")
                 {
                     Caption = 'Nonstoc&k Items';
                     Enabled = true;
                     Visible = true;
+                    ApplicationArea = All;
 
                     trigger OnAction()
                     begin
@@ -523,16 +634,19 @@ page 50028 "Appraisal Entry"
                 action("Order &Tracking")
                 {
                     Caption = 'Order &Tracking';
+                    ApplicationArea = All;
                 }
                 action(Warehouse)
                 {
                     Caption = 'Warehouse';
+                    ApplicationArea = All;
                 }
                 action("Order &Promising")
                 {
                     Caption = 'Order &Promising';
                     Enabled = true;
                     Visible = true;
+                    ApplicationArea = All;
 
                     trigger OnAction()
                     var
@@ -558,12 +672,14 @@ page 50028 "Appraisal Entry"
                                       "Source Subtype Filter" = FIELD("Document Type"),
                                       "Source No. Filter" = FIELD("No.");
                         Visible = true;
+                        ApplicationArea = All;
                     }
                     action("Create Assignment")
                     {
                         Caption = 'Create Assignment';
                         Enabled = true;
                         Visible = true;
+                        ApplicationArea = All;
 
                         trigger OnAction()
                         var
@@ -581,6 +697,7 @@ page 50028 "Appraisal Entry"
                     RunObject = Codeunit "Release Sales Document";
                     ShortCutKey = 'Ctrl+F9';
                     Visible = true;
+                    ApplicationArea = All;
                 }
                 action("Re&open")
                 {
@@ -588,6 +705,7 @@ page 50028 "Appraisal Entry"
                     Enabled = true;
                     Image = ReOpen;
                     Visible = true;
+                    ApplicationArea = All;
 
                     trigger OnAction()
                     var
@@ -599,6 +717,7 @@ page 50028 "Appraisal Entry"
                 action("Ge&nerate Appraisal Line")
                 {
                     Caption = 'Ge&nerate Appraisal Line';
+                    ApplicationArea = All;
 
                     trigger OnAction()
                     begin
@@ -608,6 +727,7 @@ page 50028 "Appraisal Entry"
                 action("&Up-date Applicant Score")
                 {
                     Caption = '&Up-date Applicant Score';
+                    ApplicationArea = All;
 
                     trigger OnAction()
                     begin
@@ -634,6 +754,7 @@ page 50028 "Appraisal Entry"
                     Caption = 'Test Report';
                     Ellipsis = true;
                     Image = TestReport;
+                    ApplicationArea = All;
 
                     trigger OnAction()
                     begin
@@ -650,6 +771,7 @@ page 50028 "Appraisal Entry"
                     PromotedIsBig = true;
                     RunObject = Codeunit "Sales-Post (Yes/No)";
                     ShortCutKey = 'F9';
+                    ApplicationArea = All;
                 }
                 action("Post and &Print")
                 {
@@ -661,12 +783,14 @@ page 50028 "Appraisal Entry"
                     PromotedIsBig = true;
                     RunObject = Codeunit "Sales-Post + Print";
                     ShortCutKey = 'Shift+F9';
+                    ApplicationArea = All;
                 }
                 action("Post &Batch")
                 {
                     Caption = 'Post &Batch';
                     Ellipsis = true;
                     Image = PostBatch;
+                    ApplicationArea = All;
 
                     trigger OnAction()
                     begin

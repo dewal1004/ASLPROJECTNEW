@@ -14,9 +14,11 @@ page 50078 "Standard Text Codes List"
                 ShowCaption = false;
                 field("Code"; Code)
                 {
+                    ApplicationArea = All;
                 }
                 field(Description; Description)
                 {
+                    ApplicationArea = All;
                 }
             }
         }
@@ -33,9 +35,10 @@ page 50078 "Standard Text Codes List"
                 {
                     Caption = 'E&xtended Texts';
                     RunObject = Page "Extended Text List";
-                    RunPageLink = "Table Name" = CONST ("Standard Text"),
-                                  "No." = FIELD (Code);
-                    RunPageView = SORTING ("Table Name", "No.", "Language Code", "All Language Codes", "Starting Date", "Ending Date");
+                    RunPageLink = "Table Name" = CONST("Standard Text"),
+                                  "No." = FIELD(Code);
+                    RunPageView = SORTING("Table Name", "No.", "Language Code", "All Language Codes", "Starting Date", "Ending Date");
+                    ApplicationArea = All;
                 }
             }
         }

@@ -12,22 +12,28 @@ page 50007 "Payroll Periods."
                 ShowCaption = false;
                 field("Period Code"; "Period Code")
                 {
+                    ApplicationArea = All;
                 }
                 field("Start Date"; "Start Date")
                 {
+                    ApplicationArea = All;
                 }
                 field("End Date"; "End Date")
                 {
+                    ApplicationArea = All;
                 }
                 field(Name; Name)
                 {
+                    ApplicationArea = All;
                 }
                 field("Search Name"; "Search Name")
                 {
+                    ApplicationArea = All;
                 }
                 field(Closed; Closed)
                 {
                     Editable = true;
+                    ApplicationArea = All;
                 }
             }
         }
@@ -43,6 +49,7 @@ page 50007 "Payroll Periods."
                 Promoted = true;
                 PromotedCategory = Process;
                 RunObject = Report "ASL Create New payslips - New";
+                ApplicationArea = All;
             }
         }
     }

@@ -32,6 +32,7 @@ pageextension 50244 pageextension50244 extends "Customer Card"
                 PromotedCategory = Category6;
                 PromotedIsBig = true;
                 RunObject = Page "Customer Card";
+                ApplicationArea = All;
             }
         }
     }

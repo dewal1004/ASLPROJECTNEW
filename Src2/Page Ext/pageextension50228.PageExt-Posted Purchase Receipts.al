@@ -6,6 +6,7 @@ pageextension 50228 pageextension50228 extends "Posted Purchase Receipts"
         {
             field("Order No."; "Order No.")
             {
+                ApplicationArea = All;
             }
         }
     }

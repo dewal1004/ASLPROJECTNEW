@@ -7,6 +7,7 @@ pageextension 50298 pageextension50298 extends "Absence Registration"
             action("Leave Overview by &Periods")
             {
                 Caption = 'Leave Overview by &Periods';
+                ApplicationArea = All;
             }
         }
     }

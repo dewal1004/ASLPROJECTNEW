@@ -225,6 +225,7 @@ pageextension 50284 "pageextension50284" extends "Purchase Order"
         {
             field("Your Reference"; "Your Reference")
             {
+                ApplicationArea = All;
             }
             // field("No. of Archived Versions"; "No. of Archived Versions")
             // {
@@ -239,17 +240,23 @@ pageextension 50284 "pageextension50284" extends "Purchase Order"
         {
             field("Created By"; "Created By")
             {
+                ApplicationArea = All;
             }
             field("Order Type"; "Order Type")
-            { }
+            {
+                ApplicationArea = All;
+            }
             field("Posting No."; "Posting No.")
-            { }
+            {
+                ApplicationArea = All;
+            }
         }
         addfirst("Invoice Details")
         {
             field("Pay-to Vendor No."; "Pay-to Vendor No.")
             {
                 Importance = Promoted;
+                ApplicationArea = All;
                 trigger OnValidate()
                 begin
                     PaytoVendorNoOnAfterValidate;
@@ -273,30 +280,39 @@ pageextension 50284 "pageextension50284" extends "Purchase Order"
         {
             field("Clearing(LCY)"; "Clearing(LCY)")
             {
+                ApplicationArea = All;
             }
             field("Totat Freight"; "Totat Freight")
             {
+                ApplicationArea = All;
             }
             field("Total Ancillary Charges"; "Total Ancillary Charges")
             {
+                ApplicationArea = All;
             }
             field("Total Ancillary Charges(LCY)"; "Total Ancillary Charges(LCY)")
             {
+                ApplicationArea = All;
             }
             field(Overhead; Overhead)
             {
+                ApplicationArea = All;
             }
             field("Interest Expense(LCY)"; "Interest Expense(LCY)")
             {
+                ApplicationArea = All;
             }
             field("Total Freight (LCY)"; "Total Freight (LCY)")
             {
+                ApplicationArea = All;
             }
             field("Total Amount Item (LCY)"; "Total Amount Item (LCY)")
             {
+                ApplicationArea = All;
             }
             field("Approved By"; "Approved By")
             {
+                ApplicationArea = All;
             }
         }
 
@@ -355,7 +371,7 @@ pageextension 50284 "pageextension50284" extends "Purchase Order"
         moveafter("Prepmt. Payment Terms Code"; "Creditor No.")
         moveafter("Prepayment Due Date"; "Pay-to Name")*/
     }
-    
+
     actions
     {
 
@@ -365,6 +381,7 @@ pageextension 50284 "pageextension50284" extends "Purchase Order"
         {
             action("Calculate Standard Landed Cost")
             {
+                ApplicationArea = All;
 
                 trigger OnAction()
                 begin
@@ -378,6 +395,7 @@ pageextension 50284 "pageextension50284" extends "Purchase Order"
             }
             action("Calculate Actual Landed Cost")
             {
+                ApplicationArea = All;
 
                 trigger OnAction()
                 begin
@@ -394,6 +412,7 @@ pageextension 50284 "pageextension50284" extends "Purchase Order"
         {
             action(ApprovalsList)
             {
+                ApplicationArea = All;
 
                 trigger OnAction()
                 begin

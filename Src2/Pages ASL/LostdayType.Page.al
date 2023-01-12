@@ -14,15 +14,19 @@ page 50081 "Lost day Type"
                 field("No."; "No.")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field("Code"; Code)
                 {
+                    ApplicationArea = All;
                 }
                 field(SeaPort; SeaPort)
                 {
+                    ApplicationArea = All;
                 }
                 field(Description; Description)
                 {
+                    ApplicationArea = All;
                 }
             }
         }
@@ -39,6 +43,7 @@ page 50081 "Lost day Type"
                 Promoted = true;
                 PromotedCategory = Process;
                 RunObject = Page "Lost day Typex";
+                ApplicationArea = All;
             }
         }
     }

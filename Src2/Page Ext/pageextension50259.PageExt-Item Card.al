@@ -76,6 +76,7 @@ pageextension 50259 "pageextension50259" extends "Item Card"
         {
             field("Last Imported Cost"; "Last Imported Cost")
             {
+                ApplicationArea = All;
             }
         }
         addafter("Unit Price")
@@ -83,30 +84,30 @@ pageextension 50259 "pageextension50259" extends "Item Card"
             field("Foreign Posting Group"; "Foreign Posting Group")
             {
                 ApplicationArea = Basic, Suite;
-                    Importance = Additional;
+                Importance = Additional;
             }
             field("Local Posting Group"; "Local Posting Group")
             {
                 ApplicationArea = Basic, Suite;
-                    Importance = Additional;
+                Importance = Additional;
             }
             field("Last Purchase Cost"; "Last Purchase Cost")
             {
                 ApplicationArea = Basic, Suite;
-                    Importance = Additional;
+                Importance = Additional;
             }
             field("Last Local Cost"; "Last Local Cost")
             {
                 ApplicationArea = Basic, Suite;
-                    Importance = Additional;
-             }
+                Importance = Additional;
+            }
             field("Last Direct Cost2"; "Last Direct Cost2")
-            { 
+            {
                 ApplicationArea = Basic, Suite;
-                    Importance = Additional;
+                Importance = Additional;
             }
         }
-        
+
         addafter("Indirect Cost %")
         {
             field("Inventory Value Zero"; "Inventory Value Zero")
@@ -115,13 +116,13 @@ pageextension 50259 "pageextension50259" extends "Item Card"
 
                 trigger OnValidate()
                 begin
-                    "Indirect Cost %" := "ASL Indirect Cost %";                        
+                    "Indirect Cost %" := "ASL Indirect Cost %";
                 end;
             }
-            field("ASL Indirect Cost %";"ASL Indirect Cost %")
+            field("ASL Indirect Cost %"; "ASL Indirect Cost %")
             {
-              ApplicationArea = Basic, Suite;
-                    Importance = Additional;  
+                ApplicationArea = Basic, Suite;
+                Importance = Additional;
             }
         }
         //Unsupported feature: Property Modification (Level) on "GTIN(Control 135)".
@@ -217,43 +218,58 @@ pageextension 50259 "pageextension50259" extends "Item Card"
         {
             field("Commission Group"; "Commission Group")
             {
+                ApplicationArea = All;
             }
             field("SF Cat"; "SF Cat")
             {
+                ApplicationArea = All;
             }
             field("S/No."; "S/No.")
-            { }
+            {
+                ApplicationArea = All;
+            }
             field("Pack Size (Kg)."; "Pack Size (Kg).")
             {
+                ApplicationArea = All;
             }
             field(Pack; Pack)
             {
+                ApplicationArea = All;
             }
             field("Ves Budg Type 1"; "Ves Budg Type 1")
             {
+                ApplicationArea = All;
             }
             field("Ves Budg Type 2"; "Ves Budg Type 2")
             {
+                ApplicationArea = All;
             }
             field("Ves Budg Type 3"; "Ves Budg Type 3")
             {
+                ApplicationArea = All;
             }
             field("Annual Budget Method"; "Annual Budget Method")
             {
+                ApplicationArea = All;
             }
             field("Transferred (Qty.)"; "Transferred (Qty.)")
             {
+                ApplicationArea = All;
             }
         }
         addafter("Base Unit of Measure")
         {
             field(Points; Points)
-            { }
+            {
+                ApplicationArea = All;
+            }
         }
         addafter("Use Cross-Docking")
         {
             field("Statistics Group"; "Statistics Group")
-            { }
+            {
+                ApplicationArea = All;
+            }
         }
         addafter("Attached Documents")
         {

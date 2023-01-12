@@ -2251,7 +2251,7 @@ report 55007 "Daily BreakUp by Vessel Rep 1y"
             }
             //column(Inventory_Posting_Group_DescriptionCaption; "Inventory Posting Group".FieldCaption(Description))
             //{
-           // }
+            // }
             column(Sea_DaysCaption; Sea_DaysCaptionLbl)
             {
             }
@@ -2446,2831 +2446,2831 @@ report 55007 "Daily BreakUp by Vessel Rep 1y"
 
             end;
         }
-    //     dataitem("Inventory Posting Group"; "Inventory Posting Group")
-    //     {
-    //         DataItemTableView = SORTING("Statistics Group", Category, "S/No.") WHERE("In Use" = CONST(true), "Statistics Group" = FILTER(> 0));
-    //         column(testing123; testing123)
-    //         {
-    //         }
-    //         column(Inventory_Posting_G_Cat_Tot_Category; Category)
-    //         {
-    //         }
-    //         column(VesselPoint_18__Control1000001208; VesselPoint[18])
-    //         {
-
-    //         }
-    //         column(SeaRangeD_18__Control1000001209; SeaRangeD[18])
-    //         {
-
-    //         }
-    //         column(SeaRange_18__Control1000001210; SeaRange[18])
-    //         {
-
-    //         }
-    //         column(ShrimpPoint_18__Control1000001211; ShrimpPoint[18])
-    //         {
-
-    //         }
-    //         column(FishPoint_18__Control1000001213; FishPoint[18])
-    //         {
-
-    //         }
-    //         column(t; ShrimpPoint[19])
-    //         {
-
-    //         }
-    //         column(FishPoint_19__Control1000001301; FishPoint[19])
-    //         {
-
-    //         }
-    //         column(VesselPoint_19__Control1000001302; VesselPoint[19])
-    //         {
-
-    //         }
-    //         column(SeaRangeD_19__Control1000001303; SeaRangeD[19])
-    //         {
-
-    //         }
-    //         column(SeaRange_19__Control1000001304; SeaRange[19])
-    //         {
-    //         }
-    //         column(ShrimpPoint_20__Control1000001305; ShrimpPoint[20])
-    //         {
-
-    //         }
-    //         column(FishPoint_20__Control1000001306; FishPoint[20])
-    //         {
-
-    //         }
-    //         column(VesselPoint_20__Control1000001307; VesselPoint[20])
-    //         {
-
-    //         }
-    //         column(SeaRangeD_20__Control1000001308; SeaRangeD[20])
-    //         {
-
-    //         }
-    //         column(SeaRange_20__Control1000001309; SeaRange[20])
-    //         {
-    //         }
-    //         column(ShrimpPoint_21__Control1000001310; ShrimpPoint[21])
-    //         {
-
-    //         }
-    //         column(FishPoint_21__Control1000001311; FishPoint[21])
-    //         {
-
-    //         }
-    //         column(VesselPoint_21__Control1000001312; VesselPoint[21])
-    //         {
-
-    //         }
-    //         column(SeaRangeD_21__Control1000001313; SeaRangeD[21])
-    //         {
-
-    //         }
-    //         column(SeaRange_21__Control1000001314; SeaRange[21])
-    //         {
-
-    //         }
-    //         column(ShrimpPoint_22__Control1000001315; ShrimpPoint[22])
-    //         {
-
-    //         }
-    //         column(FishPoint_22__Control1000001316; FishPoint[22])
-    //         {
-
-    //         }
-    //         column(VesselPoint_22__Control1000001317; VesselPoint[22])
-    //         {
-
-    //         }
-    //         column(SeaRangeD_22__Control1000001318; SeaRangeD[22])
-    //         {
-
-    //         }
-    //         column(SeaRange_22__Control1000001319; SeaRange[22])
-    //         {
-    //         }
-    //         column(ShrimpPoint_23__Control1000001320; ShrimpPoint[23])
-    //         {
-
-    //         }
-    //         column(FishPoint_23__Control1000001321; FishPoint[23])
-    //         {
-
-    //         }
-    //         column(VesselPoint_23__Control1000001322; VesselPoint[23])
-    //         {
-
-    //         }
-    //         column(SeaRangeD_23__Control1000001323; SeaRangeD[23])
-    //         {
-
-    //         }
-    //         column(SeaRange_23__Control1000001324; SeaRange[23])
-    //         {
-    //         }
-    //         column(ShrimpPoint_24__Control1000001325; ShrimpPoint[24])
-    //         {
-
-    //         }
-    //         column(FishPoint_24__Control1000001326; FishPoint[24])
-    //         {
-
-    //         }
-    //         column(VesselPoint_24__Control1000001327; VesselPoint[24])
-    //         {
-
-    //         }
-    //         column(SeaRangeD_24__Control1000001328; SeaRangeD[24])
-    //         {
-
-    //         }
-    //         column(SeaRange_24__Control1000001329; SeaRange[24])
-    //         {
-    //         }
-    //         column(ShrimpPoint_25__Control1000001330; ShrimpPoint[25])
-    //         {
-
-    //         }
-    //         column(FishPoint_25__Control1000001331; FishPoint[25])
-    //         {
-
-    //         }
-    //         column(VesselPoint_25__Control1000001332; VesselPoint[25])
-    //         {
-
-    //         }
-    //         column(SeaRangeD_25__Control1000001333; SeaRangeD[25])
-    //         {
-
-    //         }
-    //         column(SeaRange_25__Control1000001334; SeaRange[25])
-    //         {
-    //         }
-    //         column(ShrimpPoint_26__Control1000001335; ShrimpPoint[26])
-    //         {
-
-    //         }
-    //         column(FishPoint_26__Control1000001336; FishPoint[26])
-    //         {
-
-    //         }
-    //         column(VesselPoint_26__Control1000001337; VesselPoint[26])
-    //         {
-
-    //         }
-    //         column(SeaRangeD_26__Control1000001338; SeaRangeD[26])
-    //         {
-
-    //         }
-    //         column(SeaRange_26__Control1000001339; SeaRange[26])
-    //         {
-    //         }
-    //         column(ShrimpPoint_27__Control1000001340; ShrimpPoint[27])
-    //         {
-
-    //         }
-    //         column(FishPoint_27__Control1000001341; FishPoint[27])
-    //         {
-
-    //         }
-    //         column(VesselPoint_27__Control1000001342; VesselPoint[27])
-    //         {
-
-    //         }
-    //         column(SeaRangeD_27__Control1000001343; SeaRangeD[27])
-    //         {
-
-    //         }
-    //         column(SeaRange_27__Control1000001344; SeaRange[27])
-    //         {
-    //         }
-    //         column(ShrimpPoint_28__Control1000001345; ShrimpPoint[28])
-    //         {
-
-    //         }
-    //         column(FishPoint_28__Control1000001346; FishPoint[28])
-    //         {
-
-    //         }
-    //         column(VesselPoint_28__Control1000001347; VesselPoint[28])
-    //         {
-
-    //         }
-    //         column(SeaRangeD_28__Control1000001348; SeaRangeD[28])
-    //         {
-
-    //         }
-    //         column(SeaRange_28__Control1000001349; SeaRange[28])
-    //         {
-    //         }
-    //         column(ShrimpPoint_29__Control1000001350; ShrimpPoint[29])
-    //         {
-
-    //         }
-    //         column(FishPoint_29__Control1000001351; FishPoint[29])
-    //         {
-
-    //         }
-    //         column(VesselPoint_29__Control1000001352; VesselPoint[29])
-    //         {
-
-    //         }
-    //         column(SeaRangeD_29__Control1000001353; SeaRangeD[29])
-    //         {
-
-    //         }
-    //         column(SeaRange_29__Control1000001354; SeaRange[29])
-    //         {
-    //         }
-    //         column(ShrimpPoint_30__Control1000001355; ShrimpPoint[30])
-    //         {
-
-    //         }
-    //         column(FishPoint_30__Control1000001356; FishPoint[30])
-    //         {
-
-    //         }
-    //         column(VesselPoint_30__Control1000001357; VesselPoint[30])
-    //         {
-
-    //         }
-    //         column(SeaRangeD_30__Control1000001358; SeaRangeD[30])
-    //         {
-
-    //         }
-    //         column(SeaRange_30__Control1000001359; SeaRange[30])
-    //         {
-    //         }
-    //         column(ShrimpPoint_31__Control1000001360; ShrimpPoint[31])
-    //         {
-
-    //         }
-    //         column(FishPoint_31__Control1000001361; FishPoint[31])
-    //         {
-
-    //         }
-    //         column(VesselPoint_31__Control1000001362; VesselPoint[31])
-    //         {
-
-    //         }
-    //         column(SeaRangeD_31__Control1000001363; SeaRangeD[31])
-    //         {
-
-    //         }
-    //         column(SeaRange_31__Control1000001364; SeaRange[31])
-    //         {
-    //         }
-    //         column(ShrimpPoint_32__Control1000001365; ShrimpPoint[32])
-    //         {
-
-    //         }
-    //         column(FishPoint_32__Control1000001366; FishPoint[32])
-    //         {
-
-    //         }
-    //         column(VesselPoint_32__Control1000001367; VesselPoint[32])
-    //         {
-
-    //         }
-    //         column(SeaRangeD_32__Control1000001368; SeaRangeD[32])
-    //         {
-
-    //         }
-    //         column(SeaRange_32__Control1000001369; SeaRange[32])
-    //         {
-    //         }
-    //         column(ShrimpPoint_33__Control1000001370; ShrimpPoint[33])
-    //         {
-
-    //         }
-    //         column(FishPoint_33__Control1000001371; FishPoint[33])
-    //         {
-
-    //         }
-    //         column(VesselPoint_33__Control1000001372; VesselPoint[33])
-    //         {
-
-    //         }
-    //         column(SeaRangeD_33__Control1000001373; SeaRangeD[33])
-    //         {
-
-    //         }
-    //         column(SeaRange_33__Control1000001374; SeaRange[33])
-    //         {
-    //         }
-    //         column(ShrimpPoint_34__Control1000001375; ShrimpPoint[34])
-    //         {
-
-    //         }
-    //         column(FishPoint_34__Control1000001376; FishPoint[34])
-    //         {
-
-    //         }
-    //         column(VesselPoint_34__Control1000001377; VesselPoint[34])
-    //         {
-
-    //         }
-    //         column(SeaRangeD_34__Control1000001378; SeaRangeD[34])
-    //         {
-
-    //         }
-    //         column(SeaRange_34__Control1000001379; SeaRange[34])
-    //         {
-    //         }
-    //         column(ShrimpPoint_35__Control1000001380; ShrimpPoint[35])
-    //         {
-
-    //         }
-    //         column(FishPoint_35__Control1000001381; FishPoint[35])
-    //         {
-
-    //         }
-    //         column(VesselPoint_35__Control1000001382; VesselPoint[35])
-    //         {
-
-    //         }
-    //         column(SeaRangeD_35__Control1000001383; SeaRangeD[35])
-    //         {
-
-    //         }
-    //         column(SeaRange_35__Control1000001384; SeaRange[35])
-    //         {
-    //         }
-    //         column(ShrimpPoint_36__Control1000001385; ShrimpPoint[36])
-    //         {
-
-    //         }
-    //         column(FishPoint_36__Control1000001386; FishPoint[36])
-    //         {
-
-    //         }
-    //         column(VesselPoint_36__Control1000001387; VesselPoint[36])
-    //         {
-
-    //         }
-    //         column(SeaRangeD_36__Control1000001388; SeaRangeD[36])
-    //         {
-
-    //         }
-    //         column(SeaRange_36__Control1000001389; SeaRange[36])
-    //         {
-    //         }
-    //         column(ShrimpPoint_37__Control1000001390; ShrimpPoint[37])
-    //         {
-
-    //         }
-    //         column(FishPoint_37__Control1000001391; FishPoint[37])
-    //         {
-
-    //         }
-    //         column(VesselPoint_37__Control1000001392; VesselPoint[37])
-    //         {
-
-    //         }
-    //         column(SeaRangeD_37__Control1000001393; SeaRangeD[37])
-    //         {
-
-    //         }
-    //         column(SeaRange_37__Control1000001394; SeaRange[37])
-    //         {
-    //         }
-    //         column(ShrimpPoint_38__Control1000001395; ShrimpPoint[38])
-    //         {
-
-    //         }
-    //         column(FishPoint_38__Control1000001396; FishPoint[38])
-    //         {
-
-    //         }
-    //         column(VesselPoint_38__Control1000001397; VesselPoint[38])
-    //         {
-
-    //         }
-    //         column(SeaRangeD_38__Control1000001398; SeaRangeD[38])
-    //         {
-
-    //         }
-    //         column(SeaRange_38__Control1000001399; SeaRange[38])
-    //         {
-    //         }
-    //         column(ShrimpPoint_39__Control1000001400; ShrimpPoint[39])
-    //         {
-
-    //         }
-    //         column(FishPoint_39__Control1000001401; FishPoint[39])
-    //         {
-
-    //         }
-    //         column(VesselPoint_39__Control1000001402; VesselPoint[39])
-    //         {
-
-    //         }
-    //         column(SeaRangeD_39__Control1000001403; SeaRangeD[39])
-    //         {
-
-    //         }
-    //         column(SeaRange_39__Control1000001404; SeaRange[39])
-    //         {
-    //         }
-    //         column(ShrimpPoint_40__Control1000001405; ShrimpPoint[40])
-    //         {
-
-    //         }
-    //         column(FishPoint_40__Control1000001406; FishPoint[40])
-    //         {
-
-    //         }
-    //         column(VesselPoint_40__Control1000001407; VesselPoint[40])
-    //         {
-
-    //         }
-    //         column(SeaRangeD_40__Control1000001408; SeaRangeD[40])
-    //         {
-
-    //         }
-    //         column(SeaRange_40__Control1000001409; SeaRange[40])
-    //         {
-    //         }
-    //         column(ShrimpPoint_41__Control1000001410; ShrimpPoint[41])
-    //         {
-
-    //         }
-    //         column(FishPoint_41__Control1000001411; FishPoint[41])
-    //         {
-
-    //         }
-    //         column(VesselPoint_41__Control1000001412; VesselPoint[41])
-    //         {
-
-    //         }
-    //         column(SeaRangeD_41__Control1000001413; SeaRangeD[41])
-    //         {
-
-    //         }
-    //         column(SeaRange_41__Control1000001414; SeaRange[41])
-    //         {
-    //         }
-    //         column(ShrimpPoint_42__Control1000001415; ShrimpPoint[42])
-    //         {
-
-    //         }
-    //         column(FishPoint_42__Control1000001416; FishPoint[42])
-    //         {
-
-    //         }
-    //         column(VesselPoint_42__Control1000001417; VesselPoint[42])
-    //         {
-
-    //         }
-    //         column(SeaRangeD_42__Control1000001418; SeaRangeD[42])
-    //         {
-
-    //         }
-    //         column(SeaRange_42__Control1000001419; SeaRange[42])
-    //         {
-    //         }
-    //         column(ShrimpPoint_43__Control1000001420; ShrimpPoint[43])
-    //         {
-
-    //         }
-    //         column(FishPoint_43__Control1000001421; FishPoint[43])
-    //         {
-
-    //         }
-    //         column(VesselPoint_43__Control1000001422; VesselPoint[43])
-    //         {
-
-    //         }
-    //         column(SeaRangeD_43__Control1000001423; SeaRangeD[43])
-    //         {
-
-    //         }
-    //         column(SeaRange_43__Control1000001424; SeaRange[43])
-    //         {
-
-    //         }
-    //         column(ShrimpPoint_44__Control1000001425; ShrimpPoint[44])
-    //         {
-
-    //         }
-    //         column(FishPoint_44__Control1000001426; FishPoint[44])
-    //         {
-
-    //         }
-    //         column(VesselPoint_44__Control1000001427; VesselPoint[44])
-    //         {
-
-    //         }
-    //         column(SeaRangeD_44__Control1000001428; SeaRangeD[44])
-    //         {
-
-    //         }
-    //         column(SeaRange_44__Control1000001429; SeaRange[44])
-    //         {
-    //         }
-    //         column(ShrimpPoint_45__Control1000001430; ShrimpPoint[45])
-    //         {
-
-    //         }
-    //         column(FishPoint_45__Control1000001431; FishPoint[45])
-    //         {
-
-    //         }
-    //         column(VesselPoint_45__Control1000001432; VesselPoint[45])
-    //         {
-
-    //         }
-    //         column(SeaRangeD_45__Control1000001433; SeaRangeD[45])
-    //         {
-
-    //         }
-    //         column(SeaRange_45__Control1000001434; SeaRange[45])
-    //         {
-    //         }
-    //         column(ShrimpPoint_46__Control1000001435; ShrimpPoint[46])
-    //         {
-
-    //         }
-    //         column(FishPoint_46__Control1000001436; FishPoint[46])
-    //         {
-
-    //         }
-    //         column(VesselPoint_46__Control1000001437; VesselPoint[46])
-    //         {
-
-    //         }
-    //         column(SeaRangeD_46__Control1000001438; SeaRangeD[46])
-    //         {
-
-    //         }
-    //         column(SeaRange_46__Control1000001439; SeaRange[46])
-    //         {
-    //         }
-    //         column(ShrimpPoint_47__Control1000001440; ShrimpPoint[47])
-    //         {
-
-    //         }
-    //         column(FishPoint_47__Control1000001441; FishPoint[47])
-    //         {
-
-    //         }
-    //         column(VesselPoint_47__Control1000001442; VesselPoint[47])
-    //         {
-
-    //         }
-    //         column(SeaRangeD_47__Control1000001443; SeaRangeD[47])
-    //         {
-
-    //         }
-    //         column(SeaRange_47__Control1000001444; SeaRange[47])
-    //         {
-    //         }
-    //         column(ShrimpPoint_48__Control1000001445; ShrimpPoint[48])
-    //         {
-
-    //         }
-    //         column(FishPoint_48__Control1000001446; FishPoint[48])
-    //         {
-
-    //         }
-    //         column(VesselPoint_48__Control1000001447; VesselPoint[48])
-    //         {
-
-    //         }
-    //         column(SeaRangeD_48__Control1000001448; SeaRangeD[48])
-    //         {
-
-    //         }
-    //         column(SeaRange_48__Control1000001449; SeaRange[48])
-    //         {
-    //         }
-    //         column(ShrimpPoint_49__Control1000001450; ShrimpPoint[49])
-    //         {
-
-    //         }
-    //         column(FishPoint_49__Control1000001451; FishPoint[49])
-    //         {
-
-    //         }
-    //         column(VesselPoint_49__Control1000001452; VesselPoint[49])
-    //         {
-
-    //         }
-    //         column(SeaRangeD_49__Control1000001453; SeaRangeD[49])
-    //         {
-
-    //         }
-    //         column(SeaRange_49__Control1000001454; SeaRange[49])
-    //         {
-    //         }
-    //         column(ShrimpPoint_50__Control1000001455; ShrimpPoint[50])
-    //         {
-
-    //         }
-    //         column(FishPoint_50__Control1000001456; FishPoint[50])
-    //         {
-
-    //         }
-    //         column(VesselPoint_50__Control1000001457; VesselPoint[50])
-    //         {
-
-    //         }
-    //         column(SeaRangeD_50__Control1000001458; SeaRangeD[50])
-    //         {
-
-    //         }
-    //         column(SeaRange_50__Control1000001459; SeaRange[50])
-    //         {
-    //         }
-    //         column(ShrimpPoint_51__Control1000001460; ShrimpPoint[51])
-    //         {
-
-    //         }
-    //         column(FishPoint_51__Control1000001461; FishPoint[51])
-    //         {
-
-    //         }
-    //         column(VesselPoint_51__Control1000001462; VesselPoint[51])
-    //         {
-
-    //         }
-    //         column(SeaRangeD_51__Control1000001463; SeaRangeD[51])
-    //         {
-
-    //         }
-    //         column(SeaRange_51__Control1000001464; SeaRange[51])
-    //         {
-    //         }
-    //         column(ShrimpPoint_52__Control1000001467; ShrimpPoint[52])
-    //         {
-
-    //         }
-    //         column(FishPoint_52__Control1000001468; FishPoint[52])
-    //         {
-
-    //         }
-    //         column(VesselPoint_52__Control1000001469; VesselPoint[52])
-    //         {
-
-    //         }
-    //         column(SeaRangeD_52__Control1000001470; SeaRangeD[52])
-    //         {
-
-    //         }
-    //         column(SeaRange_52__Control1000001471; SeaRange[52])
-    //         {
-    //         }
-    //         column(ShrimpPoint_53__Control1000001472; ShrimpPoint[53])
-    //         {
-
-    //         }
-    //         column(FishPoint_53__Control1000001473; FishPoint[53])
-    //         {
-
-    //         }
-    //         column(VesselPoint_53__Control1000001474; VesselPoint[53])
-    //         {
-
-    //         }
-    //         column(SeaRangeD_53__Control1000001475; SeaRangeD[53])
-    //         {
-
-    //         }
-    //         column(SeaRange_53__Control1000001476; SeaRange[53])
-    //         {
-    //         }
-    //         column(ShrimpPoint_54__Control1000001477; ShrimpPoint[54])
-    //         {
-
-    //         }
-    //         column(FishPoint_54__Control1000001478; FishPoint[54])
-    //         {
-
-    //         }
-    //         column(VesselPoint_54__Control1000001479; VesselPoint[54])
-    //         {
-
-    //         }
-    //         column(SeaRangeD_54__Control1000001480; SeaRangeD[54])
-    //         {
-
-    //         }
-    //         column(SeaRange_54__Control1000001481; SeaRange[54])
-    //         {
-    //         }
-    //         column(ShrimpPoint_55__Control1000001482; ShrimpPoint[55])
-    //         {
-
-    //         }
-    //         column(FishPoint_55__Control1000001483; FishPoint[55])
-    //         {
-
-    //         }
-    //         column(VesselPoint_55__Control1000001484; VesselPoint[55])
-    //         {
-
-    //         }
-    //         column(SeaRangeD_55__Control1000001485; SeaRangeD[55])
-    //         {
-
-    //         }
-    //         column(SeaRange_55__Control1000001486; SeaRange[55])
-    //         {
-    //         }
-    //         column(ShrimpPoint_56__Control1000001487; ShrimpPoint[56])
-    //         {
-
-    //         }
-    //         column(FishPoint_56__Control1000001488; FishPoint[56])
-    //         {
-
-    //         }
-    //         column(VesselPoint_56__Control1000001489; VesselPoint[56])
-    //         {
-
-    //         }
-    //         column(SeaRangeD_56__Control1000001490; SeaRangeD[56])
-    //         {
-
-    //         }
-    //         column(SeaRange_56__Control1000001491; SeaRange[56])
-    //         {
-    //         }
-    //         column(ShrimpPoint_57__Control1000001492; ShrimpPoint[57])
-    //         {
-
-    //         }
-    //         column(FishPoint_57__Control1000001493; FishPoint[57])
-    //         {
-
-    //         }
-    //         column(VesselPoint_57__Control1000001494; VesselPoint[57])
-    //         {
-
-    //         }
-    //         column(SeaRangeD_57__Control1000001495; SeaRangeD[57])
-    //         {
-
-    //         }
-    //         column(SeaRange_57__Control1000001496; SeaRange[57])
-    //         {
-    //         }
-    //         column(ShrimpPoint_58__Control1000001497; ShrimpPoint[58])
-    //         {
-
-    //         }
-    //         column(FishPoint_58__Control1000001498; FishPoint[58])
-    //         {
-
-    //         }
-    //         column(VesselPoint_58__Control1000001499; VesselPoint[58])
-    //         {
-
-    //         }
-    //         column(SeaRangeD_58__Control1000001500; SeaRangeD[58])
-    //         {
-
-    //         }
-    //         column(SeaRange_58__Control1000001501; SeaRange[58])
-    //         {
-    //         }
-    //         column(ShrimpPoint_59__Control1000001502; ShrimpPoint[59])
-    //         {
-
-    //         }
-    //         column(FishPoint_59__Control1000001503; FishPoint[59])
-    //         {
-
-    //         }
-    //         column(VesselPoint_59__Control1000001504; VesselPoint[59])
-    //         {
-
-    //         }
-    //         column(SeaRangeD_59__Control1000001505; SeaRangeD[59])
-    //         {
-
-    //         }
-    //         column(SeaRange_59__Control1000001506; SeaRange[59])
-    //         {
-    //         }
-    //         column(ShrimpPoint_60__Control1000001507; ShrimpPoint[60])
-    //         {
-
-    //         }
-    //         column(FishPoint_60__Control1000001508; FishPoint[60])
-    //         {
-
-    //         }
-    //         column(VesselPoint_60__Control1000001509; VesselPoint[60])
-    //         {
-
-    //         }
-    //         column(SeaRangeD_60__Control1000001510; SeaRangeD[60])
-    //         {
-
-    //         }
-    //         column(SeaRange_60__Control1000001511; SeaRange[60])
-    //         {
-    //         }
-    //         column(ShrimpPoint_61__Control1000001512; ShrimpPoint[61])
-    //         {
-
-    //         }
-    //         column(FishPoint_61__Control1000001513; FishPoint[61])
-    //         {
-
-    //         }
-    //         column(VesselPoint_61__Control1000001514; VesselPoint[61])
-    //         {
-
-    //         }
-    //         column(SeaRangeD_61__Control1000001515; SeaRangeD[61])
-    //         {
-
-    //         }
-    //         column(SeaRange_61__Control1000001516; SeaRange[61])
-    //         {
-    //         }
-    //         column(ShrimpPoint_62__Control1000001517; ShrimpPoint[62])
-    //         {
-
-    //         }
-    //         column(FishPoint_62__Control1000001518; FishPoint[62])
-    //         {
-
-    //         }
-    //         column(VesselPoint_62__Control1000001519; VesselPoint[62])
-    //         {
-
-    //         }
-    //         column(SeaRangeD_62__Control1000001520; SeaRangeD[62])
-    //         {
-
-    //         }
-    //         column(SeaRange_62__Control1000001521; SeaRange[62])
-    //         {
-    //         }
-    //         column(ShrimpPoint_63__Control1000001522; ShrimpPoint[63])
-    //         {
-
-    //         }
-    //         column(FishPoint_63__Control1000001523; FishPoint[63])
-    //         {
-
-    //         }
-    //         column(VesselPoint_63__Control1000001524; VesselPoint[63])
-    //         {
-
-    //         }
-    //         column(SeaRangeD_63__Control1000001525; SeaRangeD[63])
-    //         {
-
-    //         }
-    //         column(SeaRange_63__Control1000001526; SeaRange[63])
-    //         {
-    //         }
-    //         column(ShrimpPoint_64__Control1000001527; ShrimpPoint[64])
-    //         {
-
-    //         }
-    //         column(FishPoint_64__Control1000001528; FishPoint[64])
-    //         {
-
-    //         }
-    //         column(VesselPoint_64__Control1000001529; VesselPoint[64])
-    //         {
-
-    //         }
-    //         column(SeaRangeD_64__Control1000001530; SeaRangeD[64])
-    //         {
-
-    //         }
-    //         column(SeaRange_64__Control1000001531; SeaRange[64])
-    //         {
-    //         }
-    //         column(ShrimpPoint_65__Control1000001532; ShrimpPoint[65])
-    //         {
-
-    //         }
-    //         column(FishPoint_65__Control1000001533; FishPoint[65])
-    //         {
-
-    //         }
-    //         column(VesselPoint_65__Control1000001534; VesselPoint[65])
-    //         {
-
-    //         }
-    //         column(SeaRangeD_65__Control1000001535; SeaRangeD[65])
-    //         {
-
-    //         }
-    //         column(SeaRange_65__Control1000001536; SeaRange[65])
-    //         {
-    //         }
-    //         column(ShrimpPoint_66__Control1000001537; ShrimpPoint[66])
-    //         {
-
-    //         }
-    //         column(FishPoint_66__Control1000001538; FishPoint[66])
-    //         {
-
-    //         }
-    //         column(VesselPoint_66__Control1000001539; VesselPoint[66])
-    //         {
-
-    //         }
-    //         column(SeaRangeD_66__Control1000001540; SeaRangeD[66])
-    //         {
-
-    //         }
-    //         column(SeaRange_66__Control1000001541; SeaRange[66])
-    //         {
-    //         }
-    //         column(ShrimpPoint_67__Control1000001542; ShrimpPoint[67])
-    //         {
-
-    //         }
-    //         column(FishPoint_67__Control1000001543; FishPoint[67])
-    //         {
-
-    //         }
-    //         column(VesselPoint_67__Control1000001544; VesselPoint[67])
-    //         {
-
-    //         }
-    //         column(SeaRangeD_67__Control1000001545; SeaRangeD[67])
-    //         {
-
-    //         }
-    //         column(SeaRange_67__Control1000001546; SeaRange[67])
-    //         {
-    //         }
-    //         column(ShrimpPoint_68__Control1000001547; ShrimpPoint[68])
-    //         {
-
-    //         }
-    //         column(FishPoint_68__Control1000001548; FishPoint[68])
-    //         {
-
-    //         }
-    //         column(VesselPoint_68__Control1000001549; VesselPoint[68])
-    //         {
-
-    //         }
-    //         column(SeaRangeD_68__Control1000001550; SeaRangeD[68])
-    //         {
-
-    //         }
-    //         column(SeaRange_68__Control1000001551; SeaRange[68])
-    //         {
-    //         }
-    //         column(ShrimpPoint_69__Control1000001552; ShrimpPoint[69])
-    //         {
-
-    //         }
-    //         column(FishPoint_69__Control1000001553; FishPoint[69])
-    //         {
-
-    //         }
-    //         column(VesselPoint_69__Control1000001554; VesselPoint[69])
-    //         {
-
-    //         }
-    //         column(SeaRangeD_69__Control1000001555; SeaRangeD[69])
-    //         {
-
-    //         }
-    //         column(SeaRange_69__Control1000001556; SeaRange[69])
-    //         {
-    //         }
-    //         column(ShrimpPoint_70__Control1000001557; ShrimpPoint[70])
-    //         {
-
-    //         }
-    //         column(FishPoint_70__Control1000001558; FishPoint[70])
-    //         {
-
-    //         }
-    //         column(VesselPoint_70__Control1000001559; VesselPoint[70])
-    //         {
-
-    //         }
-    //         column(SeaRangeD_70__Control1000001560; SeaRangeD[70])
-    //         {
-
-    //         }
-    //         column(SeaRange_70__Control1000001561; SeaRange[70])
-    //         {
-    //         }
-    //         column(ShrimpPoint_71__Control1000001562; ShrimpPoint[71])
-    //         {
-
-    //         }
-    //         column(FishPoint_71__Control1000001563; FishPoint[71])
-    //         {
-
-    //         }
-    //         column(VesselPoint_71__Control1000001564; VesselPoint[71])
-    //         {
-
-    //         }
-    //         column(SeaRangeD_71__Control1000001565; SeaRangeD[71])
-    //         {
-
-    //         }
-    //         column(SeaRange_71__Control1000001566; SeaRange[71])
-    //         {
-    //         }
-    //         column(ShrimpPoint_72__Control1000001567; ShrimpPoint[72])
-    //         {
-
-    //         }
-    //         column(FishPoint_72__Control1000001568; FishPoint[72])
-    //         {
-
-    //         }
-    //         column(VesselPoint_72__Control1000001569; VesselPoint[72])
-    //         {
-
-    //         }
-    //         column(SeaRangeD_72__Control1000001570; SeaRangeD[72])
-    //         {
-
-    //         }
-    //         column(SeaRange_72__Control1000001571; SeaRange[72])
-    //         {
-    //         }
-    //         column(ShrimpPoint_73__Control1000001572; ShrimpPoint[73])
-    //         {
-
-    //         }
-    //         column(FishPoint_73__Control1000001573; FishPoint[73])
-    //         {
-
-    //         }
-    //         column(VesselPoint_73__Control1000001574; VesselPoint[73])
-    //         {
-
-    //         }
-    //         column(SeaRangeD_73__Control1000001575; SeaRangeD[73])
-    //         {
-
-    //         }
-    //         column(SeaRange_73__Control1000001576; SeaRange[73])
-    //         {
-    //         }
-    //         column(ShrimpPoint_74__Control1000001577; ShrimpPoint[74])
-    //         {
-
-    //         }
-    //         column(FishPoint_74__Control1000001578; FishPoint[74])
-    //         {
-
-    //         }
-    //         column(VesselPoint_74__Control1000001579; VesselPoint[74])
-    //         {
-
-    //         }
-    //         column(SeaRangeD_74__Control1000001580; SeaRangeD[74])
-    //         {
-
-    //         }
-    //         column(SeaRange_74__Control1000001581; SeaRange[74])
-    //         {
-    //         }
-    //         column(ShrimpPoint_75__Control1000001582; ShrimpPoint[75])
-    //         {
-
-    //         }
-    //         column(FishPoint_75__Control1000001583; FishPoint[75])
-    //         {
-
-    //         }
-    //         column(VesselPoint_75__Control1000001584; VesselPoint[75])
-    //         {
-
-    //         }
-    //         column(SeaRangeD_75__Control1000001585; SeaRangeD[75])
-    //         {
-
-    //         }
-    //         column(SeaRange_75__Control1000001586; SeaRange[75])
-    //         {
-    //         }
-    //         column(ShrimpPoint_76__Control1000001587; ShrimpPoint[76])
-    //         {
-
-    //         }
-    //         column(FishPoint_76__Control1000001588; FishPoint[76])
-    //         {
-
-    //         }
-    //         column(VesselPoint_76__Control1000001589; VesselPoint[76])
-    //         {
-
-    //         }
-    //         column(SeaRangeD_76__Control1000001590; SeaRangeD[76])
-    //         {
-
-    //         }
-    //         column(SeaRange_76__Control1000001591; SeaRange[76])
-    //         {
-    //         }
-    //         column(ShrimpPoint_77__Control1000001592; ShrimpPoint[77])
-    //         {
-
-    //         }
-    //         column(FishPoint_77__Control1000001593; FishPoint[77])
-    //         {
-
-    //         }
-    //         column(VesselPoint_77__Control1000001594; VesselPoint[77])
-    //         {
-
-    //         }
-    //         column(SeaRangeD_77__Control1000001595; SeaRangeD[77])
-    //         {
-
-    //         }
-    //         column(SeaRange_77__Control1000001596; SeaRange[77])
-    //         {
-    //         }
-    //         column(ShrimpPoint_78__Control1000001597; ShrimpPoint[78])
-    //         {
-
-    //         }
-    //         column(FishPoint_78__Control1000001598; FishPoint[78])
-    //         {
-
-    //         }
-    //         column(VesselPoint_78__Control1000001599; VesselPoint[78])
-    //         {
-
-    //         }
-    //         column(SeaRangeD_78__Control1000001600; SeaRangeD[78])
-    //         {
-
-    //         }
-    //         column(SeaRange_78__Control1000001601; SeaRange[78])
-    //         {
-    //         }
-    //         column(ShrimpPoint_79__Control1000001602; ShrimpPoint[79])
-    //         {
-
-    //         }
-    //         column(FishPoint_79__Control1000001603; FishPoint[79])
-    //         {
-
-    //         }
-    //         column(VesselPoint_79__Control1000001604; VesselPoint[79])
-    //         {
-
-    //         }
-    //         column(SeaRangeD_79__Control1000001605; SeaRangeD[79])
-    //         {
-
-    //         }
-    //         column(SeaRange_79__Control1000001606; SeaRange[79])
-    //         {
-    //         }
-    //         column(ShrimpPoint_80__Control1000001607; ShrimpPoint[80])
-    //         {
-
-    //         }
-    //         column(FishPoint_80__Control1000001608; FishPoint[80])
-    //         {
-
-    //         }
-    //         column(VesselPoint_80__Control1000001609; VesselPoint[80])
-    //         {
-
-    //         }
-    //         column(SeaRangeD_80__Control1000001610; SeaRangeD[80])
-    //         {
-
-    //         }
-    //         column(SeaRange_80__Control1000001611; SeaRange[80])
-    //         {
-    //         }
-    //         column(ShrimpPoint_81__Control1000001612; ShrimpPoint[81])
-    //         {
-
-    //         }
-    //         column(FishPoint_81__Control1000001613; FishPoint[81])
-    //         {
-
-    //         }
-    //         column(VesselPoint_81__Control1000001614; VesselPoint[81])
-    //         {
-
-    //         }
-    //         column(SeaRangeD_81__Control1000001615; SeaRangeD[81])
-    //         {
-
-    //         }
-    //         column(SeaRange_81__Control1000001616; SeaRange[81])
-    //         {
-    //         }
-    //         column(ShrimpPoint_82__Control1000001617; ShrimpPoint[82])
-    //         {
-
-    //         }
-    //         column(FishPoint_82__Control1000001618; FishPoint[82])
-    //         {
-
-    //         }
-    //         column(VesselPoint_82__Control1000001619; VesselPoint[82])
-    //         {
-
-    //         }
-    //         column(SeaRangeD_82__Control1000001620; SeaRangeD[82])
-    //         {
-
-    //         }
-    //         column(SeaRange_82__Control1000001621; SeaRange[82])
-    //         {
-    //         }
-    //         column(ShrimpPoint_83__Control1000001622; ShrimpPoint[83])
-    //         {
-
-    //         }
-    //         column(FishPoint_83__Control1000001623; FishPoint[83])
-    //         {
-
-    //         }
-    //         column(VesselPoint_83__Control1000001624; VesselPoint[83])
-    //         {
-
-    //         }
-    //         column(SeaRangeD_83__Control1000001625; SeaRangeD[83])
-    //         {
-
-    //         }
-    //         column(SeaRange_83__Control1000001626; SeaRange[83])
-    //         {
-
-    //         }
-    //         column(ShrimpPoint_84__Control1000001627; ShrimpPoint[84])
-    //         {
-
-    //         }
-    //         column(FishPoint_84__Control1000001628; FishPoint[84])
-    //         {
-
-    //         }
-    //         column(VesselPoint_84__Control1000001629; VesselPoint[84])
-    //         {
-
-    //         }
-    //         column(SeaRangeD_84__Control1000001630; SeaRangeD[84])
-    //         {
-
-    //         }
-    //         column(SeaRange_84__Control1000001631; SeaRange[84])
-    //         {
-    //         }
-    //         column(ShrimpPoint_85__Control1000001632; ShrimpPoint[85])
-    //         {
-
-    //         }
-    //         column(FishPoint_85__Control1000001633; FishPoint[85])
-    //         {
-
-    //         }
-    //         column(VesselPoint_85__Control1000001634; VesselPoint[85])
-    //         {
-
-    //         }
-    //         column(SeaRangeD_85__Control1000001635; SeaRangeD[85])
-    //         {
-
-    //         }
-    //         column(SeaRange_85__Control1000001636; SeaRange[85])
-    //         {
-    //         }
-    //         column(ShrimpPoint_86__Control1000001637; ShrimpPoint[86])
-    //         {
-
-    //         }
-    //         column(FishPoint_86__Control1000001638; FishPoint[86])
-    //         {
-
-    //         }
-    //         column(VesselPoint_86__Control1000001639; VesselPoint[86])
-    //         {
-
-    //         }
-    //         column(SeaRangeD_86__Control1000001640; SeaRangeD[86])
-    //         {
-
-    //         }
-    //         column(SeaRange_86__Control1000001641; SeaRange[86])
-    //         {
-    //         }
-    //         column(ShrimpPoint_87__Control1000001642; ShrimpPoint[87])
-    //         {
-
-    //         }
-    //         column(FishPoint_87__Control1000001643; FishPoint[87])
-    //         {
-
-    //         }
-    //         column(VesselPoint_87__Control1000001644; VesselPoint[87])
-    //         {
-
-    //         }
-    //         column(SeaRangeD_87__Control1000001645; SeaRangeD[87])
-    //         {
-
-    //         }
-    //         column(SeaRange_87__Control1000001646; SeaRange[87])
-    //         {
-    //         }
-    //         column(ShrimpPoint_88__Control1000001647; ShrimpPoint[88])
-    //         {
-
-    //         }
-    //         column(FishPoint_88__Control1000001648; FishPoint[88])
-    //         {
-
-    //         }
-    //         column(VesselPoint_88__Control1000001649; VesselPoint[88])
-    //         {
-
-    //         }
-    //         column(SeaRangeD_88__Control1000001650; SeaRangeD[88])
-    //         {
-
-    //         }
-    //         column(SeaRange_88__Control1000001651; SeaRange[88])
-    //         {
-    //         }
-    //         column(ShrimpPoint_89__Control1000001652; ShrimpPoint[89])
-    //         {
-
-    //         }
-    //         column(FishPoint_89__Control1000001653; FishPoint[89])
-    //         {
-
-    //         }
-    //         column(VesselPoint_89__Control1000001654; VesselPoint[89])
-    //         {
-
-    //         }
-    //         column(SeaRangeD_89__Control1000001655; SeaRangeD[89])
-    //         {
-
-    //         }
-    //         column(SeaRange_89__Control1000001656; SeaRange[89])
-    //         {
-    //         }
-    //         column(ShrimpPoint_90__Control1000001657; ShrimpPoint[90])
-    //         {
-
-    //         }
-    //         column(FishPoint_90__Control1000001658; FishPoint[90])
-    //         {
-
-    //         }
-    //         column(VesselPoint_90__Control1000001659; VesselPoint[90])
-    //         {
-
-    //         }
-    //         column(SeaRangeD_90__Control1000001660; SeaRangeD[90])
-    //         {
-
-    //         }
-    //         column(SeaRange_90__Control1000001661; SeaRange[90])
-    //         {
-    //         }
-    //         column(VesselPoint_91__Control1000001662; VesselPoint[91])
-    //         {
-
-    //         }
-    //         column(ShrimpPoint_91__Control1000001663; ShrimpPoint[91])
-    //         {
-
-    //         }
-    //         column(FishPoint_91__Control1000001664; FishPoint[91])
-    //         {
-
-    //         }
-    //         column(SeaRangeD_91__Control1000001665; SeaRangeD[91])
-    //         {
-
-    //         }
-    //         column(SeaRange_91__Control1000001666; SeaRange[91])
-    //         {
-    //         }
-    //         column(VesselPoint_92__Control1000001667; VesselPoint[92])
-    //         {
-
-    //         }
-    //         column(ShrimpPoint_92__Control1000001668; ShrimpPoint[92])
-    //         {
-
-    //         }
-    //         column(FishPoint_92__Control1000001669; FishPoint[92])
-    //         {
-
-    //         }
-    //         column(SeaRangeD_92__Control1000001670; SeaRangeD[92])
-    //         {
-
-    //         }
-    //         column(SeaRange_92__Control1000001671; SeaRange[92])
-    //         {
-    //         }
-    //         column(VesselPoint_93__Control1000001672; VesselPoint[93])
-    //         {
-
-    //         }
-    //         column(ShrimpPoint_93__Control1000001673; ShrimpPoint[93])
-    //         {
-
-    //         }
-    //         column(FishPoint_93__Control1000001674; FishPoint[93])
-    //         {
-
-    //         }
-    //         column(SeaRangeD_93__Control1000001675; SeaRangeD[93])
-    //         {
-
-    //         }
-    //         column(SeaRange_93__Control1000001676; SeaRange[93])
-    //         {
-    //         }
-    //         column(VesselPoint_94__Control1000001677; VesselPoint[94])
-    //         {
-
-    //         }
-    //         column(ShrimpPoint_94__Control1000001678; ShrimpPoint[94])
-    //         {
-
-    //         }
-    //         column(FishPoint_94__Control1000001679; FishPoint[94])
-    //         {
-
-    //         }
-    //         column(SeaRangeD_94__Control1000001680; SeaRangeD[94])
-    //         {
-
-    //         }
-    //         column(SeaRange_94__Control1000001681; SeaRange[94])
-    //         {
-    //         }
-    //         column(VesselPoint_95__Control1000001682; VesselPoint[95])
-    //         {
-
-    //         }
-    //         column(ShrimpPoint_95__Control1000001683; ShrimpPoint[95])
-    //         {
-
-    //         }
-    //         column(FishPoint_95__Control1000001684; FishPoint[95])
-    //         {
-
-    //         }
-    //         column(SeaRangeD_95__Control1000001685; SeaRangeD[95])
-    //         {
-
-    //         }
-    //         column(SeaRange_95__Control1000001686; SeaRange[95])
-    //         {
-    //         }
-    //         column(VesselPoint_96__Control1000001687; VesselPoint[96])
-    //         {
-
-    //         }
-    //         column(ShrimpPoint_96__Control1000001688; ShrimpPoint[96])
-    //         {
-
-    //         }
-    //         column(FishPoint_96__Control1000001689; FishPoint[96])
-    //         {
-
-    //         }
-    //         column(SeaRangeD_96__Control1000001690; SeaRangeD[96])
-    //         {
-
-    //         }
-    //         column(SeaRange_96__Control1000001691; SeaRange[96])
-    //         {
-    //         }
-    //         column(SeaRange_20__Control1000000139; SeaRange[20])
-    //         {
-    //         }
-    //         column(SeaRange_19__Control1000000141; SeaRange[19])
-    //         {
-    //         }
-    //         column(SeaRange_18__Control1000000159; SeaRange[18])
-    //         {
-
-    //         }
-    //         column(SeaRange_21__Control1000000110; SeaRange[21])
-    //         {
-
-    //         }
-    //         column(SeaRange_22__Control1000000117; SeaRange[22])
-    //         {
-    //         }
-    //         column(SeaRange_23__Control1000000140; SeaRange[23])
-    //         {
-    //         }
-    //         column(SeaRange_24__Control1000000168; SeaRange[24])
-    //         {
-    //         }
-    //         column(SeaRange_25__Control1000000169; SeaRange[25])
-    //         {
-    //         }
-    //         column(SeaRange_26__Control1000000170; SeaRange[26])
-    //         {
-    //         }
-    //         column(SeaRange_27__Control1000000171; SeaRange[27])
-    //         {
-    //         }
-    //         column(SeaRange_28__Control1000000172; SeaRange[28])
-    //         {
-    //         }
-    //         column(SeaRange_29__Control1000000173; SeaRange[29])
-    //         {
-    //         }
-    //         column(SeaRange_30__Control1000000174; SeaRange[30])
-    //         {
-    //         }
-    //         column(SeaRange_31__Control1000000175; SeaRange[31])
-    //         {
-    //         }
-    //         column(SeaRange_32__Control1000000176; SeaRange[32])
-    //         {
-    //         }
-    //         column(SeaRange_33__Control1000000177; SeaRange[33])
-    //         {
-    //         }
-    //         column(SeaRange_34__Control1000000178; SeaRange[34])
-    //         {
-    //         }
-    //         column(SeaRange_35__Control1000000179; SeaRange[35])
-    //         {
-    //         }
-    //         column(SeaRange_36__Control1000000180; SeaRange[36])
-    //         {
-    //         }
-    //         column(SeaRange_37__Control1000000181; SeaRange[37])
-    //         {
-    //         }
-    //         column(SeaRange_38__Control1000000182; SeaRange[38])
-    //         {
-    //         }
-    //         column(SeaRange_39__Control1000000183; SeaRange[39])
-    //         {
-    //         }
-    //         column(SeaRange_40__Control1000000184; SeaRange[40])
-    //         {
-    //         }
-    //         column(SeaRange_41__Control1000000185; SeaRange[41])
-    //         {
-    //         }
-    //         column(SeaRange_42__Control1000000186; SeaRange[42])
-    //         {
-    //         }
-    //         column(SeaRange_43__Control1000000187; SeaRange[43])
-    //         {
-
-    //         }
-    //         column(SeaRange_44__Control1000000190; SeaRange[44])
-    //         {
-    //         }
-    //         column(SeaRange_45__Control1000000191; SeaRange[45])
-    //         {
-    //         }
-    //         column(SeaRange_46__Control1000000192; SeaRange[46])
-    //         {
-    //         }
-    //         column(SeaRange_47__Control1000000193; SeaRange[47])
-    //         {
-    //         }
-    //         column(SeaRange_48__Control1000000194; SeaRange[48])
-    //         {
-    //         }
-    //         column(SeaRange_49__Control1000000195; SeaRange[49])
-    //         {
-    //         }
-    //         column(SeaRange_50__Control1000000196; SeaRange[50])
-    //         {
-    //         }
-    //         column(SeaRange_51__Control1000000197; SeaRange[51])
-    //         {
-    //         }
-    //         column(SeaRange_52__Control1000000198; SeaRange[52])
-    //         {
-    //         }
-    //         column(SeaRange_53__Control1000000199; SeaRange[53])
-    //         {
-    //         }
-    //         column(SeaRange_54__Control1000000200; SeaRange[54])
-    //         {
-    //         }
-    //         column(SeaRange_55__Control1000000201; SeaRange[55])
-    //         {
-    //         }
-    //         column(SeaRange_56__Control1000000202; SeaRange[56])
-    //         {
-    //         }
-    //         column(SeaRange_57__Control1000000203; SeaRange[57])
-    //         {
-    //         }
-    //         column(SeaRange_58__Control1000000204; SeaRange[58])
-    //         {
-    //         }
-    //         column(SeaRange_59__Control1000000205; SeaRange[59])
-    //         {
-    //         }
-    //         column(SeaRange_60__Control1000000206; SeaRange[60])
-    //         {
-    //         }
-    //         column(SeaRange_61__Control1000000207; SeaRange[61])
-    //         {
-    //         }
-    //         column(SeaRange_62__Control1000000208; SeaRange[62])
-    //         {
-    //         }
-    //         column(SeaRange_83__Control1000000209; SeaRange[83])
-    //         {
-
-    //         }
-    //         column(SeaRange_84__Control1000000212; SeaRange[84])
-    //         {
-    //         }
-    //         column(SeaRange_85__Control1000000213; SeaRange[85])
-    //         {
-    //         }
-    //         column(SeaRange_86__Control1000000214; SeaRange[86])
-    //         {
-    //         }
-    //         column(SeaRange_87__Control1000000215; SeaRange[87])
-    //         {
-    //         }
-    //         column(SeaRange_88__Control1000000216; SeaRange[88])
-    //         {
-    //         }
-    //         column(SeaRange_89__Control1000000217; SeaRange[89])
-    //         {
-    //         }
-    //         column(SeaRange_90__Control1000000218; SeaRange[90])
-    //         {
-    //         }
-    //         column(SeaRange_91__Control1000000219; SeaRange[91])
-    //         {
-    //         }
-    //         column(SeaRange_92__Control1000000220; SeaRange[92])
-    //         {
-    //         }
-    //         column(SeaRange_93__Control1000000221; SeaRange[93])
-    //         {
-    //         }
-    //         column(SeaRange_94__Control1000000222; SeaRange[94])
-    //         {
-    //         }
-    //         column(SeaRange_95__Control1000000223; SeaRange[95])
-    //         {
-    //         }
-    //         column(SeaRange_96__Control1000000224; SeaRange[96])
-    //         {
-    //         }
-    //         column(SeaRange_63__Control1000000233; SeaRange[63])
-    //         {
-    //         }
-    //         column(SeaRange_64__Control1000000234; SeaRange[64])
-    //         {
-    //         }
-    //         column(SeaRange_65__Control1000000235; SeaRange[65])
-    //         {
-    //         }
-    //         column(SeaRange_66__Control1000000236; SeaRange[66])
-    //         {
-    //         }
-    //         column(SeaRange_67__Control1000000237; SeaRange[67])
-    //         {
-    //         }
-    //         column(SeaRange_68__Control1000000238; SeaRange[68])
-    //         {
-    //         }
-    //         column(SeaRange_69__Control1000000239; SeaRange[69])
-    //         {
-    //         }
-    //         column(SeaRange_70__Control1000000240; SeaRange[70])
-    //         {
-    //         }
-    //         column(SeaRange_71__Control1000000241; SeaRange[71])
-    //         {
-    //         }
-    //         column(SeaRange_72__Control1000000242; SeaRange[72])
-    //         {
-    //         }
-    //         column(SeaRange_73__Control1000000243; SeaRange[73])
-    //         {
-    //         }
-    //         column(SeaRange_74__Control1000000244; SeaRange[74])
-    //         {
-    //         }
-    //         column(SeaRange_75__Control1000000245; SeaRange[75])
-    //         {
-    //         }
-    //         column(SeaRange_76__Control1000000246; SeaRange[76])
-    //         {
-    //         }
-    //         column(SeaRange_77__Control1000000247; SeaRange[77])
-    //         {
-    //         }
-    //         column(SeaRange_78__Control1000000248; SeaRange[78])
-    //         {
-    //         }
-    //         column(SeaRange_79__Control1000000249; SeaRange[79])
-    //         {
-    //         }
-    //         column(SeaRange_80__Control1000000250; SeaRange[80])
-    //         {
-    //         }
-    //         column(SeaRange_81__Control1000000251; SeaRange[81])
-    //         {
-    //         }
-    //         column(SeaRange_82__Control1000000252; SeaRange[82])
-    //         {
-    //         }
-    //         column(T001; T001)
-    //         {
-    //         }
-    //         column(Cat; Cat)
-    //         {
-    //         }
-    //         column(InvtTot_Control26; InvtTot)
-    //         {
-
-    //         }
-    //         column(SeaRangeC_18__Control1000000115; SeaRangeC[18])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_19__Control1000000261; SeaRangeC[19])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_20__Control1000000262; SeaRangeC[20])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_21__Control1000000263; SeaRangeC[21])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_22__Control1000000264; SeaRangeC[22])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_23__Control1000000265; SeaRangeC[23])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_24__Control1000000266; SeaRangeC[24])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_25__Control1000000267; SeaRangeC[25])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_26__Control1000000268; SeaRangeC[26])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_27__Control1000000269; SeaRangeC[27])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_28__Control1000000270; SeaRangeC[28])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_29__Control1000000271; SeaRangeC[29])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_30__Control1000000272; SeaRangeC[30])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_31__Control1000000273; SeaRangeC[31])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_32__Control1000000274; SeaRangeC[32])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_33__Control1000000275; SeaRangeC[33])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_34__Control1000000276; SeaRangeC[34])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_35__Control1000000277; SeaRangeC[35])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_36__Control1000000278; SeaRangeC[36])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_37__Control1000000279; SeaRangeC[37])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_38__Control1000000280; SeaRangeC[38])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_39__Control1000000281; SeaRangeC[39])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_40__Control1000000282; SeaRangeC[40])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_41__Control1000000283; SeaRangeC[41])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_42__Control1000000284; SeaRangeC[42])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_43__Control1000000285; SeaRangeC[43])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_44__Control1000000286; SeaRangeC[44])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_45__Control1000000287; SeaRangeC[45])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_46__Control1000000288; SeaRangeC[46])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_47__Control1000000289; SeaRangeC[47])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_48__Control1000000290; SeaRangeC[48])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_49__Control1000000291; SeaRangeC[49])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_50__Control1000000292; SeaRangeC[50])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_51__Control1000000293; SeaRangeC[51])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_52__Control1000000294; SeaRangeC[52])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_53__Control1000000295; SeaRangeC[53])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_54__Control1000000296; SeaRangeC[54])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_55__Control1000000297; SeaRangeC[55])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_56__Control1000000298; SeaRangeC[56])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_57__Control1000000299; SeaRangeC[57])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_58__Control1000000300; SeaRangeC[58])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_59__Control1000000301; SeaRangeC[59])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_60__Control1000000302; SeaRangeC[60])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_61__Control1000000303; SeaRangeC[61])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_62__Control1000000304; SeaRangeC[62])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_63__Control1000000305; SeaRangeC[63])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_64__Control1000000306; SeaRangeC[64])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_65__Control1000000307; SeaRangeC[65])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_66__Control1000000308; SeaRangeC[66])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_67__Control1000000309; SeaRangeC[67])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_68__Control1000000310; SeaRangeC[68])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_69__Control1000000311; SeaRangeC[69])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_70__Control1000000312; SeaRangeC[70])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_71__Control1000000313; SeaRangeC[71])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_72__Control1000000314; SeaRangeC[72])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_73__Control1000000315; SeaRangeC[73])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_74__Control1000000316; SeaRangeC[74])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_75__Control1000000317; SeaRangeC[75])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_76__Control1000000318; SeaRangeC[76])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_77__Control1000000319; SeaRangeC[77])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_78__Control1000000320; SeaRangeC[78])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_79__Control1000000321; SeaRangeC[79])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_80__Control1000000322; SeaRangeC[80])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_81__Control1000000323; SeaRangeC[81])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_82__Control1000000324; SeaRangeC[82])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_83__Control1000000325; SeaRangeC[83])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_84__Control1000000326; SeaRangeC[84])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_85__Control1000000327; SeaRangeC[85])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_86__Control1000000328; SeaRangeC[86])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_87__Control1000000329; SeaRangeC[87])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_88__Control1000000330; SeaRangeC[88])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_89__Control1000000331; SeaRangeC[89])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_90__Control1000000332; SeaRangeC[90])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_91__Control1000000333; SeaRangeC[91])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_92__Control1000000334; SeaRangeC[92])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_93__Control1000000335; SeaRangeC[93])
-    //         {
-
-    //         }
-    //         column(FIELDCAPTION_Category___TotalFor; FieldCaption(Category) + TotalFor)
-    //         {
-    //         }
-    //         column(InvtTot_Control30; InvtTot)
-    //         {
-
-    //         }
-    //         column(SeaRangeC_93__Control1000000503; SeaRangeC[93])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_92__Control1000000504; SeaRangeC[92])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_91__Control1000000505; SeaRangeC[91])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_90__Control1000000506; SeaRangeC[90])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_89__Control1000000507; SeaRangeC[89])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_88__Control1000000508; SeaRangeC[88])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_87__Control1000000509; SeaRangeC[87])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_86__Control1000000510; SeaRangeC[86])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_85__Control1000000511; SeaRangeC[85])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_84__Control1000000512; SeaRangeC[84])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_83__Control1000000513; SeaRangeC[83])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_82__Control1000000514; SeaRangeC[82])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_81__Control1000000515; SeaRangeC[81])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_80__Control1000000516; SeaRangeC[80])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_79__Control1000000517; SeaRangeC[79])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_78__Control1000000518; SeaRangeC[78])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_77__Control1000000519; SeaRangeC[77])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_76__Control1000000520; SeaRangeC[76])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_75__Control1000000521; SeaRangeC[75])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_74__Control1000000522; SeaRangeC[74])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_73__Control1000000523; SeaRangeC[73])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_72__Control1000000524; SeaRangeC[72])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_71__Control1000000525; SeaRangeC[71])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_70__Control1000000526; SeaRangeC[70])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_69__Control1000000527; SeaRangeC[69])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_68__Control1000000528; SeaRangeC[68])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_67__Control1000000529; SeaRangeC[67])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_66__Control1000000530; SeaRangeC[66])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_65__Control1000000531; SeaRangeC[65])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_64__Control1000000532; SeaRangeC[64])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_63__Control1000000533; SeaRangeC[63])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_62__Control1000000534; SeaRangeC[62])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_61__Control1000000535; SeaRangeC[61])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_60__Control1000000536; SeaRangeC[60])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_59__Control1000000537; SeaRangeC[59])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_58__Control1000000538; SeaRangeC[58])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_57__Control1000000539; SeaRangeC[57])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_56__Control1000000540; SeaRangeC[56])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_55__Control1000000541; SeaRangeC[55])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_54__Control1000000542; SeaRangeC[54])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_53__Control1000000543; SeaRangeC[53])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_52__Control1000000544; SeaRangeC[52])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_51__Control1000000545; SeaRangeC[51])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_50__Control1000000546; SeaRangeC[50])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_49__Control1000000547; SeaRangeC[49])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_48__Control1000000548; SeaRangeC[48])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_47__Control1000000549; SeaRangeC[47])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_46__Control1000000550; SeaRangeC[46])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_45__Control1000000551; SeaRangeC[45])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_44__Control1000000552; SeaRangeC[44])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_43__Control1000000553; SeaRangeC[43])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_42__Control1000000554; SeaRangeC[42])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_41__Control1000000555; SeaRangeC[41])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_40__Control1000000556; SeaRangeC[40])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_39__Control1000000557; SeaRangeC[39])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_38__Control1000000558; SeaRangeC[38])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_37__Control1000000559; SeaRangeC[37])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_36__Control1000000560; SeaRangeC[36])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_35__Control1000000561; SeaRangeC[35])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_34__Control1000000562; SeaRangeC[34])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_33__Control1000000563; SeaRangeC[33])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_32__Control1000000564; SeaRangeC[32])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_31__Control1000000565; SeaRangeC[31])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_30__Control1000000566; SeaRangeC[30])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_29__Control1000000567; SeaRangeC[29])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_28__Control1000000568; SeaRangeC[28])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_27__Control1000000569; SeaRangeC[27])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_26__Control1000000570; SeaRangeC[26])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_25__Control1000000571; SeaRangeC[25])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_24__Control1000000572; SeaRangeC[24])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_23__Control1000000573; SeaRangeC[23])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_22__Control1000000574; SeaRangeC[22])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_21__Control1000000575; SeaRangeC[21])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_20__Control1000000576; SeaRangeC[20])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_19__Control1000000577; SeaRangeC[19])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_18__Control1000000595; SeaRangeC[18])
-    //         {
-
-    //         }
-    //         column(TotalFor___FIELDCAPTION__Statistics_Group__; TotalFor + FieldCaption("Statistics Group"))
-    //         {
-    //         }
-    //         column(InvtTot_Control33; InvtTot)
-    //         {
-
-    //         }
-    //         column(SeaRangeC_18__Control1000000596; SeaRangeC[18])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_19__Control1000000614; SeaRangeC[19])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_20__Control1000000615; SeaRangeC[20])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_21__Control1000000616; SeaRangeC[21])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_22__Control1000000617; SeaRangeC[22])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_23__Control1000000618; SeaRangeC[23])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_24__Control1000000619; SeaRangeC[24])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_25__Control1000000620; SeaRangeC[25])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_26__Control1000000621; SeaRangeC[26])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_27__Control1000000622; SeaRangeC[27])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_28__Control1000000623; SeaRangeC[28])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_29__Control1000000624; SeaRangeC[29])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_30__Control1000000625; SeaRangeC[30])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_31__Control1000000626; SeaRangeC[31])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_32__Control1000000627; SeaRangeC[32])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_33__Control1000000628; SeaRangeC[33])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_34__Control1000000629; SeaRangeC[34])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_35__Control1000000630; SeaRangeC[35])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_36__Control1000000631; SeaRangeC[36])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_37__Control1000000632; SeaRangeC[37])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_38__Control1000000633; SeaRangeC[38])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_39__Control1000000634; SeaRangeC[39])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_40__Control1000000635; SeaRangeC[40])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_41__Control1000000636; SeaRangeC[41])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_42__Control1000000637; SeaRangeC[42])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_43__Control1000000638; SeaRangeC[43])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_44__Control1000000639; SeaRangeC[44])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_45__Control1000000640; SeaRangeC[45])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_46__Control1000000641; SeaRangeC[46])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_47__Control1000000642; SeaRangeC[47])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_48__Control1000000643; SeaRangeC[48])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_49__Control1000000644; SeaRangeC[49])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_50__Control1000000645; SeaRangeC[50])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_51__Control1000000646; SeaRangeC[51])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_52__Control1000000647; SeaRangeC[52])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_53__Control1000000648; SeaRangeC[53])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_54__Control1000000649; SeaRangeC[54])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_55__Control1000000650; SeaRangeC[55])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_56__Control1000000651; SeaRangeC[56])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_57__Control1000000652; SeaRangeC[57])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_58__Control1000000653; SeaRangeC[58])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_59__Control1000000654; SeaRangeC[59])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_60__Control1000000655; SeaRangeC[60])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_61__Control1000000656; SeaRangeC[61])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_62__Control1000000657; SeaRangeC[62])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_63__Control1000000658; SeaRangeC[63])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_64__Control1000000659; SeaRangeC[64])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_65__Control1000000660; SeaRangeC[65])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_66__Control1000000661; SeaRangeC[66])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_67__Control1000000662; SeaRangeC[67])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_68__Control1000000663; SeaRangeC[68])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_69__Control1000000664; SeaRangeC[69])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_70__Control1000000665; SeaRangeC[70])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_71__Control1000000666; SeaRangeC[71])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_72__Control1000000667; SeaRangeC[72])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_73__Control1000000668; SeaRangeC[73])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_74__Control1000000669; SeaRangeC[74])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_75__Control1000000670; SeaRangeC[75])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_76__Control1000000671; SeaRangeC[76])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_77__Control1000000672; SeaRangeC[77])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_78__Control1000000673; SeaRangeC[78])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_79__Control1000000674; SeaRangeC[79])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_80__Control1000000675; SeaRangeC[80])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_81__Control1000000676; SeaRangeC[81])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_82__Control1000000677; SeaRangeC[82])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_83__Control1000000678; SeaRangeC[83])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_84__Control1000000679; SeaRangeC[84])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_85__Control1000000680; SeaRangeC[85])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_86__Control1000000681; SeaRangeC[86])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_87__Control1000000682; SeaRangeC[87])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_88__Control1000000683; SeaRangeC[88])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_89__Control1000000684; SeaRangeC[89])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_90__Control1000000685; SeaRangeC[90])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_91__Control1000000686; SeaRangeC[91])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_92__Control1000000687; SeaRangeC[92])
-    //         {
-
-    //         }
-    //         column(SeaRangeC_93__Control1000000688; SeaRangeC[93])
-    //         {
-
-    //         }
-    //         column(Sea_DaysCaption_Control1000001204; Sea_DaysCaption_Control1000001204Lbl)
-    //         {
-    //         }
-    //         column(VesselsCaption_Control1000001206; VesselsCaption_Control1000001206Lbl)
-    //         {
-    //         }
-    //         column(Vessel_PointsCaption_Control1000001207; Vessel_PointsCaption_Control1000001207Lbl)
-    //         {
-    //         }
-    //         column(Shrimp_PointsCaption_Control1000001212; Shrimp_PointsCaption_Control1000001212Lbl)
-    //         {
-    //         }
-    //         column(Fish_PointsCaption_Control1000001214; Fish_PointsCaption_Control1000001214Lbl)
-    //         {
-    //         }
-    //         column(Inventory_Total_Caption_Control1000001465; Inventory_Total_Caption_Control1000001465Lbl)
-    //         {
-    //         }
-    //         column(DescriptionCaption; DescriptionCaptionLbl)
-    //         {
-    //         }
-    //         column(Inventory_TotalCaption; Inventory_TotalCaptionLbl)
-    //         {
-    //         }
-    //         column(Inventory_Posting_Group_DescriptionCaption_Control1000000161; FieldCaption(Description))
-    //         {
-    //         }
-    //         column(T001Caption; T001CaptionLbl)
-    //         {
-    //         }
-    //         column(CatCaption; CatCaptionLbl)
-    //         {
-    //         }
-    //         column(Inventory_Posting_Group_Code; Code)
-    //         {
-    //         }
-    //         column(Inventory_Posting_Group_Category; Category)
-    //         {
-    //         }
-    //         column(Inventory_Posting_Group_Statistics_Group; "Statistics Group")
-    //         {
-    //         }
-
-    //         trigger OnAfterGetRecord()
-    //         begin
-    //             level := TotLoc;
-    //             while level > 0 do begin
-    //                 SetFilter("Location Filter", SeaRange[level]);
-    //                 //CALCFIELDS(Inventory2);
-    //                 //SeaRangeC[level]:=Inventory2;
-    //                 CalcFields(Inventory1, Inventory2);
-    //                 //Inventory2 := InventoryTwo(Code,SeaRange[level],DateFilter);
-    //                 if ReportBy = 0 then
-    //                     SeaRangeC[level] := Inventory2
-    //                 else
-    //                     SeaRangeC[level] := Inventory1;
-    //                 CurrReport.CreateTotals(SeaRangeC[level]);
-    //                 level := level - 1;
-    //             end;
-    //             //Show Inventory for all location by releasing location filter
-    //             SetFilter("Location Filter", '');  //OCT 10,2002 AAA
-    //             CalcFields(Inventory1, Inventory2);
-    //             //"Inventory total2" := InventoryTotal2(Code,DateFilter);
-    //             if ReportBy = 0 then
-    //                 InvtTot := Inventory2
-    //             else
-    //                 InvtTot := Inventory1;
-    //             CurrReport.CreateTotals(InvtTot);
-    //             if "Statistics Group" = 4 then T002 := 'LOCAL PRODUCTS';
-    //         end;
-
-    //         trigger OnPreDataItem()
-    //         begin
-    //             TotLoc := 0;
-    //             VesselCounter := 0;
-    //             CopyFilters("Inventory Posting G Cat Tot");
-
-    //             locate2.SetRange(locate2."Location Type", 1);
-    //             locate2.SetFilter(locate2."date filter", '%1', GetRangeMax("Date Filter"));
-    //             if locate2.Find('-') then
-    //                 repeat
-    //                     locate2."Last Rep Operation No. Val" :=
-    //                       locate2.LastRepOpNo(locate2.Code, locate2.GetFilter("date filter"));//locate2."Last Rep Operation No.";
-    //                     locate2.VSDVal :=
-    //                       locate2.VoySeaAnyTime(locate2."Last Rep Operation No. Val", locate2.Code, locate2.GetFilter("date filter"));
-    //                     if Operatn.Get(locate2."Last Rep Operation No. Val") then
-    //                         Operatn.SetFilter(Operatn."Date Filter", '%1', GetRangeMax("Date Filter"));
-    //                     locate2."Last Reportd Vessel Pts" := Operatn.PointZ(Operatn."No.", locate2.Code,
-    //                       locate2.GetFilter("date filter"), '', '', '', Operatn.Vessel);//Operatn.Points;
-    //                     Operatn.SetFilter(Operatn."Task Filter", 'SHR');
-    //                     //Operatn.CALCFIELDS(Operatn.Points);
-    //                     locate2."Last Reportd Shrimps Pts" := Operatn.PointZ(Operatn."No.", locate2.Code,
-    //                       locate2.GetFilter("date filter"), '', 'SHR', '', Operatn.Vessel); //Operatn.Points;
-    //                     Operatn.SetRange(Operatn."Task Filter");
-    //                     locate2.Modify();
-    //                 until locate2.Next = 0;
-
-    //             //AAA - June 2002 Sort Entries accordg to SeaDays
-    //             locate.SetRange(locate."Location Type", 1);
-    //             TotLoc := locate.Count;
-    //             if ArrangeBy = 0 then
-    //                 locate.SetCurrentKey(locate."Last Reportd Vessel Pts")
-    //             else
-    //                 locate.SetCurrentKey(locate.VSDVal);
-    //             locate.Ascending(false);
-
-    //             Countx := 1;
-    //             if locate.Find('-') then
-    //                 repeat
-    //                     if locate.VSDVal <> 0 then begin
-    //                         SeaRange[Countx] := locate.Code;
-    //                         SeaRangeD[Countx] := locate.VSDVal;     //Sea Day Assigned
-    //                         VesselPoint[Countx] := locate."Last Reportd Vessel Pts";   //Vessel Points Assigned
-    //                         ShrimpPoint[Countx] := locate."Last Reportd Shrimps Pts"; //Shrimp Points Assigned
-    //                         FishPoint[Countx] := VesselPoint[Countx] - ShrimpPoint[Countx];
-
-    //                         //Fishg Area
-    //                         locate.SetFilter(locate."date filter", '%1', GetRangeMax("Date Filter"));
-    //                         //locate.CALCFIELDS(locate."Fishing Area");
-    //                         locate."Fishing Area" := locate.FishingArea(locate."Current Operation",
-    //                            locate.Code, locate.GetFilter("date filter"));
-    //                         if locate."Fishing Area" <> '' then
-    //                             if (Phase.Get(locate."Fishing Area")) and (Phase."Area Code" <> '') then
-    //                                 FishgArea[Countx] := Phase."Area Code"
-    //                             else
-    //                                 FishgArea[Countx] := CopyStr(locate."Fishing Area", 1, 4);
-    //                         if SeaRange[Countx] = '' then FishgArea[Countx] := '';
-
-    //                         Countx := Countx + 1;
-    //                     end;
-    //                 until locate.Next = 0;
-    //             TotLoc := Countx - 1;
-    //         end;
-    //     }
+        //     dataitem("Inventory Posting Group"; "Inventory Posting Group")
+        //     {
+        //         DataItemTableView = SORTING("Statistics Group", Category, "S/No.") WHERE("In Use" = CONST(true), "Statistics Group" = FILTER(> 0));
+        //         column(testing123; testing123)
+        //         {
+        //         }
+        //         column(Inventory_Posting_G_Cat_Tot_Category; Category)
+        //         {
+        //         }
+        //         column(VesselPoint_18__Control1000001208; VesselPoint[18])
+        //         {
+
+        //         }
+        //         column(SeaRangeD_18__Control1000001209; SeaRangeD[18])
+        //         {
+
+        //         }
+        //         column(SeaRange_18__Control1000001210; SeaRange[18])
+        //         {
+
+        //         }
+        //         column(ShrimpPoint_18__Control1000001211; ShrimpPoint[18])
+        //         {
+
+        //         }
+        //         column(FishPoint_18__Control1000001213; FishPoint[18])
+        //         {
+
+        //         }
+        //         column(t; ShrimpPoint[19])
+        //         {
+
+        //         }
+        //         column(FishPoint_19__Control1000001301; FishPoint[19])
+        //         {
+
+        //         }
+        //         column(VesselPoint_19__Control1000001302; VesselPoint[19])
+        //         {
+
+        //         }
+        //         column(SeaRangeD_19__Control1000001303; SeaRangeD[19])
+        //         {
+
+        //         }
+        //         column(SeaRange_19__Control1000001304; SeaRange[19])
+        //         {
+        //         }
+        //         column(ShrimpPoint_20__Control1000001305; ShrimpPoint[20])
+        //         {
+
+        //         }
+        //         column(FishPoint_20__Control1000001306; FishPoint[20])
+        //         {
+
+        //         }
+        //         column(VesselPoint_20__Control1000001307; VesselPoint[20])
+        //         {
+
+        //         }
+        //         column(SeaRangeD_20__Control1000001308; SeaRangeD[20])
+        //         {
+
+        //         }
+        //         column(SeaRange_20__Control1000001309; SeaRange[20])
+        //         {
+        //         }
+        //         column(ShrimpPoint_21__Control1000001310; ShrimpPoint[21])
+        //         {
+
+        //         }
+        //         column(FishPoint_21__Control1000001311; FishPoint[21])
+        //         {
+
+        //         }
+        //         column(VesselPoint_21__Control1000001312; VesselPoint[21])
+        //         {
+
+        //         }
+        //         column(SeaRangeD_21__Control1000001313; SeaRangeD[21])
+        //         {
+
+        //         }
+        //         column(SeaRange_21__Control1000001314; SeaRange[21])
+        //         {
+
+        //         }
+        //         column(ShrimpPoint_22__Control1000001315; ShrimpPoint[22])
+        //         {
+
+        //         }
+        //         column(FishPoint_22__Control1000001316; FishPoint[22])
+        //         {
+
+        //         }
+        //         column(VesselPoint_22__Control1000001317; VesselPoint[22])
+        //         {
+
+        //         }
+        //         column(SeaRangeD_22__Control1000001318; SeaRangeD[22])
+        //         {
+
+        //         }
+        //         column(SeaRange_22__Control1000001319; SeaRange[22])
+        //         {
+        //         }
+        //         column(ShrimpPoint_23__Control1000001320; ShrimpPoint[23])
+        //         {
+
+        //         }
+        //         column(FishPoint_23__Control1000001321; FishPoint[23])
+        //         {
+
+        //         }
+        //         column(VesselPoint_23__Control1000001322; VesselPoint[23])
+        //         {
+
+        //         }
+        //         column(SeaRangeD_23__Control1000001323; SeaRangeD[23])
+        //         {
+
+        //         }
+        //         column(SeaRange_23__Control1000001324; SeaRange[23])
+        //         {
+        //         }
+        //         column(ShrimpPoint_24__Control1000001325; ShrimpPoint[24])
+        //         {
+
+        //         }
+        //         column(FishPoint_24__Control1000001326; FishPoint[24])
+        //         {
+
+        //         }
+        //         column(VesselPoint_24__Control1000001327; VesselPoint[24])
+        //         {
+
+        //         }
+        //         column(SeaRangeD_24__Control1000001328; SeaRangeD[24])
+        //         {
+
+        //         }
+        //         column(SeaRange_24__Control1000001329; SeaRange[24])
+        //         {
+        //         }
+        //         column(ShrimpPoint_25__Control1000001330; ShrimpPoint[25])
+        //         {
+
+        //         }
+        //         column(FishPoint_25__Control1000001331; FishPoint[25])
+        //         {
+
+        //         }
+        //         column(VesselPoint_25__Control1000001332; VesselPoint[25])
+        //         {
+
+        //         }
+        //         column(SeaRangeD_25__Control1000001333; SeaRangeD[25])
+        //         {
+
+        //         }
+        //         column(SeaRange_25__Control1000001334; SeaRange[25])
+        //         {
+        //         }
+        //         column(ShrimpPoint_26__Control1000001335; ShrimpPoint[26])
+        //         {
+
+        //         }
+        //         column(FishPoint_26__Control1000001336; FishPoint[26])
+        //         {
+
+        //         }
+        //         column(VesselPoint_26__Control1000001337; VesselPoint[26])
+        //         {
+
+        //         }
+        //         column(SeaRangeD_26__Control1000001338; SeaRangeD[26])
+        //         {
+
+        //         }
+        //         column(SeaRange_26__Control1000001339; SeaRange[26])
+        //         {
+        //         }
+        //         column(ShrimpPoint_27__Control1000001340; ShrimpPoint[27])
+        //         {
+
+        //         }
+        //         column(FishPoint_27__Control1000001341; FishPoint[27])
+        //         {
+
+        //         }
+        //         column(VesselPoint_27__Control1000001342; VesselPoint[27])
+        //         {
+
+        //         }
+        //         column(SeaRangeD_27__Control1000001343; SeaRangeD[27])
+        //         {
+
+        //         }
+        //         column(SeaRange_27__Control1000001344; SeaRange[27])
+        //         {
+        //         }
+        //         column(ShrimpPoint_28__Control1000001345; ShrimpPoint[28])
+        //         {
+
+        //         }
+        //         column(FishPoint_28__Control1000001346; FishPoint[28])
+        //         {
+
+        //         }
+        //         column(VesselPoint_28__Control1000001347; VesselPoint[28])
+        //         {
+
+        //         }
+        //         column(SeaRangeD_28__Control1000001348; SeaRangeD[28])
+        //         {
+
+        //         }
+        //         column(SeaRange_28__Control1000001349; SeaRange[28])
+        //         {
+        //         }
+        //         column(ShrimpPoint_29__Control1000001350; ShrimpPoint[29])
+        //         {
+
+        //         }
+        //         column(FishPoint_29__Control1000001351; FishPoint[29])
+        //         {
+
+        //         }
+        //         column(VesselPoint_29__Control1000001352; VesselPoint[29])
+        //         {
+
+        //         }
+        //         column(SeaRangeD_29__Control1000001353; SeaRangeD[29])
+        //         {
+
+        //         }
+        //         column(SeaRange_29__Control1000001354; SeaRange[29])
+        //         {
+        //         }
+        //         column(ShrimpPoint_30__Control1000001355; ShrimpPoint[30])
+        //         {
+
+        //         }
+        //         column(FishPoint_30__Control1000001356; FishPoint[30])
+        //         {
+
+        //         }
+        //         column(VesselPoint_30__Control1000001357; VesselPoint[30])
+        //         {
+
+        //         }
+        //         column(SeaRangeD_30__Control1000001358; SeaRangeD[30])
+        //         {
+
+        //         }
+        //         column(SeaRange_30__Control1000001359; SeaRange[30])
+        //         {
+        //         }
+        //         column(ShrimpPoint_31__Control1000001360; ShrimpPoint[31])
+        //         {
+
+        //         }
+        //         column(FishPoint_31__Control1000001361; FishPoint[31])
+        //         {
+
+        //         }
+        //         column(VesselPoint_31__Control1000001362; VesselPoint[31])
+        //         {
+
+        //         }
+        //         column(SeaRangeD_31__Control1000001363; SeaRangeD[31])
+        //         {
+
+        //         }
+        //         column(SeaRange_31__Control1000001364; SeaRange[31])
+        //         {
+        //         }
+        //         column(ShrimpPoint_32__Control1000001365; ShrimpPoint[32])
+        //         {
+
+        //         }
+        //         column(FishPoint_32__Control1000001366; FishPoint[32])
+        //         {
+
+        //         }
+        //         column(VesselPoint_32__Control1000001367; VesselPoint[32])
+        //         {
+
+        //         }
+        //         column(SeaRangeD_32__Control1000001368; SeaRangeD[32])
+        //         {
+
+        //         }
+        //         column(SeaRange_32__Control1000001369; SeaRange[32])
+        //         {
+        //         }
+        //         column(ShrimpPoint_33__Control1000001370; ShrimpPoint[33])
+        //         {
+
+        //         }
+        //         column(FishPoint_33__Control1000001371; FishPoint[33])
+        //         {
+
+        //         }
+        //         column(VesselPoint_33__Control1000001372; VesselPoint[33])
+        //         {
+
+        //         }
+        //         column(SeaRangeD_33__Control1000001373; SeaRangeD[33])
+        //         {
+
+        //         }
+        //         column(SeaRange_33__Control1000001374; SeaRange[33])
+        //         {
+        //         }
+        //         column(ShrimpPoint_34__Control1000001375; ShrimpPoint[34])
+        //         {
+
+        //         }
+        //         column(FishPoint_34__Control1000001376; FishPoint[34])
+        //         {
+
+        //         }
+        //         column(VesselPoint_34__Control1000001377; VesselPoint[34])
+        //         {
+
+        //         }
+        //         column(SeaRangeD_34__Control1000001378; SeaRangeD[34])
+        //         {
+
+        //         }
+        //         column(SeaRange_34__Control1000001379; SeaRange[34])
+        //         {
+        //         }
+        //         column(ShrimpPoint_35__Control1000001380; ShrimpPoint[35])
+        //         {
+
+        //         }
+        //         column(FishPoint_35__Control1000001381; FishPoint[35])
+        //         {
+
+        //         }
+        //         column(VesselPoint_35__Control1000001382; VesselPoint[35])
+        //         {
+
+        //         }
+        //         column(SeaRangeD_35__Control1000001383; SeaRangeD[35])
+        //         {
+
+        //         }
+        //         column(SeaRange_35__Control1000001384; SeaRange[35])
+        //         {
+        //         }
+        //         column(ShrimpPoint_36__Control1000001385; ShrimpPoint[36])
+        //         {
+
+        //         }
+        //         column(FishPoint_36__Control1000001386; FishPoint[36])
+        //         {
+
+        //         }
+        //         column(VesselPoint_36__Control1000001387; VesselPoint[36])
+        //         {
+
+        //         }
+        //         column(SeaRangeD_36__Control1000001388; SeaRangeD[36])
+        //         {
+
+        //         }
+        //         column(SeaRange_36__Control1000001389; SeaRange[36])
+        //         {
+        //         }
+        //         column(ShrimpPoint_37__Control1000001390; ShrimpPoint[37])
+        //         {
+
+        //         }
+        //         column(FishPoint_37__Control1000001391; FishPoint[37])
+        //         {
+
+        //         }
+        //         column(VesselPoint_37__Control1000001392; VesselPoint[37])
+        //         {
+
+        //         }
+        //         column(SeaRangeD_37__Control1000001393; SeaRangeD[37])
+        //         {
+
+        //         }
+        //         column(SeaRange_37__Control1000001394; SeaRange[37])
+        //         {
+        //         }
+        //         column(ShrimpPoint_38__Control1000001395; ShrimpPoint[38])
+        //         {
+
+        //         }
+        //         column(FishPoint_38__Control1000001396; FishPoint[38])
+        //         {
+
+        //         }
+        //         column(VesselPoint_38__Control1000001397; VesselPoint[38])
+        //         {
+
+        //         }
+        //         column(SeaRangeD_38__Control1000001398; SeaRangeD[38])
+        //         {
+
+        //         }
+        //         column(SeaRange_38__Control1000001399; SeaRange[38])
+        //         {
+        //         }
+        //         column(ShrimpPoint_39__Control1000001400; ShrimpPoint[39])
+        //         {
+
+        //         }
+        //         column(FishPoint_39__Control1000001401; FishPoint[39])
+        //         {
+
+        //         }
+        //         column(VesselPoint_39__Control1000001402; VesselPoint[39])
+        //         {
+
+        //         }
+        //         column(SeaRangeD_39__Control1000001403; SeaRangeD[39])
+        //         {
+
+        //         }
+        //         column(SeaRange_39__Control1000001404; SeaRange[39])
+        //         {
+        //         }
+        //         column(ShrimpPoint_40__Control1000001405; ShrimpPoint[40])
+        //         {
+
+        //         }
+        //         column(FishPoint_40__Control1000001406; FishPoint[40])
+        //         {
+
+        //         }
+        //         column(VesselPoint_40__Control1000001407; VesselPoint[40])
+        //         {
+
+        //         }
+        //         column(SeaRangeD_40__Control1000001408; SeaRangeD[40])
+        //         {
+
+        //         }
+        //         column(SeaRange_40__Control1000001409; SeaRange[40])
+        //         {
+        //         }
+        //         column(ShrimpPoint_41__Control1000001410; ShrimpPoint[41])
+        //         {
+
+        //         }
+        //         column(FishPoint_41__Control1000001411; FishPoint[41])
+        //         {
+
+        //         }
+        //         column(VesselPoint_41__Control1000001412; VesselPoint[41])
+        //         {
+
+        //         }
+        //         column(SeaRangeD_41__Control1000001413; SeaRangeD[41])
+        //         {
+
+        //         }
+        //         column(SeaRange_41__Control1000001414; SeaRange[41])
+        //         {
+        //         }
+        //         column(ShrimpPoint_42__Control1000001415; ShrimpPoint[42])
+        //         {
+
+        //         }
+        //         column(FishPoint_42__Control1000001416; FishPoint[42])
+        //         {
+
+        //         }
+        //         column(VesselPoint_42__Control1000001417; VesselPoint[42])
+        //         {
+
+        //         }
+        //         column(SeaRangeD_42__Control1000001418; SeaRangeD[42])
+        //         {
+
+        //         }
+        //         column(SeaRange_42__Control1000001419; SeaRange[42])
+        //         {
+        //         }
+        //         column(ShrimpPoint_43__Control1000001420; ShrimpPoint[43])
+        //         {
+
+        //         }
+        //         column(FishPoint_43__Control1000001421; FishPoint[43])
+        //         {
+
+        //         }
+        //         column(VesselPoint_43__Control1000001422; VesselPoint[43])
+        //         {
+
+        //         }
+        //         column(SeaRangeD_43__Control1000001423; SeaRangeD[43])
+        //         {
+
+        //         }
+        //         column(SeaRange_43__Control1000001424; SeaRange[43])
+        //         {
+
+        //         }
+        //         column(ShrimpPoint_44__Control1000001425; ShrimpPoint[44])
+        //         {
+
+        //         }
+        //         column(FishPoint_44__Control1000001426; FishPoint[44])
+        //         {
+
+        //         }
+        //         column(VesselPoint_44__Control1000001427; VesselPoint[44])
+        //         {
+
+        //         }
+        //         column(SeaRangeD_44__Control1000001428; SeaRangeD[44])
+        //         {
+
+        //         }
+        //         column(SeaRange_44__Control1000001429; SeaRange[44])
+        //         {
+        //         }
+        //         column(ShrimpPoint_45__Control1000001430; ShrimpPoint[45])
+        //         {
+
+        //         }
+        //         column(FishPoint_45__Control1000001431; FishPoint[45])
+        //         {
+
+        //         }
+        //         column(VesselPoint_45__Control1000001432; VesselPoint[45])
+        //         {
+
+        //         }
+        //         column(SeaRangeD_45__Control1000001433; SeaRangeD[45])
+        //         {
+
+        //         }
+        //         column(SeaRange_45__Control1000001434; SeaRange[45])
+        //         {
+        //         }
+        //         column(ShrimpPoint_46__Control1000001435; ShrimpPoint[46])
+        //         {
+
+        //         }
+        //         column(FishPoint_46__Control1000001436; FishPoint[46])
+        //         {
+
+        //         }
+        //         column(VesselPoint_46__Control1000001437; VesselPoint[46])
+        //         {
+
+        //         }
+        //         column(SeaRangeD_46__Control1000001438; SeaRangeD[46])
+        //         {
+
+        //         }
+        //         column(SeaRange_46__Control1000001439; SeaRange[46])
+        //         {
+        //         }
+        //         column(ShrimpPoint_47__Control1000001440; ShrimpPoint[47])
+        //         {
+
+        //         }
+        //         column(FishPoint_47__Control1000001441; FishPoint[47])
+        //         {
+
+        //         }
+        //         column(VesselPoint_47__Control1000001442; VesselPoint[47])
+        //         {
+
+        //         }
+        //         column(SeaRangeD_47__Control1000001443; SeaRangeD[47])
+        //         {
+
+        //         }
+        //         column(SeaRange_47__Control1000001444; SeaRange[47])
+        //         {
+        //         }
+        //         column(ShrimpPoint_48__Control1000001445; ShrimpPoint[48])
+        //         {
+
+        //         }
+        //         column(FishPoint_48__Control1000001446; FishPoint[48])
+        //         {
+
+        //         }
+        //         column(VesselPoint_48__Control1000001447; VesselPoint[48])
+        //         {
+
+        //         }
+        //         column(SeaRangeD_48__Control1000001448; SeaRangeD[48])
+        //         {
+
+        //         }
+        //         column(SeaRange_48__Control1000001449; SeaRange[48])
+        //         {
+        //         }
+        //         column(ShrimpPoint_49__Control1000001450; ShrimpPoint[49])
+        //         {
+
+        //         }
+        //         column(FishPoint_49__Control1000001451; FishPoint[49])
+        //         {
+
+        //         }
+        //         column(VesselPoint_49__Control1000001452; VesselPoint[49])
+        //         {
+
+        //         }
+        //         column(SeaRangeD_49__Control1000001453; SeaRangeD[49])
+        //         {
+
+        //         }
+        //         column(SeaRange_49__Control1000001454; SeaRange[49])
+        //         {
+        //         }
+        //         column(ShrimpPoint_50__Control1000001455; ShrimpPoint[50])
+        //         {
+
+        //         }
+        //         column(FishPoint_50__Control1000001456; FishPoint[50])
+        //         {
+
+        //         }
+        //         column(VesselPoint_50__Control1000001457; VesselPoint[50])
+        //         {
+
+        //         }
+        //         column(SeaRangeD_50__Control1000001458; SeaRangeD[50])
+        //         {
+
+        //         }
+        //         column(SeaRange_50__Control1000001459; SeaRange[50])
+        //         {
+        //         }
+        //         column(ShrimpPoint_51__Control1000001460; ShrimpPoint[51])
+        //         {
+
+        //         }
+        //         column(FishPoint_51__Control1000001461; FishPoint[51])
+        //         {
+
+        //         }
+        //         column(VesselPoint_51__Control1000001462; VesselPoint[51])
+        //         {
+
+        //         }
+        //         column(SeaRangeD_51__Control1000001463; SeaRangeD[51])
+        //         {
+
+        //         }
+        //         column(SeaRange_51__Control1000001464; SeaRange[51])
+        //         {
+        //         }
+        //         column(ShrimpPoint_52__Control1000001467; ShrimpPoint[52])
+        //         {
+
+        //         }
+        //         column(FishPoint_52__Control1000001468; FishPoint[52])
+        //         {
+
+        //         }
+        //         column(VesselPoint_52__Control1000001469; VesselPoint[52])
+        //         {
+
+        //         }
+        //         column(SeaRangeD_52__Control1000001470; SeaRangeD[52])
+        //         {
+
+        //         }
+        //         column(SeaRange_52__Control1000001471; SeaRange[52])
+        //         {
+        //         }
+        //         column(ShrimpPoint_53__Control1000001472; ShrimpPoint[53])
+        //         {
+
+        //         }
+        //         column(FishPoint_53__Control1000001473; FishPoint[53])
+        //         {
+
+        //         }
+        //         column(VesselPoint_53__Control1000001474; VesselPoint[53])
+        //         {
+
+        //         }
+        //         column(SeaRangeD_53__Control1000001475; SeaRangeD[53])
+        //         {
+
+        //         }
+        //         column(SeaRange_53__Control1000001476; SeaRange[53])
+        //         {
+        //         }
+        //         column(ShrimpPoint_54__Control1000001477; ShrimpPoint[54])
+        //         {
+
+        //         }
+        //         column(FishPoint_54__Control1000001478; FishPoint[54])
+        //         {
+
+        //         }
+        //         column(VesselPoint_54__Control1000001479; VesselPoint[54])
+        //         {
+
+        //         }
+        //         column(SeaRangeD_54__Control1000001480; SeaRangeD[54])
+        //         {
+
+        //         }
+        //         column(SeaRange_54__Control1000001481; SeaRange[54])
+        //         {
+        //         }
+        //         column(ShrimpPoint_55__Control1000001482; ShrimpPoint[55])
+        //         {
+
+        //         }
+        //         column(FishPoint_55__Control1000001483; FishPoint[55])
+        //         {
+
+        //         }
+        //         column(VesselPoint_55__Control1000001484; VesselPoint[55])
+        //         {
+
+        //         }
+        //         column(SeaRangeD_55__Control1000001485; SeaRangeD[55])
+        //         {
+
+        //         }
+        //         column(SeaRange_55__Control1000001486; SeaRange[55])
+        //         {
+        //         }
+        //         column(ShrimpPoint_56__Control1000001487; ShrimpPoint[56])
+        //         {
+
+        //         }
+        //         column(FishPoint_56__Control1000001488; FishPoint[56])
+        //         {
+
+        //         }
+        //         column(VesselPoint_56__Control1000001489; VesselPoint[56])
+        //         {
+
+        //         }
+        //         column(SeaRangeD_56__Control1000001490; SeaRangeD[56])
+        //         {
+
+        //         }
+        //         column(SeaRange_56__Control1000001491; SeaRange[56])
+        //         {
+        //         }
+        //         column(ShrimpPoint_57__Control1000001492; ShrimpPoint[57])
+        //         {
+
+        //         }
+        //         column(FishPoint_57__Control1000001493; FishPoint[57])
+        //         {
+
+        //         }
+        //         column(VesselPoint_57__Control1000001494; VesselPoint[57])
+        //         {
+
+        //         }
+        //         column(SeaRangeD_57__Control1000001495; SeaRangeD[57])
+        //         {
+
+        //         }
+        //         column(SeaRange_57__Control1000001496; SeaRange[57])
+        //         {
+        //         }
+        //         column(ShrimpPoint_58__Control1000001497; ShrimpPoint[58])
+        //         {
+
+        //         }
+        //         column(FishPoint_58__Control1000001498; FishPoint[58])
+        //         {
+
+        //         }
+        //         column(VesselPoint_58__Control1000001499; VesselPoint[58])
+        //         {
+
+        //         }
+        //         column(SeaRangeD_58__Control1000001500; SeaRangeD[58])
+        //         {
+
+        //         }
+        //         column(SeaRange_58__Control1000001501; SeaRange[58])
+        //         {
+        //         }
+        //         column(ShrimpPoint_59__Control1000001502; ShrimpPoint[59])
+        //         {
+
+        //         }
+        //         column(FishPoint_59__Control1000001503; FishPoint[59])
+        //         {
+
+        //         }
+        //         column(VesselPoint_59__Control1000001504; VesselPoint[59])
+        //         {
+
+        //         }
+        //         column(SeaRangeD_59__Control1000001505; SeaRangeD[59])
+        //         {
+
+        //         }
+        //         column(SeaRange_59__Control1000001506; SeaRange[59])
+        //         {
+        //         }
+        //         column(ShrimpPoint_60__Control1000001507; ShrimpPoint[60])
+        //         {
+
+        //         }
+        //         column(FishPoint_60__Control1000001508; FishPoint[60])
+        //         {
+
+        //         }
+        //         column(VesselPoint_60__Control1000001509; VesselPoint[60])
+        //         {
+
+        //         }
+        //         column(SeaRangeD_60__Control1000001510; SeaRangeD[60])
+        //         {
+
+        //         }
+        //         column(SeaRange_60__Control1000001511; SeaRange[60])
+        //         {
+        //         }
+        //         column(ShrimpPoint_61__Control1000001512; ShrimpPoint[61])
+        //         {
+
+        //         }
+        //         column(FishPoint_61__Control1000001513; FishPoint[61])
+        //         {
+
+        //         }
+        //         column(VesselPoint_61__Control1000001514; VesselPoint[61])
+        //         {
+
+        //         }
+        //         column(SeaRangeD_61__Control1000001515; SeaRangeD[61])
+        //         {
+
+        //         }
+        //         column(SeaRange_61__Control1000001516; SeaRange[61])
+        //         {
+        //         }
+        //         column(ShrimpPoint_62__Control1000001517; ShrimpPoint[62])
+        //         {
+
+        //         }
+        //         column(FishPoint_62__Control1000001518; FishPoint[62])
+        //         {
+
+        //         }
+        //         column(VesselPoint_62__Control1000001519; VesselPoint[62])
+        //         {
+
+        //         }
+        //         column(SeaRangeD_62__Control1000001520; SeaRangeD[62])
+        //         {
+
+        //         }
+        //         column(SeaRange_62__Control1000001521; SeaRange[62])
+        //         {
+        //         }
+        //         column(ShrimpPoint_63__Control1000001522; ShrimpPoint[63])
+        //         {
+
+        //         }
+        //         column(FishPoint_63__Control1000001523; FishPoint[63])
+        //         {
+
+        //         }
+        //         column(VesselPoint_63__Control1000001524; VesselPoint[63])
+        //         {
+
+        //         }
+        //         column(SeaRangeD_63__Control1000001525; SeaRangeD[63])
+        //         {
+
+        //         }
+        //         column(SeaRange_63__Control1000001526; SeaRange[63])
+        //         {
+        //         }
+        //         column(ShrimpPoint_64__Control1000001527; ShrimpPoint[64])
+        //         {
+
+        //         }
+        //         column(FishPoint_64__Control1000001528; FishPoint[64])
+        //         {
+
+        //         }
+        //         column(VesselPoint_64__Control1000001529; VesselPoint[64])
+        //         {
+
+        //         }
+        //         column(SeaRangeD_64__Control1000001530; SeaRangeD[64])
+        //         {
+
+        //         }
+        //         column(SeaRange_64__Control1000001531; SeaRange[64])
+        //         {
+        //         }
+        //         column(ShrimpPoint_65__Control1000001532; ShrimpPoint[65])
+        //         {
+
+        //         }
+        //         column(FishPoint_65__Control1000001533; FishPoint[65])
+        //         {
+
+        //         }
+        //         column(VesselPoint_65__Control1000001534; VesselPoint[65])
+        //         {
+
+        //         }
+        //         column(SeaRangeD_65__Control1000001535; SeaRangeD[65])
+        //         {
+
+        //         }
+        //         column(SeaRange_65__Control1000001536; SeaRange[65])
+        //         {
+        //         }
+        //         column(ShrimpPoint_66__Control1000001537; ShrimpPoint[66])
+        //         {
+
+        //         }
+        //         column(FishPoint_66__Control1000001538; FishPoint[66])
+        //         {
+
+        //         }
+        //         column(VesselPoint_66__Control1000001539; VesselPoint[66])
+        //         {
+
+        //         }
+        //         column(SeaRangeD_66__Control1000001540; SeaRangeD[66])
+        //         {
+
+        //         }
+        //         column(SeaRange_66__Control1000001541; SeaRange[66])
+        //         {
+        //         }
+        //         column(ShrimpPoint_67__Control1000001542; ShrimpPoint[67])
+        //         {
+
+        //         }
+        //         column(FishPoint_67__Control1000001543; FishPoint[67])
+        //         {
+
+        //         }
+        //         column(VesselPoint_67__Control1000001544; VesselPoint[67])
+        //         {
+
+        //         }
+        //         column(SeaRangeD_67__Control1000001545; SeaRangeD[67])
+        //         {
+
+        //         }
+        //         column(SeaRange_67__Control1000001546; SeaRange[67])
+        //         {
+        //         }
+        //         column(ShrimpPoint_68__Control1000001547; ShrimpPoint[68])
+        //         {
+
+        //         }
+        //         column(FishPoint_68__Control1000001548; FishPoint[68])
+        //         {
+
+        //         }
+        //         column(VesselPoint_68__Control1000001549; VesselPoint[68])
+        //         {
+
+        //         }
+        //         column(SeaRangeD_68__Control1000001550; SeaRangeD[68])
+        //         {
+
+        //         }
+        //         column(SeaRange_68__Control1000001551; SeaRange[68])
+        //         {
+        //         }
+        //         column(ShrimpPoint_69__Control1000001552; ShrimpPoint[69])
+        //         {
+
+        //         }
+        //         column(FishPoint_69__Control1000001553; FishPoint[69])
+        //         {
+
+        //         }
+        //         column(VesselPoint_69__Control1000001554; VesselPoint[69])
+        //         {
+
+        //         }
+        //         column(SeaRangeD_69__Control1000001555; SeaRangeD[69])
+        //         {
+
+        //         }
+        //         column(SeaRange_69__Control1000001556; SeaRange[69])
+        //         {
+        //         }
+        //         column(ShrimpPoint_70__Control1000001557; ShrimpPoint[70])
+        //         {
+
+        //         }
+        //         column(FishPoint_70__Control1000001558; FishPoint[70])
+        //         {
+
+        //         }
+        //         column(VesselPoint_70__Control1000001559; VesselPoint[70])
+        //         {
+
+        //         }
+        //         column(SeaRangeD_70__Control1000001560; SeaRangeD[70])
+        //         {
+
+        //         }
+        //         column(SeaRange_70__Control1000001561; SeaRange[70])
+        //         {
+        //         }
+        //         column(ShrimpPoint_71__Control1000001562; ShrimpPoint[71])
+        //         {
+
+        //         }
+        //         column(FishPoint_71__Control1000001563; FishPoint[71])
+        //         {
+
+        //         }
+        //         column(VesselPoint_71__Control1000001564; VesselPoint[71])
+        //         {
+
+        //         }
+        //         column(SeaRangeD_71__Control1000001565; SeaRangeD[71])
+        //         {
+
+        //         }
+        //         column(SeaRange_71__Control1000001566; SeaRange[71])
+        //         {
+        //         }
+        //         column(ShrimpPoint_72__Control1000001567; ShrimpPoint[72])
+        //         {
+
+        //         }
+        //         column(FishPoint_72__Control1000001568; FishPoint[72])
+        //         {
+
+        //         }
+        //         column(VesselPoint_72__Control1000001569; VesselPoint[72])
+        //         {
+
+        //         }
+        //         column(SeaRangeD_72__Control1000001570; SeaRangeD[72])
+        //         {
+
+        //         }
+        //         column(SeaRange_72__Control1000001571; SeaRange[72])
+        //         {
+        //         }
+        //         column(ShrimpPoint_73__Control1000001572; ShrimpPoint[73])
+        //         {
+
+        //         }
+        //         column(FishPoint_73__Control1000001573; FishPoint[73])
+        //         {
+
+        //         }
+        //         column(VesselPoint_73__Control1000001574; VesselPoint[73])
+        //         {
+
+        //         }
+        //         column(SeaRangeD_73__Control1000001575; SeaRangeD[73])
+        //         {
+
+        //         }
+        //         column(SeaRange_73__Control1000001576; SeaRange[73])
+        //         {
+        //         }
+        //         column(ShrimpPoint_74__Control1000001577; ShrimpPoint[74])
+        //         {
+
+        //         }
+        //         column(FishPoint_74__Control1000001578; FishPoint[74])
+        //         {
+
+        //         }
+        //         column(VesselPoint_74__Control1000001579; VesselPoint[74])
+        //         {
+
+        //         }
+        //         column(SeaRangeD_74__Control1000001580; SeaRangeD[74])
+        //         {
+
+        //         }
+        //         column(SeaRange_74__Control1000001581; SeaRange[74])
+        //         {
+        //         }
+        //         column(ShrimpPoint_75__Control1000001582; ShrimpPoint[75])
+        //         {
+
+        //         }
+        //         column(FishPoint_75__Control1000001583; FishPoint[75])
+        //         {
+
+        //         }
+        //         column(VesselPoint_75__Control1000001584; VesselPoint[75])
+        //         {
+
+        //         }
+        //         column(SeaRangeD_75__Control1000001585; SeaRangeD[75])
+        //         {
+
+        //         }
+        //         column(SeaRange_75__Control1000001586; SeaRange[75])
+        //         {
+        //         }
+        //         column(ShrimpPoint_76__Control1000001587; ShrimpPoint[76])
+        //         {
+
+        //         }
+        //         column(FishPoint_76__Control1000001588; FishPoint[76])
+        //         {
+
+        //         }
+        //         column(VesselPoint_76__Control1000001589; VesselPoint[76])
+        //         {
+
+        //         }
+        //         column(SeaRangeD_76__Control1000001590; SeaRangeD[76])
+        //         {
+
+        //         }
+        //         column(SeaRange_76__Control1000001591; SeaRange[76])
+        //         {
+        //         }
+        //         column(ShrimpPoint_77__Control1000001592; ShrimpPoint[77])
+        //         {
+
+        //         }
+        //         column(FishPoint_77__Control1000001593; FishPoint[77])
+        //         {
+
+        //         }
+        //         column(VesselPoint_77__Control1000001594; VesselPoint[77])
+        //         {
+
+        //         }
+        //         column(SeaRangeD_77__Control1000001595; SeaRangeD[77])
+        //         {
+
+        //         }
+        //         column(SeaRange_77__Control1000001596; SeaRange[77])
+        //         {
+        //         }
+        //         column(ShrimpPoint_78__Control1000001597; ShrimpPoint[78])
+        //         {
+
+        //         }
+        //         column(FishPoint_78__Control1000001598; FishPoint[78])
+        //         {
+
+        //         }
+        //         column(VesselPoint_78__Control1000001599; VesselPoint[78])
+        //         {
+
+        //         }
+        //         column(SeaRangeD_78__Control1000001600; SeaRangeD[78])
+        //         {
+
+        //         }
+        //         column(SeaRange_78__Control1000001601; SeaRange[78])
+        //         {
+        //         }
+        //         column(ShrimpPoint_79__Control1000001602; ShrimpPoint[79])
+        //         {
+
+        //         }
+        //         column(FishPoint_79__Control1000001603; FishPoint[79])
+        //         {
+
+        //         }
+        //         column(VesselPoint_79__Control1000001604; VesselPoint[79])
+        //         {
+
+        //         }
+        //         column(SeaRangeD_79__Control1000001605; SeaRangeD[79])
+        //         {
+
+        //         }
+        //         column(SeaRange_79__Control1000001606; SeaRange[79])
+        //         {
+        //         }
+        //         column(ShrimpPoint_80__Control1000001607; ShrimpPoint[80])
+        //         {
+
+        //         }
+        //         column(FishPoint_80__Control1000001608; FishPoint[80])
+        //         {
+
+        //         }
+        //         column(VesselPoint_80__Control1000001609; VesselPoint[80])
+        //         {
+
+        //         }
+        //         column(SeaRangeD_80__Control1000001610; SeaRangeD[80])
+        //         {
+
+        //         }
+        //         column(SeaRange_80__Control1000001611; SeaRange[80])
+        //         {
+        //         }
+        //         column(ShrimpPoint_81__Control1000001612; ShrimpPoint[81])
+        //         {
+
+        //         }
+        //         column(FishPoint_81__Control1000001613; FishPoint[81])
+        //         {
+
+        //         }
+        //         column(VesselPoint_81__Control1000001614; VesselPoint[81])
+        //         {
+
+        //         }
+        //         column(SeaRangeD_81__Control1000001615; SeaRangeD[81])
+        //         {
+
+        //         }
+        //         column(SeaRange_81__Control1000001616; SeaRange[81])
+        //         {
+        //         }
+        //         column(ShrimpPoint_82__Control1000001617; ShrimpPoint[82])
+        //         {
+
+        //         }
+        //         column(FishPoint_82__Control1000001618; FishPoint[82])
+        //         {
+
+        //         }
+        //         column(VesselPoint_82__Control1000001619; VesselPoint[82])
+        //         {
+
+        //         }
+        //         column(SeaRangeD_82__Control1000001620; SeaRangeD[82])
+        //         {
+
+        //         }
+        //         column(SeaRange_82__Control1000001621; SeaRange[82])
+        //         {
+        //         }
+        //         column(ShrimpPoint_83__Control1000001622; ShrimpPoint[83])
+        //         {
+
+        //         }
+        //         column(FishPoint_83__Control1000001623; FishPoint[83])
+        //         {
+
+        //         }
+        //         column(VesselPoint_83__Control1000001624; VesselPoint[83])
+        //         {
+
+        //         }
+        //         column(SeaRangeD_83__Control1000001625; SeaRangeD[83])
+        //         {
+
+        //         }
+        //         column(SeaRange_83__Control1000001626; SeaRange[83])
+        //         {
+
+        //         }
+        //         column(ShrimpPoint_84__Control1000001627; ShrimpPoint[84])
+        //         {
+
+        //         }
+        //         column(FishPoint_84__Control1000001628; FishPoint[84])
+        //         {
+
+        //         }
+        //         column(VesselPoint_84__Control1000001629; VesselPoint[84])
+        //         {
+
+        //         }
+        //         column(SeaRangeD_84__Control1000001630; SeaRangeD[84])
+        //         {
+
+        //         }
+        //         column(SeaRange_84__Control1000001631; SeaRange[84])
+        //         {
+        //         }
+        //         column(ShrimpPoint_85__Control1000001632; ShrimpPoint[85])
+        //         {
+
+        //         }
+        //         column(FishPoint_85__Control1000001633; FishPoint[85])
+        //         {
+
+        //         }
+        //         column(VesselPoint_85__Control1000001634; VesselPoint[85])
+        //         {
+
+        //         }
+        //         column(SeaRangeD_85__Control1000001635; SeaRangeD[85])
+        //         {
+
+        //         }
+        //         column(SeaRange_85__Control1000001636; SeaRange[85])
+        //         {
+        //         }
+        //         column(ShrimpPoint_86__Control1000001637; ShrimpPoint[86])
+        //         {
+
+        //         }
+        //         column(FishPoint_86__Control1000001638; FishPoint[86])
+        //         {
+
+        //         }
+        //         column(VesselPoint_86__Control1000001639; VesselPoint[86])
+        //         {
+
+        //         }
+        //         column(SeaRangeD_86__Control1000001640; SeaRangeD[86])
+        //         {
+
+        //         }
+        //         column(SeaRange_86__Control1000001641; SeaRange[86])
+        //         {
+        //         }
+        //         column(ShrimpPoint_87__Control1000001642; ShrimpPoint[87])
+        //         {
+
+        //         }
+        //         column(FishPoint_87__Control1000001643; FishPoint[87])
+        //         {
+
+        //         }
+        //         column(VesselPoint_87__Control1000001644; VesselPoint[87])
+        //         {
+
+        //         }
+        //         column(SeaRangeD_87__Control1000001645; SeaRangeD[87])
+        //         {
+
+        //         }
+        //         column(SeaRange_87__Control1000001646; SeaRange[87])
+        //         {
+        //         }
+        //         column(ShrimpPoint_88__Control1000001647; ShrimpPoint[88])
+        //         {
+
+        //         }
+        //         column(FishPoint_88__Control1000001648; FishPoint[88])
+        //         {
+
+        //         }
+        //         column(VesselPoint_88__Control1000001649; VesselPoint[88])
+        //         {
+
+        //         }
+        //         column(SeaRangeD_88__Control1000001650; SeaRangeD[88])
+        //         {
+
+        //         }
+        //         column(SeaRange_88__Control1000001651; SeaRange[88])
+        //         {
+        //         }
+        //         column(ShrimpPoint_89__Control1000001652; ShrimpPoint[89])
+        //         {
+
+        //         }
+        //         column(FishPoint_89__Control1000001653; FishPoint[89])
+        //         {
+
+        //         }
+        //         column(VesselPoint_89__Control1000001654; VesselPoint[89])
+        //         {
+
+        //         }
+        //         column(SeaRangeD_89__Control1000001655; SeaRangeD[89])
+        //         {
+
+        //         }
+        //         column(SeaRange_89__Control1000001656; SeaRange[89])
+        //         {
+        //         }
+        //         column(ShrimpPoint_90__Control1000001657; ShrimpPoint[90])
+        //         {
+
+        //         }
+        //         column(FishPoint_90__Control1000001658; FishPoint[90])
+        //         {
+
+        //         }
+        //         column(VesselPoint_90__Control1000001659; VesselPoint[90])
+        //         {
+
+        //         }
+        //         column(SeaRangeD_90__Control1000001660; SeaRangeD[90])
+        //         {
+
+        //         }
+        //         column(SeaRange_90__Control1000001661; SeaRange[90])
+        //         {
+        //         }
+        //         column(VesselPoint_91__Control1000001662; VesselPoint[91])
+        //         {
+
+        //         }
+        //         column(ShrimpPoint_91__Control1000001663; ShrimpPoint[91])
+        //         {
+
+        //         }
+        //         column(FishPoint_91__Control1000001664; FishPoint[91])
+        //         {
+
+        //         }
+        //         column(SeaRangeD_91__Control1000001665; SeaRangeD[91])
+        //         {
+
+        //         }
+        //         column(SeaRange_91__Control1000001666; SeaRange[91])
+        //         {
+        //         }
+        //         column(VesselPoint_92__Control1000001667; VesselPoint[92])
+        //         {
+
+        //         }
+        //         column(ShrimpPoint_92__Control1000001668; ShrimpPoint[92])
+        //         {
+
+        //         }
+        //         column(FishPoint_92__Control1000001669; FishPoint[92])
+        //         {
+
+        //         }
+        //         column(SeaRangeD_92__Control1000001670; SeaRangeD[92])
+        //         {
+
+        //         }
+        //         column(SeaRange_92__Control1000001671; SeaRange[92])
+        //         {
+        //         }
+        //         column(VesselPoint_93__Control1000001672; VesselPoint[93])
+        //         {
+
+        //         }
+        //         column(ShrimpPoint_93__Control1000001673; ShrimpPoint[93])
+        //         {
+
+        //         }
+        //         column(FishPoint_93__Control1000001674; FishPoint[93])
+        //         {
+
+        //         }
+        //         column(SeaRangeD_93__Control1000001675; SeaRangeD[93])
+        //         {
+
+        //         }
+        //         column(SeaRange_93__Control1000001676; SeaRange[93])
+        //         {
+        //         }
+        //         column(VesselPoint_94__Control1000001677; VesselPoint[94])
+        //         {
+
+        //         }
+        //         column(ShrimpPoint_94__Control1000001678; ShrimpPoint[94])
+        //         {
+
+        //         }
+        //         column(FishPoint_94__Control1000001679; FishPoint[94])
+        //         {
+
+        //         }
+        //         column(SeaRangeD_94__Control1000001680; SeaRangeD[94])
+        //         {
+
+        //         }
+        //         column(SeaRange_94__Control1000001681; SeaRange[94])
+        //         {
+        //         }
+        //         column(VesselPoint_95__Control1000001682; VesselPoint[95])
+        //         {
+
+        //         }
+        //         column(ShrimpPoint_95__Control1000001683; ShrimpPoint[95])
+        //         {
+
+        //         }
+        //         column(FishPoint_95__Control1000001684; FishPoint[95])
+        //         {
+
+        //         }
+        //         column(SeaRangeD_95__Control1000001685; SeaRangeD[95])
+        //         {
+
+        //         }
+        //         column(SeaRange_95__Control1000001686; SeaRange[95])
+        //         {
+        //         }
+        //         column(VesselPoint_96__Control1000001687; VesselPoint[96])
+        //         {
+
+        //         }
+        //         column(ShrimpPoint_96__Control1000001688; ShrimpPoint[96])
+        //         {
+
+        //         }
+        //         column(FishPoint_96__Control1000001689; FishPoint[96])
+        //         {
+
+        //         }
+        //         column(SeaRangeD_96__Control1000001690; SeaRangeD[96])
+        //         {
+
+        //         }
+        //         column(SeaRange_96__Control1000001691; SeaRange[96])
+        //         {
+        //         }
+        //         column(SeaRange_20__Control1000000139; SeaRange[20])
+        //         {
+        //         }
+        //         column(SeaRange_19__Control1000000141; SeaRange[19])
+        //         {
+        //         }
+        //         column(SeaRange_18__Control1000000159; SeaRange[18])
+        //         {
+
+        //         }
+        //         column(SeaRange_21__Control1000000110; SeaRange[21])
+        //         {
+
+        //         }
+        //         column(SeaRange_22__Control1000000117; SeaRange[22])
+        //         {
+        //         }
+        //         column(SeaRange_23__Control1000000140; SeaRange[23])
+        //         {
+        //         }
+        //         column(SeaRange_24__Control1000000168; SeaRange[24])
+        //         {
+        //         }
+        //         column(SeaRange_25__Control1000000169; SeaRange[25])
+        //         {
+        //         }
+        //         column(SeaRange_26__Control1000000170; SeaRange[26])
+        //         {
+        //         }
+        //         column(SeaRange_27__Control1000000171; SeaRange[27])
+        //         {
+        //         }
+        //         column(SeaRange_28__Control1000000172; SeaRange[28])
+        //         {
+        //         }
+        //         column(SeaRange_29__Control1000000173; SeaRange[29])
+        //         {
+        //         }
+        //         column(SeaRange_30__Control1000000174; SeaRange[30])
+        //         {
+        //         }
+        //         column(SeaRange_31__Control1000000175; SeaRange[31])
+        //         {
+        //         }
+        //         column(SeaRange_32__Control1000000176; SeaRange[32])
+        //         {
+        //         }
+        //         column(SeaRange_33__Control1000000177; SeaRange[33])
+        //         {
+        //         }
+        //         column(SeaRange_34__Control1000000178; SeaRange[34])
+        //         {
+        //         }
+        //         column(SeaRange_35__Control1000000179; SeaRange[35])
+        //         {
+        //         }
+        //         column(SeaRange_36__Control1000000180; SeaRange[36])
+        //         {
+        //         }
+        //         column(SeaRange_37__Control1000000181; SeaRange[37])
+        //         {
+        //         }
+        //         column(SeaRange_38__Control1000000182; SeaRange[38])
+        //         {
+        //         }
+        //         column(SeaRange_39__Control1000000183; SeaRange[39])
+        //         {
+        //         }
+        //         column(SeaRange_40__Control1000000184; SeaRange[40])
+        //         {
+        //         }
+        //         column(SeaRange_41__Control1000000185; SeaRange[41])
+        //         {
+        //         }
+        //         column(SeaRange_42__Control1000000186; SeaRange[42])
+        //         {
+        //         }
+        //         column(SeaRange_43__Control1000000187; SeaRange[43])
+        //         {
+
+        //         }
+        //         column(SeaRange_44__Control1000000190; SeaRange[44])
+        //         {
+        //         }
+        //         column(SeaRange_45__Control1000000191; SeaRange[45])
+        //         {
+        //         }
+        //         column(SeaRange_46__Control1000000192; SeaRange[46])
+        //         {
+        //         }
+        //         column(SeaRange_47__Control1000000193; SeaRange[47])
+        //         {
+        //         }
+        //         column(SeaRange_48__Control1000000194; SeaRange[48])
+        //         {
+        //         }
+        //         column(SeaRange_49__Control1000000195; SeaRange[49])
+        //         {
+        //         }
+        //         column(SeaRange_50__Control1000000196; SeaRange[50])
+        //         {
+        //         }
+        //         column(SeaRange_51__Control1000000197; SeaRange[51])
+        //         {
+        //         }
+        //         column(SeaRange_52__Control1000000198; SeaRange[52])
+        //         {
+        //         }
+        //         column(SeaRange_53__Control1000000199; SeaRange[53])
+        //         {
+        //         }
+        //         column(SeaRange_54__Control1000000200; SeaRange[54])
+        //         {
+        //         }
+        //         column(SeaRange_55__Control1000000201; SeaRange[55])
+        //         {
+        //         }
+        //         column(SeaRange_56__Control1000000202; SeaRange[56])
+        //         {
+        //         }
+        //         column(SeaRange_57__Control1000000203; SeaRange[57])
+        //         {
+        //         }
+        //         column(SeaRange_58__Control1000000204; SeaRange[58])
+        //         {
+        //         }
+        //         column(SeaRange_59__Control1000000205; SeaRange[59])
+        //         {
+        //         }
+        //         column(SeaRange_60__Control1000000206; SeaRange[60])
+        //         {
+        //         }
+        //         column(SeaRange_61__Control1000000207; SeaRange[61])
+        //         {
+        //         }
+        //         column(SeaRange_62__Control1000000208; SeaRange[62])
+        //         {
+        //         }
+        //         column(SeaRange_83__Control1000000209; SeaRange[83])
+        //         {
+
+        //         }
+        //         column(SeaRange_84__Control1000000212; SeaRange[84])
+        //         {
+        //         }
+        //         column(SeaRange_85__Control1000000213; SeaRange[85])
+        //         {
+        //         }
+        //         column(SeaRange_86__Control1000000214; SeaRange[86])
+        //         {
+        //         }
+        //         column(SeaRange_87__Control1000000215; SeaRange[87])
+        //         {
+        //         }
+        //         column(SeaRange_88__Control1000000216; SeaRange[88])
+        //         {
+        //         }
+        //         column(SeaRange_89__Control1000000217; SeaRange[89])
+        //         {
+        //         }
+        //         column(SeaRange_90__Control1000000218; SeaRange[90])
+        //         {
+        //         }
+        //         column(SeaRange_91__Control1000000219; SeaRange[91])
+        //         {
+        //         }
+        //         column(SeaRange_92__Control1000000220; SeaRange[92])
+        //         {
+        //         }
+        //         column(SeaRange_93__Control1000000221; SeaRange[93])
+        //         {
+        //         }
+        //         column(SeaRange_94__Control1000000222; SeaRange[94])
+        //         {
+        //         }
+        //         column(SeaRange_95__Control1000000223; SeaRange[95])
+        //         {
+        //         }
+        //         column(SeaRange_96__Control1000000224; SeaRange[96])
+        //         {
+        //         }
+        //         column(SeaRange_63__Control1000000233; SeaRange[63])
+        //         {
+        //         }
+        //         column(SeaRange_64__Control1000000234; SeaRange[64])
+        //         {
+        //         }
+        //         column(SeaRange_65__Control1000000235; SeaRange[65])
+        //         {
+        //         }
+        //         column(SeaRange_66__Control1000000236; SeaRange[66])
+        //         {
+        //         }
+        //         column(SeaRange_67__Control1000000237; SeaRange[67])
+        //         {
+        //         }
+        //         column(SeaRange_68__Control1000000238; SeaRange[68])
+        //         {
+        //         }
+        //         column(SeaRange_69__Control1000000239; SeaRange[69])
+        //         {
+        //         }
+        //         column(SeaRange_70__Control1000000240; SeaRange[70])
+        //         {
+        //         }
+        //         column(SeaRange_71__Control1000000241; SeaRange[71])
+        //         {
+        //         }
+        //         column(SeaRange_72__Control1000000242; SeaRange[72])
+        //         {
+        //         }
+        //         column(SeaRange_73__Control1000000243; SeaRange[73])
+        //         {
+        //         }
+        //         column(SeaRange_74__Control1000000244; SeaRange[74])
+        //         {
+        //         }
+        //         column(SeaRange_75__Control1000000245; SeaRange[75])
+        //         {
+        //         }
+        //         column(SeaRange_76__Control1000000246; SeaRange[76])
+        //         {
+        //         }
+        //         column(SeaRange_77__Control1000000247; SeaRange[77])
+        //         {
+        //         }
+        //         column(SeaRange_78__Control1000000248; SeaRange[78])
+        //         {
+        //         }
+        //         column(SeaRange_79__Control1000000249; SeaRange[79])
+        //         {
+        //         }
+        //         column(SeaRange_80__Control1000000250; SeaRange[80])
+        //         {
+        //         }
+        //         column(SeaRange_81__Control1000000251; SeaRange[81])
+        //         {
+        //         }
+        //         column(SeaRange_82__Control1000000252; SeaRange[82])
+        //         {
+        //         }
+        //         column(T001; T001)
+        //         {
+        //         }
+        //         column(Cat; Cat)
+        //         {
+        //         }
+        //         column(InvtTot_Control26; InvtTot)
+        //         {
+
+        //         }
+        //         column(SeaRangeC_18__Control1000000115; SeaRangeC[18])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_19__Control1000000261; SeaRangeC[19])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_20__Control1000000262; SeaRangeC[20])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_21__Control1000000263; SeaRangeC[21])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_22__Control1000000264; SeaRangeC[22])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_23__Control1000000265; SeaRangeC[23])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_24__Control1000000266; SeaRangeC[24])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_25__Control1000000267; SeaRangeC[25])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_26__Control1000000268; SeaRangeC[26])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_27__Control1000000269; SeaRangeC[27])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_28__Control1000000270; SeaRangeC[28])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_29__Control1000000271; SeaRangeC[29])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_30__Control1000000272; SeaRangeC[30])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_31__Control1000000273; SeaRangeC[31])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_32__Control1000000274; SeaRangeC[32])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_33__Control1000000275; SeaRangeC[33])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_34__Control1000000276; SeaRangeC[34])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_35__Control1000000277; SeaRangeC[35])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_36__Control1000000278; SeaRangeC[36])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_37__Control1000000279; SeaRangeC[37])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_38__Control1000000280; SeaRangeC[38])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_39__Control1000000281; SeaRangeC[39])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_40__Control1000000282; SeaRangeC[40])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_41__Control1000000283; SeaRangeC[41])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_42__Control1000000284; SeaRangeC[42])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_43__Control1000000285; SeaRangeC[43])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_44__Control1000000286; SeaRangeC[44])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_45__Control1000000287; SeaRangeC[45])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_46__Control1000000288; SeaRangeC[46])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_47__Control1000000289; SeaRangeC[47])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_48__Control1000000290; SeaRangeC[48])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_49__Control1000000291; SeaRangeC[49])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_50__Control1000000292; SeaRangeC[50])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_51__Control1000000293; SeaRangeC[51])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_52__Control1000000294; SeaRangeC[52])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_53__Control1000000295; SeaRangeC[53])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_54__Control1000000296; SeaRangeC[54])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_55__Control1000000297; SeaRangeC[55])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_56__Control1000000298; SeaRangeC[56])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_57__Control1000000299; SeaRangeC[57])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_58__Control1000000300; SeaRangeC[58])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_59__Control1000000301; SeaRangeC[59])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_60__Control1000000302; SeaRangeC[60])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_61__Control1000000303; SeaRangeC[61])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_62__Control1000000304; SeaRangeC[62])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_63__Control1000000305; SeaRangeC[63])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_64__Control1000000306; SeaRangeC[64])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_65__Control1000000307; SeaRangeC[65])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_66__Control1000000308; SeaRangeC[66])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_67__Control1000000309; SeaRangeC[67])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_68__Control1000000310; SeaRangeC[68])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_69__Control1000000311; SeaRangeC[69])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_70__Control1000000312; SeaRangeC[70])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_71__Control1000000313; SeaRangeC[71])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_72__Control1000000314; SeaRangeC[72])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_73__Control1000000315; SeaRangeC[73])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_74__Control1000000316; SeaRangeC[74])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_75__Control1000000317; SeaRangeC[75])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_76__Control1000000318; SeaRangeC[76])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_77__Control1000000319; SeaRangeC[77])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_78__Control1000000320; SeaRangeC[78])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_79__Control1000000321; SeaRangeC[79])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_80__Control1000000322; SeaRangeC[80])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_81__Control1000000323; SeaRangeC[81])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_82__Control1000000324; SeaRangeC[82])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_83__Control1000000325; SeaRangeC[83])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_84__Control1000000326; SeaRangeC[84])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_85__Control1000000327; SeaRangeC[85])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_86__Control1000000328; SeaRangeC[86])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_87__Control1000000329; SeaRangeC[87])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_88__Control1000000330; SeaRangeC[88])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_89__Control1000000331; SeaRangeC[89])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_90__Control1000000332; SeaRangeC[90])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_91__Control1000000333; SeaRangeC[91])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_92__Control1000000334; SeaRangeC[92])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_93__Control1000000335; SeaRangeC[93])
+        //         {
+
+        //         }
+        //         column(FIELDCAPTION_Category___TotalFor; FieldCaption(Category) + TotalFor)
+        //         {
+        //         }
+        //         column(InvtTot_Control30; InvtTot)
+        //         {
+
+        //         }
+        //         column(SeaRangeC_93__Control1000000503; SeaRangeC[93])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_92__Control1000000504; SeaRangeC[92])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_91__Control1000000505; SeaRangeC[91])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_90__Control1000000506; SeaRangeC[90])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_89__Control1000000507; SeaRangeC[89])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_88__Control1000000508; SeaRangeC[88])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_87__Control1000000509; SeaRangeC[87])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_86__Control1000000510; SeaRangeC[86])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_85__Control1000000511; SeaRangeC[85])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_84__Control1000000512; SeaRangeC[84])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_83__Control1000000513; SeaRangeC[83])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_82__Control1000000514; SeaRangeC[82])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_81__Control1000000515; SeaRangeC[81])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_80__Control1000000516; SeaRangeC[80])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_79__Control1000000517; SeaRangeC[79])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_78__Control1000000518; SeaRangeC[78])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_77__Control1000000519; SeaRangeC[77])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_76__Control1000000520; SeaRangeC[76])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_75__Control1000000521; SeaRangeC[75])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_74__Control1000000522; SeaRangeC[74])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_73__Control1000000523; SeaRangeC[73])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_72__Control1000000524; SeaRangeC[72])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_71__Control1000000525; SeaRangeC[71])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_70__Control1000000526; SeaRangeC[70])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_69__Control1000000527; SeaRangeC[69])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_68__Control1000000528; SeaRangeC[68])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_67__Control1000000529; SeaRangeC[67])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_66__Control1000000530; SeaRangeC[66])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_65__Control1000000531; SeaRangeC[65])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_64__Control1000000532; SeaRangeC[64])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_63__Control1000000533; SeaRangeC[63])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_62__Control1000000534; SeaRangeC[62])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_61__Control1000000535; SeaRangeC[61])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_60__Control1000000536; SeaRangeC[60])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_59__Control1000000537; SeaRangeC[59])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_58__Control1000000538; SeaRangeC[58])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_57__Control1000000539; SeaRangeC[57])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_56__Control1000000540; SeaRangeC[56])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_55__Control1000000541; SeaRangeC[55])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_54__Control1000000542; SeaRangeC[54])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_53__Control1000000543; SeaRangeC[53])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_52__Control1000000544; SeaRangeC[52])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_51__Control1000000545; SeaRangeC[51])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_50__Control1000000546; SeaRangeC[50])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_49__Control1000000547; SeaRangeC[49])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_48__Control1000000548; SeaRangeC[48])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_47__Control1000000549; SeaRangeC[47])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_46__Control1000000550; SeaRangeC[46])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_45__Control1000000551; SeaRangeC[45])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_44__Control1000000552; SeaRangeC[44])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_43__Control1000000553; SeaRangeC[43])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_42__Control1000000554; SeaRangeC[42])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_41__Control1000000555; SeaRangeC[41])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_40__Control1000000556; SeaRangeC[40])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_39__Control1000000557; SeaRangeC[39])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_38__Control1000000558; SeaRangeC[38])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_37__Control1000000559; SeaRangeC[37])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_36__Control1000000560; SeaRangeC[36])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_35__Control1000000561; SeaRangeC[35])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_34__Control1000000562; SeaRangeC[34])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_33__Control1000000563; SeaRangeC[33])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_32__Control1000000564; SeaRangeC[32])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_31__Control1000000565; SeaRangeC[31])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_30__Control1000000566; SeaRangeC[30])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_29__Control1000000567; SeaRangeC[29])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_28__Control1000000568; SeaRangeC[28])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_27__Control1000000569; SeaRangeC[27])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_26__Control1000000570; SeaRangeC[26])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_25__Control1000000571; SeaRangeC[25])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_24__Control1000000572; SeaRangeC[24])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_23__Control1000000573; SeaRangeC[23])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_22__Control1000000574; SeaRangeC[22])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_21__Control1000000575; SeaRangeC[21])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_20__Control1000000576; SeaRangeC[20])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_19__Control1000000577; SeaRangeC[19])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_18__Control1000000595; SeaRangeC[18])
+        //         {
+
+        //         }
+        //         column(TotalFor___FIELDCAPTION__Statistics_Group__; TotalFor + FieldCaption("Statistics Group"))
+        //         {
+        //         }
+        //         column(InvtTot_Control33; InvtTot)
+        //         {
+
+        //         }
+        //         column(SeaRangeC_18__Control1000000596; SeaRangeC[18])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_19__Control1000000614; SeaRangeC[19])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_20__Control1000000615; SeaRangeC[20])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_21__Control1000000616; SeaRangeC[21])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_22__Control1000000617; SeaRangeC[22])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_23__Control1000000618; SeaRangeC[23])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_24__Control1000000619; SeaRangeC[24])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_25__Control1000000620; SeaRangeC[25])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_26__Control1000000621; SeaRangeC[26])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_27__Control1000000622; SeaRangeC[27])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_28__Control1000000623; SeaRangeC[28])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_29__Control1000000624; SeaRangeC[29])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_30__Control1000000625; SeaRangeC[30])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_31__Control1000000626; SeaRangeC[31])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_32__Control1000000627; SeaRangeC[32])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_33__Control1000000628; SeaRangeC[33])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_34__Control1000000629; SeaRangeC[34])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_35__Control1000000630; SeaRangeC[35])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_36__Control1000000631; SeaRangeC[36])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_37__Control1000000632; SeaRangeC[37])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_38__Control1000000633; SeaRangeC[38])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_39__Control1000000634; SeaRangeC[39])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_40__Control1000000635; SeaRangeC[40])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_41__Control1000000636; SeaRangeC[41])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_42__Control1000000637; SeaRangeC[42])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_43__Control1000000638; SeaRangeC[43])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_44__Control1000000639; SeaRangeC[44])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_45__Control1000000640; SeaRangeC[45])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_46__Control1000000641; SeaRangeC[46])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_47__Control1000000642; SeaRangeC[47])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_48__Control1000000643; SeaRangeC[48])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_49__Control1000000644; SeaRangeC[49])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_50__Control1000000645; SeaRangeC[50])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_51__Control1000000646; SeaRangeC[51])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_52__Control1000000647; SeaRangeC[52])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_53__Control1000000648; SeaRangeC[53])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_54__Control1000000649; SeaRangeC[54])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_55__Control1000000650; SeaRangeC[55])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_56__Control1000000651; SeaRangeC[56])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_57__Control1000000652; SeaRangeC[57])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_58__Control1000000653; SeaRangeC[58])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_59__Control1000000654; SeaRangeC[59])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_60__Control1000000655; SeaRangeC[60])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_61__Control1000000656; SeaRangeC[61])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_62__Control1000000657; SeaRangeC[62])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_63__Control1000000658; SeaRangeC[63])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_64__Control1000000659; SeaRangeC[64])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_65__Control1000000660; SeaRangeC[65])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_66__Control1000000661; SeaRangeC[66])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_67__Control1000000662; SeaRangeC[67])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_68__Control1000000663; SeaRangeC[68])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_69__Control1000000664; SeaRangeC[69])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_70__Control1000000665; SeaRangeC[70])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_71__Control1000000666; SeaRangeC[71])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_72__Control1000000667; SeaRangeC[72])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_73__Control1000000668; SeaRangeC[73])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_74__Control1000000669; SeaRangeC[74])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_75__Control1000000670; SeaRangeC[75])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_76__Control1000000671; SeaRangeC[76])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_77__Control1000000672; SeaRangeC[77])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_78__Control1000000673; SeaRangeC[78])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_79__Control1000000674; SeaRangeC[79])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_80__Control1000000675; SeaRangeC[80])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_81__Control1000000676; SeaRangeC[81])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_82__Control1000000677; SeaRangeC[82])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_83__Control1000000678; SeaRangeC[83])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_84__Control1000000679; SeaRangeC[84])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_85__Control1000000680; SeaRangeC[85])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_86__Control1000000681; SeaRangeC[86])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_87__Control1000000682; SeaRangeC[87])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_88__Control1000000683; SeaRangeC[88])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_89__Control1000000684; SeaRangeC[89])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_90__Control1000000685; SeaRangeC[90])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_91__Control1000000686; SeaRangeC[91])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_92__Control1000000687; SeaRangeC[92])
+        //         {
+
+        //         }
+        //         column(SeaRangeC_93__Control1000000688; SeaRangeC[93])
+        //         {
+
+        //         }
+        //         column(Sea_DaysCaption_Control1000001204; Sea_DaysCaption_Control1000001204Lbl)
+        //         {
+        //         }
+        //         column(VesselsCaption_Control1000001206; VesselsCaption_Control1000001206Lbl)
+        //         {
+        //         }
+        //         column(Vessel_PointsCaption_Control1000001207; Vessel_PointsCaption_Control1000001207Lbl)
+        //         {
+        //         }
+        //         column(Shrimp_PointsCaption_Control1000001212; Shrimp_PointsCaption_Control1000001212Lbl)
+        //         {
+        //         }
+        //         column(Fish_PointsCaption_Control1000001214; Fish_PointsCaption_Control1000001214Lbl)
+        //         {
+        //         }
+        //         column(Inventory_Total_Caption_Control1000001465; Inventory_Total_Caption_Control1000001465Lbl)
+        //         {
+        //         }
+        //         column(DescriptionCaption; DescriptionCaptionLbl)
+        //         {
+        //         }
+        //         column(Inventory_TotalCaption; Inventory_TotalCaptionLbl)
+        //         {
+        //         }
+        //         column(Inventory_Posting_Group_DescriptionCaption_Control1000000161; FieldCaption(Description))
+        //         {
+        //         }
+        //         column(T001Caption; T001CaptionLbl)
+        //         {
+        //         }
+        //         column(CatCaption; CatCaptionLbl)
+        //         {
+        //         }
+        //         column(Inventory_Posting_Group_Code; Code)
+        //         {
+        //         }
+        //         column(Inventory_Posting_Group_Category; Category)
+        //         {
+        //         }
+        //         column(Inventory_Posting_Group_Statistics_Group; "Statistics Group")
+        //         {
+        //         }
+
+        //         trigger OnAfterGetRecord()
+        //         begin
+        //             level := TotLoc;
+        //             while level > 0 do begin
+        //                 SetFilter("Location Filter", SeaRange[level]);
+        //                 //CALCFIELDS(Inventory2);
+        //                 //SeaRangeC[level]:=Inventory2;
+        //                 CalcFields(Inventory1, Inventory2);
+        //                 //Inventory2 := InventoryTwo(Code,SeaRange[level],DateFilter);
+        //                 if ReportBy = 0 then
+        //                     SeaRangeC[level] := Inventory2
+        //                 else
+        //                     SeaRangeC[level] := Inventory1;
+        //                 CurrReport.CreateTotals(SeaRangeC[level]);
+        //                 level := level - 1;
+        //             end;
+        //             //Show Inventory for all location by releasing location filter
+        //             SetFilter("Location Filter", '');  //OCT 10,2002 AAA
+        //             CalcFields(Inventory1, Inventory2);
+        //             //"Inventory total2" := InventoryTotal2(Code,DateFilter);
+        //             if ReportBy = 0 then
+        //                 InvtTot := Inventory2
+        //             else
+        //                 InvtTot := Inventory1;
+        //             CurrReport.CreateTotals(InvtTot);
+        //             if "Statistics Group" = 4 then T002 := 'LOCAL PRODUCTS';
+        //         end;
+
+        //         trigger OnPreDataItem()
+        //         begin
+        //             TotLoc := 0;
+        //             VesselCounter := 0;
+        //             CopyFilters("Inventory Posting G Cat Tot");
+
+        //             locate2.SetRange(locate2."Location Type", 1);
+        //             locate2.SetFilter(locate2."date filter", '%1', GetRangeMax("Date Filter"));
+        //             if locate2.Find('-') then
+        //                 repeat
+        //                     locate2."Last Rep Operation No. Val" :=
+        //                       locate2.LastRepOpNo(locate2.Code, locate2.GetFilter("date filter"));//locate2."Last Rep Operation No.";
+        //                     locate2.VSDVal :=
+        //                       locate2.VoySeaAnyTime(locate2."Last Rep Operation No. Val", locate2.Code, locate2.GetFilter("date filter"));
+        //                     if Operatn.Get(locate2."Last Rep Operation No. Val") then
+        //                         Operatn.SetFilter(Operatn."Date Filter", '%1', GetRangeMax("Date Filter"));
+        //                     locate2."Last Reportd Vessel Pts" := Operatn.PointZ(Operatn."No.", locate2.Code,
+        //                       locate2.GetFilter("date filter"), '', '', '', Operatn.Vessel);//Operatn.Points;
+        //                     Operatn.SetFilter(Operatn."Task Filter", 'SHR');
+        //                     //Operatn.CALCFIELDS(Operatn.Points);
+        //                     locate2."Last Reportd Shrimps Pts" := Operatn.PointZ(Operatn."No.", locate2.Code,
+        //                       locate2.GetFilter("date filter"), '', 'SHR', '', Operatn.Vessel); //Operatn.Points;
+        //                     Operatn.SetRange(Operatn."Task Filter");
+        //                     locate2.Modify();
+        //                 until locate2.Next = 0;
+
+        //             //AAA - June 2002 Sort Entries accordg to SeaDays
+        //             locate.SetRange(locate."Location Type", 1);
+        //             TotLoc := locate.Count;
+        //             if ArrangeBy = 0 then
+        //                 locate.SetCurrentKey(locate."Last Reportd Vessel Pts")
+        //             else
+        //                 locate.SetCurrentKey(locate.VSDVal);
+        //             locate.Ascending(false);
+
+        //             Countx := 1;
+        //             if locate.Find('-') then
+        //                 repeat
+        //                     if locate.VSDVal <> 0 then begin
+        //                         SeaRange[Countx] := locate.Code;
+        //                         SeaRangeD[Countx] := locate.VSDVal;     //Sea Day Assigned
+        //                         VesselPoint[Countx] := locate."Last Reportd Vessel Pts";   //Vessel Points Assigned
+        //                         ShrimpPoint[Countx] := locate."Last Reportd Shrimps Pts"; //Shrimp Points Assigned
+        //                         FishPoint[Countx] := VesselPoint[Countx] - ShrimpPoint[Countx];
+
+        //                         //Fishg Area
+        //                         locate.SetFilter(locate."date filter", '%1', GetRangeMax("Date Filter"));
+        //                         //locate.CALCFIELDS(locate."Fishing Area");
+        //                         locate."Fishing Area" := locate.FishingArea(locate."Current Operation",
+        //                            locate.Code, locate.GetFilter("date filter"));
+        //                         if locate."Fishing Area" <> '' then
+        //                             if (Phase.Get(locate."Fishing Area")) and (Phase."Area Code" <> '') then
+        //                                 FishgArea[Countx] := Phase."Area Code"
+        //                             else
+        //                                 FishgArea[Countx] := CopyStr(locate."Fishing Area", 1, 4);
+        //                         if SeaRange[Countx] = '' then FishgArea[Countx] := '';
+
+        //                         Countx := Countx + 1;
+        //                     end;
+        //                 until locate.Next = 0;
+        //             TotLoc := Countx - 1;
+        //         end;
+        //     }
     }
 
     requestpage
@@ -5285,12 +5285,15 @@ report 55007 "Daily BreakUp by Vessel Rep 1y"
                     ShowCaption = false;
                     field("Arrenge Column by"; ArrangeBy)
                     {
+                        ApplicationArea = All;
                     }
                     field("Report Mode"; ReportBy)
                     {
+                        ApplicationArea = All;
                     }
                     field("Show Category total"; "Show Category total")
                     {
+                        ApplicationArea = All;
                     }
                 }
             }

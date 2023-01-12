@@ -6,6 +6,7 @@ pageextension 50246 pageextension50246 extends "Apply Customer Entries"
         {
             field("Loan ID"; "Loan ID")
             {
+                ApplicationArea = All;
             }
         }
     }

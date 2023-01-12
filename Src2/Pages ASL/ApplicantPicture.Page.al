@@ -9,6 +9,7 @@ page 50024 "Applicant Picture"
         {
             field(Picture; Picture)
             {
+                ApplicationArea = All;
             }
         }
     }
@@ -24,33 +25,36 @@ page 50024 "Applicant Picture"
                 {
                     Caption = 'Import';
                     Ellipsis = true;
+                    ApplicationArea = All;
 
-                   /* trigger OnAction()
-                    begin
-                        PictureExists := Picture.HasValue;
-                        if Picture.Import('*.bmp', true) = '' then
-                            exit;
-                        if PictureExists then
-                            if not Confirm('Do you want to replace the existing picture of %1 %2?', false, TableName, "No.") then
-                                exit;
-                        CurrPage.SaveRecord;
-                    end; */
+                    /* trigger OnAction()
+                     begin
+                         PictureExists := Picture.HasValue;
+                         if Picture.Import('*.bmp', true) = '' then
+                             exit;
+                         if PictureExists then
+                             if not Confirm('Do you want to replace the existing picture of %1 %2?', false, TableName, "No.") then
+                                 exit;
+                         CurrPage.SaveRecord;
+                     end; */
                 }
                 action("E&xport")
                 {
                     Caption = 'E&xport';
                     Ellipsis = true;
+                    ApplicationArea = All;
 
-                  /*  trigger OnAction()
-                    begin
-                        if Picture.HasValue then
-                         Picture.Export('*.bmp', true);
-                    end;
-                    */
+                    /*  trigger OnAction()
+                      begin
+                          if Picture.HasValue then
+                           Picture.Export('*.bmp', true);
+                      end;
+                      */
                 }
                 action(Delete)
                 {
                     Caption = 'Delete';
+                    ApplicationArea = All;
 
                     trigger OnAction()
                     begin

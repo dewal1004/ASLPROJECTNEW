@@ -12,6 +12,7 @@ pageextension 50294 pageextension50294 extends "Employee Qualifications"
         {
             field(Source; Source)
             {
+                ApplicationArea = All;
             }
         }
     }

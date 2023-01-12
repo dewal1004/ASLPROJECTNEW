@@ -23,12 +23,14 @@ pageextension 50325 pageextension50325 extends "Posted Transfer Shipment"
             action(List)
             {
                 ShortCutKey = 'F5';
+                ApplicationArea = All;
             }
         }
         addafter(Dimensions)
         {
             action("Item &Tracking Lines")
             {
+                ApplicationArea = All;
 
                 trigger OnAction()
                 begin

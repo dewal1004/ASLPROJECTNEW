@@ -3,7 +3,7 @@ report 50228 "Itemwise Yearly Consumption"
     DefaultLayout = RDLC;
     RDLCLayout = './ReportRdlc/ItemwiseYearlyConsumption.rdlc';
     UsageCategory = ReportsAndAnalysis;
-    ApplicationArea = All,Basic,Suite;
+    ApplicationArea = All, Basic, Suite;
 
     dataset
     {
@@ -183,46 +183,57 @@ report 50228 "Itemwise Yearly Consumption"
                     ShowCaption = false;
                     field("Current Date "; RefDate)
                     {
+                        ApplicationArea = All;
                     }
                     field("Item 1"; ItemCode[1])
                     {
                         TableRelation = Item;
+                        ApplicationArea = All;
                     }
                     field("Item 2"; ItemCode[2])
                     {
                         TableRelation = Item;
+                        ApplicationArea = All;
                     }
                     field("Item 3"; ItemCode[3])
                     {
                         TableRelation = Item;
+                        ApplicationArea = All;
                     }
                     field("Item 4"; ItemCode[4])
                     {
                         TableRelation = Item;
+                        ApplicationArea = All;
                     }
                     field("Item 5"; ItemCode[5])
                     {
                         TableRelation = Item;
+                        ApplicationArea = All;
                     }
                     field("Item 6"; ItemCode[6])
                     {
                         TableRelation = Item;
+                        ApplicationArea = All;
                     }
                     field("Item 7"; ItemCode[7])
                     {
                         TableRelation = Item;
+                        ApplicationArea = All;
                     }
                     field("Item 8"; ItemCode[8])
                     {
                         TableRelation = Item;
+                        ApplicationArea = All;
                     }
                     field("Item 9"; ItemCode[9])
                     {
                         TableRelation = Item;
+                        ApplicationArea = All;
                     }
                     field("Item 10"; ItemCode[10])
                     {
                         TableRelation = Item;
+                        ApplicationArea = All;
                     }
                 }
             }

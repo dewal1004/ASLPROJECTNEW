@@ -1,4 +1,4 @@
-pageextension 50280 pageextension50280 extends "Sales Invoice Subform"
+pageextension 50280 "pageextension50280" extends "Sales Invoice Subform"
 {
     layout
     {
@@ -178,7 +178,7 @@ pageextension 50280 pageextension50280 extends "Sales Invoice Subform"
         moveafter("Invoice Discount Amount"; Control15)
         moveafter("Total VAT Amount"; "TotalSalesLine.""Line Amount""")
         moveafter("TotalSalesLine.""Line Amount"""; "Total Amount Incl. VAT")
-        moveafter("Cross-Reference No."; "Duplicate in Depreciation Book")
+        moveafter("TotalSalesLine.""Line Amount"""; "Duplicate in Depreciation Book")
         moveafter("IC Partner Code"; "Shortcut Dimension 1 Code")
         moveafter("Variant Code"; "Job Contract Entry No.")
         moveafter("Line Amount"; "Blanket Order Line No.")

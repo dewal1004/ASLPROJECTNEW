@@ -675,7 +675,7 @@ report 50111 "Payment Report"
 
                         GenJnlManagement.GetAccounts("Gen. Journal Line", AccName, BalAccName);
                         if BankAcc.Get("Bal. Account No.") then;
-                        if BankAccPostingGroup.Get(BankAcc."Post Code") then "Acct Name" := BankAccPostingGroup."G/L Bank Account No.";
+                        if BankAccPostingGroup.Get(BankAcc."Post Code") then "Acct Name" := BankAccPostingGroup."G/L Account No.";
 
                         GLSetup.Get;
                         CurrencyName := GLSetup."LCY Code";
@@ -852,7 +852,7 @@ report 50111 "Payment Report"
                     //Get Bank link account No.
                     if GJLINE."Bal. Account Type" = 3 then
                         if BankAcc.Get(GJLINE."Bal. Account No.") then begin
-                            if BankAccPostingGroup.Get(BankAcc."Bank Acc. Posting Group") then "Acct Name" := BankAccPostingGroup."G/L Bank Account No.";
+                            if BankAccPostingGroup.Get(BankAcc."Bank Acc. Posting Group") then "Acct Name" := BankAccPostingGroup."G/L Account No.";
                         end;
 
 
@@ -903,6 +903,7 @@ report 50111 "Payment Report"
                     ShowCaption = false;
                     field(printtoexcel; printtoexcel)
                     {
+                        ApplicationArea = All;
                     }
                 }
             }

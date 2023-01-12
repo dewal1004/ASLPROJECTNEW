@@ -1116,24 +1116,31 @@ report 50154 "Consolidated Value  & Ratio"
                     ShowCaption = false;
                     field(FlagPriceError; "---")
                     {
+                        ApplicationArea = All;
                     }
                     field("<Control1000000008>"; "Period Start")
                     {
+                        ApplicationArea = All;
                     }
                     field("Period End"; "Period End")
                     {
+                        ApplicationArea = All;
                     }
                     field(VesselSel; VesselSel)
                     {
+                        ApplicationArea = All;
                     }
                     field(FishingCount; FishingCount)
                     {
+                        ApplicationArea = All;
                     }
                     field(JobsNo; JobsNo)
                     {
+                        ApplicationArea = All;
                     }
                     field(ResourceOn; ResourceOn)
                     {
+                        ApplicationArea = All;
                     }
                 }
             }

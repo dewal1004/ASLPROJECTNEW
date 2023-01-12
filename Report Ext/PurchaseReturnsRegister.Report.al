@@ -3,7 +3,7 @@ report 50020 "Purchase Returns Register"
     DefaultLayout = RDLC;
     RDLCLayout = './ReportRdlc/PurchaseReturnsRegister.rdlc';
     UsageCategory = ReportsAndAnalysis;
-    ApplicationArea = All,Basic,Suite;
+    ApplicationArea = All, Basic, Suite;
 
     dataset
     {
@@ -254,6 +254,7 @@ report 50020 "Purchase Returns Register"
                 {
                     field(ShowDetails; ShowDetails)
                     {
+                        ApplicationArea = All;
                     }
                 }
             }

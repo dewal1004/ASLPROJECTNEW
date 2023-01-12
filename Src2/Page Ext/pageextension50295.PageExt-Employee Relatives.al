@@ -13,6 +13,7 @@ pageextension 50295 pageextension50295 extends "Employee Relatives"
         {
             field(Address; Address)
             {
+                ApplicationArea = All;
             }
         }
     }

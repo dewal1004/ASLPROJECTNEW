@@ -27,6 +27,7 @@ page 50055 "Purchase Order Subform Foreign"
                         Editable = InvDiscAmountEditable;
                         Style = Subordinate;
                         StyleExpr = RefreshMessageEnabled;
+                        ApplicationArea = All;
 
                         trigger OnValidate()
                         var
@@ -45,6 +46,7 @@ page 50055 "Purchase Order Subform Foreign"
                         Style = Subordinate;
                         StyleExpr = RefreshMessageEnabled;
                         Visible = true;
+                        ApplicationArea = All;
                     }
                 }
                 group(Control33)
@@ -60,6 +62,7 @@ page 50055 "Purchase Order Subform Foreign"
                         Editable = false;
                         Style = Subordinate;
                         StyleExpr = RefreshMessageEnabled;
+                        ApplicationArea = All;
                     }
                     field("Total VAT Amount"; VATAmount)
                     {
@@ -70,6 +73,7 @@ page 50055 "Purchase Order Subform Foreign"
                         Editable = false;
                         Style = Subordinate;
                         StyleExpr = RefreshMessageEnabled;
+                        ApplicationArea = All;
                     }
                     field("Total Amount Incl. VAT"; TotalPurchaseLine."Amount Including VAT")
                     {
@@ -79,6 +83,7 @@ page 50055 "Purchase Order Subform Foreign"
                         Caption = 'Total Amount Incl. VAT';
                         Editable = false;
                         StyleExpr = TotalAmountStyle;
+                        ApplicationArea = All;
                     }
                     field(RefreshTotals; RefreshMessageText)
                     {
@@ -86,6 +91,7 @@ page 50055 "Purchase Order Subform Foreign"
                         Editable = false;
                         Enabled = RefreshMessageEnabled;
                         ShowCaption = false;
+                        ApplicationArea = All;
 
                         trigger OnDrillDown()
                         begin
@@ -100,6 +106,7 @@ page 50055 "Purchase Order Subform Foreign"
                 ShowCaption = false;
                 field(Type; Type)
                 {
+                    ApplicationArea = All;
 
                     trigger OnValidate()
                     begin
@@ -113,6 +120,7 @@ page 50055 "Purchase Order Subform Foreign"
                 field("No."; "No.")
                 {
                     ShowMandatory = TypeChosen;
+                    ApplicationArea = All;
 
                     trigger OnValidate()
                     begin
@@ -125,11 +133,13 @@ page 50055 "Purchase Order Subform Foreign"
                 }
                 field(Description; Description)
                 {
+                    ApplicationArea = All;
                 }
                 field(Quantity; Quantity)
                 {
                     BlankZero = true;
                     ShowMandatory = TypeChosen;
+                    ApplicationArea = All;
 
                     trigger OnValidate()
                     begin
@@ -138,6 +148,7 @@ page 50055 "Purchase Order Subform Foreign"
                 }
                 field("Unit of Measure Code"; "Unit of Measure Code")
                 {
+                    ApplicationArea = All;
 
                     trigger OnValidate()
                     begin
@@ -146,54 +157,69 @@ page 50055 "Purchase Order Subform Foreign"
                 }
                 field("Direct Unit Cost"; "Direct Unit Cost")
                 {
+                    ApplicationArea = All;
                 }
                 field("HasTypeToFillMandatoryFields()"; HasTypeToFillMandatoryFields())
                 {
+                    ApplicationArea = All;
                 }
                 field("ActualFreight(LCY)"; "ActualFreight(LCY)")
                 {
+                    ApplicationArea = All;
                 }
                 field("ActualDuty(LCY)"; "ActualDuty(LCY)")
                 {
+                    ApplicationArea = All;
                 }
                 field("ActualInsurance(LCY)"; "ActualInsurance(LCY)")
                 {
+                    ApplicationArea = All;
                 }
                 field("ActualClearing(LCY)"; "ActualClearing(LCY)")
                 {
+                    ApplicationArea = All;
                 }
                 field("ActualInterest(LCY)"; "ActualInterest(LCY)")
                 {
+                    ApplicationArea = All;
                 }
                 field("ActualDuty Rate%"; "ActualDuty Rate%")
                 {
+                    ApplicationArea = All;
                 }
                 field("ActualTotal Overhead(LCY)"; "ActualTotal Overhead(LCY)")
                 {
+                    ApplicationArea = All;
                 }
                 field("IC Partner Code"; "IC Partner Code")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field("IC Partner Ref. Type"; "IC Partner Ref. Type")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field("IC Partner Reference"; "IC Partner Reference")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field("Variant Code"; "Variant Code")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field(Nonstock; Nonstock)
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field("VAT Prod. Posting Group"; "VAT Prod. Posting Group")
                 {
                     Visible = false;
+                    ApplicationArea = All;
 
                     trigger OnValidate()
                     begin
@@ -202,40 +228,50 @@ page 50055 "Purchase Order Subform Foreign"
                 }
                 field("Gen. Prod. Posting Group"; "Gen. Prod. Posting Group")
                 {
+                    ApplicationArea = All;
                 }
                 field("Drop Shipment"; "Drop Shipment")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field("QtytoReceiveAmount(LCY)"; "QtytoReceiveAmount(LCY)")
                 {
+                    ApplicationArea = All;
                 }
                 field("Return Reason Code"; "Return Reason Code")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field("Location Code"; "Location Code")
                 {
+                    ApplicationArea = All;
                 }
                 field("Duty Rate%"; "Duty Rate%")
                 {
+                    ApplicationArea = All;
                 }
                 field("Bin Code"; "Bin Code")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field("Reserved Quantity"; "Reserved Quantity")
                 {
                     BlankZero = true;
+                    ApplicationArea = All;
                 }
                 field("Job Remaining Qty."; "Job Remaining Qty.")
                 {
                     BlankZero = true;
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field("Unit of Measure"; "Unit of Measure")
                 {
                     Visible = false;
+                    ApplicationArea = All;
 
                     trigger OnValidate()
                     begin
@@ -244,22 +280,28 @@ page 50055 "Purchase Order Subform Foreign"
                 }
                 field("ActualAncillary(LCY)"; "ActualAncillary(LCY)")
                 {
+                    ApplicationArea = All;
                 }
                 field("ActualSurcharge Duty(LCY)"; "ActualSurcharge Duty(LCY)")
                 {
+                    ApplicationArea = All;
                 }
                 field("ActualEcowas Duty(LCY)"; "ActualEcowas Duty(LCY)")
                 {
+                    ApplicationArea = All;
                 }
                 field("ActualCISS(LCY)"; "ActualCISS(LCY)")
                 {
+                    ApplicationArea = All;
                 }
                 field("ActualLandedAmount(LCY)"; "ActualLandedAmount(LCY)")
                 {
+                    ApplicationArea = All;
                 }
                 field("Indirect Cost %"; "Indirect Cost %")
                 {
                     Visible = false;
+                    ApplicationArea = All;
 
                     trigger OnValidate()
                     begin
@@ -269,6 +311,7 @@ page 50055 "Purchase Order Subform Foreign"
                 field("Unit Cost (LCY)"; "Unit Cost (LCY)")
                 {
                     Visible = false;
+                    ApplicationArea = All;
 
                     trigger OnValidate()
                     begin
@@ -277,17 +320,21 @@ page 50055 "Purchase Order Subform Foreign"
                 }
                 field("ActualVat (LCY)"; "ActualVat (LCY)")
                 {
+                    ApplicationArea = All;
                 }
                 field("Clearing(LCY)"; "Clearing(LCY)")
                 {
+                    ApplicationArea = All;
                 }
                 field("Interest(LCY)"; "Interest(LCY)")
                 {
+                    ApplicationArea = All;
                 }
                 field("Unit Price (LCY)"; "Unit Price (LCY)")
                 {
                     BlankZero = true;
                     Visible = false;
+                    ApplicationArea = All;
 
                     trigger OnValidate()
                     begin
@@ -297,6 +344,7 @@ page 50055 "Purchase Order Subform Foreign"
                 field("Line Discount %"; "Line Discount %")
                 {
                     BlankZero = true;
+                    ApplicationArea = All;
 
                     trigger OnValidate()
                     begin
@@ -306,6 +354,7 @@ page 50055 "Purchase Order Subform Foreign"
                 field("Line Discount Amount"; "Line Discount Amount")
                 {
                     Visible = false;
+                    ApplicationArea = All;
 
                     trigger OnValidate()
                     begin
@@ -315,6 +364,7 @@ page 50055 "Purchase Order Subform Foreign"
                 field("Prepayment %"; "Prepayment %")
                 {
                     Visible = false;
+                    ApplicationArea = All;
 
                     trigger OnValidate()
                     begin
@@ -324,6 +374,7 @@ page 50055 "Purchase Order Subform Foreign"
                 field("Prepmt. Line Amount"; "Prepmt. Line Amount")
                 {
                     Visible = false;
+                    ApplicationArea = All;
 
                     trigger OnValidate()
                     begin
@@ -333,6 +384,7 @@ page 50055 "Purchase Order Subform Foreign"
                 field("Prepmt. Amt. Inv."; "Prepmt. Amt. Inv.")
                 {
                     Visible = false;
+                    ApplicationArea = All;
 
                     trigger OnValidate()
                     begin
@@ -342,156 +394,195 @@ page 50055 "Purchase Order Subform Foreign"
                 field("Allow Invoice Disc."; "Allow Invoice Disc.")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field("Inv. Discount Amount"; "Inv. Discount Amount")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field("Qty. to Receive"; "Qty. to Receive")
                 {
                     BlankZero = true;
+                    ApplicationArea = All;
                 }
                 field("Quantity Received"; "Quantity Received")
                 {
                     BlankZero = true;
+                    ApplicationArea = All;
                 }
                 field("Qty. to Invoice"; "Qty. to Invoice")
                 {
                     BlankZero = true;
+                    ApplicationArea = All;
                 }
                 field("Quantity Invoiced"; "Quantity Invoiced")
                 {
                     BlankZero = true;
+                    ApplicationArea = All;
                 }
                 field("Job No."; "Job No.")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field("Job Task No."; "Job Task No.")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field("Job Planning Line No."; "Job Planning Line No.")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field("Job Line Type"; "Job Line Type")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field("Job Unit Price"; "Job Unit Price")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field("Job Line Amount"; "Job Line Amount")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field("Job Line Discount Amount"; "Job Line Discount Amount")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field("Job Line Discount %"; "Job Line Discount %")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field("Job Total Price"; "Job Total Price")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field("Job Unit Price (LCY)"; "Job Unit Price (LCY)")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field("Job Total Price (LCY)"; "Job Total Price (LCY)")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field("Job Line Amount (LCY)"; "Job Line Amount (LCY)")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field("Job Line Disc. Amount (LCY)"; "Job Line Disc. Amount (LCY)")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field("Requested Receipt Date"; "Requested Receipt Date")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field("Promised Receipt Date"; "Promised Receipt Date")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field("Planned Receipt Date"; "Planned Receipt Date")
                 {
+                    ApplicationArea = All;
                 }
                 field("Expected Receipt Date"; "Expected Receipt Date")
                 {
+                    ApplicationArea = All;
                 }
                 field("Order Date"; "Order Date")
                 {
+                    ApplicationArea = All;
                 }
                 field("Lead Time Calculation"; "Lead Time Calculation")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field("Planning Flexibility"; "Planning Flexibility")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field("Prod. Order No."; "Prod. Order No.")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field("Prod. Order Line No."; "Prod. Order Line No.")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field("Operation No."; "Operation No.")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field("Work Center No."; "Work Center No.")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field(Finished; Finished)
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field("Whse. Outstanding Qty. (Base)"; "Whse. Outstanding Qty. (Base)")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field("Inbound Whse. Handling Time"; "Inbound Whse. Handling Time")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field("Blanket Order No."; "Blanket Order No.")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field("Blanket Order Line No."; "Blanket Order Line No.")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field("Appl.-to Item Entry"; "Appl.-to Item Entry")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field("Deferral Code"; "Deferral Code")
                 {
                     Enabled = (Type <> Type::"Fixed Asset") AND (Type <> Type::" ");
                     TableRelation = "Deferral Template"."Deferral Code";
+                    ApplicationArea = All;
                 }
                 field("Shortcut Dimension 1 Code"; "Shortcut Dimension 1 Code")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field("Shortcut Dimension 2 Code"; "Shortcut Dimension 2 Code")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field("ShortcutDimCode[3]"; ShortcutDimCode[3])
                 {
@@ -500,6 +591,7 @@ page 50055 "Purchase Order Subform Foreign"
                                                                   "Dimension Value Type" = CONST(Standard),
                                                                   Blocked = CONST(false));
                     Visible = false;
+                    ApplicationArea = All;
 
                     trigger OnValidate()
                     begin
@@ -513,6 +605,7 @@ page 50055 "Purchase Order Subform Foreign"
                                                                   "Dimension Value Type" = CONST(Standard),
                                                                   Blocked = CONST(false));
                     Visible = false;
+                    ApplicationArea = All;
 
                     trigger OnValidate()
                     begin
@@ -526,6 +619,7 @@ page 50055 "Purchase Order Subform Foreign"
                                                                   "Dimension Value Type" = CONST(Standard),
                                                                   Blocked = CONST(false));
                     Visible = false;
+                    ApplicationArea = All;
 
                     trigger OnValidate()
                     begin
@@ -539,6 +633,7 @@ page 50055 "Purchase Order Subform Foreign"
                                                                   "Dimension Value Type" = CONST(Standard),
                                                                   Blocked = CONST(false));
                     Visible = false;
+                    ApplicationArea = All;
 
                     trigger OnValidate()
                     begin
@@ -552,6 +647,7 @@ page 50055 "Purchase Order Subform Foreign"
                                                                   "Dimension Value Type" = CONST(Standard),
                                                                   Blocked = CONST(false));
                     Visible = false;
+                    ApplicationArea = All;
 
                     trigger OnValidate()
                     begin
@@ -565,6 +661,7 @@ page 50055 "Purchase Order Subform Foreign"
                                                                   "Dimension Value Type" = CONST(Standard),
                                                                   Blocked = CONST(false));
                     Visible = false;
+                    ApplicationArea = All;
 
                     trigger OnValidate()
                     begin
@@ -573,30 +670,39 @@ page 50055 "Purchase Order Subform Foreign"
                 }
                 field("Outstanding Amount (LCY)"; "Outstanding Amount (LCY)")
                 {
+                    ApplicationArea = All;
                 }
                 field("Freight(LCY)"; "Freight(LCY)")
                 {
+                    ApplicationArea = All;
                 }
                 field("Ancillary(LCY)"; "Ancillary(LCY)")
                 {
+                    ApplicationArea = All;
                 }
                 field("Duty(LCY)"; "Duty(LCY)")
                 {
+                    ApplicationArea = All;
                 }
                 field("Insurance(LCY)"; "Insurance(LCY)")
                 {
+                    ApplicationArea = All;
                 }
                 field("Surcharge Duty(LCY)"; "Surcharge Duty(LCY)")
                 {
+                    ApplicationArea = All;
                 }
                 field("Ecowas Duty(LCY)"; "Ecowas Duty(LCY)")
                 {
+                    ApplicationArea = All;
                 }
                 field("CISS(LCY)"; "CISS(LCY)")
                 {
+                    ApplicationArea = All;
                 }
                 field("Vat (LCY)"; "Vat (LCY)")
                 {
+                    ApplicationArea = All;
                 }
             }
         }
@@ -618,6 +724,7 @@ page 50055 "Purchase Order Subform Foreign"
                     {
                         Caption = 'Event';
                         Image = "Event";
+                        ApplicationArea = All;
 
                         trigger OnAction()
                         begin
@@ -628,6 +735,7 @@ page 50055 "Purchase Order Subform Foreign"
                     {
                         Caption = 'Period';
                         Image = Period;
+                        ApplicationArea = All;
 
                         trigger OnAction()
                         begin
@@ -638,6 +746,7 @@ page 50055 "Purchase Order Subform Foreign"
                     {
                         Caption = 'Variant';
                         Image = ItemVariant;
+                        ApplicationArea = All;
 
                         trigger OnAction()
                         begin
@@ -649,6 +758,7 @@ page 50055 "Purchase Order Subform Foreign"
                         AccessByPermission = TableData Location = R;
                         Caption = 'Location';
                         Image = Warehouse;
+                        ApplicationArea = All;
 
                         trigger OnAction()
                         begin
@@ -659,6 +769,7 @@ page 50055 "Purchase Order Subform Foreign"
                     {
                         Caption = 'BOM Level';
                         Image = BOMLevel;
+                        ApplicationArea = All;
 
                         trigger OnAction()
                         begin
@@ -671,6 +782,7 @@ page 50055 "Purchase Order Subform Foreign"
                     AccessByPermission = TableData Item = R;
                     Caption = 'Reservation Entries';
                     Image = ReservationLedger;
+                    ApplicationArea = All;
 
                     trigger OnAction()
                     begin
@@ -682,6 +794,7 @@ page 50055 "Purchase Order Subform Foreign"
                     Caption = 'Item &Tracking Lines';
                     Image = ItemTrackingLines;
                     ShortCutKey = 'Shift+Ctrl+I';
+                    ApplicationArea = All;
 
                     trigger OnAction()
                     begin
@@ -694,6 +807,7 @@ page 50055 "Purchase Order Subform Foreign"
                     Caption = 'Dimensions';
                     Image = Dimensions;
                     ShortCutKey = 'Shift+Ctrl+D';
+                    ApplicationArea = All;
 
                     trigger OnAction()
                     begin
@@ -704,6 +818,7 @@ page 50055 "Purchase Order Subform Foreign"
                 {
                     Caption = 'Co&mments';
                     Image = ViewComments;
+                    ApplicationArea = All;
 
                     trigger OnAction()
                     begin
@@ -715,6 +830,7 @@ page 50055 "Purchase Order Subform Foreign"
                     AccessByPermission = TableData "Item Charge" = R;
                     Caption = 'Item Charge &Assignment';
                     Image = ItemCosts;
+                    ApplicationArea = All;
 
                     trigger OnAction()
                     begin
@@ -726,6 +842,7 @@ page 50055 "Purchase Order Subform Foreign"
                     Caption = 'Deferral Schedule';
                     Enabled = "Deferral Code" <> '';
                     Image = PaymentPeriod;
+                    ApplicationArea = All;
 
                     trigger OnAction()
                     begin
@@ -743,6 +860,7 @@ page 50055 "Purchase Order Subform Foreign"
                     AccessByPermission = TableData "BOM Component" = R;
                     Caption = 'E&xplode BOM';
                     Image = ExplodeBOM;
+                    ApplicationArea = All;
 
                     trigger OnAction()
                     begin
@@ -754,6 +872,7 @@ page 50055 "Purchase Order Subform Foreign"
                     AccessByPermission = TableData "Extended Text Header" = R;
                     Caption = 'Insert &Ext. Texts';
                     Image = Text;
+                    ApplicationArea = All;
 
                     trigger OnAction()
                     begin
@@ -765,6 +884,7 @@ page 50055 "Purchase Order Subform Foreign"
                     Caption = '&Reserve';
                     Ellipsis = true;
                     Image = Reserve;
+                    ApplicationArea = All;
 
                     trigger OnAction()
                     begin
@@ -776,6 +896,7 @@ page 50055 "Purchase Order Subform Foreign"
                 {
                     Caption = 'Order &Tracking';
                     Image = OrderTracking;
+                    ApplicationArea = All;
 
                     trigger OnAction()
                     begin
@@ -796,6 +917,7 @@ page 50055 "Purchase Order Subform Foreign"
                         AccessByPermission = TableData "Sales Shipment Header" = R;
                         Caption = 'Sales &Order';
                         Image = Document;
+                        ApplicationArea = All;
 
                         trigger OnAction()
                         begin
@@ -812,6 +934,7 @@ page 50055 "Purchase Order Subform Foreign"
                         AccessByPermission = TableData "Sales Shipment Header" = R;
                         Caption = 'Sales &Order';
                         Image = Document;
+                        ApplicationArea = All;
 
                         trigger OnAction()
                         begin

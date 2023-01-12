@@ -424,13 +424,16 @@ report 50140 "Vessel Perf Grpg OLD VJ2"
                     ShowCaption = false;
                     field("Font Size"; FontSize)
                     {
+                        ApplicationArea = All;
                     }
                     field("Page Orientation"; PageOrientation)
                     {
+                        ApplicationArea = All;
                     }
                     field("Job No"; Job."No.")
                     {
                         TableRelation = Job;
+                        ApplicationArea = All;
                     }
                 }
             }

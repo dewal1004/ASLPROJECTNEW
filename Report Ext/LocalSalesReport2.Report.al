@@ -249,20 +249,24 @@ report 50018 "Local Sales Report 2"
                     {
                         Caption = 'Show';
                         OptionCaption = 'Largest,Smallest';
+                        ApplicationArea = All;
                     }
                     field(ShowType; ShowType)
                     {
                         Caption = 'Show';
                         OptionCaption = 'Sales (LCY),Inventory';
+                        ApplicationArea = All;
                     }
                     field(NoOfRecordsToPrint; NoOfRecordsToPrint)
                     {
                         Caption = 'Quantity';
+                        ApplicationArea = All;
                     }
                     field(PrintAlsoIfZero; PrintAlsoIfZero)
                     {
                         Caption = 'Include Items Not on Inventory or Not Sold';
                         MultiLine = true;
+                        ApplicationArea = All;
                     }
                 }
             }

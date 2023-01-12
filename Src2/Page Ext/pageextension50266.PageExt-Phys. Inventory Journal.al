@@ -30,6 +30,7 @@ pageextension 50266 pageextension50266 extends "Phys. Inventory Journal"
             action("Item &Tracking Entries")
             {
                 RunObject = Page "Item Tracking Entries";
+                ApplicationArea = All;
             }
         }
     }

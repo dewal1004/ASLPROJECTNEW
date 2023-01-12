@@ -3,7 +3,7 @@ report 50004 "Consolidated Narration"
     DefaultLayout = RDLC;
     RDLCLayout = './ReportRdlc/ConsolidatedNarration.rdlc';
     UsageCategory = ReportsAndAnalysis;
-    ApplicationArea = All,Basic,Suite;
+    ApplicationArea = All, Basic, Suite;
 
     dataset
     {
@@ -213,6 +213,7 @@ report 50004 "Consolidated Narration"
                     ShowCaption = false;
                     field("Current Date"; EndDate)
                     {
+                        ApplicationArea = All;
                     }
                 }
             }

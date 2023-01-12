@@ -323,12 +323,15 @@ report 50022 "Periodic Stock Position-CODEWA"
                     ShowCaption = false;
                     field("Period Length"; PeriodLength)
                     {
+                        ApplicationArea = All;
                     }
                     field("Page Orientation"; PageOrientation)
                     {
+                        ApplicationArea = All;
                     }
                     field("Ending Date"; PeriodStartDate[5])
                     {
+                        ApplicationArea = All;
                     }
                 }
             }

@@ -12,9 +12,11 @@ page 80089 "Catch List"
                 ShowCaption = false;
                 field("Line No"; "Line No")
                 {
+                    ApplicationArea = All;
                 }
                 field("Employee No"; "Employee No")
                 {
+                    ApplicationArea = All;
                 }
             }
         }

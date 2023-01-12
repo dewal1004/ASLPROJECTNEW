@@ -9,13 +9,15 @@ pageextension 50274 pageextension50274 extends "Sales List"
                 Image = Delivery;
                 RunObject = Report "Sales Delivery Note";
                 RunPageOnRec = true;
+                ApplicationArea = All;
             }
-            action("Import Fish Shop Daily Sales" )
-                {
-                    Caption ='Import Fish Shop Daily Sales';
-                    Image = Import;
-                    RunObject = xmlport "Import FS daily sales";
-                } 
+            action("Import Fish Shop Daily Sales")
+            {
+                Caption = 'Import Fish Shop Daily Sales';
+                Image = Import;
+                RunObject = xmlport "Import FS daily sales";
+                ApplicationArea = All;
+            }
 
         }
     }

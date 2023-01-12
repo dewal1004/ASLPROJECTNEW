@@ -5,7 +5,7 @@ page 90000 "Sales Order test"
     PromotedActionCategories = 'New,Process,Report,Approve,Release,Posting,Prepare,Invoice,Request Approval';
     RefreshOnActivate = true;
     SourceTable = "Sales Header";
-    SourceTableView = WHERE ("Document Type" = FILTER (Order));
+    SourceTableView = WHERE("Document Type" = FILTER(Order));
 
     layout
     {
@@ -18,6 +18,7 @@ page 90000 "Sales Order test"
                 {
                     Importance = Promoted;
                     Visible = DocNoVisible;
+                    ApplicationArea = All;
 
                     trigger OnAssistEdit()
                     begin
@@ -29,6 +30,7 @@ page 90000 "Sales Order test"
                 {
                     Importance = Promoted;
                     ShowMandatory = true;
+                    ApplicationArea = All;
 
                     trigger OnValidate()
                     begin
@@ -38,6 +40,7 @@ page 90000 "Sales Order test"
                 field("Sell-to Contact No."; "Sell-to Contact No.")
                 {
                     Importance = Additional;
+                    ApplicationArea = All;
 
                     trigger OnValidate()
                     begin
@@ -49,63 +52,78 @@ page 90000 "Sales Order test"
                 field("Sell-to Customer Name"; "Sell-to Customer Name")
                 {
                     QuickEntry = false;
+                    ApplicationArea = All;
                 }
                 field("Sell-to Address"; "Sell-to Address")
                 {
                     Importance = Additional;
+                    ApplicationArea = All;
                 }
                 field("Sell-to Address 2"; "Sell-to Address 2")
                 {
                     Importance = Additional;
+                    ApplicationArea = All;
                 }
                 field("Sell-to Post Code"; "Sell-to Post Code")
                 {
                     Importance = Additional;
+                    ApplicationArea = All;
                 }
                 field("Sell-to City"; "Sell-to City")
                 {
                     QuickEntry = false;
+                    ApplicationArea = All;
                 }
                 field("Sell-to Contact"; "Sell-to Contact")
                 {
                     Importance = Additional;
+                    ApplicationArea = All;
                 }
                 field("No. of Archived Versions"; "No. of Archived Versions")
                 {
                     Importance = Additional;
+                    ApplicationArea = All;
                 }
                 field("Posting Date"; "Posting Date")
                 {
                     QuickEntry = false;
+                    ApplicationArea = All;
                 }
                 field("Order Date"; "Order Date")
                 {
                     Importance = Promoted;
                     QuickEntry = false;
+                    ApplicationArea = All;
                 }
                 field("Document Date"; "Document Date")
                 {
                     QuickEntry = false;
+                    ApplicationArea = All;
                 }
                 field("Requested Delivery Date"; "Requested Delivery Date")
                 {
+                    ApplicationArea = All;
                 }
                 field("Promised Delivery Date"; "Promised Delivery Date")
                 {
                     Importance = Additional;
+                    ApplicationArea = All;
                 }
                 field("Quote No."; "Quote No.")
                 {
                     Importance = Additional;
+                    ApplicationArea = All;
                 }
                 field("External Document No."; "External Document No.")
                 {
                     Importance = Promoted;
                     ShowMandatory = ExternalDocNoMandatory;
+                    ApplicationArea = All;
                 }
                 field("Salesperson Code"; "Salesperson Code")
                 {
                     QuickEntry = false;
+                    ApplicationArea = All;
 
                     trigger OnValidate()
                     begin
@@ -115,34 +133,41 @@ page 90000 "Sales Order test"
                 field("Campaign No."; "Campaign No.")
                 {
                     Importance = Additional;
+                    ApplicationArea = All;
                 }
                 field("Opportunity No."; "Opportunity No.")
                 {
                     Importance = Additional;
+                    ApplicationArea = All;
                 }
                 field("Responsibility Center"; "Responsibility Center")
                 {
                     Importance = Additional;
+                    ApplicationArea = All;
                 }
                 field("Assigned User ID"; "Assigned User ID")
                 {
                     Importance = Additional;
+                    ApplicationArea = All;
                 }
                 field("Job Queue Status"; "Job Queue Status")
                 {
                     Importance = Additional;
+                    ApplicationArea = All;
                 }
                 field(Status; Status)
                 {
                     Importance = Promoted;
                     QuickEntry = false;
+                    ApplicationArea = All;
                 }
             }
             part(SalesLines; "Sales Order Subform")
             {
                 Editable = DynamicEditable;
-                SubPageLink = "Document No." = FIELD ("No.");
+                SubPageLink = "Document No." = FIELD("No.");
                 UpdatePropagation = Both;
+                ApplicationArea = All;
             }
             group(Invoicing)
             {
@@ -150,6 +175,7 @@ page 90000 "Sales Order test"
                 field("Bill-to Customer No."; "Bill-to Customer No.")
                 {
                     Importance = Promoted;
+                    ApplicationArea = All;
 
                     trigger OnValidate()
                     begin
@@ -159,31 +185,39 @@ page 90000 "Sales Order test"
                 field("Bill-to Contact No."; "Bill-to Contact No.")
                 {
                     Importance = Additional;
+                    ApplicationArea = All;
                 }
                 field("Bill-to Name"; "Bill-to Name")
                 {
+                    ApplicationArea = All;
                 }
                 field("Bill-to Address"; "Bill-to Address")
                 {
                     Importance = Additional;
+                    ApplicationArea = All;
                 }
                 field("Bill-to Address 2"; "Bill-to Address 2")
                 {
                     Importance = Additional;
+                    ApplicationArea = All;
                 }
                 field("Bill-to Post Code"; "Bill-to Post Code")
                 {
                     Importance = Additional;
+                    ApplicationArea = All;
                 }
                 field("Bill-to City"; "Bill-to City")
                 {
+                    ApplicationArea = All;
                 }
                 field("Bill-to Contact"; "Bill-to Contact")
                 {
                     Importance = Additional;
+                    ApplicationArea = All;
                 }
                 field("Shortcut Dimension 1 Code"; "Shortcut Dimension 1 Code")
                 {
+                    ApplicationArea = All;
 
                     trigger OnValidate()
                     begin
@@ -192,6 +226,7 @@ page 90000 "Sales Order test"
                 }
                 field("Shortcut Dimension 2 Code"; "Shortcut Dimension 2 Code")
                 {
+                    ApplicationArea = All;
 
                     trigger OnValidate()
                     begin
@@ -201,25 +236,32 @@ page 90000 "Sales Order test"
                 field("Payment Terms Code"; "Payment Terms Code")
                 {
                     Importance = Promoted;
+                    ApplicationArea = All;
                 }
                 field("Due Date"; "Due Date")
                 {
                     Importance = Promoted;
+                    ApplicationArea = All;
                 }
                 field("Payment Discount %"; "Payment Discount %")
                 {
+                    ApplicationArea = All;
                 }
                 field("Pmt. Discount Date"; "Pmt. Discount Date")
                 {
+                    ApplicationArea = All;
                 }
                 field("Payment Method Code"; "Payment Method Code")
                 {
+                    ApplicationArea = All;
                 }
                 field("Direct Debit Mandate ID"; "Direct Debit Mandate ID")
                 {
+                    ApplicationArea = All;
                 }
                 field("Prices Including VAT"; "Prices Including VAT")
                 {
+                    ApplicationArea = All;
 
                     trigger OnValidate()
                     begin
@@ -228,14 +270,17 @@ page 90000 "Sales Order test"
                 }
                 field("VAT Bus. Posting Group"; "VAT Bus. Posting Group")
                 {
+                    ApplicationArea = All;
                 }
                 label(Control226)
                 {
                     ShowCaption = false;
+                    ApplicationArea = All;
                 }
                 label("Cr. Card Number (Last 4 Digits)")
                 {
                     Caption = 'Cr. Card Number (Last 4 Digits)';
+                    ApplicationArea = All;
                 }
             }
             group(Shipping)
@@ -244,65 +289,82 @@ page 90000 "Sales Order test"
                 field("Ship-to Code"; "Ship-to Code")
                 {
                     Importance = Promoted;
+                    ApplicationArea = All;
                 }
                 field("Ship-to Name"; "Ship-to Name")
                 {
+                    ApplicationArea = All;
                 }
                 field("Ship-to Address"; "Ship-to Address")
                 {
                     Importance = Additional;
+                    ApplicationArea = All;
                 }
                 field("Ship-to Address 2"; "Ship-to Address 2")
                 {
                     Importance = Additional;
+                    ApplicationArea = All;
                 }
                 field("Ship-to Post Code"; "Ship-to Post Code")
                 {
                     Importance = Promoted;
+                    ApplicationArea = All;
                 }
                 field("Ship-to City"; "Ship-to City")
                 {
+                    ApplicationArea = All;
                 }
                 field("Ship-to Contact"; "Ship-to Contact")
                 {
                     Importance = Additional;
+                    ApplicationArea = All;
                 }
                 field("Location Code"; "Location Code")
                 {
+                    ApplicationArea = All;
                 }
                 field("Outbound Whse. Handling Time"; "Outbound Whse. Handling Time")
                 {
                     Importance = Additional;
+                    ApplicationArea = All;
                 }
                 field("Shipment Method Code"; "Shipment Method Code")
                 {
+                    ApplicationArea = All;
                 }
                 field("Shipping Agent Code"; "Shipping Agent Code")
                 {
                     Importance = Additional;
+                    ApplicationArea = All;
                 }
                 field("Shipping Agent Service Code"; "Shipping Agent Service Code")
                 {
                     Importance = Additional;
+                    ApplicationArea = All;
                 }
                 field("Shipping Time"; "Shipping Time")
                 {
+                    ApplicationArea = All;
                 }
                 field("Late Order Shipping"; "Late Order Shipping")
                 {
                     Importance = Additional;
+                    ApplicationArea = All;
                 }
                 field("Package Tracking No."; "Package Tracking No.")
                 {
                     Importance = Additional;
+                    ApplicationArea = All;
                 }
                 field("Shipment Date"; "Shipment Date")
                 {
                     Importance = Promoted;
+                    ApplicationArea = All;
                 }
                 field("Shipping Advice"; "Shipping Advice")
                 {
                     Importance = Promoted;
+                    ApplicationArea = All;
 
                     trigger OnValidate()
                     begin
@@ -318,6 +380,7 @@ page 90000 "Sales Order test"
                 field("Currency Code"; "Currency Code")
                 {
                     Importance = Promoted;
+                    ApplicationArea = All;
 
                     trigger OnAssistEdit()
                     begin
@@ -341,21 +404,27 @@ page 90000 "Sales Order test"
                 }
                 field("EU 3-Party Trade"; "EU 3-Party Trade")
                 {
+                    ApplicationArea = All;
                 }
                 field("Transaction Type"; "Transaction Type")
                 {
+                    ApplicationArea = All;
                 }
                 field("Transaction Specification"; "Transaction Specification")
                 {
+                    ApplicationArea = All;
                 }
                 field("Transport Method"; "Transport Method")
                 {
+                    ApplicationArea = All;
                 }
                 field("Exit Point"; "Exit Point")
                 {
+                    ApplicationArea = All;
                 }
                 field("Area"; Area)
                 {
+                    ApplicationArea = All;
                 }
             }
             group(Control1900201301)
@@ -364,6 +433,7 @@ page 90000 "Sales Order test"
                 field("Prepayment %"; "Prepayment %")
                 {
                     Importance = Promoted;
+                    ApplicationArea = All;
 
                     trigger OnValidate()
                     begin
@@ -372,19 +442,24 @@ page 90000 "Sales Order test"
                 }
                 field("Compress Prepayment"; "Compress Prepayment")
                 {
+                    ApplicationArea = All;
                 }
                 field("Prepmt. Payment Terms Code"; "Prepmt. Payment Terms Code")
                 {
+                    ApplicationArea = All;
                 }
                 field("Prepayment Due Date"; "Prepayment Due Date")
                 {
                     Importance = Promoted;
+                    ApplicationArea = All;
                 }
                 field("Prepmt. Payment Discount %"; "Prepmt. Payment Discount %")
                 {
+                    ApplicationArea = All;
                 }
                 field("Prepmt. Pmt. Discount Date"; "Prepmt. Pmt. Discount Date")
                 {
+                    ApplicationArea = All;
                 }
             }
         }
@@ -405,6 +480,7 @@ page 90000 "Sales Order test"
                     Promoted = true;
                     PromotedCategory = Process;
                     ShortCutKey = 'F7';
+                    ApplicationArea = All;
 
                     trigger OnAction()
                     begin
@@ -416,9 +492,10 @@ page 90000 "Sales Order test"
                 {
                     Caption = 'Card';
                     Image = EditLines;
-                    RunObject = Page "Customer Card"; 
-                    RunPageLink = "No." = FIELD ("Sell-to Customer No.");
+                    RunObject = Page "Customer Card";
+                    RunPageLink = "No." = FIELD("Sell-to Customer No.");
                     ShortCutKey = 'Shift+F7';
+                    ApplicationArea = All;
                 }
                 action(Dimensions)
                 {
@@ -426,6 +503,7 @@ page 90000 "Sales Order test"
                     Caption = 'Dimensions';
                     Image = Dimensions;
                     ShortCutKey = 'Shift+Ctrl+D';
+                    ApplicationArea = All;
 
                     trigger OnAction()
                     begin
@@ -437,6 +515,7 @@ page 90000 "Sales Order test"
                 {
                     Caption = 'A&pprovals';
                     Image = Approvals;
+                    ApplicationArea = All;
 
                     trigger OnAction()
                     var
@@ -451,14 +530,16 @@ page 90000 "Sales Order test"
                     Caption = 'Co&mments';
                     Image = ViewComments;
                     RunObject = Page "Sales Comment Sheet";
-                    RunPageLink = "Document Type" = FIELD ("Document Type"),
-                                  "No." = FIELD ("No."),
-                                  "Document Line No." = CONST (0);
+                    RunPageLink = "Document Type" = FIELD("Document Type"),
+                                  "No." = FIELD("No."),
+                                  "Document Line No." = CONST(0);
+                    ApplicationArea = All;
                 }
                 action("Credit Cards Transaction Lo&g Entries")
                 {
                     Caption = 'Credit Cards Transaction Lo&g Entries';
                     Image = CreditCardLog;
+                    ApplicationArea = All;
                     //*** RunObject = Page Page829;
                 }
                 action("Assembly Orders")
@@ -466,6 +547,7 @@ page 90000 "Sales Order test"
                     AccessByPermission = TableData "BOM Component" = R;
                     Caption = 'Assembly Orders';
                     Image = AssemblyOrder;
+                    ApplicationArea = All;
 
                     trigger OnAction()
                     var
@@ -485,6 +567,7 @@ page 90000 "Sales Order test"
                     Enabled = CRMIntegrationEnabled AND CRMIsCoupledToRecord;
                     Image = CoupledOrder;
                     ToolTip = 'Open the coupled Microsoft Dynamics CRM sales order.';
+                    ApplicationArea = All;
 
                     trigger OnAction()
                     var
@@ -503,16 +586,18 @@ page 90000 "Sales Order test"
                     Caption = 'S&hipments';
                     Image = Shipment;
                     RunObject = Page "Posted Sales Shipments";
-                    RunPageLink = "Order No." = FIELD ("No.");
-                    RunPageView = SORTING ("Order No.");
+                    RunPageLink = "Order No." = FIELD("No.");
+                    RunPageView = SORTING("Order No.");
+                    ApplicationArea = All;
                 }
                 action(Invoices)
                 {
                     Caption = 'Invoices';
                     Image = Invoice;
                     RunObject = Page "Posted Sales Invoices";
-                    RunPageLink = "Order No." = FIELD ("No.");
-                    RunPageView = SORTING ("Order No.");
+                    RunPageLink = "Order No." = FIELD("No.");
+                    RunPageView = SORTING("Order No.");
+                    ApplicationArea = All;
                 }
             }
             group(Warehouse)
@@ -524,19 +609,21 @@ page 90000 "Sales Order test"
                     Caption = 'In&vt. Put-away/Pick Lines';
                     Image = PickLines;
                     RunObject = Page "Warehouse Activity List";
-                    RunPageLink = "Source Document" = CONST ("Sales Order"),
-                                  "Source No." = FIELD ("No.");
-                    RunPageView = SORTING ("Source Document", "Source No.", "Location Code");
+                    RunPageLink = "Source Document" = CONST("Sales Order"),
+                                  "Source No." = FIELD("No.");
+                    RunPageView = SORTING("Source Document", "Source No.", "Location Code");
+                    ApplicationArea = All;
                 }
                 action("Whse. Shipment Lines")
                 {
                     Caption = 'Whse. Shipment Lines';
                     Image = ShipmentLines;
                     RunObject = Page "Whse. Shipment Lines";
-                    RunPageLink = "Source Type" = CONST (37),
-                                  "Source Subtype" = FIELD ("Document Type"),
-                                  "Source No." = FIELD ("No.");
-                    RunPageView = SORTING ("Source Type", "Source Subtype", "Source No.", "Source Line No.");
+                    RunPageLink = "Source Type" = CONST(37),
+                                  "Source Subtype" = FIELD("Document Type"),
+                                  "Source No." = FIELD("No.");
+                    RunPageView = SORTING("Source Type", "Source Subtype", "Source No.", "Source Line No.");
+                    ApplicationArea = All;
                 }
             }
             group(Prepayment)
@@ -548,16 +635,18 @@ page 90000 "Sales Order test"
                     Caption = 'Prepa&yment Invoices';
                     Image = PrepaymentInvoice;
                     RunObject = Page "Posted Sales Invoices";
-                    RunPageLink = "Prepayment Order No." = FIELD ("No.");
-                    RunPageView = SORTING ("Prepayment Order No.");
+                    RunPageLink = "Prepayment Order No." = FIELD("No.");
+                    RunPageView = SORTING("Prepayment Order No.");
+                    ApplicationArea = All;
                 }
                 action("Prepayment Credi&t Memos")
                 {
                     Caption = 'Prepayment Credi&t Memos';
                     Image = PrepaymentCreditMemo;
                     RunObject = Page "Posted Sales Credit Memos";
-                    RunPageLink = "Prepayment Order No." = FIELD ("No.");
-                    RunPageView = SORTING ("Prepayment Order No.");
+                    RunPageLink = "Prepayment Order No." = FIELD("No.");
+                    RunPageView = SORTING("Prepayment Order No.");
+                    ApplicationArea = All;
                 }
             }
         }
@@ -574,6 +663,7 @@ page 90000 "Sales Order test"
                     PromotedCategory = Category4;
                     PromotedIsBig = true;
                     Visible = OpenApprovalEntriesExistForCurrUser;
+                    ApplicationArea = All;
 
                     trigger OnAction()
                     var
@@ -590,6 +680,7 @@ page 90000 "Sales Order test"
                     PromotedCategory = Category4;
                     PromotedIsBig = true;
                     Visible = OpenApprovalEntriesExistForCurrUser;
+                    ApplicationArea = All;
 
                     trigger OnAction()
                     var
@@ -605,6 +696,7 @@ page 90000 "Sales Order test"
                     Promoted = true;
                     PromotedCategory = Category4;
                     Visible = OpenApprovalEntriesExistForCurrUser;
+                    ApplicationArea = All;
 
                     trigger OnAction()
                     var
@@ -620,10 +712,11 @@ page 90000 "Sales Order test"
                     Promoted = true;
                     PromotedCategory = Category4;
                     RunObject = Page "Approval Comments";
-                    RunPageLink = "Table ID" = CONST (36),
-                                  "Document Type" = FIELD ("Document Type"),
-                                  "Document No." = FIELD ("No.");
+                    RunPageLink = "Table ID" = CONST(36),
+                                  "Document Type" = FIELD("Document Type"),
+                                  "Document No." = FIELD("No.");
                     Visible = OpenApprovalEntriesExistForCurrUser;
+                    ApplicationArea = All;
                 }
             }
             group(Action21)
@@ -637,6 +730,7 @@ page 90000 "Sales Order test"
                     Promoted = true;
                     PromotedCategory = Process;
                     ShortCutKey = 'Ctrl+F9';
+                    ApplicationArea = All;
 
                     trigger OnAction()
                     var
@@ -651,6 +745,7 @@ page 90000 "Sales Order test"
                     Image = ReOpen;
                     Promoted = true;
                     PromotedCategory = Process;
+                    ApplicationArea = All;
 
                     trigger OnAction()
                     var
@@ -668,6 +763,7 @@ page 90000 "Sales Order test"
                 {
                     Caption = 'Calculate &Invoice Discount';
                     Image = CalculateInvoiceDiscount;
+                    ApplicationArea = All;
 
                     trigger OnAction()
                     begin
@@ -680,6 +776,7 @@ page 90000 "Sales Order test"
                     Caption = 'Get St&d. Cust. Sales Codes';
                     Ellipsis = true;
                     Image = CustomerCode;
+                    ApplicationArea = All;
 
                     trigger OnAction()
                     var
@@ -695,6 +792,7 @@ page 90000 "Sales Order test"
                     Image = CopyDocument;
                     Promoted = true;
                     PromotedCategory = Process;
+                    ApplicationArea = All;
 
                     trigger OnAction()
                     begin
@@ -708,6 +806,7 @@ page 90000 "Sales Order test"
                     Caption = 'Move Negative Lines';
                     Ellipsis = true;
                     Image = MoveNegativeLines;
+                    ApplicationArea = All;
 
                     trigger OnAction()
                     begin
@@ -721,6 +820,7 @@ page 90000 "Sales Order test"
                 {
                     Caption = 'Archi&ve Document';
                     Image = Archive;
+                    ApplicationArea = All;
 
                     trigger OnAction()
                     begin
@@ -733,6 +833,7 @@ page 90000 "Sales Order test"
                     AccessByPermission = TableData "IC G/L Account" = R;
                     Caption = 'Send IC Sales Order Cnfmn.';
                     Image = IntercompanyOrder;
+                    ApplicationArea = All;
 
                     trigger OnAction()
                     var
@@ -752,6 +853,7 @@ page 90000 "Sales Order test"
                         Caption = 'View Incoming Document';
                         Enabled = HasIncomingDocument;
                         Image = ViewOrder;
+                        ApplicationArea = All;
                         //The property 'ToolTip' cannot be empty.
                         //ToolTip = '';
 
@@ -767,6 +869,7 @@ page 90000 "Sales Order test"
                         AccessByPermission = TableData "Incoming Document" = R;
                         Caption = 'Select Incoming Document';
                         Image = SelectLineToApply;
+                        ApplicationArea = All;
                         //The property 'ToolTip' cannot be empty.
                         //ToolTip = '';
 
@@ -783,6 +886,7 @@ page 90000 "Sales Order test"
                         Ellipsis = true;
                         Enabled = NOT HasIncomingDocument;
                         Image = Attach;
+                        ApplicationArea = All;
                         //The property 'ToolTip' cannot be empty.
                         //ToolTip = '';
 
@@ -798,6 +902,7 @@ page 90000 "Sales Order test"
                         Caption = 'Remove Incoming Document';
                         Enabled = HasIncomingDocument;
                         Image = RemoveLine;
+                        ApplicationArea = All;
                         //The property 'ToolTip' cannot be empty.
                         //ToolTip = '';
 
@@ -817,6 +922,7 @@ page 90000 "Sales Order test"
                     AccessByPermission = TableData "Order Promising Line" = R;
                     Caption = 'Order &Promising';
                     Image = OrderPromising;
+                    ApplicationArea = All;
 
                     trigger OnAction()
                     var
@@ -831,6 +937,7 @@ page 90000 "Sales Order test"
                 {
                     Caption = 'Demand Overview';
                     Image = Forecast;
+                    ApplicationArea = All;
 
                     trigger OnAction()
                     var
@@ -845,6 +952,7 @@ page 90000 "Sales Order test"
                 {
                     Caption = 'Pla&nning';
                     Image = Planning;
+                    ApplicationArea = All;
 
                     trigger OnAction()
                     var
@@ -866,6 +974,7 @@ page 90000 "Sales Order test"
                     Image = SendApprovalRequest;
                     Promoted = true;
                     PromotedCategory = Category9;
+                    ApplicationArea = All;
 
                     trigger OnAction()
                     var
@@ -882,6 +991,7 @@ page 90000 "Sales Order test"
                     Image = Cancel;
                     Promoted = true;
                     PromotedCategory = Category9;
+                    ApplicationArea = All;
 
                     trigger OnAction()
                     var
@@ -899,6 +1009,7 @@ page 90000 "Sales Order test"
                 {
                     Caption = 'Authorize';
                     Image = AuthorizeCreditCard;
+                    ApplicationArea = All;
 
                     trigger OnAction()
                     begin
@@ -909,6 +1020,7 @@ page 90000 "Sales Order test"
                 {
                     Caption = 'Void A&uthorize';
                     Image = VoidCreditCard;
+                    ApplicationArea = All;
 
                     trigger OnAction()
                     begin
@@ -928,6 +1040,7 @@ page 90000 "Sales Order test"
                     Image = CreateInventoryPickup;
                     Promoted = true;
                     PromotedCategory = Process;
+                    ApplicationArea = All;
 
                     trigger OnAction()
                     begin
@@ -942,6 +1055,7 @@ page 90000 "Sales Order test"
                     AccessByPermission = TableData "Warehouse Shipment Header" = R;
                     Caption = 'Create &Whse. Shipment';
                     Image = NewShipment;
+                    ApplicationArea = All;
 
                     trigger OnAction()
                     var
@@ -967,6 +1081,7 @@ page 90000 "Sales Order test"
                     PromotedCategory = Process;
                     PromotedIsBig = true;
                     ShortCutKey = 'F9';
+                    ApplicationArea = All;
 
                     trigger OnAction()
                     begin
@@ -982,6 +1097,7 @@ page 90000 "Sales Order test"
                     PromotedCategory = Process;
                     PromotedIsBig = true;
                     ShortCutKey = 'Shift+F9';
+                    ApplicationArea = All;
 
                     trigger OnAction()
                     begin
@@ -993,6 +1109,7 @@ page 90000 "Sales Order test"
                     Caption = 'Post and Email';
                     Ellipsis = true;
                     Image = PostMail;
+                    ApplicationArea = All;
 
                     trigger OnAction()
                     var
@@ -1006,6 +1123,7 @@ page 90000 "Sales Order test"
                     Caption = 'Test Report';
                     Ellipsis = true;
                     Image = TestReport;
+                    ApplicationArea = All;
 
                     trigger OnAction()
                     begin
@@ -1017,6 +1135,7 @@ page 90000 "Sales Order test"
                     Caption = 'Post &Batch';
                     Ellipsis = true;
                     Image = PostBatch;
+                    ApplicationArea = All;
 
                     trigger OnAction()
                     begin
@@ -1029,6 +1148,7 @@ page 90000 "Sales Order test"
                     Caption = 'Remove From Job Queue';
                     Image = RemoveLine;
                     Visible = JobQueueVisible;
+                    ApplicationArea = All;
 
                     trigger OnAction()
                     begin
@@ -1039,6 +1159,7 @@ page 90000 "Sales Order test"
                 {
                     Caption = 'Preview Posting';
                     Image = ViewPostedOrder;
+                    ApplicationArea = All;
 
                     trigger OnAction()
                     begin
@@ -1054,6 +1175,7 @@ page 90000 "Sales Order test"
                         Caption = 'Prepayment &Test Report';
                         Ellipsis = true;
                         Image = PrepaymentSimulation;
+                        ApplicationArea = All;
 
                         trigger OnAction()
                         begin
@@ -1065,6 +1187,7 @@ page 90000 "Sales Order test"
                         Caption = 'Post Prepayment &Invoice';
                         Ellipsis = true;
                         Image = PrepaymentPost;
+                        ApplicationArea = All;
 
                         trigger OnAction()
                         var
@@ -1079,6 +1202,7 @@ page 90000 "Sales Order test"
                         Caption = 'Post and Print Prepmt. Invoic&e';
                         Ellipsis = true;
                         Image = PrepaymentPostPrint;
+                        ApplicationArea = All;
 
                         trigger OnAction()
                         var
@@ -1093,6 +1217,7 @@ page 90000 "Sales Order test"
                         Caption = 'Post Prepayment &Credit Memo';
                         Ellipsis = true;
                         Image = PrepaymentPost;
+                        ApplicationArea = All;
 
                         trigger OnAction()
                         var
@@ -1107,6 +1232,7 @@ page 90000 "Sales Order test"
                         Caption = 'Post and Print Prepmt. Cr. Mem&o';
                         Ellipsis = true;
                         Image = PrepaymentPostPrint;
+                        ApplicationArea = All;
 
                         trigger OnAction()
                         var
@@ -1127,6 +1253,7 @@ page 90000 "Sales Order test"
                     Caption = 'Work Order';
                     Ellipsis = true;
                     Image = Print;
+                    ApplicationArea = All;
 
                     trigger OnAction()
                     begin
@@ -1137,6 +1264,7 @@ page 90000 "Sales Order test"
                 {
                     Caption = 'Pick Instruction';
                     Image = Print;
+                    ApplicationArea = All;
 
                     trigger OnAction()
                     begin
@@ -1153,6 +1281,7 @@ page 90000 "Sales Order test"
                     Caption = 'Email Confirmation';
                     Ellipsis = true;
                     Image = Email;
+                    ApplicationArea = All;
 
                     trigger OnAction()
                     begin
@@ -1164,6 +1293,7 @@ page 90000 "Sales Order test"
                     Caption = 'Print Confirmation';
                     Ellipsis = true;
                     Image = Print;
+                    ApplicationArea = All;
 
                     trigger OnAction()
                     begin

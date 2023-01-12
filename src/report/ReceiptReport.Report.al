@@ -1468,9 +1468,9 @@ report 50170 "Receipt Report"
                                 TableName, BankAcc.TableName));
 
                 if BankAccPostingGroup.Get(BankAcc."Bank Acc. Posting Group") then
-                    if BankAccPostingGroup."G/L Bank Account No." <> '' then
+                    if BankAccPostingGroup."G/L Account No." <> '' then
                         ReconcileGLAccNo(
-                          BankAccPostingGroup."G/L Bank Account No.",
+                          BankAccPostingGroup."G/L Account No.",
                           Round("Amount (LCY)" / (1 + "VAT %" / 100)));
             end;
         end;

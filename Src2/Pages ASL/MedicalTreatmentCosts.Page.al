@@ -11,39 +11,51 @@ page 50040 "Medical Treatment Costs"
             {
                 field("Date Filter"; "Date Filter")
                 {
+                    ApplicationArea = All;
                 }
                 field("Employee Filter"; "Employee Filter")
                 {
+                    ApplicationArea = All;
                 }
                 field("Beneficiary Filter"; "Beneficiary Filter")
                 {
+                    ApplicationArea = All;
                 }
                 field("Region Filter"; "Region Filter")
                 {
+                    ApplicationArea = All;
                 }
                 field("Global Dimension 1 Filter"; "Global Dimension 1 Filter")
                 {
+                    ApplicationArea = All;
                 }
                 field("Global Dimension 2 Filter"; "Global Dimension 2 Filter")
                 {
+                    ApplicationArea = All;
                 }
                 field("Transaction  Filter"; "Transaction  Filter")
                 {
+                    ApplicationArea = All;
                 }
                 field("Hospital Filter"; "Hospital Filter")
                 {
+                    ApplicationArea = All;
                 }
                 field("Clinic Cost"; "Clinic Cost")
                 {
+                    ApplicationArea = All;
                 }
                 field("Reimbursed Cost"; "Reimbursed Cost")
                 {
+                    ApplicationArea = All;
                 }
                 field("Hospital Cost"; "Hospital Cost")
                 {
+                    ApplicationArea = All;
                 }
                 field("Treatment Cost"; "Treatment Cost")
                 {
+                    ApplicationArea = All;
                 }
             }
             part("Hospital Treatments"; "Medical Record List")
@@ -56,6 +68,7 @@ page 50040 "Medical Treatment Costs"
                               "Transaction Type" = FIELD("Transaction  Filter"),
                               "Transaction Date" = FIELD("Date Filter"),
                               "Hospital Code" = FIELD("Hospital Filter");
+                ApplicationArea = All;
             }
         }
     }

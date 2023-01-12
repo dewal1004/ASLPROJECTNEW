@@ -2,32 +2,96 @@ pageextension 50229 pageextension50229 extends "Location List"
 {
     layout
     {
-        addafter("Code") 
+        addafter("Code")
         {
-            field(AslName; Name) {}
+            field(AslName; Name)
+            {
+                ApplicationArea = All;
+            }
         }
         addafter(ASLName)
         {
-            field("Name 2"; "Name 2") {Visible = false;}
-            field(Address; Address) {}
-            field("Address 2"; "Address 2") {}
-            field(City; City) {}
-            field("Phone No."; "Phone No.") {}
-            field("Phone No. 2"; "Phone No. 2") {}
-            field("Telex No."; "Telex No.") {}
-            field("Fax No."; "Fax No.") {}
-            field(Contact; Contact)  {}
-            field("Post Code"; "Post Code") {}
-            field(County; County)  {}
-            field("E-Mail"; "E-Mail") {}
-            field("Home Page"; "Home Page") {}
-            field("Country/Region Code"; "Country/Region Code") {}
-            field("Use As In-Transit"; "Use As In-Transit") {}
-            field("Require Put-away"; "Require Put-away") {}
-            field("Require Pick"; "Require Pick") {}
-            field("Cross-Dock Due Date Calc."; "Cross-Dock Due Date Calc.") {}
-            field("Use Cross-Docking"; "Use Cross-Docking") {}
-            field("Require Receive"; "Require Receive") {}
+            field("Name 2"; "Name 2")
+            {
+                Visible = false;
+                ApplicationArea = All;
+            }
+            field(Address; Address)
+            {
+                ApplicationArea = All;
+            }
+            field("Address 2"; "Address 2")
+            {
+                ApplicationArea = All;
+            }
+            field(City; City)
+            {
+                ApplicationArea = All;
+            }
+            field("Phone No."; "Phone No.")
+            {
+                ApplicationArea = All;
+            }
+            field("Phone No. 2"; "Phone No. 2")
+            {
+                ApplicationArea = All;
+            }
+            field("Telex No."; "Telex No.")
+            {
+                ApplicationArea = All;
+            }
+            field("Fax No."; "Fax No.")
+            {
+                ApplicationArea = All;
+            }
+            field(Contact; Contact)
+            {
+                ApplicationArea = All;
+            }
+            field("Post Code"; "Post Code")
+            {
+                ApplicationArea = All;
+            }
+            field(County; County)
+            {
+                ApplicationArea = All;
+            }
+            field("E-Mail"; "E-Mail")
+            {
+                ApplicationArea = All;
+            }
+            field("Home Page"; "Home Page")
+            {
+                ApplicationArea = All;
+            }
+            field("Country/Region Code"; "Country/Region Code")
+            {
+                ApplicationArea = All;
+            }
+            field("Use As In-Transit"; "Use As In-Transit")
+            {
+                ApplicationArea = All;
+            }
+            field("Require Put-away"; "Require Put-away")
+            {
+                ApplicationArea = All;
+            }
+            field("Require Pick"; "Require Pick")
+            {
+                ApplicationArea = All;
+            }
+            field("Cross-Dock Due Date Calc."; "Cross-Dock Due Date Calc.")
+            {
+                ApplicationArea = All;
+            }
+            field("Use Cross-Docking"; "Use Cross-Docking")
+            {
+                ApplicationArea = All;
+            }
+            field("Require Receive"; "Require Receive")
+            {
+                ApplicationArea = All;
+            }
 
 
             // field("Require Shipment"; "Require Shipment") {}
@@ -203,7 +267,7 @@ pageextension 50229 pageextension50229 extends "Location List"
 
 
 //Unsupported feature: Property Modification (Name) on "Name(Control 4)".
-        //Unsupported feature: Property Modification (SourceExpr) on "Name(Control 4)".
-        //Unsupported feature: Property Modification (ImplicitType) on "Name(Control 4)".
+//Unsupported feature: Property Modification (SourceExpr) on "Name(Control 4)".
+//Unsupported feature: Property Modification (ImplicitType) on "Name(Control 4)".
 
 

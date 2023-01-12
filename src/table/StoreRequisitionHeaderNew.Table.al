@@ -518,20 +518,6 @@ table 50031 "Store Requisition Header New"
         NoSeriesMgt: Codeunit NoSeriesManagement;
         UserRec: Record User;
         UserSetup: Record "User Setup";
-        //***approvalmessage: Codeunit Mail;
-        mailsent: Boolean;
-        ToName: Text[80];
-        CCName: Text[80];
-        Subject: Text[80];
-        Body: Text[100];
-        attachement: Text[260];
-        Opendialog: Boolean;
-        NEWMAIL: Codeunit "SMTP Mail";
-        smtprec: Record "SMTP Mail Setup";
-        SentFrom: Text[250];
-        UsersetupRec: Record "User Setup";
-        Text50002: Label 'cannot be specified without %1';
-        text50001: Label 'Store Requisition  ''%1''  requires your approval';
         InveSetup: Record "Inventory Setup";
         Custrec: Record Customer;
         StoreLine: Record "Store Requisition Line New";
@@ -544,8 +530,6 @@ table 50031 "Store Requisition Header New"
         PostItem: Codeunit "Item Jnl.-Post Line";
         ItemBatch: Record "Item Journal Batch";
         posttrans: Codeunit "TransferOrder-Post (Yes/No)";
-        JobBatch: Record "Job Journal Batch";
-        PostJob: Codeunit "Job Post-Line";
         selection: Integer;
         Text50007: Label '&Add to Purchase Requisition Register,&Create Purchase Order';
 
@@ -569,20 +553,12 @@ table 50031 "Store Requisition Header New"
     // //[Scope('OnPrem')]
     procedure CreatesalesInv()
     var
-        Salesheader: Record "Sales Header";
-        SalesLine: Record "Sales Line";
         LineNo: Integer;
         noseriesmgt: Codeunit NoSeriesManagement;
         DocNo: Code[20];
         SalesSetup: Record "Sales & Receivables Setup";
         SalesInv: Record "Sales Header";
         SalesInvline: Record "Sales Line";
-        CustRec: Record Customer;
-        TotalCust: Integer;
-        CheckSalesInv: Record "Sales Header";
-        CheckpostedSalesICmemo: Record "Sales Cr.Memo Header";
-        salesorder: Record "Sales Header";
-        salesorderline: Record "Sales Line";
         ReqLines: Record "Store Requisition Line New";
     begin
         TestField("Req. Type", 2);
@@ -843,22 +819,13 @@ table 50031 "Store Requisition Header New"
     // //[Scope('OnPrem')]
     procedure CreatePurchInv()
     var
-        Purchheader: Record "Purchase Header";
-        PurchLine: Record "Purchase Line";
         LineNo: Integer;
         noseriesmgt: Codeunit NoSeriesManagement;
         DocNo: Code[20];
         PurchSetup: Record "Purchases & Payables Setup";
         PurchInv: Record "Purchase Header";
         PurchInvline: Record "Purchase Line";
-        CustRec: Record Vendor;
-        TotalVend: Integer;
-        CheckPurchInv: Record "Purchase Header";
-        CheckpostedPurchCmemo: Record "Purch. Cr. Memo Hdr.";
-        Purchorder: Record "Purchase Header";
-        Purchorderline: Record "Purchase Line";
         ReqLines: Record "Store Requisition Line New";
-        ProOption: Option "Generate Purchase Invoice","Registered for Purchase";
     begin
         TestField("Req. Type", 6);
         ReqLines.SetRange(ReqLines."Req. No.", "Req. No");

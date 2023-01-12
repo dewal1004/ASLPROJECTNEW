@@ -17,7 +17,7 @@ tableextension 50306 tableextension50306 extends "Transfer Receipt Line"
                 */
 
             end;
-        }
+        }30
     }
 }
 

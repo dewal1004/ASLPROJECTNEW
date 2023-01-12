@@ -18,14 +18,17 @@ page 50029 "Appraisal Entry Subform."
                 field("Line No."; "Line No.")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field(Type; Type)
                 {
                     Visible = true;
+                    ApplicationArea = All;
                 }
                 field("No."; "No.")
                 {
                     Visible = false;
+                    ApplicationArea = All;
 
                     trigger OnValidate()
                     begin
@@ -36,17 +39,21 @@ page 50029 "Appraisal Entry Subform."
                 field("Document Type"; "Document Type")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field(Description; Description)
                 {
+                    ApplicationArea = All;
                 }
                 field(Grade; Grade)
                 {
+                    ApplicationArea = All;
                 }
                 field(Quantity; Quantity)
                 {
                     BlankZero = true;
                     Visible = false;
+                    ApplicationArea = All;
 
                     trigger OnValidate()
                     begin
@@ -55,14 +62,17 @@ page 50029 "Appraisal Entry Subform."
                 }
                 field(Comment; Comment)
                 {
+                    ApplicationArea = All;
                 }
                 field("Gen. Bus. Posting Group"; "Gen. Bus. Posting Group")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field("Gen. Prod. Posting Group"; "Gen. Prod. Posting Group")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
             }
         }
@@ -83,6 +93,7 @@ page 50029 "Appraisal Entry Subform."
                     {
                         Caption = 'Period';
                         Visible = true;
+                        ApplicationArea = All;
 
                         trigger OnAction()
                         begin
@@ -96,6 +107,7 @@ page 50029 "Appraisal Entry Subform."
                     {
                         Caption = 'Variant';
                         Visible = true;
+                        ApplicationArea = All;
 
                         trigger OnAction()
                         begin
@@ -109,6 +121,7 @@ page 50029 "Appraisal Entry Subform."
                     {
                         Caption = 'Location';
                         Visible = true;
+                        ApplicationArea = All;
 
                         trigger OnAction()
                         begin
@@ -124,6 +137,7 @@ page 50029 "Appraisal Entry Subform."
                     Caption = 'Reservation Entries';
                     Image = ReservationLedger;
                     Visible = true;
+                    ApplicationArea = All;
 
                     trigger OnAction()
                     begin
@@ -138,6 +152,7 @@ page 50029 "Appraisal Entry Subform."
                     Caption = 'Select Item Substitution';
                     Image = SelectItemSubstitution;
                     Visible = true;
+                    ApplicationArea = All;
 
                     trigger OnAction()
                     begin
@@ -152,6 +167,7 @@ page 50029 "Appraisal Entry Subform."
                     Caption = 'Dimensions';
                     Image = Dimensions;
                     ShortCutKey = 'Shift+Ctrl+D';
+                    ApplicationArea = All;
 
                     trigger OnAction()
                     begin
@@ -166,6 +182,7 @@ page 50029 "Appraisal Entry Subform."
                     Caption = 'Item Charge &Assignment';
                     Ellipsis = true;
                     Visible = true;
+                    ApplicationArea = All;
 
                     trigger OnAction()
                     begin
@@ -180,6 +197,7 @@ page 50029 "Appraisal Entry Subform."
                     Caption = 'Item &Tracking Lines';
                     Image = ItemTrackingLines;
                     Visible = true;
+                    ApplicationArea = All;
 
                     trigger OnAction()
                     begin
@@ -202,6 +220,7 @@ page 50029 "Appraisal Entry Subform."
                     Enabled = true;
                     Image = CalculateInvoiceDiscount;
                     Visible = true;
+                    ApplicationArea = All;
 
                     trigger OnAction()
                     begin
@@ -217,6 +236,7 @@ page 50029 "Appraisal Entry Subform."
                     Enabled = true;
                     Image = ExplodeBOM;
                     Visible = true;
+                    ApplicationArea = All;
 
                     trigger OnAction()
                     begin
@@ -230,6 +250,7 @@ page 50029 "Appraisal Entry Subform."
                 {
                     Caption = 'Insert &Ext. Texts';
                     Visible = true;
+                    ApplicationArea = All;
 
                     trigger OnAction()
                     begin
@@ -250,6 +271,7 @@ page 50029 "Appraisal Entry Subform."
                         Enabled = true;
                         Image = Document;
                         Visible = true;
+                        ApplicationArea = All;
 
                         trigger OnAction()
                         begin
@@ -270,6 +292,7 @@ page 50029 "Appraisal Entry Subform."
                         Caption = 'Purchase &Order';
                         Image = Document;
                         Visible = true;
+                        ApplicationArea = All;
 
                         trigger OnAction()
                         begin
@@ -286,6 +309,7 @@ page 50029 "Appraisal Entry Subform."
                     Ellipsis = true;
                     Enabled = true;
                     Visible = true;
+                    ApplicationArea = All;
 
                     trigger OnAction()
                     begin
@@ -300,6 +324,7 @@ page 50029 "Appraisal Entry Subform."
                     Caption = 'Order &Tracking';
                     Enabled = true;
                     Visible = true;
+                    ApplicationArea = All;
 
                     trigger OnAction()
                     begin

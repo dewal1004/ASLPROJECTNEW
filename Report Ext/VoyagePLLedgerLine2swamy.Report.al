@@ -653,6 +653,7 @@ report 50247 "Voyage P&L Ledger Line 2.swamy"
                 {
                     field("Flag Price Error"; Flag)
                     {
+                        ApplicationArea = All;
                     }
                 }
             }

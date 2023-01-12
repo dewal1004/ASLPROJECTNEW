@@ -406,37 +406,46 @@ report 50011 "Banks Balances"
                     field(Email; Email)
                     {
                         Caption = 'Email';
+                        ApplicationArea = All;
                     }
                     field("PrintTo Excel"; printtoexcel)
                     {
+                        ApplicationArea = All;
                     }
                     field(Send2Excel; Send2Excel)
                     {
                         Caption = 'Send2Excel';
+                        ApplicationArea = All;
                     }
                     field(FontSize; FontSize)
                     {
                         Caption = 'FontSize';
+                        ApplicationArea = All;
                     }
                     field(blnExportToExcel; blnExportToExcel)
                     {
                         Caption = 'ExportToExcel';
+                        ApplicationArea = All;
                     }
                     field("PageOrientation`"; PageOrientation)
                     {
                         Caption = 'PageOrientation';
+                        ApplicationArea = All;
                     }
                     field(Option; Option)
                     {
                         Caption = 'Option';
+                        ApplicationArea = All;
                     }
                     field(FileName; FileName)
                     {
                         Caption = 'Workbook File Name';
+                        ApplicationArea = All;
                     }
                     field(SheetName; SheetName)
                     {
                         Caption = 'Worksheet Name';
+                        ApplicationArea = All;
                     }
                 }
             }

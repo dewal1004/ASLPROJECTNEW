@@ -2,7 +2,7 @@ page 50188 "Item S/NO. view"
 {
     PageType = Card;
     SourceTable = Item;
-    SourceTableView = WHERE ("Gen. Prod. Posting Group" = CONST ('FIS'));
+    SourceTableView = WHERE("Gen. Prod. Posting Group" = CONST('FIS'));
 
     layout
     {
@@ -13,15 +13,19 @@ page 50188 "Item S/NO. view"
                 ShowCaption = false;
                 field("No."; "No.")
                 {
+                    ApplicationArea = All;
                 }
                 field(Description; Description)
                 {
+                    ApplicationArea = All;
                 }
                 field("Statistics Group"; "Statistics Group")
                 {
+                    ApplicationArea = All;
                 }
                 field("S/No."; "S/No.")
                 {
+                    ApplicationArea = All;
                 }
             }
         }

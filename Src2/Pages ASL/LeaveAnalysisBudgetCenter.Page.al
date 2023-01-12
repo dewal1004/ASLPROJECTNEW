@@ -16,6 +16,7 @@ page 60023 "Leave Analysis/Budget Center"
                 {
                     Caption = 'Leave Category Filter';
                     TableRelation = "Leave Categories NU*".Code;
+                    ApplicationArea = All;
 
                     trigger OnValidate()
                     begin
@@ -27,6 +28,7 @@ page 60023 "Leave Analysis/Budget Center"
                     Caption = 'View by';
                     OptionCaption = 'Day,Week,Month,Quarter,Year,Accounting Period';
                     ToolTip = 'Day';
+                    ApplicationArea = All;
 
                     trigger OnValidate()
                     begin
@@ -34,13 +36,14 @@ page 60023 "Leave Analysis/Budget Center"
                     end;
                 }
             }
-         //***   part(SubForm; 60024)
-          //***  {
-           //*** }
+            //***   part(SubForm; 60024)
+            //***  {
+            //*** }
             field(LeaveAmountType; LeaveAmountType)
             {
                 OptionCaption = 'Balance at Date,Net Change';
                 ToolTip = 'Net Change';
+                ApplicationArea = All;
 
                 trigger OnValidate()
                 begin

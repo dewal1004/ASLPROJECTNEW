@@ -312,6 +312,7 @@ report 50054 "ASL Create New payslips - New"
                     ShowCaption = false;
                     field("Period Code"; PayPeriodRec."Period Code")
                     {
+                        ApplicationArea = All;
                     }
                 }
             }

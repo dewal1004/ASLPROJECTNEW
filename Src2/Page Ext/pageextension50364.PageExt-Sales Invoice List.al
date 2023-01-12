@@ -30,6 +30,7 @@ pageextension 50364 pageextension50364 extends "Sales Invoice List"
                 //The property 'PromotedCategory' can only be set if the property 'Promoted' is set to 'true'
                 //PromotedCategory = "Report";
                 RunPageOnRec = true;
+                ApplicationArea = All;
 
                 trigger OnAction()
                 begin
@@ -46,6 +47,7 @@ pageextension 50364 pageextension50364 extends "Sales Invoice List"
                 PromotedCategory = Process;
                 PromotedIsBig = true;
                 RunObject = Page "Fishshop Daily sales";
+                ApplicationArea = All;
             }
         }
     }

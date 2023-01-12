@@ -13,9 +13,11 @@ page 50085 "Fishing Area"
                 ShowCaption = false;
                 field("No."; "No.")
                 {
+                    ApplicationArea = All;
                 }
                 field("Code"; Code)
                 {
+                    ApplicationArea = All;
                 }
             }
         }

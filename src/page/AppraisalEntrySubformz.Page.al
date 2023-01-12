@@ -18,10 +18,12 @@ page 90096 "Appraisal Entry Subform.-z"
                 field(Type; Type)
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field("No."; "No.")
                 {
                     Visible = false;
+                    ApplicationArea = All;
 
                     trigger OnValidate()
                     begin
@@ -32,17 +34,21 @@ page 90096 "Appraisal Entry Subform.-z"
                 field("Document Type"; "Document Type")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field(Description; Description)
                 {
+                    ApplicationArea = All;
                 }
                 field(Grade; Grade)
                 {
+                    ApplicationArea = All;
                 }
                 field(Quantity; Quantity)
                 {
                     BlankZero = true;
                     Visible = false;
+                    ApplicationArea = All;
 
                     trigger OnValidate()
                     begin
@@ -51,14 +57,17 @@ page 90096 "Appraisal Entry Subform.-z"
                 }
                 field(Comment; Comment)
                 {
+                    ApplicationArea = All;
                 }
                 field("Gen. Bus. Posting Group"; "Gen. Bus. Posting Group")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field("Gen. Prod. Posting Group"; "Gen. Prod. Posting Group")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
             }
         }

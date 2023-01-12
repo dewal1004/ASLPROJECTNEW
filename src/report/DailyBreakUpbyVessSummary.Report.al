@@ -5,7 +5,7 @@ report 50012 "Daily BreakUp by Vess Summary"
     DefaultLayout = RDLC;
     RDLCLayout = './ReportRdlc/DailyBreakUpbyVessSummary.rdlc';
     UsageCategory = ReportsAndAnalysis;
-    ApplicationArea = All,Basic,Suite;
+    ApplicationArea = All, Basic, Suite;
 
 
     dataset
@@ -2775,7 +2775,7 @@ report 50012 "Daily BreakUp by Vess Summary"
                                 VesselCounter += 1;
                             Countx := Countx + 1;
                         end;
-                   until locate.Next = 0;
+                    until locate.Next = 0;
 
                 if locate.VSDVal = 0 then
                     CurrReport.Skip;
@@ -2789,7 +2789,7 @@ report 50012 "Daily BreakUp by Vess Summary"
     }
 
     requestpage
-    {  
+    {
         SaveValues = true;
 
         layout
@@ -2798,12 +2798,15 @@ report 50012 "Daily BreakUp by Vess Summary"
             {
                 field("Arrange Column By"; ArrangeBy)
                 {
+                    ApplicationArea = All;
                 }
                 field("Report Mode"; ReportBy)
                 {
+                    ApplicationArea = All;
                 }
                 field("Show Category Total"; "Show Category total")
                 {
+                    ApplicationArea = All;
                 }
             }
         }

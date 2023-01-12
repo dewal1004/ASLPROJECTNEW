@@ -12,27 +12,34 @@ page 50044 "Medical record Card"
                 Caption = 'General';
                 field("Line No"; "Line No")
                 {
+                    ApplicationArea = All;
                 }
                 field("Employee No"; "Employee No")
                 {
+                    ApplicationArea = All;
                 }
                 field("employee.GetFullName(""Employee No"")"; employee.GetFullName("Employee No"))
                 {
+                    ApplicationArea = All;
                 }
                 field("Hospital Code"; "Hospital Code")
                 {
                     Editable = "Hospital CodeEditable";
+                    ApplicationArea = All;
                 }
                 field(VendName; VendName)
                 {
                     Editable = false;
+                    ApplicationArea = All;
                 }
                 field(Beneficiary; Beneficiary)
                 {
+                    ApplicationArea = All;
                 }
                 field("Transaction Type"; "Transaction Type")
                 {
                     Caption = 'Transaction Code';
+                    ApplicationArea = All;
 
                     trigger OnValidate()
                     begin
@@ -41,17 +48,21 @@ page 50044 "Medical record Card"
                 }
                 field("Transaction Description"; "Transaction Description")
                 {
+                    ApplicationArea = All;
                 }
                 field("Transaction Date"; "Transaction Date")
                 {
+                    ApplicationArea = All;
                 }
                 field("ASL Ref No"; "ASL Ref No")
                 {
                     Caption = 'ASL Ref No';
                     Editable = "ASL Ref NoEditable";
+                    ApplicationArea = All;
                 }
                 field(Amount; Amount)
                 {
+                    ApplicationArea = All;
                 }
             }
             group(Employee)
@@ -59,13 +70,16 @@ page 50044 "Medical record Card"
                 Caption = 'Employee';
                 field("Global Dimension 1 Code"; "Global Dimension 1 Code")
                 {
+                    ApplicationArea = All;
                 }
                 field("Global Dimension 2 Code"; "Global Dimension 2 Code")
                 {
+                    ApplicationArea = All;
                 }
                 field("Region Code"; "Region Code")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
             }
         }
@@ -81,6 +95,7 @@ page 50044 "Medical record Card"
                 Promoted = true;
                 PromotedCategory = Process;
                 RunObject = Page "Medical Treatment Costs";
+                ApplicationArea = All;
             }
         }
     }

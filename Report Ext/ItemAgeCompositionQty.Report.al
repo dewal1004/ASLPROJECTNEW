@@ -3,7 +3,7 @@ report 50216 "Item Age Composition Qty"
     DefaultLayout = RDLC;
     RDLCLayout = './ReportRdlc/ItemAgeCompositionQty.rdlc';
     UsageCategory = ReportsAndAnalysis;
-    ApplicationArea = All,Basic,Suite;
+    ApplicationArea = All, Basic, Suite;
 
     dataset
     {
@@ -204,9 +204,11 @@ report 50216 "Item Age Composition Qty"
                     ShowCaption = false;
                     field(EndDate; EndDate)
                     {
+                        ApplicationArea = All;
                     }
                     field(PeriodLength; PeriodLength)
                     {
+                        ApplicationArea = All;
                     }
                 }
             }

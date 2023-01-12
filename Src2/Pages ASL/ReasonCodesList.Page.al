@@ -13,13 +13,16 @@ page 50077 "Reason Codes List"
                 ShowCaption = false;
                 field("Code"; Code)
                 {
+                    ApplicationArea = All;
                 }
                 field(Description; Description)
                 {
+                    ApplicationArea = All;
                 }
                 field(Type; Type)
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
             }
         }

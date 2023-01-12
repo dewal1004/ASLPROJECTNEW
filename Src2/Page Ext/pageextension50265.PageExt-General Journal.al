@@ -54,18 +54,21 @@ pageextension 50265 pageextension50265 extends "General Journal"
         {
             field("Depreciation Book Code"; "Depreciation Book Code")
             {
+                ApplicationArea = All;
             }
         }
         addafter(Description)
         {
             field(Description1; Description1)
             {
+                ApplicationArea = All;
             }
         }
         addafter(Quantity)
         {
             field("Line No."; "Line No.")
             {
+                ApplicationArea = All;
             }
         }
         addafter("Direct Debit Mandate ID")
@@ -73,25 +76,31 @@ pageextension 50265 pageextension50265 extends "General Journal"
             field("FA Posting Type"; "FA Posting Type")
             {
                 Visible = true;
+                ApplicationArea = All;
             }
             field("FA Posting Date"; "FA Posting Date")
             {
                 Visible = true;
+                ApplicationArea = All;
             }
             field("Loan ID"; "Loan ID")
             {
                 Visible = true;
+                ApplicationArea = All;
             }
             field("Maintenance Code"; "Maintenance Code")
             {
                 Visible = true;
+                ApplicationArea = All;
             }
             field("Job No."; "Job No.")
             {
+                ApplicationArea = All;
             }
             field("Deposit ID"; "Deposit ID")
             {
                 Visible = true;
+                ApplicationArea = All;
             }
         }
         modify("Applies-to Doc. No.")

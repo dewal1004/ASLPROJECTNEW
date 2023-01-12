@@ -1,25 +1,27 @@
 pageextension 50251 pageextension50251 extends "Cash Receipt Journal"
 {
-layout
-{
-  modify("External Document No.")
-  {
-    Visible = True;
-  }
-  modify("Document Type")
-  {
-    Visible=true;
-  }
-  addafter(Amount)
-  {
-    field("Loan ID";"Loan ID")
-    {      
+    layout
+    {
+        modify("External Document No.")
+        {
+            Visible = True;
+        }
+        modify("Document Type")
+        {
+            Visible = true;
+        }
+        addafter(Amount)
+        {
+            field("Loan ID"; "Loan ID")
+            {
+                ApplicationArea = All;
+            }
+            field("FA Posting Type"; "FA Posting Type")
+            {
+                ApplicationArea = All;
+            }
+        }
     }
-    field("FA Posting Type";"FA Posting Type")
-    {      
-    }
-  }
-}
     //Unsupported feature: Code Modification on "OnAfterGetCurrRecord".
 
     //trigger OnAfterGetCurrRecord()

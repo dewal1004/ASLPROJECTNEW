@@ -76,9 +76,11 @@ report 50158 "Gen Employee Lost Day Monthly"
                 {
                     field("Pay Period"; PeriodTab."Period Code")
                     {
+                        ApplicationArea = All;
                     }
                     field("Update Monthly Variable"; UpMntVar)
                     {
+                        ApplicationArea = All;
                     }
                 }
             }

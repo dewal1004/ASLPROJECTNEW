@@ -12,9 +12,11 @@ page 50035 "Skill Appraisals list"
                 ShowCaption = false;
                 field("Skill code"; "Skill code")
                 {
+                    ApplicationArea = All;
                 }
                 field("Skill Description"; "Skill Description")
                 {
+                    ApplicationArea = All;
                 }
             }
         }

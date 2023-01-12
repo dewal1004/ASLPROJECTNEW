@@ -706,7 +706,7 @@ tableextension 50269 "tableextension50269" extends "Sales Header"
         DeferralHeader: Record "Deferral Header";
         DeferralUtilities: Codeunit "Deferral Utilities";
     begin
-        DeferralHeader.SetRange("Deferral Doc. Type", DeferralUtilities.GetSalesDeferralDocType);
+        // DeferralHeader.SetRange("Deferral Doc. Type", DeferralUtilities.GetSalesDeferralDocType);  //Revisit
         DeferralHeader.SetRange("Gen. Jnl. Template Name", '');
         DeferralHeader.SetRange("Gen. Jnl. Batch Name", '');
         DeferralHeader.SetRange("Document Type", "Document Type");

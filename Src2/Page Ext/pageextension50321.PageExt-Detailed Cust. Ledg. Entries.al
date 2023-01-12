@@ -15,6 +15,7 @@ pageextension 50321 pageextension50321 extends "Detailed Cust. Ledg. Entries"
         {
             field("Ledger Entry Amount"; "Ledger Entry Amount")
             {
+                ApplicationArea = All;
             }
         }
     }

@@ -6,6 +6,7 @@ pageextension 50329 pageextension50329 extends "Posted Transfer Shipment Lines"
         {
             field("Quantity Shipped"; "Quantity Shipped")
             {
+                ApplicationArea = All;
             }
         }
     }

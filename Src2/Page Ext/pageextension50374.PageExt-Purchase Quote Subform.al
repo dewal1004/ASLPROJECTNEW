@@ -6,6 +6,7 @@ pageextension 50374 pageextension50374 extends "Purchase Quote Subform"
         {
             field("Duty Rate%"; "Duty Rate%")
             {
+                ApplicationArea = All;
             }
         }
     }
@@ -22,10 +23,12 @@ pageextension 50374 pageextension50374 extends "Purchase Quote Subform"
             action("Calculate &Invoice Discount")
             {
                 Caption = 'Calculate &Invoice Discount';
+                ApplicationArea = All;
             }
             action("Copy Document")
             {
                 Caption = 'Copy Document';
+                ApplicationArea = All;
             }
         }
     }

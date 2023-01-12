@@ -12,12 +12,15 @@ page 50036 "Job Category List"
                 ShowCaption = false;
                 field("Code"; Code)
                 {
+                    ApplicationArea = All;
                 }
                 field(Description; Description)
                 {
+                    ApplicationArea = All;
                 }
                 field(Range; Range)
                 {
+                    ApplicationArea = All;
                 }
             }
         }

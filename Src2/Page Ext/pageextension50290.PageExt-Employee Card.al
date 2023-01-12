@@ -3,7 +3,7 @@ pageextension 50290 pageextension50290 extends "Employee Card"
     layout
     {
         modify("Emplymt. Contract Code")
-        {           
+        {
             LookupPageID = "Employment Contracts";
         }
         modify("Resource No.")
@@ -18,93 +18,115 @@ pageextension 50290 pageextension50290 extends "Employee Card"
         {
             field("Global Dimension 2 Code"; "Global Dimension 2 Code")
             {
+                ApplicationArea = All;
             }
         }
         addafter("Grounds for Term. Code")
         {
             field("Modified By"; "Modified By")
             {
+                ApplicationArea = All;
             }
             field(Blocked; Blocked)
             {
+                ApplicationArea = All;
             }
             field("Blocked Modified Date"; "Blocked Modified Date")
             {
+                ApplicationArea = All;
             }
             field("Blocked Modified By"; "Blocked Modified By")
             {
+                ApplicationArea = All;
             }
         }
         addafter("Statistics Group Code")
         {
             field("Balance (LCY)"; "Balance (LCY)")
             {
+                ApplicationArea = All;
             }
             field("Posting Group"; "Posting Group")
             {
+                ApplicationArea = All;
             }
-            field("Employee Group";"Employee Group")
-            {                
+            field("Employee Group"; "Employee Group")
+            {
+                ApplicationArea = All;
             }
         }
         addafter("Resource No.")
         {
             field("MP Status"; "MP Status")
             {
+                ApplicationArea = All;
             }
             field(Suspended; Suspended)
             {
+                ApplicationArea = All;
             }
             field("Suspension Modified By"; "Suspension Modified By")
             {
+                ApplicationArea = All;
             }
             field("Suspension Modified Date"; "Suspension Modified Date")
             {
+                ApplicationArea = All;
             }
-            field("Global Dimension 1 Code";"Global Dimension 1 Code")
+            field("Global Dimension 1 Code"; "Global Dimension 1 Code")
             {
                 Caption = 'Department Code';
+                ApplicationArea = All;
             }
         }
         addafter("Salespers./Purch. Code")
         {
             field(Grade; Grade)
             {
+                ApplicationArea = All;
             }
             field(Step; Step)
             {
+                ApplicationArea = All;
             }
             field("Bank Account"; "Bank Account")
             {
+                ApplicationArea = All;
             }
         }
         addafter("Union Code")
         {
-            field("Acct. type";"Acct. type")
-            {                
+            field("Acct. type"; "Acct. type")
+            {
+                ApplicationArea = All;
             }
             field("Acct. No"; "Acct. No")
-            {                
+            {
+                ApplicationArea = All;
             }
         }
         addafter("Union Membership No.")
         {
             field("Pension Scheme"; "Pension Scheme")
             {
+                ApplicationArea = All;
             }
             field(Married; Married)
             {
+                ApplicationArea = All;
             }
             field("National ID Number"; "National ID Number")
             {
+                ApplicationArea = All;
             }
             field("NSITF Number"; "NSITF Number")
             {
+                ApplicationArea = All;
             }
         }
         addafter("Employee Posting Group")
         {
-                      // field("Application Method"; "Application Method")
+            // field("Application Method"; "Application Method")
             // {
             //     ApplicationArea = BasicHR;
             //     ToolTip = 'Specifies how to apply payments to entries for this employee.';
@@ -119,6 +141,7 @@ pageextension 50290 pageextension50290 extends "Employee Card"
             {
                 Caption = 'Make Resource';
                 Image = "Action";
+                ApplicationArea = All;
 
                 trigger OnAction()
                 begin
@@ -231,30 +254,35 @@ pageextension 50290 pageextension50290 extends "Employee Card"
                 Caption = ' Monthly Payslip';
                 Image = "Report";
                 RunObject = Report "Monthly Payslip";
+                ApplicationArea = All;
             }
             action("Payroll Report - NSITF")
             {
                 Caption = 'Payroll Report - NSITF';
                 Image = "Report";
                 RunObject = Report "Payroll Report - NSITF";
+                ApplicationArea = All;
             }
             action("Employee-Bank Acct")
             {
                 Caption = 'Employee-Bank Acct';
                 Image = "Report";
                 RunObject = Report "Employee-Bank Acct";
+                ApplicationArea = All;
             }
             action("Outstanding Loans")
             {
                 Caption = 'Outstanding Loans';
                 Image = "Report";
                 RunObject = Report "OUTSTANDING LOANS";
+                ApplicationArea = All;
             }
             action("Payroll Report")
             {
                 Caption = 'Payroll Report';
                 Image = "Report";
                 RunObject = Report "Payroll Report";
+                ApplicationArea = All;
             }
         }
     }

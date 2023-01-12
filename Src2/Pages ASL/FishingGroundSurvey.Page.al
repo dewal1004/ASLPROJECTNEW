@@ -11,9 +11,11 @@ page 50079 "Fishing Ground Survey"
             {
                 field("Job Task No."; "Job Task No.")
                 {
+                    ApplicationArea = All;
                 }
                 field(Description; Description)
                 {
+                    ApplicationArea = All;
                 }
             }
         }
@@ -26,6 +28,7 @@ page 50079 "Fishing Ground Survey"
             action("Edit Fishing Ground")
             {
                 RunObject = Page "Job Task Lines";
+                ApplicationArea = All;
             }
         }
     }
