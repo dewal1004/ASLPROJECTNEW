@@ -2,14 +2,14 @@ tableextension 50304 "tableextension50304" extends "Transfer Shipment Line"
 {
     fields
     {
-        field(506; "Quantity Shipped"; Decimal)
+        field(50306; "Quantity Shipped"; Decimal)
         {
             Caption = 'Quantity Shipped';
             DecimalPlaces = 0 : 5;
         }
         field(50300; "Qty. Reqd."; Decimal)
         {
-            DecimalPlaces = 0 : 5; 
+            DecimalPlaces = 0 : 5;
         }
         field(50301; ROB; Decimal)
         {
