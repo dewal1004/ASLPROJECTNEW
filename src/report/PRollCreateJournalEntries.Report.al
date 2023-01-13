@@ -130,8 +130,6 @@ report 50061 "PRoll; Create Journal Entries"
                     if not Confirm('The period is closed, do you really want to create the Payroll Journal again', true) then
                         CurrReport.Break;
 
-
-
                 SetFilter(Amount, '<>0');
                 if Count = 0 then
                     Error('No Payroll Records satisfying this delimitations were found')
@@ -167,7 +165,6 @@ report 50061 "PRoll; Create Journal Entries"
 
     requestpage
     {
-
         layout
         {
             area(content)
@@ -307,7 +304,7 @@ report 50061 "PRoll; Create Journal Entries"
                 GLedgerLine."Loan ID" := LoanIDEX;
                 if GLedgerLine."Loan ID" <> '' then GLedgerLine."Applies-to Doc. No." := ApplytoLoan(GLedgerLine."Loan ID");
 
-                Insert;
+                if not Insert then if Confirm('Do You want to Over Write existing created G/L Lines') then Modify;//Insert;
                 ConsNum := ConsNum + "PC&CConstant";
             end;
             exit(ConsNum);

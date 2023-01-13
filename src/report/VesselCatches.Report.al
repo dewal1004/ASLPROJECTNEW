@@ -104,8 +104,8 @@ report 50085 "Vessel Catches"
                 column(Skipper; RESP)
                 {
                 }
-                column(KNOWING;KNOWINGLb1)
-                {                    
+                column(KNOWING; KNOWINGLb1)
+                {
                 }
 
                 dataitem("Job Journal Line"; "Job Journal Line")
@@ -423,15 +423,14 @@ report 50085 "Vessel Catches"
                         //IF NOT DimMgt.CheckJnlLineDimValuePosting(JnlLineDim,TableID,No) THEN
                         //AddError(DimMgt.GetDimValuePostingErr);
 
-                        IF Item.GET("No.") THEN
-                        BEGIN
-                          IF InvtPostgGro.GET(Item."Inventory Posting Group") THEN
-                            "Work Type Code Sort":=InvtPostgGro.Category;
+                        IF Item.GET("No.") THEN BEGIN
+                            IF InvtPostgGro.GET(Item."Inventory Posting Group") THEN
+                                "Work Type Code Sort" := InvtPostgGro.Category;
                         END
                         ELSE
-                          "Work Type Code Sort":='XX';
+                            "Work Type Code Sort" := 'XX';
                         MODIFY();
-                        
+
 
                         if Catch = 0 then Validate(Catch);
                         //MODIFY;
@@ -507,27 +506,37 @@ report 50085 "Vessel Catches"
 
         layout
         {
-            area(Content) 
+            area(Content)
             {
                 group(Options)
                 {
-                    field(Location;JobJnl."Location Code"){}
-                    field(Batch;JobJnl."Journal Batch Name"){}
-                    field(Template;JobJnl."Journal Template Name"){}
-
+                    // field(Location; JobJnl."Location Code")
+                    // {
+                    //     ApplicationArea = All;
+                    // }
+                    field(Batch; JobJnl."Journal Batch Name")
+                    {
+                        ApplicationArea = All;
+                        TableRelation = "Job Journal Batch";
+                    }
+                    field(Template; JobJnl."Journal Template Name")
+                    {
+                        ApplicationArea = All;
+                        TableRelation = "FA Journal Template";
+                    }
                 }
 
             }
         }
 
-       
+
         var
-          JobJnl: Record "Job Journal Line";
+            JobJnl: Record "Job Journal Line";
 
 
-        
 
-        
+
+
     }
 
     labels
