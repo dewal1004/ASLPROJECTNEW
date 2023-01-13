@@ -2,6 +2,10 @@ report 50051 "Monthly Payslip"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './ReportRdlc/MonthlyPayslip.rdlc';
+    ApplicationArea = Basic, Suite;
+    Caption = 'Monthly Payslip';
+    UsageCategory = ReportsAndAnalysis;
+    AdditionalSearchTerms = 'Payslip';
 
     dataset
     {
@@ -398,7 +402,6 @@ report 50051 "Monthly Payslip"
 
                 trigger OnAfterGetRecord()
                 begin
-
                     if not Payrec.Get("Payroll-Payslip Header."."Employee No") then   // Adam
                         CurrReport.Skip;
                     if Payrec.Blocked then CurrReport.Skip;                 //Added by Adam to skip Blocked Employees
@@ -448,14 +451,19 @@ report 50051 "Monthly Payslip"
 
     requestpage
     {
-
         layout
         {
         }
-
         actions
         {
         }
+
+        trigger OnOpenPage()
+        begin
+            Employee."No." := 'E00004';
+            "Payroll-Payslip Lines."."Payroll Period" := '2022-11';
+        end;
+
     }
 
     labels
@@ -468,9 +476,7 @@ report 50051 "Monthly Payslip"
         RecOfEDFile: Record "Payroll-E/D Codes.";
         PeriodRec: Record "Payroll-Periods.";
         PayEntryText: Text[35];
-        AmountToPrint: Text[15];
         UnderlineID: Text[1];
-        PaySlipText: Text[30];
         Payrec: Record Employee;
         EDTextTable: array[101, 2] of Text[35];
         GrossText: Text[35];
@@ -487,15 +493,12 @@ report 50051 "Monthly Payslip"
         TotalDPrinted: Boolean;
         BusinessUnit: Text[30];
         Department: Text[30];
-        Designation: Text[30];
         BUName: Text[60];
         BURec: Record "Business Unit";
         DeptName: Text[60];
         DeptRec: Record "Dimension Value";
-        PaySetup: Record "Staff Log";
         BuLocation: Text[30];
         LocRec: Record Location;
-        payslsetup: Record "ASL Payroll Setup";
         wrkday: Integer;
         latehr: Integer;
         EARNINGS___ALLOWANCESCaptionLbl: Label 'EARNINGS & ALLOWANCES';

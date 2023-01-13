@@ -165,7 +165,6 @@ report 50061 "PRoll; Create Journal Entries"
 
     requestpage
     {
-
         layout
         {
             area(content)

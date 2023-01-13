@@ -5,6 +5,7 @@ page 50022 "Payslip Header Survey."
     SourceTable = "Payroll-Payslip Header.";
     UsageCategory = Lists;
     ApplicationArea = All;
+    AdditionalSearchTerms = 'Payslip';
 
     layout
     {
