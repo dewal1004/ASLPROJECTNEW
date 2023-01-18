@@ -522,7 +522,7 @@ report 50085 "Vessel Catches"
                     field(Template; JobJnl."Journal Template Name")
                     {
                         ApplicationArea = All;
-                        TableRelation = "FA Journal Template";
+                        TableRelation = "Job Journal Template";
                     }
                 }
 
