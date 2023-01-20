@@ -514,15 +514,15 @@ report 50085 "Vessel Catches"
                     // {
                     //     ApplicationArea = All;
                     // }
-                    field(Batch; JobJnl."Journal Batch Name")
-                    {
-                        ApplicationArea = All;
-                        TableRelation = "Job Journal Batch";
-                    }
                     field(Template; JobJnl."Journal Template Name")
                     {
                         ApplicationArea = All;
                         TableRelation = "Job Journal Template";
+                    }
+                    field(Batch; JobJnl."Journal Batch Name")
+                    {
+                        ApplicationArea = All;
+                        TableRelation = "Job Journal Batch";
                     }
                 }
 
