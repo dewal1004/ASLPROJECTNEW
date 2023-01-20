@@ -1,741 +1,3 @@
-table 50006 "Payroll-Payslip Lines."
-{
-    // This code requires refactoring 
-    DrillDownPageID = "Payslip Lines.";
-
-    fields
-    {
-        field(1; "Payroll Period"; Code[10])
-        {
-            Editable = false;
-            TableRelation = "Payroll-Periods.";
-
-            trigger OnValidate()
-            begin
-                GetParam2();
-            end;
-        }
-        field(2; "Employee No"; Code[20])
-        {
-            Editable = false;
-            NotBlank = true;
-            TableRelation = Employee;
-
-            trigger OnValidate()
-            begin
-                GetParam2();
-            end;
-        }
-        field(3; "E/D Code"; Code[20])
-        {
-            NotBlank = true;
-            TableRelation = "Payroll-E/D Codes.";
-
-            trigger OnValidate()
-            begin
-                GetParam2();
-
-                /* If Period+Employee has already been closed then stop edit */
-                if CheckClosed then
-                    Error('Entries for Employee %1 for period %2 ' +
-                           'have already been closed.', "Employee No", "Payroll Period");
-
-                "E/DFileRec".Get("E/D Code");
-                "Payslip Text" := "E/DFileRec"."Payslip Text";
-
-                /* Transfer Units, Rate, Payslip Group ID. and Pos in Payslip Group */
-                begin
-                    "Payslip Group ID" := "E/DFileRec"."Payslip Group ID";
-                    "Pos. In Payslip Grp." := "E/DFileRec"."Pos. In Payslip Grp.";
-                    "Payslip appearance" := "E/DFileRec"."Payslip appearance";
-                    "Payslip Print Column" := "E/DFileRec"."Payslip Print Column";
-                    "Payslip Text" := "E/DFileRec"."Payslip Text";
-                    Units := "E/DFileRec".Units;
-                    Rate := "E/DFileRec".Rate;
-                    "Overline Column" := "E/DFileRec"."Overline Column";
-                    "Underline Amount" := "E/DFileRec"."Underline Amount";
-                    "Variable Unit" := "E/DFileRec"."Variable Unit";
-                    "Monthly Variable" := "E/DFileRec"."Monthly Variable";
-                end;
-
-                /* Calculate the amount if neither quantities nor yes flag are required*/
-                if (Units = '') and not ("E/DFileRec"."Yes/No Req.?") then begin
-
-                    Amount := CalcAmount("E/DFileRec", Rec, Amount, "E/D Code");
-                    if Rec.Amount <> xRec.Amount then begin
-                        /* Change the entries that are computed using this new amount */
-                        //***CalcCompute(Rec, Amount, true, "E/D Code");
-                        /*BDC*/
-
-                        /* If this new entry contributes to the value of another line
-                          then compute that other line's value and insert it appropriately*/
-                        //***  CalcFactor1(Rec);
-
-                        /* Go through all the lines and change where necessary */
-                        //*** ChangeAllOver(Rec, false);
-
-                        /* Reset the ChangeOthers flag in all lines */
-                        //***ResetChangeFlags(Rec);
-                    end
-                end;
-
-                /* Transfer from Booking Group Lines */
-                EmployeeRec.Get("Employee No");
-                if BookGrLinesRec.Get(EmployeeRec."Posting Group", "E/D Code") then begin
-                    begin
-                        "Debit Account" := BookGrLinesRec."Debit Account No.";
-                        "Credit Account" := BookGrLinesRec."Credit Account No.";
-                        "Debit Acc. Type" := BookGrLinesRec."Debit Acc. Type";
-                        "Credit Acc. Type" := BookGrLinesRec."Credit Acc. Type";
-                        /*BDC
-                            "Department Code" := BookGrLinesRec.Department;
-                            "Project Code" := BookGrLinesRec.Project;
-                        */
-                    end;
-                    /*BDC
-                      IF NOT BookGrLinesRec."Transfer Department" THEN
-                        "Department Code" := ''
-                      ELSE
-                      IF "Department Code" = '' THEN
-                          "Department Code" := EmployeeRec.Department;
-
-                      IF NOT BookGrLinesRec."Transfer Project" THEN
-                        "Project Code" := ''
-                      ELSE
-                      IF "Project Code" = '' THEN
-                        "Project Code" := EmployeeRec.Project;
-
-                      IF BookGrLinesRec."Debit Acc. Type" = 1 THEN
-                        IF "Debit Account" = '' THEN
-                          IF EmployeeRec."Customer Number" <> '' THEN
-                            "Debit Account" := EmployeeRec."Customer Number" ;
-
-                      IF BookGrLinesRec."Credit Acc. Type" = 1 THEN
-                        IF "Credit Account" = '' THEN
-                          IF EmployeeRec."Customer Number"  <> '' THEN
-                            "Credit Account" := EmployeeRec."Customer Number" ;
-                    */
-
-                    if BookGrLinesRec."Transfer Department" then
-                        "Global Dimension 1 Code" := EmployeeRec."Global Dimension 1 Code";
-                    if BookGrLinesRec."Transfer Business Units" then
-                        "Global Dimension 2 Code" := EmployeeRec."Global Dimension 2 Code";
-                end;
-
-            end;
-        }
-        field(4; Units; Text[10])
-        {
-            Editable = false;
-        }
-        field(5; Rate; Decimal)
-        {
-            DecimalPlaces = 0 : 5;
-
-            trigger OnValidate()
-            var
-
-            begin
-
-                GetParam2();
-
-                /* If Period+Employee has already been closed then stop edit */
-                if CheckClosed then
-                    Error('Entries for Employee %1 for period %2 ' +
-                           'have already been closed.', "Employee No", "Payroll Period");
-
-                if (Units = '') then
-                    /* User cannot edit the rate if the E/D code has no units*/
-                  Rec.Rate := xRec.Rate
-                else begin
-                    Amount := Quantity * Rate;
-
-                    /*Check for rounding, Maximum and minimum */
-                    "E/DFileRec".Get("E/D Code");
-                    Amount := ChkRoundMaxMin("E/DFileRec", Amount);
-
-                end
-
-            end;
-        }
-        field(6; Quantity; Decimal)
-        {
-            DecimalPlaces = 0 : 5;
-
-            trigger OnValidate()
-            begin
-                /* If Period+Employee has already been closed then stop edit */
-                if CheckClosed then
-                    Error('Entries for Employee %1 for period %2 ' +
-                           'have already been closed.', "Employee No", "Payroll Period");
-
-                if (Units = '') then
-                    /* User cannot enter quantity if the E/D code has no units*/
-                  Rec.Quantity := xRec.Quantity
-                else begin
-                    Amount := Quantity * Rate;
-
-                    /*Check for rounding, Maximum and minimum */
-                    "E/DFileRec".Get("E/D Code");
-                    //  Amount := ChkRoundMaxMin ("E/DFileRec", Amount);
-                    /////////////
-                    GetParam2();
-                    if ("Variable Unit" = "Variable Unit"::Hours) then
-                        Amount := Round((BasicPay * Rate * Quantity) / (HrsInDay * DaysInMonth));
-
-                    if ("Variable Unit" = "Variable Unit"::Days) then
-                        Amount := Round((BasicPay * Rate * Quantity) / DaysInMonth);
-
-                    /////////////
-
-                end
-
-            end;
-        }
-        field(7; Flag; Boolean)
-        {
-
-            trigger OnValidate()
-            begin
-                /* If Period+Employee has already been closed then stop edit */
-                if CheckClosed then
-                    Error('Entries for Employee %1 for period %2 ' +
-                           'have already been closed.', "Employee No", "Payroll Period");
-
-                "E/DFileRec".Get("E/D Code");
-                if not ("E/DFileRec"."Yes/No Req.?") then
-                    Flag := false
-                else
-                    Amount := CalcAmount("E/DFileRec", Rec, Amount, "E/D Code");
-
-            end;
-        }
-        field(8; Amount; Decimal)
-        {
-
-            trigger OnValidate()
-            begin
-                /* If Period+Employee has already been closed then stop edit */
-                if CheckClosed then
-                    Error('Entries for Employee %1 for period %2 ' +
-                           'have already been closed.', "Employee No", "Payroll Period");
-
-                if "E/D Code" <> '' then "E/DFileRec".Get("E/D Code");
-                if not ("E/DFileRec"."Edit Amount?") then
-                    Rec.Amount := xRec.Amount
-                else
-                    /*Check for rounding, Maximum and minimum */
-                  Amount := ChkRoundMaxMin("E/DFileRec", Amount);
-
-            end;
-        }
-        field(9; "Debit Account"; Code[20])
-        {
-            TableRelation = IF ("Debit Acc. Type" = CONST(Finance)) "G/L Account"
-            ELSE
-            IF ("Debit Acc. Type" = CONST(Customer)) Customer;
-
-            trigger OnValidate()
-            begin
-                if "Debit Account" <> '' then
-                    case "Debit Acc. Type" of
-                        0:
-                            FinanceAccRec.Get("Debit Account");
-                        1:
-                            CustomerAccRec.Get("Debit Account");
-                        2:
-                            SupplierAccRec.Get("Debit Account");
-                    end;
-            end;
-        }
-        field(10; "Credit Account"; Code[20])
-        {
-            TableRelation = IF ("Credit Acc. Type" = CONST(Finance)) "G/L Account"
-            ELSE
-            IF ("Credit Acc. Type" = CONST(Customer)) Customer;
-
-            trigger OnValidate()
-            begin
-                if "Credit Account" <> '' then
-                    case "Credit Acc. Type" of
-                        0:
-                            FinanceAccRec.Get("Credit Account");
-                        1:
-                            CustomerAccRec.Get("Credit Account");
-                        2:
-                            SupplierAccRec.Get("Credit Account");
-                    end;
-            end;
-        }
-        field(11; "Global Dimension 1 Code"; Code[10])
-        {
-            CaptionClass = '1,1,1';
-            TableRelation = "Dimension Value".Code WHERE("Global Dimension No." = CONST(1));
-        }
-        field(12; "Global Dimension 2 Code"; Code[10])
-        {
-            CaptionClass = '1,1,2';
-            TableRelation = "Dimension Value".Code WHERE("Global Dimension No." = CONST(2));
-        }
-        field(13; AmountToBook; Decimal)
-        {
-            DecimalPlaces = 0 : 5;
-            Editable = false;
-        }
-        field(14; "Payslip Group ID"; Option)
-        {
-            OptionMembers = " ","GROSS PAY","TAXABLE PAY","TAX CHARGED","TAX DEDUCTED","TOTAL DEDUCTIONS","NET PAY DUE";
-        }
-        field(15; "Pos. In Payslip Grp."; Integer)
-        {
-        }
-        field(16; "Payslip appearance"; Option)
-        {
-            OptionMembers = "Non-zero & Code","Always & Code","Always & Text","Non-zero & Text","Does not appear",Heading;
-        }
-        field(17; "Debit Acc. Type"; Option)
-        {
-            OptionMembers = Finance,Customer,Supplier;
-        }
-        field(18; "Credit Acc. Type"; Option)
-        {
-            OptionMembers = Finance,Customer,Supplier;
-        }
-        field(19; ChangeOthers; Boolean)
-        {
-            Editable = false;
-            InitValue = false;
-        }
-        field(20; HasBeenChanged; Boolean)
-        {
-            Editable = false;
-            InitValue = false;
-        }
-        field(21; ChangeCounter; Integer)
-        {
-            InitValue = 0;
-        }
-        field(22; "Payslip Column"; Option)
-        {
-            InitValue = "2";
-            OptionMembers = "1","2","3";
-        }
-        field(23; "S. Report appearance"; Option)
-        {
-            OptionMembers = "Non-zero & Code","Always & Code","Always & Text","Non-zero & Text","Does not appear",Heading;
-        }
-        field(24; "Overline Column"; Option)
-        {
-            InitValue = "None";
-            OptionMembers = "None","1","2","3","1-2","2-3","1-3";
-        }
-        field(25; "Underline Amount"; Option)
-        {
-            InitValue = "None";
-            OptionMembers = "None",Underline,"Double Underline";
-        }
-        field(26; "Loan ID"; Code[10])
-        {
-            TableRelation = "Monthly Variables Header.";
-        }
-        field(27; "Payslip Print Column"; Option)
-        {
-            OptionMembers = " ",Postive,Negative,"Total Earning","Total Deduction","Net Earning";
-        }
-        field(28; "Payslip Text"; Text[100])
-        {
-        }
-        field(29; "Variable Unit"; Option)
-        {
-            Editable = false;
-            OptionMembers = " ",Hours,Days;
-
-            trigger OnValidate()
-            begin
-                if not "Monthly Variable" then "Variable Unit" := 0;
-            end;
-        }
-        field(30; "Monthly Variable"; Boolean)
-        {
-            Description = 'Added for Overtime';
-            Editable = false;
-        }
-        field(50000; "Postg Group"; Code[10])
-        {
-            TableRelation = "Payroll-Posting Group Header.";
-        }
-    }
-
-    keys
-    {
-        key(Key1; "Payroll Period", "Employee No", "E/D Code")
-        {
-            Clustered = true;
-            SumIndexFields = Amount;
-        }
-        key(Key2; "Payroll Period", "Global Dimension 1 Code", "Global Dimension 2 Code", "Debit Acc. Type", "Debit Account", "Credit Acc. Type", "Credit Account", "Loan ID")
-        {
-        }
-        key(Key3; "Payroll Period", "Employee No", "Payslip Group ID", "Pos. In Payslip Grp.")
-        {
-        }
-        key(Key4; "E/D Code", "Employee No", "Payroll Period")
-        {
-        }
-        key(Key5; "Employee No", "Payroll Period")
-        {
-        }
-        key(Key6; "Payroll Period", "Employee No", "Global Dimension 1 Code", "Global Dimension 2 Code")
-        {
-        }
-        key(Key7; "Global Dimension 2 Code", "Global Dimension 1 Code")
-        {
-        }
-        key(Key8; "Payslip Print Column", "E/D Code")
-        {
-        }
-        key(Key9; "Debit Account", "Credit Account")
-        {
-            SumIndexFields = Amount;
-        }
-    }
-
-    fieldgroups
-    {
-    }
-
-    trigger OnDelete()
-    begin
-        //ProllHeader.GET( "Payroll Period", "Employee No");
-
-        if ProllHeader."Closed?" then
-            Error('Entries for Employee %1/ in Period %2/ are closed. ' +
-                  'Nothing can be deleted', "Employee No", "Payroll Period");
-
-        /*Go through all the lines and make any appropriate Changes */
-        ChangeOthers := false;
-        // ChangeDueToDelete(Rec); //Revisit
-
-        /* Set the 'Change' flags to false in all the lines */
-        // ResetChangeFlags(Rec); //Revisit
-
-    end;
-
-    trigger OnModify()
-    begin
-        /*””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””
-        ‚ This trigger is called if any of the fields in "KI03b P.Roll Entry" is     ‚
-        ‚ not equal to the corresponding field in "xKI03b P.Roll Entry"              ‚
-        ””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””*/
-
-        if (Rec.Amount <> xRec.Amount) or ("Loan ID" <> '') or (Rec."Payslip Column" <> 0) then begin
-            Mark(true);
-            /* If this new entry contributes in computing another, then compute that value
-              for that computed entry and insert it appropriately*/
-            //***   CalcCompute(Rec, Rec.Amount, false, "E/D Code");
-            /*BDC*/
-
-            /* If this new entry is a contributory factor for the value of another line,
-              then compute that other line's value and insert it appropriately */
-            //*** CalcFactor1(Rec);
-
-            /* The two functions above have used this line to change others */
-            ChangeOthers := false;
-
-            /* Go through all the lines and change where necessary */
-            //*** ChangeAllOver(Rec, false);
-
-            /* Reset the ChangeOthers flag in all lines */
-            /*    ResetChangeFlags (Rec);*/
-
-            /*BDC
-               MARK( FALSE);*/
-
-        end;
-
-    end;
-
-    local procedure CheckClosed(): Boolean
-    var
-        myInt: Integer;
-
-    begin
-        ProllHeader.GET("Payroll Period", "Employee No");
-        EXIT(ProllHeader."Closed?");
-    end;
-
-    // ****
-
-
-
-    var
-        "E/DFileRec": Record "Payroll-E/D Codes.";
-        ConstEDFileRec: Record "Payroll-E/D Codes.";
-        EDRec2: Record "Payroll-E/D Codes.";
-        ProllHeader: Record "Payroll-Payslip Header.";
-        ProllRecStore: Record "Payroll-Payslip Lines.";
-        ProllFactorRec: Record "Payroll-Payslip Lines.";
-        ProllEntryRec: Record "Payroll-Payslip Lines.";
-        ChangeOthersRec: Record "Payroll-Payslip Lines.";
-        LookHeaderRec: Record "Payroll-Lookup Header.";
-        LookLinesRec: Record "Payroll-Lookup Lines.";
-        BackOneRec: Integer;
-        ReturnAmount: Decimal;
-        PrevLookRec: Record "Payroll-Lookup Lines.";
-        InputAmount: Decimal;
-        ComputedTotal: Decimal;
-        AmountToAdd: Decimal;
-        FactorRecAmount: Decimal;
-        AmtToAdd: Decimal;
-        EmployeeRec: Record Employee;
-        BookGrLinesRec: Record "Payroll-Posting Group Line.";
-        RoundPrec: Decimal;
-        RoundDir: Text[1];
-        IsComputed: Boolean;
-        FinanceAccRec: Record "G/L Account";
-        CustomerAccRec: Record Customer;
-        SupplierAccRec: Record Vendor;
-        MaxChangeCount: Integer;
-        PayLines2: Record "Payroll-Payslip Lines.";
-        CurYear: Integer;
-        PeriodRec: Record "Payroll-Periods.";
-        PerStart: Date;
-        Per1: Code[10];
-        YearStart: Date;
-        T1: Decimal;
-        T2: Decimal;
-        PaySetup: Record "ASL Payroll Setup";
-        HrsInDay: Integer;
-        DaysInMonth: Integer;
-        BasicPay: Decimal;
-        TaxableED: Code[10];
-        TaxfreeED: Code[10];
-        TaxFreeYTD: Decimal;
-        TaxableYTD: Decimal;
-        TaxYTD: Decimal;
-        AmountToTax: Decimal;
-        TaxED: Code[10];
-        NewTax: Decimal;
-        MonthlyDays: Integer;
-        VarRec: Record "Monthly Variables Lines.";
-        GenPCode: Codeunit "General Purpose Codeunit";
-        CurrTaxable: Decimal;
-        NewEmpRec: Record Employee;
-        LookupRec: Record "Payroll-Lookup Header.";
-
-    local procedure GetParam2()
-    var
-        myInt: Integer;
-    begin
-        PaySetup.Reset;
-        PaySetup.Find('-');
-        DaysInMonth := PaySetup."Monthly Working Days";
-        HrsInDay := PaySetup."Daily Working Hours";
-
-        if ("Employee No" <> '') then BasicPay := EmployeeRec.GetBasic("Employee No");
-    end;
-
-    //[Scope('OnPrem')]
-    procedure ChkRoundMaxMin(EDRecord: Record "Payroll-E/D Codes."; TheAmount: Decimal): Decimal
-    begin
-        /*”””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””
-        ‚ Round an amount and check for Max and Min. Return the amended amount.     ‚
-        ‚ Parameters :                                                              ‚
-        ‚   EDRecord : The ED file record to use to check Round, Max. and Min       ‚
-        ‚   TheAmount: The amounht to Round, and check for Max. and Min             ‚
-        ”””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””*/
-
-        /* Adjust amount as per maximum/minimum set in the E/D file. */
-        if (EDRecord."Max. Amount" <> 0) and
-           (TheAmount > EDRecord."Max. Amount") then
-            TheAmount := EDRecord."Max. Amount"
-        else
-            if TheAmount < EDRecord."Min. Amount" then
-                TheAmount := EDRecord."Min. Amount";
-
-        /* Check for rounding */
-        if EDRecord."Rounding Precision" = 0 then
-            RoundPrec := 0.01
-        else
-            RoundPrec := EDRecord."Rounding Precision";
-        case EDRecord."Rounding Direction" of
-            1:
-                RoundDir := '>';
-            2:
-                RoundDir := '<';
-            else
-                RoundDir := '=';
-        end;
-        TheAmount := Round(TheAmount, RoundPrec, RoundDir);
-
-        exit(TheAmount);
-
-    end;
-
-
-
-
-
-    //[Scope('OnPrem')]
-    procedure SpecialRelation("FieldNo.": Integer)
-    var
-        Checkclosed1: Boolean;
-
-    begin
-        /*””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””
-        ‚ Special Relations code for the field, E/D Code                             ‚
-        ””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””*/
-
-        /* Force NO-EDIT of field already has a value or if Employee payroll details
-          for the period are already closed*/
-        if "E/D Code" <> '' then
-            exit;
-
-        /* If Period+Employee has already been closed then stop edit */
-        if Checkclosed1 then  //from fn call  
-            Error('Entries for Employee %1 for period %2 ' +
-                   'have already been closed.', "Employee No", "Payroll Period");
-
-    end;
-
-    //[Scope('OnPrem')]
-    procedure CalcAmount(EDFileRec: Record "Payroll-E/D Codes."; EntryLineRec: Record "Payroll-Payslip Lines."; EntryLineAmount: Decimal; EDCode: Code[20]): Decimal
-    begin
-        /*””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””
-        ‚ Calculate the amount based on Factor Of and Percentage fields in the file  ‚
-        ‚ E/D file, alternatively calculate if the current line is computed by others‚
-        ‚  Parameters:                                                               ‚
-        ‚    EDFileRec    : EDFile Record for the E/D Code of the current entry line ‚
-        ‚    EntryLineRec : The current entry line record                            ‚
-        ‚    EntryLineAmount: The amount in the current entry line. Note this        ‚
-        ‚    parameter is important if this trigger is called from the SAVE trigger  ‚
-        ””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””*/
-
-        /* If NO is in the flag field return amount to 0*/
-        if (EDFileRec."Yes/No Req.?") and not (EntryLineRec.Flag) then
-            exit(0);
-
-        /* If Factor Of is Nil then do not change then check if amount is computed by
-          others*/
-        // if EDFileRec."Factor Of" = '' then
-        //     if not AmountIsComputed(ReturnAmount, EntryLineRec, EDFileRec,
-        //                              EntryLineAmount, EDCode) then
-        //         /*BDC*/
-        //     exit(EntryLineRec.Amount)
-        //     else begin
-        //         /*Check for rounding, Maximum and minimum */
-        //         ReturnAmount := ChkRoundMaxMin(EDFileRec, ReturnAmount);
-        //         exit(ReturnAmount);
-        //     end;
-        /* Get the record from the current file based on Factor Of */
-        if not ProllFactorRec.Get(EntryLineRec."Payroll Period",
-                         EntryLineRec."Employee No", EDFileRec."Factor Of") then
-            exit(EntryLineRec.Amount)
-        else
-            /* If this 'Factor of' entry record is marked then this trigger was called
-              from this 'Fator of' record, therefore ensure the amount to be used is
-              the updated amount*/
-            /*BDC
-            IF  ProllFactorRec.MARK THEN
-            */
-            if ProllFactorRec."E/D Code" = EDCode then
-                ProllFactorRec.Amount := EntryLineAmount;
-
-        /* Calculate the amount based on values in Table Look Up or Percentage fields
-          of E/D file */
-        if EDFileRec."Table Look Up" = '' then
-            ReturnAmount := (ProllFactorRec.Amount * EDFileRec.Percentage) / 100
-        else /* Extract relevant amount from Table Look Up */
-
-            if not LookHeaderRec.Get(EDFileRec."Table Look Up") then begin
-                Message('Table Lookup Not Registered Yet');
-                exit(EntryLineRec.Amount)
-            end
-            else begin /* Table lookup exists*/
-
-                /* Filter Lookupline records to those of current Table Id Only*/
-                LookLinesRec.TableId := EDFileRec."Table Look Up";
-                LookLinesRec.SetRange(TableId, EDFileRec."Table Look Up");
-
-                /* Depending on whether input parameter is code or numeric, set dbSETRANGE
-                  appropraitely and initialise the record to use as a parameter to
-                  dbFINDREC */
-                /*    CASE LookHeaderRec.Type OF
-                    0:
-                      BEGIN
-                        { Lookup table is searched with numeric variables }
-                        IF ProllFactorRec.Amount > -1 THEN
-                          BEGIN
-                            LookLinesRec."Lower Code" := '';
-                            InputAmount := ProllFactorRec.Amount * LookHeaderRec."Input Factor";
-                            LookLinesRec."Lower Amount" := InputAmount;
-                            LookLinesRec.SETRANGE("Lower Code",'');
-                          END
-                        ELSE
-                          EXIT (LookHeaderRec."Min. Extract Amount")
-                      END;
-                    2:
-                      BEGIN
-                        { Lookup table is searched with numeric variables }
-                        IF ProllFactorRec.Amount > -1 THEN
-                          BEGIN
-                            LookLinesRec."Lower Code" := '';
-                            InputAmount := PreTaxCalc * LookHeaderRec."Input Factor"  ;//ProllFactorRec.Amount * LookHeaderRec."Input Factor";
-                            LookLinesRec."Lower Amount" := PreTaxCalc;     //Pre calculate Tax YTD Values
-                            LookLinesRec.SETRANGE("Lower Code",'');
-                          END
-                        ELSE
-                          EXIT (LookHeaderRec."Min. Extract Amount")
-                      END;
-                    ELSE  {Lookup table is searched with variables of type code}
-                      BEGIN
-                        LookLinesRec."Lower Amount" := 0;
-                        LookLinesRec."Lower Code" := EDFileRec."E/D Code";
-                        LookLinesRec.SETRANGE("Upper Amount",0);
-                        LookLinesRec.SETRANGE("Lower Amount",0);
-                      END
-
-                    END; { Case}
-
-                    CASE LookHeaderRec.Type OF
-                    0,1: BEGIN
-                       { Extract amount as follows; First find line where Lower Amount or
-                         lower code is just greater than the Factor Amount then move one
-                         line back.}
-
-                      IF  LookLinesRec.FIND( '=') THEN
-                        ReturnAmount := LookLinesRec."Extract Amount"
-                      ELSE
-                      IF  LookLinesRec.FIND( '>') THEN BEGIN
-                        BackOneRec :=  LookLinesRec.NEXT( -1);
-                        ReturnAmount := LookLinesRec."Extract Amount";
-                      END
-                      ELSE
-                        IF LookHeaderRec.Type = 0 THEN BEGIN
-                        {'Factor' Amount is > than the table's greatest "Lower amount"}
-                          IF  LookLinesRec.FIND( '+') THEN
-                            ReturnAmount := LookLinesRec."Extract Amount";
-                        END
-                        ELSE
-                          EXIT (EntryLineRec.Amount);
-                      END;
-
-                    2: {  Extract amount from tax table}
-                      BEGIN
-                //****Cummulative Tax Calculation****/
-                // ReturnAmount := (CalcTaxAmt(LookLinesRec, PreTaxCalc)) * LookHeaderRec."Output Factor";
-                ReturnAmount := ReturnAmount - TaxYTD;
-
-                //        ReturnAmount := (CalcTaxAmt (LookLinesRec, InputAmount)) *  // Changed to 2 lines
-                //                                     LookHeaderRec."Output Factor"; // above
-                //MESSAGE('TaxYTD: ' + FORMAT(TaxYTD) + '  ReturnAmount: ' +FORMAT(ReturnAmount));
-
-            END;
-    END;
-}
-//***Case
-
-
 //MESSAGE('TaxYTD: ' + FORMAT(TaxYTD) + '  ReturnAmount_before : ' +FORMAT(ReturnAmount));
 
 // { Adjust the amount as per the maximum/minimum in the LookupHeader}
@@ -849,7 +111,7 @@ table 50006 "Payroll-Payslip Lines."
 
 // end;
 
-// //[Scope('OnPrem')]
+// ////[Scope('OnPrem')]
 // local var 
 // procedure CheckClosed(): Boolean
 // begin
@@ -861,7 +123,7 @@ table 50006 "Payroll-Payslip Lines."
 
 // end;
 
-// //[Scope('OnPrem')]
+// ////[Scope('OnPrem')]
 // procedure CalcTaxAmt(var LDetailsRec: Record "Payroll-Lookup Lines.";TaxTableInput: Decimal): Decimal
 // begin
 //     /*””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””
@@ -921,7 +183,7 @@ table 50006 "Payroll-Payslip Lines."
 
 //     end;
 
-//     //[Scope('OnPrem')]
+//     ////[Scope('OnPrem')]
 //     procedure CalcGraduated(var WantedLookRec: Record "Payroll-Lookup Lines.";InputToTable: Decimal): Decimal
 //     begin
 //         /*”””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””
@@ -960,7 +222,7 @@ table 50006 "Payroll-Payslip Lines."
 
 //     end;
 
-//     //[Scope('OnPrem')]
+//     ////[Scope('OnPrem')]
 //     procedure CalcCompute(EntryRecParam: Record "Payroll-Payslip Lines.";AmountInLine: Decimal;"CalledFromEdCode?": Boolean;EDCode: Code[20])
 //     begin
 //         /*”””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””
@@ -1067,7 +329,7 @@ table 50006 "Payroll-Payslip Lines."
 
 //     end;
 
-//     //[Scope('OnPrem')]
+//     ////[Scope('OnPrem')]
 //     procedure CalcFactor1(CurrentEntryLine: Record "Payroll-Payslip Lines.")
 //     begin
 //         /*””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””
@@ -1111,7 +373,7 @@ table 50006 "Payroll-Payslip Lines."
 
 //     end;
 
-//     //[Scope('OnPrem')]
+//     ////[Scope('OnPrem')]
 //     procedure "CalcFactor1.1"(CurrLineRec: Record "Payroll-Payslip Lines.";LineToChangeRec: Record "Payroll-Payslip Lines.";EDFileRec: Record "Payroll-E/D Codes."): Decimal
 //     begin
 //         /*””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””
@@ -1235,7 +497,7 @@ table 50006 "Payroll-Payslip Lines."
 
 //     end;
 
-//     //[Scope('OnPrem')]
+//     ////[Scope('OnPrem')]
 //     procedure ChangeAllOver(CurrentRec: Record "Payroll-Payslip Lines.";CurrWasDeleted: Boolean)
 //     begin
 //         /*”””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””
@@ -1289,7 +551,7 @@ table 50006 "Payroll-Payslip Lines."
 
 //     end;
 
-//     //[Scope('OnPrem')]
+//     ////[Scope('OnPrem')]
 //     procedure ComputeAgain(ParamLine: Record "Payroll-Payslip Lines.";CurrentRec: Record "Payroll-Payslip Lines.";CurrWasDeleted: Boolean)
 //     begin
 //         /*”””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””
@@ -1400,7 +662,7 @@ table 50006 "Payroll-Payslip Lines."
 
 //     end;
 
-//     //[Scope('OnPrem')]
+//     ////[Scope('OnPrem')]
 //     procedure CalcFactorAgain(ParamLine: Record "Payroll-Payslip Lines.";CurrentRec: Record "Payroll-Payslip Lines.";CurrWasDeleted: Boolean)
 //     begin
 //         /*””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””
@@ -1456,7 +718,7 @@ table 50006 "Payroll-Payslip Lines."
 
 //     end;
 
-//     //[Scope('OnPrem')]
+//     ////[Scope('OnPrem')]
 //     procedure ResetChangeFlags(CurrentRec: Record "Payroll-Payslip Lines.")
 //     begin
 //         /*””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””
@@ -1488,7 +750,7 @@ table 50006 "Payroll-Payslip Lines."
 
 //     end;
 
-//     //[Scope('OnPrem')]
+//     ////[Scope('OnPrem')]
 //     procedure AmountIsComputed(var ReturnAmount: Decimal;EntryLineRec: Record "Payroll-Payslip Lines.";EDFileRec: Record "Payroll-E/D Codes.";NewAmount: Decimal;EDCode: Code[20]): Boolean
 //     begin
 //         /*”””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””
@@ -1545,7 +807,7 @@ table 50006 "Payroll-Payslip Lines."
 
 //     end;
 
-//     //[Scope('OnPrem')]
+//     ////[Scope('OnPrem')]
 //     procedure ChangeDueToDelete(DeletedRec: Record "Payroll-Payslip Lines.")
 //     begin
 //         /*”””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””
@@ -1576,7 +838,7 @@ table 50006 "Payroll-Payslip Lines."
 
 //     
 
-//     [Scope('Onprem')]
+//     //[Scope('OnPrem')]
 //     procedure EDAmountToDate(EmpNo: Code[10];CurPeriod: Code[10];EDCode: Code[10]): Decimal
 //     var
 //         AmountBack: Decimal;
@@ -1606,7 +868,7 @@ table 50006 "Payroll-Payslip Lines."
 //         exit(AmountBack);
 //     end;
 
-//     //[Scope('OnPrem')]
+//     ////[Scope('OnPrem')]
 //     local procedure GetParam2()
 //     begin
 //         PaySetup.Reset;
@@ -1617,7 +879,7 @@ table 50006 "Payroll-Payslip Lines."
 //         if ("Employee No" <>'') then BasicPay := EmployeeRec.GetBasic("Employee No");
 //     end;
 
-//     [Scope('Onprem')]
+//     //[Scope('OnPrem')]
 //     procedure PreTaxCalc(): Decimal
 //     var
 //         Ret1: Decimal;
@@ -1666,4 +928,3 @@ table 50006 "Payroll-Payslip Lines."
 //         /////////** End  Cummulative Tax Calculation **/////////
 //     end;
 // }
-
