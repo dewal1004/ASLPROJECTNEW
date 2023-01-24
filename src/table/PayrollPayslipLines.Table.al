@@ -65,7 +65,6 @@ table 50006 "Payroll-Payslip Lines."
                     if Rec.Amount <> xRec.Amount then begin
                         /* Change the entries that are computed using this new amount */
                         CalcCompute(Rec, Amount, true, "E/D Code");
-                        /*BDC*/
 
                         /* If this new entry contributes to the value of another line
                           then compute that other line's value and insert it appropriately*/

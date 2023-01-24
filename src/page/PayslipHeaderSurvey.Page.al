@@ -3,6 +3,7 @@ page 50022 "Payslip Header Survey."
     CardPageID = "Payslip Header Card.";
     PageType = List;
     SourceTable = "Payroll-Payslip Header.";
+    SourceTableView = sorting("Payroll Period") order(descending);
     UsageCategory = Lists;
     ApplicationArea = All;
     AdditionalSearchTerms = 'Payslip';
@@ -16,6 +17,7 @@ page 50022 "Payslip Header Survey."
                 ShowCaption = false;
                 field("Payroll Period"; "Payroll Period")
                 {
+
                 }
                 field("Period Name"; "Period Name")
                 {
