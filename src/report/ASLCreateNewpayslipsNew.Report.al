@@ -13,7 +13,7 @@ report 50054 "ASL Create New payslips - New"
     {
         dataitem(Employee; Employee)
         {
-            DataItemTableView = SORTING("No.") WHERE(Blocked = CONST(false), Suspended = CONST(false));
+            DataItemTableView = SORTING("No.") WHERE(Blocked = CONST(false), Suspended = CONST(false), "No." = const('E00004'));
             RequestFilterFields = "No.", "Posting Group", "Global Dimension 1 Code", "Global Dimension 2 Code";
 
             trigger OnAfterGetRecord()
@@ -138,10 +138,8 @@ report 50054 "ASL Create New payslips - New"
                             PayslipLines.Flag := EmpGrpLines.Flag;
                             PayslipLines.Amount := EmpGrpLines."Default Amount";
                             PayslipLines."Postg Group" := PG;
-                            case PayslipLines."E/D Code" of
-                                '4000', '5800', '6400':
-                                    message('%1: %2', PayslipLines."E/D Code", PayslipLines.Amount)  //Show current value
-                            end;
+                            ShowPayslipLnValue(PayslipLines, 1);
+
                         end;   /* Rate,Units,Amount,... */
 
                         if BookGrLinesRec.Get("Posting Group", PayslipLines."E/D Code")
@@ -269,6 +267,7 @@ report 50054 "ASL Create New payslips - New"
 
                                 PayslipLines.Insert(true);
                                 PayslipLines."Loan ID" := LoanRec."Loan ID";
+                                ShowPayslipLnValue(PayslipLines, 2);
                                 PayslipLines.Modify(true);
                                 Commit;
                             end; /*END FOR CHECK ON REMAINING AMOUNT=0*/
@@ -307,7 +306,6 @@ report 50054 "ASL Create New payslips - New"
 
     requestpage
     {
-
         layout
         {
             area(content)
@@ -325,6 +323,10 @@ report 50054 "ASL Create New payslips - New"
         actions
         {
         }
+        trigger OnOpenPage()
+        begin
+            PayrollPeriod.Get('2022-11');
+        end;
     }
 
     labels
@@ -422,6 +424,7 @@ report 50054 "ASL Create New payslips - New"
                 PayslipLines."Debit Account" := BookGrLinesRec."Debit Account No.";
                 PayslipLines."Credit Account" := BookGrLinesRec."Credit Account No.";
             end;
+            ShowPayslipLnValue(PayslipLines, 3);
             PayslipLines.Modify;
         end
         else begin
@@ -491,9 +494,14 @@ report 50054 "ASL Create New payslips - New"
         else
             if (DisengDate > PayrollPeriod."Start Date") and (DisengDate < PayrollPeriod."End Date") then
                 PayDays := GenPCode.GetNoOfDays(PayrollPeriod."Start Date", DisengDate);
+    end;
 
-        //MESSAGE(FORMAT(PayDays));
-        //error(FORMAT(PayDays));
+    procedure ShowPayslipLnValue(PaySlipLn: Record "Payroll-Payslip Lines."; Modifycount: integer)
+    begin
+        case PayslipLn."E/D Code" of
+            '4000', '5800', '6400':
+                message('%1: %2 Modify %3', PayslipLn."E/D Code", PayslipLn.Amount, Modifycount)  //Show current value
+        end;
     end;
 
     [Scope('OnPrem')]
@@ -573,6 +581,7 @@ report 50054 "ASL Create New payslips - New"
         PayslipLines.Insert(true);
         PayslipLines.Validate(PayslipLines."E/D Code");
         PayslipLines."Payslip Column" := 3;
+        ShowPayslipLnValue(PayslipLines, 4);
         PayslipLines.Modify(true);
         Commit;
         /*END;*/ /*END FOR CHECK ON REMAINING AMOUNT=0*/
