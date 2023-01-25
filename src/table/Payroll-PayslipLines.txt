@@ -104,28 +104,26 @@ OBJECT Table 50006 Payroll-Payslip Lines.
         { Calculate the amount if neither quantities nor yes flag are required}
         IF (Units = '') AND NOT ("E/DFileRec"."Yes/No Req.?") THEN
         BEGIN
-
-                                                                  Amount := CalcAmount ("E/DFileRec", Rec, Amount, "E/D Code");
-                                                                  IF Rec.Amount <> xRec.Amount THEN
-                                                                  BEGIN
-                                                                    { Change the entries that are computed using this new amount }
-                                                                    CalcCompute (Rec, Amount, TRUE, "E/D Code");
+             Amount := CalcAmount ("E/DFileRec", Rec, Amount, "E/D Code");
+             IF Rec.Amount <> xRec.Amount THEN
+             BEGIN
+               { Change the entries that are computed using this new amount }
+               CalcCompute (Rec, Amount, TRUE, "E/D Code");
         {BDC}
+               { If this new entry contributes to the value of another line
+                 then compute that other line's value and insert it appropriately}
+               CalcFactor1 (Rec);
 
-                                                                    { If this new entry contributes to the value of another line
-                                                                      then compute that other line's value and insert it appropriately}
-                                                                    CalcFactor1 (Rec);
+               { Go through all the lines and change where necessary }
+               ChangeAllOver (Rec, FALSE);
 
-                                                                    { Go through all the lines and change where necessary }
-                                                                    ChangeAllOver (Rec, FALSE);
-
-                                                                    { Reset the ChangeOthers flag in all lines }
-                                                                    ResetChangeFlags (Rec);
-                                                                  END
+               { Reset the ChangeOthers flag in all lines }
+               ResetChangeFlags (Rec);
+             END
         END;
 
         { Transfer from Booking Group Lines }
-                                                                 EmployeeRec.GET("Employee No");
+        EmployeeRec.GET("Employee No");
         IF  BookGrLinesRec.GET( EmployeeRec."Posting Group","E/D Code") THEN
         BEGIN
                                                                   BEGIN

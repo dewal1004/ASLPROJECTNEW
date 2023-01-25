@@ -451,6 +451,7 @@ report 50051 "Monthly Payslip"
 
     requestpage
     {
+        SaveValues = true;
         layout
         {
         }
