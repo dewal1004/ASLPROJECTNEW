@@ -13,7 +13,7 @@ report 50054 "ASL Create New payslips - New"
     {
         dataitem(Employee; Employee)
         {
-            DataItemTableView = SORTING("No.") WHERE(Blocked = CONST(false), Suspended = CONST(false), "No." = const('E00004'));
+            DataItemTableView = SORTING("No.") WHERE(Blocked = CONST(false), Suspended = CONST(false), "No." = const('E000004'));
             RequestFilterFields = "No.", "Posting Group", "Global Dimension 1 Code", "Global Dimension 2 Code";
 
             trigger OnAfterGetRecord()
