@@ -69,16 +69,16 @@ report 50054 "ASL Create New payslips - New"
                             EdfileRec1 := EDCodes;
                         end;
 
-                        // /******  Begins Overtime & Other VAriables Calculation SGG  **********/
-                        // begin  //Set parameters
-                        //     PaySetup.Reset;
-                        //     PaySetup.Find('-');
-                        //     TaxFreeED := PaySetup."Taxfree Pay ED";
-                        //     if TaxFreeED <> '' then
-                        //         SendLines(TaxFreeED, Employee."Annual Tax Freepay" / 12, 0, 0);
-                        //     MonthlyDays := PaySetup."Monthly Working Days";
-                        //     HrsInDay := PaySetup."Daily Working Hours";
-                        // end;
+                        /******  Begins Overtime & Other VAriables Calculation SGG  **********/
+                        begin  //Set parameters
+                            PaySetup.Reset;
+                            PaySetup.Find('-');
+                            TaxFreeED := PaySetup."Taxfree Pay ED";
+                            if TaxFreeED <> '' then
+                                SendLines(TaxFreeED, Employee."Annual Tax Freepay" / 12, 0, 0);
+                            MonthlyDays := PaySetup."Monthly Working Days";
+                            HrsInDay := PaySetup."Daily Working Hours";
+                        end;
 
                         // /*EdRec.RESET;
                         //  EdRec.SETRANGE(EdRec."Monthly Variable",TRUE);
@@ -88,16 +88,16 @@ report 50054 "ASL Create New payslips - New"
                         //  UNTIL(EdRec.NEXT=0);
                         //  */
 
-                        // //Monthly Variables 
-                        // begin
-                        //     VarRec.Reset;
-                        //     VarRec.SetRange(VarRec."Payroll Period", PayslipLines."Payroll Period");
-                        //     VarRec.SetRange(VarRec."Employee No", PayslipLines."Employee No");
-                        //     if VarRec.Find('-') then
-                        //         repeat
-                        //             SendLines(VarRec."E/D Code", VarRec.Amount, VarRec.Quantity, VarRec.Rate);
-                        //         until (VarRec.Next = 0);
-                        // end;
+                        //Monthly Variables 
+                        begin
+                            VarRec.Reset;
+                            VarRec.SetRange(VarRec."Payroll Period", PayslipLines."Payroll Period");
+                            VarRec.SetRange(VarRec."Employee No", PayslipLines."Employee No");
+                            if VarRec.Find('-') then
+                                repeat
+                                    SendLines(VarRec."E/D Code", VarRec.Amount, VarRec.Quantity, VarRec.Rate);
+                                until (VarRec.Next = 0);
+                        end;
 
                         /******  Overtime & Other VAriables Calculation Ends SGG  **********/
                         /*AAA Nov 2002*/
@@ -138,7 +138,10 @@ report 50054 "ASL Create New payslips - New"
                             PayslipLines.Flag := EmpGrpLines.Flag;
                             PayslipLines.Amount := EmpGrpLines."Default Amount";
                             PayslipLines."Postg Group" := PG;
-                            message('&1: %2', PayslipLines."E/D Code", PayslipLines.Amount)  //Show current value
+                            case PayslipLines."E/D Code" of
+                                '4000', '5800', '6400':
+                                    message('%1: %2', PayslipLines."E/D Code", PayslipLines.Amount)  //Show current value
+                            end;
                         end;   /* Rate,Units,Amount,... */
 
                         if BookGrLinesRec.Get("Posting Group", PayslipLines."E/D Code")
