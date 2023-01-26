@@ -110,7 +110,7 @@ pageextension 50259 "pageextension50259" extends "Item Card"
 
         addafter("Indirect Cost %")
         {
-            field("Inventory Value Zero"; "Inventory Value Zero")
+            field("Inventory Value Zero2"; "Inventory Value Zero")
             {
                 ApplicationArea = all;
 
