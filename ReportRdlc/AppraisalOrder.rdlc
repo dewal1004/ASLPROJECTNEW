@@ -1,0 +1,296 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="DataSource">
+      <ConnectionProperties>
+        <DataProvider>SQL</DataProvider>
+        <ConnectString />
+      </ConnectionProperties>
+      <rd:SecurityType>None</rd:SecurityType>
+    </DataSource>
+  </DataSources>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <Height>2in</Height>
+        <Style />
+      </Body>
+      <Width>6.5in</Width>
+      <Page>
+        <Style />
+      </Page>
+    </ReportSection>
+  </ReportSections>
+  <Code>Public Function BlankZero(ByVal Value As Decimal)
+    if Value = 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankPos(ByVal Value As Decimal)
+    if Value &gt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankZeroAndPos(ByVal Value As Decimal)
+    if Value &gt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNeg(ByVal Value As Decimal)
+    if Value &lt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNegAndZero(ByVal Value As Decimal)
+    if Value &lt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+</Code>
+  <Language>=User!Language</Language>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="USERID">
+          <DataField>USERID</DataField>
+        </Field>
+        <Field Name="CurrReport_PAGENO">
+          <DataField>CurrReport_PAGENO</DataField>
+        </Field>
+        <Field Name="FORMAT_TODAY_0_4_">
+          <DataField>FORMAT_TODAY_0_4_</DataField>
+        </Field>
+        <Field Name="Header">
+          <DataField>Header</DataField>
+        </Field>
+        <Field Name="Jobt">
+          <DataField>Jobt</DataField>
+        </Field>
+        <Field Name="Name">
+          <DataField>Name</DataField>
+        </Field>
+        <Field Name="MidName">
+          <DataField>MidName</DataField>
+        </Field>
+        <Field Name="Nmber">
+          <DataField>Nmber</DataField>
+        </Field>
+        <Field Name="Department">
+          <DataField>Department</DataField>
+        </Field>
+        <Field Name="BusiUnit">
+          <DataField>BusiUnit</DataField>
+        </Field>
+        <Field Name="Sales_Header__Sales_Header__Cgrade">
+          <DataField>Sales_Header__Sales_Header__Cgrade</DataField>
+        </Field>
+        <Field Name="Sales_Header__Sales_Header__Cstep">
+          <DataField>Sales_Header__Sales_Header__Cstep</DataField>
+        </Field>
+        <Field Name="Sales_Header__Sales_Header__Aedamount">
+          <DataField>Sales_Header__Sales_Header__Aedamount</DataField>
+        </Field>
+        <Field Name="Sales_Header__Sales_Header__AedamountFormat">
+          <DataField>Sales_Header__Sales_Header__AedamountFormat</DataField>
+        </Field>
+        <Field Name="Sales_Header__Sales_Header__Redamount">
+          <DataField>Sales_Header__Sales_Header__Redamount</DataField>
+        </Field>
+        <Field Name="Sales_Header__Sales_Header__RedamountFormat">
+          <DataField>Sales_Header__Sales_Header__RedamountFormat</DataField>
+        </Field>
+        <Field Name="Sales_Header__Sales_Header__Cedamount">
+          <DataField>Sales_Header__Sales_Header__Cedamount</DataField>
+        </Field>
+        <Field Name="Sales_Header__Sales_Header__CedamountFormat">
+          <DataField>Sales_Header__Sales_Header__CedamountFormat</DataField>
+        </Field>
+        <Field Name="Sales_Header__Sales_Header__Rgrade">
+          <DataField>Sales_Header__Sales_Header__Rgrade</DataField>
+        </Field>
+        <Field Name="Sales_Header__Sales_Header__Rstep">
+          <DataField>Sales_Header__Sales_Header__Rstep</DataField>
+        </Field>
+        <Field Name="Sales_Header__Sales_Header__Agrade">
+          <DataField>Sales_Header__Sales_Header__Agrade</DataField>
+        </Field>
+        <Field Name="Sales_Header__Sales_Header__Astep">
+          <DataField>Sales_Header__Sales_Header__Astep</DataField>
+        </Field>
+        <Field Name="Sales_Header__Sales_Header___Total_Percentage_">
+          <DataField>Sales_Header__Sales_Header___Total_Percentage_</DataField>
+        </Field>
+        <Field Name="Sales_Header__Sales_Header___Total_Percentage_Format">
+          <DataField>Sales_Header__Sales_Header___Total_Percentage_Format</DataField>
+        </Field>
+        <Field Name="CurrReport_PAGENOCaption">
+          <DataField>CurrReport_PAGENOCaption</DataField>
+        </Field>
+        <Field Name="ASLCaption">
+          <DataField>ASLCaption</DataField>
+        </Field>
+        <Field Name="Designation_Caption">
+          <DataField>Designation_Caption</DataField>
+        </Field>
+        <Field Name="NmberCaption">
+          <DataField>NmberCaption</DataField>
+        </Field>
+        <Field Name="NameCaption">
+          <DataField>NameCaption</DataField>
+        </Field>
+        <Field Name="MidNameCaption">
+          <DataField>MidNameCaption</DataField>
+        </Field>
+        <Field Name="Department_Caption">
+          <DataField>Department_Caption</DataField>
+        </Field>
+        <Field Name="Business_Units__Caption">
+          <DataField>Business_Units__Caption</DataField>
+        </Field>
+        <Field Name="Appraised_By_Caption">
+          <DataField>Appraised_By_Caption</DataField>
+        </Field>
+        <Field Name="Current_Grade_Caption">
+          <DataField>Current_Grade_Caption</DataField>
+        </Field>
+        <Field Name="Current_Step_Caption">
+          <DataField>Current_Step_Caption</DataField>
+        </Field>
+        <Field Name="Recommended_Grade_Caption">
+          <DataField>Recommended_Grade_Caption</DataField>
+        </Field>
+        <Field Name="Recommended_Step_Caption">
+          <DataField>Recommended_Step_Caption</DataField>
+        </Field>
+        <Field Name="Approved_Grade_Caption">
+          <DataField>Approved_Grade_Caption</DataField>
+        </Field>
+        <Field Name="Current_Gross_Pay_Caption">
+          <DataField>Current_Gross_Pay_Caption</DataField>
+        </Field>
+        <Field Name="Recommended_Gross_Pay_Caption">
+          <DataField>Recommended_Gross_Pay_Caption</DataField>
+        </Field>
+        <Field Name="New_Gross_Pay_Caption">
+          <DataField>New_Gross_Pay_Caption</DataField>
+        </Field>
+        <Field Name="Approved_Step_Caption">
+          <DataField>Approved_Step_Caption</DataField>
+        </Field>
+        <Field Name="EmptyStringCaption">
+          <DataField>EmptyStringCaption</DataField>
+        </Field>
+        <Field Name="Total__Caption">
+          <DataField>Total__Caption</DataField>
+        </Field>
+        <Field Name="Sales_Header_Document_Type">
+          <DataField>Sales_Header_Document_Type</DataField>
+        </Field>
+        <Field Name="Sales_Header_No_">
+          <DataField>Sales_Header_No_</DataField>
+        </Field>
+        <Field Name="Sales_Line__Document_Type_">
+          <DataField>Sales_Line__Document_Type_</DataField>
+        </Field>
+        <Field Name="CommentCapt">
+          <DataField>CommentCapt</DataField>
+        </Field>
+        <Field Name="Sales_Line_Type">
+          <DataField>Sales_Line_Type</DataField>
+        </Field>
+        <Field Name="Sales_Line_Description">
+          <DataField>Sales_Line_Description</DataField>
+        </Field>
+        <Field Name="Sales_Line_Quantity">
+          <DataField>Sales_Line_Quantity</DataField>
+        </Field>
+        <Field Name="Sales_Line_QuantityFormat">
+          <DataField>Sales_Line_QuantityFormat</DataField>
+        </Field>
+        <Field Name="Sales_Line_Grade">
+          <DataField>Sales_Line_Grade</DataField>
+        </Field>
+        <Field Name="Sales_Line_Comment">
+          <DataField>Sales_Line_Comment</DataField>
+        </Field>
+        <Field Name="Sales_Line_Quantity_Control1000000003">
+          <DataField>Sales_Line_Quantity_Control1000000003</DataField>
+        </Field>
+        <Field Name="Sales_Line_Quantity_Control1000000003Format">
+          <DataField>Sales_Line_Quantity_Control1000000003Format</DataField>
+        </Field>
+        <Field Name="TotalFor___FIELDCAPTION_Type_______">
+          <DataField>TotalFor___FIELDCAPTION_Type_______</DataField>
+        </Field>
+        <Field Name="CommentCapt_Control1000000004">
+          <DataField>CommentCapt_Control1000000004</DataField>
+        </Field>
+        <Field Name="TotalFor___FIELDCAPTION_Type________Control22">
+          <DataField>TotalFor___FIELDCAPTION_Type________Control22</DataField>
+        </Field>
+        <Field Name="Sales_Line_Quantity_Control23">
+          <DataField>Sales_Line_Quantity_Control23</DataField>
+        </Field>
+        <Field Name="Sales_Line_Quantity_Control23Format">
+          <DataField>Sales_Line_Quantity_Control23Format</DataField>
+        </Field>
+        <Field Name="Sales_Line_Type_Control1000000002">
+          <DataField>Sales_Line_Type_Control1000000002</DataField>
+        </Field>
+        <Field Name="TotalFor__">
+          <DataField>TotalFor__</DataField>
+        </Field>
+        <Field Name="Sales_Line_Quantity_Control25">
+          <DataField>Sales_Line_Quantity_Control25</DataField>
+        </Field>
+        <Field Name="Sales_Line_Quantity_Control25Format">
+          <DataField>Sales_Line_Quantity_Control25Format</DataField>
+        </Field>
+        <Field Name="Header_Control1000000006">
+          <DataField>Header_Control1000000006</DataField>
+        </Field>
+        <Field Name="Sales_Line_DescriptionCaption">
+          <DataField>Sales_Line_DescriptionCaption</DataField>
+        </Field>
+        <Field Name="Score__4_Caption">
+          <DataField>Score__4_Caption</DataField>
+        </Field>
+        <Field Name="Sales_Line_GradeCaption">
+          <DataField>Sales_Line_GradeCaption</DataField>
+        </Field>
+        <Field Name="Sales_Line__Document_Type_Caption">
+          <DataField>Sales_Line__Document_Type_Caption</DataField>
+        </Field>
+        <Field Name="TypeCaption">
+          <DataField>TypeCaption</DataField>
+        </Field>
+        <Field Name="Sales_Line_TypeCaption">
+          <DataField>Sales_Line_TypeCaption</DataField>
+        </Field>
+        <Field Name="Sales_Line_Document_No_">
+          <DataField>Sales_Line_Document_No_</DataField>
+        </Field>
+        <Field Name="Sales_Line_Line_No_">
+          <DataField>Sales_Line_Line_No_</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
+</Report>

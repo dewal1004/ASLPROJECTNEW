@@ -5,7 +5,7 @@
             "name": "Your own server",
             "request": "launch",
             "type": "al",
-            "environmentType": "OnPrem",
+            "environmentType": "",
             "server": "http://localhost:8080/BC180",
             "serverInstance": "BC180",
             "authentication": "Windows",
