@@ -41,7 +41,6 @@ report 50054 "ASL Create New payslips - New"
 
                     /*Create the payroll entry lines.
                      The entries are copied from the employee group entry lines.*/
-
                     /*Delimit the Employee group lines appropriately */
                     EmpGrpLines.Init;
                     EmpGrpLines.SetRange("E/D Code");
@@ -139,7 +138,6 @@ report 50054 "ASL Create New payslips - New"
                             PayslipLines.Amount := EmpGrpLines."Default Amount";
                             PayslipLines."Postg Group" := PG;
                             ShowPayslipLnValue(PayslipLines, 1);
-
                         end;   /* Rate,Units,Amount,... */
 
                         if BookGrLinesRec.Get("Posting Group", PayslipLines."E/D Code")
