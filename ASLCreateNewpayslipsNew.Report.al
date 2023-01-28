@@ -56,10 +56,8 @@ report 50054 "ASL Create New payslips - New"
 
                         /*Transfer the E/D lines from Employe Group lines to Payroll Lines */
                         EmpGroupLines.Find('>');
-                        begin
-                            PayLinesRec."Payroll Period" := PayslipHeader."Payroll Period";
-                            PayLinesRec."Employee No" := PayslipHeader."Employee No";
-                        end;
+                        PayLinesRec."Payroll Period" := PayslipHeader."Payroll Period";
+                        PayLinesRec."Employee No" := PayslipHeader."Employee No";
                         repeat /*WHILE (EmpGrpLinesRec."Employee Group" = "Employee Group") */
                             RecRate := 0;
                             RecQty := 0;
