@@ -19,58 +19,52 @@ report 50054 "ASL Create New payslips - New"
 
             trigger OnAfterGetRecord()
             begin
-
-                //IF Employee.Blocked THEN CurrReport.SKIP;
+                Message(Employee."No.");
                 Window.Update(2, "No.");
                 InfoCounter := InfoCounter + 1;
                 Window.Update(3, InfoCounter);
 
-                if not PayHeadRec.Get(PayrollPeriod."Period Code", "No.") then begin
+                if not PayslipHeader.Get(PayrollPeriod."Period Code", "No.") then begin
                     /* Create the header record */
-                    PayHeadRec."Payroll Period" := PayrollPeriod."Period Code";
-                    PayHeadRec."Employee No" := "No.";
-                    begin
-                        PayHeadRec."Period Start" := PayrollPeriod."Start Date";
-                        PayHeadRec."Period End" := PayrollPeriod."End Date";
-                        PayHeadRec."Period Name" := PayrollPeriod.Name;
-                    end;
-
-                    begin
-                        PayHeadRec."Employee Name" := FullName;
-                        PayHeadRec."Global Dimension 1 Code" := Employee."Global Dimension 1 Code";
-                        PayHeadRec."Global Dimension 2 Code" := Employee."Global Dimension 2 Code";
-                        PayHeadRec."Customer Number" := Employee."SAM Number";
-                        PayHeadRec.Designation := Designation;
-                    end;
-                    PayHeadRec.Insert;
+                    PayslipHeader."Payroll Period" := PayrollPeriod."Period Code";
+                    PayslipHeader."Employee No" := "No.";
+                    PayslipHeader."Period Start" := PayrollPeriod."Start Date";
+                    PayslipHeader."Period End" := PayrollPeriod."End Date";
+                    PayslipHeader."Period Name" := PayrollPeriod.Name;
+                    PayslipHeader."Employee Name" := FullName;
+                    PayslipHeader."Global Dimension 1 Code" := Employee."Global Dimension 1 Code";
+                    PayslipHeader."Global Dimension 2 Code" := Employee."Global Dimension 2 Code";
+                    PayslipHeader."Customer Number" := Employee."SAM Number";
+                    PayslipHeader.Designation := Designation;
+                    PayslipHeader.Insert;
                     PG := Employee."Posting Group";
 
                     /*Create the payroll entry lines.
                      The entries are copied from the employee group entry lines.*/
 
                     /*Delimit the Employee group lines appropriately */
-                    EmpGrpLinesRec.Init;
-                    EmpGrpLinesRec.SetRange("E/D Code");
-                    EmpGrpLinesRec.SetRange("Employee Group");
-                    EmpGrpLinesRec."Employee Group" := "Employee Group";
-                    EmpGrpLinesRec."E/D Code" := '';
-                    EmpGrpLinesRec.SetRange("Employee Group", "Employee Group");
-                    if not (EmpGrpLinesRec.Count = 0) then begin
+                    EmpGroupLines.Init;
+                    EmpGroupLines.SetRange("E/D Code");
+                    EmpGroupLines.SetRange("Employee Group");
+                    EmpGroupLines."Employee Group" := "Employee Group";
+                    EmpGroupLines."E/D Code" := '';
+                    EmpGroupLines.SetRange("Employee Group", "Employee Group");
+                    if not (EmpGroupLines.Count = 0) then begin
                         /*Lock the Payroll Lines Entry file */
                         PayLinesRec.LockTable();
                         PayLinesRec.SetRange("E/D Code");
 
                         /*Transfer the E/D lines from Employe Group lines to Payroll Lines */
-                        EmpGrpLinesRec.Find('>');
+                        EmpGroupLines.Find('>');
                         begin
-                            PayLinesRec."Payroll Period" := PayHeadRec."Payroll Period";
-                            PayLinesRec."Employee No" := PayHeadRec."Employee No";
+                            PayLinesRec."Payroll Period" := PayslipHeader."Payroll Period";
+                            PayLinesRec."Employee No" := PayslipHeader."Employee No";
                         end;
                         repeat /*WHILE (EmpGrpLinesRec."Employee Group" = "Employee Group") */
                             RecRate := 0;
                             RecQty := 0;
                             PayLinesRec.Init;
-                            EDFileRec.Get(EmpGrpLinesRec."E/D Code");
+                            EDFileRec.Get(EmpGroupLines."E/D Code");
                             EdfileRec1 := EDFileRec;
 
                             /******  Begins Overtime & Other VAriables Calculation SGG  **********/
@@ -118,7 +112,7 @@ report 50054 "ASL Create New payslips - New"
                             PaySetup.Find('-');
                             /*AAA Nov 2002*/
 
-                            PayLinesRec."E/D Code" := EmpGrpLinesRec."E/D Code";
+                            PayLinesRec."E/D Code" := EmpGroupLines."E/D Code";
 
                             begin
                                 PayLinesRec."Payslip Group ID" := EDFileRec."Payslip Group ID";
@@ -131,12 +125,12 @@ report 50054 "ASL Create New payslips - New"
                                 PayLinesRec."Underline Amount" := EDFileRec."Underline Amount";
                             end;        /* Payslip Grp/Pos */
                             begin
-                                PayLinesRec."E/D Code" := EmpGrpLinesRec."E/D Code";
-                                PayLinesRec.Units := EmpGrpLinesRec.Units;
-                                PayLinesRec.Rate := EmpGrpLinesRec.Rate;
-                                PayLinesRec.Quantity := EmpGrpLinesRec.Quantity;
-                                PayLinesRec.Flag := EmpGrpLinesRec.Flag;
-                                PayLinesRec.Amount := EmpGrpLinesRec."Default Amount";
+                                PayLinesRec."E/D Code" := EmpGroupLines."E/D Code";
+                                PayLinesRec.Units := EmpGroupLines.Units;
+                                PayLinesRec.Rate := EmpGroupLines.Rate;
+                                PayLinesRec.Quantity := EmpGroupLines.Quantity;
+                                PayLinesRec.Flag := EmpGroupLines.Flag;
+                                PayLinesRec.Amount := EmpGroupLines."Default Amount";
                                 PayLinesRec."Postg Group" := PG;
                             end;   /* Rate,Units,Amount,... */
 
@@ -179,7 +173,7 @@ report 50054 "ASL Create New payslips - New"
                                     PayLinesRec."Global Dimension 2 Code" := "Global Dimension 2 Code";
 
                                 //AAA - Found Here Taxable ref allowed values to be inseted for taxable insertion and calculation
-                                if (EmpGrpLinesRec."Default Amount" <> 0) or (EDFileRec."Monthly Variable") or (EdfileRec1."Taxable Ref") then begin
+                                if (EmpGroupLines."Default Amount" <> 0) or (EDFileRec."Monthly Variable") or (EdfileRec1."Taxable Ref") then begin
                                     if not EDFileRec."OverTime(Y/N)" then
                                         PayLinesRec.Validate(PayLinesRec."E/D Code");
                                     /*BIN 1 & 2*/
@@ -211,65 +205,13 @@ report 50054 "ASL Create New payslips - New"
                             end;
                             if PayLinesRec."E/D Code" = PaySetup."Basic+Hous+Transp" then
                                 TotalBasHosTrans := PayLinesRec.Amount;
-                        until (EmpGrpLinesRec.Next = 0);
+                        until (EmpGroupLines.Next = 0);
                         Employee."No of Days" := 0;
                         Employee.Modify;
                     end;
 
-                    //Loan system START
+                    CalculateLoan();  //Loan system
 
-                    //AAA PayLinesRec.LOCKTABLE(FALSE);    //AAA - Oct 2002
-                    PayLinesRec.SetRange("E/D Code");
-
-                    LoanRec.SetCurrentKey(LoanRec."Staff No.", LoanRec."Start Period", LoanRec."Open(Y/N)", LoanRec."Suspended(Y/N)");
-                    LoanRec.SetRange(LoanRec."Staff No.", Employee."No.");
-                    LoanRec.SetFilter(LoanRec."Start Period", '<=%1', PayrollPeriod."Period Code");
-                    LoanRec.SetRange(LoanRec."Open(Y/N)", true);
-                    LoanRec.SetRange("Suspended(Y/N)", false);
-                    if LoanRec.Find('-') then
-                        repeat
-                            LoanRec.CalcFields(LoanRec."Remaining Amount");
-                            if LoanRec."Remaining Amount" > 0 then begin
-
-                                PayLinesRec.Init;
-                                PayLinesRec."Payroll Period" := PayHeadRec."Payroll Period";
-                                PayLinesRec."Employee No" := PayHeadRec."Employee No";
-                                EDFileRec.Get(LoanRec."Loan ED");
-                                PayLinesRec."E/D Code" := LoanRec."Loan ED";
-                                PayLinesRec."Payslip Text" := LoanRec.Description;
-                                PayLinesRec."Payslip Group ID" := EDFileRec."Payslip Group ID";
-                                PayLinesRec."Pos. In Payslip Grp." := EDFileRec."Pos. In Payslip Grp.";
-                                PayLinesRec."Payslip appearance" := EDFileRec."Payslip appearance";
-                                PayLinesRec.Units := EDFileRec.Units;
-                                PayLinesRec.Rate := EDFileRec.Rate;
-                                PayLinesRec."Overline Column" := EDFileRec."Overline Column";
-                                PayLinesRec."Payslip Print Column" := EDFileRec."Payslip Print Column";
-                                PayLinesRec."Underline Amount" := EDFileRec."Underline Amount";
-                                PayLinesRec.Quantity := EmpGrpLinesRec.Quantity;
-                                PayLinesRec.Flag := EmpGrpLinesRec.Flag;
-
-                                if LoanRec."Monthly Repayment" > LoanRec."Remaining Amount" then
-                                    PayLinesRec.Amount := LoanRec."Remaining Amount" else
-                                    PayLinesRec.Amount := LoanRec."Monthly Repayment";
-                                PayLinesRec."Debit Acc. Type" := LoanRec."Counter Acct. Type";
-                                PayLinesRec."Credit Acc. Type" := LoanRec."Acct. Type";
-                                PayLinesRec."Postg Group" := PG;
-                                //PayLinesRec."Debit Account"    := LoanRec."Counter Acct. No.";   //AAA- Nov 2002
-                                if LoanRec."Acct. No." <> '' then
-                                    PayLinesRec."Credit Account" := LoanRec."Acct. No."
-                                else
-                                    PayLinesRec."Credit Account" := '';
-                                PayLinesRec."Global Dimension 1 Code" := "Global Dimension 1 Code";
-                                PayLinesRec."Global Dimension 2 Code" := "Global Dimension 2 Code";
-                                PayLinesRec."Loan ID" := LoanRec."Loan ID";
-
-                                PayLinesRec.Insert(true);
-                                PayLinesRec."Loan ID" := LoanRec."Loan ID";
-                                PayLinesRec.Modify(true);
-                                Commit;
-                            end; /*END FOR CHECK ON REMAINING AMOUNT=0*/
-                        until (LoanRec.Next = 0);
-                    //Loan system FINISH
 
                     Commit;
                 end;
@@ -297,6 +239,7 @@ report 50054 "ASL Create New payslips - New"
                              'Counter                  : #3##########');
                 Window.Update(1, Count);
                 InfoCounter := 0;
+                PayslipHeaderReset(PayrollPeriod."Period Code", 'E000004');
             end;
         }
     }
@@ -337,8 +280,8 @@ report 50054 "ASL Create New payslips - New"
     begin
         PayrollPeriod.Get(PayrollPeriod."Period Code");
         PayrollPeriod.SetRange("Period Code", PayrollPeriod."Period Code");
-        EmpGrpLinesRec.SetRange("Employee Group");
-        EmpGrpLinesRec.SetRange("E/D Code");
+        EmpGroupLines.SetRange("Employee Group");
+        EmpGroupLines.SetRange("E/D Code");
         PayLinesRec.SetRange("Payroll Period");
         PayLinesRec.SetRange("Employee No");
         PayLinesRec.SetRange("E/D Code");
@@ -348,9 +291,9 @@ report 50054 "ASL Create New payslips - New"
         EdfileRec1: Record "Payroll-E/D Codes.";
         "day Employeed": Integer;
         PayrollPeriod: Record "Payroll-Periods.";
-        PayHeadRec: Record "Payroll-Payslip Header.";
+        PayslipHeader: Record "Payroll-Payslip Header.";
         PayLinesRec: Record "Payroll-Payslip Lines.";
-        EmpGrpLinesRec: Record "Payroll-Employee Group Lines.";
+        EmpGroupLines: Record "Payroll-Employee Group Lines.";
         EDFileRec: Record "Payroll-E/D Codes.";
         BookGrLinesRec: Record "Payroll-Posting Group Line.";
         InfoCounter: Integer;
@@ -425,6 +368,76 @@ report 50054 "ASL Create New payslips - New"
         end;
     end;
 
+    procedure PayslipHeaderReset(pPeriodCode: code[20]; pEmployeeNo: Code[20])
+    var
+        PayRollPaySlipHeader: Record "Payroll-Payslip Header.";
+    begin
+        if PayRollPaySlipHeader.Get(pPeriodCode, pEmployeeNo) then
+            PayRollPaySlipHeader.Delete();
+    end;
+
+    procedure WindowUpdate(pEmployee: Record Employee)
+    begin
+        Window.Update(2, pEmployee."No.");
+        InfoCounter := InfoCounter + 1;
+        Window.Update(3, InfoCounter);
+    end;
+
+    procedure CalculateLoans()
+    begin
+        //Loan system START    //AAA - Oct 2002
+        PayLinesRec.SetRange("E/D Code");
+
+        LoanRec.SetCurrentKey(LoanRec."Staff No.", LoanRec."Start Period", LoanRec."Open(Y/N)", LoanRec."Suspended(Y/N)");
+        LoanRec.SetRange(LoanRec."Staff No.", Employee."No.");
+        LoanRec.SetFilter(LoanRec."Start Period", '<=%1', PayrollPeriod."Period Code");
+        LoanRec.SetRange(LoanRec."Open(Y/N)", true);
+        LoanRec.SetRange("Suspended(Y/N)", false);
+        if LoanRec.Find('-') then
+            repeat
+                LoanRec.CalcFields(LoanRec."Remaining Amount");
+                if LoanRec."Remaining Amount" > 0 then begin
+
+                    PayLinesRec.Init;
+                    PayLinesRec."Payroll Period" := PayslipHeader."Payroll Period";
+                    PayLinesRec."Employee No" := PayslipHeader."Employee No";
+                    EDFileRec.Get(LoanRec."Loan ED");
+                    PayLinesRec."E/D Code" := LoanRec."Loan ED";
+                    PayLinesRec."Payslip Text" := LoanRec.Description;
+                    PayLinesRec."Payslip Group ID" := EDFileRec."Payslip Group ID";
+                    PayLinesRec."Pos. In Payslip Grp." := EDFileRec."Pos. In Payslip Grp.";
+                    PayLinesRec."Payslip appearance" := EDFileRec."Payslip appearance";
+                    PayLinesRec.Units := EDFileRec.Units;
+                    PayLinesRec.Rate := EDFileRec.Rate;
+                    PayLinesRec."Overline Column" := EDFileRec."Overline Column";
+                    PayLinesRec."Payslip Print Column" := EDFileRec."Payslip Print Column";
+                    PayLinesRec."Underline Amount" := EDFileRec."Underline Amount";
+                    PayLinesRec.Quantity := EmpGroupLines.Quantity;
+                    PayLinesRec.Flag := EmpGroupLines.Flag;
+
+                    if LoanRec."Monthly Repayment" > LoanRec."Remaining Amount" then
+                        PayLinesRec.Amount := LoanRec."Remaining Amount" else
+                        PayLinesRec.Amount := LoanRec."Monthly Repayment";
+                    PayLinesRec."Debit Acc. Type" := LoanRec."Counter Acct. Type";
+                    PayLinesRec."Credit Acc. Type" := LoanRec."Acct. Type";
+                    PayLinesRec."Postg Group" := PG;
+                    //PayLinesRec."Debit Account"    := LoanRec."Counter Acct. No.";   //AAA- Nov 2002
+                    if LoanRec."Acct. No." <> '' then
+                        PayLinesRec."Credit Account" := LoanRec."Acct. No."
+                    else
+                        PayLinesRec."Credit Account" := '';
+                    PayLinesRec."Global Dimension 1 Code" := "Global Dimension 1 Code";
+                    PayLinesRec."Global Dimension 2 Code" := "Global Dimension 2 Code";
+                    PayLinesRec."Loan ID" := LoanRec."Loan ID";
+
+                    PayLinesRec.Insert(true);
+                    PayLinesRec."Loan ID" := LoanRec."Loan ID";
+                    PayLinesRec.Modify(true);
+                    Commit;
+                end; /*END FOR CHECK ON REMAINING AMOUNT=0*/
+            until (LoanRec.Next = 0);
+        //Loan system FINISH
+    end;
 
     //[Scope('OnPrem')]
     procedure SendLines(EDToSend: Code[10]; EDAmount: Decimal; EDQty: Decimal; EDRate: Decimal)
@@ -435,8 +448,8 @@ report 50054 "ASL Create New payslips - New"
             PayLinesRec."E/D Code" := EDToSend;
             if EDRec2.Get(EDToSend) then PayLinesRec."Payslip Text" := EDRec2."Payslip Text";
             PayLinesRec.Validate(PayLinesRec.Amount, Round(EDAmount, 0.01));
-            PayLinesRec."Payroll Period" := PayHeadRec."Payroll Period";
-            PayLinesRec."Employee No" := PayHeadRec."Employee No";
+            PayLinesRec."Payroll Period" := PayslipHeader."Payroll Period";
+            PayLinesRec."Employee No" := PayslipHeader."Employee No";
             PayLinesRec."Payslip Group ID" := EDFileRec."Payslip Group ID";
             PayLinesRec."Pos. In Payslip Grp." := EDFileRec."Pos. In Payslip Grp.";
             PayLinesRec."Payslip appearance" := EDFileRec."Payslip appearance";
@@ -448,7 +461,7 @@ report 50054 "ASL Create New payslips - New"
             PayLinesRec."Overline Column" := EDFileRec."Overline Column";
             PayLinesRec."Payslip Print Column" := EDRec2."Payslip Print Column";       //AAA
             PayLinesRec."Underline Amount" := EDFileRec."Underline Amount";
-            PayLinesRec.Flag := EmpGrpLinesRec.Flag;
+            PayLinesRec.Flag := EmpGroupLines.Flag;
             PayLinesRec."Global Dimension 1 Code" := Employee."Global Dimension 1 Code";
             PayLinesRec."Global Dimension 2 Code" := Employee."Global Dimension 2 Code";
 
@@ -474,8 +487,8 @@ report 50054 "ASL Create New payslips - New"
             PayLinesRec."Overline Column" := EDFileRec."Overline Column";
             PayLinesRec."Payslip Print Column" := EDFileRec."Payslip Print Column";
             PayLinesRec."Underline Amount" := EDFileRec."Underline Amount";
-            PayLinesRec.Quantity := EmpGrpLinesRec.Quantity;
-            PayLinesRec.Flag := EmpGrpLinesRec.Flag;
+            PayLinesRec.Quantity := EmpGroupLines.Quantity;
+            PayLinesRec.Flag := EmpGroupLines.Flag;
             PayLinesRec."Global Dimension 1 Code" := Employee."Global Dimension 1 Code";
             PayLinesRec."Global Dimension 2 Code" := Employee."Global Dimension 2 Code";
             PayLinesRec."Postg Group" := PG;
@@ -505,7 +518,7 @@ report 50054 "ASL Create New payslips - New"
     //[Scope('OnPrem')]
     procedure GetPayDays(): Integer
     begin
-        PayrollPeriod.Get(PayHeadRec."Payroll Period");
+        PayrollPeriod.Get(PayslipHeader."Payroll Period");
         EmptDate := Employee."Employment Date";
         DisengDate := Employee."Termination Date";
 
@@ -580,8 +593,8 @@ report 50054 "ASL Create New payslips - New"
         Message('Service Year Value %1 AND Base is %2', ServiceYear, TotalBasHosTrans);
         //Seniority System START
         PayLinesRec.Init;
-        PayLinesRec."Payroll Period" := PayHeadRec."Payroll Period";
-        PayLinesRec."Employee No" := PayHeadRec."Employee No";
+        PayLinesRec."Payroll Period" := PayslipHeader."Payroll Period";
+        PayLinesRec."Employee No" := PayslipHeader."Employee No";
         if PaySetup.Find then
             EDFileRec.Get(PaySetup.Seniority);
         PayLinesRec."E/D Code" := EDFileRec."E/D Code";
@@ -594,7 +607,7 @@ report 50054 "ASL Create New payslips - New"
         PayLinesRec."Overline Column" := EDFileRec."Overline Column";
         PayLinesRec."Payslip Print Column" := EDFileRec."Payslip Print Column";
         PayLinesRec."Underline Amount" := EDFileRec."Underline Amount";
-        PayLinesRec.Flag := EmpGrpLinesRec.Flag;
+        PayLinesRec.Flag := EmpGroupLines.Flag;
 
         PayLinesRec.Validate(PayLinesRec.Amount, TotalBasHosTrans * ServiceYear / 100);
         PayLinesRec."Postg Group" := PG;
