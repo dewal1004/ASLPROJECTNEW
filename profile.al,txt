@@ -1,17 +1,27 @@
             DataItemTableView = SORTING("No.") WHERE(Blocked = CONST(false), Suspended = CONST(false), "No." = const('E000004'));
+// codeunit 50040 SAMMMY
+// {
+//     trigger OnRun()
+//     begin
+//     //     trigger OnOpenPage()
+//     //     begin
+//     //         PayrollPeriod.Get('2022-11');
+//     //     end;
 
-trigger OnOpenPage()
-        begin
-            PayrollPeriod.Get('2022-11');
-        end;
+//     //     procedure ShowPayslipLnValue(PaySlipLn: Record "Payroll-Payslip Lines."; Modifycount: integer)
+//     // begin
+//     //     case PayslipLn."E/D Code" of
+//     //         '4000', '5800', '6400':
+//     //             message('%1: %2 Modify %3', PayslipLn."E/D Code", PayslipLn.Amount, Modifycount)  //Show current value
+//     //     end;
+//     // end;
+    
+//     end;
+    
+//     var
+//         myInt: Integer;
+// }
 
-        procedure ShowPayslipLnValue(PaySlipLn: Record "Payroll-Payslip Lines."; Modifycount: integer)
-    begin
-        case PayslipLn."E/D Code" of
-            '4000', '5800', '6400':
-                message('%1: %2 Modify %3', PayslipLn."E/D Code", PayslipLn.Amount, Modifycount)  //Show current value
-        end;
-    end;
 
 
 
