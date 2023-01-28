@@ -19,7 +19,7 @@ report 50054 "ASL Create New payslips - New"
             trigger OnAfterGetRecord()
             begin
                 WindowUpdate(Employee);
-                
+
                 if not PayslipHeader.Get(PayrollPeriod."Period Code", "No.") then begin
                     /* Create the header record */
                     begin
@@ -39,7 +39,7 @@ report 50054 "ASL Create New payslips - New"
 
                     /*Create the payroll entry lines.
                      The entries are copied from the employee group entry lines.*/
-                     /*Delimit the Employee group lines appropriately */
+                    /*Delimit the Employee group lines appropriately */
                     EmpGrpLines.Init;
                     EmpGrpLines.SetRange("E/D Code");
                     EmpGrpLines.SetRange("Employee Group");
@@ -47,16 +47,14 @@ report 50054 "ASL Create New payslips - New"
                     EmpGrpLines."E/D Code" := '';
                     EmpGrpLines.SetRange("Employee Group", "Employee Group");
                     if not (EmpGrpLines.Count = 0) then begin
-                        /*Lock the Payroll Lines Entry file */
+                        /*Lock the Payroll Lines Entry file */ //AAA
                         PayslipLines.LockTable();
                         PayslipLines.SetRange("E/D Code");
 
                         /*Transfer the E/D lines from Employe Group lines to Payroll Lines */
                         EmpGrpLines.Find('>');
-                        begin
-                            PayslipLines."Payroll Period" := PayslipHeader."Payroll Period";
-                            PayslipLines."Employee No" := PayslipHeader."Employee No";
-                        end;
+                        PayslipLines."Payroll Period" := PayslipHeader."Payroll Period";
+                        PayslipLines."Employee No" := PayslipHeader."Employee No";
                         repeat /*WHILE (EmpGrpLinesRec."Employee Group" = "Employee Group") */
                         begin   //Set parameters
                             RecRate := 0;
@@ -373,7 +371,7 @@ report 50054 "ASL Create New payslips - New"
         ServiceYear: Decimal;
         TotalBasHosTrans: Decimal;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure partsalary(nodays: Integer; emplomonth: Integer) prodays: Integer
     begin
         if emplomonth = PayMonth then begin
@@ -392,7 +390,7 @@ report 50054 "ASL Create New payslips - New"
         Window.Update(3, InfoCounter);
     end;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure SendLines(EDToSend: Code[10]; EDAmount: Decimal; EDQty: Decimal; EDRate: Decimal)
     begin
         /*Use The Following Lines to send to Payslip Lines*/
@@ -469,7 +467,7 @@ report 50054 "ASL Create New payslips - New"
 
     end;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure GetPayDays(): Integer
     begin
         PayrollPeriod.Get(PayslipHeader."Payroll Period");
@@ -504,7 +502,7 @@ report 50054 "ASL Create New payslips - New"
         end;
     end;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure BIN()
     begin
 
@@ -542,7 +540,7 @@ report 50054 "ASL Create New payslips - New"
 
     end;
 
-    [Scope('OnPrem')]
+    //[Scope('OnPrem')]
     procedure Seniority()
     begin
         //Set PayLines."Payslip Column" to 3
