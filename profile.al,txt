@@ -3,18 +3,7 @@
 // {
 //     trigger OnRun()
 //     begin
-//     //     trigger OnOpenPage()
-//     //     begin
-//     //         PayrollPeriod.Get('2022-11');
-//     //     end;
 
-//     //     procedure ShowPayslipLnValue(PaySlipLn: Record "Payroll-Payslip Lines."; Modifycount: integer)
-//     // begin
-//     //     case PayslipLn."E/D Code" of
-//     //         '4000', '5800', '6400':
-//     //             message('%1: %2 Modify %3', PayslipLn."E/D Code", PayslipLn.Amount, Modifycount)  //Show current value
-//     //     end;
-//     // end;
     
 //     end;
     
