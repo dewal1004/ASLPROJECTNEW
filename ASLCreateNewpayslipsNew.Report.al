@@ -186,7 +186,7 @@ report 50054 "ASL Create New payslips - New"
                                         if not (EDCodes."Absent Deduction") then
                                             PayslipLines.Amount := Round(PayDays / MonthlyDays * PayslipLines.Amount);
                                     end;
-                                    ShowPayslipLnValue(PayslipLines);  //AAA
+                                    ShowPayslipLnValue(PayslipLines, 1);  //AAA
                                     if PayslipLines.Insert(true) then
                                         INSTD := true
                                     else
@@ -372,6 +372,8 @@ report 50054 "ASL Create New payslips - New"
     end;
 
     procedure CalculateLoans()
+    var
+        EmployeeWithLoan: Record Employee;
     begin
         //Loan system START    //AAA - Oct 2002
         PayslipLines.SetRange("E/D Code");
@@ -414,8 +416,8 @@ report 50054 "ASL Create New payslips - New"
                         PayslipLines."Credit Account" := LoanRec."Acct. No."
                     else
                         PayslipLines."Credit Account" := '';
-                    PayslipLines."Global Dimension 1 Code" := "Global Dimension 1 Code";
-                    PayslipLines."Global Dimension 2 Code" := "Global Dimension 2 Code";
+                    PayslipLines."Global Dimension 1 Code" := EmployeeWithLoan."Global Dimension 1 Code";
+                    PayslipLines."Global Dimension 2 Code" := EmployeeWithLoan."Global Dimension 2 Code";
                     PayslipLines."Loan ID" := LoanRec."Loan ID";
 
                     PayslipLines.Insert(true);
