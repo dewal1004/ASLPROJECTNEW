@@ -605,18 +605,17 @@ table 50006 "Payroll-Payslip Lines."
         if (EDFileRec."Yes/No Req.?") and not (EntryLineRec.Flag) then
             exit(0);
 
-        /* If Factor Of is Nil then do not change then check if amount is computed by
-          others*/
-        // if EDFileRec."Factor Of" = '' then
-        //     if not AmountIsComputed(ReturnAmount, EntryLineRec, EDFileRec,
-        //                              EntryLineAmount, EDCode) then
-        //         /*BDC*/
-        //     exit(EntryLineRec.Amount)
-        //     else begin
-        //         /*Check for rounding, Maximum and minimum */
-        //         ReturnAmount := ChkRoundMaxMin(EDFileRec, ReturnAmount);
-        //         exit(ReturnAmount);
-        //     end;
+        /* If Factor Of is Nil then do not change then check if amount is computed by others*/
+        if EDFileRec."Factor Of" = '' then
+            if not AmountIsComputed(ReturnAmount, EntryLineRec, EDFileRec,
+                                     EntryLineAmount, EDCode) then
+                /*BDC*/
+            exit(EntryLineRec.Amount)
+            else begin
+                /*Check for rounding, Maximum and minimum */
+                ReturnAmount := ChkRoundMaxMin(EDFileRec, ReturnAmount);
+                exit(ReturnAmount);
+            end;
         /* Get the record from the current file based on Factor Of */
         if not ProllFactorRec.Get(EntryLineRec."Payroll Period",
                          EntryLineRec."Employee No", EDFileRec."Factor Of") then

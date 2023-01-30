@@ -19,10 +19,8 @@ report 50054 "ASL Create New payslips - New"
 
             trigger OnAfterGetRecord()
             begin
-                Message(Employee."No.");
-                Window.Update(2, "No.");
-                InfoCounter := InfoCounter + 1;
-                Window.Update(3, InfoCounter);
+                Message('Employee no %1', Employee."No.");  ///AAA
+                WindowUpdate(Employee."No.", InfoCounter);
 
                 if not PayslipHeader.Get(PayrollPeriod."Period Code", "No.") then begin
                     /* Create the header record */
@@ -364,11 +362,11 @@ report 50054 "ASL Create New payslips - New"
             PayRollPaySlipHeader.Delete();
     end;
 
-    procedure WindowUpdate(pEmployee: Record Employee)
+    procedure WindowUpdate(pEmployeeNo: Code[20]; var pInfoCounter: integer)
     begin
-        Window.Update(2, pEmployee."No.");
-        InfoCounter := InfoCounter + 1;
-        Window.Update(3, InfoCounter);
+        Window.Update(2, pEmployeeNo);
+        pInfoCounter += 1;
+        Window.Update(3, pInfoCounter);
     end;
 
     procedure CalculateLoans()
