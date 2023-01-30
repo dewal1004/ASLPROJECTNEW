@@ -1303,7 +1303,7 @@ table 50006 "Payroll-Payslip Lines."
         exit(AmountBack);
     end;
 
-    
+
     procedure CalcGraduated(var WantedLookRec: Record "Payroll-Lookup Lines."; InputToTable: Decimal): Decimal
     begin
         /*”””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””
@@ -1330,5 +1330,57 @@ table 50006 "Payroll-Payslip Lines."
         end;
         exit(ReturnAmount);
     end;
+
+    procedure AmountIsComputed(var ReturnAmount: Decimal; EntryLineRec: Record "Payroll-Payslip Lines."; EDFileRec: Record "Payroll-E/D Codes."; NewAmount: Decimal; EDCode: Code[20]): Boolean
+    begin
+        /*”””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””
+        ‚ Check for values that should COMPUTE the amount for the P.Roll Entry      ‚
+        ‚ Line record.                                                              ‚
+        ‚ Return:                                                                   ‚
+        ‚   If there are entries for the employee/period that compute the value     ‚
+        ‚   then return TRUE else return FALSE                                      ‚
+        ‚ Parameters :                                                              ‚
+        ‚   ReturnAmount:  The computed amount, by refference                       ‚
+        ‚   EntryLineRec:  The P.Roll Entry record whose value is to be computed    ‚
+        ‚   EDFileRec   :  The E/D file record of the E/D of the P.Roll Entry Record‚
+        ‚   NewAmount   :  The new calculated or entered amount in the current rec. ‚
+        ”””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””*/
+
+        ProllRecStore := EntryLineRec;
+
+        /*Get first record in P.Roll Entry file for this Period/Employee combination*/
+        ProllRecStore.SetRange("Payroll Period", EntryLineRec."Payroll Period");
+        ProllRecStore.SetRange("Employee No", EntryLineRec."Employee No");
+        ProllRecStore."E/D Code" := '';
+        if not ProllRecStore.Find('>') then
+            exit(false);
+
+        /* Initialise the variable to store the computed total. */
+        ReturnAmount := 0;
+        IsComputed := false;
+
+        /* Go through all the entry lines for this Period/Employee record and sum up
+          all those that contribute to the E/D of the given payroll entry line */
+        repeat
+            "E/DFileRec".Get(ProllRecStore."E/D Code");
+            if "E/DFileRec".Compute = EntryLineRec."E/D Code" then begin
+                if ProllRecStore."E/D Code" = EDCode then
+                    AmtToAdd := NewAmount
+                else
+                    AmtToAdd := ProllRecStore.Amount;
+
+                if "E/DFileRec"."Add/Subtract" = 2 then
+                    /* Subtract */
+              ReturnAmount := ReturnAmount - AmtToAdd
+                else
+                    /* Add */
+              ReturnAmount := ReturnAmount + AmtToAdd;
+
+                IsComputed := true
+            end
+        until (ProllRecStore.Next(1) = 0);
+        exit(IsComputed);
+    end;
+
 
 }
