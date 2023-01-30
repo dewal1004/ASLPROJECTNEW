@@ -1381,6 +1381,4 @@ table 50006 "Payroll-Payslip Lines."
         until (ProllRecStore.Next(1) = 0);
         exit(IsComputed);
     end;
-
-
 }
