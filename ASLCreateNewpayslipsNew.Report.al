@@ -91,9 +91,9 @@ report 50054 "ASL Create New payslips - New"
                             EDCodes.SetRange(EDCodes."Payslip Group ID", EDCodes."Payslip Group ID"::"TAX DEDUCTED");
                             if EDCodes.Find('-') then TaxED := EDCodes."E/D Code";
 
-                            //SendLines(TaxFreeED,0,0,0);
-                            //SendLines(TaxED,0,0,0);
-                            //SendLines(TaxFreeED,Employee."Annual Tax Freepay"/12,0,0);
+                            SendLines(TaxFreeED,0,0,0);
+                            SendLines(TaxED,0,0,0);
+                            SendLines(TaxFreeED,Employee."Annual Tax Freepay"/12,0,0);
 
                             PaySetup.Reset;
                             PaySetup.Find('-');
