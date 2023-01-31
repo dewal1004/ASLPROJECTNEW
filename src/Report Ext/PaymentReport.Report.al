@@ -903,6 +903,7 @@ report 50111 "Payment Report"
                     ShowCaption = false;
                     field(printtoexcel; printtoexcel)
                     {
+                        ApplicationArea = All;
                     }
                 }
             }

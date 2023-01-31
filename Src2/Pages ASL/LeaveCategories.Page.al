@@ -12,18 +12,23 @@ page 60018 "Leave Categories"
                 ShowCaption = false;
                 field("Code"; Code)
                 {
+                    ApplicationArea = All;
                 }
                 field(Description; Description)
                 {
+                    ApplicationArea = All;
                 }
                 field("Category Type"; "Category Type")
                 {
+                    ApplicationArea = All;
                 }
                 field(Consuming; Consuming)
                 {
+                    ApplicationArea = All;
                 }
                 field("Payment Allowed"; "Payment Allowed")
                 {
+                    ApplicationArea = All;
                 }
             }
         }

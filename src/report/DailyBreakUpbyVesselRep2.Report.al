@@ -3,9 +3,9 @@ report 50008 "Daily BreakUp by Vessel Rep 2"
     DefaultLayout = RDLC;
     RDLCLayout = './ReportRdlc/DailyBreakUpbyVesselRep2.rdlc';
     UsageCategory = ReportsAndAnalysis;
-    ApplicationArea = All,Basic,Suite;
+    ApplicationArea = All, Basic, Suite;
     Caption = 'Daily BreakUp by Vessel Rep 2';
-    
+
 
     dataset
     {
@@ -5277,7 +5277,7 @@ report 50008 "Daily BreakUp by Vessel Rep 2"
 
     requestpage
     {
-        SaveValues = true; 
+        SaveValues = true;
         layout
         {
             area(content)
@@ -5287,12 +5287,15 @@ report 50008 "Daily BreakUp by Vessel Rep 2"
                     ShowCaption = false;
                     field("Arrenge Column by"; ArrangeBy)
                     {
+                        ApplicationArea = All;
                     }
                     field("Report Mode"; ReportBy)
                     {
+                        ApplicationArea = All;
                     }
                     field("Show Category total"; "Show Category total")
                     {
+                        ApplicationArea = All;
                     }
                 }
             }

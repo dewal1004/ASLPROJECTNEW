@@ -12,9 +12,11 @@ page 60100 Date
                 ShowCaption = false;
                 field("Period No."; "Period No.")
                 {
+                    ApplicationArea = All;
                 }
                 field("Period Name"; "Period Name")
                 {
+                    ApplicationArea = All;
                 }
             }
         }

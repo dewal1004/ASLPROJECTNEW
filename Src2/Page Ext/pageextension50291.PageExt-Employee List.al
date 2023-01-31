@@ -74,6 +74,7 @@ pageextension 50291 pageextension50291 extends "Employee List"
         {
             field("NSITF Number"; "NSITF Number")
             {
+                ApplicationArea = All;
             }
         }
         addafter(Initials)
@@ -82,18 +83,22 @@ pageextension 50291 pageextension50291 extends "Employee List"
             {
                 Editable = false;
                 StyleExpr = StyleText;
+                ApplicationArea = All;
             }
             field("Bank Account"; "Bank Account")
             {
                 StyleExpr = StyleText;
+                ApplicationArea = All;
             }
             field("Employment Date"; "Employment Date")
             {
                 StyleExpr = StyleText;
+                ApplicationArea = All;
             }
             field("Birth Date"; "Birth Date")
             {
                 StyleExpr = StyleText;
+                ApplicationArea = All;
             }
         }
         addafter("Job Title")
@@ -102,16 +107,20 @@ pageextension 50291 pageextension50291 extends "Employee List"
             {
                 Style = Standard;
                 StyleExpr = StyleText;
+                ApplicationArea = All;
             }
             field(Blocked; Blocked)
             {
+                ApplicationArea = All;
             }
             field("Posting Group"; "Posting Group")
             {
                 StyleExpr = StyleText;
+                ApplicationArea = All;
             }
             field("Global Dimension 1 Code"; "Global Dimension 1 Code")
             {
+                ApplicationArea = All;
             }
         }
         addafter("Post Code")
@@ -119,18 +128,22 @@ pageextension 50291 pageextension50291 extends "Employee List"
             field(Suspended; Suspended)
             {
                 StyleExpr = StyleText;
+                ApplicationArea = All;
             }
             field("<Termination Date>"; xRec."Termination Date")
             {
                 Caption = 'Termination Date';
+                ApplicationArea = All;
             }
             field(Grade; Grade)
             {
                 StyleExpr = StyleText;
+                ApplicationArea = All;
             }
             field(Step; Step)
             {
                 StyleExpr = StyleText;
+                ApplicationArea = All;
             }
         }
         addafter(Comment)
@@ -138,27 +151,33 @@ pageextension 50291 pageextension50291 extends "Employee List"
             field(Basic; GetBasic("No."))
             {
                 Caption = 'Basic';
+                ApplicationArea = All;
             }
             field("Other Allowances"; GetED(EDNO[2]))
             {
                 Caption = 'Other Allowances';
+                ApplicationArea = All;
             }
             field(Housing; GetED(EDNO[3]))
             {
                 Caption = 'Housing';
+                ApplicationArea = All;
             }
             field(Transport; GetED(EDNO[4]))
             {
                 Caption = 'Transport';
+                ApplicationArea = All;
             }
             field("Balance (LCY)"; "Balance (LCY)")
             {
+                ApplicationArea = All;
             }
         }
         addfirst(FactBoxes)
         {
             part(Control41; "Employee Picture")
             {
+                ApplicationArea = All;
             }
         }
         moveafter("Resource No."; Comment)
@@ -175,30 +194,35 @@ pageextension 50291 pageextension50291 extends "Employee List"
                 Caption = ' Monthly Payslip';
                 Image = "Report";
                 RunObject = Report "Monthly Payslip";
+                ApplicationArea = All;
             }
             action("Payroll Report - NSITF")
             {
                 Caption = 'Payroll Report - NSITF';
                 Image = "Report";
                 RunObject = Report "Payroll Report - NSITF";
+                ApplicationArea = All;
             }
             action("Employee-Bank Acct")
             {
                 Caption = 'Employee-Bank Acct';
                 Image = "Report";
                 RunObject = Report "Employee-Bank Acct";
+                ApplicationArea = All;
             }
             action("Outstanding Loans")
             {
                 Caption = 'Outstanding Loans';
                 Image = "Report";
                 RunObject = Report "OUTSTANDING LOANS";
+                ApplicationArea = All;
             }
             action("Payroll Report")
             {
                 Caption = 'Payroll Report';
                 Image = "Report";
                 RunObject = Report "Payroll Report";
+                ApplicationArea = All;
             }
         }
     }
@@ -232,11 +256,11 @@ pageextension 50291 pageextension50291 extends "Employee List"
     trigger OnOpenPage()
     //Parameters and return type have not been exported.
     begin
-    
-    EDNO[2]:='4000';//Basic+Hous+Transp
-    EDNO[3]:='2600';//Housing
-    EDNO[4]:='2700';//Transport
-    
+
+        EDNO[2] := '4000';//Basic+Hous+Transp
+        EDNO[3] := '2600';//Housing
+        EDNO[4] := '2700';//Transport
+
     end;
 
     local procedure AssistEdit(OldEmployee: Record Employee): Boolean
@@ -259,6 +283,6 @@ pageextension 50291 pageextension50291 extends "Employee List"
         )
         */
 
-    end; 
+    end;
 }
 

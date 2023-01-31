@@ -11,7 +11,7 @@ report 50029 "Employee-Bank Acct"
     DefaultLayout = RDLC;
     RDLCLayout = './ReportRdlc/EmployeeBankAcct.rdlc';
     UsageCategory = ReportsAndAnalysis;
-    ApplicationArea = All,Basic,Suite;
+    ApplicationArea = All, Basic, Suite;
 
 
     dataset
@@ -439,72 +439,84 @@ report 50029 "Employee-Bank Acct"
                         Lookup = true;
                         LookupPageID = "Payroll ED Survey.";
                         TableRelation = "Payroll-E/D Codes.";
+                        ApplicationArea = All;
                     }
                     field("2."; RequestEDsArray[2]."E/D Code")
                     {
                         Lookup = true;
                         LookupPageID = "Payroll ED Survey.";
                         TableRelation = "Payroll-E/D Codes.";
+                        ApplicationArea = All;
                     }
                     field("3"; RequestEDsArray[3]."E/D Code")
                     {
                         Lookup = true;
                         LookupPageID = "Payroll ED Survey.";
                         TableRelation = "Payroll-E/D Codes.";
+                        ApplicationArea = All;
                     }
                     field("4"; RequestEDsArray[4]."E/D Code")
                     {
                         Lookup = true;
                         LookupPageID = "Payroll ED Survey.";
                         TableRelation = "Payroll-E/D Codes.";
+                        ApplicationArea = All;
                     }
                     field("5"; RequestEDsArray[5]."E/D Code")
                     {
                         Lookup = true;
                         LookupPageID = "Payroll ED Survey.";
                         TableRelation = "Payroll-E/D Codes.";
+                        ApplicationArea = All;
                     }
                     field("6"; RequestEDsArray[6]."E/D Code")
                     {
                         Lookup = true;
                         LookupPageID = "Payroll ED Survey.";
                         TableRelation = "Payroll-E/D Codes.";
+                        ApplicationArea = All;
                     }
                     field("7"; RequestEDsArray[7]."E/D Code")
                     {
                         Lookup = true;
                         LookupPageID = "Payroll ED Survey.";
                         TableRelation = "Payroll-E/D Codes.";
+                        ApplicationArea = All;
                     }
                     field("8"; RequestEDsArray[8]."E/D Code")
                     {
                         Lookup = true;
                         LookupPageID = "Payroll ED Survey.";
                         TableRelation = "Payroll-E/D Codes.";
+                        ApplicationArea = All;
                     }
                     field("9"; RequestEDsArray[9]."E/D Code")
                     {
                         Lookup = true;
                         LookupPageID = "Payroll ED Survey.";
                         TableRelation = "Payroll-E/D Codes.";
+                        ApplicationArea = All;
                     }
                     field("10"; RequestEDsArray[10]."E/D Code")
                     {
                         Lookup = true;
                         LookupPageID = "Payroll ED Survey.";
                         TableRelation = "Payroll-E/D Codes.";
+                        ApplicationArea = All;
                     }
                     field("11"; RequestEDsArray[11]."E/D Code")
                     {
                         Lookup = true;
                         LookupPageID = "Payroll ED Survey.";
                         TableRelation = "Payroll-E/D Codes.";
+                        ApplicationArea = All;
                     }
                     field("12"; RequestEDsArray[12]."E/D Code")
                     {
                         Lookup = true;
                         LookupPageID = "Payroll ED Survey.";
                         TableRelation = "Payroll-E/D Codes.";
+                        ApplicationArea = All;
                     }
                 }
             }

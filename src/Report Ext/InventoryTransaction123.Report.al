@@ -228,6 +228,7 @@ report 59704 "Inventory - Transaction 123"
                     field(PrintOnlyOnePerPage; PrintOnlyOnePerPage)
                     {
                         Caption = 'New Page per Item';
+                        ApplicationArea = All;
                     }
                 }
             }

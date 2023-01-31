@@ -321,21 +321,27 @@ report 50114 "Voyage Comparison"
                     ShowCaption = false;
                     field("Vessel Code"; JobRec.Vessel)
                     {
+                        ApplicationArea = All;
                     }
                     field("Voyage Ending Date"; JobRec."Ending Date")
                     {
+                        ApplicationArea = All;
                     }
                     field("Period Code"; PeriodCode)
                     {
+                        ApplicationArea = All;
                     }
                     field(Skipper; Skipper)
                     {
+                        ApplicationArea = All;
                     }
                     field("Font Size"; FontSize)
                     {
+                        ApplicationArea = All;
                     }
                     field("Page Orientation"; PageOrientation)
                     {
+                        ApplicationArea = All;
                     }
                 }
             }

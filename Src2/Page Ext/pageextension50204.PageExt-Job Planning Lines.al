@@ -43,43 +43,54 @@ pageextension 50204 pageextension50204 extends "Job Planning Lines"
         {
             field("Starting Date"; "Starting Date")
             {
+                ApplicationArea = All;
             }
             field("Ending Date"; "Ending Date")
             {
+                ApplicationArea = All;
             }
         }
         addafter(Description)
         {
             field("Resource Group"; "Resource Group")
             {
+                ApplicationArea = All;
             }
             field("Allocation %"; "Allocation %")
             {
+                ApplicationArea = All;
             }
             field("Allocation Quantity"; "Allocation Quantity")
             {
+                ApplicationArea = All;
             }
             field("Alloted %"; "Alloted %")
             {
+                ApplicationArea = All;
             }
             field(Incentive; Incentive)
             {
                 Editable = true;
+                ApplicationArea = All;
             }
             field("Hook Inc"; "Hook Inc")
             {
+                ApplicationArea = All;
             }
             field("Add/Ded"; "Add/Ded")
             {
+                ApplicationArea = All;
             }
             field("Net Inc"; "Net Inc")
             {
+                ApplicationArea = All;
             }
         }
         addafter("Posted Line Amount (LCY)")
         {
             field(Status; Status)
             {
+                ApplicationArea = All;
             }
         }
     }

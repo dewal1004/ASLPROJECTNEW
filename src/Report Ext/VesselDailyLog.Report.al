@@ -5,7 +5,7 @@ report 50015 "Vessel Daily Log"
     DefaultLayout = RDLC;
     RDLCLayout = './ReportRdlc/VesselDailyLog.rdlc';
     UsageCategory = ReportsAndAnalysis;
-    ApplicationArea = All,Basic,Suite;
+    ApplicationArea = All, Basic, Suite;
 
 
     dataset
@@ -236,6 +236,7 @@ report 50015 "Vessel Daily Log"
                 field(DisplayOptions; DisplayOptions)
                 {
                     ShowCaption = false;
+                    ApplicationArea = All;
                 }
             }
         }

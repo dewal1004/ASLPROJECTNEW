@@ -874,9 +874,11 @@ report 50014 "General Journal - trasaction"
                     field(ShowDim; ShowDim)
                     {
                         Caption = 'Show Dimensions';
+                        ApplicationArea = All;
                     }
                     field(ShowReconciliation; ShowReconciliation)
                     {
+                        ApplicationArea = All;
                     }
                 }
             }

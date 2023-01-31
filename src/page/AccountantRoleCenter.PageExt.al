@@ -17,11 +17,13 @@ pageextension 50399 "AccountantRoleCenter" extends "Accountant Role Center"
                     {
                         Caption = 'Payroll &Setup';
                         RunObject = Page "Payroll Setup Local";
+                        ApplicationArea = All;
                     }
                     action("Table Lookup Details")
                     {
                         Caption = 'Table Lookup Details';
                         RunObject = Page "Table Lookup Header.";
+                        ApplicationArea = All;
                     }
                     separator("-----------------------------------")
                     {
@@ -31,16 +33,19 @@ pageextension 50399 "AccountantRoleCenter" extends "Accountant Role Center"
                     {
                         Caption = 'E/Ds';
                         RunObject = Page "ED Codes.";
+                        ApplicationArea = All;
                     }
                     action("Employee Groups")
                     {
                         Caption = 'Employee Groups';
                         RunObject = Page 50101;
+                        ApplicationArea = All;
                     }
                     action("Posting Groups")
                     {
                         Caption = 'Posting Groups';
                         RunObject = Page "Posting Group Header.";
+                        ApplicationArea = All;
                     }
                 }
             }
@@ -54,6 +59,7 @@ pageextension 50399 "AccountantRoleCenter" extends "Accountant Role Center"
                     //Promoted = true;
                     //PromotedCategory = Process;
                     RunObject = Page "Payroll Periods.";
+                    ApplicationArea = All;
                 }
                 action(Banks)
                 {
@@ -61,6 +67,7 @@ pageextension 50399 "AccountantRoleCenter" extends "Accountant Role Center"
                     //Promoted = true;
                     //PromotedCategory = Process;
                     RunObject = Page "Banks.";
+                    ApplicationArea = All;
                 }
                 action("Monthly Payroll")
                 {
@@ -68,6 +75,7 @@ pageextension 50399 "AccountantRoleCenter" extends "Accountant Role Center"
                     //Promoted = true;
                     //PromotedCategory = Process;
                     RunObject = Page "Payslip Header Survey.";
+                    ApplicationArea = All;
                 }
                 action("Payroll Process")
                 {
@@ -75,6 +83,7 @@ pageextension 50399 "AccountantRoleCenter" extends "Accountant Role Center"
                     //Promoted = true;
                     //PromotedCategory = Process;
                     RunObject = Report "ASL Create New payslips - New";
+                    ApplicationArea = All;
                 }
                 action("Monthly Variables")
                 {
@@ -82,6 +91,7 @@ pageextension 50399 "AccountantRoleCenter" extends "Accountant Role Center"
                     //Promoted = true;
                     //PromotedCategory = Process;
                     RunObject = Page "Monthly Var. Header Survey.";
+                    ApplicationArea = All;
 
                 }
                 action("Create G/L Journal")
@@ -90,6 +100,7 @@ pageextension 50399 "AccountantRoleCenter" extends "Accountant Role Center"
                     //Promoted = true;
                     //PromotedCategory = Process;
                     RunObject = Report "PRoll; Create Journal Entries";
+                    ApplicationArea = All;
                 }
                 action("Staff Loans")
                 {
@@ -97,10 +108,12 @@ pageextension 50399 "AccountantRoleCenter" extends "Accountant Role Center"
                     //Promoted = true;
                     //PromotedCategory = Process;
                     RunObject = Page "Loan List";
+                    ApplicationArea = All;
                 }
                 action("General Journals PR")
                 {
                     Caption = 'General Journals';
+                    ApplicationArea = All;
                     //Promoted = true;
                     //PromotedCategory = Process;
 
@@ -108,6 +121,7 @@ pageextension 50399 "AccountantRoleCenter" extends "Accountant Role Center"
                 action(ReportsPR)
                 {
                     Caption = 'Reports';
+                    ApplicationArea = All;
                     //Promoted = true;
                     //PromotedCategory = Process;
 
@@ -125,11 +139,13 @@ pageextension 50399 "AccountantRoleCenter" extends "Accountant Role Center"
                     //PromotedCategory = Process;
                     RunObject = Page "Utilities.";
                     Visible = true;
+                    ApplicationArea = All;
                 }
                 action(Navigate)
                 {
                     Caption = 'Navigate';
                     Image = Navigate;
+                    ApplicationArea = all;
                     //Promoted = true;
                     //PromotedCategory = Process;
                     RunObject = Page Navigate;

@@ -16,6 +16,7 @@ page 80087 "Catch Form"
                 field("Voyage No."; "Voyage No.")
                 {
                     TableRelation = Job;
+                    ApplicationArea = All;
 
                     trigger OnValidate()
                     begin
@@ -26,19 +27,23 @@ page 80087 "Catch Form"
                 }
                 field(Vessel; Vessel)
                 {
+                    ApplicationArea = All;
                     //The property BlankZero is only supported on fields of type BigInteger, Boolean, Integer, Decimal, Duration, Enum, and Option.
                     //BlankZero = true;
                 }
                 field("Catch Date"; "Catch Date")
                 {
+                    ApplicationArea = All;
                 }
                 field("Fishing Ground"; "Fishing Ground")
                 {
                     TableRelation = "Fishing Area +".Code;
+                    ApplicationArea = All;
                 }
                 field("Sea Temperature"; "Sea Temperature")
                 {
                     BlankZero = true;
+                    ApplicationArea = All;
                 }
             }
             group("White Hon/Wild Tiger/Headless")
@@ -50,6 +55,7 @@ page 80087 "Catch Form"
                     ShowCaption = false;
                     Style = Standard;
                     StyleExpr = TRUE;
+                    ApplicationArea = All;
                 }
                 label(Control1000000027)
                 {
@@ -57,6 +63,7 @@ page 80087 "Catch Form"
                     ShowCaption = false;
                     Style = Standard;
                     StyleExpr = TRUE;
+                    ApplicationArea = All;
                 }
                 label(Control1000000001)
                 {
@@ -64,11 +71,13 @@ page 80087 "Catch Form"
                     ShowCaption = false;
                     Style = Standard;
                     StyleExpr = TRUE;
+                    ApplicationArea = All;
                 }
                 field("CTH[1,1]"; CTH[1, 1])
                 {
                     BlankZero = true;
                     Caption = '0';
+                    ApplicationArea = All;
                 }
                 label(Control1000000117)
                 {
@@ -76,51 +85,61 @@ page 80087 "Catch Form"
                     ShowCaption = false;
                     Style = Standard;
                     StyleExpr = TRUE;
+                    ApplicationArea = All;
                 }
                 field("CTH[2,1]"; CTH[2, 1])
                 {
                     BlankZero = true;
                     Caption = '1';
+                    ApplicationArea = All;
                 }
                 field("CTH[3,1]"; CTH[3, 1])
                 {
                     BlankZero = true;
                     Caption = '2';
+                    ApplicationArea = All;
                 }
                 field("CTH[4,1]"; CTH[4, 1])
                 {
                     BlankZero = true;
                     Caption = '3';
+                    ApplicationArea = All;
                 }
                 field("CTH[5,1]"; CTH[5, 1])
                 {
                     BlankZero = true;
                     Caption = '4';
+                    ApplicationArea = All;
                 }
                 field("CTH[6,1]"; CTH[6, 1])
                 {
                     BlankZero = true;
                     Caption = '5';
+                    ApplicationArea = All;
                 }
                 field("CTH[7,1]"; CTH[7, 1])
                 {
                     BlankZero = true;
                     Caption = '6';
+                    ApplicationArea = All;
                 }
                 field("CTH[8,1]"; CTH[8, 1])
                 {
                     BlankZero = true;
                     Caption = '7';
+                    ApplicationArea = All;
                 }
                 field("CTH[9,1]"; CTH[9, 1])
                 {
                     BlankZero = true;
                     Caption = '8';
+                    ApplicationArea = All;
                 }
                 field("CTH[10,1]"; CTH[10, 1])
                 {
                     BlankZero = true;
                     Caption = '9';
+                    ApplicationArea = All;
                 }
                 label(Control1000000054)
                 {
@@ -128,6 +147,7 @@ page 80087 "Catch Form"
                     ShowCaption = false;
                     Style = Standard;
                     StyleExpr = TRUE;
+                    ApplicationArea = All;
                 }
                 label(Control1000000119)
                 {
@@ -135,6 +155,7 @@ page 80087 "Catch Form"
                     ShowCaption = false;
                     Style = Standard;
                     StyleExpr = TRUE;
+                    ApplicationArea = All;
                 }
                 label(Control1000000120)
                 {
@@ -142,46 +163,55 @@ page 80087 "Catch Form"
                     ShowCaption = false;
                     Style = Standard;
                     StyleExpr = TRUE;
+                    ApplicationArea = All;
                 }
                 field("CTH[11,1]"; CTH[11, 1])
                 {
                     BlankZero = true;
                     Caption = '10';
+                    ApplicationArea = All;
                 }
                 field("CTH[12,1]"; CTH[12, 1])
                 {
                     BlankZero = true;
                     Caption = '11';
+                    ApplicationArea = All;
                 }
                 field("CTH[13,1]"; CTH[13, 1])
                 {
                     BlankZero = true;
                     Caption = '12';
+                    ApplicationArea = All;
                 }
                 field("CTH[14,1]"; CTH[14, 1])
                 {
                     BlankZero = true;
                     Caption = '13';
+                    ApplicationArea = All;
                 }
                 field("CTH[15,1]"; CTH[15, 1])
                 {
                     BlankZero = true;
                     Caption = '14';
+                    ApplicationArea = All;
                 }
                 field("CTH[16,1]"; CTH[16, 1])
                 {
                     BlankZero = true;
                     Caption = '15';
+                    ApplicationArea = All;
                 }
                 field("CTH[17,1]"; CTH[17, 1])
                 {
                     BlankZero = true;
                     Caption = '16';
+                    ApplicationArea = All;
                 }
                 field("CTH[18,1]"; CTH[18, 1])
                 {
                     BlankZero = true;
                     Caption = '17';
+                    ApplicationArea = All;
                 }
                 label(Control1000000061)
                 {
@@ -189,6 +219,7 @@ page 80087 "Catch Form"
                     ShowCaption = false;
                     Style = Standard;
                     StyleExpr = TRUE;
+                    ApplicationArea = All;
                 }
                 label(Control1000000125)
                 {
@@ -196,6 +227,7 @@ page 80087 "Catch Form"
                     ShowCaption = false;
                     Style = Standard;
                     StyleExpr = TRUE;
+                    ApplicationArea = All;
                 }
                 label(Control1000000126)
                 {
@@ -203,21 +235,25 @@ page 80087 "Catch Form"
                     ShowCaption = false;
                     Style = Standard;
                     StyleExpr = TRUE;
+                    ApplicationArea = All;
                 }
                 field("CTH[19,1]"; CTH[19, 1])
                 {
                     BlankZero = true;
                     Caption = '18';
+                    ApplicationArea = All;
                 }
                 field("CTH[20,1]"; CTH[20, 1])
                 {
                     BlankZero = true;
                     Caption = '19';
+                    ApplicationArea = All;
                 }
                 field("CTH[21,1]"; CTH[21, 1])
                 {
                     BlankZero = true;
                     Caption = '20';
+                    ApplicationArea = All;
                 }
                 label(Control1000000024)
                 {
@@ -225,6 +261,7 @@ page 80087 "Catch Form"
                     ShowCaption = false;
                     Style = Standard;
                     StyleExpr = TRUE;
+                    ApplicationArea = All;
                 }
                 label(Control1000000118)
                 {
@@ -232,56 +269,67 @@ page 80087 "Catch Form"
                     ShowCaption = false;
                     Style = Standard;
                     StyleExpr = TRUE;
+                    ApplicationArea = All;
                 }
                 field("CTH[1,2]"; CTH[1, 2])
                 {
                     BlankZero = true;
                     Caption = 'U - 10';
+                    ApplicationArea = All;
                 }
                 field("CTH[2,2]"; CTH[2, 2])
                 {
                     BlankZero = true;
                     Caption = '10 - 20';
+                    ApplicationArea = All;
                 }
                 field("CTH[3,2]"; CTH[3, 2])
                 {
                     BlankZero = true;
                     Caption = '20 - 30';
+                    ApplicationArea = All;
                 }
                 field("CTH[4,2]"; CTH[4, 2])
                 {
                     BlankZero = true;
                     Caption = '30 - 40';
+                    ApplicationArea = All;
                 }
                 field("CTH[5,2]"; CTH[5, 2])
                 {
                     BlankZero = true;
                     Caption = '40 - 60';
+                    ApplicationArea = All;
                 }
                 field("CTH[6,2]"; CTH[6, 2])
                 {
                     BlankZero = true;
                     Caption = '60 - 80';
+                    ApplicationArea = All;
                 }
                 field("CTH[7,2]"; CTH[7, 2])
                 {
                     BlankZero = true;
                     Caption = '80 - 100';
+                    ApplicationArea = All;
                 }
                 field("CTH[8,2]"; CTH[8, 2])
                 {
                     BlankZero = true;
                     Caption = '100 - 120';
+                    ApplicationArea = All;
                 }
                 field("CTH[9,2]"; CTH[9, 2])
                 {
                     BlankZero = true;
                     Caption = '120 - 150';
+                    ApplicationArea = All;
                 }
                 field("CTH[10,2]"; CTH[10, 2])
                 {
                     BlankZero = true;
                     Caption = '150 - 200';
+                    ApplicationArea = All;
                 }
                 label(Control1000000122)
                 {
@@ -289,46 +337,55 @@ page 80087 "Catch Form"
                     ShowCaption = false;
                     Style = Standard;
                     StyleExpr = TRUE;
+                    ApplicationArea = All;
                 }
                 field("CTH[11,2]"; CTH[11, 2])
                 {
                     BlankZero = true;
                     Caption = 'U - 10';
+                    ApplicationArea = All;
                 }
                 field("CTH[12,2]"; CTH[12, 2])
                 {
                     BlankZero = true;
                     Caption = '10 - 20';
+                    ApplicationArea = All;
                 }
                 field("CTH[13,2]"; CTH[13, 2])
                 {
                     BlankZero = true;
                     Caption = '20 - 30';
+                    ApplicationArea = All;
                 }
                 field("CTH[14,2]"; CTH[14, 2])
                 {
                     BlankZero = true;
                     Caption = '30 - 40';
+                    ApplicationArea = All;
                 }
                 field("CTH[15,2]"; CTH[15, 2])
                 {
                     BlankZero = true;
                     Caption = '40 - 60';
+                    ApplicationArea = All;
                 }
                 field("CTH[16,2]"; CTH[16, 2])
                 {
                     BlankZero = true;
                     Caption = '30 CMS - UP';
+                    ApplicationArea = All;
                 }
                 field("CTH[17,2]"; CTH[17, 2])
                 {
                     BlankZero = true;
                     Caption = '26 - 30 CMS';
+                    ApplicationArea = All;
                 }
                 field("CTH[18,2]"; CTH[18, 2])
                 {
                     BlankZero = true;
                     Caption = '24 - 26 CMS';
+                    ApplicationArea = All;
                 }
                 label(Control1000000128)
                 {
@@ -336,21 +393,25 @@ page 80087 "Catch Form"
                     ShowCaption = false;
                     Style = Standard;
                     StyleExpr = TRUE;
+                    ApplicationArea = All;
                 }
                 field("CTH[19,2]"; CTH[19, 2])
                 {
                     BlankZero = true;
                     Caption = 'LRG';
+                    ApplicationArea = All;
                 }
                 field("CTH[20,2]"; CTH[20, 2])
                 {
                     BlankZero = true;
                     Caption = 'MED';
+                    ApplicationArea = All;
                 }
                 field("CTH[21,2]"; CTH[21, 2])
                 {
                     BlankZero = true;
                     Caption = 'SML';
+                    ApplicationArea = All;
                 }
                 label(Control1000000025)
                 {
@@ -358,60 +419,71 @@ page 80087 "Catch Form"
                     ShowCaption = false;
                     Style = Standard;
                     StyleExpr = TRUE;
+                    ApplicationArea = All;
                 }
                 field("CTH[1,3]"; CTH[1, 3])
                 {
                     BlankZero = true;
                     Caption = 'U - 10';
                     Editable = false;
+                    ApplicationArea = All;
                 }
                 field("CTH[2,3]"; CTH[2, 3])
                 {
                     BlankZero = true;
                     Caption = '10 - 20';
                     Editable = false;
+                    ApplicationArea = All;
                 }
                 field("CTH[3,3]"; CTH[3, 3])
                 {
                     BlankZero = true;
                     Caption = '20 - 30';
                     Editable = false;
+                    ApplicationArea = All;
                 }
                 field("CTH[4,3]"; CTH[4, 3])
                 {
                     BlankZero = true;
                     Caption = '30 - 40';
                     Editable = false;
+                    ApplicationArea = All;
                 }
                 field("CTH[5,3]"; CTH[5, 3])
                 {
                     BlankZero = true;
                     Caption = '40 - 60';
+                    ApplicationArea = All;
                 }
                 field("CTH[6,3]"; CTH[6, 3])
                 {
                     BlankZero = true;
                     Caption = '60 - 80';
+                    ApplicationArea = All;
                 }
                 field("CTH[7,3]"; CTH[7, 3])
                 {
                     BlankZero = true;
                     Caption = '80 - 100';
+                    ApplicationArea = All;
                 }
                 field("CTH[8,3]"; CTH[8, 3])
                 {
                     BlankZero = true;
                     Caption = '100 - 120';
+                    ApplicationArea = All;
                 }
                 field("CTH[9,3]"; CTH[9, 3])
                 {
                     BlankZero = true;
                     Caption = '120 - 150';
+                    ApplicationArea = All;
                 }
                 field("CTH[10,3]"; CTH[10, 3])
                 {
                     BlankZero = true;
                     Caption = '150 - 200';
+                    ApplicationArea = All;
                 }
                 label(Control1000000124)
                 {
@@ -419,54 +491,63 @@ page 80087 "Catch Form"
                     ShowCaption = false;
                     Style = Standard;
                     StyleExpr = TRUE;
+                    ApplicationArea = All;
                 }
                 field("CTH[11,3]"; CTH[11, 3])
                 {
                     BlankZero = true;
                     Caption = 'U - 10';
                     Editable = false;
+                    ApplicationArea = All;
                 }
                 field("CTH[12,3]"; CTH[12, 3])
                 {
                     BlankZero = true;
                     Caption = '10 - 20';
                     Editable = false;
+                    ApplicationArea = All;
                 }
                 field("CTH[13,3]"; CTH[13, 3])
                 {
                     BlankZero = true;
                     Caption = '20 - 30';
                     Editable = false;
+                    ApplicationArea = All;
                 }
                 field("CTH[14,3]"; CTH[14, 3])
                 {
                     BlankZero = true;
                     Caption = '30 - 40';
                     Editable = false;
+                    ApplicationArea = All;
                 }
                 field("CTH[15,3]"; CTH[15, 3])
                 {
                     BlankZero = true;
                     Caption = '40 - 60';
                     Editable = false;
+                    ApplicationArea = All;
                 }
                 field("CTH[16,3]"; CTH[16, 3])
                 {
                     BlankZero = true;
                     Caption = '30 CMS - UP';
                     Editable = false;
+                    ApplicationArea = All;
                 }
                 field("CTH[17,3]"; CTH[17, 3])
                 {
                     BlankZero = true;
                     Caption = '26 - 30 CMS';
                     Editable = false;
+                    ApplicationArea = All;
                 }
                 field("CTH[18,3]"; CTH[18, 3])
                 {
                     BlankZero = true;
                     Caption = '24 - 26 CMS';
                     Editable = false;
+                    ApplicationArea = All;
                 }
                 label(Control1000000130)
                 {
@@ -474,21 +555,25 @@ page 80087 "Catch Form"
                     ShowCaption = false;
                     Style = Standard;
                     StyleExpr = TRUE;
+                    ApplicationArea = All;
                 }
                 field("CTH[19,3]"; CTH[19, 3])
                 {
                     BlankZero = true;
                     Caption = 'LRG';
+                    ApplicationArea = All;
                 }
                 field("CTH[20,3]"; CTH[20, 3])
                 {
                     BlankZero = true;
                     Caption = 'MED';
+                    ApplicationArea = All;
                 }
                 field("CTH[21,3]"; CTH[21, 3])
                 {
                     BlankZero = true;
                     Caption = 'SML';
+                    ApplicationArea = All;
                 }
             }
             group("Brwn Hon/Cut. Fish/Crab/Others")
@@ -500,6 +585,7 @@ page 80087 "Catch Form"
                     ShowCaption = false;
                     Style = Standard;
                     StyleExpr = TRUE;
+                    ApplicationArea = All;
                 }
                 label(Control1000000132)
                 {
@@ -507,6 +593,7 @@ page 80087 "Catch Form"
                     ShowCaption = false;
                     Style = Standard;
                     StyleExpr = TRUE;
+                    ApplicationArea = All;
                 }
                 label(Control1000000129)
                 {
@@ -514,11 +601,13 @@ page 80087 "Catch Form"
                     ShowCaption = false;
                     Style = Standard;
                     StyleExpr = TRUE;
+                    ApplicationArea = All;
                 }
                 field("CTH[22,1]"; CTH[22, 1])
                 {
                     BlankZero = true;
                     Caption = '21';
+                    ApplicationArea = All;
                 }
                 label(Control1000000133)
                 {
@@ -526,31 +615,37 @@ page 80087 "Catch Form"
                     ShowCaption = false;
                     Style = Standard;
                     StyleExpr = TRUE;
+                    ApplicationArea = All;
                 }
                 field("CTH[23,1]"; CTH[23, 1])
                 {
                     BlankZero = true;
                     Caption = '22';
+                    ApplicationArea = All;
                 }
                 field("CTH[24,1]"; CTH[24, 1])
                 {
                     BlankZero = true;
                     Caption = '23';
+                    ApplicationArea = All;
                 }
                 field("CTH[25,1]"; CTH[25, 1])
                 {
                     BlankZero = true;
                     Caption = '24';
+                    ApplicationArea = All;
                 }
                 field("CTH[26,1]"; CTH[26, 1])
                 {
                     BlankZero = true;
                     Caption = '25';
+                    ApplicationArea = All;
                 }
                 field("CTH[27,1]"; CTH[27, 1])
                 {
                     BlankZero = true;
                     Caption = '26';
+                    ApplicationArea = All;
                 }
                 label(Control1000000184)
                 {
@@ -558,6 +653,7 @@ page 80087 "Catch Form"
                     ShowCaption = false;
                     Style = Standard;
                     StyleExpr = TRUE;
+                    ApplicationArea = All;
                 }
                 label(Control1000000185)
                 {
@@ -565,6 +661,7 @@ page 80087 "Catch Form"
                     ShowCaption = false;
                     Style = Standard;
                     StyleExpr = TRUE;
+                    ApplicationArea = All;
                 }
                 label(Control1000000186)
                 {
@@ -572,34 +669,40 @@ page 80087 "Catch Form"
                     ShowCaption = false;
                     Style = Standard;
                     StyleExpr = TRUE;
+                    ApplicationArea = All;
                 }
                 field("CTH[28,1]"; CTH[28, 1])
                 {
                     BlankZero = true;
                     Caption = '27';
+                    ApplicationArea = All;
                 }
                 field("CTH[29,1]"; CTH[29, 1])
                 {
                     BlankZero = true;
                     Caption = '28';
+                    ApplicationArea = All;
                 }
                 field("CTH[30,1]"; CTH[30, 1])
                 {
                     BlankZero = true;
                     Caption = '29';
                     Editable = false;
+                    ApplicationArea = All;
                 }
                 field("CTH[31,1]"; CTH[31, 1])
                 {
                     BlankZero = true;
                     Caption = '30';
                     Editable = false;
+                    ApplicationArea = All;
                 }
                 field("CTH[32,1]"; CTH[32, 1])
                 {
                     BlankZero = true;
                     Caption = '31';
                     Editable = false;
+                    ApplicationArea = All;
                 }
                 label(Control1000000229)
                 {
@@ -607,6 +710,7 @@ page 80087 "Catch Form"
                     ShowCaption = false;
                     Style = Standard;
                     StyleExpr = TRUE;
+                    ApplicationArea = All;
                 }
                 label(Control1000000230)
                 {
@@ -614,6 +718,7 @@ page 80087 "Catch Form"
                     ShowCaption = false;
                     Style = Standard;
                     StyleExpr = TRUE;
+                    ApplicationArea = All;
                 }
                 label(Control1000000231)
                 {
@@ -621,21 +726,25 @@ page 80087 "Catch Form"
                     ShowCaption = false;
                     Style = Standard;
                     StyleExpr = TRUE;
+                    ApplicationArea = All;
                 }
                 field("CTH[33,1]"; CTH[33, 1])
                 {
                     BlankZero = true;
                     Caption = '32';
+                    ApplicationArea = All;
                 }
                 field("CTH[34,1]"; CTH[34, 1])
                 {
                     BlankZero = true;
                     Caption = '33';
+                    ApplicationArea = All;
                 }
                 field("CTH[35,1]"; CTH[35, 1])
                 {
                     BlankZero = true;
                     Caption = '34';
+                    ApplicationArea = All;
                 }
                 label(Control1000000123)
                 {
@@ -643,6 +752,7 @@ page 80087 "Catch Form"
                     ShowCaption = false;
                     Style = Standard;
                     StyleExpr = TRUE;
+                    ApplicationArea = All;
                 }
                 label(Control1000000136)
                 {
@@ -650,6 +760,7 @@ page 80087 "Catch Form"
                     ShowCaption = false;
                     Style = Standard;
                     StyleExpr = TRUE;
+                    ApplicationArea = All;
                 }
                 label(Control1000000141)
                 {
@@ -657,35 +768,41 @@ page 80087 "Catch Form"
                     ShowCaption = false;
                     Style = Standard;
                     StyleExpr = TRUE;
+                    ApplicationArea = All;
                 }
                 field("CTH[36,1]"; CTH[36, 1])
                 {
                     BlankZero = true;
                     Caption = '35';
+                    ApplicationArea = All;
                 }
                 field("CTH[37,1]"; CTH[37, 1])
                 {
                     BlankZero = true;
                     Caption = '36';
                     Editable = false;
+                    ApplicationArea = All;
                 }
                 field("CTH[38,1]"; CTH[38, 1])
                 {
                     BlankZero = true;
                     Caption = '37';
                     Editable = false;
+                    ApplicationArea = All;
                 }
                 field("CTH[39,1]"; CTH[39, 1])
                 {
                     BlankZero = true;
                     Caption = '38';
                     Editable = false;
+                    ApplicationArea = All;
                 }
                 field("CTH[40,1]"; CTH[40, 1])
                 {
                     BlankZero = true;
                     Caption = '39';
                     Editable = false;
+                    ApplicationArea = All;
                 }
                 label(Control1000000143)
                 {
@@ -693,6 +810,7 @@ page 80087 "Catch Form"
                     ShowCaption = false;
                     Style = Standard;
                     StyleExpr = TRUE;
+                    ApplicationArea = All;
                 }
                 label(Control1000000148)
                 {
@@ -700,36 +818,43 @@ page 80087 "Catch Form"
                     ShowCaption = false;
                     Style = Standard;
                     StyleExpr = TRUE;
+                    ApplicationArea = All;
                 }
                 field("CTH[22,2]"; CTH[22, 2])
                 {
                     BlankZero = true;
                     Caption = '60 - 80';
+                    ApplicationArea = All;
                 }
                 field("CTH[23,2]"; CTH[23, 2])
                 {
                     BlankZero = true;
                     Caption = '80 - 100';
+                    ApplicationArea = All;
                 }
                 field("CTH[24,2]"; CTH[24, 2])
                 {
                     BlankZero = true;
                     Caption = '100 - 120';
+                    ApplicationArea = All;
                 }
                 field("CTH[25,2]"; CTH[25, 2])
                 {
                     BlankZero = true;
                     Caption = '120 - 150';
+                    ApplicationArea = All;
                 }
                 field("CTH[26,2]"; CTH[26, 2])
                 {
                     BlankZero = true;
                     Caption = '150 - 200';
+                    ApplicationArea = All;
                 }
                 field("CTH[27,2]"; CTH[27, 2])
                 {
                     BlankZero = true;
                     Caption = '150 - 200';
+                    ApplicationArea = All;
                 }
                 label(Control1000000187)
                 {
@@ -737,33 +862,39 @@ page 80087 "Catch Form"
                     ShowCaption = false;
                     Style = Standard;
                     StyleExpr = TRUE;
+                    ApplicationArea = All;
                 }
                 field("CTH[28,2]"; CTH[28, 2])
                 {
                     BlankZero = true;
                     Caption = 'U - 10';
                     Editable = false;
+                    ApplicationArea = All;
                 }
                 field("CTH[29,2]"; CTH[29, 2])
                 {
                     BlankZero = true;
                     Caption = '10 - 20';
                     Editable = false;
+                    ApplicationArea = All;
                 }
                 field("CTH[30,2]"; CTH[30, 2])
                 {
                     BlankZero = true;
                     Caption = '20 - 30';
+                    ApplicationArea = All;
                 }
                 field("CTH[31,2]"; CTH[31, 2])
                 {
                     BlankZero = true;
                     Caption = '30 - 40';
+                    ApplicationArea = All;
                 }
                 field("CTH[32,2]"; CTH[32, 2])
                 {
                     BlankZero = true;
                     Caption = '40 - 60';
+                    ApplicationArea = All;
                 }
                 label(Control1000000232)
                 {
@@ -771,24 +902,28 @@ page 80087 "Catch Form"
                     ShowCaption = false;
                     Style = Standard;
                     StyleExpr = TRUE;
+                    ApplicationArea = All;
                 }
                 field("CTH[33,2]"; CTH[33, 2])
                 {
                     BlankZero = true;
                     Caption = 'LRG';
                     Editable = false;
+                    ApplicationArea = All;
                 }
                 field("CTH[34,2]"; CTH[34, 2])
                 {
                     BlankZero = true;
                     Caption = 'MED';
                     Editable = false;
+                    ApplicationArea = All;
                 }
                 field("CTH[35,2]"; CTH[35, 2])
                 {
                     BlankZero = true;
                     Caption = 'SML';
                     Editable = false;
+                    ApplicationArea = All;
                 }
                 label(Control1000000151)
                 {
@@ -796,32 +931,38 @@ page 80087 "Catch Form"
                     ShowCaption = false;
                     Style = Standard;
                     StyleExpr = TRUE;
+                    ApplicationArea = All;
                 }
                 field("CTH[36,2]"; CTH[36, 2])
                 {
                     BlankZero = true;
                     Caption = 'U - 10';
                     Editable = false;
+                    ApplicationArea = All;
                 }
                 field("CTH[37,2]"; CTH[37, 2])
                 {
                     BlankZero = true;
                     Caption = '20 - 30';
+                    ApplicationArea = All;
                 }
                 field("CTH[38,2]"; CTH[38, 2])
                 {
                     BlankZero = true;
                     Caption = '20 - 30';
+                    ApplicationArea = All;
                 }
                 field("CTH[39,2]"; CTH[39, 2])
                 {
                     BlankZero = true;
                     Caption = '30 - 40';
+                    ApplicationArea = All;
                 }
                 field("CTH[40,2]"; CTH[40, 2])
                 {
                     BlankZero = true;
                     Caption = '40 - 60';
+                    ApplicationArea = All;
                 }
                 label(Control1000000153)
                 {
@@ -829,36 +970,43 @@ page 80087 "Catch Form"
                     ShowCaption = false;
                     Style = Standard;
                     StyleExpr = TRUE;
+                    ApplicationArea = All;
                 }
                 field("CTH[22,3]"; CTH[22, 3])
                 {
                     BlankZero = true;
                     Caption = '60 - 80';
+                    ApplicationArea = All;
                 }
                 field("CTH[23,3]"; CTH[23, 3])
                 {
                     BlankZero = true;
                     Caption = '80 - 100';
+                    ApplicationArea = All;
                 }
                 field("CTH[24,3]"; CTH[24, 3])
                 {
                     BlankZero = true;
                     Caption = '100 - 120';
+                    ApplicationArea = All;
                 }
                 field("CTH[25,3]"; CTH[25, 3])
                 {
                     BlankZero = true;
                     Caption = '120 - 150';
+                    ApplicationArea = All;
                 }
                 field("CTH[26,3]"; CTH[26, 3])
                 {
                     BlankZero = true;
                     Caption = '150 - 200';
+                    ApplicationArea = All;
                 }
                 field("CTH[27,3]"; CTH[27, 3])
                 {
                     BlankZero = true;
                     Caption = '150 - 200';
+                    ApplicationArea = All;
                 }
                 label(Control1000000188)
                 {
@@ -866,36 +1014,42 @@ page 80087 "Catch Form"
                     ShowCaption = false;
                     Style = Standard;
                     StyleExpr = TRUE;
+                    ApplicationArea = All;
                 }
                 field("CTH[28,3]"; CTH[28, 3])
                 {
                     BlankZero = true;
                     Caption = 'U - 10';
                     Editable = false;
+                    ApplicationArea = All;
                 }
                 field("CTH[29,3]"; CTH[29, 3])
                 {
                     BlankZero = true;
                     Caption = '10 - 20';
                     Editable = false;
+                    ApplicationArea = All;
                 }
                 field("CTH[30,3]"; CTH[30, 3])
                 {
                     BlankZero = true;
                     Caption = '20 - 30';
                     Editable = false;
+                    ApplicationArea = All;
                 }
                 field("CTH[31,3]"; CTH[31, 3])
                 {
                     BlankZero = true;
                     Caption = '30 - 40';
                     Editable = false;
+                    ApplicationArea = All;
                 }
                 field("CTH[32,3]"; CTH[32, 3])
                 {
                     BlankZero = true;
                     Caption = '40 - 60';
                     Editable = false;
+                    ApplicationArea = All;
                 }
                 label(Control1000000233)
                 {
@@ -903,24 +1057,28 @@ page 80087 "Catch Form"
                     ShowCaption = false;
                     Style = Standard;
                     StyleExpr = TRUE;
+                    ApplicationArea = All;
                 }
                 field("CTH[33,3]"; CTH[33, 3])
                 {
                     BlankZero = true;
                     Caption = 'LRG';
                     Editable = false;
+                    ApplicationArea = All;
                 }
                 field("CTH[34,3]"; CTH[34, 3])
                 {
                     BlankZero = true;
                     Caption = 'MED';
                     Editable = false;
+                    ApplicationArea = All;
                 }
                 field("CTH[35,3]"; CTH[35, 3])
                 {
                     BlankZero = true;
                     Caption = 'SML';
                     Editable = false;
+                    ApplicationArea = All;
                 }
                 label(Control1000000158)
                 {
@@ -928,36 +1086,42 @@ page 80087 "Catch Form"
                     ShowCaption = false;
                     Style = Standard;
                     StyleExpr = TRUE;
+                    ApplicationArea = All;
                 }
                 field("CTH[36,3]"; CTH[36, 3])
                 {
                     BlankZero = true;
                     Caption = 'U - 10';
                     Editable = false;
+                    ApplicationArea = All;
                 }
                 field("CTH[37,3]"; CTH[37, 3])
                 {
                     BlankZero = true;
                     Caption = '10 - 20';
                     Editable = false;
+                    ApplicationArea = All;
                 }
                 field("CTH[38,3]"; CTH[38, 3])
                 {
                     BlankZero = true;
                     Caption = '20 - 30';
                     Editable = false;
+                    ApplicationArea = All;
                 }
                 field("CTH[39,3]"; CTH[39, 3])
                 {
                     BlankZero = true;
                     Caption = '30 - 40';
                     Editable = false;
+                    ApplicationArea = All;
                 }
                 field("CTH[40,3]"; CTH[40, 3])
                 {
                     BlankZero = true;
                     Caption = '40 - 60';
                     Editable = false;
+                    ApplicationArea = All;
                 }
             }
         }
@@ -972,6 +1136,7 @@ page 80087 "Catch Form"
                 Caption = 'Record';
                 Promoted = true;
                 PromotedCategory = Process;
+                ApplicationArea = All;
 
                 trigger OnAction()
                 begin

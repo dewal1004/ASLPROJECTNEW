@@ -5,14 +5,14 @@ report 50007 "Daily BreakUp by Vessel Rep 1"
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
     Caption = 'Daily BreakUp by Vessel Rep 1';
-    
+
     dataset
     {
         dataitem("Inventory Posting G Cat Tot"; "Inventory Posting Group")
         {
             DataItemTableView = SORTING("Statistics Group", Category, "S/No.") WHERE("In Use" = CONST(true), "Statistics Group" = FILTER(> 0), Category = FILTER(<> ''));
             RequestFilterFields = "Statistics Group", Category, "Date Filter";
-            
+
             column(test; Test)
             {
             }
@@ -2284,12 +2284,12 @@ report 50007 "Daily BreakUp by Vessel Rep 1"
 
             trigger OnAfterGetRecord()
             begin
-                
+
                 if (CopyStr(Category, 5) = 'SNB') or (CopyStr(Category, 5) = 'SOLE') or
                    (CopyStr(Category, 5) = 'CROAKER') or (CopyStr(Category, 5) = 'MIX') or
                    (CopyStr(Category, 5) = 'OTHER FISH') then
                     Test += InvtTot;
-                
+
                 if ("Inventory Posting G Cat Tot".Category = 'B12.OTHER FISH') or ("Inventory Posting G Cat Tot".Category = 'B08.SNB')
                  or ("Inventory Posting G Cat Tot".Category = 'B09.CROAKER') or ("Inventory Posting G Cat Tot".Category = 'B10.SOLE')
                   or ("Inventory Posting G Cat Tot".Category = 'B11.MIX') then begin
@@ -2314,7 +2314,7 @@ report 50007 "Daily BreakUp by Vessel Rep 1"
                     SetFilter("Location Filter", SeaRange[level]);
                     CalcFields(Inventory1, Inventory2);
                     //Inventory2 := InventoryTwo(Code,SeaRange[level],DateFilter);
-                   
+
                     if ReportBy = 0 then
                         SeaRangeC[level] := Inventory2
                     else
@@ -2421,7 +2421,7 @@ report 50007 "Daily BreakUp by Vessel Rep 1"
             DataItemTableView = SORTING("Statistics Group", Category, "S/No.") WHERE("In Use" = CONST(true), "Statistics Group" = FILTER(> 0));
             column(testing123; testing123)
             {
-            } 
+            }
             column(Inventory_Posting_G_Cat_Tot_Category; Category)
             {
             }
@@ -5255,12 +5255,15 @@ report 50007 "Daily BreakUp by Vessel Rep 1"
                     ShowCaption = false;
                     field("Arrenge Column by"; ArrangeBy)
                     {
+                        ApplicationArea = All;
                     }
                     field("Report Mode"; ReportBy)
                     {
+                        ApplicationArea = All;
                     }
                     field("Show Category total"; "Show Category total")
                     {
+                        ApplicationArea = All;
                     }
                 }
             }

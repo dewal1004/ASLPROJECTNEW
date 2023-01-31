@@ -13,9 +13,11 @@ page 50042 "Employee Training"
                 Caption = 'General';
                 field("Courses Code"; "Courses Code")
                 {
+                    ApplicationArea = All;
                 }
                 field("Training Group"; "Training Group")
                 {
+                    ApplicationArea = All;
 
                     trigger OnValidate()
                     begin
@@ -25,14 +27,17 @@ page 50042 "Employee Training"
                 field("Course Type"; "Course Type")
                 {
                     Caption = 'Course Group';
+                    ApplicationArea = All;
                 }
                 field("Course Name"; "Course Name")
                 {
                     Editable = false;
+                    ApplicationArea = All;
                 }
                 field("Vendor Code"; "Vendor Code")
                 {
                     Enabled = "Vendor CodeEnable";
+                    ApplicationArea = All;
 
                     trigger OnValidate()
                     begin
@@ -43,38 +48,47 @@ page 50042 "Employee Training"
                 {
                     Editable = false;
                     Enabled = "Vendor nameEnable";
+                    ApplicationArea = All;
                 }
                 field("Course Description"; "Course Description")
                 {
                     Caption = 'Course Description';
+                    ApplicationArea = All;
                 }
                 field(Comment; Comment)
                 {
                     Caption = 'HHR Comment';
+                    ApplicationArea = All;
                 }
                 field("Course Start Date"; "Course Start Date")
                 {
+                    ApplicationArea = All;
                 }
                 field(Time; Time)
                 {
+                    ApplicationArea = All;
                 }
                 field("Course Duration"; "Course Duration")
                 {
+                    ApplicationArea = All;
                 }
                 field("Unit Cost"; "Unit Cost")
                 {
                     Caption = 'Unit Cost';
                     Editable = false;
+                    ApplicationArea = All;
                 }
                 field("Total Cost"; "Total Cost")
                 {
                     Enabled = "Total CostEnable";
+                    ApplicationArea = All;
                 }
             }
             part("Training Lines"; "Employee Training sub form")
             {
                 SubPageLink = "Training Course Code" = FIELD("Courses Code");
                 SubPageView = SORTING("Training Group", "Training Course Code", "Course Line No.");
+                ApplicationArea = All;
             }
         }
     }

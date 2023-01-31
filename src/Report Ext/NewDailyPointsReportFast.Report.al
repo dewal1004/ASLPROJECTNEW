@@ -5,7 +5,7 @@ report 50001 "New Daily Points Report Fast"
     DefaultLayout = RDLC;
     RDLCLayout = './ReportRdlc/NewDailyPointsReportFast.rdlc';
     UsageCategory = ReportsAndAnalysis;
-    ApplicationArea = All,Basic,Suite;
+    ApplicationArea = All, Basic, Suite;
 
     Caption = 'New Daily Points Report';
 
@@ -1129,6 +1129,7 @@ report 50001 "New Daily Points Report Fast"
             {
                 field(RepDate; RepDate)
                 {
+                    ApplicationArea = All;
 
                     trigger OnValidate()
                     begin
@@ -1144,6 +1145,7 @@ report 50001 "New Daily Points Report Fast"
                 }
                 field("Day Of Tide"; DOT)
                 {
+                    ApplicationArea = All;
 
                     trigger OnValidate()
                     begin
@@ -1161,6 +1163,7 @@ report 50001 "New Daily Points Report Fast"
                 }
                 field(Historical; Historical)
                 {
+                    ApplicationArea = All;
                 }
             }
         }

@@ -15,36 +15,46 @@ page 80088 "Catch Form II"
             {
                 field("Line No"; "Line No")
                 {
+                    ApplicationArea = All;
                 }
             }
             group("White Hon/Wild Tiger/Headless")
             {
                 field("Employee No"; "Employee No")
                 {
+                    ApplicationArea = All;
                 }
                 field("Transaction Date"; "Transaction Date")
                 {
+                    ApplicationArea = All;
                 }
                 field("Transaction Type"; "Transaction Type")
                 {
+                    ApplicationArea = All;
                 }
                 field("Hospital Code"; "Hospital Code")
                 {
+                    ApplicationArea = All;
                 }
                 field(Beneficiary; Beneficiary)
                 {
+                    ApplicationArea = All;
                 }
                 field("ASL Ref No"; "ASL Ref No")
                 {
+                    ApplicationArea = All;
                 }
                 field(Amount; Amount)
                 {
+                    ApplicationArea = All;
                 }
                 field("Region Code"; "Region Code")
                 {
+                    ApplicationArea = All;
                 }
                 field("Global Dimension 1 Code"; "Global Dimension 1 Code")
                 {
+                    ApplicationArea = All;
                 }
             }
             group("Brwn Hon/Cut. Fish/Crab/Others")
@@ -69,6 +79,7 @@ page 80088 "Catch Form II"
             action(List)
             {
                 Caption = 'List';
+                ApplicationArea = All;
             }
         }
     }

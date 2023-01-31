@@ -7,12 +7,15 @@ pageextension 50354 pageextension50354 extends "Job List"
             field(Vessel; rec.Vessel)
             {
                 StyleExpr = StyleText;
+                ApplicationArea = All;
             }
             field("Voyage No."; "Voyage No.")
             {
+                ApplicationArea = All;
             }
             field("Fuel Consumed"; "Fuel Consumed")
             {
+                ApplicationArea = All;
             }
         }
 
@@ -20,42 +23,53 @@ pageextension 50354 pageextension50354 extends "Job List"
         {
             field(Captain; Captain)
             {
+                ApplicationArea = All;
             }
         }
         addafter("% of Overdue Planning Lines")
         {
             field("Starting Date"; "Starting Date")
             {
+                ApplicationArea = All;
             }
         }
         addafter("% Invoiced")
         {
             field("Sea Days"; "Sea Days")
             {
+                ApplicationArea = All;
             }
             field("Cycle Day (Manual)"; "Cycle Day (Manual)")
             {
+                ApplicationArea = All;
             }
             field("Fishing Day (Manual)"; "Fishing Day (Manual)")
             {
+                ApplicationArea = All;
             }
             field("Lost At Sea (Manual)"; "Lost At Sea (Manual)")
             {
+                ApplicationArea = All;
             }
             field("Port Day (Manual)"; "Port Day (Manual)")
             {
+                ApplicationArea = All;
             }
             field("Points Actual"; "Points Actual")
             {
+                ApplicationArea = All;
             }
             field(Batch; Batch)
             {
+                ApplicationArea = All;
             }
             field(Points; Points)
             {
+                ApplicationArea = All;
             }
             field("Ending Date"; "Ending Date")
             {
+                ApplicationArea = All;
             }
         }
 
@@ -246,6 +260,7 @@ pageextension 50354 pageextension50354 extends "Job List"
                 {
                     Image = Job;
                     RunObject = Page "Recurring Job Jnl.";
+                    ApplicationArea = All;
                 }
             }
         }
@@ -255,6 +270,7 @@ pageextension 50354 pageextension50354 extends "Job List"
             {
                 Caption = 'Points Summary';
                 Image = "Report";
+                ApplicationArea = All;
                 //***R RunObject = Report "Points Summary VJ";
             }
             action("New Daily Points")
@@ -262,12 +278,14 @@ pageextension 50354 pageextension50354 extends "Job List"
                 Caption = 'New Daily Points';
                 Image = "Report";
                 RunObject = Report "New Daily Points Report Fast";
+                ApplicationArea = All;
             }
             action("Consolidated Narration")
             {
                 Caption = 'Consolidated Narration';
                 Image = "Report";
                 RunObject = Report "Consolidated Narration";
+                ApplicationArea = All;
             }
             separator(Action68)
             {
@@ -277,11 +295,13 @@ pageextension 50354 pageextension50354 extends "Job List"
                 Caption = 'Daily BreakUp by Vess Summary';
                 Image = "Report";
                 RunObject = Report "Daily BreakUp by Vess Summary";
+                ApplicationArea = All;
             }
             action("Daily BreakUp by Vessel Rep 1")
             {
                 Caption = 'Daily BreakUp by Vessel Rep 1';
                 Image = "Report";
+                ApplicationArea = All;
                 // RunObject = Report "Daily BreakUp by Vessel Rep 1";
             }
             action("Daily BreakUp by Vessel Rep 2")
@@ -289,24 +309,28 @@ pageextension 50354 pageextension50354 extends "Job List"
                 Caption = 'Daily BreakUp by Vessel Rep 2';
                 Image = "Report";
                 RunObject = Report "Daily BreakUp by Vessel Rep 2";
+                ApplicationArea = All;
             }
             action("Daily BreakUp by Vessel Rep 3")
             {
                 Caption = 'Daily BreakUp by Vessel Rep 3';
                 Image = "Report";
                 RunObject = Report "Daily BreakUp by Vessel Rep 3";
+                ApplicationArea = All;
             }
             action("Daily BreakUp by Vessel Rep 4")
             {
                 Caption = 'Daily BreakUp by Vessel Rep 4';
                 Image = "Report";
                 RunObject = Report "Daily BreakUp by Vessel Rep 4";
+                ApplicationArea = All;
             }
             action("Vessel Daily Log")
             {
                 Caption = 'Vessel Daily Log';
                 Image = "Report";
                 RunObject = Report "Vessel Daily Log";
+                ApplicationArea = All;
             }
             separator(Action61)
             {
@@ -316,24 +340,28 @@ pageextension 50354 pageextension50354 extends "Job List"
                 Caption = 'Voyage P&L Ledger Line - (1 Vessel & 1Job at a time)';
                 Image = "Report";
                 RunObject = Report "Voyage P&L Ledger Line 2";
+                ApplicationArea = All;
             }
             action("Consolidated Voyage P&L - (Monthly Report)")
             {
                 Caption = 'Consolidated Voyage P&L - (Monthly Report)';
                 Image = "Report";
                 RunObject = Report "Consolidated Voyage P &  L2";
+                ApplicationArea = All;
             }
             action("Voyage P&L Before Posing")
             {
                 Caption = 'Voyage P&L Before Posing';
                 Image = "Report";
                 RunObject = Report "Voyage P &  L";
+                ApplicationArea = All;
             }
             action("Voyage P&L Batch")
             {
                 Caption = 'Voyage P&L Batch';
                 Image = "Report";
                 RunObject = Report "Voyage P & L Batch";
+                ApplicationArea = All;
             }
         }
         // moveafter(ActionContainer1900000003; Action7)

@@ -6,7 +6,7 @@ page 50097 "Purchase Order Foreign"
     RefreshOnActivate = true;
     SourceTable = "Purchase Header";
     UsageCategory = Documents;
-    ApplicationArea = All,Basic,Suites;
+    ApplicationArea = All, Basic, Suites;
     SourceTableView = WHERE("Document Type" = FILTER(Order),
                             "Order Type" = FILTER(Foreign));
 
@@ -22,6 +22,7 @@ page 50097 "Purchase Order Foreign"
                 {
                     Importance = Promoted;
                     Visible = true;
+                    ApplicationArea = All;
 
                     trigger OnAssistEdit()
                     begin
@@ -33,6 +34,7 @@ page 50097 "Purchase Order Foreign"
                 {
                     Importance = Promoted;
                     ShowMandatory = true;
+                    ApplicationArea = All;
 
                     trigger OnValidate()
                     begin
@@ -41,68 +43,86 @@ page 50097 "Purchase Order Foreign"
                 }
                 field("Buy-from Contact No."; "Buy-from Contact No.")
                 {
+                    ApplicationArea = All;
                 }
                 field("Buy-from Vendor Name"; "Buy-from Vendor Name")
                 {
+                    ApplicationArea = All;
                 }
                 field("Buy-from Address"; "Buy-from Address")
                 {
                     Importance = Additional;
+                    ApplicationArea = All;
                 }
                 field("Buy-from Address 2"; "Buy-from Address 2")
                 {
                     Importance = Additional;
+                    ApplicationArea = All;
                 }
                 field("Buy-from Post Code"; "Buy-from Post Code")
                 {
                     Importance = Additional;
+                    ApplicationArea = All;
                 }
                 field("Buy-from City"; "Buy-from City")
                 {
+                    ApplicationArea = All;
                 }
                 field("Buy-from Contact"; "Buy-from Contact")
                 {
                     Importance = Additional;
+                    ApplicationArea = All;
                 }
                 field("No. of Archived Versions"; "No. of Archived Versions")
                 {
                     Importance = Additional;
+                    ApplicationArea = All;
                 }
                 field("Posting Date"; "Posting Date")
                 {
+                    ApplicationArea = All;
                 }
                 field("Order Date"; "Order Date")
                 {
                     Importance = Promoted;
+                    ApplicationArea = All;
                 }
                 field("Document Date"; "Document Date")
                 {
+                    ApplicationArea = All;
                 }
                 field("Quote No."; "Quote No.")
                 {
                     Importance = Additional;
+                    ApplicationArea = All;
                 }
                 field("Vendor Order No."; "Vendor Order No.")
                 {
+                    ApplicationArea = All;
                 }
                 field("Vendor Shipment No."; "Vendor Shipment No.")
                 {
+                    ApplicationArea = All;
                 }
                 field("Vendor Invoice No."; "Vendor Invoice No.")
                 {
                     ShowMandatory = VendorInvoiceNoMandatory;
+                    ApplicationArea = All;
                 }
                 field("Order Address Code"; "Order Address Code")
                 {
                     Importance = Additional;
+                    ApplicationArea = All;
                 }
                 field(Status; Status)
                 {
                     Importance = Promoted;
+                    ApplicationArea = All;
                 }
                 field("Purchaser Code"; "Purchaser Code")
                 {
                     Importance = Additional;
+                    ApplicationArea = All;
 
                     trigger OnValidate()
                     begin
@@ -112,23 +132,28 @@ page 50097 "Purchase Order Foreign"
                 field("Responsibility Center"; "Responsibility Center")
                 {
                     Importance = Additional;
+                    ApplicationArea = All;
                 }
                 field("Assigned User ID"; "Assigned User ID")
                 {
                     Importance = Additional;
+                    ApplicationArea = All;
                 }
                 field("Job Queue Status"; "Job Queue Status")
                 {
                     Importance = Additional;
+                    ApplicationArea = All;
                 }
                 field("Order Type"; "Order Type")
                 {
+                    ApplicationArea = All;
                 }
             }
             part(PurchLines; "Purchase Order Subform Foreign")
             {
                 SubPageLink = "Document No." = FIELD("No.");
                 UpdatePropagation = Both;
+                ApplicationArea = All;
             }
             group(Invoicing)
             {
@@ -136,6 +161,7 @@ page 50097 "Purchase Order Foreign"
                 field("Pay-to Vendor No."; "Pay-to Vendor No.")
                 {
                     Importance = Promoted;
+                    ApplicationArea = All;
 
                     trigger OnValidate()
                     begin
@@ -145,31 +171,39 @@ page 50097 "Purchase Order Foreign"
                 field("Pay-to Contact No."; "Pay-to Contact No.")
                 {
                     Importance = Additional;
+                    ApplicationArea = All;
                 }
                 field("Pay-to Name"; "Pay-to Name")
                 {
+                    ApplicationArea = All;
                 }
                 field("Pay-to Address"; "Pay-to Address")
                 {
                     Importance = Additional;
+                    ApplicationArea = All;
                 }
                 field("Pay-to Address 2"; "Pay-to Address 2")
                 {
                     Importance = Additional;
+                    ApplicationArea = All;
                 }
                 field("Pay-to Post Code"; "Pay-to Post Code")
                 {
                     Importance = Additional;
+                    ApplicationArea = All;
                 }
                 field("Pay-to City"; "Pay-to City")
                 {
+                    ApplicationArea = All;
                 }
                 field("Pay-to Contact"; "Pay-to Contact")
                 {
                     Importance = Additional;
+                    ApplicationArea = All;
                 }
                 field("Shortcut Dimension 1 Code"; "Shortcut Dimension 1 Code")
                 {
+                    ApplicationArea = All;
 
                     trigger OnValidate()
                     begin
@@ -178,6 +212,7 @@ page 50097 "Purchase Order Foreign"
                 }
                 field("Shortcut Dimension 2 Code"; "Shortcut Dimension 2 Code")
                 {
+                    ApplicationArea = All;
 
                     trigger OnValidate()
                     begin
@@ -187,33 +222,42 @@ page 50097 "Purchase Order Foreign"
                 field("Payment Terms Code"; "Payment Terms Code")
                 {
                     Importance = Promoted;
+                    ApplicationArea = All;
                 }
                 field("Due Date"; "Due Date")
                 {
                     Importance = Promoted;
+                    ApplicationArea = All;
                 }
                 field("Payment Discount %"; "Payment Discount %")
                 {
+                    ApplicationArea = All;
                 }
                 field("Pmt. Discount Date"; "Pmt. Discount Date")
                 {
                     Importance = Additional;
+                    ApplicationArea = All;
                 }
                 field("Payment Method Code"; "Payment Method Code")
                 {
                     Importance = Additional;
+                    ApplicationArea = All;
                 }
                 field("Payment Reference"; "Payment Reference")
                 {
+                    ApplicationArea = All;
                 }
                 field("Creditor No."; "Creditor No.")
                 {
+                    ApplicationArea = All;
                 }
                 field("On Hold"; "On Hold")
                 {
+                    ApplicationArea = All;
                 }
                 field("Prices Including VAT"; "Prices Including VAT")
                 {
+                    ApplicationArea = All;
 
                     trigger OnValidate()
                     begin
@@ -222,6 +266,7 @@ page 50097 "Purchase Order Foreign"
                 }
                 field("VAT Bus. Posting Group"; "VAT Bus. Posting Group")
                 {
+                    ApplicationArea = All;
                 }
             }
             group(Shipping)
@@ -229,55 +274,70 @@ page 50097 "Purchase Order Foreign"
                 Caption = 'Shipping';
                 field("Ship-to Name"; "Ship-to Name")
                 {
+                    ApplicationArea = All;
                 }
                 field("Ship-to Address"; "Ship-to Address")
                 {
                     Importance = Additional;
+                    ApplicationArea = All;
                 }
                 field("Ship-to Address 2"; "Ship-to Address 2")
                 {
                     Importance = Additional;
+                    ApplicationArea = All;
                 }
                 field("Ship-to Post Code"; "Ship-to Post Code")
                 {
                     Importance = Additional;
+                    ApplicationArea = All;
                 }
                 field("Ship-to City"; "Ship-to City")
                 {
+                    ApplicationArea = All;
                 }
                 field("Ship-to Contact"; "Ship-to Contact")
                 {
+                    ApplicationArea = All;
                 }
                 field("Location Code"; "Location Code")
                 {
                     Importance = Promoted;
+                    ApplicationArea = All;
                 }
                 field("Inbound Whse. Handling Time"; "Inbound Whse. Handling Time")
                 {
                     Importance = Additional;
+                    ApplicationArea = All;
                 }
                 field("Shipment Method Code"; "Shipment Method Code")
                 {
+                    ApplicationArea = All;
                 }
                 field("Lead Time Calculation"; "Lead Time Calculation")
                 {
                     Importance = Additional;
+                    ApplicationArea = All;
                 }
                 field("Requested Receipt Date"; "Requested Receipt Date")
                 {
+                    ApplicationArea = All;
                 }
                 field("Promised Receipt Date"; "Promised Receipt Date")
                 {
+                    ApplicationArea = All;
                 }
                 field("Expected Receipt Date"; "Expected Receipt Date")
                 {
                     Importance = Promoted;
+                    ApplicationArea = All;
                 }
                 field("Sell-to Customer No."; "Sell-to Customer No.")
                 {
+                    ApplicationArea = All;
                 }
                 field("Ship-to Code"; "Ship-to Code")
                 {
+                    ApplicationArea = All;
                 }
             }
             group("Foreign Trade")
@@ -286,6 +346,7 @@ page 50097 "Purchase Order Foreign"
                 field("Currency Code"; "Currency Code")
                 {
                     Importance = Promoted;
+                    ApplicationArea = All;
 
                     trigger OnAssistEdit()
                     begin
@@ -309,30 +370,39 @@ page 50097 "Purchase Order Foreign"
                 }
                 field("Transaction Type"; "Transaction Type")
                 {
+                    ApplicationArea = All;
                 }
                 field("Transaction Specification"; "Transaction Specification")
                 {
+                    ApplicationArea = All;
                 }
                 field("Transport Method"; "Transport Method")
                 {
+                    ApplicationArea = All;
                 }
                 field("Entry Point"; "Entry Point")
                 {
+                    ApplicationArea = All;
                 }
                 field("Area"; Area)
                 {
+                    ApplicationArea = All;
                 }
                 field("Total Amount Item (LCY)"; "Total Amount Item (LCY)")
                 {
+                    ApplicationArea = All;
                 }
                 field(Overhead; Overhead)
                 {
+                    ApplicationArea = All;
                 }
                 field("Total Amount account"; "Total Amount account")
                 {
+                    ApplicationArea = All;
                 }
                 field("Total Amt. Item to Rec. (LCY)"; "Total Amt. Item to Rec. (LCY)")
                 {
+                    ApplicationArea = All;
                 }
             }
             group("Quot.Stand Cost")
@@ -340,39 +410,51 @@ page 50097 "Purchase Order Foreign"
                 Caption = 'Quot.Stand Cost';
                 field("Totat Freight"; "Totat Freight")
                 {
+                    ApplicationArea = All;
                 }
                 field("Total Ancillary Charges"; "Total Ancillary Charges")
                 {
+                    ApplicationArea = All;
                 }
                 field("Clearing(LCY)"; "Clearing(LCY)")
                 {
+                    ApplicationArea = All;
                 }
                 field("Interest Expense(LCY)"; "Interest Expense(LCY)")
                 {
+                    ApplicationArea = All;
                 }
                 field("Total Freight (LCY)"; "Total Freight (LCY)")
                 {
+                    ApplicationArea = All;
                 }
                 field("Total Ancillary Charges(LCY)"; "Total Ancillary Charges(LCY)")
                 {
+                    ApplicationArea = All;
                 }
                 field("Line Amount"; "Line Amount")
                 {
+                    ApplicationArea = All;
                 }
                 field("<Total Amount Item (LCY)>"; "Total Amount Item (LCY)")
                 {
+                    ApplicationArea = All;
                 }
                 field("Freight(LCY)LTS"; "Freight(LCY)LTS")
                 {
+                    ApplicationArea = All;
                 }
                 field("Ancillary(LCY)LTS"; "Ancillary(LCY)LTS")
                 {
+                    ApplicationArea = All;
                 }
                 field("Duty(LCY)LTS"; "Duty(LCY)LTS")
                 {
+                    ApplicationArea = All;
                 }
                 field("Total Quantity Received"; "Total Quantity Received")
                 {
+                    ApplicationArea = All;
                 }
             }
             group(Prepayment)
@@ -381,6 +463,7 @@ page 50097 "Purchase Order Foreign"
                 field("Prepayment %"; "Prepayment %")
                 {
                     Importance = Promoted;
+                    ApplicationArea = All;
 
                     trigger OnValidate()
                     begin
@@ -389,22 +472,28 @@ page 50097 "Purchase Order Foreign"
                 }
                 field("Compress Prepayment"; "Compress Prepayment")
                 {
+                    ApplicationArea = All;
                 }
                 field("Prepmt. Payment Terms Code"; "Prepmt. Payment Terms Code")
                 {
+                    ApplicationArea = All;
                 }
                 field("Prepayment Due Date"; "Prepayment Due Date")
                 {
                     Importance = Promoted;
+                    ApplicationArea = All;
                 }
                 field("Prepmt. Payment Discount %"; "Prepmt. Payment Discount %")
                 {
+                    ApplicationArea = All;
                 }
                 field("Prepmt. Pmt. Discount Date"; "Prepmt. Pmt. Discount Date")
                 {
+                    ApplicationArea = All;
                 }
                 field("Vendor Cr. Memo No."; "Vendor Cr. Memo No.")
                 {
+                    ApplicationArea = All;
                 }
             }
             group(Control144)
@@ -412,15 +501,19 @@ page 50097 "Purchase Order Foreign"
                 Caption = 'Prepayment';
                 field("Your Reference"; "Your Reference")
                 {
+                    ApplicationArea = All;
                 }
                 field("LC No."; "LC No.")
                 {
+                    ApplicationArea = All;
                 }
                 field(Description; Description)
                 {
+                    ApplicationArea = All;
                 }
                 field("Form M No."; "Form M No.")
                 {
+                    ApplicationArea = All;
                 }
             }
         }
@@ -432,12 +525,14 @@ page 50097 "Purchase Order Foreign"
                               "Document Type" = FIELD("Document Type"),
                               "Document No." = FIELD("No.");
                 Visible = OpenApprovalEntriesExistForCurrUser;
+                ApplicationArea = All;
             }
             part(Control1903326807; "Item Replenishment FactBox")
             {
                 Provider = PurchLines;
                 SubPageLink = "No." = FIELD("No.");
                 Visible = false;
+                ApplicationArea = All;
             }
             part(Control1906354007; "Approval FactBox")
             {
@@ -445,31 +540,37 @@ page 50097 "Purchase Order Foreign"
                               "Document Type" = FIELD("Document Type"),
                               "Document No." = FIELD("No.");
                 Visible = false;
+                ApplicationArea = All;
             }
             part(Control1901138007; "Vendor Details FactBox")
             {
                 SubPageLink = "No." = FIELD("Buy-from Vendor No.");
                 Visible = false;
+                ApplicationArea = All;
             }
             part(Control1904651607; "Vendor Statistics FactBox")
             {
                 SubPageLink = "No." = FIELD("Pay-to Vendor No.");
                 Visible = true;
+                ApplicationArea = All;
             }
             part(IncomingDocAttachFactBox; "Incoming Doc. Attach. FactBox")
             {
                 ShowFilter = false;
                 Visible = false;
+                ApplicationArea = All;
             }
             part(Control1903435607; "Vendor Hist. Buy-from FactBox")
             {
                 SubPageLink = "No." = FIELD("Buy-from Vendor No.");
                 Visible = true;
+                ApplicationArea = All;
             }
             part(Control1906949207; "Vendor Hist. Pay-to FactBox")
             {
                 SubPageLink = "No." = FIELD("Pay-to Vendor No.");
                 Visible = false;
+                ApplicationArea = All;
             }
             part(Control3; "Purchase Line FactBox")
             {
@@ -477,6 +578,7 @@ page 50097 "Purchase Order Foreign"
                 SubPageLink = "Document Type" = FIELD("Document Type"),
                               "Document No." = FIELD("Document No."),
                               "Line No." = FIELD("Line No.");
+                ApplicationArea = All;
             }
             part(WorkflowStatus; "Workflow Status FactBox")
             {
@@ -484,14 +586,17 @@ page 50097 "Purchase Order Foreign"
                 Enabled = false;
                 ShowFilter = false;
                 Visible = ShowWorkflowStatus;
+                ApplicationArea = All;
             }
             systempart(Control1900383207; Links)
             {
                 Visible = false;
+                ApplicationArea = All;
             }
             systempart(Control1905767507; Notes)
             {
                 Visible = true;
+                ApplicationArea = All;
             }
         }
     }
@@ -513,6 +618,7 @@ page 50097 "Purchase Order Foreign"
                     //The property 'PromotedIsBig' can only be set if the property 'Promoted' is set to 'true'
                     //PromotedIsBig = false;
                     ShortCutKey = 'Shift+Ctrl+D';
+                    ApplicationArea = All;
 
                     trigger OnAction()
                     begin
@@ -528,6 +634,7 @@ page 50097 "Purchase Order Foreign"
                     PromotedCategory = Process;
                     PromotedIsBig = true;
                     ShortCutKey = 'F7';
+                    ApplicationArea = All;
 
                     trigger OnAction()
                     begin
@@ -545,11 +652,13 @@ page 50097 "Purchase Order Foreign"
                     RunObject = Page "Vendor Card";
                     RunPageLink = "No." = FIELD("Buy-from Vendor No.");
                     ShortCutKey = 'Shift+F7';
+                    ApplicationArea = All;
                 }
                 action(Approvals)
                 {
                     Caption = 'Approvals';
                     Image = Approvals;
+                    ApplicationArea = All;
 
                     trigger OnAction()
                     var
@@ -567,6 +676,7 @@ page 50097 "Purchase Order Foreign"
                     RunPageLink = "Document Type" = FIELD("Document Type"),
                                   "No." = FIELD("No."),
                                   "Document Line No." = CONST(0);
+                    ApplicationArea = All;
                 }
             }
             group(Documents)
@@ -580,6 +690,7 @@ page 50097 "Purchase Order Foreign"
                     RunObject = Page "Posted Purchase Receipts";
                     RunPageLink = "Order No." = FIELD("No.");
                     RunPageView = SORTING("Order No.");
+                    ApplicationArea = All;
                 }
                 action(Invoices)
                 {
@@ -591,6 +702,7 @@ page 50097 "Purchase Order Foreign"
                     RunObject = Page "Posted Purchase Invoices";
                     RunPageLink = "Order No." = FIELD("No.");
                     RunPageView = SORTING("Order No.");
+                    ApplicationArea = All;
                 }
                 action("Prepa&yment Invoices")
                 {
@@ -599,6 +711,7 @@ page 50097 "Purchase Order Foreign"
                     RunObject = Page "Posted Purchase Invoices";
                     RunPageLink = "Prepayment Order No." = FIELD("No.");
                     RunPageView = SORTING("Prepayment Order No.");
+                    ApplicationArea = All;
                 }
                 action("Prepayment Credi&t Memos")
                 {
@@ -607,6 +720,7 @@ page 50097 "Purchase Order Foreign"
                     RunObject = Page "Posted Purchase Credit Memos";
                     RunPageLink = "Prepayment Order No." = FIELD("No.");
                     RunPageView = SORTING("Prepayment Order No.");
+                    ApplicationArea = All;
                 }
             }
             group(Warehouse)
@@ -624,6 +738,7 @@ page 50097 "Purchase Order Foreign"
                     RunPageLink = "Source Document" = CONST("Purchase Order"),
                                   "Source No." = FIELD("No.");
                     RunPageView = SORTING("Source Document", "Source No.", "Location Code");
+                    ApplicationArea = All;
                 }
                 action("Whse. Receipt Lines")
                 {
@@ -634,6 +749,7 @@ page 50097 "Purchase Order Foreign"
                                   "Source Subtype" = FIELD("Document Type"),
                                   "Source No." = FIELD("No.");
                     RunPageView = SORTING("Source Type", "Source Subtype", "Source No.", "Source Line No.");
+                    ApplicationArea = All;
                 }
                 separator(Action182)
                 {
@@ -647,6 +763,7 @@ page 50097 "Purchase Order Foreign"
                         Caption = 'Get &Sales Order';
                         Image = "Order";
                         RunObject = Codeunit "Purch.-Get Drop Shpt.";
+                        ApplicationArea = All;
                     }
                 }
                 group("Speci&al Order")
@@ -658,6 +775,7 @@ page 50097 "Purchase Order Foreign"
                         AccessByPermission = TableData "Sales Shipment Header" = R;
                         Caption = 'Get &Sales Order';
                         Image = "Order";
+                        ApplicationArea = All;
 
                         trigger OnAction()
                         var
@@ -685,6 +803,7 @@ page 50097 "Purchase Order Foreign"
                     PromotedCategory = Category4;
                     PromotedIsBig = true;
                     Visible = OpenApprovalEntriesExistForCurrUser;
+                    ApplicationArea = All;
 
                     trigger OnAction()
                     var
@@ -701,6 +820,7 @@ page 50097 "Purchase Order Foreign"
                     PromotedCategory = Category4;
                     PromotedIsBig = true;
                     Visible = OpenApprovalEntriesExistForCurrUser;
+                    ApplicationArea = All;
 
                     trigger OnAction()
                     var
@@ -716,6 +836,7 @@ page 50097 "Purchase Order Foreign"
                     Promoted = true;
                     PromotedCategory = Category4;
                     Visible = OpenApprovalEntriesExistForCurrUser;
+                    ApplicationArea = All;
 
                     trigger OnAction()
                     var
@@ -735,6 +856,7 @@ page 50097 "Purchase Order Foreign"
                                   "Document Type" = FIELD("Document Type"),
                                   "Document No." = FIELD("No.");
                     Visible = OpenApprovalEntriesExistForCurrUser;
+                    ApplicationArea = All;
                 }
             }
             group(Action13)
@@ -751,6 +873,7 @@ page 50097 "Purchase Order Foreign"
                     Promoted = true;
                     PromotedCategory = Process;
                     ShortCutKey = 'Ctrl+F9';
+                    ApplicationArea = All;
 
                     trigger OnAction()
                     var
@@ -763,6 +886,7 @@ page 50097 "Purchase Order Foreign"
                 {
                     Caption = 'Re&open';
                     Image = ReOpen;
+                    ApplicationArea = All;
 
                     trigger OnAction()
                     var
@@ -784,6 +908,7 @@ page 50097 "Purchase Order Foreign"
                     AccessByPermission = TableData "Vendor Invoice Disc." = R;
                     Caption = 'Calculate &Invoice Discount';
                     Image = CalculateInvoiceDiscount;
+                    ApplicationArea = All;
 
                     trigger OnAction()
                     begin
@@ -799,6 +924,7 @@ page 50097 "Purchase Order Foreign"
                     Caption = 'Get St&d. Vend. Purchase Codes';
                     Ellipsis = true;
                     Image = VendorCode;
+                    ApplicationArea = All;
 
                     trigger OnAction()
                     var
@@ -817,6 +943,7 @@ page 50097 "Purchase Order Foreign"
                     Image = CopyDocument;
                     Promoted = true;
                     PromotedCategory = Process;
+                    ApplicationArea = All;
 
                     trigger OnAction()
                     begin
@@ -830,6 +957,7 @@ page 50097 "Purchase Order Foreign"
                     Caption = 'Move Negative Lines';
                     Ellipsis = true;
                     Image = MoveNegativeLines;
+                    ApplicationArea = All;
 
                     trigger OnAction()
                     begin
@@ -841,6 +969,7 @@ page 50097 "Purchase Order Foreign"
                 }
                 action("Calculate Standard Landed Cost")
                 {
+                    ApplicationArea = All;
 
                     trigger OnAction()
                     begin
@@ -854,6 +983,7 @@ page 50097 "Purchase Order Foreign"
                 }
                 action("Calculate Actual Landed Cost")
                 {
+                    ApplicationArea = All;
 
                     trigger OnAction()
                     begin
@@ -874,6 +1004,7 @@ page 50097 "Purchase Order Foreign"
                         Caption = 'Get &Sales Order';
                         Image = "Order";
                         RunObject = Codeunit "Purch.-Get Drop Shpt.";
+                        ApplicationArea = All;
                     }
                 }
                 group(Action186)
@@ -885,6 +1016,7 @@ page 50097 "Purchase Order Foreign"
                         AccessByPermission = TableData "Sales Shipment Header" = R;
                         Caption = 'Get &Sales Order';
                         Image = "Order";
+                        ApplicationArea = All;
 
                         trigger OnAction()
                         var
@@ -901,6 +1033,7 @@ page 50097 "Purchase Order Foreign"
                 {
                     Caption = 'Archi&ve Document';
                     Image = Archive;
+                    ApplicationArea = All;
 
                     trigger OnAction()
                     begin
@@ -913,6 +1046,7 @@ page 50097 "Purchase Order Foreign"
                     AccessByPermission = TableData "IC G/L Account" = R;
                     Caption = 'Send IC Purchase Order';
                     Image = IntercompanyOrder;
+                    ApplicationArea = All;
 
                     trigger OnAction()
                     var
@@ -935,6 +1069,7 @@ page 50097 "Purchase Order Foreign"
                         Caption = 'View Incoming Document';
                         Enabled = HasIncomingDocument;
                         Image = ViewOrder;
+                        ApplicationArea = All;
                         //The property 'ToolTip' cannot be empty.
                         //ToolTip = '';
 
@@ -950,6 +1085,7 @@ page 50097 "Purchase Order Foreign"
                         AccessByPermission = TableData "Incoming Document" = R;
                         Caption = 'Select Incoming Document';
                         Image = SelectLineToApply;
+                        ApplicationArea = All;
                         //The property 'ToolTip' cannot be empty.
                         //ToolTip = '';
 
@@ -966,6 +1102,7 @@ page 50097 "Purchase Order Foreign"
                         Ellipsis = true;
                         Enabled = NOT HasIncomingDocument;
                         Image = Attach;
+                        ApplicationArea = All;
                         //The property 'ToolTip' cannot be empty.
                         //ToolTip = '';
 
@@ -981,6 +1118,7 @@ page 50097 "Purchase Order Foreign"
                         Caption = 'Remove Incoming Document';
                         Enabled = HasIncomingDocument;
                         Image = RemoveLine;
+                        ApplicationArea = All;
                         //The property 'ToolTip' cannot be empty.
                         //ToolTip = '';
 
@@ -1001,6 +1139,7 @@ page 50097 "Purchase Order Foreign"
                     Image = SendApprovalRequest;
                     Promoted = true;
                     PromotedCategory = Category9;
+                    ApplicationArea = All;
 
                     trigger OnAction()
                     var
@@ -1014,6 +1153,7 @@ page 50097 "Purchase Order Foreign"
                 }
                 action(ApprovalsList)
                 {
+                    ApplicationArea = All;
 
                     trigger OnAction()
                     begin
@@ -1027,6 +1167,7 @@ page 50097 "Purchase Order Foreign"
                     Image = Cancel;
                     Promoted = true;
                     PromotedCategory = Category9;
+                    ApplicationArea = All;
 
                     trigger OnAction()
                     var
@@ -1045,6 +1186,7 @@ page 50097 "Purchase Order Foreign"
                     AccessByPermission = TableData "Warehouse Receipt Header" = R;
                     Caption = 'Create &Whse. Receipt';
                     Image = NewReceipt;
+                    ApplicationArea = All;
 
                     trigger OnAction()
                     var
@@ -1064,6 +1206,7 @@ page 50097 "Purchase Order Foreign"
                     Image = CreateInventoryPickup;
                     Promoted = true;
                     PromotedCategory = Process;
+                    ApplicationArea = All;
 
                     trigger OnAction()
                     begin
@@ -1090,6 +1233,7 @@ page 50097 "Purchase Order Foreign"
                     PromotedCategory = Process;
                     PromotedIsBig = true;
                     ShortCutKey = 'F9';
+                    ApplicationArea = All;
 
                     trigger OnAction()
                     begin
@@ -1100,6 +1244,7 @@ page 50097 "Purchase Order Foreign"
                 {
                     Caption = 'Preview Posting';
                     Image = ViewPostedOrder;
+                    ApplicationArea = All;
 
                     trigger OnAction()
                     var
@@ -1117,6 +1262,7 @@ page 50097 "Purchase Order Foreign"
                     PromotedCategory = Process;
                     PromotedIsBig = true;
                     ShortCutKey = 'Shift+F9';
+                    ApplicationArea = All;
 
                     trigger OnAction()
                     begin
@@ -1128,6 +1274,7 @@ page 50097 "Purchase Order Foreign"
                     Caption = 'Test Report';
                     Ellipsis = true;
                     Image = TestReport;
+                    ApplicationArea = All;
 
                     trigger OnAction()
                     begin
@@ -1139,6 +1286,7 @@ page 50097 "Purchase Order Foreign"
                     Caption = 'Post &Batch';
                     Ellipsis = true;
                     Image = PostBatch;
+                    ApplicationArea = All;
 
                     trigger OnAction()
                     begin
@@ -1151,6 +1299,7 @@ page 50097 "Purchase Order Foreign"
                     Caption = 'Remove From Job Queue';
                     Image = RemoveLine;
                     Visible = JobQueueVisible;
+                    ApplicationArea = All;
 
                     trigger OnAction()
                     begin
@@ -1169,6 +1318,7 @@ page 50097 "Purchase Order Foreign"
                         Caption = 'Prepayment Test &Report';
                         Ellipsis = true;
                         Image = PrepaymentSimulation;
+                        ApplicationArea = All;
 
                         trigger OnAction()
                         begin
@@ -1180,6 +1330,7 @@ page 50097 "Purchase Order Foreign"
                         Caption = 'Post Prepayment &Invoice';
                         Ellipsis = true;
                         Image = PrepaymentPost;
+                        ApplicationArea = All;
 
                         trigger OnAction()
                         var
@@ -1195,6 +1346,7 @@ page 50097 "Purchase Order Foreign"
                         Caption = 'Post and Print Prepmt. Invoic&e';
                         Ellipsis = true;
                         Image = PrepaymentPostPrint;
+                        ApplicationArea = All;
 
                         trigger OnAction()
                         var
@@ -1210,6 +1362,7 @@ page 50097 "Purchase Order Foreign"
                         Caption = 'Post Prepayment &Credit Memo';
                         Ellipsis = true;
                         Image = PrepaymentPost;
+                        ApplicationArea = All;
 
                         trigger OnAction()
                         var
@@ -1225,6 +1378,7 @@ page 50097 "Purchase Order Foreign"
                         Caption = 'Post and Print Prepmt. Cr. Mem&o';
                         Ellipsis = true;
                         Image = PrepaymentPostPrint;
+                        ApplicationArea = All;
 
                         trigger OnAction()
                         var
@@ -1248,6 +1402,7 @@ page 50097 "Purchase Order Foreign"
                     Image = Print;
                     Promoted = true;
                     PromotedCategory = Process;
+                    ApplicationArea = All;
 
                     trigger OnAction()
                     begin

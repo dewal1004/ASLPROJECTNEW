@@ -256,15 +256,19 @@ report 50214 "Voyage Narration (Points)"
                     ShowCaption = false;
                     field(JobNo; JobNo)
                     {
+                        ApplicationArea = All;
                     }
                     field(Send2Excel; Send2Excel)
                     {
+                        ApplicationArea = All;
                     }
                     field(PageOrientation; PageOrientation)
                     {
+                        ApplicationArea = All;
                     }
                     field(FontSize; FontSize)
                     {
+                        ApplicationArea = All;
                     }
                 }
             }

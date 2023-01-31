@@ -3,7 +3,7 @@ page 51115 "Approvals List"
     PageType = List;
     SourceTable = "User Setup";
     UsageCategory = Lists;
-    ApplicationArea = All,Basic,Suites;
+    ApplicationArea = All, Basic, Suites;
 
     layout
     {
@@ -13,9 +13,11 @@ page 51115 "Approvals List"
             {
                 field("User ID"; "User ID")
                 {
+                    ApplicationArea = All;
                 }
                 field("Approver ID"; "Approver ID")
                 {
+                    ApplicationArea = All;
                 }
             }
         }
@@ -27,6 +29,7 @@ page 51115 "Approvals List"
         {
             action(SendApprovalRequest1)
             {
+                ApplicationArea = All;
 
                 trigger OnAction()
                 begin
@@ -46,6 +49,7 @@ page 51115 "Approvals List"
                 Image = SendApprovalRequest;
                 Promoted = true;
                 PromotedCategory = Category9;
+                ApplicationArea = All;
 
                 trigger OnAction()
                 var

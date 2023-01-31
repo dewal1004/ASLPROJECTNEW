@@ -289,10 +289,12 @@ report 50074 "Inventory - Transaction -test"
                     field(PrintOnlyOnePerPage; PrintOnlyOnePerPage)
                     {
                         Caption = 'New Page per Item';
+                        ApplicationArea = All;
                     }
                     field("Print Bin Card"; "Print Bin Card")
                     {
                         Caption = 'Print Bin Card';
+                        ApplicationArea = All;
                     }
                 }
             }

@@ -11,12 +11,15 @@ page 50054 Task
             {
                 field("Code"; Code)
                 {
+                    ApplicationArea = All;
                 }
                 field("Search Code"; "Search Code")
                 {
+                    ApplicationArea = All;
                 }
                 field(Description; Description)
                 {
+                    ApplicationArea = All;
                 }
             }
         }

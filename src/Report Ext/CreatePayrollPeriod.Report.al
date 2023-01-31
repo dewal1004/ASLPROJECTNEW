@@ -18,12 +18,15 @@ report 50050 "Create Payroll Period"
                     ShowCaption = false;
                     field("Start Date"; FiscalYearStartDate)
                     {
+                        ApplicationArea = All;
                     }
                     field(NoOfPeriods; NoOfPeriods)
                     {
+                        ApplicationArea = All;
                     }
                     field(PeriodLength; PeriodLength)
                     {
+                        ApplicationArea = All;
                     }
                 }
             }

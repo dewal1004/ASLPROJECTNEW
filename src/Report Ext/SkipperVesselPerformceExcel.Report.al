@@ -7,7 +7,7 @@ report 50189 "Skipper/Vessel Performce Excel"
     DefaultLayout = RDLC;
     RDLCLayout = './ReportRdlc/SkipperVesselPerformceExcel.rdlc';
     UsageCategory = ReportsAndAnalysis;
-    ApplicationArea = All,Basic,Suite;
+    ApplicationArea = All, Basic, Suite;
 
 
     dataset
@@ -347,6 +347,7 @@ report 50189 "Skipper/Vessel Performce Excel"
                 {
                     field("Consider Deductible Lost Days"; Consd_Deductible_Days)
                     {
+                        ApplicationArea = All;
                     }
                 }
             }

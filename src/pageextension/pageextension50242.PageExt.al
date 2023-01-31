@@ -54,18 +54,22 @@ pageextension 50242 "pageextension50242" extends "Job Journal"
             {
                 Importance = Additional;
                 TableRelation = "Job Journal Batch".Name;
+                ApplicationArea = All;
             }
         }
         addafter(Quantity)
         {
             field(Catch; Catch)
             {
+                ApplicationArea = All;
             }
             field("Stock Position Calc."; "Stock Position Calc.")
             {
+                ApplicationArea = All;
             }
             field("Posting Group"; "Posting Group")
             {
+                ApplicationArea = All;
             }
         }
         addafter("Gen. Prod. Posting Group")
@@ -73,18 +77,22 @@ pageextension 50242 "pageextension50242" extends "Job Journal"
             field(Groupsort; Groupsort)
             {
                 Importance = Additional;
+                ApplicationArea = All;
             }
             field("Reason Code"; "Reason Code")
             {
+                ApplicationArea = All;
             }
             field(ROB; ROB)
             {
+                ApplicationArea = All;
             }
         }
         addafter("Total Cost (LCY)")
         {
             field("Source Code"; "Source Code")
             {
+                ApplicationArea = All;
             }
         }
         addafter("Shortcut Dimension 2 Code")
@@ -126,6 +134,7 @@ pageextension 50242 "pageextension50242" extends "Job Journal"
         {
             field("Reconciliation Catch Quantity"; "Reconciliation Catch Quantity")
             {
+                ApplicationArea = All;
             }
         }
         moveafter(Description; Quantity)
@@ -149,7 +158,7 @@ pageextension 50242 "pageextension50242" extends "Job Journal"
             end;
         }
         modify("Post and &Print")
-        {            
+        {
             trigger OnBeforeAction()
             begin
                 SetFilter(Quantity, '<>%1', 0);
@@ -199,12 +208,13 @@ pageextension 50242 "pageextension50242" extends "Job Journal"
             {
                 Caption = 'Fish Caught/Reconciliation';
                 Image = Reconcile;
-                
+
                 RunObject = report "Vessel Catches";
+                ApplicationArea = All;
 
                 trigger OnAction()
                 begin
-                    SetRange("Journal Batch Name","Journal Batch Name");
+                    SetRange("Journal Batch Name", "Journal Batch Name");
                     // SetRange("Journal Template Name,");
                     //***P ReportPrint.PrintJobJnlLinefish(Rec);
                 end;
@@ -213,6 +223,7 @@ pageextension 50242 "pageextension50242" extends "Job Journal"
             {
                 Image = CopyWorksheet;
                 Promoted = true;
+                ApplicationArea = All;
 
                 trigger OnAction()
                 begin
@@ -222,6 +233,7 @@ pageextension 50242 "pageextension50242" extends "Job Journal"
             action("------------------------")
             {
                 Caption = 'Separator';
+                ApplicationArea = All;
             }
         }
     }
@@ -472,16 +484,18 @@ pageextension 50242 "pageextension50242" extends "Job Journal"
             until JobJournalLine.Next = 0;
         Message('Line Coppied from Vessel %1', "Copy From  Vesel");
     end;
-trigger OnModifyRecord(): Boolean
-begin
-    if "Lock Qty" then begin 
-        if ("No." <> xRec."No.") or (Quantity <> xRec.Quantity) or (Description <> xRec.Description) then
-    Error('You Can Not Modify Line Generated from Requisition');
+
+    trigger OnModifyRecord(): Boolean
+    begin
+        if "Lock Qty" then begin
+            if ("No." <> xRec."No.") or (Quantity <> xRec.Quantity) or (Description <> xRec.Description) then
+                Error('You Can Not Modify Line Generated from Requisition');
+        end;
     end;
-end;
-trigger OnDeleteRecord(): Boolean
-begin
-    if "Lock Qty" then Error('You Can Not Delete Line Generated from Requisition');
-end;
+
+    trigger OnDeleteRecord(): Boolean
+    begin
+        if "Lock Qty" then Error('You Can Not Delete Line Generated from Requisition');
+    end;
 }
 

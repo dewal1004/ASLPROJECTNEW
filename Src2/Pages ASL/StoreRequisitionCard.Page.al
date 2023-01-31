@@ -11,6 +11,7 @@ page 50059 "Store Requisition Card"
             {
                 field("Req. No"; "Req. No")
                 {
+                    ApplicationArea = All;
 
                     trigger OnAssistEdit()
                     begin
@@ -20,148 +21,189 @@ page 50059 "Store Requisition Card"
                 }
                 field("Req. Type"; "Req. Type")
                 {
+                    ApplicationArea = All;
                 }
                 field(Description; Description)
                 {
+                    ApplicationArea = All;
                 }
                 field("Req Date"; "Req Date")
                 {
                     Importance = Additional;
+                    ApplicationArea = All;
                 }
                 field("Processed Date"; "Processed Date")
                 {
                     Importance = Additional;
+                    ApplicationArea = All;
                 }
                 field("Fish Store Requisition"; "Fish Store Requisition")
-                {                    
+                {
+                    ApplicationArea = All;
                 }
                 field("To Be Collected By"; "To Be Collected By")
                 {
+                    ApplicationArea = All;
                 }
                 field("Transfer From"; "Transfer From")
                 {
+                    ApplicationArea = All;
                 }
                 field("Transfer To."; "Transfer To.")
                 {
                     Importance = Additional;
+                    ApplicationArea = All;
                 }
                 field("Voyage No."; "Voyage No.")
                 {
+                    ApplicationArea = All;
                 }
                 field("Requisition Template"; "Requisition Template")
                 {
                     Importance = Additional;
+                    ApplicationArea = All;
                 }
                 field("Customer No."; "Customer No.")
                 {
                     Importance = Additional;
+                    ApplicationArea = All;
                 }
                 field("Customer Name"; "Customer Name")
                 {
                     Importance = Additional;
+                    ApplicationArea = All;
                 }
                 field("Vendor No."; "Vendor No.")
                 {
                     Importance = Additional;
+                    ApplicationArea = All;
                 }
                 field("Vendor Name"; "Vendor Name")
                 {
                     Importance = Additional;
+                    ApplicationArea = All;
                 }
                 field("Global Dimension 1 Code"; "Global Dimension 1 Code")
                 {
+                    ApplicationArea = All;
                 }
                 field("Global Dimension 2 Code"; "Global Dimension 2 Code")
                 {
                     Importance = Additional;
+                    ApplicationArea = All;
                 }
                 field("Claim by Employee"; "Claim by Employee")
                 {
                     Importance = Additional;
+                    ApplicationArea = All;
                 }
                 field("Claim by Resources"; "Claim by Resources")
                 {
                     Importance = Additional;
+                    ApplicationArea = All;
                 }
             }
             group(Account)
             {
                 field("Job Related"; "Job Related")
                 {
+                    ApplicationArea = All;
                 }
                 field("Journal Batch"; "Journal Batch")
                 {
+                    ApplicationArea = All;
                 }
                 field("Reason Code"; "Reason Code")
                 {
+                    ApplicationArea = All;
                 }
                 field(DryDock; DryDock)
                 {
+                    ApplicationArea = All;
                 }
                 field("Job No."; "Job No.")
                 {
                     DrillDownPageID = "Dry Docking/Job  list";
                     LookupPageID = "Dry Docking/Job  list";
-                    
+                    ApplicationArea = All;
+
                 }
                 field("External Document No"; "External Document No")
                 {
+                    ApplicationArea = All;
                 }
                 field("Gen Bus. posting Grp."; "Gen Bus. posting Grp.")
                 {
+                    ApplicationArea = All;
                 }
                 field(Processed; Processed)
                 {
+                    ApplicationArea = All;
                 }
             }
             part(Control25; "Store Requisition Subform")
             {
-                SubPageLink = "Req. No." = FIELD ("Req. No");
+                SubPageLink = "Req. No." = FIELD("Req. No");
+                ApplicationArea = All;
             }
             group("Approval Section")
             {
                 field("1st Approval to"; "1st Approval to")
                 {
+                    ApplicationArea = All;
                 }
                 field("1st Approval Name"; "1st Approval Name")
                 {
+                    ApplicationArea = All;
                 }
                 field("Mail Body"; "Mail Body")
                 {
                     Importance = Additional;
+                    ApplicationArea = All;
                 }
                 field("Send for Approval"; "Send for Approval")
                 {
+                    ApplicationArea = All;
                 }
                 field(Sender; Sender)
                 {
+                    ApplicationArea = All;
                 }
                 field("Sent Time"; "Sent Time")
                 {
+                    ApplicationArea = All;
                 }
                 field("Final Approval to"; "Final Approval to")
                 {
+                    ApplicationArea = All;
                 }
                 field("Final Approval Name"; "Final Approval Name")
                 {
+                    ApplicationArea = All;
                 }
                 field("1st Approved"; "1st Approved")
                 {
+                    ApplicationArea = All;
                 }
                 field("1st Approved Time"; "1st Approved Time")
                 {
+                    ApplicationArea = All;
                 }
                 field("Final Approved"; "Final Approved")
                 {
+                    ApplicationArea = All;
                 }
                 field("Final Approved Time"; "Final Approved Time")
                 {
+                    ApplicationArea = All;
                 }
                 field("Issued Captured"; "Issued Captured")
                 {
+                    ApplicationArea = All;
                 }
                 field("Issued By"; "Issued By")
                 {
+                    ApplicationArea = All;
                 }
             }
         }
@@ -170,8 +212,9 @@ page 50059 "Store Requisition Card"
             part(Control36; "Item Invoicing FactBox")
             {
                 Provider = Control25;
-                SubPageLink = "No." = FIELD ("Item No."),
-                              "Location Filter" = FIELD ("Store Location");
+                SubPageLink = "No." = FIELD("Item No."),
+                              "Location Filter" = FIELD("Store Location");
+                ApplicationArea = All;
             }
         }
     }
@@ -182,6 +225,7 @@ page 50059 "Store Requisition Card"
         {
             action("Create Transfer Order")
             {
+                ApplicationArea = All;
 
                 trigger OnAction()
                 begin
@@ -190,6 +234,7 @@ page 50059 "Store Requisition Card"
             }
             action("Create Adjustments")
             {
+                ApplicationArea = All;
 
                 trigger OnAction()
                 begin
@@ -198,6 +243,7 @@ page 50059 "Store Requisition Card"
             }
             action("Create Sales Invoice")
             {
+                ApplicationArea = All;
 
                 trigger OnAction()
                 begin
@@ -206,6 +252,7 @@ page 50059 "Store Requisition Card"
             }
             action("Create Purchase Invoice")
             {
+                ApplicationArea = All;
 
                 trigger OnAction()
                 begin
@@ -217,6 +264,7 @@ page 50059 "Store Requisition Card"
                 Image = Approve;
                 Promoted = true;
                 RunPageOnRec = true;
+                ApplicationArea = All;
 
                 trigger OnAction()
                 begin
@@ -233,6 +281,7 @@ page 50059 "Store Requisition Card"
                 Promoted = true;
                 PromotedCategory = Process;
                 PromotedIsBig = true;
+                ApplicationArea = All;
 
                 trigger OnAction()
                 begin
@@ -241,6 +290,7 @@ page 50059 "Store Requisition Card"
             }
             action("Check Staff Replacement")
             {
+                ApplicationArea = All;
 
                 trigger OnAction()
                 begin
@@ -249,6 +299,7 @@ page 50059 "Store Requisition Card"
             }
             action("Revalidate Approved Quantity")
             {
+                ApplicationArea = All;
 
                 trigger OnAction()
                 begin
@@ -278,6 +329,7 @@ page 50059 "Store Requisition Card"
             {
                 Image = Recalculate;
                 RunObject = Report "Material Req Reconciliation";
+                ApplicationArea = All;
             }
         }
     }

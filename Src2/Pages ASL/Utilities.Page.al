@@ -21,6 +21,7 @@ page 50009 "Utilities."
                 PromotedCategory = Process;
                 RunObject = Report "Balance At Date (Cust/Vend)VJ";
                 Visible = false;
+                ApplicationArea = All;
             }
             action("Create New Payslips")
             {
@@ -29,6 +30,7 @@ page 50009 "Utilities."
                 PromotedCategory = Process;
                 RunObject = Report "ASL Create New payslips - New";
                 Visible = true;
+                ApplicationArea = All;
             }
             action("Create next Payroll")
             {
@@ -36,6 +38,7 @@ page 50009 "Utilities."
                 Promoted = true;
                 PromotedCategory = Process;
                 RunObject = Report "PRoll; Create next Payroll";
+                ApplicationArea = All;
             }
             action("Close Paryoll")
             {
@@ -43,6 +46,7 @@ page 50009 "Utilities."
                 Promoted = true;
                 PromotedCategory = Process;
                 RunObject = Report "PRoll; Close Period";
+                ApplicationArea = All;
             }
             action("Increment Employee Earnings by %age")
             {
@@ -50,6 +54,7 @@ page 50009 "Utilities."
                 Promoted = true;
                 PromotedCategory = Process;
                 RunObject = Report "Increment Employee Earnings";
+                ApplicationArea = All;
             }
             action("Amend Posting Details")
             {
@@ -57,12 +62,14 @@ page 50009 "Utilities."
                 Promoted = true;
                 PromotedCategory = Process;
                 RunObject = Report "Issues To Cost Centers";
+                ApplicationArea = All;
             }
             action("Amend PaySlip Appearance")
             {
                 Caption = 'Amend PaySlip Appearance';
                 Promoted = true;
                 PromotedCategory = Process;
+                ApplicationArea = All;
                 //***R RunObject = Report "Transfer Processing/Fish Shop";
             }
             action("Transfer E/D Definitions")
@@ -71,6 +78,7 @@ page 50009 "Utilities."
                 Promoted = true;
                 PromotedCategory = Process;
                 RunObject = Report "PRoll; Transfer ED definitions";
+                ApplicationArea = All;
             }
         }
     }

@@ -4,7 +4,7 @@ report 50026 "Consolidated Voyage P &  L2"
     RDLCLayout = './ReportRdlc/ConsolidatedVoyagePL2.rdlc';
     Caption = 'Consolidated Voyage P&L2';
     UsageCategory = ReportsAndAnalysis;
-    ApplicationArea = All,Basic,Suite;
+    ApplicationArea = All, Basic, Suite;
     Permissions = TableData "Job Ledger Entry" = rimd,
                   TableData "Value Entry" = rimd;
 
@@ -1691,21 +1691,27 @@ report 50026 "Consolidated Voyage P &  L2"
                     ShowCaption = false;
                     field("Period Start"; "Period Start")
                     {
+                        ApplicationArea = All;
                     }
                     field("Period End"; "Period End")
                     {
+                        ApplicationArea = All;
                     }
                     field(Vessel; VesselSel)
                     {
+                        ApplicationArea = All;
                     }
                     field("Fishing Country"; FishingCount)
                     {
+                        ApplicationArea = All;
                     }
                     field("Job No"; Jb."No.")
                     {
+                        ApplicationArea = All;
                     }
                     field(Resource; ResourceOn)
                     {
+                        ApplicationArea = All;
                     }
                 }
             }

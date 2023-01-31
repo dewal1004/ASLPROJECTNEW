@@ -46,18 +46,23 @@ pageextension 50350 pageextension50350 extends "Resource Card"
         {
             field(Posted; Posted)
             {
+                ApplicationArea = All;
             }
             field("Sick Leave"; "Sick Leave")
             {
+                ApplicationArea = All;
             }
             field("Annual Leave"; "Annual Leave")
             {
+                ApplicationArea = All;
             }
             field("Casual Leave"; "Casual Leave")
             {
+                ApplicationArea = All;
             }
             field(Suspension; Suspension)
             {
+                ApplicationArea = All;
             }
         }
         moveafter(Blocked; Invoicing)

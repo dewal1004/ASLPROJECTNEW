@@ -12,9 +12,11 @@ page 50157 "item list w"
                 ShowCaption = false;
                 field("No."; "No.")
                 {
+                    ApplicationArea = All;
                 }
                 field(Description; Description)
                 {
+                    ApplicationArea = All;
                 }
             }
         }

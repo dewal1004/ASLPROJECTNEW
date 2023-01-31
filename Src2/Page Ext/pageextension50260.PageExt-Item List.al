@@ -15,53 +15,65 @@ pageextension 50260 pageextension50260 extends "Item List"
             field("No. 2"; "No. 2")
             {
                 Visible = false;
+                ApplicationArea = All;
             }
         }
-            addafter("Indirect Cost %")
+        addafter("Indirect Cost %")
+        {
+            field("Inventory Value Zero"; "Inventory Value Zero")
             {
-            field("Inventory Value Zero";"Inventory Value Zero")
-            {
-               Importance = Additional; 
+                Importance = Additional;
+                ApplicationArea = All;
             }
         }
         addafter("Default Deferral Template Code")
         {
             field("Statistics Group"; "Statistics Group")
             {
+                ApplicationArea = All;
             }
             field(Reserve; Reserve)
             {
                 Visible = false;
+                ApplicationArea = All;
             }
             field("SF Cat"; "SF Cat")
             {
+                ApplicationArea = All;
             }
             field("Country/Region Purchased Code"; "Country/Region Purchased Code")
             {
                 Visible = false;
+                ApplicationArea = All;
             }
             field(Points; Points)
             {
                 Visible = false;
+                ApplicationArea = All;
             }
             field("Duty Rate%"; "Duty Rate%")
             {
                 Visible = false;
+                ApplicationArea = All;
             }
             field("Order Multiple"; "Order Multiple")
             {
                 Visible = false;
+                ApplicationArea = All;
             }
             field("CRM / STR"; "CRM / STR")
             {
+                ApplicationArea = All;
             }
             field("Reorder Point"; "Reorder Point")
             {
                 Visible = false;
+                ApplicationArea = All;
             }
             field("Reorder Quantity"; "Reorder Quantity")
             {
                 Visible = false;
+                ApplicationArea = All;
             }
         }
 

@@ -12,9 +12,11 @@ page 50037 "Course Type List"
                 ShowCaption = false;
                 field("Course Type Code"; "Course Type Code")
                 {
+                    ApplicationArea = All;
                 }
                 field(Description; Description)
                 {
+                    ApplicationArea = All;
                 }
             }
         }

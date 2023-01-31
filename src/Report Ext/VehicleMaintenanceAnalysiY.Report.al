@@ -4,7 +4,7 @@ report 58028 "Vehicle Maintenance - AnalysiY"
     RDLCLayout = './ReportRdlc/VehicleMaintenanceAnalysiY.rdlc';
     Caption = 'Vehicle Maintenance - Analysis';
     UsageCategory = ReportsAndAnalysis;
-    ApplicationArea = All,Basic,Suite;
+    ApplicationArea = All, Basic, Suite;
 
     dataset
     {
@@ -162,30 +162,39 @@ report 58028 "Vehicle Maintenance - AnalysiY"
                     field("Depreciation Code"; DeprBook.Code)
                     {
                         TableRelation = "Depreciation Book";
+                        ApplicationArea = All;
                     }
                     field(DateSelection; DateSelection)
                     {
+                        ApplicationArea = All;
                     }
                     field(StartingDate; StartingDate)
                     {
+                        ApplicationArea = All;
                     }
                     field(EndingDate; EndingDate)
                     {
+                        ApplicationArea = All;
                     }
                     field("AmountField 1"; MaintenanceCode1)
                     {
+                        ApplicationArea = All;
                     }
                     field("AmountField 2"; MaintenanceCode2)
                     {
+                        ApplicationArea = All;
                     }
                     field("AmountField 3"; MaintenanceCode3)
                     {
+                        ApplicationArea = All;
                     }
                     field(GroupTotals; GroupTotals)
                     {
+                        ApplicationArea = All;
                     }
                     field("Print For FIxed Assets"; PrintDetails)
                     {
+                        ApplicationArea = All;
                     }
                 }
             }

@@ -61,6 +61,7 @@ pageextension 50258 pageextension50258 extends "Recurring Job Jnl."
             {
                 Importance = Promoted;
                 TableRelation = "Job Journal Batch".Name WHERE(Recurring = CONST(true));
+                ApplicationArea = All;
             }
         }
         addfirst(Control1)
@@ -68,6 +69,7 @@ pageextension 50258 pageextension50258 extends "Recurring Job Jnl."
             field(Code1; Code1)
             {
                 Editable = true;
+                ApplicationArea = All;
 
                 trigger OnValidate()
                 begin
@@ -77,9 +79,11 @@ pageextension 50258 pageextension50258 extends "Recurring Job Jnl."
             }
             field(Catch; Catch)
             {
+                ApplicationArea = All;
             }
             field(Pack; Pack)
             {
+                ApplicationArea = All;
             }
         }
         addafter(Description)
@@ -87,6 +91,7 @@ pageextension 50258 pageextension50258 extends "Recurring Job Jnl."
             field("Line No."; "Line No.")
             {
                 Editable = false;
+                ApplicationArea = All;
             }
         }
         moveafter("External Document No."; "Recurring Method")
@@ -94,21 +99,25 @@ pageextension 50258 pageextension50258 extends "Recurring Job Jnl."
         {
             field("Vessel Type"; "Vessel Type")
             {
+                ApplicationArea = All;
             }
         }
         addafter("No.")
         {
             field("Phase Code"; "Phase Code")
             {
+                ApplicationArea = All;
             }
             field("Task Code"; "Task Code")
             {
+                ApplicationArea = All;
             }
         }
         addafter("ShortcutDimCode[8]")
         {
             field("Source Code"; "Source Code")
             {
+                ApplicationArea = All;
             }
         }
         moveafter("Unit Cost (LCY)"; "Total Cost")
@@ -120,6 +129,7 @@ pageextension 50258 pageextension50258 extends "Recurring Job Jnl."
                 Caption = 'Shrimp Points';
                 field(Control9; "Shrimp Points")
                 {
+                    ApplicationArea = All;
                 }
             }
             group("Fish Points")
@@ -127,6 +137,7 @@ pageextension 50258 pageextension50258 extends "Recurring Job Jnl."
                 Caption = 'Fish Points';
                 field(Control13; "Fish Points")
                 {
+                    ApplicationArea = All;
                 }
             }
             group("Catch Points")
@@ -134,6 +145,7 @@ pageextension 50258 pageextension50258 extends "Recurring Job Jnl."
                 Caption = 'Catch Points';
                 field(Control17; "Catch Points")
                 {
+                    ApplicationArea = All;
                 }
             }
             group("Catch Total")
@@ -141,6 +153,7 @@ pageextension 50258 pageextension50258 extends "Recurring Job Jnl."
                 Caption = 'Catch Total';
                 field(Control21; "Catch Total")
                 {
+                    ApplicationArea = All;
                 }
             }
         }
@@ -161,10 +174,11 @@ pageextension 50258 pageextension50258 extends "Recurring Job Jnl."
                 SetFilter(Quantity, '<>%1', 0);
                 SetRange("Location Code");
             end;
+
             trigger OnAfterAction()
             begin
                 SetRange(Quantity);
-               
+
             end;
         }
         modify("Post and &Print")
@@ -174,10 +188,11 @@ pageextension 50258 pageextension50258 extends "Recurring Job Jnl."
                 SetFilter(Quantity, '<>%1', 0);
                 SetRange("Location Code");
             end;
+
             trigger OnAfterAction()
             begin
                 SetRange(Quantity);
-               
+
             end;
         }
 
@@ -231,6 +246,7 @@ pageextension 50258 pageextension50258 extends "Recurring Job Jnl."
                 Promoted = true;
                 PromotedCategory = Process;
                 PromotedIsBig = true;
+                ApplicationArea = All;
 
                 trigger OnAction()
                 begin
@@ -244,6 +260,7 @@ pageextension 50258 pageextension50258 extends "Recurring Job Jnl."
                 Promoted = true;
                 PromotedCategory = Process;
                 PromotedIsBig = true;
+                ApplicationArea = All;
 
                 trigger OnAction()
                 begin
@@ -253,6 +270,7 @@ pageextension 50258 pageextension50258 extends "Recurring Job Jnl."
             action("Initialize Vessel")
             {
                 Image = CopyWorksheet;
+                ApplicationArea = All;
 
                 trigger OnAction()
                 begin
@@ -271,6 +289,7 @@ pageextension 50258 pageextension50258 extends "Recurring Job Jnl."
                 RunPageLink = "Table Name" = CONST(Job),
                               "No." = FIELD("Job No."),
                               Type = CONST(Narration);
+                ApplicationArea = All;
             }
         }
     }

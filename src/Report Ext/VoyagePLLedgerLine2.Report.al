@@ -1180,6 +1180,7 @@ report 50025 "Voyage P&L Ledger Line 2"
                 {
                     field("Flag Price Error"; Flag)
                     {
+                        ApplicationArea = All;
                     }
                 }
             }

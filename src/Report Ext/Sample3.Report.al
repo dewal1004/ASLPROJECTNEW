@@ -48,9 +48,11 @@ report 50141 Sample3
                 {
                     field("Location Code"; "Job Ledger Entry"."Location Code")
                     {
+                        ApplicationArea = All;
                     }
                     field("Job No."; "Job Ledger Entry"."Job No.")
                     {
+                        ApplicationArea = All;
                     }
                 }
             }

@@ -9,7 +9,7 @@ report 50086 "Balance At Date (Cust/Vend)"
     DefaultLayout = RDLC;
     RDLCLayout = './ReportRdlc/BalanceAtDateCustVend.rdlc';
     UsageCategory = ReportsAndAnalysis;
-    ApplicationArea = All,Basic,Suite;
+    ApplicationArea = All, Basic, Suite;
 
     dataset
     {
@@ -336,10 +336,12 @@ report 50086 "Balance At Date (Cust/Vend)"
                     field(ShowZero; ShowZero)
                     {
                         Caption = 'ShowZero';
+                        ApplicationArea = All;
                     }
                     field(Print; Output)
                     {
                         Caption = 'Print';
+                        ApplicationArea = All;
                     }
                 }
             }

@@ -16,6 +16,7 @@ pageextension 50326 pageextension50326 extends "Posted Transfer Receipt"
         {
             action("Item &Tracking Lines")
             {
+                ApplicationArea = All;
 
                 trigger OnAction()
                 begin

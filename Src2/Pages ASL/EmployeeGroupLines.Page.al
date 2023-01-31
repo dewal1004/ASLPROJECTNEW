@@ -12,46 +12,58 @@ page 50016 "Employee Group Lines."
                 ShowCaption = false;
                 field("Employee Name"; "Employee Name")
                 {
+                    ApplicationArea = All;
                 }
                 field("Employee Group"; "Employee Group")
                 {
+                    ApplicationArea = All;
                 }
                 field("E/D Code"; "E/D Code")
                 {
+                    ApplicationArea = All;
                     //  Lookup = true;
                     //LookupPageID = "E/D Survey";
                 }
                 field(GetEDName; GetEDName)
                 {
                     Caption = 'Payslip Text';
+                    ApplicationArea = All;
                 }
                 field(Units; Units)
                 {
+                    ApplicationArea = All;
                 }
                 field(Rate; Rate)
                 {
+                    ApplicationArea = All;
                 }
                 field(Quantity; Quantity)
                 {
+                    ApplicationArea = All;
                 }
                 field(Flag; Flag)
                 {
+                    ApplicationArea = All;
                 }
                 field("Default Amount"; "Default Amount")
                 {
                     DecimalPlaces = 0 :;
                     Editable = false;
                     NotBlank = true;
+                    ApplicationArea = All;
                     // Numeric = false;
                 }
                 field("Old Default Amount"; "Old Default Amount")
                 {
+                    ApplicationArea = All;
                 }
                 field("Date Changed"; "Date Changed")
                 {
+                    ApplicationArea = All;
                 }
                 field("Payslip Group ID"; "Payslip Group ID")
                 {
+                    ApplicationArea = All;
                 }
             }
         }

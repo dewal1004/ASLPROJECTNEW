@@ -5,7 +5,7 @@ page 50052 "Monthly Var. Header Survey."
     PageType = List;
     SourceTable = "Monthly Variables Header.";
     UsageCategory = Lists;
-    ApplicationArea = All,Basic;
+    ApplicationArea = All, Basic;
 
     layout
     {
@@ -16,18 +16,23 @@ page 50052 "Monthly Var. Header Survey."
                 ShowCaption = false;
                 field("Payroll Period"; "Payroll Period")
                 {
+                    ApplicationArea = All;
                 }
                 field("Period Name"; "Period Name")
                 {
+                    ApplicationArea = All;
                 }
                 field("Employee No"; "Employee No")
                 {
+                    ApplicationArea = All;
                 }
                 field("Employee Name"; "Employee Name")
                 {
+                    ApplicationArea = All;
                 }
                 field("Closed?"; "Closed?")
                 {
+                    ApplicationArea = All;
                 }
             }
         }

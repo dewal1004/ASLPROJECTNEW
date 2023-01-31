@@ -48,6 +48,7 @@ pageextension 50368 pageextension50368 extends "Released Production Orders"
             {
                 Caption = 'Production - Yield Report';
                 RunObject = Report "Sum. Production Yield Report";
+                ApplicationArea = All;
             }
         }
     }

@@ -7,6 +7,7 @@ pageextension 50352 pageextension50352 extends "Standard Text Codes"
             field(Others; Others)
             {
                 ShowCaption = false;
+                ApplicationArea = All;
             }
         }
     }

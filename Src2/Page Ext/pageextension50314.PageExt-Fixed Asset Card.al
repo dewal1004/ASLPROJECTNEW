@@ -14,6 +14,7 @@ pageextension 50314 pageextension50314 extends "Fixed Asset Card"
         {
             field("Global Dimension 2 Code"; "Global Dimension 2 Code")
             {
+                ApplicationArea = All;
             }
         }
         addafter(DepreciationMethod)
@@ -31,6 +32,7 @@ pageextension 50314 pageextension50314 extends "Fixed Asset Card"
             action("List of depreciation books")
             {
                 Caption = 'List of depreciation books';
+                ApplicationArea = All;
             }
         }
     }

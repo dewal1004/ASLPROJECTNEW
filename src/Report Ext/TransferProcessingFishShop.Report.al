@@ -15,7 +15,7 @@ report 50059 "Transfer Processing/Fish Shop"
     DefaultLayout = RDLC;
     RDLCLayout = './ReportRdlc/TransferProcessingFishShop.rdlc';
     UsageCategory = ReportsAndAnalysis;
-    ApplicationArea = All,Basic,Suite;
+    ApplicationArea = All, Basic, Suite;
 
 
     dataset
@@ -229,6 +229,7 @@ report 50059 "Transfer Processing/Fish Shop"
                     field("Transfer To:"; ReportOptions)
                     {
                         Caption = 'Transfer To:';
+                        ApplicationArea = All;
                     }
                 }
             }

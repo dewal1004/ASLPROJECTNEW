@@ -8,7 +8,7 @@ report 50149 "Skipper/Vessel Performance XC"
     DefaultLayout = RDLC;
     RDLCLayout = './ReportRdlc/SkipperVesselPerformanceXC.rdlc';
     UsageCategory = ReportsAndAnalysis;
-    ApplicationArea = All,Basic,Suite;
+    ApplicationArea = All, Basic, Suite;
 
 
     dataset
@@ -219,6 +219,7 @@ report 50149 "Skipper/Vessel Performance XC"
                 {
                     field(Consd_Deductible_Days; Consd_Deductible_Days)
                     {
+                        ApplicationArea = All;
                     }
                 }
             }

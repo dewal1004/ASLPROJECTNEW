@@ -13,9 +13,11 @@ page 50075 "Maintenance List"
                 ShowCaption = false;
                 field("Code"; Code)
                 {
+                    ApplicationArea = All;
                 }
                 field(Description; Description)
                 {
+                    ApplicationArea = All;
                 }
             }
         }

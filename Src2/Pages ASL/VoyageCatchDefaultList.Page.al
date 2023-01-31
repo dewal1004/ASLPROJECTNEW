@@ -4,7 +4,7 @@ page 50183 "Voyage Catch Default List"
 
     PageType = Card;
     SourceTable = "Job catch Default";
-    SourceTableView = SORTING ("S/No.");
+    SourceTableView = SORTING("S/No.");
 
     layout
     {
@@ -17,28 +17,36 @@ page 50183 "Voyage Catch Default List"
                 field("Table Name"; "Table Name")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field("No."; "No.")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field("Code"; Code)
                 {
+                    ApplicationArea = All;
                 }
                 field("Pack Size"; "Pack Size")
                 {
+                    ApplicationArea = All;
                 }
                 field(Brand; Brand)
                 {
+                    ApplicationArea = All;
                 }
                 field("Budget Quantity"; "Budget Quantity")
                 {
+                    ApplicationArea = All;
                 }
                 field(Description; Description)
                 {
+                    ApplicationArea = All;
                 }
                 field("S/No."; "S/No.")
                 {
+                    ApplicationArea = All;
                 }
             }
         }
@@ -54,6 +62,7 @@ page 50183 "Voyage Catch Default List"
                 Ellipsis = true;
                 Promoted = true;
                 PromotedCategory = Process;
+                ApplicationArea = All;
 
                 trigger OnAction()
                 var

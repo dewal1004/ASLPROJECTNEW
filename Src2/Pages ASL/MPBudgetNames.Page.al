@@ -12,9 +12,11 @@ page 50031 "MP Budget Names"
                 ShowCaption = false;
                 field(Name; Name)
                 {
+                    ApplicationArea = All;
                 }
                 field(Description; Description)
                 {
+                    ApplicationArea = All;
                 }
             }
         }

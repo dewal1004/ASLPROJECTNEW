@@ -9,12 +9,15 @@ pageextension 50211 pageextension50211 extends "Comment Sheet"
         {
             field("Fuel Consumed"; "Fuel Consumed")
             {
+                ApplicationArea = All;
             }
             field("Fuel Days"; "Fuel Days")
             {
+                ApplicationArea = All;
             }
             field("Fuel Average"; "Fuel Average")
             {
+                ApplicationArea = All;
             }
         }
     }

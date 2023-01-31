@@ -10,6 +10,7 @@ pageextension 50278 pageextension50278 extends "Sales Order Subform"
         {
             field("Unit Cost"; "Unit Cost")
             {
+                ApplicationArea = All;
             }
         }
     }

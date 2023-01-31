@@ -5,7 +5,7 @@ page 50099 "Dry Docking list"
     Editable = false;
     PageType = List;
     SourceTable = Job;
-    SourceTableView = WHERE ("No." = CONST ('*C*'));
+    SourceTableView = WHERE("No." = CONST('*C*'));
     UsageCategory = Lists;
     ApplicationArea = All;
 
@@ -19,70 +19,88 @@ page 50099 "Dry Docking list"
                 field("No."; "No.")
                 {
                     StyleExpr = StyleText;
+                    ApplicationArea = All;
                 }
                 field(Vessel; Vessel)
                 {
+                    ApplicationArea = All;
                 }
                 field("Voyage No."; "Voyage No.")
                 {
+                    ApplicationArea = All;
                 }
                 field(Description; Description)
                 {
+                    ApplicationArea = All;
                 }
                 field("Fuel Consumed"; "Fuel Consumed")
                 {
+                    ApplicationArea = All;
                 }
                 field("Voyage Ended"; "Voyage Ended")
                 {
+                    ApplicationArea = All;
                 }
                 field("Bill-to Customer No."; "Bill-to Customer No.")
                 {
+                    ApplicationArea = All;
                 }
                 field(Status; Status)
                 {
                     StyleExpr = StyleText;
+                    ApplicationArea = All;
                 }
                 field("Person Responsible"; "Person Responsible")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field("Next Invoice Date"; "Next Invoice Date")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field("Job Posting Group"; "Job Posting Group")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field("Search Description"; "Search Description")
                 {
+                    ApplicationArea = All;
                 }
                 field("% of Overdue Planning Lines"; PercentOverdue)
                 {
                     Caption = '% of Overdue Planning Lines';
                     Editable = false;
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field("Starting Date"; "Starting Date")
                 {
+                    ApplicationArea = All;
                 }
                 field("% Completed"; PercentCompleted)
                 {
                     Caption = '% Completed';
                     Editable = false;
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field("% Invoiced"; PercentInvoiced)
                 {
                     Caption = '% Invoiced';
                     Editable = false;
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field("Last Date Modified"; "Last Date Modified")
                 {
+                    ApplicationArea = All;
                 }
                 field("Ending Date"; "Ending Date")
                 {
+                    ApplicationArea = All;
                 }
             }
         }
@@ -104,8 +122,9 @@ page 50099 "Dry Docking list"
                     PromotedCategory = Process;
                     PromotedIsBig = true;
                     RunObject = Page "Job Task Lines";
-                    RunPageLink = "Job No." = FIELD ("No.");
+                    RunPageLink = "Job No." = FIELD("No.");
                     ShortCutKey = 'Shift+Ctrl+T';
+                    ApplicationArea = All;
                 }
             }
             group(History)
@@ -119,9 +138,10 @@ page 50099 "Dry Docking list"
                     Promoted = true;
                     PromotedCategory = Process;
                     RunObject = Page "Job Ledger Entries";
-                    RunPageLink = "Job No." = FIELD ("No.");
-                    RunPageView = SORTING ("Job No.", "Job Task No.", "Entry Type", "Posting Date");
+                    RunPageLink = "Job No." = FIELD("No.");
+                    RunPageView = SORTING("Job No.", "Job Task No.", "Entry Type", "Posting Date");
                     ShortCutKey = 'Ctrl+F7';
+                    ApplicationArea = All;
                 }
             }
         }
@@ -134,6 +154,7 @@ page 50099 "Dry Docking list"
                 Promoted = true;
                 PromotedCategory = "Report";
                 RunObject = Report "Transfer To Vessel";
+                ApplicationArea = All;
             }
             action("Job - Transaction Detail 2")
             {
@@ -143,6 +164,7 @@ page 50099 "Dry Docking list"
                 //The property 'PromotedCategory' can only be set if the property 'Promoted' is set to 'true'
                 //PromotedCategory = "Report";
                 RunObject = Report "Job - Transaction Detail 2";
+                ApplicationArea = All;
             }
         }
     }

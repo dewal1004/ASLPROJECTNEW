@@ -172,18 +172,22 @@ report 50061 "PRoll; Create Journal Entries"
                 label("The Transactions are Transferred to:")
                 {
                     Caption = 'The Transactions are Transferred to:';
+                    ApplicationArea = All;
                 }
                 label("General Journal with Batch Name Salary")
                 {
                     Caption = 'General Journal with Batch Name Salary';
+                    ApplicationArea = All;
                 }
                 field(BookingDate; BookingDate)
                 {
                     Caption = 'Posting Date in G/L Journal';
+                    ApplicationArea = All;
                 }
                 field(VoucherNo; VoucherNo)
                 {
                     Caption = 'Voucher Number';
+                    ApplicationArea = All;
                 }
             }
         }

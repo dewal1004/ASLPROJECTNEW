@@ -160,6 +160,7 @@ pageextension 50308 "pageextension50308" extends "Purchase Order Subform"
         {
             field("Duty Rate%"; "Duty Rate%")
             {
+                ApplicationArea = All;
             }
         }
 
@@ -196,15 +197,15 @@ pageextension 50308 "pageextension50308" extends "Purchase Order Subform"
             {
                 ApplicationArea = all;
             }
-            field("Insurance(LCY)";rec."Insurance(LCY)")
+            field("Insurance(LCY)"; rec."Insurance(LCY)")
             {
                 ApplicationArea = all;
             }
-            field("Interest(LCY)";rec."Interest(LCY)")
+            field("Interest(LCY)"; rec."Interest(LCY)")
             {
                 ApplicationArea = all;
             }
-            field("Duty(LCY)";rec."Duty(LCY)")
+            field("Duty(LCY)"; rec."Duty(LCY)")
             {
                 ApplicationArea = all;
             }
@@ -244,7 +245,7 @@ pageextension 50308 "pageextension50308" extends "Purchase Order Subform"
             {
                 ApplicationArea = All;
             }
-            field("ActualLandedAmount(LCY)";rec."ActualLandedAmount(LCY)")
+            field("ActualLandedAmount(LCY)"; rec."ActualLandedAmount(LCY)")
             {
                 ApplicationArea = all;
             }
@@ -257,9 +258,11 @@ pageextension 50308 "pageextension50308" extends "Purchase Order Subform"
         {
             field("Previous Purchase Price(LCY)"; rec."Previous Purchase Price(LCY)")
             {
+                ApplicationArea = All;
             }
             field("Quantity Ordered"; rec."Quantity Ordered")
             {
+                ApplicationArea = All;
             }
         }
         moveafter("Job Line Discount %"; "Job Total Price", "Job Total Price (LCY)")
@@ -270,6 +273,7 @@ pageextension 50308 "pageextension50308" extends "Purchase Order Subform"
         {
             field("Gen. Prod. Posting Group"; "Gen. Prod. Posting Group")
             {
+                ApplicationArea = All;
             }
         }
         moveafter("Invoice Discount Amount"; Control19)

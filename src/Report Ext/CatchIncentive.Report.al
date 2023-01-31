@@ -4,7 +4,7 @@ report 50089 "Catch Incentive"
     DefaultLayout = RDLC;
     RDLCLayout = './ReportRdlc/CatchIncentive.rdlc';
     UsageCategory = ReportsAndAnalysis;
-    ApplicationArea = All,Basic,Suite;
+    ApplicationArea = All, Basic, Suite;
 
 
     dataset
@@ -522,6 +522,7 @@ report 50089 "Catch Incentive"
                     field(CrewList; CrewList)
                     {
                         Caption = 'Show Crew Sailing List';
+                        ApplicationArea = All;
                     }
                 }
             }

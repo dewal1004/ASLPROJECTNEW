@@ -283,6 +283,7 @@ report 50019 "Purchase Register(LCY)"
                     field(ShowDetails; ShowDetails)
                     {
                         Caption = 'ShowDetails';
+                        ApplicationArea = All;
                     }
                 }
             }

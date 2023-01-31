@@ -575,6 +575,7 @@ report 50160 "Voyage P&L Ledger Line sample"
                 {
                     field("Flag Price Error"; Flag)
                     {
+                        ApplicationArea = All;
                     }
                 }
             }

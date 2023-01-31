@@ -4,7 +4,7 @@ report 50017 "Local Sales Report1"
     RDLCLayout = './ReportRdlc/LocalSalesReport1.rdlc';
     Caption = 'Local Sales Report1';
     UsageCategory = ReportsAndAnalysis;
-    ApplicationArea = All,Basic,Suite;
+    ApplicationArea = All, Basic, Suite;
 
     dataset
     {
@@ -249,20 +249,24 @@ report 50017 "Local Sales Report1"
                     {
                         Caption = 'Show';
                         OptionCaption = 'Largest,Smallest';
+                        ApplicationArea = All;
                     }
                     field(ShowType; ShowType)
                     {
                         Caption = 'Show';
                         OptionCaption = 'Sales (LCY),Inventory';
+                        ApplicationArea = All;
                     }
                     field(NoOfRecordsToPrint; NoOfRecordsToPrint)
                     {
                         Caption = 'Quantity';
+                        ApplicationArea = All;
                     }
                     field(PrintAlsoIfZero; PrintAlsoIfZero)
                     {
                         Caption = 'Include Items Not on Inventory or Not Sold';
                         MultiLine = true;
+                        ApplicationArea = All;
                     }
                 }
             }

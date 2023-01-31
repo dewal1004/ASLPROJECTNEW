@@ -202,10 +202,12 @@ report 90187 "Periodic Stock PositionX"
                     field("PeriodStartDate[5]"; PeriodStartDate[5])
                     {
                         ShowCaption = false;
+                        ApplicationArea = All;
                     }
                     field(PeriodLength; PeriodLength)
                     {
                         ShowCaption = false;
+                        ApplicationArea = All;
                     }
                 }
             }

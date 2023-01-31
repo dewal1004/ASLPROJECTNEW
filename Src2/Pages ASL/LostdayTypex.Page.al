@@ -13,15 +13,19 @@ page 50076 "Lost day Typex"
                 field("No."; "No.")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field("Code"; Code)
                 {
+                    ApplicationArea = All;
                 }
                 field(SeaPort; SeaPort)
                 {
+                    ApplicationArea = All;
                 }
                 field(Description; Description)
                 {
+                    ApplicationArea = All;
                 }
             }
         }
@@ -37,7 +41,8 @@ page 50076 "Lost day Typex"
                 Ellipsis = true;
                 Promoted = true;
                 PromotedCategory = Process;
-               //*** RunObject = Page Page82;
+                ApplicationArea = All;
+                //*** RunObject = Page Page82;
             }
         }
     }

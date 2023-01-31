@@ -13,18 +13,23 @@ page 50018 "Posting Groups Survey."
                 ShowCaption = false;
                 field("Posting Group Code"; "Posting Group Code")
                 {
+                    ApplicationArea = All;
                 }
                 field("Search Name"; "Search Name")
                 {
+                    ApplicationArea = All;
                 }
                 field(Description; Description)
                 {
+                    ApplicationArea = All;
                 }
                 field(Management; Management)
                 {
+                    ApplicationArea = All;
                 }
                 field(StaffCount; StaffCount)
                 {
+                    ApplicationArea = All;
                 }
             }
         }
@@ -40,7 +45,8 @@ page 50018 "Posting Groups Survey."
                 Promoted = true;
                 PromotedCategory = Process;
                 RunObject = Page "Posting Group Lines.";
-                RunPageLink = "Posting Group" = FIELD ("Posting Group Code");
+                RunPageLink = "Posting Group" = FIELD("Posting Group Code");
+                ApplicationArea = All;
             }
         }
     }

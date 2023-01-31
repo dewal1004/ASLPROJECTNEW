@@ -9,12 +9,14 @@ pageextension 50281 pageextension50281 extends "Purchase Quote"
         modify("Foreign Trade")
         {
             Visible = true;
-            
+
         }
         addafter("Document Date")
         {
-            field("Order Type";"Order Type")
-            {}
+            field("Order Type"; "Order Type")
+            {
+                ApplicationArea = All;
+            }
         }
 
 

@@ -1141,21 +1141,27 @@ report 50211 "Consolidated Voyage P&L2 test"
                     ShowCaption = false;
                     field("Period Start"; "Period Start")
                     {
+                        ApplicationArea = All;
                     }
                     field("Period End"; "Period End")
                     {
+                        ApplicationArea = All;
                     }
                     field(Vessel; VesselSel)
                     {
+                        ApplicationArea = All;
                     }
                     field("Fishing Country"; FishingCount)
                     {
+                        ApplicationArea = All;
                     }
                     field("Job No"; Jb."No.")
                     {
+                        ApplicationArea = All;
                     }
                     field(Resource; ResourceOn)
                     {
+                        ApplicationArea = All;
                     }
                 }
             }

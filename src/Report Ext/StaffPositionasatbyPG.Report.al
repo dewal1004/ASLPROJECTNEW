@@ -8,7 +8,7 @@ report 50180 "Staff Position as at by PG"
     DefaultLayout = RDLC;
     RDLCLayout = './ReportRdlc/StaffPositionasatbyPG.rdlc';
     UsageCategory = ReportsAndAnalysis;
-    ApplicationArea = All,Basic,Suite;
+    ApplicationArea = All, Basic, Suite;
 
 
     dataset
@@ -141,9 +141,11 @@ report 50180 "Staff Position as at by PG"
                     ShowCaption = false;
                     field("Start Date"; StartDate)
                     {
+                        ApplicationArea = All;
                     }
                     field("End Date"; EndDate)
                     {
+                        ApplicationArea = All;
                     }
                 }
             }

@@ -6,7 +6,7 @@ page 50155 "PO Subform Local - FIS"
     MultipleNewLines = true;
     PageType = Card;
     SourceTable = "Purchase Line";
-    SourceTableView = WHERE ("Document Type" = FILTER (Order));
+    SourceTableView = WHERE("Document Type" = FILTER(Order));
 
     layout
     {
@@ -17,21 +17,26 @@ page 50155 "PO Subform Local - FIS"
                 ShowCaption = false;
                 field(Type; Type)
                 {
+                    ApplicationArea = All;
                 }
                 field(ProdCd; ProdCd)
                 {
                     Visible = ProdCdVisible;
+                    ApplicationArea = All;
                 }
                 field("Pack Size"; "Pack Size")
                 {
                     Visible = "Pack SizeVisible";
+                    ApplicationArea = All;
                 }
                 field(Brand; Brand)
                 {
                     Visible = BrandVisible;
+                    ApplicationArea = All;
                 }
                 field("No."; "No.")
                 {
+                    ApplicationArea = All;
 
                     trigger OnValidate()
                     begin
@@ -42,20 +47,25 @@ page 50155 "PO Subform Local - FIS"
                 field("Reason Code"; "Reason Code")
                 {
                     Visible = "Reason CodeVisible";
+                    ApplicationArea = All;
                 }
                 field("External Document No."; "External Document No.")
                 {
                     Visible = "External Document No.Visible";
+                    ApplicationArea = All;
                 }
                 field("Gen. Prod. Posting Group"; "Gen. Prod. Posting Group")
                 {
+                    ApplicationArea = All;
                 }
                 field("Gen. Bus. Posting Group"; "Gen. Bus. Posting Group")
                 {
+                    ApplicationArea = All;
                 }
                 field("Cross-Reference No."; "Cross-Reference No.")
                 {
                     Visible = false;
+                    ApplicationArea = All;
 
                     trigger OnLookup(var Text: Text): Boolean
                     begin
@@ -75,139 +85,173 @@ page 50155 "PO Subform Local - FIS"
                 field("Variant Code"; "Variant Code")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field(Nonstock; Nonstock)
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field("VAT Prod. Posting Group"; "VAT Prod. Posting Group")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field(Description; Description)
                 {
+                    ApplicationArea = All;
                 }
                 field("Duty Rate%"; "Duty Rate%")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field("Quantity Ordered"; "Quantity Ordered")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field(Control80; "Drop Shipment")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field("Location Code"; "Location Code")
                 {
+                    ApplicationArea = All;
                 }
                 field(Quantity; Quantity)
                 {
                     BlankZero = true;
+                    ApplicationArea = All;
                 }
                 field("Reserved Quantity"; "Reserved Quantity")
                 {
                     BlankZero = true;
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field("Unit of Measure Code"; "Unit of Measure Code")
                 {
+                    ApplicationArea = All;
                 }
                 field("Unit of Measure"; "Unit of Measure")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field("Direct Unit Cost"; "Direct Unit Cost")
                 {
                     BlankZero = true;
+                    ApplicationArea = All;
                 }
                 field("Indirect Cost %"; "Indirect Cost %")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field("Unit Cost (LCY)"; "Unit Cost (LCY)")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field("Unit Price (LCY)"; "Unit Price (LCY)")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field(Amount; Amount)
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field("Line Amount"; "Line Amount")
                 {
                     BlankZero = true;
+                    ApplicationArea = All;
                 }
                 field("Line Discount %"; "Line Discount %")
                 {
                     BlankZero = true;
+                    ApplicationArea = All;
                 }
                 field("Line Discount Amount"; "Line Discount Amount")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field("Allow Invoice Disc."; "Allow Invoice Disc.")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field("Inv. Discount Amount"; "Inv. Discount Amount")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field("Qty. to Receive"; "Qty. to Receive")
                 {
                     BlankZero = true;
+                    ApplicationArea = All;
                 }
                 field("Quantity Received"; "Quantity Received")
                 {
                     BlankZero = true;
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field("Qty. to Invoice"; "Qty. to Invoice")
                 {
                     BlankZero = true;
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field("Quantity Invoiced"; "Quantity Invoiced")
                 {
                     BlankZero = true;
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field("Allow Item Charge Assignment"; "Allow Item Charge Assignment")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field("Requested Receipt Date"; "Requested Receipt Date")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field("Promised Receipt Date"; "Promised Receipt Date")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field("Planned Receipt Date"; "Planned Receipt Date")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field("Expected Receipt Date"; "Expected Receipt Date")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field("Order Date"; "Order Date")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field("Lead Time Calculation"; "Lead Time Calculation")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field("Job No."; "Job No.")
                 {
                     Visible = false;
+                    ApplicationArea = All;
 
                     trigger OnValidate()
                     begin
@@ -217,59 +261,73 @@ page 50155 "PO Subform Local - FIS"
                 field("Planning Flexibility"; "Planning Flexibility")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field("Prod. Order Line No."; "Prod. Order Line No.")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field("Prod. Order No."; "Prod. Order No.")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field("Operation No."; "Operation No.")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field("Work Center No."; "Work Center No.")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field(Finished; Finished)
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field("Whse. Outstanding Qty. (Base)"; "Whse. Outstanding Qty. (Base)")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field("Inbound Whse. Handling Time"; "Inbound Whse. Handling Time")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field("Blanket Order No."; "Blanket Order No.")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field("Blanket Order Line No."; "Blanket Order Line No.")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field("Appl.-to Item Entry"; "Appl.-to Item Entry")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field("Shortcut Dimension 1 Code"; "Shortcut Dimension 1 Code")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field("Shortcut Dimension 2 Code"; "Shortcut Dimension 2 Code")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field("ShortcutDimCode[3]"; ShortcutDimCode[3])
                 {
                     CaptionClass = '1,2,3';
                     Visible = false;
+                    ApplicationArea = All;
 
                     trigger OnLookup(var Text: Text): Boolean
                     begin
@@ -285,6 +343,7 @@ page 50155 "PO Subform Local - FIS"
                 {
                     CaptionClass = '1,2,4';
                     Visible = false;
+                    ApplicationArea = All;
 
                     trigger OnLookup(var Text: Text): Boolean
                     begin
@@ -300,6 +359,7 @@ page 50155 "PO Subform Local - FIS"
                 {
                     CaptionClass = '1,2,5';
                     Visible = false;
+                    ApplicationArea = All;
 
                     trigger OnLookup(var Text: Text): Boolean
                     begin
@@ -315,6 +375,7 @@ page 50155 "PO Subform Local - FIS"
                 {
                     CaptionClass = '1,2,6';
                     Visible = false;
+                    ApplicationArea = All;
 
                     trigger OnLookup(var Text: Text): Boolean
                     begin
@@ -330,6 +391,7 @@ page 50155 "PO Subform Local - FIS"
                 {
                     CaptionClass = '1,2,7';
                     Visible = false;
+                    ApplicationArea = All;
 
                     trigger OnLookup(var Text: Text): Boolean
                     begin
@@ -345,6 +407,7 @@ page 50155 "PO Subform Local - FIS"
                 {
                     CaptionClass = '1,2,8';
                     Visible = false;
+                    ApplicationArea = All;
 
                     trigger OnLookup(var Text: Text): Boolean
                     begin
@@ -359,106 +422,132 @@ page 50155 "PO Subform Local - FIS"
                 field("Freight(LCY)"; "Freight(LCY)")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field("Ancillary(LCY)"; "Ancillary(LCY)")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field("Duty(LCY)"; "Duty(LCY)")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field("Insurance(LCY)"; "Insurance(LCY)")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field("Surcharge Duty(LCY)"; "Surcharge Duty(LCY)")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field("Ecowas Duty(LCY)"; "Ecowas Duty(LCY)")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field("CISS(LCY)"; "CISS(LCY)")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field("Vat (LCY)"; "Vat (LCY)")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field("Clearing(LCY)"; "Clearing(LCY)")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field("Interest(LCY)"; "Interest(LCY)")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field("Total Overhead(LCY)"; "Total Overhead(LCY)")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field("LandedAmount(LCY)"; "LandedAmount(LCY)")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field("ActualFreight(LCY)"; "ActualFreight(LCY)")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field("ActualAncillary(LCY)"; "ActualAncillary(LCY)")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field("ActualDuty(LCY)"; "ActualDuty(LCY)")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field("ActualInsurance(LCY)"; "ActualInsurance(LCY)")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field("ActualSurcharge Duty(LCY)"; "ActualSurcharge Duty(LCY)")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field("ActualEcowas Duty(LCY)"; "ActualEcowas Duty(LCY)")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field("ActualCISS(LCY)"; "ActualCISS(LCY)")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field("ActualVat (LCY)"; "ActualVat (LCY)")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field("ActualClearing(LCY)"; "ActualClearing(LCY)")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field("ActualInterest(LCY)"; "ActualInterest(LCY)")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field("ActualDuty Rate%"; "ActualDuty Rate%")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field("ActualTotal Overhead(LCY)"; "ActualTotal Overhead(LCY)")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field("ActualLandedAmount(LCY)"; "ActualLandedAmount(LCY)")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 field("Original Purc. Order No."; "Original Purc. Order No.")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
             }
         }
@@ -477,6 +566,7 @@ page 50155 "PO Subform Local - FIS"
                     action(Period)
                     {
                         Caption = 'Period';
+                        ApplicationArea = All;
 
                         trigger OnAction()
                         begin
@@ -489,6 +579,7 @@ page 50155 "PO Subform Local - FIS"
                     action(Variant)
                     {
                         Caption = 'Variant';
+                        ApplicationArea = All;
 
                         trigger OnAction()
                         begin
@@ -501,6 +592,7 @@ page 50155 "PO Subform Local - FIS"
                     action(Location)
                     {
                         Caption = 'Location';
+                        ApplicationArea = All;
 
                         trigger OnAction()
                         begin
@@ -515,6 +607,7 @@ page 50155 "PO Subform Local - FIS"
                 {
                     Caption = 'Reservation Entries';
                     Image = ReservationLedger;
+                    ApplicationArea = All;
 
                     trigger OnAction()
                     begin
@@ -529,6 +622,7 @@ page 50155 "PO Subform Local - FIS"
                     Caption = 'Dimensions';
                     Image = Dimensions;
                     ShortCutKey = 'Shift+Ctrl+D';
+                    ApplicationArea = All;
 
                     trigger OnAction()
                     begin
@@ -542,6 +636,7 @@ page 50155 "PO Subform Local - FIS"
                 {
                     Caption = 'Item Charge &Assignment';
                     Ellipsis = true;
+                    ApplicationArea = All;
 
                     trigger OnAction()
                     begin
@@ -555,6 +650,7 @@ page 50155 "PO Subform Local - FIS"
                 {
                     Caption = 'Item &Tracking Lines';
                     Image = ItemTrackingLines;
+                    ApplicationArea = All;
 
                     trigger OnAction()
                     begin
@@ -575,6 +671,7 @@ page 50155 "PO Subform Local - FIS"
                 {
                     Caption = 'Calculate &Invoice Discount';
                     Image = CalculateInvoiceDiscount;
+                    ApplicationArea = All;
 
                     trigger OnAction()
                     begin
@@ -588,6 +685,7 @@ page 50155 "PO Subform Local - FIS"
                 {
                     Caption = 'E&xplode BOM';
                     Image = ExplodeBOM;
+                    ApplicationArea = All;
 
                     trigger OnAction()
                     begin
@@ -600,6 +698,7 @@ page 50155 "PO Subform Local - FIS"
                 action("Insert &Ext. Texts")
                 {
                     Caption = 'Insert &Ext. Texts';
+                    ApplicationArea = All;
 
                     trigger OnAction()
                     begin
@@ -613,6 +712,7 @@ page 50155 "PO Subform Local - FIS"
                 {
                     Caption = 'Get &Phase/Task/Step';
                     Ellipsis = true;
+                    ApplicationArea = All;
 
                     trigger OnAction()
                     begin
@@ -629,6 +729,7 @@ page 50155 "PO Subform Local - FIS"
                     {
                         Caption = 'Sales &Order';
                         Image = Document;
+                        ApplicationArea = All;
 
                         trigger OnAction()
                         begin
@@ -646,6 +747,7 @@ page 50155 "PO Subform Local - FIS"
                     {
                         Caption = 'Sales &Order';
                         Image = Document;
+                        ApplicationArea = All;
 
                         trigger OnAction()
                         begin
@@ -660,6 +762,7 @@ page 50155 "PO Subform Local - FIS"
                 {
                     Caption = '&Reserve';
                     Ellipsis = true;
+                    ApplicationArea = All;
 
                     trigger OnAction()
                     begin
@@ -672,6 +775,7 @@ page 50155 "PO Subform Local - FIS"
                 action("Order &Tracking")
                 {
                     Caption = 'Order &Tracking';
+                    ApplicationArea = All;
 
                     trigger OnAction()
                     begin
@@ -723,31 +827,31 @@ page 50155 "PO Subform Local - FIS"
         [InDataSet]
         BrandVisible: Boolean;
 
-[Scope('Onprem')]
+    [Scope('Onprem')]
     procedure ApproveCalcInvDisc()
     begin
         CODEUNIT.Run(CODEUNIT::"Purch.-Disc. (Yes/No)", Rec);
     end;
 
-[Scope('Onprem')]
+    [Scope('Onprem')]
     procedure CalcInvDisc()
     begin
         CODEUNIT.Run(CODEUNIT::"Purch.-Calc.Discount", Rec);
     end;
 
-[Scope('Onprem')]
+    [Scope('Onprem')]
     procedure ExplodeBOM()
     begin
         CODEUNIT.Run(CODEUNIT::"Purch.-Explode BOM", Rec);
     end;
 
-[Scope('Onprem')]
+    [Scope('Onprem')]
     procedure GetPhaseTaskStep()
     begin
-       //*** CODEUNIT.Run(CODEUNIT::Codeunit75, Rec);
+        //*** CODEUNIT.Run(CODEUNIT::Codeunit75, Rec);
     end;
 
-[Scope('Onprem')]
+    [Scope('Onprem')]
     procedure OpenSalesOrderForm()
     var
         SalesHeader: Record "Sales Header";
@@ -759,7 +863,7 @@ page 50155 "PO Subform Local - FIS"
         SalesOrder.Run;
     end;
 
-[Scope('Onprem')]
+    [Scope('Onprem')]
     procedure _InsertExtendedText(Unconditionally: Boolean)
     begin
         if TransferExtendedText.PurchCheckIfAnyExtText(Rec, Unconditionally) then begin
@@ -770,7 +874,7 @@ page 50155 "PO Subform Local - FIS"
             UpdateForm(true);
     end;
 
-[Scope('Onprem')]
+    [Scope('Onprem')]
     procedure InsertExtendedText(Unconditionally: Boolean)
     begin
         if TransferExtendedText.PurchCheckIfAnyExtText(Rec, Unconditionally) then begin
@@ -781,21 +885,21 @@ page 50155 "PO Subform Local - FIS"
             UpdateForm(true);
     end;
 
-[Scope('Onprem')]
+    [Scope('Onprem')]
     procedure _ShowReservation()
     begin
         Find;
         Rec.ShowReservation;
     end;
 
-[Scope('Onprem')]
+    [Scope('Onprem')]
     procedure ASLShowReservation()
     begin
         Find;
         Rec.ShowReservation;
     end;
 
-[Scope('Onprem')]
+    [Scope('Onprem')]
     procedure _ItemAvailability(AvailabilityType: Option Date,Variant,Location,Bin)
     begin
         //Rec.ItemAvailability(AvailabilityType);
@@ -807,19 +911,19 @@ page 50155 "PO Subform Local - FIS"
         //Rec.ItemAvailability(AvailabilityType);
     end;
 
-[Scope('Onprem')]
+    [Scope('Onprem')]
     procedure _ShowReservationEntries()
     begin
         Rec.ShowReservationEntries(true);
     end;
 
-[Scope('Onprem')]
+    [Scope('Onprem')]
     procedure ShowReservationEntries()
     begin
         Rec.ShowReservationEntries(true);
     end;
 
-[Scope('Onprem')]
+    [Scope('Onprem')]
     procedure ShowTracking()
     var
         TrackingForm: Page "Order Tracking";
@@ -828,37 +932,37 @@ page 50155 "PO Subform Local - FIS"
         TrackingForm.RunModal;
     end;
 
-[Scope('Onprem')]
+    [Scope('Onprem')]
     procedure _ShowDimensions()
     begin
         Rec.ShowDimensions;
     end;
 
-[Scope('Onprem')]
+    [Scope('Onprem')]
     procedure ShowDimensions()
     begin
         Rec.ShowDimensions;
     end;
 
-[Scope('Onprem')]
+    [Scope('Onprem')]
     procedure ItemChargeAssgnt()
     begin
         Rec.ShowItemChargeAssgnt;
     end;
 
-[Scope('Onprem')]
+    [Scope('Onprem')]
     procedure _OpenItemTrackingLines()
     begin
         Rec.OpenItemTrackingLines;
     end;
 
-[Scope('Onprem')]
+    [Scope('Onprem')]
     procedure OpenItemTrackingLines()
     begin
         Rec.OpenItemTrackingLines;
     end;
 
-[Scope('Onprem')]
+    [Scope('Onprem')]
     procedure OpenSpecOrderSalesOrderForm()
     var
         SalesHeader: Record "Sales Header";
@@ -870,14 +974,14 @@ page 50155 "PO Subform Local - FIS"
         SalesOrder.Run;
     end;
 
-[Scope('Onprem')]
+    [Scope('Onprem')]
     procedure UpdateForm(SetSaveRecord: Boolean)
     begin
         CurrPage.Update(SetSaveRecord);
         UpdateEnabled();
     end;
 
-[Scope('Onprem')]
+    [Scope('Onprem')]
     procedure UpdateEnabled()
     begin
         /*IF PurchHeader.GET("Document Type","Document No.") THEN;
@@ -943,7 +1047,7 @@ page 50155 "PO Subform Local - FIS"
 
     end;
 
-[Scope('Onprem')]
+    [Scope('Onprem')]
     procedure UpdateUsageForm()
     begin
         if PurchHeader.Get("Document Type", "Document No.") then

@@ -6,6 +6,7 @@ pageextension 50327 pageextension50327 extends "Posted Transfer Shipments"
         {
             field("Transfer Order No."; "Transfer Order No.")
             {
+                ApplicationArea = All;
             }
         }
     }

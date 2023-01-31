@@ -12,13 +12,16 @@ page 50136 "Role Center ID"
                 part(Control21; "Finance Performance")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 part(Control20; "Account Manager Activities")
                 {
-                
+                    ApplicationArea = All;
+
                 }
                 part(Control19; "My Customers")
                 {
+                    ApplicationArea = All;
                 }
             }
             group(Control18)
@@ -27,19 +30,24 @@ page 50136 "Role Center ID"
                 part(Control17; "Trailing Sales Orders Chart")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 part(Control16; "My Job Queue")
                 {
                     Visible = false;
+                    ApplicationArea = All;
                 }
                 part(Control14; "My Vendors")
                 {
+                    ApplicationArea = All;
                 }
                 part(Control13; "Report Inbox Part")
                 {
+                    ApplicationArea = All;
                 }
                 systempart(Control11; MyNotes)
                 {
+                    ApplicationArea = All;
                 }
             }
         }
@@ -55,6 +63,7 @@ page 50136 "Role Center ID"
                 {
                     Caption = 'Periodic Stock Position';
                     RunObject = Report "Periodic Stock Position-CODEWA";
+                    ApplicationArea = All;
                 }
             }
         }
@@ -67,56 +76,66 @@ page 50136 "Role Center ID"
                 {
                     Caption = 'Materia Requisition';
                     RunObject = Page "Store Requisitions";
-                    RunPageView = WHERE ("Send for Approval" = CONST (false));
+                    RunPageView = WHERE("Send for Approval" = CONST(false));
+                    ApplicationArea = All;
                 }
                 action("Requisition Awaiting HOD Approval")
                 {
                     RunObject = Page "Store Req. ready For Approval";
-                    RunPageView = WHERE ("Send for Approval" = CONST (true),
-                                        "1st Approved" = FILTER (<> Approved));
+                    RunPageView = WHERE("Send for Approval" = CONST(true),
+                                        "1st Approved" = FILTER(<> Approved));
+                    ApplicationArea = All;
                 }
                 action("Requisition Awaiting Store Approval")
                 {
                     RunObject = Page "Store Req. Ready for Final App";
-                    RunPageView = WHERE ("Send for Approval" = CONST (true),
-                                        "1st Approved" = CONST (Approved),
-                                        "Final Approved" = FILTER (<> Approved));
+                    RunPageView = WHERE("Send for Approval" = CONST(true),
+                                        "1st Approved" = CONST(Approved),
+                                        "Final Approved" = FILTER(<> Approved));
+                    ApplicationArea = All;
                 }
                 action("Requisition Awaiting Store Keeper Process")
                 {
                     RunObject = Page "Store Req. Ready for Capture";
-                    RunPageView = WHERE ("Send for Approval" = CONST (true),
-                                        "1st Approved" = CONST (Approved),
-                                        "Final Approved" = CONST (Approved),
-                                        "Issued Captured" = CONST (false),
-                                        Processed = CONST (false));
+                    RunPageView = WHERE("Send for Approval" = CONST(true),
+                                        "1st Approved" = CONST(Approved),
+                                        "Final Approved" = CONST(Approved),
+                                        "Issued Captured" = CONST(false),
+                                        Processed = CONST(false));
+                    ApplicationArea = All;
                 }
                 action("Awaiting Processed Requisition")
                 {
                     RunObject = Page "MR. Issued Ready for Process";
+                    ApplicationArea = All;
                 }
                 action("Completed Processed Requisition")
                 {
                     RunObject = Page "Store Req.  Approved and Issue";
+                    ApplicationArea = All;
                 }
                 action("Rejected Material Requisition")
                 {
                     Caption = 'Rejected Materia Requisition';
                     RunObject = Page "Store Req.  Rejected";
+                    ApplicationArea = All;
                 }
                 action("All Material Requisition Status")
                 {
                     Caption = 'All  Materia Requisition Status';
                     RunObject = Page "All Requisition Status";
-                    RunPageView = WHERE ("Send for Approval" = CONST (true));
+                    RunPageView = WHERE("Send for Approval" = CONST(true));
+                    ApplicationArea = All;
                 }
                 action("Material Variance Report")
                 {
                     RunObject = Report "Material Variant report";
+                    ApplicationArea = All;
                 }
                 action("MR Reconciliation ")
                 {
                     RunObject = Page "MR Reconciliation";
+                    ApplicationArea = All;
                 }
             }
         }

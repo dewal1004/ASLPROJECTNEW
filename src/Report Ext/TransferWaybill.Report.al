@@ -302,10 +302,12 @@ report 50033 "Transfer Waybill"
                     field(NoOfCopies; NoOfCopies)
                     {
                         Caption = 'No. of Copies';
+                        ApplicationArea = All;
                     }
                     field(ShowInternalInfo; ShowInternalInfo)
                     {
                         Caption = 'Show Internal Information';
+                        ApplicationArea = All;
                     }
                 }
             }

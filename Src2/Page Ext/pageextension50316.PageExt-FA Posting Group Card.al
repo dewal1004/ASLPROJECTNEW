@@ -6,6 +6,7 @@ pageextension 50316 pageextension50316 extends "FA Posting Group Card"
         {
             field(Description; Description)
             {
+                ApplicationArea = All;
             }
         }
     }
