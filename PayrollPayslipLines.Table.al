@@ -649,10 +649,10 @@ table 50006 "Payroll-Payslip Lines."
                 /* Depending on whether input parameter is code or numeric, set dbSETRANGE
                   appropraitely and initialise the record to use as a parameter to
                   dbFINDREC */
-                /*    CASE LookHeaderRec.Type OF
+                   CASE LookHeaderRec.Type OF
                     0:
                       BEGIN
-                        { Lookup table is searched with numeric variables }
+                        /*Lookup table is searched with numeric variables */
                         IF ProllFactorRec.Amount > -1 THEN
                           BEGIN
                             LookLinesRec."Lower Code" := '';
@@ -665,7 +665,7 @@ table 50006 "Payroll-Payslip Lines."
                       END;
                     2:
                       BEGIN
-                        { Lookup table is searched with numeric variables }
+                        /*Lookup table is searched with numeric variables */
                         IF ProllFactorRec.Amount > -1 THEN
                           BEGIN
                             LookLinesRec."Lower Code" := '';
@@ -676,7 +676,7 @@ table 50006 "Payroll-Payslip Lines."
                         ELSE
                           EXIT (LookHeaderRec."Min. Extract Amount")
                       END;
-                    ELSE  {Lookup table is searched with variables of type code}
+                    ELSE  /*Lookup table is searched with variables of type code */
                       BEGIN
                         LookLinesRec."Lower Amount" := 0;
                         LookLinesRec."Lower Code" := EDFileRec."E/D Code";
@@ -684,13 +684,13 @@ table 50006 "Payroll-Payslip Lines."
                         LookLinesRec.SETRANGE("Lower Amount",0);
                       END
 
-                    END; { Case}
+                    END; /*{ Case}*/
 
-                    CASE LookHeaderRec.Type OF
+                    CASE  LookHeaderRec.Type OF
                     0,1: BEGIN
-                       { Extract amount as follows; First find line where Lower Amount or
+                       /*{Extract amount as follows; First find line where Lower Amount or
                          lower code is just greater than the Factor Amount then move one
-                         line back.}
+                         line back.}*/
 
                       IF  LookLinesRec.FIND( '=') THEN
                         ReturnAmount := LookLinesRec."Extract Amount"
@@ -701,7 +701,7 @@ table 50006 "Payroll-Payslip Lines."
                       END
                       ELSE
                         IF LookHeaderRec.Type = 0 THEN BEGIN
-                        {'Factor' Amount is > than the table's greatest "Lower amount"}
+                        /*{'Factor' Amount is > than the table's greatest "Lower amount"}*/
                           IF  LookLinesRec.FIND( '+') THEN
                             ReturnAmount := LookLinesRec."Extract Amount";
                         END
@@ -709,7 +709,7 @@ table 50006 "Payroll-Payslip Lines."
                           EXIT (EntryLineRec.Amount);
                       END;
 
-                    2: {  Extract amount from tax table}
+                    2: /*{  Extract amount from tax table}*/
                       BEGIN
                 //****Cummulative Tax Calculation****/
                 // ReturnAmount := (CalcTaxAmt(LookLinesRec, PreTaxCalc)) * LookHeaderRec."Output Factor";
@@ -722,7 +722,8 @@ table 50006 "Payroll-Payslip Lines."
             END;
     END;
 
-
+            end;
+    end; 
     procedure CalcCompute(EntryRecParam: Record "Payroll-Payslip Lines."; AmountInLine: Decimal; "CalledFromEdCode?": Boolean; EDCode: Code[20])
     begin
         /*”””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””
