@@ -74,7 +74,7 @@ pageextension 50399 "AccountantRoleCenter" extends "Accountant Role Center"
                     Caption = 'Generate Payroll ';
                     //Promoted = true;
                     //PromotedCategory = Process;
-                    RunObject = Report 50054;
+                    RunObject = Report "ASL Create New payslips - New";
                 }
                 action("Monthly Variables")
                 {
