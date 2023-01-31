@@ -13,13 +13,13 @@ report 50054 "ASL Create New payslips - New"
     {
         dataitem(Employee; Employee)
         {
-            // DataItemTableView = SORTING("No.") WHERE(Blocked = CONST(false), Suspended = CONST(false));
-            DataItemTableView = SORTING("No.") WHERE(Blocked = CONST(false), Suspended = CONST(false), "No." = const('E000004'));
+            DataItemTableView = SORTING("No.") WHERE(Blocked = CONST(false), Suspended = CONST(false));
+            // DataItemTableView = SORTING("No.") WHERE(Blocked = CONST(false), Suspended = CONST(false), "No." = const('E000004'));
             RequestFilterFields = "No.", "Posting Group", "Global Dimension 1 Code", "Global Dimension 2 Code";
 
             trigger OnAfterGetRecord()
             begin
-                Message('Employee no %1', Employee."No.");  ///AAA
+                // Message('Employee no %1', Employee."No.");  ///AAA
                 WindowUpdate(Employee."No.", InfoCounter);
 
                 if not PayslipHeader.Get(PayrollPeriod."Period Code", "No.") then begin
