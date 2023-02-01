@@ -90,9 +90,9 @@ report 50054 "ASL Create New payslips - New"
                             EDFileRec.SetRange(EDFileRec."Payslip Group ID", EDFileRec."Payslip Group ID"::"TAX DEDUCTED");
                             if EDFileRec.Find('-') then TaxED := EDFileRec."E/D Code";
 
-                            //SendLines(TaxFreeED,0,0,0);
-                            //SendLines(TaxED,0,0,0);
-                            //SendLines(TaxFreeED,Employee."Annual Tax Freepay"/12,0,0);
+                            SendLines(TaxFreeED, 0, 0, 0);
+                            SendLines(TaxED, 0, 0, 0);
+                            SendLines(TaxFreeED, Employee."Annual Tax Freepay" / 12, 0, 0);
 
                             PaySetup.Reset;
                             PaySetup.Find('-');
@@ -224,6 +224,7 @@ report 50054 "ASL Create New payslips - New"
                              'Counter                  : #3##########');
                 Window.Update(1, Count);
                 InfoCounter := 0;
+                PayslipHeaderReset(PayPeriodRec."Period Code", 'E000004');
             end;
         }
     }
