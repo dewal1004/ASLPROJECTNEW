@@ -13,7 +13,12 @@ finsql.exe Command=ExportToNewSyntax, File=<filename.txt>, Database="<databasena
 finsql.exe Command=ExportToNewSyntax, File=exportedBaselineObjects.txt, Database="Demo Database NAV (13-0)", ServerName=.\NAVDEMO , Filter=Type=table; ID=225
 # 3. Import your solution using the import option in C/SIDE and compile the database.
 # 4. Export all new and/or modified objects using the following syntax: finsql.exe Command=ExportToNewSyntax
-finsql.exe Command=ExportToNewSyntax, File=exportedNewModifiedObjects.txt, 
-  Database=.\"Atlantic ASL 2", ServerName=.\NAV365SRV , Filter=Type=table; ID=231
+$SvrInstName = BC140
+$DbName = "Atlantic ASL 2"
+$DbPath = "C:\Program Files\Microsoft SQL Server\MSSQL15.NAVSQLLIVE\MSSQL\DATA"
+
+finsql.exe Command=ExportToNewSyntax, File=exportedNewModifiedObjects.txt, Database= "Atlantic ASL 2", ServerName=.\NAV365SRV , Filter=Type=table; ID=231
 # finsql.exe Command=ExportToNewSyntax, File=exportedNewModifiedObjects.txt, Database="myDatabase", ServerName=.\BCNAV ,Filter=Version List='*SSN*'
-C:\Program Files\Microsoft SQL Server\MSSQL15.NAVSQLLIVE\MSSQL\DATA
+
+
+
