@@ -1,1 +1,1 @@
-﻿{"Added":[],"Modified":[{"Id":50006,"Kind":10,"Name":"Payroll-Payslip Lines.","PackagePath":"/src/PayrollPayslipLines.Table.al"}],"Removed":[{"Id":50040,"Kind":11,"Name":"SAMMMY","PackagePath":"/src/profile.al"}]}
+﻿{"Added":[],"Modified":[],"Removed":[{"Id":50001,"Kind":10,"Name":"Payroll-E/D Codes.","PackagePath":"/src/PayrollEDCodes.Table%20copy.al"},{"Id":50040,"Kind":11,"Name":"SAMMMY","PackagePath":"/src/profile.al"},{"Id":50006,"Kind":10,"Name":"Payroll-Payslip Lines.","PackagePath":"/src/PayrollPayslipLines.Table.al"}]}
