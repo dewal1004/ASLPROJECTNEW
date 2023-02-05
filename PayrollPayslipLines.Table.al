@@ -1483,7 +1483,7 @@ table 50006 "Payroll-Payslip Lines."
         // { If another record is a 'FACTOR OF' the deleted one then make changes }
         CalcFactorAgain(DeletedRec, DeletedRec, TRUE);
 
-        // { Due to these changes adjust AMOUNTS in all lines }
+        // { Due to these changes adjust AMOUNTS in all lines } ////
         ChangeAllOver(DeletedRec, TRUE);
         EXIT;
     end;
