@@ -183,7 +183,7 @@ report 50054 "ASL Create New payslips - New"
                                         if not (EDFileRec."Absent Deduction") then
                                             PayLinesRec.Amount := Round(PayDays / MonthlyDays * PayLinesRec.Amount);
                                     end;
-                                    ShowPayslipLnValue(PayLinesRec, 1);  //AAA
+                                    // ShowPayslipLnValue(PayLinesRec, 1);  //AAA
                                     if PayLinesRec.Insert(true) then
                                         INSTD := true
                                     else
