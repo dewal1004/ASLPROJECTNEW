@@ -18,7 +18,6 @@ report 50054 "ASL Create New payslips - New"
 
             trigger OnAfterGetRecord()
             begin
-                // Message('Employee no %1', Employee."No.");  ///AAA
                 WindowUpdate(Employee."No.", InfoCounter);
 
                 if not PayHeadRec.Get(PayPeriodRec."Period Code", "No.") then begin
@@ -36,9 +35,7 @@ report 50054 "ASL Create New payslips - New"
                     PayHeadRec.Insert;
                     PG := Employee."Posting Group";
 
-                    /*Create the payroll entry lines.
-                     The entries are copied from the employee group entry lines.*/
-
+                    /*Create the payroll entry lines.- The entries are copied from the employee group entry lines.*/
                     /*Delimit the Employee group lines appropriately */
                     EmpGrpLinesRec.Init;
                     EmpGrpLinesRec.SetRange("E/D Code");

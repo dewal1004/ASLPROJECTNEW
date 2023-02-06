@@ -16,6 +16,8 @@ report 50085 "Vessel Catches"
         dataitem("Job Journal Batch"; "Job Journal Batch")
         {
             DataItemTableView = SORTING("Journal Template Name", Name);
+            PrintOnlyIfDetail = true;
+            RequestFilterFields = "Journal Template Name", Name;
             column(Job_Journal_Batch_Journal_Template_Name; "Journal Template Name")
             {
             }
