@@ -1,6 +1,5 @@
-tableextension 50307 tableextension50307 extends "Value Entry"
+tableextension 50307 "Value Entry Ext" extends "Value Entry"
 {
-    // 
     // UNL-ASL3.60.01.005 (Santus) May 17, 2005
     fields
     {
@@ -26,6 +25,7 @@ tableextension 50307 tableextension50307 extends "Value Entry"
             OptionMembers = " ","Short Voyage ";
         }
     }
+
     keys
     {
         key(ASLKey1; "Location Code", "Inventory Posting Group", "Posting Date", "Source Code")
@@ -52,9 +52,15 @@ tableextension 50307 tableextension50307 extends "Value Entry"
         {
             SumIndexFields = "Valued Quantity";
         }
-        // key(Key8; "Gen. Prod. Posting Group", "Document No.", "Marked Rec")
-        // {
-        // }
+        key(ASLKey8; "Gen. Prod. Posting Group", "Document No.")
+        {
+        }
+        key(ASLKey9; "Marked Rec") { }
+        key(ASLKey10; "Gen. Prod. Posting Group", "Location Code", "Posting Date")
+        {
+            SumIndexFields = "Valued Quantity", "Cost Amount (Actual)";
+        }
+
     }
 
     procedure ItemName() Desc: Text[50]
@@ -62,42 +68,7 @@ tableextension 50307 tableextension50307 extends "Value Entry"
         if item.Get("Item No.") then Desc := item.Description;
     end;
 
-
-    //Unsupported feature: Property Modification (Id) on "GLSetup(Variable 1000)".
-
-    //var
-    //>>>> ORIGINAL VALUE:
-    //GLSetup : 1000;
-    //Variable type has not been exported.
-    //>>>> MODIFIED VALUE:
-    //GLSetup : 1100;
-    //Variable type has not been exported.
-
-
-    //Unsupported feature: Property Modification (Id) on "UOMMgt(Variable 1003)".
-
-    //var
-    //>>>> ORIGINAL VALUE:
-    //UOMMgt : 1003;
-    //Variable type has not been exported.
-    //>>>> MODIFIED VALUE:
-    //UOMMgt : 1103;
-    //Variable type has not been exported.
-
-
-    //Unsupported feature: Property Modification (Id) on "GLSetupRead(Variable 1002)".
-
-    //var
-    //>>>> ORIGINAL VALUE:
-    //GLSetupRead : 1002;
-    //Variable type has not been exported.
-    //>>>> MODIFIED VALUE:
-    //GLSetupRead : 1102;
-    //Variable type has not been exported.
-
     var
-        DimMgt: Codeunit DimensionManagement;
-        "--------": Integer;
         item: Record Item;
 }
 
