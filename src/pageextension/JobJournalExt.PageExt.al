@@ -1,4 +1,4 @@
-pageextension 50242 "pageextension50242" extends "Job Journal"
+pageextension 50242 "Job Journal Ext" extends "Job Journal"
 {
     layout
     {
@@ -174,7 +174,6 @@ pageextension 50242 "pageextension50242" extends "Job Journal"
             end;
         }
 
-
         //trigger OnAction()
         //Parameters and return type have not been exported.
         //>>>> ORIGINAL CODE:
@@ -213,10 +212,10 @@ pageextension 50242 "pageextension50242" extends "Job Journal"
                 ApplicationArea = All;
 
                 trigger OnAction()
+                var
+                    GenPurpose: Codeunit "General Purpose Codeunit";
                 begin
-                    SetRange("Journal Batch Name", "Journal Batch Name");
-                    // SetRange("Journal Template Name,");
-                    //***P ReportPrint.PrintJobJnlLinefish(Rec);
+                    GenPurpose.PrintVesselCatches(Rec);
                 end;
             }
             action("Initialize Vessel from A Copy")

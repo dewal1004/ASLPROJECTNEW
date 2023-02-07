@@ -335,5 +335,21 @@ codeunit 50001 "General Purpose Codeunit"
 
         if EDRec.Find('-') then exit(EDRec."E/D Code");
     end;
+
+    procedure PrintVesselCatches(var NewJobJnlLine: Record "Job Journal Line")
+    var
+    JobJnlLine : Record "Job Journal Line";
+    VesselCatches: Report "Vessel Catches";
+    begin
+        JobJnlLine.Copy(NewJobJnlLine);
+        JobJnlLine.SetRange("Journal Template Name", JobJnlLine."Journal Template Name");
+        JobJnlLine.SetRange("Journal Batch Name", JobJnlLine."Journal Batch Name");
+        // JobJnlTemplate.Get(JobJnlLine."Journal Template Name");
+        // JobJnlTemplate.TestField("Test Report ID");
+        // REPORT.Run(JobJnlTemplate."Test Report ID", true, false, JobJnlLine);
+        VesselCatches.SetTableView(JobJnlLine);
+        VesselCatches.Run();
+    end;
+
 }
 
