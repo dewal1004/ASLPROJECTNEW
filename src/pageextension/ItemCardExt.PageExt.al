@@ -16,12 +16,12 @@ pageextension 50259 "Item Card Ext" extends "Item Card"
             Importance = Standard;
             Editable = false;
         }
-        modify("Allow Invoice Disc.") { Visible = false; }
-        modify("Stockkeeping Unit Exists") { Visible = false; }
-        modify("Safety Lead Time") { Visible = false; }
-        modify("Safety Stock Quantity") { Visible = false; }
-        modify("Maximum Inventory") { Visible = false; }
-        modify("Minimum Order Quantity") { Visible = false; }
+        modify("Allow Invoice Disc.") { Importance = Additional; }
+        modify("Stockkeeping Unit Exists") { Importance = Additional; }
+        modify("Safety Lead Time") { Importance = Additional; }
+        modify("Safety Stock Quantity") { Importance = Additional; }
+        modify("Maximum Inventory") { Importance = Additional; }
+        modify("Minimum Order Quantity") { Importance = Additional; }
         modify("Maximum Order Quantity") { Visible = true; }
 
         addafter("Item Category Code")
@@ -197,7 +197,7 @@ pageextension 50259 "Item Card Ext" extends "Item Card"
         // moveafter("Unit Cost"; "Overhead Rate")
         // moveafter("Overhead Rate"; "Price/Profit Calculation")
         // moveafter("Price/Profit Calculation"; SpecialPricesAndDiscountsTxt)
-        moveafter(SpecialPricesAndDiscountsTxt; "Unit Price","Gen. Prod. Posting Group")
+        moveafter(SpecialPricesAndDiscountsTxt; "Unit Price", "Gen. Prod. Posting Group")
         // moveafter("Default Deferral Template Code"; "Allow Invoice Disc.")
         // moveafter("Sales Unit of Measure"; "Application Wksh. User ID")
         // moveafter("Application Wksh. User ID"; "Indirect Cost %")
