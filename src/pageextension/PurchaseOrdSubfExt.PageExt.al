@@ -1,4 +1,4 @@
-pageextension 50308 "pageextension50308" extends "Purchase Order Subform"
+pageextension 50308 "Purchase Ord. Subf. Ext" extends "Purchase Order Subform"
 {
     layout
     {

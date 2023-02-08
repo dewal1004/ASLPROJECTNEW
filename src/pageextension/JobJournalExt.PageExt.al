@@ -207,10 +207,8 @@ pageextension 50242 "Job Journal Ext" extends "Job Journal"
             {
                 Caption = 'Fish Caught/Reconciliation';
                 Image = Reconcile;
-
-                RunObject = report "Vessel Catches";
                 ApplicationArea = All;
-
+                // RunObject = report "Vessel Catches";
                 trigger OnAction()
                 var
                     GenPurpose: Codeunit "General Purpose Codeunit";
