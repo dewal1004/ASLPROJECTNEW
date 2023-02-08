@@ -126,7 +126,7 @@ codeunit 50001 "General Purpose Codeunit"
         end;
     end;
 
-   // [Scope('OnPrem')]
+    // [Scope('OnPrem')]
     procedure ExplodeSalesLine(SalesLine: Record "Sales Line")
     var
         ToSalesLine: Record "Sales Line";
@@ -244,7 +244,7 @@ codeunit 50001 "General Purpose Codeunit"
         Commit;
     end;
 
-   // [Scope('OnPrem')]
+    // [Scope('OnPrem')]
     procedure AfterPostSalesDeleteExplode(SalesHeader: Record "Sales Header")
     var
         SalesLineRec: Record "Sales Line";
@@ -260,7 +260,7 @@ codeunit 50001 "General Purpose Codeunit"
         end;
     end;
 
-   // [Scope('OnPrem')]
+    // [Scope('OnPrem')]
     procedure IsHoliday(CheckDate: Date): Boolean
     begin
         Dy := Date2DMY(CheckDate, 1);
@@ -338,8 +338,8 @@ codeunit 50001 "General Purpose Codeunit"
 
     procedure PrintVesselCatches(var NewJobJnlLine: Record "Job Journal Line")
     var
-    JobJnlLine : Record "Job Journal Line";
-    VesselCatches: Report "Vessel Catches";
+        JobJnlLine: Record "Job Journal Line";
+        VesselCatches: Report "Vessel Catches";
     begin
         JobJnlLine.Copy(NewJobJnlLine);
         JobJnlLine.SetRange("Journal Template Name", JobJnlLine."Journal Template Name");
@@ -350,6 +350,21 @@ codeunit 50001 "General Purpose Codeunit"
         VesselCatches.SetTableView(JobJnlLine);
         VesselCatches.Run();
     end;
+
+    procedure PrintJobJnlLine(var NewJobJnlLine: Record "Job Journal Line")
+    var
+        JobJnlLine: Record "Job Journal Line";
+        VesselCatchesReportID: Integer;
+    begin
+        VesselCatchesReportID := 50085;
+        JobJnlLine.Copy(NewJobJnlLine);
+        JobJnlLine.SetRange("Journal Template Name", JobJnlLine."Journal Template Name");
+        JobJnlLine.SetRange("Journal Batch Name", JobJnlLine."Journal Batch Name");
+        // JobJnlTemplate.Get(JobJnlLine."Journal Template Name");
+        // JobJnlTemplate.TestField("Test Report ID");
+        REPORT.Run(VesselCatchesReportID, true, false, JobJnlLine);
+    end;
+
 
 }
 
