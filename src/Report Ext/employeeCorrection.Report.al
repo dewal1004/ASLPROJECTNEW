@@ -1,4 +1,4 @@
-report 51100 employeeCorrection
+report 51100 "employeeCorrection"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './ReportRdlc/employeeCorrection.rdlc';

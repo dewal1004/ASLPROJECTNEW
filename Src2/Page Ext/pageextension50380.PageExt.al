@@ -1,4 +1,4 @@
-pageextension 50380 pageextension50380 extends "User Group Permission Sets"
+pageextension 50380 "pageextension50380" extends "User Group Permission Sets"
 {
     layout
     {

@@ -1,4 +1,4 @@
-pageextension 50250 pageextension50250 extends "General Journal Batches"
+pageextension 50250 "pageextension50250" extends "General Journal Batches"
 {
     layout
     {

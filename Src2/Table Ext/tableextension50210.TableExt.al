@@ -1,4 +1,4 @@
-tableextension 50210 tableextension50210 extends "Purch. Rcpt. Header"
+tableextension 50210 "tableextension50210" extends "Purch. Rcpt. Header"
 {
     fields
     {

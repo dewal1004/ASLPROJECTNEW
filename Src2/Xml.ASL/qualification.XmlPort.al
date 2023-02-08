@@ -1,4 +1,4 @@
-xmlport 50027 qualification
+xmlport 50027 "qualification"
 {
     Direction = Export;
     Format = VariableText;

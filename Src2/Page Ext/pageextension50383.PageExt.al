@@ -1,4 +1,4 @@
-pageextension 50383 pageextension50383 extends "Production BOM Version"
+pageextension 50383 "pageextension50383" extends "Production BOM Version"
 {
     layout
     {

@@ -1,4 +1,4 @@
-codeunit 50031 DistIntegrationSubscriber
+codeunit 50031 "DistIntegrationSubscriber"
 {
   EventSubscriberInstance = StaticAutomatic;
 

@@ -1,4 +1,4 @@
-codeunit 50009 TestReportPrintSubscriber
+codeunit 50009 "TestReportPrintSubscriber"
 { 
   EventSubscriberInstance = StaticAutomatic;
 

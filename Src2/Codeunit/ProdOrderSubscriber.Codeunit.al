@@ -1,4 +1,4 @@
-codeunit 50038 ProdOrderSubscriber
+codeunit 50038 "ProdOrderSubscriber"
 {
     EventSubscriberInstance = StaticAutomatic;
 

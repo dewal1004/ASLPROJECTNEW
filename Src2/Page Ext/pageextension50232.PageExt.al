@@ -1,4 +1,4 @@
-pageextension 50232 pageextension50232 extends "Workflow Response Options"
+pageextension 50232 "pageextension50232" extends "Workflow Response Options"
 {
 
     //Unsupported feature: Code Modification on "OnAfterGetCurrRecord".

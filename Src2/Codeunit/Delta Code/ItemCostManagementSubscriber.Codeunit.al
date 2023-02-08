@@ -1,4 +1,4 @@
-codeunit 50034 ItemCostManagementSubscriber
+codeunit 50034 "ItemCostManagementSubscriber"
 {
     EventSubscriberInstance = StaticAutomatic;
 

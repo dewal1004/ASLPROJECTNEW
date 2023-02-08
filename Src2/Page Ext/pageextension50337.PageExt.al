@@ -1,4 +1,4 @@
-pageextension 50337 pageextension50337 extends "Purchase Document Entity"
+pageextension 50337 "pageextension50337" extends "Purchase Document Entity"
 {
     layout
     {

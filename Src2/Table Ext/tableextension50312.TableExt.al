@@ -1,4 +1,4 @@
-tableextension 50312 tableextension50312 extends "Service Contract Line"
+tableextension 50312 "tableextension50312" extends "Service Contract Line"
 {
     fields
     {

@@ -1,4 +1,4 @@
-pageextension 50350 pageextension50350 extends "Resource Card"
+pageextension 50350 "pageextension50350" extends "Resource Card"
 {
     layout
     {

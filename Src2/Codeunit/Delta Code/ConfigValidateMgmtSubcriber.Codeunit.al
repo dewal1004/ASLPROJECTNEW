@@ -1,4 +1,4 @@
-codeunit 50027 ConfigValidateMgmtSubcriber
+codeunit 50027 "ConfigValidateMgmtSubcriber"
 {
     EventSubscriberInstance = StaticAutomatic;
 

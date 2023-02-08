@@ -1,4 +1,4 @@
-tableextension 50314 tableextension50314 extends "Service Cr.Memo Header"
+tableextension 50314 "tableextension50314" extends "Service Cr.Memo Header"
 {
     fields
     {

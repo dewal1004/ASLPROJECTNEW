@@ -1,4 +1,4 @@
-tableextension 50265 tableextension50265 extends "Jobs Setup"
+tableextension 50265 "tableextension50265" extends "Jobs Setup"
 {
     fields
     {

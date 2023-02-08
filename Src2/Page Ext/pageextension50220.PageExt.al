@@ -1,4 +1,4 @@
-pageextension 50220 pageextension50220 extends "Posted Sales Invoice Subform"
+pageextension 50220 "pageextension50220" extends "Posted Sales Invoice Subform"
 {
     actions
     {

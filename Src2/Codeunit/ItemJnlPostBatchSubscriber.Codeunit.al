@@ -1,4 +1,4 @@
-codeunit 50017 ItemJnlPostBatchSubscriber
+codeunit 50017 "ItemJnlPostBatchSubscriber"
 {
     EventSubscriberInstance = StaticAutomatic;
 

@@ -1,4 +1,4 @@
-codeunit 50035 InventoryAdjustmentSubscriber
+codeunit 50035 "InventoryAdjustmentSubscriber"
 {
   EventSubscriberInstance = StaticAutomatic;
 

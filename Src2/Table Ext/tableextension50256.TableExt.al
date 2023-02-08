@@ -1,4 +1,4 @@
-tableextension 50256 tableextension50256 extends "Bank Account"
+tableextension 50256 "tableextension50256" extends "Bank Account"
 {
     fields
     {

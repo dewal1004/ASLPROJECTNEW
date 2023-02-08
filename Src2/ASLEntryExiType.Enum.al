@@ -1,4 +1,4 @@
-enum 50000 ASLEntryExiType
+enum 50000 "ASLEntryExiType"
 {
     Extensible = true;
     

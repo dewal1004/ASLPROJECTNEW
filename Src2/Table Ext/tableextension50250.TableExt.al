@@ -1,4 +1,4 @@
-tableextension 50250 tableextension50250 extends "Requisition Line"
+tableextension 50250 "tableextension50250" extends "Requisition Line"
 {
     fields
     {

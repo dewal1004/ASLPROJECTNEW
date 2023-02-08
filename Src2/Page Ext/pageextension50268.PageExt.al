@@ -1,4 +1,4 @@
-pageextension 50268 pageextension50268 extends "Sales Order Statistics"
+pageextension 50268 "pageextension50268" extends "Sales Order Statistics"
 {
     layout
     {

@@ -1,4 +1,4 @@
-codeunit 50037 JobSbuscriber
+codeunit 50037 "JobSbuscriber"
 {
     EventSubscriberInstance = StaticAutomatic;
 

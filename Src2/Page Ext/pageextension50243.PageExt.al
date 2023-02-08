@@ -1,4 +1,4 @@
-pageextension 50243 pageextension50243 extends "Units of Measure"
+pageextension 50243 "pageextension50243" extends "Units of Measure"
 {
     layout
     {

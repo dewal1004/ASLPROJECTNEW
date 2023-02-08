@@ -1,4 +1,4 @@
-pageextension 50292 pageextension50292 extends "Employee Picture"
+pageextension 50292 "pageextension50292" extends "Employee Picture"
 {
     Caption = 'Employee';
     

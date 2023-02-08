@@ -1,4 +1,4 @@
-table 50020 States
+table 50020 "States"
 {
     //*** DrillDownPageID = 60093;
     //*** LookupPageID = 60093;

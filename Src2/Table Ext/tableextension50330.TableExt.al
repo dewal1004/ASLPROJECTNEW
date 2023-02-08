@@ -1,4 +1,4 @@
-tableextension 50330 tableextension50330 extends "Job Cue"
+tableextension 50330 "tableextension50330" extends "Job Cue"
 {
     fields
     {

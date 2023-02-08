@@ -1,4 +1,4 @@
-pageextension 50358 pageextension50358 extends "Account Manager Activities"
+pageextension 50358 "pageextension50358" extends "Account Manager Activities"
 {
     layout
     {

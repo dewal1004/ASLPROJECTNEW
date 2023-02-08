@@ -1,4 +1,4 @@
-codeunit 50012 ReqWkshMakeOrderSubscriber
+codeunit 50012 "ReqWkshMakeOrderSubscriber"
 {
   EventSubscriberInstance = StaticAutomatic;
 

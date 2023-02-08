@@ -1,4 +1,4 @@
-tableextension 50342 tableextension50342 extends "Routing Tool"
+tableextension 50342 "tableextension50342" extends "Routing Tool"
 {
     fields
     {

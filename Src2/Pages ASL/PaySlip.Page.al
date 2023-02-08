@@ -1,4 +1,4 @@
-page 59999 PaySlip
+page 59999 "PaySlip"
 {
     PageType = List;
     SourceTable = "Payroll-Payslip Lines.";

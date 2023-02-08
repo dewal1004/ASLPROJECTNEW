@@ -1,4 +1,4 @@
-tableextension 50318 tableextension50318 extends "Standard Text"
+tableextension 50318 "tableextension50318" extends "Standard Text"
 {
     fields
     {

@@ -1,4 +1,4 @@
-pageextension 50343 pageextension50343 extends "Purch Return Order Arc Subform"
+pageextension 50343 "pageextension50343" extends "Purch Return Order Arc Subform"
 {
     actions
     {

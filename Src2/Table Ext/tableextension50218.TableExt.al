@@ -1,4 +1,4 @@
-tableextension 50218 tableextension50218 extends "Data Exch. Field Mapping Buf."
+tableextension 50218 "tableextension50218" extends "Data Exch. Field Mapping Buf."
 {
 
     //Unsupported feature: Code Modification on "SourceAssistEdit(PROCEDURE 4)".

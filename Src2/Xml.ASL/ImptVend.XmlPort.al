@@ -1,4 +1,4 @@
-xmlport 90998 ImptVend
+xmlport 90998 "ImptVend"
 {
     Format = VariableText;
 

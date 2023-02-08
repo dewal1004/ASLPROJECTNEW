@@ -1,4 +1,4 @@
-tableextension 50280 tableextension50280 extends "Invoice Post. Buffer"
+tableextension 50280 "tableextension50280" extends "Invoice Post. Buffer"
 {
     fields
     {

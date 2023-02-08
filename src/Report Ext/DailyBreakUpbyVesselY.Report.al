@@ -1,16 +1,16 @@
-report 70042 "Daily BreakUp by VesselY"
+report 91042 "Daily Break Up By Vessel-y"
 {
-    // T001
-    // "Inventory Posting Group".Category
+    // Invt[1]
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/DailyBreakUpbyVesselY.rdlc';
+    RDLCLayout = './ReportRdlc/DailyBreakUpByVessely.91042.rdlc';
 
 
     dataset
     {
-        dataitem("Inventory Posting Group"; "Inventory Posting Group")
+        dataitem(Item; Item)
         {
-            RequestFilterFields = "Statistics Group", Category;
+            DataItemTableView = SORTING("Statistics Group", "Inventory Posting Group") WHERE("Gen. Prod. Posting Group" = CONST('FIS'));
+            RequestFilterFields = "Statistics Group", "Inventory Posting Group", "Date Filter", "Variant Filter";
             column(FORMAT_TODAY_0_4_; Format(Today, 0, 4))
             {
             }
@@ -23,37 +23,37 @@ report 70042 "Daily BreakUp by VesselY"
             column(USERID; UserId)
             {
             }
-            column(SeaRange_24_; SeaRange[24])
-            {
-            }
-            column(SeaRange_23_; SeaRange[23])
-            {
-            }
-            column(SeaRange_22_; SeaRange[22])
-            {
-            }
-            column(SeaRange_21_; SeaRange[21])
-            {
-            }
-            column(SeaRange_20_; SeaRange[20])
-            {
-            }
-            column(SeaRange_19_; SeaRange[19])
-            {
-            }
-            column(SeaRange_18_; SeaRange[18])
-            {
-            }
-            column(SeaRange_17_; SeaRange[17])
-            {
-            }
-            column(SeaRange_16_; SeaRange[16])
+            column(SeaRange_14_; SeaRange[14])
             {
             }
             column(SeaRange_15_; SeaRange[15])
             {
             }
-            column(SeaRange_14_; SeaRange[14])
+            column(SeaRange_16_; SeaRange[16])
+            {
+            }
+            column(SeaRange_17_; SeaRange[17])
+            {
+            }
+            column(SeaRange_18_; SeaRange[18])
+            {
+            }
+            column(SeaRange_19_; SeaRange[19])
+            {
+            }
+            column(SeaRange_20_; SeaRange[20])
+            {
+            }
+            column(SeaRange_21_; SeaRange[21])
+            {
+            }
+            column(SeaRange_22_; SeaRange[22])
+            {
+            }
+            column(SeaRange_23_; SeaRange[23])
+            {
+            }
+            column(SeaRange_24_; SeaRange[24])
             {
             }
             column(SeaRange_13_; SeaRange[13])
@@ -94,180 +94,173 @@ report 70042 "Daily BreakUp by VesselY"
             }
             column(SeaRange_1_; SeaRange[1])
             {
-                //*** DecimalPlaces = 0 : 0;
             }
-            column(Inventory_Posting_Group_Category; Category)
+            column(Item__Statistics_Group_; "Statistics Group")
             {
             }
-            column(T001; T001)
+            column(Item__Inventory_Posting_Group_; "Inventory Posting Group")
             {
             }
-            column(Inventory_Posting_Group_Description; Description)
+            column(Item__No__; "No.")
+            {
+            }
+            column(Item_Description; Description)
+            {
+            }
+            column(Item_Inventory; Inventory)
+            {
+            }
+            column(TotalFor___FIELDCAPTION__Inventory_Posting_Group__; TotalFor + FieldCaption("Inventory Posting Group"))
+            {
+            }
+            column(Colum_1_; Colum[1])
+            {
+                DecimalPlaces = 0 : 5;
+            }
+            column(Colum_2_; Colum[2])
+            {
+                DecimalPlaces = 0 : 5;
+            }
+            column(Colum_3_; Colum[3])
+            {
+                DecimalPlaces = 0 : 5;
+            }
+            column(Item_Inventory_Control23; Inventory)
+            {
+                DecimalPlaces = 0 : 0;
+            }
+            column(Item__Inventory_Posting_Group__Control1000000006; "Inventory Posting Group")
+            {
+            }
+            column(SeaRangeC_4_; SeaRangeC[4])
+            {
+            }
+            column(SeaRangeC_3_; SeaRangeC[3])
+            {
+            }
+            column(SeaRangeC_2_; SeaRangeC[2])
+            {
+            }
+            column(SeaRangeC_1_; SeaRangeC[1])
+            {
+            }
+            column(SeaRangeC_8_; SeaRangeC[8])
+            {
+            }
+            column(SeaRangeC_7_; SeaRangeC[7])
             {
             }
             column(SeaRangeC_6_; SeaRangeC[6])
             {
-                DecimalPlaces = 0 : 0;
             }
             column(SeaRangeC_5_; SeaRangeC[5])
             {
-                DecimalPlaces = 0 : 0;
-            }
-            column(SeaRangeC_4_; SeaRangeC[4])
-            {
-                DecimalPlaces = 0 : 0;
-            }
-            column(SeaRangeC_3_; SeaRangeC[3])
-            {
-                DecimalPlaces = 0 : 0;
-            }
-            column(SeaRangeC_2_; SeaRangeC[2])
-            {
-                DecimalPlaces = 0 : 0;
-            }
-            column(SeaRangeC_1_; SeaRangeC[1])
-            {
-                DecimalPlaces = 0 : 0;
-            }
-            column(SeaRangeC_7_; SeaRangeC[7])
-            {
-                DecimalPlaces = 0 : 0;
-            }
-            column(SeaRangeC_8_; SeaRangeC[8])
-            {
-                DecimalPlaces = 0 : 0;
-            }
-            column(SeaRangeC_9_; SeaRangeC[9])
-            {
-                DecimalPlaces = 0 : 0;
-            }
-            column(SeaRangeC_10_; SeaRangeC[10])
-            {
-                DecimalPlaces = 0 : 0;
-            }
-            column(SeaRangeC_11_; SeaRangeC[11])
-            {
-                DecimalPlaces = 0 : 0;
-            }
-            column(SeaRangeC_12_; SeaRangeC[12])
-            {
-                DecimalPlaces = 0 : 0;
-            }
-            column(SeaRangeC_13_; SeaRangeC[13])
-            {
-                DecimalPlaces = 0 : 0;
-            }
-            column(SeaRangeC_14_; SeaRangeC[14])
-            {
-                DecimalPlaces = 0 : 0;
-            }
-            column(SeaRangeC_15_; SeaRangeC[15])
-            {
-                DecimalPlaces = 0 : 0;
-            }
-            column(SeaRangeC_16_; SeaRangeC[16])
-            {
-                DecimalPlaces = 0 : 0;
-            }
-            column(SeaRangeC_17_; SeaRangeC[17])
-            {
-                DecimalPlaces = 0 : 0;
-            }
-            column(SeaRangeC_18_; SeaRangeC[18])
-            {
-                DecimalPlaces = 0 : 0;
-            }
-            column(SeaRangeC_19_; SeaRangeC[19])
-            {
-                DecimalPlaces = 0 : 0;
-            }
-            column(SeaRangeC_20_; SeaRangeC[20])
-            {
-                DecimalPlaces = 0 : 0;
-            }
-            column(SeaRangeC_21_; SeaRangeC[21])
-            {
-                DecimalPlaces = 0 : 0;
-            }
-            column(SeaRangeC_22_; SeaRangeC[22])
-            {
-                DecimalPlaces = 0 : 0;
-            }
-            column(SeaRangeC_23_; SeaRangeC[23])
-            {
-                DecimalPlaces = 0 : 0;
             }
             column(SeaRangeC_24_; SeaRangeC[24])
             {
-                DecimalPlaces = 0 : 0;
             }
-            column(Inventory_Posting_Group_Inventory; Inventory)
+            column(SeaRangeC_23_; SeaRangeC[23])
             {
-                DecimalPlaces = 0 : 0;
+            }
+            column(SeaRangeC_22_; SeaRangeC[22])
+            {
+            }
+            column(SeaRangeC_21_; SeaRangeC[21])
+            {
+            }
+            column(SeaRangeC_20_; SeaRangeC[20])
+            {
+            }
+            column(SeaRangeC_19_; SeaRangeC[19])
+            {
+            }
+            column(SeaRangeC_18_; SeaRangeC[18])
+            {
+            }
+            column(SeaRangeC_17_; SeaRangeC[17])
+            {
+            }
+            column(SeaRangeC_16_; SeaRangeC[16])
+            {
+            }
+            column(SeaRangeC_15_; SeaRangeC[15])
+            {
+            }
+            column(SeaRangeC_14_; SeaRangeC[14])
+            {
+            }
+            column(SeaRangeC_13_; SeaRangeC[13])
+            {
+            }
+            column(SeaRangeC_12_; SeaRangeC[12])
+            {
+            }
+            column(SeaRangeC_11_; SeaRangeC[11])
+            {
+            }
+            column(SeaRangeC_10_; SeaRangeC[10])
+            {
+            }
+            column(SeaRangeC_9_; SeaRangeC[9])
+            {
+            }
+            column(Item_Description_Control1000000005; Description)
+            {
             }
             column(TotalFor___FIELDCAPTION__Statistics_Group__; TotalFor + FieldCaption("Statistics Group"))
             {
             }
-            column(Inventory_Posting_Group_Inventory_Control17; Inventory)
+            column(Item_Inventory_Control25; Inventory)
             {
+                DecimalPlaces = 2 : 5;
             }
-            column(Inventory_Posting_GroupCaption; Inventory_Posting_GroupCaptionLbl)
+            column(Item_Inventory_Control1000000012; Inventory)
+            {
+                DecimalPlaces = 2 : 5;
+            }
+            column(ItemCaption; ItemCaptionLbl)
             {
             }
             column(CurrReport_PAGENOCaption; CurrReport_PAGENOCaptionLbl)
             {
             }
-            column(Inventory_Posting_Group_DescriptionCaption; FieldCaption(Description))
+            column(Item_InventoryCaption; FieldCaption(Inventory))
             {
             }
-            column(Inventory_Posting_Group_InventoryCaption; FieldCaption(Inventory))
+            column(Item_DescriptionCaption; FieldCaption(Description))
             {
             }
-            column(Inventory_Posting_Group_CategoryCaption; FieldCaption(Category))
+            column(Item__No__Caption; FieldCaption("No."))
             {
             }
-            column(Inventory_Posting_Group_Code; Code)
+            column(Item__Statistics_Group_Caption; FieldCaption("Statistics Group"))
+            {
+            }
+            column(Item__Inventory_Posting_Group_Caption; FieldCaption("Inventory Posting Group"))
             {
             }
 
             trigger OnAfterGetRecord()
             begin
-
                 level := TotLoc;
                 repeat
-                    SetFilter("Location Filter", SeaRange[level]);
-                    CalcFields(Inventory);
-                    SeaRangeC[level] := Inventory;
+                    Item.SetFilter(Item."Location Filter", SeaRange[level]);
+                    Item.CalcFields(Item.Inventory);
+                    SeaRangeC[level] := Item.Inventory;
                     level := level - 1;
                 until level = 0
             end;
 
             trigger OnPreDataItem()
             begin
-
-                LastFieldNo := FieldNo(Category);
-                //AAA-April 2002
+                LastFieldNo := FieldNo("Inventory Posting Group");
                 locate.SetRange(locate."Location Type", 1);
-                locate.SetRange(locate."Location Group", 1);
                 TotLoc := locate.Count;
                 Countx := 1;
                 repeat
                     SeaRange[Countx] := locate.Code;
                     Countx := Countx + 1;
                 until locate.Next = 0;
-
-
-                CurrReport.ShowOutput(false);
-                //*** CurrReport.TotalsCausedBy ="Inventory Posting Group";. //Category;
-                if "Statistics Group" = 1 then T001 := 'WHITE/FLOWER TIGER HON, WILD TIGER,HEADLESS';
-                if "Statistics Group" = 2 then T001 := 'BRHON, CUTTLE FISH/CRAB/OTHER EXPORTS';
-                if "Statistics Group" = 3 then T001 := 'CUTTLE FISH/CRAB/OTHER EXPORTS';
-                if "Statistics Group" = 4 then T001 := 'SHRIMP IN BAG/NET FISH/HOOK FISH';
-
-                if not FooterPrinted then
-                    LastFieldNo := CurrReport.TotalsCausedBy;
-                CurrReport.ShowOutput(not FooterPrinted);
-                FooterPrinted := true;
             end;
         }
     }
@@ -292,8 +285,8 @@ report 70042 "Daily BreakUp by VesselY"
         LastFieldNo: Integer;
         FooterPrinted: Boolean;
         TotalFor: Label 'Total for ';
-        "-------": Integer;
-        Colum001: array[3] of Decimal;
+        "---": Text[30];
+        Colum: array[3] of Decimal;
         RespCenter: Record "Responsibility Center";
         CompanyInfo: Record "Company Information";
         FormatAddr: Codeunit "Format Address";
@@ -304,8 +297,7 @@ report 70042 "Daily BreakUp by VesselY"
         Countx: Integer;
         TotLoc: Integer;
         level: Integer;
-        T001: Text[50];
-        Inventory_Posting_GroupCaptionLbl: Label 'Inventory Posting Group';
+        ItemCaptionLbl: Label 'Item';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
 }
 

@@ -1,4 +1,4 @@
-pageextension 50341 pageextension50341 extends "Purchase Return Order"
+pageextension 50341 "pageextension50341" extends "Purchase Return Order"
 {
     layout
     {

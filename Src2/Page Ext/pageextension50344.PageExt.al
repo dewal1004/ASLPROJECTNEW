@@ -1,4 +1,4 @@
-pageextension 50344 pageextension50344 extends "Posted Return Shipment Subform"
+pageextension 50344 "pageextension50344" extends "Posted Return Shipment Subform"
 {
     actions
     {

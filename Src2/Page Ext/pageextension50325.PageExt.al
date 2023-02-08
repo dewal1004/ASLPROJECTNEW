@@ -1,4 +1,4 @@
-pageextension 50325 pageextension50325 extends "Posted Transfer Shipment"
+pageextension 50325 "pageextension50325" extends "Posted Transfer Shipment"
 {
     layout
     {

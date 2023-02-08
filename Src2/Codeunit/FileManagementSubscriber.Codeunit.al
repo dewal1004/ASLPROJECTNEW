@@ -1,4 +1,4 @@
-codeunit 50016 FileManagementSubscriber
+codeunit 50016 "FileManagementSubscriber"
 {
   EventSubscriberInstance = StaticAutomatic;
 

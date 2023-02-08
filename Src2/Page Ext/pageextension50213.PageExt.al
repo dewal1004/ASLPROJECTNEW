@@ -1,4 +1,4 @@
-pageextension 50213 pageextension50213 extends "Data Exch. Setup Subform"
+pageextension 50213 "pageextension50213" extends "Data Exch. Setup Subform"
 {
     layout
     {

@@ -1,4 +1,4 @@
-tableextension 50308 tableextension50308 extends "Inventory Posting Setup"
+tableextension 50308 "tableextension50308" extends "Inventory Posting Setup"
 {
     keys
     {

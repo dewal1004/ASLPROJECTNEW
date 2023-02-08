@@ -1,4 +1,4 @@
-tableextension 50311 tableextension50311 extends "Service Item"
+tableextension 50311 "tableextension50311" extends "Service Item"
 {
 
     //Unsupported feature: Property Insertion (Length) on "CheckIfCanBeDeleted(PROCEDURE 5).ReturnValue".

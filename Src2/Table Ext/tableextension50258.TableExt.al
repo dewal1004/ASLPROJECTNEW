@@ -1,4 +1,4 @@
-tableextension 50258 tableextension50258 extends "Bank Acc. Reconciliation Line"
+tableextension 50258 "tableextension50258" extends "Bank Acc. Reconciliation Line"
 {
     fields
     {

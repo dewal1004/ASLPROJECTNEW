@@ -1,4 +1,4 @@
-codeunit 70000 CodeLab
+codeunit 70000 "CodeLab"
 {
     
     local procedure MyProcedure()

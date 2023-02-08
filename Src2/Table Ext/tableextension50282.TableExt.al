@@ -1,4 +1,4 @@
-tableextension 50282 tableextension50282 extends "Alternative Address"
+tableextension 50282 "tableextension50282" extends "Alternative Address"
 {
     fields
     {

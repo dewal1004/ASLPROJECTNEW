@@ -1,4 +1,4 @@
-pageextension 50221 pageextension50221 extends "Posted Sales Credit Memo"
+pageextension 50221 "pageextension50221" extends "Posted Sales Credit Memo"
 {
     actions
     {

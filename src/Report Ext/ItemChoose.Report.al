@@ -1,4 +1,4 @@
-report 60500 Item_Choose
+report 60500 "Item_Choose"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './ReportRdlc/ItemChoose.rdlc';

@@ -1,4 +1,4 @@
-tableextension 50239 tableextension50239 extends "Res. Journal Line"
+tableextension 50239 "tableextension50239" extends "Res. Journal Line"
 {
     fields
     {

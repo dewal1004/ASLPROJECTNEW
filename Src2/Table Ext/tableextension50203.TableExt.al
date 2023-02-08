@@ -1,4 +1,4 @@
-tableextension 50203 tableextension50203 extends "Job WIP Method"
+tableextension 50203 "tableextension50203" extends "Job WIP Method"
 {
     fields
     {

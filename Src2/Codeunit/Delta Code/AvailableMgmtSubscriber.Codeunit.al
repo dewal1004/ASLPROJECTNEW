@@ -1,4 +1,4 @@
-codeunit 50030 AvailableMgmtSubscriber
+codeunit 50030 "AvailableMgmtSubscriber"
 {
   [EventSubscriber(ObjectType::Codeunit, Codeunit::"Available Management", 'OnAfterCalcAvailableQty', '', true, true)]
   local procedure AvailableMgmtOnAfterCalcAvailableQty(var Item: Record Item; var AvailableQty: Decimal)

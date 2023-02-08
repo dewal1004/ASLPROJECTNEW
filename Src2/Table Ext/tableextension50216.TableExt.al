@@ -1,4 +1,4 @@
-tableextension 50216 tableextension50216 extends "Purch. Cr. Memo Hdr."
+tableextension 50216 "tableextension50216" extends "Purch. Cr. Memo Hdr."
 {
     fields
     {

@@ -1,4 +1,4 @@
-pageextension 50342 pageextension50342 extends "Purchase Return Order Subform"
+pageextension 50342 "pageextension50342" extends "Purchase Return Order Subform"
 {
     actions
     {

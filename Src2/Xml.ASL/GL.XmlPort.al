@@ -1,4 +1,4 @@
-xmlport 50048 GL
+xmlport 50048 "GL"
 {
 
     schema

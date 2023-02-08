@@ -1,4 +1,4 @@
-tableextension 50340 tableextension50340 extends "Routing Version"
+tableextension 50340 "tableextension50340" extends "Routing Version"
 {
     fields
     {

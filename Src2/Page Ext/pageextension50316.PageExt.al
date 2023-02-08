@@ -1,4 +1,4 @@
-pageextension 50316 pageextension50316 extends "FA Posting Group Card"
+pageextension 50316 "pageextension50316" extends "FA Posting Group Card"
 {
     layout
     {

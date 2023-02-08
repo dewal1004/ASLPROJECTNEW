@@ -1,4 +1,4 @@
-pageextension 50298 pageextension50298 extends "Absence Registration"
+pageextension 50298 "pageextension50298" extends "Absence Registration"
 {
     actions
     {

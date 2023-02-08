@@ -1,4 +1,4 @@
-table 50025 Holidays
+table 50025 "Holidays"
 {
 
     fields

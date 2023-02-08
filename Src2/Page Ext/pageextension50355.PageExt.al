@@ -1,4 +1,4 @@
-pageextension 50355 pageextension50355 extends "Accounting Manager Role Center"
+pageextension 50355 "pageextension50355" extends "Accounting Manager Role Center"
 {
     layout
     {

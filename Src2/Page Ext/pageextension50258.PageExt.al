@@ -1,4 +1,4 @@
-pageextension 50258 pageextension50258 extends "Recurring Job Jnl."
+pageextension 50258 "pageextension50258" extends "Recurring Job Jnl."
 {
     layout
     {

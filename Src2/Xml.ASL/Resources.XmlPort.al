@@ -1,4 +1,4 @@
-xmlport 50026 Resources
+xmlport 50026 "Resources"
 {
     Direction = Export;
     Format = VariableText;

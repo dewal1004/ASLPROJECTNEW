@@ -1,4 +1,4 @@
-xmlport 90996 Imptitem
+xmlport 90996 "Imptitem"
 {
     Format = VariableText;
 

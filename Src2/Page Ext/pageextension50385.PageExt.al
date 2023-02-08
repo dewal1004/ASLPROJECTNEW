@@ -1,4 +1,4 @@
-pageextension 50385 pageextension50385 extends "Prod. BOM Where-Used"
+pageextension 50385 "pageextension50385" extends "Prod. BOM Where-Used"
 {
     layout
     {

@@ -1,4 +1,4 @@
-pageextension 50392 pageextension50392 extends "Simulated Prod. Order Lines"
+pageextension 50392 "pageextension50392" extends "Simulated Prod. Order Lines"
 {
     layout
     {

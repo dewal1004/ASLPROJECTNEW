@@ -1,4 +1,4 @@
-pageextension 50265 pageextension50265 extends "General Journal"
+pageextension 50265 "pageextension50265" extends "General Journal"
 {
     // UNL-ASL3.60.01.009 (Santus) June 14, 2005
     // -> modified the OnAfterValidate trigger of the external document no. field. to check for permission to insert blocked

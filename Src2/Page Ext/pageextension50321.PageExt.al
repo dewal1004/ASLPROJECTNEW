@@ -1,4 +1,4 @@
-pageextension 50321 pageextension50321 extends "Detailed Cust. Ledg. Entries"
+pageextension 50321 "pageextension50321" extends "Detailed Cust. Ledg. Entries"
 {
     layout
     {

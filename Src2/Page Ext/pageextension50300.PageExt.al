@@ -1,4 +1,4 @@
-pageextension 50300 pageextension50300 extends "Misc. Articles"
+pageextension 50300 "pageextension50300" extends "Misc. Articles"
 {
     layout
     {

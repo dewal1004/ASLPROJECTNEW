@@ -1,4 +1,4 @@
-pageextension 50222 pageextension50222 extends "Posted Sales Cr. Memo Subform"
+pageextension 50222 "pageextension50222" extends "Posted Sales Cr. Memo Subform"
 {
     actions
     {

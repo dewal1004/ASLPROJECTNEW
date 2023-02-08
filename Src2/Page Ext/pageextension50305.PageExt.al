@@ -1,4 +1,4 @@
-pageextension 50305 pageextension50305 extends "CRM Redirect"
+pageextension 50305 "pageextension50305" extends "CRM Redirect"
 {
 
     //Unsupported feature: Property Modification (TextConstString) on "FilterRegexTok(Variable 1000)".

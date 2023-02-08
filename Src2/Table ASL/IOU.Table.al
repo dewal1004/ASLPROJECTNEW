@@ -1,4 +1,4 @@
-table 50040 IOU
+table 50040 "IOU"
 {
 
     fields

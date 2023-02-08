@@ -1,4 +1,4 @@
-pageextension 50257 pageextension50257 extends "Job Journal Batches"
+pageextension 50257 "pageextension50257" extends "Job Journal Batches"
 {
 
     //Unsupported feature: Property Insertion (Permissions) on ""Job Journal Batches"(Page 276)".

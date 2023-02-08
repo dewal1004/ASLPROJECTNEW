@@ -1,4 +1,4 @@
-tableextension 50297 tableextension50297 extends "Fixed Asset"
+tableextension 50297 "tableextension50297" extends "Fixed Asset"
 {
     fields
     {

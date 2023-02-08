@@ -1,4 +1,4 @@
-pageextension 50391 pageextension50391 extends "Finished Prod. Order Lines"
+pageextension 50391 "pageextension50391" extends "Finished Prod. Order Lines"
 {
     layout
     {

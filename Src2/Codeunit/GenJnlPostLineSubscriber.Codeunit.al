@@ -1,4 +1,4 @@
-codeunit 50002 GenJnlPostLineSubscriber
+codeunit 50002 "GenJnlPostLineSubscriber"
 {
     EventSubscriberInstance = StaticAutomatic;
 

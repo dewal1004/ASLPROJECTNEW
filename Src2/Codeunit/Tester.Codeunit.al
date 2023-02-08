@@ -1,4 +1,4 @@
-codeunit 50000 Tester
+codeunit 50000 "Tester"
 {
 
     trigger OnRun()

@@ -1,4 +1,4 @@
-report 50037 PurchaseGRNExt
+report 50037 "PurchaseGRNExt"
 {
     // Copied from report 402 "Purchase Document - Test"
     UsageCategory = ReportsAndAnalysis;

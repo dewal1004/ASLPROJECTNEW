@@ -1,4 +1,4 @@
-pageextension 50377 pageextension50377 extends Permissions
+pageextension 50377 "pageextension50377" extends Permissions
 {
 
     //Unsupported feature: Code Modification on "FillTempPermissions(PROCEDURE 1003)".

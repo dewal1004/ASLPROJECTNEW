@@ -1,4 +1,4 @@
-pageextension 50212 pageextension50212 extends "Comment List"
+pageextension 50212 "pageextension50212" extends "Comment List"
 {
     layout
     {

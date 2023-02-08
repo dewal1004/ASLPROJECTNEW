@@ -1,4 +1,4 @@
-tableextension 50320 tableextension50320 extends "Warehouse Journal Line"
+tableextension 50320 "tableextension50320" extends "Warehouse Journal Line"
 {
 
     //Unsupported feature: Code Modification on "SetUpAdjustmentBin(PROCEDURE 100)".

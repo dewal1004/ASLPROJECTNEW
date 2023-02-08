@@ -1,4 +1,4 @@
-report 99020 Organolepticx
+report 99020 "Organolepticx"
 {
     // //"Comment Line"."Pack Size"
     DefaultLayout = RDLC;

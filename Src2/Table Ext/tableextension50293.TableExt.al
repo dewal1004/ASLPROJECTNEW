@@ -1,4 +1,4 @@
-tableextension 50293 tableextension50293 extends "Human Resources Setup"
+tableextension 50293 "tableextension50293" extends "Human Resources Setup"
 {
     fields
     {

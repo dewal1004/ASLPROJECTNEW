@@ -1,4 +1,4 @@
-pageextension 50369 pageextension50369 extends "Finished Production Orders"
+pageextension 50369 "pageextension50369" extends "Finished Production Orders"
 {
     actions
     {

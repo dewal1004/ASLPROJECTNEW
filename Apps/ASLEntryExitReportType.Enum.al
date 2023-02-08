@@ -1,4 +1,4 @@
-enum 50001 ASLEntryExitReportType
+enum 50001 "ASLEntryExitReportType"
 {
     Extensible = true;
     

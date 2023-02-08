@@ -1,4 +1,4 @@
-pageextension 50219 pageextension50219 extends "Posted Sales Shpt. Subform"
+pageextension 50219 "pageextension50219" extends "Posted Sales Shpt. Subform"
 {
     actions
     {

@@ -1,4 +1,4 @@
-tableextension 50315 tableextension50315 extends "Whse. Item Tracking Line"
+tableextension 50315 "tableextension50315" extends "Whse. Item Tracking Line"
 {
     keys
     {

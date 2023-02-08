@@ -1,4 +1,4 @@
-pageextension 50312 pageextension50312 extends "Order Planning"
+pageextension 50312 "pageextension50312" extends "Order Planning"
 {
 
     //Unsupported feature: Code Modification on "ShowDemandOrder(PROCEDURE 15)".

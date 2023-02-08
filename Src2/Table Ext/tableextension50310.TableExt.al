@@ -1,4 +1,4 @@
-tableextension 50310 tableextension50310 extends "Phys. Invt. Record Line"
+tableextension 50310 "tableextension50310" extends "Phys. Invt. Record Line"
 {
 
     //Unsupported feature: Property Modification (Id) on "UOMMgt(Variable 1005)".

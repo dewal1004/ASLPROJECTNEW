@@ -1,4 +1,4 @@
-pageextension 50348 pageextension50348 extends "Sales Prices"
+pageextension 50348 "pageextension50348" extends "Sales Prices"
 {
     layout
     {

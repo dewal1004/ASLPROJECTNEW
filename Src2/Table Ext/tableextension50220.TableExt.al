@@ -1,4 +1,4 @@
-tableextension 50220 tableextension50220 extends "Salesperson/Purchaser"
+tableextension 50220 "tableextension50220" extends "Salesperson/Purchaser"
 {
 
     //Unsupported feature: Code Modification on "OnInsert".

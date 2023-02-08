@@ -1,4 +1,4 @@
-table 50041 DEPOSIT
+table 50041 "DEPOSIT"
 {
     LookupPageID = deposits;
 

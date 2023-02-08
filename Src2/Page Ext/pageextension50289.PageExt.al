@@ -1,4 +1,4 @@
-pageextension 50289 pageextension50289 extends "Purchase Credit Memo"
+pageextension 50289 "pageextension50289" extends "Purchase Credit Memo"
 {
     layout
     {

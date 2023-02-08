@@ -1,4 +1,4 @@
-page 50091 IOU
+page 50091 "IOU"
 {
     PageType = List;
     SourceTable = IOU;

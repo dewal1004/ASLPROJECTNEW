@@ -1,4 +1,4 @@
-codeunit 50011 SalesPrintedSubsriber
+codeunit 50011 "SalesPrintedSubsriber"
 {
     EventSubscriberInstance = StaticAutomatic;
 

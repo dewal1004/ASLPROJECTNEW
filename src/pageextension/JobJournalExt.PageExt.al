@@ -213,8 +213,8 @@ pageextension 50242 "Job Journal Ext" extends "Job Journal"
                 var
                     GenPurpose: Codeunit "General Purpose Codeunit";
                 begin
-                    // GenPurpose.PrintVesselCatches(Rec);
-                    GenPurpose.PrintJobJnlLine(Rec);
+                    GenPurpose.PrintVesselCatches(Rec);
+                    // GenPurpose.PrintJobJnlLine(Rec);
 
                 end;
             }

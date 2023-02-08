@@ -1,4 +1,4 @@
-pageextension 50233 pageextension50233 extends "Workflow Change List FactBox"
+pageextension 50233 "pageextension50233" extends "Workflow Change List FactBox"
 {
     layout
     {

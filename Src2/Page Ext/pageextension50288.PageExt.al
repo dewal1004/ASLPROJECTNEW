@@ -1,4 +1,4 @@
-pageextension 50288 pageextension50288 extends "Purchase Lines"
+pageextension 50288 "pageextension50288" extends "Purchase Lines"
 {    
       layout
       {

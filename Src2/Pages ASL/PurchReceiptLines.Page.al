@@ -1,4 +1,4 @@
-page 50100 PurchReceiptLines
+page 50100 "PurchReceiptLines"
 {
     PageType = Card;
     SourceTable = "Purch. Rcpt. Line";

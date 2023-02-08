@@ -1,4 +1,4 @@
-table 50048 Task
+table 50048 "Task"
 {
     DrillDownPageID = Task;
     LookupPageID = Task;

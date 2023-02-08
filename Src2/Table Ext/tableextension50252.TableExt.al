@@ -1,4 +1,4 @@
-tableextension 50252 tableextension50252 extends "Gen. Business Posting Group"
+tableextension 50252 "tableextension50252" extends "Gen. Business Posting Group"
 {
     fields
     {

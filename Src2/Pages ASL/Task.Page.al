@@ -1,4 +1,4 @@
-page 50054 Task
+page 50054 "Task"
 {
     PageType = List;
     SourceTable = Task;

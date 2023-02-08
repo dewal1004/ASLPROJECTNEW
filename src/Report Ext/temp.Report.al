@@ -1,4 +1,4 @@
-report 99333 temp
+report 99333 "temp"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './ReportRdlc/temp.rdlc';

@@ -1,4 +1,4 @@
-tableextension 50301 tableextension50301 extends "Transfer Header"
+tableextension 50301 "tableextension50301" extends "Transfer Header"
 {
     fields
     {

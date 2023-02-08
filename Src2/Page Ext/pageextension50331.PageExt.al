@@ -1,4 +1,4 @@
-pageextension 50331 pageextension50331 extends "Sales Shipment Lines"
+pageextension 50331 "pageextension50331" extends "Sales Shipment Lines"
 {
 
     //Unsupported feature: Code Modification on "IsFirstLine(PROCEDURE 2)".

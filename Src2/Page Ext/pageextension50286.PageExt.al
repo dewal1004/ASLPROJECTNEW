@@ -1,4 +1,4 @@
-pageextension 50286 pageextension50286 extends "Blanket Purchase Order"
+pageextension 50286 "pageextension50286" extends "Blanket Purchase Order"
 {
     layout
     {

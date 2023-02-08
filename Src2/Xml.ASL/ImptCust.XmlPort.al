@@ -1,4 +1,4 @@
-xmlport 90999 ImptCust
+xmlport 90999 "ImptCust"
 {
     Format = VariableText;
 

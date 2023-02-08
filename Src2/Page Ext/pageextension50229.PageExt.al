@@ -1,4 +1,4 @@
-pageextension 50229 pageextension50229 extends "Location List"
+pageextension 50229 "pageextension50229" extends "Location List"
 {
     layout
     {

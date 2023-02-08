@@ -1,4 +1,4 @@
-page 99990 xxyz
+page 99990 "xxyz"
 {
     PageType = Card;
     SourceTable = "G/L Entry";

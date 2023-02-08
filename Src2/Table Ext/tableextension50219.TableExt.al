@@ -1,4 +1,4 @@
-tableextension 50219 tableextension50219 extends "Posted Payment Recon. Line"
+tableextension 50219 "tableextension50219" extends "Posted Payment Recon. Line"
 {
     fields
     {

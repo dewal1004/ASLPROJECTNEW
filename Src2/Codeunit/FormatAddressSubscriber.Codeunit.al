@@ -1,4 +1,4 @@
-codeunit 50013 FormatAddressSubscriber
+codeunit 50013 "FormatAddressSubscriber"
 {
   EventSubscriberInstance = StaticAutomatic;
 

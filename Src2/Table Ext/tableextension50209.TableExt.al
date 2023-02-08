@@ -1,4 +1,4 @@
-tableextension 50209 tableextension50209 extends "Sales Cr.Memo Line"
+tableextension 50209 "tableextension50209" extends "Sales Cr.Memo Line"
 {
     fields
     {

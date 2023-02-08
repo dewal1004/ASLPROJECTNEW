@@ -1,4 +1,4 @@
-page 50110 deposits
+page 50110 "deposits"
 {
     PageType = Card;
     SourceTable = DEPOSIT;

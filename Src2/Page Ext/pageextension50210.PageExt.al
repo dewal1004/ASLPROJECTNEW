@@ -1,4 +1,4 @@
-pageextension 50210 pageextension50210 extends "Generic Data Exch Fld Mapping"
+pageextension 50210 "pageextension50210" extends "Generic Data Exch Fld Mapping"
 {
     layout
     {

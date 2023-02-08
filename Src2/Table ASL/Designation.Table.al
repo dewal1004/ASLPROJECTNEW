@@ -1,4 +1,4 @@
-table 50021 Designation
+table 50021 "Designation"
 {
     DrillDownPageID = "Course Attendance List";
     LookupPageID = "Course Attendance List";

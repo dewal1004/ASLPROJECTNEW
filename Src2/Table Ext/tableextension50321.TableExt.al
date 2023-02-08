@@ -1,4 +1,4 @@
-tableextension 50321 tableextension50321 extends "Standard General Journal"
+tableextension 50321 "tableextension50321" extends "Standard General Journal"
 {
 
     //Unsupported feature: Code Modification on "CopyGenJnlFromStdJnl(PROCEDURE 3)".

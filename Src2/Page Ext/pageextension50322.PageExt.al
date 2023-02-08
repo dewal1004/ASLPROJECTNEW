@@ -1,4 +1,4 @@
-pageextension 50322 pageextension50322 extends "Transfer Order"
+pageextension 50322 "pageextension50322" extends "Transfer Order"
 {
     layout
     {

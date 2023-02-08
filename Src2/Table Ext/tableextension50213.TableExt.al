@@ -1,4 +1,4 @@
-tableextension 50213 tableextension50213 extends "Data Exch. Field Mapping"
+tableextension 50213 "tableextension50213" extends "Data Exch. Field Mapping"
 {
     fields
     {

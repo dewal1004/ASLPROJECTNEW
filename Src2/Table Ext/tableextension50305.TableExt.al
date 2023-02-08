@@ -1,4 +1,4 @@
-tableextension 50305 tableextension50305 extends "Transfer Receipt Header"
+tableextension 50305 "tableextension50305" extends "Transfer Receipt Header"
 {
     fields
     {

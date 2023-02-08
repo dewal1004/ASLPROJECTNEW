@@ -1,4 +1,4 @@
-codeunit 50023 JobTransferLineSubscriber
+codeunit 50023 "JobTransferLineSubscriber"
 {
     EventSubscriberInstance = StaticAutomatic;
 

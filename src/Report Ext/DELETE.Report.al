@@ -1,4 +1,4 @@
-report 66666 DELETE
+report 66666 "DELETE"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './ReportRdlc/DELETE.rdlc';

@@ -1,4 +1,4 @@
-pageextension 50256 pageextension50256 extends "Vendor List"
+pageextension 50256 "pageextension50256" extends "Vendor List"
 {
     layout
     {

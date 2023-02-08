@@ -1,4 +1,4 @@
-pageextension 50296 pageextension50296 extends "Application Worksheet"
+pageextension 50296 "pageextension50296" extends "Application Worksheet"
 {
     actions
     {

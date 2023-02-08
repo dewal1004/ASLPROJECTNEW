@@ -1,4 +1,4 @@
-codeunit 50036 SalesPriceCalcMgtSubscriber
+codeunit 50036 "SalesPriceCalcMgtSubscriber"
 {
   EventSubscriberInstance = StaticAutomatic;
 

@@ -1,4 +1,4 @@
-tableextension 50336 tableextension50336 extends "Production BOM Line"
+tableextension 50336 "tableextension50336" extends "Production BOM Line"
 {
     fields
     {

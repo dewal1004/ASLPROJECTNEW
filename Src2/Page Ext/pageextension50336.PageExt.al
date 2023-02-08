@@ -1,4 +1,4 @@
-pageextension 50336 pageextension50336 extends "Sales Document Line Entity"
+pageextension 50336 "pageextension50336" extends "Sales Document Line Entity"
 {
     layout
     {

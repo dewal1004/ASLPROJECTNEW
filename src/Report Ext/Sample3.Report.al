@@ -1,4 +1,4 @@
-report 50141 Sample3
+report 50141 "Sample3"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './ReportRdlc/Sample3.rdlc';

@@ -1,4 +1,4 @@
-xmlport 50005 BomComp
+xmlport 50005 "BomComp"
 {
     Direction = Import;
     Format = VariableText;

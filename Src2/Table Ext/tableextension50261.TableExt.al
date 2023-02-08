@@ -1,4 +1,4 @@
-tableextension 50261 tableextension50261 extends "Reminder Header"
+tableextension 50261 "tableextension50261" extends "Reminder Header"
 {
 
     //Unsupported feature: Code Modification on "InsertLines(PROCEDURE 3)".

@@ -1,4 +1,4 @@
-codeunit 50033 InventoryPostingToGLSubcriber
+codeunit 50033 "InventoryPostingToGLSubcriber"
 {
     EventSubscriberInstance = StaticAutomatic;
 

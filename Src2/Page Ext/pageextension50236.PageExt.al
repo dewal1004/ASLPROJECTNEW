@@ -1,4 +1,4 @@
-pageextension 50236 pageextension50236 extends "Purchase Statistics"
+pageextension 50236 "pageextension50236" extends "Purchase Statistics"
 {
 
     //Unsupported feature: Code Modification on "VendInvDiscRecExists(PROCEDURE 4)".

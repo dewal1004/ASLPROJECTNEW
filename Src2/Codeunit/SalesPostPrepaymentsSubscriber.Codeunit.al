@@ -1,4 +1,4 @@
-codeunit 50020 SalesPostPrepaymentsSubscriber
+codeunit 50020 "SalesPostPrepaymentsSubscriber"
 {
     EventSubscriberInstance = StaticAutomatic;
 

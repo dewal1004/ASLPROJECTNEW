@@ -1,4 +1,4 @@
-pageextension 50313 pageextension50313 extends "Item Availability by Event"
+pageextension 50313 "pageextension50313" extends "Item Availability by Event"
 {
 
     //Unsupported feature: Code Modification on "Initialize(PROCEDURE 1)".

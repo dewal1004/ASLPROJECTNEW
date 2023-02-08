@@ -1,4 +1,4 @@
-tableextension 50233 tableextension50233 extends "G/L Entry"
+tableextension 50233 "tableextension50233" extends "G/L Entry"
 {
     fields
     {

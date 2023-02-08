@@ -1,4 +1,4 @@
-report 51000 deepu
+report 51000 "deepu"
 {
     // CVXV
     DefaultLayout = RDLC;

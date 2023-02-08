@@ -1,4 +1,4 @@
-pageextension 50290 pageextension50290 extends "Employee Card"
+pageextension 50290 "pageextension50290" extends "Employee Card"
 {
     layout
     {

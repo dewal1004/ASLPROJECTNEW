@@ -1,4 +1,4 @@
-/*PageExtension 50287 pageextension50287 extends "Purchase Invoice"
+/*PageExtension 50287 "pageextension50287" extends "Purchase Invoice"
 {
      layout
       {

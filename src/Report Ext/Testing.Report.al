@@ -1,4 +1,4 @@
-report 80225 Testing
+report 80225 "Testing"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './ReportRdlc/Testing.rdlc';

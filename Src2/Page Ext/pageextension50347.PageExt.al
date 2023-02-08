@@ -1,4 +1,4 @@
-pageextension 50347 pageextension50347 extends "Error Messages"
+pageextension 50347 "pageextension50347" extends "Error Messages"
 {
 
     //Unsupported feature: Code Modification on "SetRecords(PROCEDURE 1)".

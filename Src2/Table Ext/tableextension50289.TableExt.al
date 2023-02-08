@@ -1,4 +1,4 @@
-tableextension 50289 tableextension50289 extends "Employment Contract"
+tableextension 50289 "tableextension50289" extends "Employment Contract"
 {
     fields
     {

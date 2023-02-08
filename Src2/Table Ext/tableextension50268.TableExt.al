@@ -1,4 +1,4 @@
-tableextension 50268 tableextension50268 extends "Dimension Value"
+tableextension 50268 "tableextension50268" extends "Dimension Value"
 {
 
     //Unsupported feature: Code Modification on "OnInsert".

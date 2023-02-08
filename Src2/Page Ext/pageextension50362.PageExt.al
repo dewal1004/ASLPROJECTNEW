@@ -1,4 +1,4 @@
-pageextension 50362 pageextension50362 extends "My Settings"
+pageextension 50362 "pageextension50362" extends "My Settings"
 {
     layout
     {

@@ -1,4 +1,4 @@
-codeunit 50014 AnalysisViewSubsciber
+codeunit 50014 "AnalysisViewSubsciber"
 {
   EventSubscriberInstance = StaticAutomatic;
   

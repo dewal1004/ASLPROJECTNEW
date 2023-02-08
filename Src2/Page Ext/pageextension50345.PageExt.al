@@ -1,4 +1,4 @@
-pageextension 50345 pageextension50345 extends "Posted Return Receipt Subform"
+pageextension 50345 "pageextension50345" extends "Posted Return Receipt Subform"
 {
     actions
     {

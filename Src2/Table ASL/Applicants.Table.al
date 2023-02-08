@@ -1,4 +1,4 @@
-table 50018 Applicants
+table 50018 "Applicants"
 {
     DataCaptionFields = "No.", Surname, "First Name", "Middle Name";
     DataPerCompany = false;

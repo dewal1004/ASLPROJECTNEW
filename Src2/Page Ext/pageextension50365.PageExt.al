@@ -1,4 +1,4 @@
-pageextension 50365 pageextension50365 extends "Sales Order List"
+pageextension 50365 "pageextension50365" extends "Sales Order List"
 {
     actions
     {

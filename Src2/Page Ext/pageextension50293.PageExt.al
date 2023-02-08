@@ -1,4 +1,4 @@
-pageextension 50293 pageextension50293 extends "Alternative Address Card"
+pageextension 50293 "pageextension50293" extends "Alternative Address Card"
 {
 
     //Unsupported feature: Property Modification (Id) on "Text000(Variable 1000)".

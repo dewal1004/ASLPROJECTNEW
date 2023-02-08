@@ -1,4 +1,4 @@
-tableextension 50287 tableextension50287 extends "Cause of Absence"
+tableextension 50287 "tableextension50287" extends "Cause of Absence"
 {
     fields
     {

@@ -1,4 +1,4 @@
-pageextension 50314 pageextension50314 extends "Fixed Asset Card"
+pageextension 50314 "pageextension50314" extends "Fixed Asset Card"
 {
     layout
     {

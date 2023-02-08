@@ -1,4 +1,4 @@
-pageextension 50264 pageextension50264 extends "Bank Acc. Reconciliation Lines"
+pageextension 50264 "pageextension50264" extends "Bank Acc. Reconciliation Lines"
 {
     layout
     {

@@ -1,4 +1,4 @@
-pageextension 50354 pageextension50354 extends "Job List"
+pageextension 50354 "pageextension50354" extends "Job List"
 {
     layout
     {

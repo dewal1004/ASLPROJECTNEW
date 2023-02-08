@@ -1,4 +1,4 @@
-codeunit 50024 JobJnlCheckLineSubscriber
+codeunit 50024 "JobJnlCheckLineSubscriber"
 {
     EventSubscriberInstance = StaticAutomatic;
 

@@ -1,4 +1,4 @@
-codeunit 50018 LogInManagementSubscriber
+codeunit 50018 "LogInManagementSubscriber"
 {
     trigger OnRun()
     begin

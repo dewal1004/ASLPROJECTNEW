@@ -1,4 +1,4 @@
-pageextension 50333 pageextension50333 extends "Posted Service Shipment Lines"
+pageextension 50333 "pageextension50333" extends "Posted Service Shipment Lines"
 {
     actions
     {

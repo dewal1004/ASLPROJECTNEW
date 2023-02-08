@@ -1,4 +1,4 @@
-pageextension 50335 pageextension50335 extends "Skilled Resource List"
+pageextension 50335 "pageextension50335" extends "Skilled Resource List"
 {
     var
         ServItemGrCode: Code[10];

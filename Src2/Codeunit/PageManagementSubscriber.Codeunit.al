@@ -1,4 +1,4 @@
-codeunit 50021 PageManagementSubscriber
+codeunit 50021 "PageManagementSubscriber"
 {
     EventSubscriberInstance = StaticAutomatic;
 

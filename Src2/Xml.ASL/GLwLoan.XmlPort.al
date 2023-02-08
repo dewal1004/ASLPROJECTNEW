@@ -1,4 +1,4 @@
-xmlport 50053 GLwLoan
+xmlport 50053 "GLwLoan"
 {
 
     schema

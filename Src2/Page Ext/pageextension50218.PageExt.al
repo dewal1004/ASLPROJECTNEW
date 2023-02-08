@@ -1,4 +1,4 @@
-pageextension 50218 pageextension50218 extends "CAL Test Tool"
+pageextension 50218 "pageextension50218" extends "CAL Test Tool"
 {
     actions
     {

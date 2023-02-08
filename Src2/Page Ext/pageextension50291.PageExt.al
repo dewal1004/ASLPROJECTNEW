@@ -1,4 +1,4 @@
-pageextension 50291 pageextension50291 extends "Employee List"
+pageextension 50291 "pageextension50291" extends "Employee List"
 {
     // GetBasic
     //  "No."

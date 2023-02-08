@@ -1,4 +1,4 @@
-tableextension 50333 tableextension50333 extends "Comment Line"
+tableextension 50333 "tableextension50333" extends "Comment Line"
 {
     fields
     {

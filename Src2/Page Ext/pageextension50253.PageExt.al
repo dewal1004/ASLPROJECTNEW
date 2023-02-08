@@ -1,4 +1,4 @@
-pageextension 50253 pageextension50253 extends "Reason Codes"
+pageextension 50253 "pageextension50253" extends "Reason Codes"
 {
     Editable = false;
     layout

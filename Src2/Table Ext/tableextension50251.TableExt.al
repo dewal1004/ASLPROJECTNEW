@@ -1,4 +1,4 @@
-tableextension 50251 tableextension50251 extends "Vendor Ledger Entry"
+tableextension 50251 "tableextension50251" extends "Vendor Ledger Entry"
 {
     fields
     {

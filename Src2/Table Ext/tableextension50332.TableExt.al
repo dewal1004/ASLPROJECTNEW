@@ -1,4 +1,4 @@
-tableextension 50332 tableextension50332 extends "Inventory Posting Group"
+tableextension 50332 "tableextension50332" extends "Inventory Posting Group"
 {
     fields
     {

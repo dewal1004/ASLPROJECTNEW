@@ -1,4 +1,4 @@
-pageextension 50307 pageextension50307 extends "Integration Table Mapping List"
+pageextension 50307 "pageextension50307" extends "Integration Table Mapping List"
 {
 
     //Unsupported feature: Property Modification (TextConstString) on "SynchronizedModifiedCompletedMsg(Variable 1006)".

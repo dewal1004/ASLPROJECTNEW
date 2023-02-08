@@ -1,4 +1,4 @@
-pageextension 50357 pageextension50357 extends "Job Project Manager RC"
+pageextension 50357 "pageextension50357" extends "Job Project Manager RC"
 {
     actions
     {

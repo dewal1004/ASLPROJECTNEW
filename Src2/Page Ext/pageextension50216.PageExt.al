@@ -1,4 +1,4 @@
-pageextension 50216 pageextension50216 extends "Payment Reconciliation Journal"
+pageextension 50216 "pageextension50216" extends "Payment Reconciliation Journal"
 {
     layout
     {

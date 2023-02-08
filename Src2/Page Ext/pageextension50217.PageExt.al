@@ -1,4 +1,4 @@
-pageextension 50217 pageextension50217 extends "Pstd. Pmt. Recon. Subform"
+pageextension 50217 "pageextension50217" extends "Pstd. Pmt. Recon. Subform"
 {
     layout
     {

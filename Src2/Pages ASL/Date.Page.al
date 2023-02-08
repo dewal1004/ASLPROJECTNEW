@@ -1,4 +1,4 @@
-page 60100 Date
+page 60100 "Date"
 {
     PageType = Card;
     SourceTable = Date;

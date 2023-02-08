@@ -1,4 +1,4 @@
-xmlport 50998 employee
+xmlport 50998 "employee"
 {
     Format = VariableText;
 

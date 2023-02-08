@@ -1,4 +1,4 @@
-tableextension 50226 tableextension50226 extends "Workflow Step Buffer"
+tableextension 50226 "tableextension50226" extends "Workflow Step Buffer"
 {
 
     //Unsupported feature: Code Modification on "UpdateRecFromWorkflowStep(PROCEDURE 33)".

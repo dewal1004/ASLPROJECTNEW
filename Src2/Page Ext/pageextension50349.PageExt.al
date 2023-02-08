@@ -1,4 +1,4 @@
-pageextension 50349 pageextension50349 extends "Warehouse Movement Subform"
+pageextension 50349 "pageextension50349" extends "Warehouse Movement Subform"
 {
 
     //Unsupported feature: Code Modification on "ChangeUOM(PROCEDURE 1)".

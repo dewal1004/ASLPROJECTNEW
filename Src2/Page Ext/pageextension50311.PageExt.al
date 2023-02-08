@@ -1,4 +1,4 @@
-pageextension 50311 pageextension50311 extends "Production Journal"
+pageextension 50311 "pageextension50311" extends "Production Journal"
 {
     layout
     {

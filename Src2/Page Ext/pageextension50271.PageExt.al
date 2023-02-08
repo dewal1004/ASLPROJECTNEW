@@ -1,4 +1,4 @@
-pageextension 50271 pageextension50271 extends "Issued Reminder"
+pageextension 50271 "pageextension50271" extends "Issued Reminder"
 {
     actions
     {

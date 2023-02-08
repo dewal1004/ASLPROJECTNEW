@@ -1,4 +1,4 @@
-pageextension 50277 pageextension50277 extends "Sales & Receivables Setup"
+pageextension 50277 "pageextension50277" extends "Sales & Receivables Setup"
 {
     layout
     {

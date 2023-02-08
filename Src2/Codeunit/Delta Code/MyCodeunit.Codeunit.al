@@ -1,4 +1,4 @@
-codeunit 50026 MyCodeunit
+codeunit 50026 "MyCodeunit"
 {
     EventSubscriberInstance = StaticAutomatic;
 

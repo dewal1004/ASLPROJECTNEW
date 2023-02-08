@@ -1,4 +1,4 @@
-codeunit 50003 Library
+codeunit 50003 "Library"
 {
     // //
 

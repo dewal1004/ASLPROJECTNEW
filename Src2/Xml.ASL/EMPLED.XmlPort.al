@@ -1,4 +1,4 @@
-xmlport 50020 EMPLED
+xmlport 50020 "EMPLED"
 {
     Format = VariableText;
 

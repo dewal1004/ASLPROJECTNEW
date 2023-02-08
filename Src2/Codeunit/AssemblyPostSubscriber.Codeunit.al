@@ -1,4 +1,4 @@
-codeunit 50022 AssemblyPostSubscriber
+codeunit 50022 "AssemblyPostSubscriber"
 {
     EventSubscriberInstance = StaticAutomatic;
 

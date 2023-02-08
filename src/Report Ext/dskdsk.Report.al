@@ -1,4 +1,4 @@
-report 99125 dskdsk
+report 99125 "dskdsk"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './ReportRdlc/dskdsk.rdlc';

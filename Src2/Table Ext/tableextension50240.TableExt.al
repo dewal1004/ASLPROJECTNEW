@@ -1,4 +1,4 @@
-tableextension 50240 tableextension50240 extends "Cust. Ledger Entry"
+tableextension 50240 "tableextension50240" extends "Cust. Ledger Entry"
 {
     fields
     {

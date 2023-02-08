@@ -1,4 +1,4 @@
-tableextension 50223 tableextension50223 extends Location
+tableextension 50223 "tableextension50223" extends Location
 {
     fields
     {

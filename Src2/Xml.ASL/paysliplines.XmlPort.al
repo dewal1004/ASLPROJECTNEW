@@ -1,4 +1,4 @@
-xmlport 50029 paysliplines
+xmlport 50029 "paysliplines"
 {
     DefaultFieldsValidation = false;
     Direction = Export;

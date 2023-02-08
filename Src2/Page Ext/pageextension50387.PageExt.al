@@ -1,4 +1,4 @@
-pageextension 50387 pageextension50387 extends "Firm Planned Prod. Order Lines"
+pageextension 50387 "pageextension50387" extends "Firm Planned Prod. Order Lines"
 {
     layout
     {

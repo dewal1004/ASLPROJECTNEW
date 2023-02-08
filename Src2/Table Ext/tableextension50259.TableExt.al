@@ -1,4 +1,4 @@
-tableextension 50259 tableextension50259 extends "Bank Account Posting Group"
+tableextension 50259 "tableextension50259" extends "Bank Account Posting Group"
 {
     fields
     {

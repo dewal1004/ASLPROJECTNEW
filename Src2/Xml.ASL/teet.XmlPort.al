@@ -1,4 +1,4 @@
-xmlport 50050 teet
+xmlport 50050 "teet"
 {
 
     schema

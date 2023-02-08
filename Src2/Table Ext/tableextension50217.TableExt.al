@@ -1,4 +1,4 @@
-tableextension 50217 tableextension50217 extends "Purch. Cr. Memo Line"
+tableextension 50217 "tableextension50217" extends "Purch. Cr. Memo Line"
 {
     fields
     {

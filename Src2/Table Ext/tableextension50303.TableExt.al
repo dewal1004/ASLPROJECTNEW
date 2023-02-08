@@ -1,4 +1,4 @@
-tableextension 50303 tableextension50303 extends "Transfer Shipment Header"
+tableextension 50303 "tableextension50303" extends "Transfer Shipment Header"
 {
     fields
     {

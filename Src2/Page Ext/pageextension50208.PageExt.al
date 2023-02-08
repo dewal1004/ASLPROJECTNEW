@@ -1,4 +1,4 @@
-pageextension 50208 pageextension50208 extends "General Ledger Setup"
+pageextension 50208 "pageextension50208" extends "General Ledger Setup"
 {
     layout
     {

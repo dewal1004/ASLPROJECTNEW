@@ -1,4 +1,4 @@
-tableextension 50317 tableextension50317 extends "Return Receipt Line"
+tableextension 50317 "tableextension50317" extends "Return Receipt Line"
 {
     keys
     {

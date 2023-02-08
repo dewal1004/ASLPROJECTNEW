@@ -1,4 +1,4 @@
-codeunit 50008 ResJnlCheckLineSubscriber
+codeunit 50008 "ResJnlCheckLineSubscriber"
 {
     EventSubscriberInstance = StaticAutomatic;
 

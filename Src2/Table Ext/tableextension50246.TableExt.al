@@ -1,4 +1,4 @@
-tableextension 50246 tableextension50246 extends "Item Journal Batch"
+tableextension 50246 "tableextension50246" extends "Item Journal Batch"
 {
     fields
     {

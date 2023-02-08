@@ -1,4 +1,4 @@
-tableextension 50327 tableextension50327 extends "Assembly Header"
+tableextension 50327 "tableextension50327" extends "Assembly Header"
 {
 
     //Unsupported feature: Code Modification on "ValidateDueDate(PROCEDURE 35)".

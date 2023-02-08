@@ -1,4 +1,4 @@
-pageextension 50224 pageextension50224 extends "Posted Purchase Rcpt. Subform"
+pageextension 50224 "pageextension50224" extends "Posted Purchase Rcpt. Subform"
 {
     actions
     {

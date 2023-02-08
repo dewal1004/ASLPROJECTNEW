@@ -1,4 +1,4 @@
-xmlport 50025 icfemployee
+xmlport 50025 "icfemployee"
 {
     Direction = Export;
     Format = VariableText;

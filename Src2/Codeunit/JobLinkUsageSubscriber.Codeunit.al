@@ -1,4 +1,4 @@
-codeunit 50029 JobLinkUsageSubscriber
+codeunit 50029 "JobLinkUsageSubscriber"
 {
   EventSubscriberInstance = StaticAutomatic;
 

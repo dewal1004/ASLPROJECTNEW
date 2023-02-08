@@ -1,4 +1,4 @@
-tableextension 50286 tableextension50286 extends "Employee Relative"
+tableextension 50286 "tableextension50286" extends "Employee Relative"
 {
     fields
     {

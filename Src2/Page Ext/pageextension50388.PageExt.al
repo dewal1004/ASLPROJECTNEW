@@ -1,4 +1,4 @@
-pageextension 50388 pageextension50388 extends "Released Production Order"
+pageextension 50388 "pageextension50388" extends "Released Production Order"
 {
     actions
     {

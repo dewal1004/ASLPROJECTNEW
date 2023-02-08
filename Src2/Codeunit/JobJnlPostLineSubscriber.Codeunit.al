@@ -1,4 +1,4 @@
-codeunit 50025 JobJnlPostLineSubscriber
+codeunit 50025 "JobJnlPostLineSubscriber"
 {
     EventSubscriberInstance = StaticAutomatic;
 

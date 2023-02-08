@@ -1,4 +1,4 @@
-tableextension 50284 tableextension50284 extends "Employee Qualification"
+tableextension 50284 "tableextension50284" extends "Employee Qualification"
 {
     fields
     {

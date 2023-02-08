@@ -1,4 +1,4 @@
-pageextension 50340 pageextension50340 extends "Sales Return Order Subform"
+pageextension 50340 "pageextension50340" extends "Sales Return Order Subform"
 {
     layout
     {

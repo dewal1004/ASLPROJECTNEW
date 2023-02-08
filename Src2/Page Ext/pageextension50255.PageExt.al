@@ -1,4 +1,4 @@
-pageextension 50255 pageextension50255 extends "Item Journal Batches"
+pageextension 50255 "pageextension50255" extends "Item Journal Batches"
 {
     layout
     {

@@ -1,4 +1,4 @@
-codeunit 50019 PurchPostSubcriber
+codeunit 50019 "PurchPostSubcriber"
 {
     EventSubscriberInstance = StaticAutomatic;
 

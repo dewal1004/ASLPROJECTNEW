@@ -1,4 +1,4 @@
-pageextension 50206 pageextension50206 extends "Account Schedule"
+pageextension 50206 "pageextension50206" extends "Account Schedule"
 {
 
     //Unsupported feature: Code Modification on "SetupAccSchedLine(PROCEDURE 3)".

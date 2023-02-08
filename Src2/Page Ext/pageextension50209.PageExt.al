@@ -1,4 +1,4 @@
-pageextension 50209 pageextension50209 extends "User Setup"
+pageextension 50209 "pageextension50209" extends "User Setup"
 {
     // 
     // UNL-ASL3.60.01.009 (Santus) June 14, 2005

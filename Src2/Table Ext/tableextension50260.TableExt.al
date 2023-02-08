@@ -1,4 +1,4 @@
-tableextension 50260 tableextension50260 extends "Entry/Exit Point"
+tableextension 50260 "tableextension50260" extends "Entry/Exit Point"
 {
     // UNL-ASL3.60.01.004 (Santus) May 11, 2005
     fields

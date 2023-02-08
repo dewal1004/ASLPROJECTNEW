@@ -1,4 +1,4 @@
-tableextension 50306 tableextension50306 extends "Transfer Receipt Line"
+tableextension 50306 "tableextension50306" extends "Transfer Receipt Line"
 {
     fields
     {

@@ -1,4 +1,4 @@
-codeunit 50010 ItemJnlPostSubsriber
+codeunit 50010 "ItemJnlPostSubsriber"
 {
   [EventSubscriber(ObjectType::Codeunit, Codeunit::"Item Jnl.-Post", 'OnCodeOnAfterItemJnlPostBatchRun', '', true, true)]
   local procedure ItemJnlPostOnCodeOnAfterItemJnlPostBatchRun()

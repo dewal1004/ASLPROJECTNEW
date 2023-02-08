@@ -1,4 +1,4 @@
-pageextension 50269 pageextension50269 extends "Purchase Order Statistics"
+pageextension 50269 "pageextension50269" extends "Purchase Order Statistics"
 {
     layout
     {

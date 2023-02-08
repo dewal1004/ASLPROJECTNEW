@@ -1,4 +1,4 @@
-report 99991 gROUPG
+report 99991 "gROUPG"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './ReportRdlc/gROUPG.rdlc';

@@ -1,4 +1,4 @@
-tableextension 50344 tableextension50344 extends "Routing Quality Measure"
+tableextension 50344 "tableextension50344" extends "Routing Quality Measure"
 {
     fields
     {

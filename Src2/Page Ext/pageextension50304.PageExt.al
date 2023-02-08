@@ -1,4 +1,4 @@
-pageextension 50304 pageextension50304 extends "Purchase List"
+pageextension 50304 "pageextension50304" extends "Purchase List"
 {
     layout
     {

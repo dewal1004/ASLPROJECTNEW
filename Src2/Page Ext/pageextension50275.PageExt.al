@@ -1,4 +1,4 @@
-pageextension 50275 pageextension50275 extends "Issued Finance Charge Memo"
+pageextension 50275 "pageextension50275" extends "Issued Finance Charge Memo"
 {
     actions
     {

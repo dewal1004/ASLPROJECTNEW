@@ -1,4 +1,4 @@
-pageextension 50367 pageextension50367 extends "Firm Planned Prod. Orders"
+pageextension 50367 "pageextension50367" extends "Firm Planned Prod. Orders"
 {
     actions
     {

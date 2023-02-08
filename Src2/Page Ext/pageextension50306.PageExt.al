@@ -1,4 +1,4 @@
-pageextension 50306 pageextension50306 extends "CRM Connection Setup"
+pageextension 50306 "pageextension50306" extends "CRM Connection Setup"
 {
 
     //Unsupported feature: Property Modification (TextConstString) on "SynchronizeModifiedQst(Variable 1038)".

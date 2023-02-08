@@ -1,4 +1,4 @@
-pageextension 50310 pageextension50310 extends "Purch. Invoice Subform"
+pageextension 50310 "pageextension50310" extends "Purch. Invoice Subform"
 {
 /*    layout
     {

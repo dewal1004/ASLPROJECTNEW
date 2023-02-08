@@ -1,4 +1,4 @@
-pageextension 50360 pageextension50360 extends "Sales Hist. Bill-to FactBox"
+pageextension 50360 "pageextension50360" extends "Sales Hist. Bill-to FactBox"
 {
     layout
     {

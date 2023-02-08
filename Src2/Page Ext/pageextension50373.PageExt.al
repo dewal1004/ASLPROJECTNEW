@@ -1,4 +1,4 @@
-pageextension 50373 pageextension50373 extends "Customer Report Selections"
+pageextension 50373 "pageextension50373" extends "Customer Report Selections"
 {
     layout
     {

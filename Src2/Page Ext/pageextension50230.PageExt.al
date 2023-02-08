@@ -1,4 +1,4 @@
-pageextension 50230 pageextension50230 extends Workflows
+pageextension 50230 "pageextension50230" extends Workflows
 {
 
     //Unsupported feature: Code Modification on "OnAfterGetCurrRecord".

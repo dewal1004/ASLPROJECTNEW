@@ -1,4 +1,4 @@
-tableextension 50228 tableextension50228 extends Resource
+tableextension 50228 "tableextension50228" extends Resource
 {
     fields
     {

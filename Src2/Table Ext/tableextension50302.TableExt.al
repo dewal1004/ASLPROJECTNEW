@@ -1,4 +1,4 @@
-tableextension 50302 tableextension50302 extends "Transfer Line"
+tableextension 50302 "tableextension50302" extends "Transfer Line"
 {
     fields
     {

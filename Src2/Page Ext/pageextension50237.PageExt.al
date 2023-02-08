@@ -1,4 +1,4 @@
-pageextension 50237 pageextension50237 extends "Curr. Exch. Rate Service Card"
+pageextension 50237 "pageextension50237" extends "Curr. Exch. Rate Service Card"
 {
 
     //Unsupported feature: Property Modification (Subtype) on "TempXMLBuffer(Variable 1001)".

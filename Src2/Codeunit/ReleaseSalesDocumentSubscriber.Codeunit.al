@@ -1,4 +1,4 @@
-codeunit 50015 ReleaseSalesDocumentSubscriber
+codeunit 50015 "ReleaseSalesDocumentSubscriber"
 {
     EventSubscriberInstance = StaticAutomatic;
 

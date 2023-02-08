@@ -1,4 +1,4 @@
-tableextension 50227 tableextension50227 extends "Resource Group"
+tableextension 50227 "tableextension50227" extends "Resource Group"
 {
     fields
     {

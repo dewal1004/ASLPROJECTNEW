@@ -1,4 +1,4 @@
-codeunit 50032 TransferOrdPostShptSubscriber
+codeunit 50032 "TransferOrdPostShptSubscriber"
 {
     EventSubscriberInstance = StaticAutomatic;
 

@@ -1,4 +1,4 @@
-pageextension 50379 pageextension50379 extends "User Group Members"
+pageextension 50379 "pageextension50379" extends "User Group Members"
 {
     layout
     {

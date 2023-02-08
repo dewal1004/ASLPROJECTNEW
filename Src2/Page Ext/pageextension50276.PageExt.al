@@ -1,4 +1,4 @@
-pageextension 50276 pageextension50276 extends "Issued Fin. Charge Memo List"
+pageextension 50276 "pageextension50276" extends "Issued Fin. Charge Memo List"
 {
     actions
     {

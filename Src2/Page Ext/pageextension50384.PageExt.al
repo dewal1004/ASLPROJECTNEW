@@ -1,4 +1,4 @@
-pageextension 50384 pageextension50384 extends "Routing Version"
+pageextension 50384 "pageextension50384" extends "Routing Version"
 {
     layout
     {

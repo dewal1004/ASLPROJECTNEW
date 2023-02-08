@@ -1,4 +1,4 @@
-report 88233 SDFAWE
+report 88233 "SDFAWE"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './ReportRdlc/SDFAWE.rdlc';

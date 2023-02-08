@@ -1,4 +1,4 @@
-pageextension 50372 pageextension50372 extends "Report Layout Selection"
+pageextension 50372 "pageextension50372" extends "Report Layout Selection"
 {
 
     //Unsupported feature: Code Modification on "SelectReportLayout(PROCEDURE 3)".
