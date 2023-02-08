@@ -1,4 +1,4 @@
-pageextension 50354 "pageextension50354" extends "Job List"
+pageextension 50354 "Job List Ext" extends "Job List"
 {
     layout
     {
@@ -339,7 +339,7 @@ pageextension 50354 "pageextension50354" extends "Job List"
             {
                 Caption = 'Voyage P&L Ledger Line - (1 Vessel & 1Job at a time)';
                 Image = "Report";
-                RunObject = Report "Voyage P&L Ledger Line 2";
+                // RunObject = Report "Voyage P&L Ledger Line 2";  //AAA***
                 ApplicationArea = All;
             }
             action("Consolidated Voyage P&L - (Monthly Report)")

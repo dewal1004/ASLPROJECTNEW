@@ -243,7 +243,6 @@ permissionset 50000 "GeneratedPermission"
         report "Daily BreakUp by Vess Summary"=X,
         report "Daily BreakUp by Vess Summary1"=X,
         report "Daily BreakUp by Vess Summaryc"=X,
-        report "Daily BreakUp by Vessel"=X,
         report "Daily BreakUp by Vessel 1"=X,
         report "Daily BreakUp by Vessel Excelc"=X,
         report "Daily BreakUp by Vessel Excelg"=X,
@@ -253,7 +252,6 @@ permissionset 50000 "GeneratedPermission"
         report "Daily BreakUp by Vessel Rep 2"=X,
         report "Daily BreakUp by Vessel Rep 3"=X,
         report "Daily BreakUp by Vessel Rep 4"=X,
-        report "Daily BreakUp by VesselY"=X,
         report "Daily BreakUp by VesselZ1"=X,
         report "Daily Cash Summary"=X,
         report "Daily Cash Summaryd"=X,
@@ -551,7 +549,6 @@ permissionset 50000 "GeneratedPermission"
         report "Voyage Consumption2"=X,
         report "Voyage Consumptn Summa"=X,
         report "Voyage Ended Expense"=X,
-        report "Voyage Ending Inv Cons exp3"=X,
         report "Voyage Ending Inv Cons exp3!"=X,
         report "Voyage Ending Inv Cons exp-New"=X,
         report "Voyage Ending Inventory expD"=X,
@@ -566,7 +563,6 @@ permissionset 50000 "GeneratedPermission"
         report "Voyage P & L Batch"=X,
         report "Voyage P&L Header"=X,
         report "Voyage P&L Ledger Line"=X,
-        report "Voyage P&L Ledger Line 2"=X,
         report "Voyage P&L Ledger Line 2!"=X,
         report "Voyage P&L Ledger Line 2.swamy"=X,
         report "Voyage P&L Ledger Line A"=X,
@@ -878,6 +874,5 @@ permissionset 50000 "GeneratedPermission"
         page xxyz=X,
         query "Production Report"=X,
         report PurchaseGRNExt=X,
-        codeunit PayslipLines=X,
-        xmlport "50008"=X;
+        codeunit PayslipLines=X;
 }
