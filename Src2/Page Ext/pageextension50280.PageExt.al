@@ -127,14 +127,14 @@ pageextension 50280 "pageextension50280" extends "Sales Invoice Subform"
         {
             Visible = false;
         }
-        modify(Control39)
+       /* modify(Control39)
         {
             Visible = false;
         }
         modify(Control33)
         {
             Visible = false;
-        }
+        }*/
         modify("Invoice Discount Amount")
         {
             Visible = true;
