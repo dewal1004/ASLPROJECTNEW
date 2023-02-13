@@ -9769,7 +9769,7 @@ Cstr(Fields!EmailCaption.Value)
                                               <Paragraph>
                                                 <TextRuns>
                                                   <TextRun>
-                                                    <Value>=Sum(Fields!Qty_SalesLine.Value,"TableLines")</Value>
+                                                    <Value>=Sum(Fields!Qty_SalesLine.Value,"list1_Contents")</Value>
                                                     <Style>
                                                       <FontFamily>Segoe UI</FontFamily>
                                                       <FontSize>8pt</FontSize>
@@ -9791,6 +9791,7 @@ Cstr(Fields!EmailCaption.Value)
                                               <PaddingRight>5pt</PaddingRight>
                                             </Style>
                                           </Textbox>
+                                          <rd:Selected>true</rd:Selected>
                                         </CellContents>
                                       </TablixCell>
                                       <TablixCell>
@@ -10029,7 +10030,6 @@ Cstr(Fields!EmailCaption.Value)
                                               <PaddingRight>5pt</PaddingRight>
                                             </Style>
                                           </Textbox>
-                                          <rd:Selected>true</rd:Selected>
                                         </CellContents>
                                       </TablixCell>
                                       <TablixCell>
