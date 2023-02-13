@@ -7,7 +7,6 @@
         <DataProvider>SQL</DataProvider>
         <ConnectString />
       </ConnectionProperties>
-      <rd:SecurityType>None</rd:SecurityType>
       <rd:DataSourceID>4465c6a7-2b0e-4668-ba38-a5cf10dcfef8</rd:DataSourceID>
     </DataSource>
   </DataSources>
@@ -9769,7 +9768,7 @@ Cstr(Fields!EmailCaption.Value)
                                               <Paragraph>
                                                 <TextRuns>
                                                   <TextRun>
-                                                    <Value>=Sum(Fields!Qty_SalesLine.Value,"list1_Contents")</Value>
+                                                    <Value>=Sum(Fields!Qty_SalesLine.Value,"list1")</Value>
                                                     <Style>
                                                       <FontFamily>Segoe UI</FontFamily>
                                                       <FontSize>8pt</FontSize>
@@ -9791,7 +9790,6 @@ Cstr(Fields!EmailCaption.Value)
                                               <PaddingRight>5pt</PaddingRight>
                                             </Style>
                                           </Textbox>
-                                          <rd:Selected>true</rd:Selected>
                                         </CellContents>
                                       </TablixCell>
                                       <TablixCell>
@@ -9998,6 +9996,7 @@ Cstr(Fields!EmailCaption.Value)
                                               <PaddingRight>5pt</PaddingRight>
                                             </Style>
                                           </Textbox>
+                                          <rd:Selected>true</rd:Selected>
                                         </CellContents>
                                       </TablixCell>
                                       <TablixCell>
