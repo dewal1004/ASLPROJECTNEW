@@ -9769,7 +9769,7 @@ Cstr(Fields!EmailCaption.Value)
                                               <Paragraph>
                                                 <TextRuns>
                                                   <TextRun>
-                                                    <Value>=Code.BlankZero(Sum(Fields!Qty_SalesLine.Value))</Value>
+                                                    <Value>=Sum(Fields!Qty_SalesLine.Value,"TableLines")</Value>
                                                     <Style>
                                                       <FontFamily>Segoe UI</FontFamily>
                                                       <FontSize>8pt</FontSize>
@@ -9791,12 +9791,12 @@ Cstr(Fields!EmailCaption.Value)
                                               <PaddingRight>5pt</PaddingRight>
                                             </Style>
                                           </Textbox>
-                                          <rd:Selected>true</rd:Selected>
                                         </CellContents>
                                       </TablixCell>
                                       <TablixCell>
                                         <CellContents>
-                                          <Textbox Name="textbox308">
+                                          <Textbox Name="Textbox4">
+                                            <CanGrow>true</CanGrow>
                                             <KeepTogether>true</KeepTogether>
                                             <Paragraphs>
                                               <Paragraph>
@@ -9809,17 +9809,11 @@ Cstr(Fields!EmailCaption.Value)
                                                     </Style>
                                                   </TextRun>
                                                 </TextRuns>
-                                                <Style>
-                                                  <FontFamily>Segoe UI</FontFamily>
-                                                  <FontSize>8pt</FontSize>
-                                                </Style>
+                                                <Style />
                                               </Paragraph>
                                             </Paragraphs>
-                                            <rd:DefaultName>textbox7</rd:DefaultName>
-                                            <ZIndex>53</ZIndex>
+                                            <rd:DefaultName>Textbox4</rd:DefaultName>
                                             <Style>
-                                              <FontFamily>Segoe UI</FontFamily>
-                                              <FontSize>8pt</FontSize>
                                               <PaddingLeft>5pt</PaddingLeft>
                                               <PaddingRight>5pt</PaddingRight>
                                             </Style>
@@ -10035,6 +10029,7 @@ Cstr(Fields!EmailCaption.Value)
                                               <PaddingRight>5pt</PaddingRight>
                                             </Style>
                                           </Textbox>
+                                          <rd:Selected>true</rd:Selected>
                                         </CellContents>
                                       </TablixCell>
                                       <TablixCell>
