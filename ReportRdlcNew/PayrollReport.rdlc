@@ -4328,7 +4328,7 @@
               <TablixMembers>
                 <TablixMember>
                   <Visibility>
-                    <Hidden>=Code.ResetCount</Hidden>
+                    <Hidden></Hidden>
                   </Visibility>
                 </TablixMember>
                 <TablixMember>
