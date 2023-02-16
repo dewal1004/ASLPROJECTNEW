@@ -7,8 +7,7 @@
         <DataProvider>SQL</DataProvider>
         <ConnectString />
       </ConnectionProperties>
-      <rd:SecurityType>None</rd:SecurityType>
-      <rd:DataSourceID>843ccd6e-d0a6-4790-a68f-44ce75737c65</rd:DataSourceID>
+      <rd:DataSourceID>b9222a6f-bb23-4b07-b0c9-7a9b34456752</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <ReportSections>
@@ -603,7 +602,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Code.AddRowCount()</Value>
+                                  <Value>=Fields!EmplCount.Value</Value>
                                   <Style>
                                     <FontSize>7pt</FontSize>
                                   </Style>
@@ -1686,7 +1685,7 @@
                     <TablixCell />
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox56">
+                        <Textbox Name="Textbox2">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
@@ -1704,7 +1703,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox56</rd:DefaultName>
+                          <rd:DefaultName>Textbox2</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>None</Style>
@@ -2652,14 +2651,14 @@
                     <TablixCell />
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="CountZ_Control10000000031">
+                        <Textbox Name="EmplCount2">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Code.AddRowCount()-1</Value>
+                                  <Value>=RowNumber(Nothing)=1</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                   </Style>
@@ -2670,7 +2669,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>CountZ_Control10000000031</rd:DefaultName>
+                          <rd:DefaultName>EmplCount</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>None</Style>
@@ -2681,6 +2680,7 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -3572,7 +3572,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Code.AddRowCount()</Value>
+                                  <Value>=RowNumber("Tablix1")</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                   </Style>
@@ -3993,41 +3993,18 @@
             </TablixColumnHierarchy>
             <TablixRowHierarchy>
               <TablixMembers>
+                <TablixMember />
                 <TablixMember>
-                  <Visibility>
-                    <Hidden>=Code.ResetCount</Hidden>
-                  </Visibility>
-                </TablixMember>
-                <TablixMember>
-                  <Group Name="Payroll_Payslip_Lines___Employee_No_2">
+                  <Group Name="Details">
                     <GroupExpressions>
-                      <GroupExpression>=Fields!Payroll_Payslip_Lines___Employee_No_.Value</GroupExpression>
-                      <GroupExpression>=Fields!GlobalDim1.Value</GroupExpression>
-                      <GroupExpression>=Fields!GlobalDim2.Value</GroupExpression>
+                      <GroupExpression xml:space="preserve"> </GroupExpression>
                     </GroupExpressions>
                   </Group>
                   <SortExpressions>
                     <SortExpression>
-                      <Value>=Fields!Payroll_Payslip_Lines___Employee_No_.Value</Value>
+                      <Value>=Fields!S_No.Value</Value>
                     </SortExpression>
                   </SortExpressions>
-                  <TablixMembers>
-                    <TablixMember>
-                      <Group Name="Details">
-                        <GroupExpressions>
-                          <GroupExpression>=Fields!Payroll_Payslip_Lines___Employee_No_.Value</GroupExpression>
-                        </GroupExpressions>
-                      </Group>
-                      <SortExpressions>
-                        <SortExpression>
-                          <Value>=Fields!S_No.Value</Value>
-                        </SortExpression>
-                      </SortExpressions>
-                    </TablixMember>
-                  </TablixMembers>
-                  <Visibility>
-                    <Hidden>=Last(Fields!RowSum.Value)=0</Hidden>
-                  </Visibility>
                 </TablixMember>
                 <TablixMember />
                 <TablixMember />
@@ -4038,8 +4015,8 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>DataSet_Result</DataSetName>
-            <Top>0.08778cm</Top>
-            <Left>0.10054cm</Left>
+            <Top>0.43601cm</Top>
+            <Left>0.10584cm</Left>
             <Height>4.29576cm</Height>
             <Width>25.84951cm</Width>
             <Style>
@@ -4049,17 +4026,13 @@
             </Style>
           </Tablix>
         </ReportItems>
-        <Height>4.62167cm</Height>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-        </Style>
+        <Height>1.8629in</Height>
+        <Style />
       </Body>
-      <Width>25.95005cm</Width>
+      <Width>10.21864in</Width>
       <Page>
         <PageHeader>
-          <Height>1.269cm</Height>
+          <Height>0.64583in</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
@@ -4078,8 +4051,8 @@
                   <Style />
                 </Paragraph>
               </Paragraphs>
-              <Top>0.45cm</Top>
-              <Left>19.8947cm</Left>
+              <Top>0.74531cm</Top>
+              <Left>19.79416cm</Left>
               <Height>0.423cm</Height>
               <Width>2.538cm</Width>
               <Style>
@@ -4101,8 +4074,8 @@
                   <Style />
                 </Paragraph>
               </Paragraphs>
-              <Top>0.027cm</Top>
-              <Left>19.8947cm</Left>
+              <Top>0.32231cm</Top>
+              <Left>19.79416cm</Left>
               <Height>0.423cm</Height>
               <Width>2.538cm</Width>
               <ZIndex>1</ZIndex>
@@ -4125,8 +4098,8 @@
                   <Style />
                 </Paragraph>
               </Paragraphs>
-              <Top>0.423cm</Top>
-              <Left>0.1852cm</Left>
+              <Top>0.71831cm</Top>
+              <Left>0.08466cm</Left>
               <Height>0.423cm</Height>
               <Width>4.23cm</Width>
               <ZIndex>2</ZIndex>
@@ -4149,8 +4122,8 @@
                   <Style />
                 </Paragraph>
               </Paragraphs>
-              <Top>0.846cm</Top>
-              <Left>0.1852cm</Left>
+              <Top>1.14131cm</Top>
+              <Left>0.08466cm</Left>
               <Height>0.423cm</Height>
               <Width>5.922cm</Width>
               <ZIndex>3</ZIndex>
@@ -4176,8 +4149,8 @@
                   </Style>
                 </Paragraph>
               </Paragraphs>
-              <Top>0.027cm</Top>
-              <Left>22.76045cm</Left>
+              <Top>0.32231cm</Top>
+              <Left>22.65991cm</Left>
               <Height>0.423cm</Height>
               <Width>2.32512cm</Width>
               <ZIndex>4</ZIndex>
@@ -4205,8 +4178,8 @@
                   </Style>
                 </Paragraph>
               </Paragraphs>
-              <Top>0.45cm</Top>
-              <Left>22.76045cm</Left>
+              <Top>0.74531cm</Top>
+              <Left>22.65991cm</Left>
               <Height>0.423cm</Height>
               <Width>2.32512cm</Width>
               <ZIndex>5</ZIndex>
@@ -4230,7 +4203,8 @@
                   <Style />
                 </Paragraph>
               </Paragraphs>
-              <Left>0.1852cm</Left>
+              <Top>0.29531cm</Top>
+              <Left>0.08466cm</Left>
               <Height>0.423cm</Height>
               <Width>11.421cm</Width>
               <ZIndex>6</ZIndex>
@@ -4239,14 +4213,12 @@
               </Style>
             </Textbox>
           </ReportItems>
-          <Style />
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+          </Style>
         </PageHeader>
-        <PageHeight>21cm</PageHeight>
-        <PageWidth>29.7cm</PageWidth>
-        <LeftMargin>1cm</LeftMargin>
-        <RightMargin>1.5cm</RightMargin>
-        <TopMargin>1cm</TopMargin>
-        <BottomMargin>0.75cm</BottomMargin>
         <Style />
       </Page>
     </ReportSection>
@@ -4285,21 +4257,11 @@ Public Function BlankNegAndZero(ByVal Value As Decimal)
     end if
     Return Value
 End Function
-
-Shared RecCount as Integer
-
-Public Function AddRowCount() as Integer
-  RecCount = RecCount + 1
-  Return RecCount
-End Function
-
-Public Function ResetCount() 
- RecCount = 0
-End Function</Code>
+</Code>
   <Language>=User!Language</Language>
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
-  <rd:ReportUnitType>Cm</rd:ReportUnitType>
-  <rd:ReportID>e9e5619c-a4cc-493c-b4ab-fc58abbaaab6</rd:ReportID>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
   <DataSets>
     <DataSet Name="DataSet_Result">
       <Fields>
