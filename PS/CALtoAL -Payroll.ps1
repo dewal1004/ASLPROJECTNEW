@@ -63,6 +63,9 @@ txt2al --source=C:\export2al\bc14tablesonly\2 --target=C:\export2al\bc14tableson
 ##5.9 copy the version 18 system symbols extension (System.app file) to the .alpackage folder
 ##5.11 Create apps from the converted AL
 
+Get-NAVWebServerInstance
+Get-Module -ListAvailable
 
-
+Get-Command -Module Microsoft.Dynamics.Nav.Model.Tools, Microsoft.Dynamics.Nav.Apps.Tools, Microsoft.Dynamics.Nav.Apps.Management
+Start-Transcript
 
