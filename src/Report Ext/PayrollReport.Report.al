@@ -9,7 +9,7 @@ report 50062 "Payroll Report"
     // The user can specify that the ED.Descriptions appear in the column headers
     // instead of the ED.Codes.
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlcNew/PayrollReport.rdlc';
+    RDLCLayout = './ReportRdlc/PayrollReport.rdlc';
     UsageCategory = Lists;
     ApplicationArea = All, Basic, Suite;
     Caption = 'ASL Payroll Report';
