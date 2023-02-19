@@ -69,3 +69,8 @@ Get-Module -ListAvailable
 Get-Command -Module Microsoft.Dynamics.Nav.Model.Tools, Microsoft.Dynamics.Nav.Apps.Tools, Microsoft.Dynamics.Nav.Apps.Management
 Start-Transcript
 
+You can search for Identity Manager on windows systems
+There is a profile/role that allows you to load module automatically on PS, Share point Azure on winserver
+
+Get-Command -Name '*Compile*'
+
