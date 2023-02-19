@@ -17,7 +17,6 @@ report 50001 "New Daily Points Report Fast"
 
             trigger OnAfterGetRecord()
             begin
-
                 if not Historical then begin
                     JobsPointVal.SetCurrentKey(JobsPointVal.Vessel, JobsPointVal.Status);
                     JobsPointVal.SetRange(JobsPointVal.Status, 2);

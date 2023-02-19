@@ -3,7 +3,7 @@ report 50000 "Sum. Production Yield Report"
     DefaultLayout = RDLC;
     RDLCLayout = './ReportRdlc/SumProductionYieldReport.rdlc';
     UsageCategory = ReportsAndAnalysis;
-    ApplicationArea = All,Basic,Suite;
+    ApplicationArea = All, Basic, Suite;
 
     dataset
     {
@@ -162,7 +162,8 @@ report 50000 "Sum. Production Yield Report"
 
         end;
 
-        ConsolidatedYieldPercent := (TotalQtyFP / TotalQtyRM);
+        if TotalQtyRM <> 0 then
+            ConsolidatedYieldPercent := (TotalQtyFP / TotalQtyRM);
     end;
 
     var
