@@ -10,7 +10,11 @@
     "CRS.RenameWithGit": true,
     "editor.accessibilityPageSize": 10,
     "editor.formatOnSave": true,
-    "window.zoomLevel": 0,
+<<<<<<< HEAD
+    "window.zoomLevel": -1,
+=======
+    "window.zoomLevel": -1,
+>>>>>>> ffc987b0d9b90e7431bfc7185bc220df74e6d17a
     "al.enableCodeAnalysis": true,
     "al.enableCodeActions": true,
     "editor.foldingMaximumRegions": 10000,

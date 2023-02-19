@@ -107,9 +107,9 @@ report 50208 "Production Yield Report.."
                 ItemLedgerEntry2.SetFilter(ItemLedgerEntry2."Document No.", '%1', "Document No.");
                 //ItemLedgerEntry2.CALCSUMS(ItemLedgerEntry2.Quantity);
                 if ItemLedgerEntry2.Find('-') then begin
-                    repeat
-                        TotalOutput += ItemLedgerEntry2.Quantity;
-                    until ItemLedgerEntry2.Next = 0;
+                    //repeat
+                        TotalOutput += ItemLedgerEntry2.Quantity
+                    //until ItemLedgerEntry2.Next = 0;
                     //MESSAGE('Total Output for Document No %1 is %2',"Document No.",TotalOutput);
                 end;
             end;
