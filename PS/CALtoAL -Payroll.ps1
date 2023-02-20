@@ -12,7 +12,7 @@ https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/upgrade
 }
     
 Compile-NAVApplicationObject "Demo Database BC (14-0)" -Filter 'ID=50000..50100' -Recompile
-Compile-NAVApplicationObject "Demo Database BC (14-0)" -logpath "C:\Temp\log.txt" -Filter 'Version List=*SSN1.0*' -Recompile -synchronizes force
+Compile-NAVApplicationObject "Demo Database BC (14-0)" -logpath "C:\Temp" -Filter 'Version List=*SSN1.0*' -Recompile -SynchronizeSchemaChanges force
 get-help Compile-NAVApplicationObject -Online
     
 $DbName = "Demo Database BC (14-0)"
