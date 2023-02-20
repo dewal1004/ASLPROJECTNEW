@@ -11,7 +11,7 @@ https://learn.microsoft.com/en-us/dynamics365/business-central/dev-itpro/upgrade
     # 'Page','Codeunit','Table','XMLport','Report','Query' | % { Compile-NAVApplicationObject -DatabaseName MyApp -Filter "Type=$_" -AsJob } | Receive-Job -Wait
 }
     
-Compile-NAVApplicationObject "Demo Database BC (14-0)" -Filter 'Type=Codeunit' -Recompile
+Compile-NAVApplicationObject "Demo Database BC (14-0)" -Filter 'ID=50000..50100' -Recompile
     
 $DbName = "Demo Database BC (14-0)"
 Compile-NAVApplicationObject $DbName 
