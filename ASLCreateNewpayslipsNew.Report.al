@@ -44,7 +44,7 @@ report 50054 "ASL Create New payslips - New"
                     EmpGrpLinesRec."E/D Code" := '';
                     EmpGrpLinesRec.SetRange("Employee Group", "Employee Group");
                     if not (EmpGrpLinesRec.Count = 0) then begin
-                        Message('%1 Employee groups', EmpGrpLinesRec.Count); ///AAA
+                        // Message('%1 Employee groups', EmpGrpLinesRec.Count); ///AAA
                         EmpGrpLinesRec.Find('>');
                         PayLinesRec.LockTable();    /*Lock the Payroll Lines Entry file */
                         PayLinesRec.SetRange("E/D Code");
