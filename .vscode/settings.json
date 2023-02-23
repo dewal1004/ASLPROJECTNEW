@@ -14,6 +14,7 @@
     "al.enableCodeAnalysis": true,
     "al.enableCodeActions": true,
     "editor.foldingMaximumRegions": 10000,
+    "editor.guides.bracketPairs": true,
     // "al.codeAnalyzers": [
     //     "${CodeCop}",
     //     "${AppSourceCop}",
