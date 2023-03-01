@@ -602,7 +602,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=RowNumber("Payroll")</Value>
+                                  <Value>=Code.AddRowCount()</Value>
                                   <Style>
                                     <FontSize>7pt</FontSize>
                                   </Style>
