@@ -1,3 +1,6 @@
+/// <summary>
+/// TableExtension Job Journal Line Ext (ID 50241) extends Record Job Journal Line.
+/// </summary>
 tableextension 50241 "Job Journal Line Ext" extends "Job Journal Line"
 {
     fields
