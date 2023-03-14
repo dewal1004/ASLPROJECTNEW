@@ -65,84 +65,29 @@ report 50062 "Payroll Report"
             column(EDText_11_2_; EDText[11, 2]) { }
             column(EDText_12_1_; EDText[12, 1]) { }
             column(EDText_12_2_; EDText[12, 2]) { }
-            column(DELCHR__EmployeeName_______; DelChr(EmployeeName, '<>'))
-            {
-            }
-            column(Payroll_Payslip_Lines___Employee_No_; "Employee No")
-            {
-            }
-            column(GlobalDim1; "Global Dimension 1 Code")
-            {
-            }
-            column(GlobalDim2; "Global Dimension 2 Code")
-            {
-            }
-            column(EDAmountsArray_1_; EDAmountsArray[1])
-            {
-
-            }
-            column(EDAmountsArray_2_; EDAmountsArray[2])
-            {
-
-            }
-            column(EDAmountsArray_3_; EDAmountsArray[3])
-            {
-
-            }
-            column(EDAmountsArray_4_; EDAmountsArray[4])
-            {
-
-            }
-            column(EDAmountsArray_5_; EDAmountsArray[5])
-            {
-
-            }
-            column(EDAmountsArray_6_; EDAmountsArray[6])
-            {
-
-            }
-            column(EDAmountsArray_7_; EDAmountsArray[7])
-            {
-
-            }
-            column(EDAmountsArray_8_; EDAmountsArray[8])
-            {
-
-            }
-            column(EDAmountsArray_9_; EDAmountsArray[9])
-            {
-
-            }
-            column(EDAmountsArray_10_; EDAmountsArray[10])
-            {
-
-            }
-            column(EDAmountsArray_12_; EDAmountsArray[12])
-            {
-
-            }
-            column(EDAmountsArray_11_; EDAmountsArray[11])
-            {
-
-            }
-            column(CountZ; CountZ)
-            {
-            }
+            column(DELCHR__EmployeeName_______; DelChr(EmployeeName, '<>')) { }
+            column(Payroll_Payslip_Lines___Employee_No_; "Employee No") { }
+            column(GlobalDim1; "Global Dimension 1 Code") { }
+            column(GlobalDim2; "Global Dimension 2 Code") { }
+            column(EDAmountsArray_1_; EDAmountsArray[1]) { }
+            column(EDAmountsArray_2_; EDAmountsArray[2]) { }
+            column(EDAmountsArray_3_; EDAmountsArray[3]) { }
+            column(EDAmountsArray_4_; EDAmountsArray[4]) { }
+            column(EDAmountsArray_5_; EDAmountsArray[5]) { }
+            column(EDAmountsArray_6_; EDAmountsArray[6]) { }
+            column(EDAmountsArray_7_; EDAmountsArray[7]) { }
+            column(EDAmountsArray_8_; EDAmountsArray[8]) { }
+            column(EDAmountsArray_9_; EDAmountsArray[9]) { }
+            column(EDAmountsArray_10_; EDAmountsArray[10]) { }
+            column(EDAmountsArray_11_; EDAmountsArray[11]) { }
+            column(EDAmountsArray_12_; EDAmountsArray[12]) { }
+            column(CountZ; CountZ) { }
             column(EmplCount; EmplCount)
             {
             }
-            column(EDAmountsArray_10__Control33; EDAmountsArray[10])
-            {
-
-            }
-            column(Total11; Total11)
-            {
-
-            }
-            column(Total12; Total12)
-            {
-
-            }
+            column(EDAmountsArray_10__Control33; EDAmountsArray[10]) { }
+            column(Total11; Total11) { }
+            column(Total12; Total12) { }
             column(Salary_schedule_for_Period_Caption; Salary_schedule_for_Period_CaptionLbl)
             {
             }
@@ -299,11 +244,12 @@ report 50062 "Payroll Report"
                             Total12 := Total12 + Amount;
                         end;
                 end;
+
+                RecCount += 1;
             end;
 
             trigger OnPreDataItem()
             begin
-
                 CompanyData.Get;
                 if GetFilter("Employee No") <> '' then
                     EmplHeadTxt := 'Employee Filter: ' + GetFilter("Employee No")
@@ -329,7 +275,11 @@ report 50062 "Payroll Report"
                             EDText[ArrayIndex, 2] := CopyStr(EDString, 11, 10);
                         end
                     end;
+            end;
 
+            trigger OnPostDataItem()
+            begin
+                Message(Format(RecCount));
             end;
         }
     }
@@ -497,5 +447,5 @@ report 50062 "Payroll Report"
         Amount1: Decimal;
         GrandTotals: array[12] of Decimal;
         g_EmpNo: Code[20];
+        RecCount: Integer;
 }
-
