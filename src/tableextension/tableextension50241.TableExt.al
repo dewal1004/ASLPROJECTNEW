@@ -11,6 +11,22 @@ tableextension 50241 "tableextension50241" extends "Job Journal Line"
             //Unsupported feature: Property Modification (Editable) on ""Source Code"(Field 62)".
 
         }
+        modify("Work Type Code")
+        {
+            TableRelation = if (Type = const(0)) "Work Type" 
+            else
+            if (type = const(1)) "Item Category";
+            
+            trigger OnBeforeValidate()
+            var
+                myInt: Integer;
+            begin
+               if Type = Type::Resource then begin
+                  //put your code.
+               end;
+            
+            end;
+        }
 
         //Unsupported feature: Property Modification (Data type) on ""Journal Batch Name"(Field 73)".
 
@@ -313,7 +329,8 @@ tableextension 50241 "tableextension50241" extends "Job Journal Line"
             begin
                 Syntesis(Code1, Pack, Brand);
                 //***GetItem();
-                "Task Code" := Item."Item Category Code";
+               if ItemCat.Get(item."Item Category Code") then
+                "Task Code" := ItemCat."Parent Category";
             end;
         }
         field(50302; Pack; Code[5])
@@ -504,6 +521,7 @@ tableextension 50241 "tableextension50241" extends "Job Journal Line"
         PriceCalcMgt: Codeunit "Sales Price Calc. Mgt.";
         Loc: Record Location;
         GLSetup: Record "General Ledger Setup";
+        ItemCat: Record "Item Category";
 
     procedure "-------------"()
     begin
@@ -564,6 +582,7 @@ tableextension 50241 "tableextension50241" extends "Job Journal Line"
         Window: Dialog;
         RecCount: Integer;
         JobTask: Record "Job Task";
+        ItemCat: Record "Item Category";
     begin
 
         if JBat.Get("Journal Template Name", "Journal Batch Name") then begin
@@ -604,6 +623,13 @@ tableextension 50241 "tableextension50241" extends "Job Journal Line"
                     ITVars := Format(JJLine.Code1) + UOMCd + CopyStr(JJLine.Brand, 1, 1);   //Requip Code Name
                     JJLine.Validate(JJLine."No.", ITVars);
                     items.Get(JJLine."No.");
+                    if ItemCat.Get(Item."Item Category Code") then
+                    begin
+                        if ItemCat."Parent Category" <> '' then 
+                            JJLine.Validate("Task Code",ItemCat."Parent Category")
+                        else
+                            JJLine.Validate("Task Code",ItemCat.code);
+                    end else
                     JJLine.Validate("Task Code", items."Item Category Code");
                     JJLine.Validate("Unit Price", items.Points);
                     JJLine.Validate(JJLine."Location Code", JBat.Name);
