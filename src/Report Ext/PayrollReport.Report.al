@@ -41,102 +41,30 @@ report 50062 "Payroll Report"
             column(CurrReport_PAGENO; CurrReport.PageNo)
             {
             }
-            column(EDText_1_1_; EDText[1, 1])
-            {
-
-            }
-            column(EDText_1_2_; EDText[1, 2])
-            {
-
-            }
-            column(EDText_2_1_; EDText[2, 1])
-            {
-
-            }
-            column(EDText_2_2_; EDText[2, 2])
-            {
-
-            }
-            column(EDText_3_1_; EDText[3, 1])
-            {
-
-            }
-            column(EDText_3_2_; EDText[3, 2])
-            {
-
-            }
-            column(EDText_4_1_; EDText[4, 1])
-            {
-
-            }
-            column(EDText_4_2_; EDText[4, 2])
-            {
-
-            }
-            column(EDText_5_1_; EDText[5, 1])
-            {
-
-            }
-            column(EDText_5_2_; EDText[5, 2])
-            {
-
-            }
-            column(EDText_6_1_; EDText[6, 1])
-            {
-
-            }
-            column(EDText_6_2_; EDText[6, 2])
-            {
-
-            }
-            column(EDText_7_1_; EDText[7, 1])
-            {
-
-            }
-            column(EDText_7_2_; EDText[7, 2])
-            {
-
-            }
-            column(EDText_8_1_; EDText[8, 1])
-            {
-
-            }
-            column(EDText_8_2_; EDText[8, 2])
-            {
-
-            }
-            column(EDText_9_1_; EDText[9, 1])
-            {
-
-            }
-            column(EDText_9_2_; EDText[9, 2])
-            {
-
-            }
-            column(EDText_10_1_; EDText[10, 1])
-            {
-
-            }
-            column(EDText_10_2_; EDText[10, 2])
-            {
-
-            }
-            column(EDText_11_1_; EDText[11, 1])
-            {
-
-            }
-            column(EDText_11_2_; EDText[11, 2])
-            {
-
-            }
-            column(EDText_12_1_; EDText[12, 1])
-            {
-
-            }
-            column(EDText_12_2_; EDText[12, 2])
-            {
-
-            }
+            column(EDText_1_1_; EDText[1, 1]) { }
+            column(EDText_1_2_; EDText[1, 2]) { }
+            column(EDText_2_1_; EDText[2, 1]) { }
+            column(EDText_2_2_; EDText[2, 2]) { }
+            column(EDText_3_1_; EDText[3, 1]) { }
+            column(EDText_3_2_; EDText[3, 2]) { }
+            column(EDText_4_1_; EDText[4, 1]) { }
+            column(EDText_4_2_; EDText[4, 2]) { }
+            column(EDText_5_1_; EDText[5, 1]) { }
+            column(EDText_5_2_; EDText[5, 2]) { }
+            column(EDText_6_1_; EDText[6, 1]) { }
+            column(EDText_6_2_; EDText[6, 2]) { }
+            column(EDText_7_1_; EDText[7, 1]) { }
+            column(EDText_7_2_; EDText[7, 2]) { }
+            column(EDText_8_1_; EDText[8, 1]) { }
+            column(EDText_8_2_; EDText[8, 2]) { }
+            column(EDText_9_1_; EDText[9, 1]) { }
+            column(EDText_9_2_; EDText[9, 2]) { }
+            column(EDText_10_1_; EDText[10, 1]) { }
+            column(EDText_10_2_; EDText[10, 2]) { }
+            column(EDText_11_1_; EDText[11, 1]) { }
+            column(EDText_11_2_; EDText[11, 2]) { }
+            column(EDText_12_1_; EDText[12, 1]) { }
+            column(EDText_12_2_; EDText[12, 2]) { }
             column(DELCHR__EmployeeName_______; DelChr(EmployeeName, '<>'))
             {
             }

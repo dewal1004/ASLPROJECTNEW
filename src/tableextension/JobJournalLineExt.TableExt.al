@@ -1,4 +1,7 @@
-tableextension 50241 "tableextension50241" extends "Job Journal Line"
+/// <summary>
+/// TableExtension Job Journal Line Ext (ID 50241) extends Record Job Journal Line.
+/// </summary>
+tableextension 50241 "Job Journal Line Ext" extends "Job Journal Line"
 {
     fields
     {
@@ -7,9 +10,12 @@ tableextension 50241 "tableextension50241" extends "Job Journal Line"
             TableRelation = IF ("External Document No." = FILTER('')) "Source Code"
             ELSE
             IF ("External Document No." = FILTER(<> '')) Location WHERE("Location Type" = CONST(Vessel));
-
-            //Unsupported feature: Property Modification (Editable) on ""Source Code"(Field 62)".
-
+        }
+        modify("Work Type Code") 
+        {
+            TableRelation = if (Type = const(Item)) "Item Category"
+            else
+                "Work Type";
         }
         modify("Work Type Code")
         {
