@@ -570,6 +570,7 @@ tableextension 50241 "Job Journal Line Ext" extends "Job Journal Line"
         Window: Dialog;
         RecCount: Integer;
         JobTask: Record "Job Task";
+        itemCat: Record "Item Category";
     begin
 
         if JBat.Get("Journal Template Name", "Journal Batch Name") then begin
@@ -610,6 +611,8 @@ tableextension 50241 "Job Journal Line Ext" extends "Job Journal Line"
                     ITVars := Format(JJLine.Code1) + UOMCd + CopyStr(JJLine.Brand, 1, 1);   //Requip Code Name
                     JJLine.Validate(JJLine."No.", ITVars);
                     items.Get(JJLine."No.");
+                    if (itemCat.Get(item."Item Category Code")) and (itemCat."Parent Category" <> '') then
+                    JJLine.Validate("Task Code",itemCat."Parent Category") else
                     JJLine.Validate("Task Code", items."Item Category Code");
                     JJLine.Validate("Unit Price", items.Points);
                     JJLine.Validate(JJLine."Location Code", JBat.Name);
@@ -619,7 +622,6 @@ tableextension 50241 "Job Journal Line Ext" extends "Job Journal Line"
                     if Jobs.Get(JBat."Job No.") then begin
                         JJLine."Catch Sea Days" := JBat."Catch Date" - Jobs."Starting Date";
                     end;
-
                     //JJLine."Step Code":=FORMAT(JBat."Sea Temperature"); //AA
                     if items.Get(ITVars) then
                         if items."Unit Cost" <> 0 then
