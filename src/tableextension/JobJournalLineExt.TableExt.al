@@ -17,22 +17,7 @@ tableextension 50241 "Job Journal Line Ext" extends "Job Journal Line"
             else
                 "Work Type";
         }
-        modify("Work Type Code")
-        {
-            TableRelation = if (Type = const(0)) "Work Type" 
-            else
-            if (type = const(1)) "Item Category";
-            
-            trigger OnBeforeValidate()
-            var
-                myInt: Integer;
-            begin
-               if Type = Type::Resource then begin
-                  //put your code.
-               end;
-            
-            end;
-        }
+        
 
         //Unsupported feature: Property Modification (Data type) on ""Journal Batch Name"(Field 73)".
 
