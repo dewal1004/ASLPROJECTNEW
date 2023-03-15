@@ -573,11 +573,7 @@ tableextension 50241 "Job Journal Line Ext" extends "Job Journal Line"
         Window: Dialog;
         RecCount: Integer;
         JobTask: Record "Job Task";
-<<<<<<< HEAD
-        itemCat: Record "Item Category";
-=======
         ItemCat: Record "Item Category";
->>>>>>> 419e1e3c9c4a39f9f177c6587955734065224f88
     begin
 
         if JBat.Get("Journal Template Name", "Journal Batch Name") then begin
