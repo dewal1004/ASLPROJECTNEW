@@ -388,6 +388,10 @@ report 50062 "Payroll Report"
         actions
         {
         }
+        trigger OnOpenPage()
+        begin
+            
+        end;
     }
 
     labels
