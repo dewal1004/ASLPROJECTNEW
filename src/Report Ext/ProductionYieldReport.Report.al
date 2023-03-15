@@ -154,9 +154,9 @@ report 50208 "Production Yield Report.."
         ItemLedgerEntry4.SetFilter(ItemLedgerEntry4."Order Type", '%1', ItemLedgerEntry4."Order Type"::Production);
         ItemLedgerEntry4.SetFilter(ItemLedgerEntry4."Entry Type", '%1', ItemLedgerEntry4."Entry Type"::Output);
         if ItemLedgerEntry4.Find('-') then begin
-            repeat
-                TotalQtyFP += ItemLedgerEntry4.Quantity;
-            until ItemLedgerEntry4.Next = 0;
+            //repeat
+                TotalQtyFP += ItemLedgerEntry4.Quantity
+            //until ItemLedgerEntry4.Next = 0;
 
         end;
 

@@ -336,6 +336,7 @@ pageextension 50258 "pageextension50258" extends "Recurring Job Jnl."
                 JobJnlLineCopy.Init;
                 JobJnlLineCopy.TransferFields(JobJournalLine);
                 JobJnlLineCopy."Journal Batch Name" := rec."Journal Batch Name"; //CurrentJnlBatchName; //Revisit code
+                JobJnlLineCopy."Task Code" := JobJournalLine."Task Code";
                 JobJnlLineCopy.Insert;
             until JobJournalLine.Next = 0;
         Message('Line Coppied from Vessel %1', "Copy From Vesel");

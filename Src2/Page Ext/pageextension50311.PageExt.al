@@ -19,6 +19,15 @@ pageextension 50311 "pageextension50311" extends "Production Journal"
         {
           Visible = true;
         }
+        addafter("Scrap Quantity")
+        {
+          field("Consumed Quantity";"Consumed Quantity")
+          {
+            Visible = true;
+          }
+
+        }
+        
     }
 
 
