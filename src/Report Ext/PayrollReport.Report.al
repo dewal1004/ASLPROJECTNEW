@@ -388,7 +388,8 @@ report 50062 "Payroll Report"
         actions
         {
         }
-        trigger OnOpenPage()
+        trigger OnOpenPage()++
+        
         begin
             
         end;
