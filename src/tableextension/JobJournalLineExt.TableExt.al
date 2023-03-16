@@ -11,13 +11,14 @@ tableextension 50241 "Job Journal Line Ext" extends "Job Journal Line"
             ELSE
             IF ("External Document No." = FILTER(<> '')) Location WHERE("Location Type" = CONST(Vessel));
         }
-        modify("Work Type Code") 
+        modify("Work Type Code")
         {
-            TableRelation = if (Type = const(Item)) "Item Category"
-            else
-                "Work Type";
+            TableRelation = "Item Category";
+            // TableRelation = if (Type = const(Item)) "Item Category"
+            // else
+            //     "Work Type";
         }
-        
+
 
         //Unsupported feature: Property Modification (Data type) on ""Journal Batch Name"(Field 73)".
 
@@ -320,8 +321,8 @@ tableextension 50241 "Job Journal Line Ext" extends "Job Journal Line"
             begin
                 Syntesis(Code1, Pack, Brand);
                 //***GetItem();
-               if ItemCat.Get(item."Item Category Code") then
-                "Task Code" := ItemCat."Parent Category";
+                if ItemCat.Get(item."Item Category Code") then
+                    "Task Code" := ItemCat."Parent Category";
             end;
         }
         field(50302; Pack; Code[5])
@@ -614,14 +615,13 @@ tableextension 50241 "Job Journal Line Ext" extends "Job Journal Line"
                     ITVars := Format(JJLine.Code1) + UOMCd + CopyStr(JJLine.Brand, 1, 1);   //Requip Code Name
                     JJLine.Validate(JJLine."No.", ITVars);
                     items.Get(JJLine."No.");
-                    if ItemCat.Get(Item."Item Category Code") then
-                    begin
-                        if ItemCat."Parent Category" <> '' then 
-                            JJLine.Validate("Task Code",ItemCat."Parent Category")
+                    if ItemCat.Get(Item."Item Category Code") then begin
+                        if ItemCat."Parent Category" <> '' then
+                            JJLine.Validate("Task Code", ItemCat."Parent Category")
                         else
-                            JJLine.Validate("Task Code",ItemCat.code);
+                            JJLine.Validate("Task Code", ItemCat.code);
                     end else
-                    JJLine.Validate("Task Code", items."Item Category Code");
+                        JJLine.Validate("Task Code", items."Item Category Code");
                     JJLine.Validate("Unit Price", items.Points);
                     JJLine.Validate(JJLine."Location Code", JBat.Name);
                     if JobTask.FindFirst then
