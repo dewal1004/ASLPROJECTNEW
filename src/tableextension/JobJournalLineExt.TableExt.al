@@ -11,12 +11,6 @@ tableextension 50241 "Job Journal Line Ext" extends "Job Journal Line"
             ELSE
             IF ("External Document No." = FILTER(<> '')) Location WHERE("Location Type" = CONST(Vessel));
         }
-        modify("Work Type Code")
-        {
-            TableRelation = if (Type = const(Item)) "Item Category"
-            else
-            "Work Type";
-        }
 
         field(50300; Catch; Decimal)
         {
