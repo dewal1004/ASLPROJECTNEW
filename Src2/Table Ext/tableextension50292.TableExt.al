@@ -4,7 +4,19 @@ tableextension 50292 "tableextension50292" extends "Misc. Article Information"
     {
 
         //Unsupported feature: Code Modification on ""Misc. Article Code"(Field 2).OnValidate".
-
+        modify("Misc. Article Code")
+        {
+            trigger onaftervalidate()
+            var
+                MiscArticle: Record "Misc. Article";
+                myInt: Integer;
+            begin
+                "Mat Type" := MiscArticle."Mat Type";
+                "Item No." := MiscArticle."Item No.";
+                Returnable := MiscArticle.Replaceable;
+                "Replacement Interval" := MiscArticle."Replacement Interval";
+            end;
+        }
         //trigger  Article Code"(Field 2)()
         //Parameters and return type have not been exported.
         //>>>> ORIGINAL CODE:
@@ -19,10 +31,6 @@ tableextension 50292 "tableextension50292" extends "Misc. Article Information"
         /*
         MiscArticle.Get("Misc. Article Code");
         Description := MiscArticle.Description;
-        "Mat Type" := MiscArticle."Mat Type";
-        "Item No." := MiscArticle."Item No.";
-        Returnable := MiscArticle.Replaceable;
-        "Replacement Interval" := MiscArticle."Replacement Interval";
         */
         //end;
         field(50000; "Mat Type"; Option)
