@@ -13,7 +13,7 @@ pageextension 50242 "Job Journal Ext" extends "Job Journal"
 
         addafter("Work Type Code")
         {
-            field("Work Type Code TCL"; Rec."Work Type Code ASL")
+            field("Work Type Code ASL"; Rec."Work Type Code ASL")
             {
                 ApplicationArea = all;
             }
