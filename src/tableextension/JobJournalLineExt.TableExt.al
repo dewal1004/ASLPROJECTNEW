@@ -13,9 +13,10 @@ tableextension 50241 "Job Journal Line Ext" extends "Job Journal Line"
         }
         modify("Work Type Code")
         {
-            TableRelation = "Item Category";
+            TableRelation = if (Type = const(Item)) "Item Category"
+            else
+            "Work Type";
         }
-
 
         field(50300; Catch; Decimal)
         {
@@ -133,6 +134,19 @@ tableextension 50241 "Job Journal Line Ext" extends "Job Journal Line"
         field(50324; "Catch Sea Days"; Decimal)
         {
             Description = 'Total sea day on a day that there is a catch';
+        }
+        field(50330; "Work Type Code ASL"; Code[20])
+        {
+            Caption = 'Work Type Code';
+            DataClassification = AccountData;
+            TableRelation = IF (Type = CONST(Item)) "Item Category"
+            else
+            "Work Type";
+
+            trigger OnValidate()
+            begin
+                "Work Type Code" := "Work Type Code ASL";
+            end;
         }
         field(50333; "Work Type Code Sort"; Code[15])
         {
@@ -457,14 +471,6 @@ tableextension 50241 "Job Journal Line Ext" extends "Job Journal Line"
 }
 
 //Standard fields unresolved modifications
-// modify("Work Type Code")
-// {
-//     TableRelation = "Item Category";
-//     // TableRelation = if (Type = const(Item)) "Item Category"
-//     // else
-//     //     "Work Type";
-// }
-
 
 //Unsupported feature: Property Modification (Data type) on ""Journal Batch Name"(Field 73)".
 
