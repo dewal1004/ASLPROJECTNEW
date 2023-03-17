@@ -279,7 +279,7 @@ report 50062 "Payroll Report"
 
             trigger OnPostDataItem()
             begin
-                Message(Format(RecCount));
+                // Message(Format(RecCount));
             end;
         }
     }
@@ -388,6 +388,11 @@ report 50062 "Payroll Report"
         actions
         {
         }
+        trigger OnOpenPage()
+
+        begin
+            
+        end;
     }
 
     labels

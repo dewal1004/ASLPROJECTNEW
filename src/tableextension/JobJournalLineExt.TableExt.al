@@ -342,8 +342,8 @@ tableextension 50241 "Job Journal Line Ext" extends "Job Journal Line"
             begin
                 Syntesis(Code1, Pack, Brand);
                 //***GetItem();
-               if ItemCat.Get(item."Item Category Code") then
-                "Task Code" := ItemCat."Parent Category";
+                if ItemCat.Get(item."Item Category Code") then
+                    "Task Code" := ItemCat."Parent Category";
             end;
         }
         field(50302; Pack; Code[5])
@@ -636,14 +636,13 @@ tableextension 50241 "Job Journal Line Ext" extends "Job Journal Line"
                     ITVars := Format(JJLine.Code1) + UOMCd + CopyStr(JJLine.Brand, 1, 1);   //Requip Code Name
                     JJLine.Validate(JJLine."No.", ITVars);
                     items.Get(JJLine."No.");
-                    if ItemCat.Get(Item."Item Category Code") then
-                    begin
-                        if ItemCat."Parent Category" <> '' then 
-                            JJLine.Validate("Task Code",ItemCat."Parent Category")
+                    if ItemCat.Get(Item."Item Category Code") then begin
+                        if ItemCat."Parent Category" <> '' then
+                            JJLine.Validate("Task Code", ItemCat."Parent Category")
                         else
-                            JJLine.Validate("Task Code",ItemCat.code);
+                            JJLine.Validate("Task Code", ItemCat.code);
                     end else
-                    JJLine.Validate("Task Code", items."Item Category Code");
+                        JJLine.Validate("Task Code", items."Item Category Code");
                     JJLine.Validate("Unit Price", items.Points);
                     JJLine.Validate(JJLine."Location Code", JBat.Name);
                     if JobTask.FindFirst then
@@ -652,7 +651,6 @@ tableextension 50241 "Job Journal Line Ext" extends "Job Journal Line"
                     if Jobs.Get(JBat."Job No.") then begin
                         JJLine."Catch Sea Days" := JBat."Catch Date" - Jobs."Starting Date";
                     end;
-
                     //JJLine."Step Code":=FORMAT(JBat."Sea Temperature"); //AA
                     if items.Get(ITVars) then
                         if items."Unit Cost" <> 0 then
@@ -672,29 +670,6 @@ tableextension 50241 "Job Journal Line Ext" extends "Job Journal Line"
                 Window.Close;
             end;
         end;
-    end;
-
-    procedure FindItemPrice()
-    begin
-        /*
-        FindSalesLinePrice.INIT;
-        FindSalesLinePrice."Item No." := "No.";
-        //ItemPrice."Price Group Code" := "Price Group Code";
-        FindSalesLinePrice."Sales Code" := "Customer Price Group";
-        FindSalesLinePrice."Unit of Measure Code" := "Unit of Measure Code";
-        FindSalesLinePrice."Starting Date" := "Posting Date";
-        PriceCalcMgt.RUN(FindSalesLinePrice);
-        ItemPrice.TESTFIELD("Price Includes VAT",FALSE);
-        GetGLSetup;
-        "Unit Price" := ItemPrice."Unit Price";
-        IF ItemPrice."Unit of Measure Code" = '' THEN
-          "Unit Price" :=
-            ROUND(
-              "Unit Price" * "Qty. per Unit of Measure",
-              GLSetup."Unit-Amount Rounding Precision");
-        VALIDATE("Unit Price");
-        */
-
     end;
 
     procedure ClearCatchUpdate()
@@ -770,94 +745,94 @@ tableextension 50241 "Job Journal Line Ext" extends "Job Journal Line"
     JobJnlTemplate.Get("Journal Template Name");
     JobJnlBatch.Get("Journal Template Name","Journal Batch Name");
 
-    ValidateShortcutDimCode(1,"Shortcut Dimension 1 Code");
-    ValidateShortcutDimCode(2,"Shortcut Dimension 2 Code");
-    */
-    //end;
-    //>>>> MODIFIED CODE:
-    //begin
-    /*
-    #1..3
-    "Shortcut Dimension 2 Code":='ATLANTIC';
-    ValidateShortcutDimCode(1,"Shortcut Dimension 1 Code");
-    ValidateShortcutDimCode(2,"Shortcut Dimension 2 Code");
+ValidateShortcutDimCode(1,"Shortcut Dimension 1 Code");
+ValidateShortcutDimCode(2,"Shortcut Dimension 2 Code");
+*/
+//end;
+//>>>> MODIFIED CODE:
+//begin
+/*
+#1..3
+"Shortcut Dimension 2 Code":='ATLANTIC';
+ValidateShortcutDimCode(1,"Shortcut Dimension 1 Code");
+ValidateShortcutDimCode(2,"Shortcut Dimension 2 Code");
 
-    //AAA/March 2002
-    if Code1<>'' then
-    begin
-      Syntesis(Code1,Pack,Brand);
-      Validate("No.",ItemVar);
-    end;
-    if Catch <> 0 then
-      //"Line Amount" := "Unit Price" * Catch;
+//AAA/March 2002
+if Code1<>'' then
+begin
+  Syntesis(Code1,Pack,Brand);
+  Validate("No.",ItemVar);
+end;
+if Catch <> 0 then
+  //"Line Amount" := "Unit Price" * Catch;
 
-    //AAA-NOV - 2001
-    Validate(Quantity,Catch*-1);
-    */
-    //end;
-
-
-    //Unsupported feature: Code Modification on "SetUpNewLine(PROCEDURE 9)".
-
-    //procedure SetUpNewLine();
-    //Parameters and return type have not been exported.
-    //>>>> ORIGINAL CODE:
-    //begin
-    /*
-    IsHandled := false;
-    OnBeforeSetUpNewLine(Rec,xRec,LastJobJnlLine,IsHandled);
-    if IsHandled then
-    #4..12
-      "Document No." := LastJobJnlLine."Document No.";
-      Type := LastJobJnlLine.Type;
-      Validate("Line Type",LastJobJnlLine."Line Type");
-    end else begin
-      "Posting Date" := WorkDate;
-      "Document Date" := WorkDate;
-    #19..25
-    "Source Code" := JobJnlTemplate."Source Code";
-    "Reason Code" := JobJnlBatch."Reason Code";
-    "Posting No. Series" := JobJnlBatch."Posting No. Series";
-
-    OnAfterSetUpNewLine(Rec,LastJobJnlLine,JobJnlTemplate,JobJnlBatch);
-    */
-    //end;
-    //>>>> MODIFIED CODE:
-    //begin
-    /*
-    #1..15
-      // Default job and Location on new line
-      if LastJobJnlLine."Job No." <> '' then
-        "Job No." := LastJobJnlLine."Job No.";
-      if LastJobJnlLine."Location Code" <> '' then
-        "Location Code" := LastJobJnlLine."Location Code";
-      if LastJobJnlLine."Job Task No." <> '' then
-        "Job Task No." := LastJobJnlLine."Job Task No.";
-    #16..28
-    "External Document No.":=JobJnlBatch."Voyage No.";
-
-    OnAfterSetUpNewLine(Rec,LastJobJnlLine,JobJnlTemplate,JobJnlBatch);
-    */
-    //end;
+//AAA-NOV - 2001
+Validate(Quantity,Catch*-1);
+*/
+//end;
 
 
-    //Unsupported feature: Code Modification on "UpdateAmountsAndDiscounts(PROCEDURE 31)".
+//Unsupported feature: Code Modification on "SetUpNewLine(PROCEDURE 9)".
 
-    //procedure UpdateAmountsAndDiscounts();
-    //Parameters and return type have not been exported.
-    //>>>> ORIGINAL CODE:
-    //begin
-    /*
-    if "Total Price" <> 0 then begin
-      if ("Line Amount" <> xRec."Line Amount") and ("Line Discount Amount" = xRec."Line Discount Amount") then begin
-        "Line Amount" := Round("Line Amount",AmountRoundingPrecisionFCY);
-    #4..23
-    end else begin
-      "Line Amount" := 0;
-      "Line Discount Amount" := 0;
-      "Line Amount (LCY)" := 0;
-      "Line Discount Amount (LCY)" := 0;
-    end;
+//procedure SetUpNewLine();
+//Parameters and return type have not been exported.
+//>>>> ORIGINAL CODE:
+//begin
+/*
+IsHandled := false;
+OnBeforeSetUpNewLine(Rec,xRec,LastJobJnlLine,IsHandled);
+if IsHandled then
+#4..12
+  "Document No." := LastJobJnlLine."Document No.";
+  Type := LastJobJnlLine.Type;
+  Validate("Line Type",LastJobJnlLine."Line Type");
+end else begin
+  "Posting Date" := WorkDate;
+  "Document Date" := WorkDate;
+#19..25
+"Source Code" := JobJnlTemplate."Source Code";
+"Reason Code" := JobJnlBatch."Reason Code";
+"Posting No. Series" := JobJnlBatch."Posting No. Series";
+
+OnAfterSetUpNewLine(Rec,LastJobJnlLine,JobJnlTemplate,JobJnlBatch);
+*/
+//end;
+//>>>> MODIFIED CODE:
+//begin
+/*
+#1..15
+  // Default job and Location on new line
+  if LastJobJnlLine."Job No." <> '' then
+    "Job No." := LastJobJnlLine."Job No.";
+  if LastJobJnlLine."Location Code" <> '' then
+    "Location Code" := LastJobJnlLine."Location Code";
+  if LastJobJnlLine."Job Task No." <> '' then
+    "Job Task No." := LastJobJnlLine."Job Task No.";
+#16..28
+"External Document No.":=JobJnlBatch."Voyage No.";
+
+OnAfterSetUpNewLine(Rec,LastJobJnlLine,JobJnlTemplate,JobJnlBatch);
+*/
+//end;
+
+
+//Unsupported feature: Code Modification on "UpdateAmountsAndDiscounts(PROCEDURE 31)".
+
+//procedure UpdateAmountsAndDiscounts();
+//Parameters and return type have not been exported.
+//>>>> ORIGINAL CODE:
+//begin
+/*
+if "Total Price" <> 0 then begin
+  if ("Line Amount" <> xRec."Line Amount") and ("Line Discount Amount" = xRec."Line Discount Amount") then begin
+    "Line Amount" := Round("Line Amount",AmountRoundingPrecisionFCY);
+#4..23
+end else begin
+  "Line Amount" := 0;
+  "Line Discount Amount" := 0;
+  "Line Amount (LCY)" := 0;
+  "Line Discount Amount (LCY)" := 0;
+end;
 
     OnAfterUpdateAmountsAndDiscounts(Rec);
     */

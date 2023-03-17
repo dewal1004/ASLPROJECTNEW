@@ -624,6 +624,7 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -2647,7 +2648,6 @@
                           </Style>
                         </Textbox>
                         <ColSpan>2</ColSpan>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell />
@@ -4028,7 +4028,7 @@
                     </TablixMember>
                   </TablixMembers>
                   <Visibility>
-                    <Hidden>=Last(Fields!RowSum.Value)=0</Hidden>
+                    <Hidden>=Last(Fields!RowSum.Value)=0 OR Last(Fields!EDAmountsArray_12_.Value)=0</Hidden>
                   </Visibility>
                 </TablixMember>
                 <TablixMember />
