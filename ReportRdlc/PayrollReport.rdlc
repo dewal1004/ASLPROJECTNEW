@@ -4473,17 +4473,17 @@ End Function</Code>
         <Field Name="EDAmountsArray_10_Format">
           <DataField>EDAmountsArray_10_Format</DataField>
         </Field>
-        <Field Name="EDAmountsArray_12_">
-          <DataField>EDAmountsArray_12_</DataField>
-        </Field>
-        <Field Name="EDAmountsArray_12_Format">
-          <DataField>EDAmountsArray_12_Format</DataField>
-        </Field>
         <Field Name="EDAmountsArray_11_">
           <DataField>EDAmountsArray_11_</DataField>
         </Field>
         <Field Name="EDAmountsArray_11_Format">
           <DataField>EDAmountsArray_11_Format</DataField>
+        </Field>
+        <Field Name="EDAmountsArray_12_">
+          <DataField>EDAmountsArray_12_</DataField>
+        </Field>
+        <Field Name="EDAmountsArray_12_Format">
+          <DataField>EDAmountsArray_12_Format</DataField>
         </Field>
         <Field Name="CountZ">
           <DataField>CountZ</DataField>

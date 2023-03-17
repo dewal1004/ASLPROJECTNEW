@@ -17,7 +17,29 @@ tableextension 50241 "Job Journal Line Ext" extends "Job Journal Line"
             else
                 "Work Type";
         }
-        
+        modify("No.")
+        {
+            trigger onaftervalidate()
+            var
+                //myInt: Integer;
+                item: Record Item;
+                itemCat: Record "Item Category";
+            begin
+                if Type = type::Item then 
+                begin
+                item.Get("No.");
+                    if ItemCat.Get(Item."Item Category Code") then
+                    begin
+                        if ItemCat."Parent Category" <> '' then 
+                            Validate("Task Code",ItemCat."Parent Category")
+                        else
+                            Validate("Task Code",ItemCat.code);
+                         "Work Type Code" := item."Item Category Code";  
+                    end;
+                    "Statistics Group":=Item."Statistics Group";
+                end;                    
+            end;
+        }
 
         //Unsupported feature: Property Modification (Data type) on ""Journal Batch Name"(Field 73)".
 
@@ -681,6 +703,7 @@ tableextension 50241 "Job Journal Line Ext" extends "Job Journal Line"
         Window: Dialog;
         RecCount: Integer;
         JobTask: Record "Job Task";
+        ItemCat: Record "Item Category";
     begin
         //Batch introduced by SHOD
         if JBat.Get("Journal Template Name", "Journal Batch Name") then begin
@@ -707,10 +730,19 @@ tableextension 50241 "Job Journal Line Ext" extends "Job Journal Line"
                     end;
                     JJLine.Validate(JJLine.Catch, 0);
                     if items.Get(JJLine."No.") then
+                    begin
                         if items."Unit Cost" <> 0 then
                             JJLine.Validate(JJLine."Unit Cost", items."Unit Cost")
                         else
                             JJLine.Validate(JJLine."Unit Cost", items.Points);
+                    if ItemCat.Get(Item."Item Category Code") then
+                    begin
+                        if ItemCat."Parent Category" <> '' then 
+                            JJLine.Validate("Task Code",ItemCat."Parent Category")
+                        else
+                            JJLine.Validate("Task Code",ItemCat.code);
+                    end;
+                    end;                   
                     JJLine.Validate(JJLine."Unit Cost", 0);  // Unit cost must be zero
                     JJLine.Validate(JJLine."Shortcut Dimension 2 Code", JBat."Global Dimension 2 Code");
                     JJLine."Phase Code" := JBat."Fishing Ground";
