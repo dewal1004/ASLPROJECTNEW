@@ -2,25 +2,16 @@ pageextension 50242 "Job Journal Ext" extends "Job Journal"
 {
     layout
     {
-        modify("Line Type") {Visible = false;}
+        modify("Line Type") { Visible = false; }
         modify("Document No.") { Visible = false; }
         modify("Job No.") { Visible = false; }
-        modify("Job Task No.") {Visible = false; }
+        modify("Job Task No.") { Visible = false; }
         modify(Type) { Visible = false; }
-        // modify("Work Type Code") { Visible = true; }
         modify("Unit of Measure Code") { Visible = false; }
         modify("Unit Cost") { Visible = false; }
         modify("Total Cost") { Visible = false; }
         modify("Unit Price") { Visible = false; }
 
-
-        addafter("Work Type Code")
-        {
-            field("Work Type Code ASL"; Rec."Work Type Code ASL")
-            {
-                ApplicationArea = all;
-            }
-        }
 
         addafter(CurrentJnlBatchName)
         {
@@ -29,6 +20,17 @@ pageextension 50242 "Job Journal Ext" extends "Job Journal"
                 Importance = Additional;
                 TableRelation = "Job Journal Batch".Name;
                 ApplicationArea = All;
+            }
+        }
+        addafter("Work Type Code")
+        {
+            field("Work Type Code ASL"; Rec."Work Type Code ASL")
+            {
+                ApplicationArea = all;
+            }
+            field("Work Type Code ASL2"; Rec."Work Type Code ASL")
+            {
+                ApplicationArea = all;
             }
         }
         addafter(Quantity)
@@ -397,7 +399,7 @@ pageextension 50242 "Job Journal Ext" extends "Job Journal"
                     JobJournalLine.Code1 := JobcatchDefault.Code;
                     JobJournalLine.Pack := JobcatchDefault."Pack Size";
                     JobJournalLine.Brand := JobcatchDefault.Brand;
-                    JobJournalLine."Job Task No.":= 'Temp';
+                    JobJournalLine."Job Task No." := 'Temp';
                     if UnitofMeasure.Get(JobJournalLine.Pack) then UnitofMeasureCd := UnitofMeasure."Catch Code"; //Get Unit of measure Code
                     ITVars := Format(JobJournalLine.Code1) + UnitofMeasureCd + CopyStr(JobJournalLine.Brand, 1, 1);   //Requip Code Name
                     JobJournalLine.Validate(JobJournalLine."No.", ITVars);         //Updates JobJournalLine."Task Code"
