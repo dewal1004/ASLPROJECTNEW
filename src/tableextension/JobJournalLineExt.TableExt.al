@@ -131,7 +131,7 @@ tableextension 50241 "Job Journal Line Ext" extends "Job Journal Line"
         }
         field(50330; "Work Type Code ASL"; Code[20])
         {
-            Caption = 'Work Type Code';
+            Caption = 'Work Type Code ASL';
             DataClassification = AccountData;
             TableRelation = IF (Type = CONST(Item)) "Item Category"
             else

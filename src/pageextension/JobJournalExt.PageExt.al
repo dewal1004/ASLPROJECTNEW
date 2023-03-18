@@ -5,12 +5,12 @@ pageextension 50242 "Job Journal Ext" extends "Job Journal"
         modify("Document No.") { Visible = false; }
         modify("Job No.") { Visible = false; }
         modify(Type) { Visible = false; }
-        modify("Work Type Code") { Visible = false; }
+        // modify("Work Type Code") { Visible = false; }
         modify("Unit of Measure Code") { Visible = false; }
         modify("Unit Cost") { Visible = false; }
         modify("Total Cost") { Visible = false; }
         modify("Unit Price") { Visible = false; }
-        
+
 
         addafter("Work Type Code")
         {
