@@ -10,7 +10,7 @@
             "serverInstance": "BC180",
             "authentication": "Windows",
             "port": 7049,
-            "startupObjectId": 210, //50062,// 201,// 50054,// 1007,// 
+            "startupObjectId": 201, //50062,// 201,// 50054,// 1007,// 
             "startupObjectType": "Page", // "Report",//  
             "breakOnError": true,
             "launchBrowser": true,
