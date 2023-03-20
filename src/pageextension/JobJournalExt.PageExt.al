@@ -22,7 +22,7 @@ pageextension 50242 "Job Journal Ext" extends "Job Journal"
                 ApplicationArea = All;
             }
         }
-        addbefore("Work Type Code")
+        addbefore(Description)
         {
             field("Work Type Code ASL"; Rec."Work Type Code ASL")
             {
