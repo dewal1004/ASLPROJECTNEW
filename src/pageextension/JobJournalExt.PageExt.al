@@ -11,6 +11,7 @@ pageextension 50242 "Job Journal Ext" extends "Job Journal"
         modify("Unit Cost") { Visible = false; }
         modify("Total Cost") { Visible = false; }
         modify("Unit Price") { Visible = false; }
+        modify("Work Type Code") {Visible = false; }
 
 
         addafter(CurrentJnlBatchName)
