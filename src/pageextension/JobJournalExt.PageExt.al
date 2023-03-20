@@ -214,7 +214,7 @@ pageextension 50242 "Job Journal Ext" extends "Job Journal"
     //Variable type has not been exported.
 
 
-    //Unsupported feature: Property Modification (Id) on "DimVisible2(Variable 1015)".
+    //Unsupported feature: Property Modification (Id) on "DimVisible2(Variable 1015)".//
 
     //var
     //>>>> ORIGINAL VALUE:
