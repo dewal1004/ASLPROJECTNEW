@@ -397,7 +397,7 @@ pageextension 50242 "Job Journal Ext" extends "Job Journal"
                     JobJournalLine.Brand := JobcatchDefault.Brand;
                     JobJournalLine."Job Task No." := 'Temp';
                     if UnitofMeasure.Get(JobJournalLine.Pack) then UnitofMeasureCd := UnitofMeasure."Catch Code"; //Get Unit of measure Code
-                    ITVars := Format(JobJournalLine.Code1) + UnitofMeasureCd + CopyStr(JobJournalLine.Brand, 1, 1);   //Requip Code Name
+                    ITVars := Format(JobJournalLi ne.Code1) + UnitofMeasureCd + CopyStr(JobJournalLine.Brand, 1, 1);   //Requip Code Name
                     JobJournalLine.Validate(JobJournalLine."No.", ITVars);         //Updates JobJournalLine."Task Code"
                     JobJournalLine.Validate(JobJournalLine."Location Code", JBat.Name);
                     //JobJournalLine."Phase Code":=JBat."Fishing Ground";
