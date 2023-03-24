@@ -269,6 +269,7 @@ tableextension 50241 "Job Journal Line Ext" extends "Job Journal Line"
         RecCount: Integer;
         JobTask: Record "Job Task";
         ItemCat: Record "Item Category";
+        ItemC: Record item;
     begin
 
         if JBat.Get("Journal Template Name", "Journal Batch Name") then begin
@@ -308,16 +309,17 @@ tableextension 50241 "Job Journal Line Ext" extends "Job Journal Line"
                     if UOM.Get(JJLine.Pack) then UOMCd := UOM."Catch Code"; //Get Unit of measure Code
                     ITVars := Format(JJLine.Code1) + UOMCd + CopyStr(JJLine.Brand, 1, 1);   //Requip Code Name
                     JJLine.Validate(JJLine."No.", ITVars);
-                    items.Get(JJLine."No.");
-                    if ItemCat.Get(Item."Item Category Code") then begin
+                    ItemC.Get(JJLine."No.");
+                    if ItemCat.Get(ItemC."Item Category Code") then begin
                         if ItemCat."Parent Category" <> '' then
                             JJLine.Validate("Task Code", ItemCat."Parent Category")
                         else
                             JJLine.Validate("Task Code", ItemCat.code);
                     end else
-                        JJLine.Validate("Task Code", items."Item Category Code");
-                    JJLine.Validate("Unit Price", items.Points);
+                        JJLine.Validate("Task Code", ItemC."Item Category Code");
+                    JJLine.Validate("Unit Price", itemC.Points);
                     JJLine.Validate(JJLine."Location Code", JBat.Name);
+                    JJLine."Statistics Group" := ItemC."Statistics Group";
                     if JobTask.FindFirst then
                         Jobtask_No := JobTask."Job Task No.";
                     JJLine.Validate("Job Task No.", Jobtask_No);
