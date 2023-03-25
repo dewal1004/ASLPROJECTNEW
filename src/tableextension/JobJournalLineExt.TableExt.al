@@ -11,301 +11,14 @@ tableextension 50241 "Job Journal Line Ext" extends "Job Journal Line"
             ELSE
             IF ("External Document No." = FILTER(<> '')) Location WHERE("Location Type" = CONST(Vessel));
         }
-        modify("Work Type Code") 
+
+        modify("Work Type Code")
         {
-            TableRelation = if (Type = const(Item)) "Item Category"
+            TableRelation = IF (Type = CONST(Item)) "Item Category"
             else
-                "Work Type";
-        }
-        modify("No.")
-        {
-            trigger onaftervalidate()
-            var
-                //myInt: Integer;
-                item: Record Item;
-                itemCat: Record "Item Category";
-            begin
-                if Type = type::Item then 
-                begin
-                item.Get("No.");
-                    if ItemCat.Get(Item."Item Category Code") then
-                    begin
-                        if ItemCat."Parent Category" <> '' then 
-                            Validate("Task Code",ItemCat."Parent Category")
-                        else
-                            Validate("Task Code",ItemCat.code);
-                         "Work Type Code" := item."Item Category Code";  
-                    end;
-                    "Statistics Group":=Item."Statistics Group";
-                end;                    
-            end;
+            "Work Type";
         }
 
-        //Unsupported feature: Property Modification (Data type) on ""Journal Batch Name"(Field 73)".
-
-
-        //Unsupported feature: Code Modification on ""Job No."(Field 3).OnValidate".
-
-        //trigger "(Field 3)()
-        //Parameters and return type have not been exported.
-        //>>>> ORIGINAL CODE:
-        //begin
-        /*
-        if "Job No." = '' then begin
-          Validate("Currency Code",'');
-          Validate("Job Task No.",'');
-        #4..13
-        OnValidateJobNoOnBeforeCheckJob(Rec,xRec,Cust,IsHandled);
-        if not IsHandled then begin
-          Job.TestField("Bill-to Customer No.");
-          Cust.Get(Job."Bill-to Customer No.");
-          Validate("Job Task No.",'');
-        end;
-        "Customer Price Group" := Job."Customer Price Group";
-        Validate("Currency Code",Job."Currency Code");
-        CreateDim(
-          DATABASE::Job,"Job No.",
-          DimMgt.TypeToTableID2(Type),"No.",
-          DATABASE::"Resource Group","Resource Group No.");
-        Validate("Country/Region Code",Job."Bill-to Country/Region Code");
-        */
-        //end;
-        //>>>> MODIFIED CODE:
-        //begin
-        /*
-        #1..16
-          Job.TestField(Status,Job.Status::"Voyage Start");
-          Cust.Get(Job."Bill-to Customer No.");
-          JobTask.SetRange("Job No.","Job No.");
-        if JobTask.FindFirst then
-          Validate("Job Task No.",JobTask."Job Task No.")
-        else
-        #18..21
-        Validate("Posting Date",Job."Ending Date");
-        Validate("Phase Code",Job.Vessel);
-        "Vessel Type" := Job."Vessel Type";
-        #22..25
-
-        Validate("Country/Region Code",Job."Bill-to Country/Region Code");
-        if (Type = Type::Item) and ("No." <> '') then
-        GLAcc."Global Dimension 2 Code":=Job."Global Dimension 2 Code";
-        */
-        //end;
-
-
-        //Unsupported feature: Code Insertion on ""No."(Field 8)".
-
-        //trigger OnLookup(var Text: Text): Boolean
-        //begin
-        /*
-        if "Location Code" = '' then
-        */
-        //end;
-
-
-        //Unsupported feature: Code Modification on ""No."(Field 8).OnValidate".
-
-        //trigger "(Field 8)()
-        //Parameters and return type have not been exported.
-        //>>>> ORIGINAL CODE:
-        //begin
-        /*
-        if ("No." = '') or ("No." <> xRec."No.") then begin
-          Description := '';
-          "Unit of Measure Code" := '';
-        #4..14
-            exit;
-          end
-        end;
-
-        case Type of
-          Type::Resource:
-            CopyFromResource;
-          Type::Item:
-            CopyFromItem;
-          Type::"G/L Account":
-            CopyFromGLAccount;
-        end;
-
-        Validate(Quantity);
-        UpdateDimensions;
-        */
-        //end;
-        //>>>> MODIFIED CODE:
-        //begin
-        /*
-        #1..17
-        "Work Type Code":=Item."Item Category Code"; //AAA-Nov 2001
-
-            //IF Item."Gen. Prod. Posting Group"='FIS' THEN "Unit Price" := Item.Points; //AAA-Jan 2002
-            if Item."Gen. Prod. Posting Group"='FIS' then
-            FindItemPoints; //santus 12-01-14
-            "Statistics Group":=Item."Statistics Group";
-            WorkTypeCode("No.");
-        #18..22
-            begin
-              GetItem;
-              //FindItemPrice;
-              CheckItemAvailable;
-              "Work Type Code":=Item."Item Category Code"; //AAA-Nov 2001
-              "Task Code":=Item."Product Group Code";  //AAA-Jan 2002
-              "Statistics Group":=Item."Statistics Group";
-              //IF Item."Gen. Prod. Posting Group"='FIS' THEN "Unit Price" := Item.Points; //AAA-Jan 2002
-              if Item."Gen. Prod. Posting Group"='FIS' then
-                FindItemPoints; //santus 12-01-14
-              "Statistics Group":=Item."Statistics Group";
-              WorkTypeCode("No.");
-
-             // VALIDATE("Task Code",Item."Product Group Code");
-            CopyFromItem;
-            end;
-        #24..26
-        //AAA1-  Nov 2001        //Location Fixg
-          //InvtrSetUp.GET;
-          //"Location Code":=InvtrSetUp."Default Cold Room";
-          if "Location Code" = '' then
-          if User.Get(UserId) then
-            if  User."Shortcut Dimension 1 Code"='MRKT' then begin
-              InvtrSetUp.Get;
-              "Location Code":=InvtrSetUp."Default Cold Room";
-            end else
-              if (Job.Get("Job No.")) and (Job.Vessel<>'') then
-                "Location Code":=Job.Vessel;
-
-          //AAA/May 21/2002
-          if (Type = Type::Item) and ("No." <> '') then
-          begin
-          GLAcc."Global Dimension 2 Code":=Job."Global Dimension 2 Code";
-          //"Variant Code":=Job."Global Dimension 2 Code"  //June 2002 end variant use
-
-          end;
-        Validate(Quantity);
-        UpdateDimensions;
-        */
-        //end;
-
-
-        //Unsupported feature: Code Modification on ""Unit of Measure Code"(Field 18).OnValidate".
-
-        //trigger OnValidate()
-        //Parameters and return type have not been exported.
-        //>>>> ORIGINAL CODE:
-        //begin
-        /*
-        GetGLSetup;
-        case Type of
-          Type::Item:
-        #4..30
-            end;
-        end;
-        Validate(Quantity);
-        */
-        //end;
-        //>>>> MODIFIED CODE:
-        //begin
-        /*
-        #1..33
-         //AAA-DEC-2001
-        //IF "Work Type Code"='CTH' THEN "Bin Code":="Unit of Measure Code";
-        //VALIDATE("Variant Code","Shortcut Dimension 2 Code");
-        */
-        //end;
-
-
-        //Unsupported feature: Code Modification on ""Location Code"(Field 21).OnValidate".
-
-        //trigger OnValidate()
-        //Parameters and return type have not been exported.
-        //>>>> ORIGINAL CODE:
-        //begin
-        /*
-        "Bin Code" := '';
-        if "Location Code" <> '' then
-          if IsNonInventoriableItem then
-            Item.TestField(Type,Item.Type::Inventory);
-        GetLocation("Location Code");
-        Location.TestField("Directed Put-away and Pick",false);
-        Validate(Quantity);
-        */
-        //end;
-        //>>>> MODIFIED CODE:
-        //begin
-        /*
-        "Bin Code" := '';
-        //IF Type = Type::Item THEN BEGIN
-        #2..7
-        */
-        //end;
-
-
-        //Unsupported feature: Code Modification on ""Dimension Set ID"(Field 480).OnLookup".
-
-        //trigger OnLookup(var Text: Text): Boolean
-        //>>>> ORIGINAL CODE:
-        //begin
-        /*
-        ShowDimensions;
-        */
-        //end;
-        //>>>> MODIFIED CODE:
-        //begin
-        /*
-        //ShowDimensions;  #1
-        */
-        //end;
-
-
-        //Unsupported feature: Code Modification on ""Variant Code"(Field 5402).OnValidate".
-
-        //trigger OnValidate()
-        //Parameters and return type have not been exported.
-        //>>>> ORIGINAL CODE:
-        //begin
-        /*
-        if "Variant Code" = '' then begin
-          if Type = Type::Item then begin
-            Item.Get("No.");
-        #4..10
-        TestField(Type,Type::Item);
-
-        ItemVariant.Get("No.","Variant Code");
-        Description := ItemVariant.Description;
-        "Description 2" := ItemVariant."Description 2";
-
-        Validate(Quantity);
-        */
-        //end;
-        //>>>> MODIFIED CODE:
-        //begin
-        /*
-        #1..13
-        if ItemVariant.Description<>''  then      ///AAA-Nov 2001
-        #14..17
-        */
-        //end;
-
-
-        //Unsupported feature: Code Modification on ""Bin Code"(Field 5403).OnLookup".
-
-        //trigger OnLookup(var Text: Text): Boolean
-        //>>>> ORIGINAL CODE:
-        //begin
-        /*
-        TestField("Location Code");
-        TestField(Type,Type::Item);
-        BinCode := WMSManagement.BinContentLookUp("Location Code","No.","Variant Code",'',"Bin Code");
-        if BinCode <> '' then
-          Validate("Bin Code",BinCode);
-        */
-        //end;
-        //>>>> MODIFIED CODE:
-        //begin
-        /*
-        #1..5
-        //AAA-DEC-2001
-        "Unit of Measure Code":="Bin Code";
-        */
-        //end;
         field(50300; Catch; Decimal)
         {
             DecimalPlaces = 0 : 5;
@@ -423,6 +136,19 @@ tableextension 50241 "Job Journal Line Ext" extends "Job Journal Line"
         {
             Description = 'Total sea day on a day that there is a catch';
         }
+        field(50330; "Work Type Code ASL"; Code[20])
+        {
+            Caption = 'Work Type Code ASL';
+            DataClassification = AccountData;
+            TableRelation = IF (Type = CONST(Item)) "Item Category"
+            else
+            "Work Type";
+
+            trigger OnValidate()
+            begin
+                "Work Type Code" := "Work Type Code ASL";
+            end;
+        }
         field(50333; "Work Type Code Sort"; Code[15])
         {
             Caption = 'Work Type Code Sort';
@@ -536,59 +262,6 @@ tableextension 50241 "Job Journal Line Ext" extends "Job Journal Line"
         GLSetup: Record "General Ledger Setup";
         ItemCat: Record "Item Category";
 
-    procedure "-------------"()
-    begin
-    end;
-
-    procedure Syntesis(Cd: Code[10]; Pk: Code[10]; Br: Code[10]) Itemno: Code[10]
-    begin
-        //Syntesis Item Code Name
-        //Get Unit of measure Code
-        if UOM.Get(Pk) then UOMCd := UOM."Catch Code";
-        //Requip Code Name
-        ItemVar := Format(Cd) + UOMCd + CopyStr(Br, 1, 1);
-        "No." := ItemVar;
-    end;
-
-    procedure WorkTypeCode(var Nos: Code[10])
-    begin
-        if items.Get(Nos) then
-            if InvPostGrp.Get(items."Inventory Posting Group") then
-                "Work Type Code Sort" := InvPostGrp.Category;
-    end;
-
-    procedure StockTillDate(JJLn: Record "Job Journal Line"): Decimal
-    var
-        Items: Record Item;
-    begin
-        if Items.Get(JJLn."No.") then begin
-            Items.SetFilter(Items."Location Filter", JJLn."Location Code");
-            Items.SetFilter(Items."Date Filter", '..%1', JJLn."Posting Date");
-            Items.CalcFields(Items.Inventory);
-            exit(Items.Inventory / JJLn."Qty. per Unit of Measure");
-        end else
-            exit(99999);
-    end;
-
-    procedure FindItemPoints()
-    begin
-        ItemPoints.Init;
-        ItemPoints."Item No." := "No.";
-        ItemPoints."Price Group Code" := "Customer Price Group";
-        ItemPoints."Unit of Measure Code" := "Unit of Measure Code";
-        ItemPoints."Starting Date" := "Posting Date";
-        ItemFindPoints.Run(ItemPoints);
-        ItemPoints.TestField("Price Includes VAT", false);
-        //***GetGLSetup;
-        "Unit Price" := ItemPoints."Unit Price";
-        if ItemPoints."Unit of Measure Code" = '' then
-            "Unit Price" :=
-              Round(
-                "Unit Price" * "Qty. per Unit of Measure",
-                GLSetup."Unit-Amount Rounding Precision");
-        Validate("Unit Price");
-    end;
-
     procedure ClearCatch()
     var
         //***DocPrint: Codeunit "Document-Print";
@@ -596,6 +269,7 @@ tableextension 50241 "Job Journal Line Ext" extends "Job Journal Line"
         RecCount: Integer;
         JobTask: Record "Job Task";
         ItemCat: Record "Item Category";
+        ItemC: Record item;
     begin
 
         if JBat.Get("Journal Template Name", "Journal Batch Name") then begin
@@ -635,16 +309,17 @@ tableextension 50241 "Job Journal Line Ext" extends "Job Journal Line"
                     if UOM.Get(JJLine.Pack) then UOMCd := UOM."Catch Code"; //Get Unit of measure Code
                     ITVars := Format(JJLine.Code1) + UOMCd + CopyStr(JJLine.Brand, 1, 1);   //Requip Code Name
                     JJLine.Validate(JJLine."No.", ITVars);
-                    items.Get(JJLine."No.");
-                    if ItemCat.Get(Item."Item Category Code") then begin
+                    ItemC.Get(JJLine."No.");
+                    if ItemCat.Get(ItemC."Item Category Code") then begin
                         if ItemCat."Parent Category" <> '' then
                             JJLine.Validate("Task Code", ItemCat."Parent Category")
                         else
                             JJLine.Validate("Task Code", ItemCat.code);
                     end else
-                        JJLine.Validate("Task Code", items."Item Category Code");
-                    JJLine.Validate("Unit Price", items.Points);
+                        JJLine.Validate("Task Code", ItemC."Item Category Code");
+                    JJLine.Validate("Unit Price", itemC.Points);
                     JJLine.Validate(JJLine."Location Code", JBat.Name);
+                    JJLine."Statistics Group" := ItemC."Statistics Group";
                     if JobTask.FindFirst then
                         Jobtask_No := JobTask."Job Task No.";
                     JJLine.Validate("Job Task No.", Jobtask_No);
@@ -678,7 +353,6 @@ tableextension 50241 "Job Journal Line Ext" extends "Job Journal Line"
         Window: Dialog;
         RecCount: Integer;
         JobTask: Record "Job Task";
-        ItemCat: Record "Item Category";
     begin
         //Batch introduced by SHOD
         if JBat.Get("Journal Template Name", "Journal Batch Name") then begin
@@ -705,19 +379,10 @@ tableextension 50241 "Job Journal Line Ext" extends "Job Journal Line"
                     end;
                     JJLine.Validate(JJLine.Catch, 0);
                     if items.Get(JJLine."No.") then
-                    begin
                         if items."Unit Cost" <> 0 then
                             JJLine.Validate(JJLine."Unit Cost", items."Unit Cost")
                         else
                             JJLine.Validate(JJLine."Unit Cost", items.Points);
-                    if ItemCat.Get(Item."Item Category Code") then
-                    begin
-                        if ItemCat."Parent Category" <> '' then 
-                            JJLine.Validate("Task Code",ItemCat."Parent Category")
-                        else
-                            JJLine.Validate("Task Code",ItemCat.code);
-                    end;
-                    end;                   
                     JJLine.Validate(JJLine."Unit Cost", 0);  // Unit cost must be zero
                     JJLine.Validate(JJLine."Shortcut Dimension 2 Code", JBat."Global Dimension 2 Code");
                     JJLine."Phase Code" := JBat."Fishing Ground";
@@ -735,15 +400,357 @@ tableextension 50241 "Job Journal Line Ext" extends "Job Journal Line"
         end;
     end;
 
-    //Unsupported feature: Code Modification on "OnInsert".
+    procedure FindItemPoints()
+    begin
+        ItemPoints.Init;
+        ItemPoints."Item No." := "No.";
+        ItemPoints."Price Group Code" := "Customer Price Group";
+        ItemPoints."Unit of Measure Code" := "Unit of Measure Code";
+        ItemPoints."Starting Date" := "Posting Date";
+        ItemFindPoints.Run(ItemPoints);
+        ItemPoints.TestField("Price Includes VAT", false);
+        //***GetGLSetup;
+        "Unit Price" := ItemPoints."Unit Price";
+        if ItemPoints."Unit of Measure Code" = '' then
+            "Unit Price" :=
+              Round(
+                "Unit Price" * "Qty. per Unit of Measure",
+                GLSetup."Unit-Amount Rounding Precision");
+        Validate("Unit Price");
+    end;
 
-    //trigger OnInsert()
-    //>>>> ORIGINAL CODE:
-    //begin
-    /*
-    LockTable;
-    JobJnlTemplate.Get("Journal Template Name");
-    JobJnlBatch.Get("Journal Template Name","Journal Batch Name");
+    procedure FindItemPrice()
+    begin
+        /*
+        FindSalesLinePrice.INIT;
+        FindSalesLinePrice."Item No." := "No.";
+        //ItemPrice."Price Group Code" := "Price Group Code";
+        FindSalesLinePrice."Sales Code" := "Customer Price Group";
+        FindSalesLinePrice."Unit of Measure Code" := "Unit of Measure Code";
+        FindSalesLinePrice."Starting Date" := "Posting Date";
+        PriceCalcMgt.RUN(FindSalesLinePrice);
+        ItemPrice.TESTFIELD("Price Includes VAT",FALSE);
+        GetGLSetup;
+        "Unit Price" := ItemPrice."Unit Price";
+        IF ItemPrice."Unit of Measure Code" = '' THEN
+          "Unit Price" :=
+            ROUND(
+              "Unit Price" * "Qty. per Unit of Measure",
+              GLSetup."Unit-Amount Rounding Precision");
+        VALIDATE("Unit Price");
+        */
+
+    end;
+
+    procedure StockTillDate(JJLn: Record "Job Journal Line"): Decimal
+    var
+        Items: Record Item;
+    begin
+        if Items.Get(JJLn."No.") then begin
+            Items.SetFilter(Items."Location Filter", JJLn."Location Code");
+            Items.SetFilter(Items."Date Filter", '..%1', JJLn."Posting Date");
+            Items.CalcFields(Items.Inventory);
+            exit(Items.Inventory / JJLn."Qty. per Unit of Measure");
+        end else
+            exit(99999);
+    end;
+
+    procedure Syntesis(Cd: Code[10]; Pk: Code[10]; Br: Code[10]) Itemno: Code[10]
+    begin
+        //Syntesis Item Code Name
+        //Get Unit of measure Code
+        if UOM.Get(Pk) then UOMCd := UOM."Catch Code";
+        //Requip Code Name
+        ItemVar := Format(Cd) + UOMCd + CopyStr(Br, 1, 1);
+        "No." := ItemVar;
+    end;
+
+    procedure WorkTypeCode(var Nos: Code[10])
+    begin
+        if items.Get(Nos) then
+            if InvPostGrp.Get(items."Inventory Posting Group") then
+                "Work Type Code Sort" := InvPostGrp.Category;
+    end;
+}
+
+//Standard fields unresolved modifications
+
+//Unsupported feature: Property Modification (Data type) on ""Journal Batch Name"(Field 73)".
+
+
+//Unsupported feature: Code Modification on ""Job No."(Field 3).OnValidate".
+
+//trigger "(Field 3)()
+//Parameters and return type have not been exported.
+//>>>> ORIGINAL CODE:
+//begin
+/*
+if "Job No." = '' then begin
+  Validate("Currency Code",'');
+  Validate("Job Task No.",'');
+#4..13
+OnValidateJobNoOnBeforeCheckJob(Rec,xRec,Cust,IsHandled);
+if not IsHandled then begin
+  Job.TestField("Bill-to Customer No.");
+  Cust.Get(Job."Bill-to Customer No.");
+  Validate("Job Task No.",'');
+end;
+"Customer Price Group" := Job."Customer Price Group";
+Validate("Currency Code",Job."Currency Code");
+CreateDim(
+  DATABASE::Job,"Job No.",
+  DimMgt.TypeToTableID2(Type),"No.",
+  DATABASE::"Resource Group","Resource Group No.");
+Validate("Country/Region Code",Job."Bill-to Country/Region Code");
+*/
+//end;
+//>>>> MODIFIED CODE:
+//begin
+/*
+#1..16
+  Job.TestField(Status,Job.Status::"Voyage Start");
+  Cust.Get(Job."Bill-to Customer No.");
+  JobTask.SetRange("Job No.","Job No.");
+if JobTask.FindFirst then
+  Validate("Job Task No.",JobTask."Job Task No.")
+else
+#18..21
+Validate("Posting Date",Job."Ending Date");
+Validate("Phase Code",Job.Vessel);
+"Vessel Type" := Job."Vessel Type";
+#22..25
+
+Validate("Country/Region Code",Job."Bill-to Country/Region Code");
+if (Type = Type::Item) and ("No." <> '') then
+GLAcc."Global Dimension 2 Code":=Job."Global Dimension 2 Code";
+*/
+//end;
+
+
+//Unsupported feature: Code Insertion on ""No."(Field 8)".
+
+//trigger OnLookup(var Text: Text): Boolean
+//begin
+/*
+if "Location Code" = '' then
+*/
+//end;
+
+
+//Unsupported feature: Code Modification on ""No."(Field 8).OnValidate".
+
+//trigger "(Field 8)()
+//Parameters and return type have not been exported.
+//>>>> ORIGINAL CODE:
+//begin
+/*
+if ("No." = '') or ("No." <> xRec."No.") then begin
+  Description := '';
+  "Unit of Measure Code" := '';
+#4..14
+    exit;
+  end
+end;
+
+case Type of
+  Type::Resource:
+    CopyFromResource;
+  Type::Item:
+    CopyFromItem;
+  Type::"G/L Account":
+    CopyFromGLAccount;
+end;
+
+Validate(Quantity);
+UpdateDimensions;
+*/
+//end;
+//>>>> MODIFIED CODE:
+//begin
+/*
+#1..17
+"Work Type Code":=Item."Item Category Code"; //AAA-Nov 2001
+
+    //IF Item."Gen. Prod. Posting Group"='FIS' THEN "Unit Price" := Item.Points; //AAA-Jan 2002
+    if Item."Gen. Prod. Posting Group"='FIS' then
+    FindItemPoints; //santus 12-01-14
+    "Statistics Group":=Item."Statistics Group";
+    WorkTypeCode("No.");
+#18..22
+    begin
+      GetItem;
+      //FindItemPrice;
+      CheckItemAvailable;
+      "Work Type Code":=Item."Item Category Code"; //AAA-Nov 2001
+      "Task Code":=Item."Product Group Code";  //AAA-Jan 2002
+      "Statistics Group":=Item."Statistics Group";
+      //IF Item."Gen. Prod. Posting Group"='FIS' THEN "Unit Price" := Item.Points; //AAA-Jan 2002
+      if Item."Gen. Prod. Posting Group"='FIS' then
+        FindItemPoints; //santus 12-01-14
+      "Statistics Group":=Item."Statistics Group";
+      WorkTypeCode("No.");
+
+     // VALIDATE("Task Code",Item."Product Group Code");
+    CopyFromItem;
+    end;
+#24..26
+//AAA1-  Nov 2001        //Location Fixg
+  //InvtrSetUp.GET;
+  //"Location Code":=InvtrSetUp."Default Cold Room";
+  if "Location Code" = '' then
+  if User.Get(UserId) then
+    if  User."Shortcut Dimension 1 Code"='MRKT' then begin
+      InvtrSetUp.Get;
+      "Location Code":=InvtrSetUp."Default Cold Room";
+    end else
+      if (Job.Get("Job No.")) and (Job.Vessel<>'') then
+        "Location Code":=Job.Vessel;
+
+  //AAA/May 21/2002
+  if (Type = Type::Item) and ("No." <> '') then
+  begin
+  GLAcc."Global Dimension 2 Code":=Job."Global Dimension 2 Code";
+  //"Variant Code":=Job."Global Dimension 2 Code"  //June 2002 end variant use
+
+  end;
+Validate(Quantity);
+UpdateDimensions;
+*/
+//end;
+
+
+//Unsupported feature: Code Modification on ""Unit of Measure Code"(Field 18).OnValidate".
+
+//trigger OnValidate()
+//Parameters and return type have not been exported.
+//>>>> ORIGINAL CODE:
+//begin
+/*
+GetGLSetup;
+case Type of
+  Type::Item:
+#4..30
+    end;
+end;
+Validate(Quantity);
+*/
+//end;
+//>>>> MODIFIED CODE:
+//begin
+/*
+#1..33
+ //AAA-DEC-2001
+//IF "Work Type Code"='CTH' THEN "Bin Code":="Unit of Measure Code";
+//VALIDATE("Variant Code","Shortcut Dimension 2 Code");
+*/
+//end;
+
+
+//Unsupported feature: Code Modification on ""Location Code"(Field 21).OnValidate".
+
+//trigger OnValidate()
+//Parameters and return type have not been exported.
+//>>>> ORIGINAL CODE:
+//begin
+/*
+"Bin Code" := '';
+if "Location Code" <> '' then
+  if IsNonInventoriableItem then
+    Item.TestField(Type,Item.Type::Inventory);
+GetLocation("Location Code");
+Location.TestField("Directed Put-away and Pick",false);
+Validate(Quantity);
+*/
+//end;
+//>>>> MODIFIED CODE:
+//begin
+/*
+"Bin Code" := '';
+//IF Type = Type::Item THEN BEGIN
+#2..7
+*/
+//end;
+
+
+//Unsupported feature: Code Modification on ""Dimension Set ID"(Field 480).OnLookup".
+
+//trigger OnLookup(var Text: Text): Boolean
+//>>>> ORIGINAL CODE:
+//begin
+/*
+ShowDimensions;
+*/
+//end;
+//>>>> MODIFIED CODE:
+//begin
+/*
+//ShowDimensions;  #1
+*/
+//end;
+
+
+//Unsupported feature: Code Modification on ""Variant Code"(Field 5402).OnValidate".
+
+//trigger OnValidate()
+//Parameters and return type have not been exported.
+//>>>> ORIGINAL CODE:
+//begin
+/*
+if "Variant Code" = '' then begin
+  if Type = Type::Item then begin
+    Item.Get("No.");
+#4..10
+TestField(Type,Type::Item);
+
+ItemVariant.Get("No.","Variant Code");
+Description := ItemVariant.Description;
+"Description 2" := ItemVariant."Description 2";
+
+Validate(Quantity);
+*/
+//end;
+//>>>> MODIFIED CODE:
+//begin
+/*
+#1..13
+if ItemVariant.Description<>''  then      ///AAA-Nov 2001
+#14..17
+*/
+//end;
+
+
+//Unsupported feature: Code Modification on ""Bin Code"(Field 5403).OnLookup".
+
+//trigger OnLookup(var Text: Text): Boolean
+//>>>> ORIGINAL CODE:
+//begin
+/*
+TestField("Location Code");
+TestField(Type,Type::Item);
+BinCode := WMSManagement.BinContentLookUp("Location Code","No.","Variant Code",'',"Bin Code");
+if BinCode <> '' then
+  Validate("Bin Code",BinCode);
+*/
+//end;
+//>>>> MODIFIED CODE:
+//begin
+/*
+#1..5
+//AAA-DEC-2001
+"Unit of Measure Code":="Bin Code";
+*/
+//end;
+
+
+//Unsupported feature: Code Modification on "OnInsert".
+
+//trigger OnInsert()
+//>>>> ORIGINAL CODE:
+//begin
+/*
+LockTable;
+JobJnlTemplate.Get("Journal Template Name");
+JobJnlBatch.Get("Journal Template Name","Journal Batch Name");
 
 ValidateShortcutDimCode(1,"Shortcut Dimension 1 Code");
 ValidateShortcutDimCode(2,"Shortcut Dimension 2 Code");
@@ -834,15 +841,13 @@ end else begin
   "Line Discount Amount (LCY)" := 0;
 end;
 
-    OnAfterUpdateAmountsAndDiscounts(Rec);
-    */
-    //end;
-    //>>>> MODIFIED CODE:
-    //begin
-    /*
-    #1..26
-    #29..31
-    */
-    //end;
-}
-
+OnAfterUpdateAmountsAndDiscounts(Rec);
+*/
+//end;
+//>>>> MODIFIED CODE:
+//begin
+/*
+#1..26
+#29..31
+*/
+//end;

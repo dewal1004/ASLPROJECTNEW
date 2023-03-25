@@ -10,8 +10,8 @@
             "serverInstance": "BC180",
             "authentication": "Windows",
             "port": 7049,
-            "startupObjectId": 50062,// 201,// 50054,// 1007,// 
-            "startupObjectType": "Report",// "Page", // 
+            "startupObjectId": 201, //50062,// 201,// 50054,// 1007,// 
+            "startupObjectType": "Page", // "Report",//  
             "breakOnError": true,
             "launchBrowser": true,
             "enableLongRunningSqlStatements": true,
