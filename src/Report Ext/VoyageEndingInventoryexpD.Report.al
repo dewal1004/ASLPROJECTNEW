@@ -248,6 +248,7 @@ report 50032 "Voyage Ending Inventory expD"
         Ile: Record "Item Ledger Entry";
         JobTask: Record "Job Task";
         Jobtask_No: Code[20];
+        ItemCat: Record "Item Category";
 
     [Scope('OnPrem')]
     procedure PickRunType()
@@ -311,6 +312,7 @@ report 50032 "Voyage Ending Inventory expD"
             WorkTypeCode(Items."No.");
             JobJL.Description := Items.Description;
             JobJL.Validate(JobJL.Quantity, Items.Inventory);
+            JobJL."Statistics Group" := Items."Statistics Group";
             JobJL.Validate(JobJL."Unit Cost (LCY)", 0);  //Sept 30,2002 Unit Cost is Zero
             JobJL."Reconciliation Catch Quantity" := Items.Inventory;
             JobJL."Gen. Prod. Posting Group" := Items."Gen. Prod. Posting Group";
@@ -320,7 +322,16 @@ report 50032 "Voyage Ending Inventory expD"
             JobJL."Shortcut Dimension 1 Code" := Job."Global Dimension 1 Code";
             JobJL."Posting Date" := Job."Ending Date";
             JobJL."Phase Code" := Job.Vessel;// &  u
-            JobJL."Task Code" := Item."Item Category Code";// &u
+            if ItemCat.Get(Items."Item Category Code") then 
+            begin
+                if ItemCat."Parent Category" <> '' then
+                JobJL."Task Code" := ItemCat."Parent Category"
+            else
+                JobJL."Task Code" := ItemCat.code;
+            end else
+                JobJL."Task Code" := Items."Item Category Code";
+
+            //JobJL."Task Code" := Item."Item Category Code";// &u
                                                            //  JobJL."Step Code":='0';// & u
             JobTask.SetRange("Job No.", JobJL."Job No.");
             if JobTask.FindFirst then
