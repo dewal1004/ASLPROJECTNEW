@@ -379,10 +379,13 @@ tableextension 50241 "Job Journal Line Ext" extends "Job Journal Line"
                     end;
                     JJLine.Validate(JJLine.Catch, 0);
                     if items.Get(JJLine."No.") then
+                    begin
+                        JJLine."Statistics Group" := items."Statistics Group";
                         if items."Unit Cost" <> 0 then
                             JJLine.Validate(JJLine."Unit Cost", items."Unit Cost")
                         else
                             JJLine.Validate(JJLine."Unit Cost", items.Points);
+                    end;        
                     JJLine.Validate(JJLine."Unit Cost", 0);  // Unit cost must be zero
                     JJLine.Validate(JJLine."Shortcut Dimension 2 Code", JBat."Global Dimension 2 Code");
                     JJLine."Phase Code" := JBat."Fishing Ground";
