@@ -7,9 +7,118 @@
         <DataProvider>SQL</DataProvider>
         <ConnectString />
       </ConnectionProperties>
-      <rd:SecurityType>None</rd:SecurityType>
+      <rd:DataSourceID>67025bbe-531e-422c-a162-1dcb1efbd98a</rd:DataSourceID>
     </DataSource>
   </DataSources>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+      <Fields>
+        <Field Name="FORMAT_TODAY_0_4_">
+          <DataField>FORMAT_TODAY_0_4_</DataField>
+        </Field>
+        <Field Name="COMPANYNAME">
+          <DataField>COMPANYNAME</DataField>
+        </Field>
+        <Field Name="CurrReport_PAGENO">
+          <DataField>CurrReport_PAGENO</DataField>
+        </Field>
+        <Field Name="USERID">
+          <DataField>USERID</DataField>
+        </Field>
+        <Field Name="Job__No__">
+          <DataField>Job__No__</DataField>
+        </Field>
+        <Field Name="Job__Starting_Date_">
+          <DataField>Job__Starting_Date_</DataField>
+        </Field>
+        <Field Name="v">
+          <DataField>v</DataField>
+        </Field>
+        <Field Name="Job_Vessel">
+          <DataField>Job_Vessel</DataField>
+        </Field>
+        <Field Name="Job__Global_Dimension_2_Code_">
+          <DataField>Job__Global_Dimension_2_Code_</DataField>
+        </Field>
+        <Field Name="JobCaption">
+          <DataField>JobCaption</DataField>
+        </Field>
+        <Field Name="CurrReport_PAGENOCaption">
+          <DataField>CurrReport_PAGENOCaption</DataField>
+        </Field>
+        <Field Name="Voyage_ConsumptionCaption">
+          <DataField>Voyage_ConsumptionCaption</DataField>
+        </Field>
+        <Field Name="Job__No__Caption">
+          <DataField>Job__No__Caption</DataField>
+        </Field>
+        <Field Name="Job__Starting_Date_Captions">
+          <DataField>Job__Starting_Date_Captions</DataField>
+        </Field>
+        <Field Name="Job__Ending_Date_Caption">
+          <DataField>Job__Ending_Date_Caption</DataField>
+        </Field>
+        <Field Name="Job_VesselCaption">
+          <DataField>Job_VesselCaption</DataField>
+        </Field>
+        <Field Name="Job__Global_Dimension_2_Code_Caption">
+          <DataField>Job__Global_Dimension_2_Code_Caption</DataField>
+        </Field>
+        <Field Name="ItemUOV_InventoryCaption">
+          <DataField>ItemUOV_InventoryCaption</DataField>
+        </Field>
+        <Field Name="Job_Bill_to_Customer_No_">
+          <DataField>Job_Bill_to_Customer_No_</DataField>
+        </Field>
+        <Field Name="ItemUOV__Inventory_Total_">
+          <DataField>ItemUOV__Inventory_Total_</DataField>
+        </Field>
+        <Field Name="ItemUOV__Inventory_Total_Format">
+          <DataField>ItemUOV__Inventory_Total_Format</DataField>
+        </Field>
+        <Field Name="ItemUOV__Inventory_Total2_">
+          <DataField>ItemUOV__Inventory_Total2_</DataField>
+        </Field>
+        <Field Name="ItemUOV__Inventory_Total2_Format">
+          <DataField>ItemUOV__Inventory_Total2_Format</DataField>
+        </Field>
+        <Field Name="ItemUOV__CRM___STR_">
+          <DataField>ItemUOV__CRM___STR_</DataField>
+        </Field>
+        <Field Name="ItemUOV__CRM___STR_Format">
+          <DataField>ItemUOV__CRM___STR_Format</DataField>
+        </Field>
+        <Field Name="ItemUOV_Description">
+          <DataField>ItemUOV_Description</DataField>
+        </Field>
+        <Field Name="ItemUOV__No__">
+          <DataField>ItemUOV__No__</DataField>
+        </Field>
+        <Field Name="ItemUOV_Inventory">
+          <DataField>ItemUOV_Inventory</DataField>
+        </Field>
+        <Field Name="ItemUOV_InventoryFormat">
+          <DataField>ItemUOV_InventoryFormat</DataField>
+        </Field>
+        <Field Name="ConsumptionCaption">
+          <DataField>ConsumptionCaption</DataField>
+        </Field>
+        <Field Name="ItemUOV__Inventory_Total_Caption">
+          <DataField>ItemUOV__Inventory_Total_Caption</DataField>
+        </Field>
+        <Field Name="ItemUOV__Inventory_Total2_Caption">
+          <DataField>ItemUOV__Inventory_Total2_Caption</DataField>
+        </Field>
+        <Field Name="ItemUOV__CRM___STR_Caption">
+          <DataField>ItemUOV__CRM___STR_Caption</DataField>
+        </Field>
+      </Fields>
+    </DataSet>
+  </DataSets>
   <ReportSections>
     <ReportSection>
       <Body>
@@ -409,7 +518,6 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -933,8 +1041,6 @@
                 <Style />
               </Paragraph>
             </Paragraphs>
-            <Top>0cm</Top>
-            <Left>0cm</Left>
             <Height>0.846cm</Height>
             <Width>7.5cm</Width>
             <ZIndex>1</ZIndex>
@@ -946,7 +1052,7 @@
         <Height>3.738cm</Height>
         <Style />
       </Body>
-      <Width>20.06117cm</Width>
+      <Width>10.98596cm</Width>
       <Page>
         <PageHeader>
           <Height>1.692cm</Height>
@@ -969,7 +1075,6 @@
                 </Paragraph>
               </Paragraphs>
               <Top>0.423cm</Top>
-              <Left>0cm</Left>
               <Height>0.423cm</Height>
               <Width>7.5cm</Width>
               <Style>
@@ -992,8 +1097,6 @@
                   <Style />
                 </Paragraph>
               </Paragraphs>
-              <Top>0cm</Top>
-              <Left>0cm</Left>
               <Height>0.423cm</Height>
               <Width>7.5cm</Width>
               <ZIndex>1</ZIndex>
@@ -1095,7 +1198,6 @@
                   </Style>
                 </Paragraph>
               </Paragraphs>
-              <Top>0cm</Top>
               <Left>7.60842cm</Left>
               <Height>0.423cm</Height>
               <Width>3.15cm</Width>
@@ -1120,6 +1222,12 @@
       </Page>
     </ReportSection>
   </ReportSections>
+  <ReportParametersLayout>
+    <GridLayoutDefinition>
+      <NumberOfColumns>4</NumberOfColumns>
+      <NumberOfRows>2</NumberOfRows>
+    </GridLayoutDefinition>
+  </ReportParametersLayout>
   <Code>Public Function BlankZero(ByVal Value As Decimal)
     if Value = 0 then
         Return ""
@@ -1158,113 +1266,5 @@ End Function
   <Language>=User!Language</Language>
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
-  <DataSets>
-    <DataSet Name="DataSet_Result">
-      <Fields>
-        <Field Name="FORMAT_TODAY_0_4_">
-          <DataField>FORMAT_TODAY_0_4_</DataField>
-        </Field>
-        <Field Name="COMPANYNAME">
-          <DataField>COMPANYNAME</DataField>
-        </Field>
-        <Field Name="CurrReport_PAGENO">
-          <DataField>CurrReport_PAGENO</DataField>
-        </Field>
-        <Field Name="USERID">
-          <DataField>USERID</DataField>
-        </Field>
-        <Field Name="Job__No__">
-          <DataField>Job__No__</DataField>
-        </Field>
-        <Field Name="Job__Starting_Date_">
-          <DataField>Job__Starting_Date_</DataField>
-        </Field>
-        <Field Name="v">
-          <DataField>v</DataField>
-        </Field>
-        <Field Name="Job_Vessel">
-          <DataField>Job_Vessel</DataField>
-        </Field>
-        <Field Name="Job__Global_Dimension_2_Code_">
-          <DataField>Job__Global_Dimension_2_Code_</DataField>
-        </Field>
-        <Field Name="JobCaption">
-          <DataField>JobCaption</DataField>
-        </Field>
-        <Field Name="CurrReport_PAGENOCaption">
-          <DataField>CurrReport_PAGENOCaption</DataField>
-        </Field>
-        <Field Name="Voyage_ConsumptionCaption">
-          <DataField>Voyage_ConsumptionCaption</DataField>
-        </Field>
-        <Field Name="Job__No__Caption">
-          <DataField>Job__No__Caption</DataField>
-        </Field>
-        <Field Name="Job__Starting_Date_Captions">
-          <DataField>Job__Starting_Date_Captions</DataField>
-        </Field>
-        <Field Name="Job__Ending_Date_Caption">
-          <DataField>Job__Ending_Date_Caption</DataField>
-        </Field>
-        <Field Name="Job_VesselCaption">
-          <DataField>Job_VesselCaption</DataField>
-        </Field>
-        <Field Name="Job__Global_Dimension_2_Code_Caption">
-          <DataField>Job__Global_Dimension_2_Code_Caption</DataField>
-        </Field>
-        <Field Name="ItemUOV_InventoryCaption">
-          <DataField>ItemUOV_InventoryCaption</DataField>
-        </Field>
-        <Field Name="Job_Bill_to_Customer_No_">
-          <DataField>Job_Bill_to_Customer_No_</DataField>
-        </Field>
-        <Field Name="ItemUOV__Inventory_Total_">
-          <DataField>ItemUOV__Inventory_Total_</DataField>
-        </Field>
-        <Field Name="ItemUOV__Inventory_Total_Format">
-          <DataField>ItemUOV__Inventory_Total_Format</DataField>
-        </Field>
-        <Field Name="ItemUOV__Inventory_Total2_">
-          <DataField>ItemUOV__Inventory_Total2_</DataField>
-        </Field>
-        <Field Name="ItemUOV__Inventory_Total2_Format">
-          <DataField>ItemUOV__Inventory_Total2_Format</DataField>
-        </Field>
-        <Field Name="ItemUOV__CRM___STR_">
-          <DataField>ItemUOV__CRM___STR_</DataField>
-        </Field>
-        <Field Name="ItemUOV__CRM___STR_Format">
-          <DataField>ItemUOV__CRM___STR_Format</DataField>
-        </Field>
-        <Field Name="ItemUOV_Description">
-          <DataField>ItemUOV_Description</DataField>
-        </Field>
-        <Field Name="ItemUOV__No__">
-          <DataField>ItemUOV__No__</DataField>
-        </Field>
-        <Field Name="ItemUOV_Inventory">
-          <DataField>ItemUOV_Inventory</DataField>
-        </Field>
-        <Field Name="ItemUOV_InventoryFormat">
-          <DataField>ItemUOV_InventoryFormat</DataField>
-        </Field>
-        <Field Name="ConsumptionCaption">
-          <DataField>ConsumptionCaption</DataField>
-        </Field>
-        <Field Name="ItemUOV__Inventory_Total_Caption">
-          <DataField>ItemUOV__Inventory_Total_Caption</DataField>
-        </Field>
-        <Field Name="ItemUOV__Inventory_Total2_Caption">
-          <DataField>ItemUOV__Inventory_Total2_Caption</DataField>
-        </Field>
-        <Field Name="ItemUOV__CRM___STR_Caption">
-          <DataField>ItemUOV__CRM___STR_Caption</DataField>
-        </Field>
-      </Fields>
-      <Query>
-        <DataSourceName>DataSource</DataSourceName>
-        <CommandText />
-      </Query>
-    </DataSet>
-  </DataSets>
+  <rd:ReportID>2c68dc65-1f62-4d8c-b855-3a010a42dc50</rd:ReportID>
 </Report>
