@@ -31,12 +31,5 @@ codeunit 50024 "JobJnlCheckLineSubscriber"
         IsHandled := true;
     end;
 
-    [EventSubscriber(ObjectType::Table, Database::"Job Journal Line", 'OnBeforeValidateWorkTypeCode', '', true, true)]
-    local procedure JobJournalLineOnBeforeValidateWorkTypeCode(var JobJournalLine: Record "Job Journal Line"; var IsHandled: Boolean)
-    begin
-        if JobJournalLine.Type = JobJournalLine.Type::Item then
-            IsHandled := true;
-    end;
-
-
+    
 }
