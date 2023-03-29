@@ -36,7 +36,7 @@ codeunit 50025 "JobJnlPostLineSubscriber"
         if ApplyToJobContractEntryNo then
             ItemJnlLine."Job Contract Entry No." := JobPlanningLine."Job Contract Entry No.";
     end;
-
+    
     local procedure JobPlanningReservationExists(ItemNo: Code[20]; JobNo: Code[20]): Boolean
     var
         ReservationEntry: Record "Reservation Entry";

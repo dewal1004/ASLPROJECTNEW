@@ -25,10 +25,6 @@ tableextension 50241 "Job Journal Line Ext" extends "Job Journal Line"
 
             trigger OnValidate()
             begin
-                //IF Catch <> 0 THEN//nitin
-                //"Line Amount" := "Unit Price" * Catch;
-
-                //AAA-NOV - 2001
                 Validate(Quantity, Catch * -1);
 
                 if Item.Get("No.") then begin
@@ -38,7 +34,6 @@ tableextension 50241 "Job Journal Line Ext" extends "Job Journal Line"
 
                 "Total Price" := "Unit Price" * Catch;
                 "Reason Code" := 'CATCH';
-                //VALIDATE("Variant Code","Shortcut Dimension 2 Code");
 
                 //Prepare data for Sorting
                 if InvtPostGrp.Get(Code1) then
@@ -207,6 +202,9 @@ tableextension 50241 "Job Journal Line Ext" extends "Job Journal Line"
         {
             OptionMembers = " ","Short Voyage ";
         }
+
+
+
     }
     keys
     {
@@ -230,6 +228,14 @@ tableextension 50241 "Job Journal Line Ext" extends "Job Journal Line"
            }
            */
     }
+
+    trigger OnAfterInsert()
+    begin
+        if Code1 <> '' then begin
+            Syntesis(Code1, Pack, Brand);
+            Validate("No.", ItemVar);
+        end;
+    end;
 
 
     var
@@ -378,14 +384,13 @@ tableextension 50241 "Job Journal Line Ext" extends "Job Journal Line"
                         JJLine."Catch Sea Days" := JBat."Catch Date" - Jobs."Starting Date";
                     end;
                     JJLine.Validate(JJLine.Catch, 0);
-                    if items.Get(JJLine."No.") then
-                    begin
+                    if items.Get(JJLine."No.") then begin
                         JJLine."Statistics Group" := items."Statistics Group";
                         if items."Unit Cost" <> 0 then
                             JJLine.Validate(JJLine."Unit Cost", items."Unit Cost")
                         else
                             JJLine.Validate(JJLine."Unit Cost", items.Points);
-                    end;        
+                    end;
                     JJLine.Validate(JJLine."Unit Cost", 0);  // Unit cost must be zero
                     JJLine.Validate(JJLine."Shortcut Dimension 2 Code", JBat."Global Dimension 2 Code");
                     JJLine."Phase Code" := JBat."Fishing Ground";
@@ -747,41 +752,6 @@ if BinCode <> '' then
 
 //Unsupported feature: Code Modification on "OnInsert".
 
-//trigger OnInsert()
-//>>>> ORIGINAL CODE:
-//begin
-/*
-LockTable;
-JobJnlTemplate.Get("Journal Template Name");
-JobJnlBatch.Get("Journal Template Name","Journal Batch Name");
-
-ValidateShortcutDimCode(1,"Shortcut Dimension 1 Code");
-ValidateShortcutDimCode(2,"Shortcut Dimension 2 Code");
-*/
-//end;
-//>>>> MODIFIED CODE:
-//begin
-/*
-#1..3
-"Shortcut Dimension 2 Code":='ATLANTIC';
-ValidateShortcutDimCode(1,"Shortcut Dimension 1 Code");
-ValidateShortcutDimCode(2,"Shortcut Dimension 2 Code");
-
-//AAA/March 2002
-if Code1<>'' then
-begin
-  Syntesis(Code1,Pack,Brand);
-  Validate("No.",ItemVar);
-end;
-if Catch <> 0 then
-  //"Line Amount" := "Unit Price" * Catch;
-
-//AAA-NOV - 2001
-Validate(Quantity,Catch*-1);
-*/
-//end;
-
-
 //Unsupported feature: Code Modification on "SetUpNewLine(PROCEDURE 9)".
 
 //procedure SetUpNewLine();
@@ -822,35 +792,5 @@ OnAfterSetUpNewLine(Rec,LastJobJnlLine,JobJnlTemplate,JobJnlBatch);
 "External Document No.":=JobJnlBatch."Voyage No.";
 
 OnAfterSetUpNewLine(Rec,LastJobJnlLine,JobJnlTemplate,JobJnlBatch);
-*/
-//end;
-
-
-//Unsupported feature: Code Modification on "UpdateAmountsAndDiscounts(PROCEDURE 31)".
-
-//procedure UpdateAmountsAndDiscounts();
-//Parameters and return type have not been exported.
-//>>>> ORIGINAL CODE:
-//begin
-/*
-if "Total Price" <> 0 then begin
-  if ("Line Amount" <> xRec."Line Amount") and ("Line Discount Amount" = xRec."Line Discount Amount") then begin
-    "Line Amount" := Round("Line Amount",AmountRoundingPrecisionFCY);
-#4..23
-end else begin
-  "Line Amount" := 0;
-  "Line Discount Amount" := 0;
-  "Line Amount (LCY)" := 0;
-  "Line Discount Amount (LCY)" := 0;
-end;
-
-OnAfterUpdateAmountsAndDiscounts(Rec);
-*/
-//end;
-//>>>> MODIFIED CODE:
-//begin
-/*
-#1..26
-#29..31
 */
 //end;
