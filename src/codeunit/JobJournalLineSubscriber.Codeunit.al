@@ -31,4 +31,21 @@ codeunit 50040 "Job Journal Line Subscriber"
         JobJournalLine."External Document No." := JobJournalBatch."Voyage No.";
     end;
 
+    [EventSubscriber(ObjectType::Table, Database::"Job Journal Line", 'OnAfterValidateEvent', 'Bin Code', true, true)]
+    local procedure JobJournalLineOnAfterValidateEventBinCode(var Rec: Record "Job Journal Line")
+    begin
+        Rec."Unit of Measure Code" := Rec."Bin Code";
+    end;
+
+    [EventSubscriber(ObjectType::Table, Database::"Job Journal Line", 'OnValidateVariantCodeOnBeforeValidateQuantity', '', true, true)]
+    local procedure JobJournalLineOnValidateVariantCodeOnBeforeValidateQuantity(var JobJournalLine: Record "Job Journal Line"; xJobJournalLine: Record "Job Journal Line")
+    var
+        ItemVariant: Record "Item Variant";
+    begin
+        ItemVariant.GET(JobJournalLine."No.", JobJournalLine."Variant Code");
+        IF ItemVariant.Description = '' THEN
+            JobJournalLine.Description := xJobJournalLine.Description;
+        JobJournalLine."Description 2" := xJobJournalLine."Description 2";
+    end;
+
 }
