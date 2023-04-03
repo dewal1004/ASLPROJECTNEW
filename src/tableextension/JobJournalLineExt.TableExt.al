@@ -549,8 +549,8 @@ if "Location Code" = '' then
 
 //trigger "(Field 8)()
 //Parameters and return type have not been exported.
+
 //>>>> ORIGINAL CODE:
-//begin
 /*
 if ("No." = '') or ("No." <> xRec."No.") then begin
   Description := '';
@@ -573,6 +573,8 @@ Validate(Quantity);
 UpdateDimensions;
 */
 //end;
+
+
 //>>>> MODIFIED CODE:
 //begin
 /*
@@ -623,75 +625,5 @@ UpdateDimensions;
   end;
 Validate(Quantity);
 UpdateDimensions;
-*/
-//end;
-
-
-//Unsupported feature: Code Modification on ""Unit of Measure Code"(Field 18).OnValidate".
-
-//trigger OnValidate()
-//Parameters and return type have not been exported.
-//>>>> ORIGINAL CODE:
-//begin
-/*
-GetGLSetup;
-case Type of
-  Type::Item:
-#4..30
-    end;
-end;
-Validate(Quantity);
-*/
-//end;
-//>>>> MODIFIED CODE:
-//begin
-/*
-#1..33
- //AAA-DEC-2001
-//IF "Work Type Code"='CTH' THEN "Bin Code":="Unit of Measure Code";
-//VALIDATE("Variant Code","Shortcut Dimension 2 Code");
-*/
-//end;
-
-
-//Unsupported feature: Code Modification on ""Location Code"(Field 21).OnValidate".
-
-//trigger OnValidate()
-//Parameters and return type have not been exported.
-//>>>> ORIGINAL CODE:
-//begin
-/*
-"Bin Code" := '';
-if "Location Code" <> '' then
-  if IsNonInventoriableItem then
-    Item.TestField(Type,Item.Type::Inventory);
-GetLocation("Location Code");
-Location.TestField("Directed Put-away and Pick",false);
-Validate(Quantity);
-*/
-//end;
-//>>>> MODIFIED CODE:
-//begin
-/*
-"Bin Code" := '';
-//IF Type = Type::Item THEN BEGIN
-#2..7
-*/
-//end;
-
-
-//Unsupported feature: Code Modification on ""Dimension Set ID"(Field 480).OnLookup".
-
-//trigger OnLookup(var Text: Text): Boolean
-//>>>> ORIGINAL CODE:
-//begin
-/*
-ShowDimensions;
-*/
-//end;
-//>>>> MODIFIED CODE:
-//begin
-/*
-//ShowDimensions;  #1
 */
 //end;
