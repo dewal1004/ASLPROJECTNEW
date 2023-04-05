@@ -549,7 +549,7 @@ permissionset 50000 "GeneratedPermission"
         report "Voyage Consumption2"=X,
         report "Voyage Consumptn Summa"=X,
         report "Voyage Ended Expense"=X,
-        report "Voyage Ending Inv Cons exp3!"=X,
+        report "Voyage Ending Inv Cons exp3"=X,
         report "Voyage Ending Inv Cons exp-New"=X,
         report "Voyage Ending Inventory expD"=X,
         report "Voyage Ending Inventory expD12"=X,
