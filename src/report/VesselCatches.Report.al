@@ -115,7 +115,7 @@ report 50085 "Vessel Catches"
                     DataItemLink = "Journal Template Name" = FIELD("Journal Template Name"), "Journal Batch Name" = FIELD(Name);
                     DataItemLinkReference = "Job Journal Batch";
                     DataItemTableView = SORTING("Journal Template Name", "Journal Batch Name", "Statistics Group", "Work Type Code Sort") ORDER(Ascending);
-                    RequestFilterFields = "No.", "Journal Batch Name", "Posting Date", "Journal Template Name";
+                    RequestFilterFields = "No.", "Journal Batch Name", "Posting Date", "Journal Template Name", "Statistics Group", "Work Type Code Sort";
                     column(Job_Journal_Line__Work_Type_Code_; "Work Type Code")
                     {
                     }
@@ -440,6 +440,8 @@ report 50085 "Vessel Catches"
                         if Job.FindFirst then
                             Vessl := Job.Vessel;
                         if Res.Get(Job."Person Responsible") then RESP := Res.Name else RESP := Job."Person Responsible";
+
+                        Quantity := 199;
 
                     end;
 

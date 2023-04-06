@@ -208,6 +208,8 @@ tableextension 50241 "Job Journal Line Ext" extends "Job Journal Line"
     }
     keys
     {
+        key(ASLKey1; "Statistics Group") { }
+
 
         //Unsupported feature: Property Insertion (SumIndexFields) on ""Journal Template Name","Journal Batch Name","Line No."(Key)".
 
