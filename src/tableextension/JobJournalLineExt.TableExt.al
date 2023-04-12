@@ -210,25 +210,22 @@ tableextension 50241 "Job Journal Line Ext" extends "Job Journal Line"
     {
         key(ASLKey1; "Statistics Group") { }
 
+        key(ASLKey1A; "Work Type Code")
+        {
+            SumIndexFields = Quantity;
+        }
+        key(ASLKey2; "Work Type Code Sort")
+        {
+            //    SumIndexFields = Quantity;
+        }
+        key(ASLKey3; "Posting Group")
+        {
+            SumIndexFields = "Total Cost", "Total Price";
+        }
 
-        //Unsupported feature: Property Insertion (SumIndexFields) on ""Journal Template Name","Journal Batch Name","Line No."(Key)".
+        //Unsupported feature: Property Insertion (SumIndexFields) on ""Journal Template Name","Journal Batch Name","Line No."(ASLKey)".
+        //Unsupported feature: Property Insertion (SumIndexFields) on ""Journal Template Name","Journal Batch Name",Type,"No.","Unit of Measure Code","Work Type Code"(ASLKey)".		
 
-
-        //Unsupported feature: Property Insertion (SumIndexFields) on ""Journal Template Name","Journal Batch Name",Type,"No.","Unit of Measure Code","Work Type Code"(Key)".
-
-        /* key(ASLKey1; "Journal Template Name", "Journal Batch Name", "Statistics Group", "Work Type Code")
-           {
-               SumIndexFields = Quantity;
-           }
-           key(Key2; "Journal Template Name", "Journal Batch Name", "Statistics Group", "Work Type Code Sort")
-           {
-               SumIndexFields = Quantity;
-           }
-           key(Key3; "Posting Group")
-           {
-               SumIndexFields = "Total Cost", "Total Price";
-           }
-           */
     }
 
     trigger OnAfterInsert()
@@ -429,26 +426,27 @@ tableextension 50241 "Job Journal Line Ext" extends "Job Journal Line"
         Validate("Unit Price");
     end;
 
-    procedure FindItemPrice()
+    procedure FindItemPrice() 
+
     begin
         /*
-        FindSalesLinePrice.INIT;
-        FindSalesLinePrice."Item No." := "No.";
-        //ItemPrice."Price Group Code" := "Price Group Code";
-        FindSalesLinePrice."Sales Code" := "Customer Price Group";
-        FindSalesLinePrice."Unit of Measure Code" := "Unit of Measure Code";
-        FindSalesLinePrice."Starting Date" := "Posting Date";
-        PriceCalcMgt.RUN(FindSalesLinePrice);
-        ItemPrice.TESTFIELD("Price Includes VAT",FALSE);
-        GetGLSetup;
-        "Unit Price" := ItemPrice."Unit Price";
-        IF ItemPrice."Unit of Measure Code" = '' THEN
-          "Unit Price" :=
-            ROUND(
-              "Unit Price" * "Qty. per Unit of Measure",
-              GLSetup."Unit-Amount Rounding Precision");
-        VALIDATE("Unit Price");
-        */
+		FindSalesLinePrice.INIT;
+		FindSalesLinePrice."Item No." := "No.";
+		//ItemPrice."Price Group Code" := "Price Group Code";
+		FindSalesLinePrice."Sales Code" := "Customer Price Group";
+		FindSalesLinePrice."Unit of Measure Code" := "Unit of Measure Code";
+		FindSalesLinePrice."Starting Date" := "Posting Date";
+		PriceCalcMgt.RUN(FindSalesLinePrice);
+		ItemPrice.TESTFIELD("Price Includes VAT",FALSE);
+		GetGLSetup;
+		"Unit Price" := ItemPrice."Unit Price";
+		IF ItemPrice."Unit of Measure Code" = '' THEN
+		  "Unit Price" :=
+			ROUND(
+			  "Unit Price" * "Qty. per Unit of Measure",
+			  GLSetup."Unit-Amount Rounding Precision");
+		VALIDATE("Unit Price");
+		*/
 
     end;
 
