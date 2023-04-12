@@ -213,27 +213,16 @@ tableextension 50332 "tableextension50332" extends "Inventory Posting Group"
         ValuedQty: Decimal;
     begin
         ValuedQty := 0;
-        //>>MP
-        //ValuEntry.SETCURRENTKEY("Inventory Posting Group","Item No.","Posting Date",
-        // "Location Code","External Document No.");
         ValuEntry.SetCurrentKey("Location Code", "Posting Date", GroupSort, "External Document No.");
-        //<<MP
         ValuEntry.SetFilter(ValuEntry.GroupSort, InvtCode);
         if LocFilter <> '' then
             ValuEntry.SetFilter(ValuEntry."Location Code", LocFilter);
         if DateFilter <> '' then
             ValuEntry.SetFilter(ValuEntry."Posting Date", DateFilter);
         ValuEntry.SetFilter(ValuEntry."External Document No.", '%1', '');
-        //>>MP
-        /*IF ValuEntry.FIND('-') THEN BEGIN
-          REPEAT
-            ValuedQty := ValuedQty + ValuEntry."Valued Quantity";
-          UNTIL ValuEntry.NEXT = 0;
-          EXIT(ValuedQty);*/
         if ValuEntry.FindSet then begin
             ValuEntry.CalcSums(Quantity);
             exit(ValuEntry.Quantity);
-            //<<MP
         end else
             exit(0);
 
@@ -245,26 +234,15 @@ tableextension 50332 "tableextension50332" extends "Inventory Posting Group"
         ValuedQty: Decimal;
     begin
         ValuedQty := 0;
-        //>>MP
-        //ValuEntry.SETCURRENTKEY("Inventory Posting Group","Item No.","Posting Date",
-        //   "Location Code","External Document No.");
         ValuEntry.SetCurrentKey("Location Code", "Posting Date", GroupSort, "External Document No.");
-        //<<MP
         ValuEntry.SetFilter(ValuEntry.GroupSort, InvtCode);
         ValuEntry.SetFilter(ValuEntry."Location Code", '<>%1&<>%2', 'CRM-ASL', 'FISH-SHOP');
         if DateFilter <> '' then
             ValuEntry.SetFilter(ValuEntry."Posting Date", DateFilter);
         ValuEntry.SetFilter(ValuEntry."External Document No.", '%1', '');
-        //>>MP
-        /*IF ValuEntry.FIND('-') THEN BEGIN
-          REPEAT
-            ValuedQty := ValuedQty + ValuEntry."Valued Quantity";
-          UNTIL ValuEntry.NEXT = 0;
-          EXIT(ValuedQty);*/
         if ValuEntry.FindSet then begin
             ValuEntry.CalcSums(Quantity);
             exit(ValuEntry.Quantity);
-            //<<MP
         end else
             exit(0);
 
@@ -276,18 +254,11 @@ tableextension 50332 "tableextension50332" extends "Inventory Posting Group"
         ValuedQty: Decimal;
     begin
         ValuedQty := 0;
-        //ValuEntry.SETCURRENTKEY("Inventory Posting Group","Item No.","Posting Date",
-        //   "Location Code","External Document No.");
         ValuEntry.SetCurrentKey("Location Code", "Posting Date", GroupSort, "External Document No.");
         ValuEntry.SetFilter(ValuEntry.GroupSort, InvtCode);
         ValuEntry.SetFilter(ValuEntry."Location Code", 'CRM-ASL');
         if DateFilter <> '' then
             ValuEntry.SetFilter(ValuEntry."Posting Date", DateFilter);
-        /*IF ValuEntry.FIND('-') THEN BEGIN
-          REPEAT
-            ValuedQty := ValuedQty + ValuEntry."Valued Quantity";
-          UNTIL ValuEntry.NEXT = 0;
-          EXIT(-ValuedQty);*/
         if ValuEntry.FindSet then begin
             ValuEntry.CalcSums(Quantity);
             exit(ValuEntry.Quantity);
@@ -302,18 +273,11 @@ tableextension 50332 "tableextension50332" extends "Inventory Posting Group"
         ValuedQty: Decimal;
     begin
         ValuedQty := 0;
-        //ValuEntry.SETCURRENTKEY("Inventory Posting Group","Item No.","Posting Date",
-        //  "Location Code","External Document No.");
         ValuEntry.SetCurrentKey("Location Code", "Posting Date", GroupSort, "External Document No.");
         ValuEntry.SetFilter(ValuEntry.GroupSort, InvtCode);
         ValuEntry.SetFilter(ValuEntry."Location Code", '<>%1', 'CRM-ASL');
         if DateFilter <> '' then
             ValuEntry.SetFilter(ValuEntry."Posting Date", DateFilter);
-        /*IF ValuEntry.FIND('-') THEN BEGIN
-          REPEAT
-            ValuedQty := ValuedQty + ValuEntry."Valued Quantity";
-          UNTIL ValuEntry.NEXT = 0;
-          EXIT(-ValuedQty);*/
         if ValuEntry.FindSet then begin
             ValuEntry.CalcSums(Quantity);
             exit(ValuEntry.Quantity);
@@ -335,11 +299,6 @@ tableextension 50332 "tableextension50332" extends "Inventory Posting Group"
             ValuEntry.SetFilter(ValuEntry."Posting Date", DateFilter);
         if SourceCodeFilter <> '' then
             ValuEntry.SetFilter(ValuEntry."Source Code", SourceCodeFilter);
-        /*IF ValuEntry.FIND('-') THEN BEGIN
-          REPEAT
-            ValuedQty := ValuedQty + ValuEntry."Valued Quantity";
-          UNTIL ValuEntry.NEXT = 0;
-          EXIT(ValuedQty);*/
         if ValuEntry.FindSet then begin
             ValuEntry.CalcSums(Quantity);
             exit(ValuEntry.Quantity);
@@ -362,11 +321,6 @@ tableextension 50332 "tableextension50332" extends "Inventory Posting Group"
             ValuEntry.SetFilter(ValuEntry."Posting Date", DateFilter);
         SourceCodeFilter := '<>PHYSINVJNL&<>TRANSFER&<>ITEMJNL&<>SALES&<>PURCHASES&<>PURCHJNL&<>SALESJNL&<>JOBJNL';
         ValuEntry.SetFilter(ValuEntry."Source Code", SourceCodeFilter);
-        /*IF ValuEntry.FIND('-') THEN BEGIN
-          REPEAT
-            ValuedQty := ValuedQty + ValuEntry."Valued Quantity";
-          UNTIL ValuEntry.NEXT = 0;
-          EXIT(ValuedQty);*/
         if ValuEntry.FindSet then begin
             ValuEntry.CalcSums(Quantity);
             exit(ValuEntry.Quantity);
@@ -389,15 +343,8 @@ tableextension 50332 "tableextension50332" extends "Inventory Posting Group"
             ValuEntry.SetFilter(ValuEntry."Posting Date", DateFilter);
         if SourceCodeFilter <> '' then
             ValuEntry.SetFilter(ValuEntry."Source Code", SourceCodeFilter);
-        /*IF SourceNoFilter <> '' THEN
-          ValuEntry.SETFILTER(ValuEntry."Source No.",SourceNoFilter);*/
         if ReasonCodeFilter <> '' then
             ValuEntry.SetFilter(ValuEntry."Reason Code", ReasonCodeFilter);
-        /*IF ValuEntry.FIND('-') THEN BEGIN
-          REPEAT
-            ValuedQty := ValuedQty + ValuEntry."Valued Quantity";
-          UNTIL ValuEntry.NEXT = 0;
-          EXIT(ValuedQty);*/
         if ValuEntry.FindSet then begin
             ValuEntry.CalcSums(Quantity);
             exit(ValuEntry.Quantity);

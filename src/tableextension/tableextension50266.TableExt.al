@@ -42,18 +42,19 @@ tableextension 50266 "tableextension50266" extends "Item Ledger Entry"
         {
             SumIndexFields = Quantity;
         }
-        // key(Key2; "Entry Type", Nonstock, "Item No.", "Posting Date", "Location Code")
-        // {
-        // }
-        // key(Key3; "Entry Type", "Item No.", "Posting Date", "Location Code")
-        // {
-        // }
-        // key(Key4; "Item No.", "Location Code", "Posting Date", "Entry Type")
-        // {
-        // }
-        // key(Key5; "Location Code", "Source Code", "Item No.")
-        // {
-        // }
+        key(ASLKey2; "Entry Type", Nonstock, "Item No.", "Posting Date", "Location Code")
+        {
+        }
+        key(ASLKey3; "Entry Type", "Item No.", "Posting Date", "Location Code")
+        {
+        }
+        key(ASLKey4; "Item No.", "Location Code", "Posting Date", "Entry Type")
+        {
+        }
+        key(ASLKey5; "Location Code", "Item No.")
+        {
+        }
+        Key(ASLKey6; "Source Code") {}
     }
 }
 

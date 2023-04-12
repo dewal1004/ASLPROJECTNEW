@@ -537,7 +537,6 @@ report 50007 "Daily BreakUp by Vessel Rep 1"
             }
             column(FishPoint_73_; FishPoint[73])
             {
-
             }
             column(ShrimpPoint_74_; ShrimpPoint[74])
             {
@@ -1855,7 +1854,7 @@ report 50007 "Daily BreakUp by Vessel Rep 1"
             {
 
             }
-            column(SeaRangeC_81_; SeaRangeC[81])
+        column(SeaRangeC_81_; SeaRangeC[81])
             {
 
             }
