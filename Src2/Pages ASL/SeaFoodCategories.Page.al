@@ -34,8 +34,12 @@ page 50150 "Sea Food Categories"
         }
     }
 
+    
+
     actions
     {
     }
+
+    
 }
 

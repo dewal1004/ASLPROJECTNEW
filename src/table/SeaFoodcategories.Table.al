@@ -24,26 +24,26 @@ table 50033 "Sea Food categories"
         }
         field(7; "Inventory."; Decimal)
         {
-            CalcFormula = - Sum ("Job Ledger Entry".Quantity WHERE (GroupSort = FIELD ("Sea food code"),
-                                                                  "Location Code" = FIELD ("Location Filter"),
-                                                                  "Posting Date" = FIELD ("Date Filter")));
+            CalcFormula = - Sum("Job Ledger Entry".Quantity WHERE(GroupSort = FIELD("Sea food code"),
+                                                                  "Location Code" = FIELD("Location Filter"),
+                                                                  "Posting Date" = FIELD("Date Filter")));
             Editable = false;
             FieldClass = FlowField;
         }
         field(8; "Inventory 1"; Decimal)
         {
-            CalcFormula = - Sum ("Job Ledger Entry".Quantity WHERE (GroupSort = FIELD ("Sea food code"),
-                                                                  "Location Code" = FIELD ("Location Filter"),
-                                                                  "Posting Date" = FIELD ("Date Filter")));
+            CalcFormula = - Sum("Job Ledger Entry".Quantity WHERE(GroupSort = FIELD("Sea food code"),
+                                                                  "Location Code" = FIELD("Location Filter"),
+                                                                  "Posting Date" = FIELD("Date Filter")));
             Editable = false;
             FieldClass = FlowField;
         }
         field(9; "Inventory 2"; Decimal)
         {
-            CalcFormula = - Sum ("Job Ledger Entry".Quantity WHERE (GroupSort = FIELD ("Sea food code"),
-                                                                  "Location Code" = FIELD ("Location Filter"),
-                                                                  "Posting Date" = FIELD ("Date Filter"),
-                                                                  "External Document No." = FILTER ('')));
+            CalcFormula = - Sum("Job Ledger Entry".Quantity WHERE(GroupSort = FIELD("Sea food code"),
+                                                                  "Location Code" = FIELD("Location Filter"),
+                                                                  "Posting Date" = FIELD("Date Filter"),
+                                                                  "External Document No." = FILTER('')));
             Editable = false;
             FieldClass = FlowField;
         }
@@ -75,6 +75,8 @@ table 50033 "Sea Food categories"
 
     fieldgroups
     {
+        fieldgroup(Dropdown; "Sea food code", "Sea food Description") { }
+        fieldgroup(bricks; "Sea food code", "Sea food Description", "Inventory.", "Inventory 1", "Inventory 2") { }
     }
 }
 

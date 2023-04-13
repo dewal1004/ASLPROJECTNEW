@@ -7,7 +7,7 @@ report 50007 "Daily BreakUp by Vessel Rep 1"
     Caption = 'Daily BreakUp by Vessel Rep 1';
 
     dataset
-    {
+{
         dataitem("Inventory Posting G Cat Tot"; "Inventory Posting Group")
         {
             DataItemTableView = SORTING("Statistics Group", Category, "S/No.") WHERE("In Use" = CONST(true), "Statistics Group" = FILTER(> 0), Category = FILTER(<> ''));
@@ -5352,4 +5352,3 @@ report 50007 "Daily BreakUp by Vessel Rep 1"
         testing123: Decimal;
         testc: array[100] of Decimal;
 }
-
