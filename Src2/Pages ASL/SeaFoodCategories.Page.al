@@ -18,18 +18,18 @@ page 50150 "Sea Food Categories"
                 {
                     ApplicationArea = All;
                 }
-                field("Inventory."; "Inventory.")
-                {
-                    ApplicationArea = All;
-                }
-                field("Inventory 1"; "Inventory 1")
-                {
-                    ApplicationArea = All;
-                }
-                field("Inventory 2"; "Inventory 2")
-                {
-                    ApplicationArea = All;
-                }
+                // field("Inventory."; "Inventory.")
+                // {
+                //     ApplicationArea = All;
+                // }
+                // field("Inventory 1"; "Inventory 1")
+                // {
+                //     ApplicationArea = All;
+                // }
+                // field("Inventory 2"; "Inventory 2")
+                // {
+                //     ApplicationArea = All;
+                // }
             }
         }
     }
