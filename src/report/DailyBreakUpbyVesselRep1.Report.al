@@ -7,7 +7,7 @@ report 50007 "Daily BreakUp by Vessel Rep 1"
     Caption = 'Daily BreakUp by Vessel Rep 1';
 
     dataset
-{
+    {
         dataitem("Inventory Posting G Cat Tot"; "Inventory Posting Group")
         {
             DataItemTableView = SORTING("Statistics Group", Category, "S/No.") WHERE("In Use" = CONST(true), "Statistics Group" = FILTER(> 0), Category = FILTER(<> ''));
@@ -1854,7 +1854,7 @@ report 50007 "Daily BreakUp by Vessel Rep 1"
             {
 
             }
-        column(SeaRangeC_81_; SeaRangeC[81])
+            column(SeaRangeC_81_; SeaRangeC[81])
             {
 
             }
@@ -5271,6 +5271,12 @@ report 50007 "Daily BreakUp by Vessel Rep 1"
         actions
         {
         }
+
+        trigger OnOpenPage()
+        begin
+            "Inventory Posting Group"."Statistics Group" := 1;
+
+        end;
     }
 
     labels
