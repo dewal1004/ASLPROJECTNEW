@@ -1,13 +1,7 @@
-tableextension 50332 "tableextension50332" extends "Inventory Posting Group"
+tableextension 50332 "Inventory Posting Group Ext" extends "Inventory Posting Group"
 {
     fields
     {
-
-        //Unsupported feature: Property Insertion (ValidateTableRelation) on "Code(Field 1)".
-
-
-        //Unsupported feature: Property Insertion (TestTableRelation) on "Code(Field 1)".
-
         field(50300; "Group Type"; Option)
         {
             OptionMembers = " ",Operation;
@@ -188,6 +182,7 @@ tableextension 50332 "tableextension50332" extends "Inventory Posting Group"
             ValidateTableRelation = false;
         }
     }
+
     keys
     {
         key(ASLKey1; "Statistics Group")

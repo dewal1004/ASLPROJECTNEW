@@ -5274,8 +5274,7 @@ report 50007 "Daily BreakUp by Vessel Rep 1"
 
         trigger OnOpenPage()
         begin
-            "Inventory Posting Group"."Statistics Group" := 1;
-
+            // "Inventory Posting Group"."Statistics Group" := 1;
         end;
     }
 
