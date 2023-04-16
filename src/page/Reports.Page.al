@@ -181,7 +181,7 @@ page 50053 "Reports"
                 action("Voyage End consumption Report")
                 {
                     Image = "report";
-                    RunObject = Report "Voyage Ending Inv Cons exp3";
+                    // RunObject = Report "Voyage Ending Inv Cons exp3";
                     ApplicationArea = All;
                 }
                 action("Daily Breakup by Vessel Rep 1")
