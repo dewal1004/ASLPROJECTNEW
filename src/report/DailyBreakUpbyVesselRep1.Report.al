@@ -10,7 +10,7 @@ report 50007 "Daily BreakUp by Vessel Rep 1"
     {
         dataitem("Inventory Posting G Cat Tot"; "Inventory Posting Group")
         {
-            DataItemTableView = SORTING("Statistics Group", Category, "S/No.") WHERE("In Use" = CONST(true), "Statistics Group" = FILTER(> 0), Category = FILTER(<> ''));
+            DataItemTableView = SORTING("Statistics Group", Category, "S/No.") WHERE("In Use" = CONST(true), "Statistics Group" = FILTER(1..3), Category = FILTER(<> '')); //"Statistics Group" = FILTER(> 0)
             RequestFilterFields = "Statistics Group", Category, "Date Filter";
 
             column(test; Test)
@@ -2417,7 +2417,7 @@ report 50007 "Daily BreakUp by Vessel Rep 1"
         }
         dataitem("Inventory Posting Group"; "Inventory Posting Group")
         {
-            DataItemTableView = SORTING("Statistics Group", Category, "S/No.") WHERE("In Use" = CONST(true), "Statistics Group" = FILTER(> 0));
+            DataItemTableView = SORTING("Statistics Group", Category, "S/No.") WHERE("In Use" = CONST(true), "Statistics Group" = FILTER(1..3));  ///FILTER(> 0)
             column(testing123; testing123)
             {
             }
@@ -5266,6 +5266,8 @@ report 50007 "Daily BreakUp by Vessel Rep 1"
                     }
                 }
             }
+
+            
         }
 
         actions
@@ -5274,8 +5276,9 @@ report 50007 "Daily BreakUp by Vessel Rep 1"
 
         trigger OnOpenPage()
         begin
-            // "Inventory Posting Group"."Statistics Group" := 1;
-        end;
+            ArrangeBy  := ArrangeBy::"Sea Days";   //Revisit;
+            ReportBy := ReportBy::Stock;
+        end; 
     }
 
     labels
