@@ -5285,10 +5285,6 @@ report 50007 "Daily BreakUp by Vessel Rep 1"
     {
     }
 
-    trigger OnPreReport()
-    begin
-        //DateFilter := "Inventory Posting G Cat Tot".GETFILTER("Date Filter");
-    end;
 
     var
         LastFieldNo: Integer;
