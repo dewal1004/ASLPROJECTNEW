@@ -4,7 +4,7 @@ report 50007 "Daily BreakUp by Vessel Rep 1"
     RDLCLayout = './ReportRdlc/DailyBreakUpbyVesselRep1.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
-    Caption = 'Daily BreakUp by Vessel Rep 1';
+    // Caption = 'Daily BreakUp by Vessel Rep 1';
 
     dataset
     {
@@ -2339,15 +2339,11 @@ report 50007 "Daily BreakUp by Vessel Rep 1"
             trigger OnPreDataItem()
             begin
                 TotLoc := 0;
-                VesselCounter := 0;
-                DateFilter := "Inventory Posting G Cat Tot".GetFilter("Date Filter");
-
+                VesselCounter := 0; DateFilter := "Inventory Posting G Cat Tot".GetFilter("Date Filter");
                 if DateFilter = '' then begin
                     SetRange("Date Filter", WorkDate);
                     DateFilter := GetFilter("Date Filter");
-                end;
-                locate2.Reset;
-                locate2.SetRange("Location Type", 1);
+                end; locate2.Reset; locate2.SetRange("Location Type", 1);
                 locate2.SetFilter("date filter", '%1', GetRangeMax("Date Filter"));
                 if locate2.FindFirst then
                     repeat
@@ -2374,10 +2370,7 @@ report 50007 "Daily BreakUp by Vessel Rep 1"
                 else
                     locate.SetCurrentKey(locate.VSDVal);
                 locate.Ascending(false);
-
-                Countx := 1;
-
-                //locate.SETFILTER(locate."Catch Date",DateFilter);//Entropy
+Countx := 1; //locate.SETFILTER(locate."Catch Date",DateFilter);//Entropy
                 TotLoc := locate.Count;
                 if locate.FindFirst then
                     repeat
@@ -5257,8 +5250,7 @@ report 50007 "Daily BreakUp by Vessel Rep 1"
                         ApplicationArea = All;
                     }
                     field("Report Mode"; ReportBy)
-                    {
-                        ApplicationArea = All;
+                    { ApplicationArea = All;
                     }
                     field("Show Category total"; "Show Category total")
                     {
