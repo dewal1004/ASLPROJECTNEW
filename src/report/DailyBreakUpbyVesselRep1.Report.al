@@ -10,8 +10,9 @@ report 50007 "Daily BreakUp by Vessel Rep 1"
     {
         dataitem("Inventory Posting G Cat Tot"; "Inventory Posting Group")
         {
-            DataItemTableView = SORTING("Statistics Group", Category, "S/No.") WHERE("In Use" = CONST(true), "Statistics Group" = FILTER(1..3), Category = FILTER(<> '')); //"Statistics Group" = FILTER(> 0)
+            DataItemTableView = SORTING("Statistics Group", Category, "S/No.") WHERE("In Use" = CONST(true), "Statistics Group" = FILTER(1 .. 3), Category = FILTER(<> ''), "Date filter" = filter('010122..310122')); //"Statistics Group" = FILTER(> 0)
             RequestFilterFields = "Statistics Group", Category, "Date Filter";
+
 
             column(test; Test)
             {
@@ -2339,11 +2340,14 @@ report 50007 "Daily BreakUp by Vessel Rep 1"
             trigger OnPreDataItem()
             begin
                 TotLoc := 0;
-                VesselCounter := 0; DateFilter := "Inventory Posting G Cat Tot".GetFilter("Date Filter");
+                VesselCounter := 0;
+                DateFilter := "Inventory Posting G Cat Tot".GetFilter("Date Filter");
                 if DateFilter = '' then begin
                     SetRange("Date Filter", WorkDate);
                     DateFilter := GetFilter("Date Filter");
-                end; locate2.Reset; locate2.SetRange("Location Type", 1);
+                end;
+                locate2.Reset;
+                locate2.SetRange("Location Type", 1);
                 locate2.SetFilter("date filter", '%1', GetRangeMax("Date Filter"));
                 if locate2.FindFirst then
                     repeat
@@ -2365,12 +2369,13 @@ report 50007 "Daily BreakUp by Vessel Rep 1"
                 locate.Reset;
                 locate.SetRange("Location Type", 1);
                 TotLoc := locate.Count;
+                Message('Total Vessesls = %1', TotLoc); //AAATesting
                 if ArrangeBy = 0 then
                     locate.SetCurrentKey(locate."Last Reportd Vessel Pts")
                 else
                     locate.SetCurrentKey(locate.VSDVal);
                 locate.Ascending(false);
-Countx := 1; //locate.SETFILTER(locate."Catch Date",DateFilter);//Entropy
+                Countx := 1; //locate.SETFILTER(locate."Catch Date",DateFilter);//Entropy
                 TotLoc := locate.Count;
                 if locate.FindFirst then
                     repeat
@@ -2410,7 +2415,7 @@ Countx := 1; //locate.SETFILTER(locate."Catch Date",DateFilter);//Entropy
         }
         dataitem("Inventory Posting Group"; "Inventory Posting Group")
         {
-            DataItemTableView = SORTING("Statistics Group", Category, "S/No.") WHERE("In Use" = CONST(true), "Statistics Group" = FILTER(1..3));  ///FILTER(> 0)
+            DataItemTableView = SORTING("Statistics Group", Category, "S/No.") WHERE("In Use" = CONST(true), "Statistics Group" = FILTER(1 .. 3));  ///FILTER(> 0)
             column(testing123; testing123)
             {
             }
@@ -5250,7 +5255,8 @@ Countx := 1; //locate.SETFILTER(locate."Catch Date",DateFilter);//Entropy
                         ApplicationArea = All;
                     }
                     field("Report Mode"; ReportBy)
-                    { ApplicationArea = All;
+                    {
+                        ApplicationArea = All;
                     }
                     field("Show Category total"; "Show Category total")
                     {
@@ -5259,7 +5265,7 @@ Countx := 1; //locate.SETFILTER(locate."Catch Date",DateFilter);//Entropy
                 }
             }
 
-            
+
         }
 
         actions
@@ -5268,9 +5274,9 @@ Countx := 1; //locate.SETFILTER(locate."Catch Date",DateFilter);//Entropy
 
         trigger OnOpenPage()
         begin
-            ArrangeBy  := ArrangeBy::"Sea Days";   //Revisit;
+            ArrangeBy := ArrangeBy::"Sea Days";   //Revisit;
             ReportBy := ReportBy::Stock;
-        end; 
+        end;
     }
 
     labels

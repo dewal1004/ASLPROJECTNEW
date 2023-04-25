@@ -67,6 +67,7 @@ tableextension 50332 "Inventory Posting Group Ext" extends "Inventory Posting Gr
         }
         field(50378; Inventory1; Decimal)
         {
+            Caption = 'Value Entry Valued Quantity';
             CalcFormula = Sum("Value Entry"."Valued Quantity" WHERE("Inventory Posting Group" = FIELD(Code),
                                                                      "Location Code" = FIELD("Location Filter"),
                                                                      "Posting Date" = FIELD("Date Filter")));
@@ -299,7 +300,6 @@ tableextension 50332 "Inventory Posting Group Ext" extends "Inventory Posting Gr
             exit(ValuEntry.Quantity);
         end else
             exit(0);
-
     end;
 
     procedure InventoryTotal4(InvtCode: Code[10]; DateFilter: Text[100]): Decimal
