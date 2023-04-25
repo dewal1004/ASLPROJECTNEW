@@ -9,7 +9,7 @@
             "server": "http://localhost:8080/BC180",
             "serverInstance": "BC180",
             "authentication": "Windows",
-            "port": 7049,
+            "port": 8049,
             "startupObjectId": 50007,//201, //50062,// 201,//  1007,// 
             "startupObjectType":  "Report", // "Page", //  
             "breakOnError": true,
