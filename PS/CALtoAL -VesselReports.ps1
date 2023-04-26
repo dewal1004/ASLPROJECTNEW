@@ -28,3 +28,12 @@ $DbSvr = ".\NAV365SRV\NAVSQLLIVE"
 $Path = "c:\export2al\baseapplication\exportedbc14app-vesselReports.txt"
 $Filter = 'Type=Report;Id=50007..50012' 
 Export-NAVApplicationObject -DatabaseServer $DbSvr -DatabaseName $DbName -ExportToNewSyntax -Path $Path -Filter $Filter
+
+#TestServer
+$DbName =  "Atlantic ASL V14toV18"
+$DbSvr = ".\NAV365TEST\ASLHO2016"
+$DbInstance = 'ASLHO2016'
+$DbServer = 'NAV365TEST'
+
+Compile-NAVApplicationObject $DbName -Filter 'Type=Report;Id=50007..50012' -Recompile
+
