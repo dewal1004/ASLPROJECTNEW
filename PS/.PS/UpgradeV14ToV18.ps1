@@ -3,7 +3,7 @@ https://docs.microsoft.com/en-us/dynamics365/business-central/dev-itpro/upgrade/
 
 
 In Power Shell (Admin)
-Run this cmdlet it it is not already existing;
+Run this cmdlet if it is not already existing;
 Find-Module | where author -eq waldo | install-module
 
 Import-NAVModules
