@@ -1,7 +1,7 @@
 report 98157 "Short Supply thru Posted TranZ"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/ShortSupplythruPostedTranZ.rdlc';
+    RDLCLayout = './src/reportrdlc/ShortSupplythruPostedTranZ.rdlc';
 
     dataset
     {

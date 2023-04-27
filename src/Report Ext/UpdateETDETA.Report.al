@@ -1,7 +1,7 @@
 report 99973 "Update ETD, ETA"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/UpdateETDETA.rdlc';
+    RDLCLayout = './src/reportrdlc/UpdateETDETA.rdlc';
 
     dataset
     {

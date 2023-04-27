@@ -5,7 +5,7 @@ report 50112 "Vessel Performances Grpg OLD"
     // XVal[3]::NairaVal
     // XVal[4]::AGVal
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/VesselPerformancesGrpgOLD.rdlc';
+    RDLCLayout = './src/reportrdlc/VesselPerformancesGrpgOLD.rdlc';
 
 
     dataset

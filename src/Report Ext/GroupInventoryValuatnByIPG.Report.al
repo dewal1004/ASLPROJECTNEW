@@ -1,7 +1,7 @@
 report 50118 "Group Inventory Valuatn By IPG"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/GroupInventoryValuatnByIPG.rdlc';
+    RDLCLayout = './src/reportrdlc/GroupInventoryValuatnByIPG.rdlc';
 
     dataset
     {

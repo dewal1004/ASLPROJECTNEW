@@ -3,7 +3,7 @@ report 50243 "Inventory-Trans.Detail-barge"
     // Item."Unit Cost"
     // "Print Bin Card"
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/InventoryTransDetailbarge.rdlc';
+    RDLCLayout = './src/reportrdlc/InventoryTransDetailbarge.rdlc';
 
     Caption = 'Inventory - Transaction Detail';
     Permissions = TableData "Sales Shipment Header" = rimd;

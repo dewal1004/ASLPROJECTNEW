@@ -4,7 +4,7 @@ report 50136 "Inventory - BINCARD 704"
     // "Print Bin Card"
     // //
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/InventoryBINCARD704.rdlc';
+    RDLCLayout = './src/reportrdlc/InventoryBINCARD704.rdlc';
 
     Caption = 'Inventory - Bincard Detail';
     Permissions = TableData "Sales Shipment Header" = rimd;

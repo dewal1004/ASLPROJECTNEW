@@ -1,7 +1,7 @@
 report 99972 "Value Entry Date corr"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/ValueEntryDatecorr.rdlc';
+    RDLCLayout = './src/reportrdlc/ValueEntryDatecorr.rdlc';
 
     dataset
     {

@@ -2,7 +2,7 @@ report 50128 "Account Schedule Working CA"
 {
     // //Text004 ///AAA
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/AccountScheduleWorkingCA.rdlc';
+    RDLCLayout = './src/reportrdlc/AccountScheduleWorkingCA.rdlc';
 
     Caption = 'Account Schedule';
 

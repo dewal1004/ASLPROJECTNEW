@@ -1,7 +1,7 @@
 report 99505 "Edit Voy no on Postd TransOrd"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/EditVoynoonPostdTransOrd.rdlc';
+    RDLCLayout = './src/reportrdlc/EditVoynoonPostdTransOrd.rdlc';
 
     dataset
     {

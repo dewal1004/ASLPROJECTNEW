@@ -1,7 +1,7 @@
 report 50132 "Bank Acc-Detail Trial Bal-1404"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/BankAccDetailTrialBal1404.rdlc';
+    RDLCLayout = './src/reportrdlc/BankAccDetailTrialBal1404.rdlc';
     Caption = 'Bank Acc. - Detail Trial Bal.';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;

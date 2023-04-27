@@ -3,7 +3,7 @@ report 50209 "Organoleptic1"
     // "Comment Line"."Loose Shells%"
     // "Comment Line"."Loose Neck%"
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/Organoleptic1.rdlc';
+    RDLCLayout = './src/reportrdlc/Organoleptic1.rdlc';
 
 
     dataset

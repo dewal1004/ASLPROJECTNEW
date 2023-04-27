@@ -1,7 +1,7 @@
 report 90704 "Transfer Shipmentx"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/TransferShipmentx.rdlc';
+    RDLCLayout = './src/reportrdlc/TransferShipmentx.rdlc';
     Caption = 'Transfer Shipment';
 
     dataset

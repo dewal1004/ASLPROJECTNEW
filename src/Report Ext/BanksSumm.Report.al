@@ -1,7 +1,7 @@
 report 99712 "Banks Summ"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/BanksSumm.rdlc';
+    RDLCLayout = './src/reportrdlc/BanksSumm.rdlc';
 
     dataset
     {

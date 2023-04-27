@@ -1,7 +1,7 @@
 report 90993 "Update Default Catch Desc."
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/UpdateDefaultCatchDesc.rdlc';
+    RDLCLayout = './src/reportrdlc/UpdateDefaultCatchDesc.rdlc';
 
     dataset
     {

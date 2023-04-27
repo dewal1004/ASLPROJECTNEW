@@ -5,7 +5,7 @@ report 95703 "Transfer Orderx"
     // "Transfer Header"."Issued By"
     // "Transfer Line".ROB
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/TransferOrderx.rdlc';
+    RDLCLayout = './src/reportrdlc/TransferOrderx.rdlc';
 
     Caption = 'Transfer Order';
 

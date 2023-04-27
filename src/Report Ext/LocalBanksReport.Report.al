@@ -1,7 +1,7 @@
 report 50109 "Local Banks Report"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/LocalBanksReport.rdlc';
+    RDLCLayout = './src/reportrdlc/LocalBanksReport.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
 

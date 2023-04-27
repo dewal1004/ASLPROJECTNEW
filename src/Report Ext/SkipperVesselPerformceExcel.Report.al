@@ -5,7 +5,7 @@ report 50189 "Skipper/Vessel Performce Excel"
     // NetSeaDay
     // CurrReport.SHOWOUTPUT(FALSE);
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/SkipperVesselPerformceExcel.rdlc';
+    RDLCLayout = './src/reportrdlc/SkipperVesselPerformceExcel.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
 

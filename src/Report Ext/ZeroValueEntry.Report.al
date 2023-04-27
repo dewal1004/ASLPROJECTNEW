@@ -1,7 +1,7 @@
 report 99979 "Zero Value Entry"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/ZeroValueEntry.rdlc';
+    RDLCLayout = './src/reportrdlc/ZeroValueEntry.rdlc';
 
     dataset
     {

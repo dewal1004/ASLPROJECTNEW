@@ -1,7 +1,7 @@
 report 50122 "Itemledger Update Voyage No."
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/ItemledgerUpdateVoyageNo.rdlc';
+    RDLCLayout = './src/reportrdlc/ItemledgerUpdateVoyageNo.rdlc';
 
     dataset
     {

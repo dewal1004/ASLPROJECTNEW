@@ -7,7 +7,7 @@ report 50186 "Purch var"
     // Trecev
     // "Purch. Rcpt. Header"."Waybill No."
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/Purchvar.rdlc';
+    RDLCLayout = './src/reportrdlc/Purchvar.rdlc';
 
 
     dataset

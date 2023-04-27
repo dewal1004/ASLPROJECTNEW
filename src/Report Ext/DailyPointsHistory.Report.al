@@ -3,7 +3,7 @@ report 50104 "Daily Points History"
     // UNL-ASL3.60.01.004 (Santus) May 11, 2005
     // -> new reoprt, to retrieve historical daily points information
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/DailyPointsHistory.rdlc';
+    RDLCLayout = './src/reportrdlc/DailyPointsHistory.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
 

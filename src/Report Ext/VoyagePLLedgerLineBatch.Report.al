@@ -1,7 +1,7 @@
 report 50156 "Voyage P&L Ledger Line Batch"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/VoyagePLLedgerLineBatch.rdlc';
+    RDLCLayout = './src/reportrdlc/VoyagePLLedgerLineBatch.rdlc';
     Permissions = TableData "Job Ledger Entry" = rimd;
 
     dataset

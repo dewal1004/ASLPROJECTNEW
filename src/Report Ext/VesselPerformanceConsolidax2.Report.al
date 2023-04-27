@@ -17,7 +17,7 @@ report 99192 "Vessel Performance Consolidax2"
     // CellDefVT :: Cell Definition Value Totals
     // CellDefHd :: Cell Definition Headers
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/VesselPerformanceConsolidax2.rdlc';
+    RDLCLayout = './src/reportrdlc/VesselPerformanceConsolidax2.rdlc';
 
 
     dataset

@@ -2,7 +2,7 @@ report 51000 "deepu"
 {
     // CVXV
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/deepu.rdlc';
+    RDLCLayout = './src/reportrdlc/deepu.rdlc';
 
 
     dataset

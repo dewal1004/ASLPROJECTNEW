@@ -1,7 +1,7 @@
 report 50053 "PRoll; Close Period"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/PRollClosePeriod.rdlc';
+    RDLCLayout = './src/reportrdlc/PRollClosePeriod.rdlc';
 
     dataset
     {

@@ -4,7 +4,7 @@ report 50161 "Voyage P&L Ledger Line Runng"
     // A1[2]:=PrdPrc2;
     // A1[3]:=NairaVal2;
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/VoyagePLLedgerLineRunng.rdlc';
+    RDLCLayout = './src/reportrdlc/VoyagePLLedgerLineRunng.rdlc';
 
     Permissions = TableData "Job Ledger Entry" = rimd;
 

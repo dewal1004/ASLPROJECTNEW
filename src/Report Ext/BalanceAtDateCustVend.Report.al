@@ -7,7 +7,7 @@ report 50086 "Balance At Date (Cust/Vend)"
     // Customer.SETFILTER(Customer."Customer Posting Group",'STAFF');
     // Customer."Date Filter":=0D;
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/BalanceAtDateCustVend.rdlc';
+    RDLCLayout = './src/reportrdlc/BalanceAtDateCustVend.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
 

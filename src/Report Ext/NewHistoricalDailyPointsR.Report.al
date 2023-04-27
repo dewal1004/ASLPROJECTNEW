@@ -1,7 +1,7 @@
 report 50175 "New Historical Daily Points R"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/NewHistoricalDailyPointsR.rdlc';
+    RDLCLayout = './src/reportrdlc/NewHistoricalDailyPointsR.rdlc';
     Caption = 'New Daily Points Report';
 
     dataset

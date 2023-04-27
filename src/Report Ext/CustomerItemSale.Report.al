@@ -1,7 +1,7 @@
 report 50102 "Customer/Item Sale"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/CustomerItemSale.rdlc';
+    RDLCLayout = './src/reportrdlc/CustomerItemSale.rdlc';
     Caption = 'Customer/Item Sales';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;

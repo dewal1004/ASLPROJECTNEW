@@ -1,7 +1,7 @@
 report 55999 "Inventory Average MonthlDemanX"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/InventoryAverageMonthlDemanX.rdlc';
+    RDLCLayout = './src/reportrdlc/InventoryAverageMonthlDemanX.rdlc';
 
     dataset
     {

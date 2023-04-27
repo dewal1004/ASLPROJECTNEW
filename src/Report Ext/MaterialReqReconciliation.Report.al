@@ -1,7 +1,7 @@
 report 50081 "Material Req Reconciliation"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/MaterialReqReconciliation.rdlc';
+    RDLCLayout = './src/reportrdlc/MaterialReqReconciliation.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
 

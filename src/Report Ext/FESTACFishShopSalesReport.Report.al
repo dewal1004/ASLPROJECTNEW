@@ -2,7 +2,7 @@ report 50231 "FESTAC Fish Shop Sales Report"
 {
     //   "Sea Food categories"
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/FESTACFishShopSalesReport.rdlc';
+    RDLCLayout = './src/reportrdlc/FESTACFishShopSalesReport.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
 

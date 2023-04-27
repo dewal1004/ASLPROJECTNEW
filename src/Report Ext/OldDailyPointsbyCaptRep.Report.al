@@ -6,7 +6,7 @@ report 50204 "Old Daily Points by Capt Rep"
     // IF GCountCum[k]<>0 THEN GTotPtsA[k]:= GTotPts[k]/GCountCum[k] ELSE GTotPtsA[k]:=0;
     // SeaDaysTot:=0;SeaDayA:=0;
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/OldDailyPointsbyCaptRep.rdlc';
+    RDLCLayout = './src/reportrdlc/OldDailyPointsbyCaptRep.rdlc';
 
     Caption = 'New Daily Points Report';
 

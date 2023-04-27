@@ -1,7 +1,7 @@
 report 80028 "Vehicle Maintenance - AnalysiZ"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/VehicleMaintenanceAnalysiZ.rdlc';
+    RDLCLayout = './src/reportrdlc/VehicleMaintenanceAnalysiZ.rdlc';
     Caption = 'Vehicle Maintenance - Analysis';
 
     dataset

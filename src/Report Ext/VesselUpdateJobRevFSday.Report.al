@@ -5,7 +5,7 @@ report 50193 "Vessel Update Job Rev/FS day"
     // XVal[3]::NairaVal
     // XVal[4]::AGVal
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/VesselUpdateJobRevFSday.rdlc';
+    RDLCLayout = './src/reportrdlc/VesselUpdateJobRevFSday.rdlc';
 
 
     dataset

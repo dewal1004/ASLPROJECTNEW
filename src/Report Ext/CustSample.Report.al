@@ -1,7 +1,7 @@
 report 59102 "Cust Sample"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/CustSample.rdlc';
+    RDLCLayout = './src/reportrdlc/CustSample.rdlc';
     UsageCategory = Administration;
     ApplicationArea = All, basic, suite;
 

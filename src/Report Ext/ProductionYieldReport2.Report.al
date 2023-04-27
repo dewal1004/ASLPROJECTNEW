@@ -1,7 +1,7 @@
 report 99004 "Production Yield Report2"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/ProductionYieldReport2.rdlc';
+    RDLCLayout = './src/reportrdlc/ProductionYieldReport2.rdlc';
 
     dataset
     {

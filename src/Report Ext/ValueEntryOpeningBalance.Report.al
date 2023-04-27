@@ -1,7 +1,7 @@
 report 99987 "Value Entry Opening Balance"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/ValueEntryOpeningBalance.rdlc';
+    RDLCLayout = './src/reportrdlc/ValueEntryOpeningBalance.rdlc';
 
     dataset
     {

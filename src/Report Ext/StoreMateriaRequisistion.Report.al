@@ -1,7 +1,7 @@
 report 50094 "Store Materia Requisistion"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/StoreMateriaRequisistion.rdlc';
+    RDLCLayout = './src/reportrdlc/StoreMateriaRequisistion.rdlc';
 
     dataset
     {

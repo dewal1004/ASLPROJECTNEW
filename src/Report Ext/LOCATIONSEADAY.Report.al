@@ -1,7 +1,7 @@
 report 90007 "LOCATION SEA DAY"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/LOCATIONSEADAY.rdlc';
+    RDLCLayout = './src/reportrdlc/LOCATIONSEADAY.rdlc';
 
     dataset
     {

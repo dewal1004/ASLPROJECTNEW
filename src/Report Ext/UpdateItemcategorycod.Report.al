@@ -1,7 +1,7 @@
 report 50919 "Update Item category cod"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/UpdateItemcategorycod.rdlc';
+    RDLCLayout = './src/reportrdlc/UpdateItemcategorycod.rdlc';
 
     dataset
     {

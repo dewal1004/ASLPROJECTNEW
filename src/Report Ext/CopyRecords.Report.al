@@ -1,7 +1,7 @@
 report 90014 "Copy Records"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/CopyRecords.rdlc';
+    RDLCLayout = './src/reportrdlc/CopyRecords.rdlc';
 
     dataset
     {

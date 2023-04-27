@@ -1,7 +1,7 @@
 report 99976 "Variant Remove Value Entries"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/VariantRemoveValueEntries.rdlc';
+    RDLCLayout = './src/reportrdlc/VariantRemoveValueEntries.rdlc';
 
     dataset
     {

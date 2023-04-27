@@ -1,7 +1,7 @@
 report 50138 "Monthly PC Wise Report VJ"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/MonthlyPCWiseReportVJ.rdlc';
+    RDLCLayout = './src/reportrdlc/MonthlyPCWiseReportVJ.rdlc';
 
     dataset
     {

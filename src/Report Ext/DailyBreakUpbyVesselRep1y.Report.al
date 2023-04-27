@@ -1,7 +1,7 @@
 report 55007 "Daily BreakUp by Vessel Rep 1y"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/DailyBreakUpbyVesselRep1new.rdlc';
+    RDLCLayout = './src/reportrdlc/DailyBreakUpbyVesselRep1new.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
 

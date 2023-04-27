@@ -1,7 +1,7 @@
 report 50110 "Foreign Banks Report"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/ForeignBanksReport.rdlc';
+    RDLCLayout = './src/reportrdlc/ForeignBanksReport.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
 

@@ -1,7 +1,7 @@
 report 50051 "Monthly Payslip"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/MonthlyPayslip.rdlc';
+    RDLCLayout = './src/reportrdlc/MonthlyPayslip.rdlc';
     ApplicationArea = Basic, Suite;
     Caption = 'Monthly Payslip';
     UsageCategory = ReportsAndAnalysis;

@@ -2,7 +2,7 @@ report 99998 "Update Location rec"
 {
     // To Update Vessel, Voyage No. And Operation No on Location Record
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/UpdateLocationrec.rdlc';
+    RDLCLayout = './src/reportrdlc/UpdateLocationrec.rdlc';
 
 
     dataset

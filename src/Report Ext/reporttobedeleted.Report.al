@@ -1,7 +1,7 @@
 report 52000 "report to be deleted --"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/reporttobedeleted.rdlc';
+    RDLCLayout = './src/reportrdlc/reporttobedeleted.rdlc';
 
     dataset
     {

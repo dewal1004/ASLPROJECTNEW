@@ -2,7 +2,7 @@ report 50129 "Account Schedule 9"
 {
     // // Text004 //AAA
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/AccountSchedule9.rdlc';
+    RDLCLayout = './src/reportrdlc/AccountSchedule9.rdlc';
 
     Caption = 'Account Schedule';
 

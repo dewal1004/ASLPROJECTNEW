@@ -1,7 +1,7 @@
 report 50048 "Voyage Consumptn Summa"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/VoyageConsumptnSumma.rdlc';
+    RDLCLayout = './src/reportrdlc/VoyageConsumptnSumma.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
 

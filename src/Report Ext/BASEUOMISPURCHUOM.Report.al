@@ -1,7 +1,7 @@
 report 95001 "BASEUOM IS PURCHUOM"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/BASEUOMISPURCHUOM.rdlc';
+    RDLCLayout = './src/reportrdlc/BASEUOMISPURCHUOM.rdlc';
 
     dataset
     {

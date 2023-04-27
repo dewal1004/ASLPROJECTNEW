@@ -1,7 +1,7 @@
 report 50228 "Itemwise Yearly Consumption"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/ItemwiseYearlyConsumption.rdlc';
+    RDLCLayout = './src/reportrdlc/ItemwiseYearlyConsumption.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
 

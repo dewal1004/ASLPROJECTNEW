@@ -1,7 +1,7 @@
 report 50901 "Item Columnization"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/ItemColumnization.rdlc';
+    RDLCLayout = './src/reportrdlc/ItemColumnization.rdlc';
 
     dataset
     {

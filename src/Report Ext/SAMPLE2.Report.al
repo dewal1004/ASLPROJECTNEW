@@ -1,7 +1,7 @@
 report 99509 "SAMPLE 2"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/SAMPLE2.rdlc';
+    RDLCLayout = './src/reportrdlc/SAMPLE2.rdlc';
 
     dataset
     {

@@ -3,7 +3,7 @@ report 50093 "Sales Delivery Note"
     //  SalesLine.Numbers
     //  "Shipment Text"
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/SalesDeliveryNote.rdlc';
+    RDLCLayout = './src/reportrdlc/SalesDeliveryNote.rdlc';
 
     Caption = 'Order Confirmation';
 

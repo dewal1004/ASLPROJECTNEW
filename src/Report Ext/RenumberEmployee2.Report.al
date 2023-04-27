@@ -1,7 +1,7 @@
 report 99012 "Renumber Employee 2"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/RenumberEmployee2.rdlc';
+    RDLCLayout = './src/reportrdlc/RenumberEmployee2.rdlc';
 
     dataset
     {

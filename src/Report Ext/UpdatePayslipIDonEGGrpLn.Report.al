@@ -1,7 +1,7 @@
 report 99984 "Update Payslip ID on EG Grp Ln"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/UpdatePayslipIDonEGGrpLn.rdlc';
+    RDLCLayout = './src/reportrdlc/UpdatePayslipIDonEGGrpLn.rdlc';
 
     dataset
     {

@@ -2,7 +2,7 @@ report 56083 "Daily BreakUp by Vessel ExcelH"
 {
     // //CurrReport.PAGENO
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/DailyBreakUpbyVesselExcelH.rdlc';
+    RDLCLayout = './src/reportrdlc/DailyBreakUpbyVesselExcelH.rdlc';
 
 
     dataset

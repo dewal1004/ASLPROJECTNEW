@@ -5,7 +5,7 @@ report 50085 "Vessel Catches"
     // "Job."Ending Date"
     // Job."Sea Days"
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/VesselCatches.rdlc';
+    RDLCLayout = './src/reportrdlc/VesselCatches.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
 

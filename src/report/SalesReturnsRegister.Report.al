@@ -1,7 +1,7 @@
 report 50147 "Sales Returns Register"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/SalesReturnsRegister.50147.rdlc';
+    RDLCLayout = './src/reportrdlc/SalesReturnsRegister.50147.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
 

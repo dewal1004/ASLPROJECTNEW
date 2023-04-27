@@ -1,7 +1,7 @@
 report 50211 "Consolidated Voyage P&L2 test"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/ConsolidatedVoyagePL2test.rdlc';
+    RDLCLayout = './src/reportrdlc/ConsolidatedVoyagePL2test.rdlc';
     Permissions = TableData "Job Ledger Entry" = rimd,
                   TableData "Value Entry" = rimd;
 

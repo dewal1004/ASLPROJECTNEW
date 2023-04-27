@@ -1,7 +1,7 @@
 report 50091 "Convert Applicant to Staff"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/ConvertApplicanttoStaff.rdlc';
+    RDLCLayout = './src/reportrdlc/ConvertApplicanttoStaff.rdlc';
 
     dataset
     {

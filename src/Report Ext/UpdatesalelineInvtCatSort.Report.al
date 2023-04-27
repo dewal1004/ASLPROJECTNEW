@@ -1,7 +1,7 @@
 report 99980 "Update sale line Invt Cat Sort"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/UpdatesalelineInvtCatSort.rdlc';
+    RDLCLayout = './src/reportrdlc/UpdatesalelineInvtCatSort.rdlc';
 
     dataset
     {

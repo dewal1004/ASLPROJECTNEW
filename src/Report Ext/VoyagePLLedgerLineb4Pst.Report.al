@@ -1,7 +1,7 @@
 report 50200 "Voyage P&L Ledger Line b4 Pst"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/VoyagePLLedgerLineb4Pst.rdlc';
+    RDLCLayout = './src/reportrdlc/VoyagePLLedgerLineb4Pst.rdlc';
     Permissions = TableData "Job Ledger Entry" = rimd;
 
     dataset

@@ -1,7 +1,7 @@
 report 50026 "Consolidated Voyage P &  L2"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/ConsolidatedVoyagePL2.rdlc';
+    RDLCLayout = './src/reportrdlc/ConsolidatedVoyagePL2.rdlc';
     Caption = 'Consolidated Voyage P&L2';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;

@@ -1,7 +1,7 @@
 report 50022 "Periodic Stock Position-CODEWA"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/PeriodicStockPositionCODEWA.rdlc';
+    RDLCLayout = './src/reportrdlc/PeriodicStockPositionCODEWA.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
 

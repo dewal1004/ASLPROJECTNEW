@@ -1,7 +1,7 @@
 report 50115 "Cash/Cheques on Hand Report"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/CashChequesonHandReport.rdlc';
+    RDLCLayout = './src/reportrdlc/CashChequesonHandReport.rdlc';
 
     dataset
     {

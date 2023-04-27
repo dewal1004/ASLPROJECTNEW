@@ -1,7 +1,7 @@
 report 50011 "Banks Balances"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/BanksBalances.rdlc';
+    RDLCLayout = './src/reportrdlc/BanksBalances.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
     dataset

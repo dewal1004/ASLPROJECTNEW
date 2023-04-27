@@ -2,7 +2,7 @@ report 50167 "Mobile Fish Shop Sales Rep"
 {
     // "Sea Food categories"
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/MobileFishShopSalesRep.rdlc';
+    RDLCLayout = './src/reportrdlc/MobileFishShopSalesRep.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
 

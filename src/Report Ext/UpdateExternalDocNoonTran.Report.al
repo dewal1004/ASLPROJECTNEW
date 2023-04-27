@@ -1,7 +1,7 @@
 report 50096 "Update External Doc No on Tran"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/UpdateExternalDocNoonTran.rdlc';
+    RDLCLayout = './src/reportrdlc/UpdateExternalDocNoonTran.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
 

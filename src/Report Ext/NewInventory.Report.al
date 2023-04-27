@@ -1,7 +1,7 @@
 report 99993 "New Inventory"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/NewInventory.rdlc';
+    RDLCLayout = './src/reportrdlc/NewInventory.rdlc';
 
     dataset
     {

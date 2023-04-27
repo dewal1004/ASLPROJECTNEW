@@ -1,7 +1,7 @@
 report 50005 "Points Summary VJ"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/PointsSummaryVJ.rdlc';
+    RDLCLayout = './src/reportrdlc/PointsSummaryVJ.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
 

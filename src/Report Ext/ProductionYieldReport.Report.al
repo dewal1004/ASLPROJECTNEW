@@ -1,7 +1,7 @@
 report 50208 "Production Yield Report.."
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/ProductionYieldReport.rdlc';
+    RDLCLayout = './src/reportrdlc/ProductionYieldReport.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
 

@@ -1,7 +1,7 @@
 report 88233 "SDFAWE"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/SDFAWE.rdlc';
+    RDLCLayout = './src/reportrdlc/SDFAWE.rdlc';
 
     dataset
     {

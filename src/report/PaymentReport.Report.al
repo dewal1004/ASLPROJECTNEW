@@ -4,7 +4,7 @@ report 50111 "Payment Report"
     // "Acct Name"
     // "Gen. Journal Line"."Bal. Account No."
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/PaymentReport.rdlc';
+    RDLCLayout = './src/reportrdlc/PaymentReport.rdlc';
 
 
     dataset

@@ -3,7 +3,7 @@ report 59028 "Vehicle Maintenance - Analys X"
     // "Fixed Asset"."Responsible Employee"
     // RespEmpl.FullName
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/VehicleMaintenanceAnalysX.rdlc';
+    RDLCLayout = './src/reportrdlc/VehicleMaintenanceAnalysX.rdlc';
 
     Caption = 'Maintenance - Analysis';
 

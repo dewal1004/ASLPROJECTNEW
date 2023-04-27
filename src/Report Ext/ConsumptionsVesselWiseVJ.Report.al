@@ -1,7 +1,7 @@
 report 50169 "Consumptions Vessel Wise VJ"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/ConsumptionsVesselWiseVJ.rdlc';
+    RDLCLayout = './src/reportrdlc/ConsumptionsVesselWiseVJ.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
 

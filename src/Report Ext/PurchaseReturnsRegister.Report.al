@@ -1,7 +1,7 @@
 report 50020 "Purchase Returns Register"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/PurchaseReturnsRegister.rdlc';
+    RDLCLayout = './src/reportrdlc/PurchaseReturnsRegister.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
 

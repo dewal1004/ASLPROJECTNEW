@@ -2,7 +2,7 @@ report 50220 "Apapa Fish Shop Sales Report"
 {
     //   "Sea Food categories"
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/ApapaFishShopSalesReport.rdlc';
+    RDLCLayout = './src/reportrdlc/ApapaFishShopSalesReport.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
 

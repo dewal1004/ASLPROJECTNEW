@@ -1,7 +1,7 @@
 report 50133 "Detail Trial Balance-4"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/DetailTrialBalance4.rdlc';
+    RDLCLayout = './src/reportrdlc/DetailTrialBalance4.rdlc';
     Caption = 'Detail Trial Balance';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;

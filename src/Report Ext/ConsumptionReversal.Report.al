@@ -1,7 +1,7 @@
 report 99898 "Consumption Reversal"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/ConsumptionReversal.rdlc';
+    RDLCLayout = './src/reportrdlc/ConsumptionReversal.rdlc';
 
     dataset
     {

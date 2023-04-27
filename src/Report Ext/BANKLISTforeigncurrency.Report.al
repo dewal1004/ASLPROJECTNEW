@@ -1,7 +1,7 @@
 report 50072 "BANK LIST foreign currency"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/BANKLISTforeigncurrency.rdlc';
+    RDLCLayout = './src/reportrdlc/BANKLISTforeigncurrency.rdlc';
 
     dataset
     {

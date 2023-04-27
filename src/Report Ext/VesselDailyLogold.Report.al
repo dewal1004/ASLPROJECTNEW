@@ -3,7 +3,7 @@ report 50240 "Vessel Daily Log-old"
     // "Operation Daily Radio".GETFILTERS
     // Jobs."Voyage No."
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/VesselDailyLogold.rdlc';
+    RDLCLayout = './src/reportrdlc/VesselDailyLogold.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
 

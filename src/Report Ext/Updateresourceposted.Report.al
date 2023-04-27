@@ -1,7 +1,7 @@
 report 91001 "Update resource posted"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/Updateresourceposted.rdlc';
+    RDLCLayout = './src/reportrdlc/Updateresourceposted.rdlc';
 
     dataset
     {

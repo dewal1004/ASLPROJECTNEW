@@ -1,7 +1,7 @@
 report 50078 "Local Sales Report"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/LocalSalesReport.rdlc';
+    RDLCLayout = './src/reportrdlc/LocalSalesReport.rdlc';
     Caption = 'Inventory - Top 10 List';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;

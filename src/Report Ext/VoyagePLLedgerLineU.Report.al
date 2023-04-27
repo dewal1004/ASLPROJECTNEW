@@ -1,7 +1,7 @@
 report 50997 "Voyage P&L Ledger LineU"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/VoyagePLLedgerLineU.rdlc';
+    RDLCLayout = './src/reportrdlc/VoyagePLLedgerLineU.rdlc';
 
     dataset
     {

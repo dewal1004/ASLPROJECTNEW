@@ -1,7 +1,7 @@
 report 99912 "Update Resource from Employee"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/UpdateResourcefromEmployee.rdlc';
+    RDLCLayout = './src/reportrdlc/UpdateResourcefromEmployee.rdlc';
 
     dataset
     {

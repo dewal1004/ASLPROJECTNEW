@@ -1,7 +1,7 @@
 report 99044 "GB POSTING GRP"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/GBPOSTINGGRP.rdlc';
+    RDLCLayout = './src/reportrdlc/GBPOSTINGGRP.rdlc';
 
     dataset
     {

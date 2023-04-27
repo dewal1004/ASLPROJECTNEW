@@ -1,7 +1,7 @@
 report 90901 "Caught for Incentive"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/CaughtforIncentive.rdlc';
+    RDLCLayout = './src/reportrdlc/CaughtforIncentive.rdlc';
 
     dataset
     {

@@ -1,7 +1,7 @@
 report 50098 "Material Variant report"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/MaterialVariantreport.rdlc';
+    RDLCLayout = './src/reportrdlc/MaterialVariantreport.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
 

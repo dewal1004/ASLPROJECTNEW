@@ -1,7 +1,7 @@
 report 50216 "Item Age Composition Qty"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/ItemAgeCompositionQty.rdlc';
+    RDLCLayout = './src/reportrdlc/ItemAgeCompositionQty.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
 

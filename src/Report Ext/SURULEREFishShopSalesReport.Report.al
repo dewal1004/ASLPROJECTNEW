@@ -2,7 +2,7 @@ report 50229 "SURULERE Fish Shop SalesReport"
 {
     //  "Sea Food categories"
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/SURULEREFishShopSalesReport.rdlc';
+    RDLCLayout = './src/reportrdlc/SURULEREFishShopSalesReport.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
 

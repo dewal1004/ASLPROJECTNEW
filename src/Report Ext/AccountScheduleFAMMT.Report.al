@@ -2,7 +2,7 @@ report 50126 "Account Schedule FA  MMT"
 {
     // // Text004 ///AAA
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/AccountScheduleFAMMT.rdlc';
+    RDLCLayout = './src/reportrdlc/AccountScheduleFAMMT.rdlc';
 
     Caption = 'Account Schedule';
 

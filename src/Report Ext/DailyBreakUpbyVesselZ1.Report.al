@@ -2,7 +2,7 @@ report 99042 "Daily BreakUp by VesselZ1"
 {
     // //
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/DailyBreakUpbyVesselZ1.rdlc';
+    RDLCLayout = './src/reportrdlc/DailyBreakUpbyVesselZ1.rdlc';
 
 
     dataset

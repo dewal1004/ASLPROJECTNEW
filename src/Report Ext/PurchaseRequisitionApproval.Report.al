@@ -6,7 +6,7 @@ report 50177 "Purchase Requisition Approval"
     // "Requisition Line"."Worksheet Template Name"
     // Item."CRM / STR"
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/PurchaseRequisitionApproval.rdlc';
+    RDLCLayout = './src/reportrdlc/PurchaseRequisitionApproval.rdlc';
 
 
     dataset

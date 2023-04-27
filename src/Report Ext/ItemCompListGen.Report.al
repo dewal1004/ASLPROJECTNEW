@@ -2,7 +2,7 @@ report 90998 "Item Comp List Gen"
 {
     // Caught Item category= C
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/ItemCompListGen.rdlc';
+    RDLCLayout = './src/reportrdlc/ItemCompListGen.rdlc';
 
 
     dataset

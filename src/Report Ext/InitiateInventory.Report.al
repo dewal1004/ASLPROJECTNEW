@@ -3,7 +3,7 @@ report 50079 "Initiate Inventory"
     // {"Item Journal Batch"."Transfer From"
     // //
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/InitiateInventory.rdlc';
+    RDLCLayout = './src/reportrdlc/InitiateInventory.rdlc';
 
     Caption = 'Inventory Posting - Test';
 

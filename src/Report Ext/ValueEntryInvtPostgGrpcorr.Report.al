@@ -1,7 +1,7 @@
 report 99971 "Value Entry InvtPostgGrp corr"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/ValueEntryInvtPostgGrpcorr.rdlc';
+    RDLCLayout = './src/reportrdlc/ValueEntryInvtPostgGrpcorr.rdlc';
 
     dataset
     {

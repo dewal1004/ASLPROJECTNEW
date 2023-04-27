@@ -1,7 +1,7 @@
 report 55512 "Vessel Grouping"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/VesselGrouping.rdlc';
+    RDLCLayout = './src/reportrdlc/VesselGrouping.rdlc';
 
     dataset
     {

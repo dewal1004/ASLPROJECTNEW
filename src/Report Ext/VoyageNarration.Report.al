@@ -1,7 +1,7 @@
 report 50099 "Voyage Narration"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/VoyageNarration.rdlc';
+    RDLCLayout = './src/reportrdlc/VoyageNarration.rdlc';
 
     dataset
     {

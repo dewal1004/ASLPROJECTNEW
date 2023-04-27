@@ -4,7 +4,7 @@
 report 50214 "Voyage Narration (Points)"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/VoyageNarrationPoints.rdlc';
+    RDLCLayout = './src/reportrdlc/VoyageNarrationPoints.rdlc';
 
     dataset
     {

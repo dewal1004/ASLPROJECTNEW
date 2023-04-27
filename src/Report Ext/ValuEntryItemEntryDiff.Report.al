@@ -1,7 +1,7 @@
 report 70002 "ValuEntry-ItemEntry Diff"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/ValuEntryItemEntryDiff.rdlc';
+    RDLCLayout = './src/reportrdlc/ValuEntryItemEntryDiff.rdlc';
 
     dataset
     {

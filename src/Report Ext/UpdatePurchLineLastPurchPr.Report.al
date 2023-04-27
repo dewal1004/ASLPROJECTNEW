@@ -1,7 +1,7 @@
 report 90004 "Update PurchLine Last Purch Pr"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/UpdatePurchLineLastPurchPr.rdlc';
+    RDLCLayout = './src/reportrdlc/UpdatePurchLineLastPurchPr.rdlc';
 
     dataset
     {

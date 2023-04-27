@@ -7,7 +7,7 @@ report 50101 "Customer Balance At Dates"
     // Customer.SETFILTER(Customer."Customer Posting Group",'STAFF');
     // Customer."Date Filter":=0D;
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/CustomerBalanceAtDates.rdlc';
+    RDLCLayout = './src/reportrdlc/CustomerBalanceAtDates.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
 

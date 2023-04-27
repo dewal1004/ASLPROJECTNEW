@@ -3,7 +3,7 @@ report 50068 "Payroll Tax Report"
     DefaultLayout = RDLC;
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
-    RDLCLayout = './reportrdlc/PayrollTaxReport.rdlc';
+    RDLCLayout = './src/reportrdlc/PayrollTaxReport.rdlc';
 
     dataset
     {

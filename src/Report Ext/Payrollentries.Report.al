@@ -2,7 +2,7 @@ report 50067 "Payroll entries"
 {
     // This report prints ALL the entries for an employee for the requested periods.
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/Payrollentries.rdlc';
+    RDLCLayout = './src/reportrdlc/Payrollentries.rdlc';
 
 
     dataset

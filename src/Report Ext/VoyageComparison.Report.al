@@ -13,7 +13,7 @@ report 50114 "Voyage Comparison"
     // 
     // UNL-ASL3.60.01.010 (Santus) June 21, 2005
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/VoyageComparison.rdlc';
+    RDLCLayout = './src/reportrdlc/VoyageComparison.rdlc';
 
 
     dataset

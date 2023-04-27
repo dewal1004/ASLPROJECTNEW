@@ -4,7 +4,7 @@ report 50066 "E/D-Employee-period"
     // an employee, for each of this periods. The total amount for the periods is
     // also printed for each employee.
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/EDEmployeeperiod.rdlc';
+    RDLCLayout = './src/reportrdlc/EDEmployeeperiod.rdlc';
 
 
     dataset

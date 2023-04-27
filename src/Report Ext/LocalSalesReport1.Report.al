@@ -1,7 +1,7 @@
 report 50017 "Local Sales Report1"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/LocalSalesReport1.rdlc';
+    RDLCLayout = './src/reportrdlc/LocalSalesReport1.rdlc';
     Caption = 'Local Sales Report1';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;

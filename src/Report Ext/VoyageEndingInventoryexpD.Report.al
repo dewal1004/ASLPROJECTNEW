@@ -1,7 +1,7 @@
 report 50032 "Voyage Ending Inventory expD"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/VoyageEndingInventoryexpD.rdlc';
+    RDLCLayout = './src/reportrdlc/VoyageEndingInventoryexpD.rdlc';
 
     dataset
     {

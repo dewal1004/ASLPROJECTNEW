@@ -2,7 +2,7 @@ report 50224 "IKEJA Fish Shop Sales Report"
 {
     //   "Sea Food categories"
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/IKEJAFishShopSalesReport.rdlc';
+    RDLCLayout = './src/reportrdlc/IKEJAFishShopSalesReport.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
 

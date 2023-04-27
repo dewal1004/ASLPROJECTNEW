@@ -2,7 +2,7 @@ report 99123 "Modify Item BUOM"
 {
     // NewBUOM
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/ModifyItemBUOM.rdlc';
+    RDLCLayout = './src/reportrdlc/ModifyItemBUOM.rdlc';
 
     Permissions = TableData Item = rimd,
                   TableData "Item Ledger Entry" = rimd;

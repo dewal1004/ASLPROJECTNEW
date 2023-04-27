@@ -1,7 +1,7 @@
 report 99105 "Default Setup"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/DefaultSetup.rdlc';
+    RDLCLayout = './src/reportrdlc/DefaultSetup.rdlc';
 
     dataset
     {

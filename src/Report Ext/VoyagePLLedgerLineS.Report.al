@@ -2,7 +2,7 @@ report 60154 "Voyage P&L Ledger LineS"
 {
     // "Job Ledger Entry"."Total Price"
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/VoyagePLLedgerLineS.rdlc';
+    RDLCLayout = './src/reportrdlc/VoyagePLLedgerLineS.rdlc';
 
 
     dataset

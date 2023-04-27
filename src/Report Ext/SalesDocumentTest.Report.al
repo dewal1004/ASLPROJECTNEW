@@ -1,7 +1,7 @@
 report 50202 "!Sales Document - Test"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/SalesDocumentTest.rdlc';
+    RDLCLayout = './src/reportrdlc/SalesDocumentTest.rdlc';
     Caption = 'Sales Document - Test';
 
     dataset

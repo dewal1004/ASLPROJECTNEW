@@ -1,7 +1,7 @@
 report 90711 "Inventory - Top 10 List12"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/InventoryTop10List12.rdlc';
+    RDLCLayout = './src/reportrdlc/InventoryTop10List12.rdlc';
     Caption = 'Inventory - Top 10 List';
 
     dataset

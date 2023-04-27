@@ -5,7 +5,7 @@ report 50082 "Catch Reconsiliation Statement"
     // "Job."Ending Date"
     // Job."Sea Days"
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/CatchReconsiliationStatement.rdlc';
+    RDLCLayout = './src/reportrdlc/CatchReconsiliationStatement.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
     Caption = 'Catch Reconsiliation Statement';

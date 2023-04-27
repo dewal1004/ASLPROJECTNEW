@@ -1,7 +1,7 @@
 report 90192 "Sample Vessel Groupg"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/SampleVesselGroupg.rdlc';
+    RDLCLayout = './src/reportrdlc/SampleVesselGroupg.rdlc';
     Caption = 'Sample Vessel Groupg';
 
     dataset

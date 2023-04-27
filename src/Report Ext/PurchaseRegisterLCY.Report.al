@@ -1,7 +1,7 @@
 report 50019 "Purchase Register(LCY)"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/PurchaseRegisterLCY.rdlc';
+    RDLCLayout = './src/reportrdlc/PurchaseRegisterLCY.rdlc';
 
     dataset
     {

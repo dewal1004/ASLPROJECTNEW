@@ -1,7 +1,7 @@
 report 50150 "Consolidated Voyage P&L"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/ConsolidatedVoyagePL.rdlc';
+    RDLCLayout = './src/reportrdlc/ConsolidatedVoyagePL.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
     Permissions = TableData "Job Ledger Entry" = rimd,

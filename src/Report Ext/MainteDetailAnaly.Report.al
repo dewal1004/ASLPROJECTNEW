@@ -1,7 +1,7 @@
 report 96001 "Mainte Detail Analy"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/MainteDetailAnaly.rdlc';
+    RDLCLayout = './src/reportrdlc/MainteDetailAnaly.rdlc';
 
     dataset
     {

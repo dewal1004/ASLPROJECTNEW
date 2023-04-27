@@ -3,7 +3,7 @@ report 50023 "Daily Cash Summary"
     // IOU.EmployeeName
     // StartBalanceLCY
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/DailyCashSummary.rdlc';
+    RDLCLayout = './src/reportrdlc/DailyCashSummary.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
 

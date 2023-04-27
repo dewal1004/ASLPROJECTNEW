@@ -2,7 +2,7 @@ report 50036 "Purc Variance on Good Received"
 {
     //  "Quantity Ordered"
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/PurcVarianceonGoodReceived.rdlc';
+    RDLCLayout = './src/reportrdlc/PurcVarianceonGoodReceived.rdlc';
 
     Caption = 'Purchase - Receipt';
 

@@ -1,7 +1,7 @@
 report 50097 "Update RM data  Correction"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/UpdateRMdataCorrection.rdlc';
+    RDLCLayout = './src/reportrdlc/UpdateRMdataCorrection.rdlc';
 
     dataset
     {

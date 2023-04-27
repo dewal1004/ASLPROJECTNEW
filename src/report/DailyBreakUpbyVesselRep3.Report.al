@@ -1,7 +1,7 @@
 report 50009 "Daily BreakUp by Vessel Rep 3"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/DailyBreakUpbyVesselRep3.rdlc';
+    RDLCLayout = './src/reportrdlc/DailyBreakUpbyVesselRep3.rdlc';
 
     dataset
     {

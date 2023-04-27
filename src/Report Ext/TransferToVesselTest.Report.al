@@ -1,7 +1,7 @@
 report 99899 "Transfer To Vessel Test"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/TransferToVesselTest.rdlc';
+    RDLCLayout = './src/reportrdlc/TransferToVesselTest.rdlc';
 
     dataset
     {

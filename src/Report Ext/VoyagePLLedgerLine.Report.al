@@ -1,7 +1,7 @@
 report 50151 "Voyage P&L Ledger Line"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/VoyagePLLedgerLine.rdlc';
+    RDLCLayout = './src/reportrdlc/VoyagePLLedgerLine.rdlc';
     Permissions = TableData "Job Ledger Entry" = rimd;
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;

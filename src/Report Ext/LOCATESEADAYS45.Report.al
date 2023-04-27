@@ -1,7 +1,7 @@
 report 90101 "LOCATE SEADAYS 45"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/LOCATESEADAYS45.rdlc';
+    RDLCLayout = './src/reportrdlc/LOCATESEADAYS45.rdlc';
 
     dataset
     {

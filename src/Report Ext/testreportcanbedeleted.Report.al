@@ -1,7 +1,7 @@
 report 50900 "test report can be deleted"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/testreportcanbedeleted.rdlc';
+    RDLCLayout = './src/reportrdlc/testreportcanbedeleted.rdlc';
 
     dataset
     {

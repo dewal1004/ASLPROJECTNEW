@@ -2,7 +2,7 @@ report 91044 "Daily Break Up By Fishing AreX"
 {
     // Invt[1]
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/DailyBreakUpByFishingAreX.rdlc';
+    RDLCLayout = './src/reportrdlc/DailyBreakUpByFishingAreX.rdlc';
 
 
     dataset

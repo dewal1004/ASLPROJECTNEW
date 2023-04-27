@@ -2,7 +2,7 @@ report 50130 "Consolidatdd Daily Points Rep!"
 {
     // //
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/ConsolidatddDailyPointsRep.rdlc';
+    RDLCLayout = './src/reportrdlc/ConsolidatddDailyPointsRep.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
 

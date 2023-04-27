@@ -2,7 +2,7 @@ report 50187 "Sales Packing List"
 {
     // SalesHeader."Ship-to City"
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/SalesPackingList.rdlc';
+    RDLCLayout = './src/reportrdlc/SalesPackingList.rdlc';
 
     Caption = 'Sales Document - Test';
 

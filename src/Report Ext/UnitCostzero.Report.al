@@ -1,7 +1,7 @@
 report 90903 "UnitCost zero"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/UnitCostzero.rdlc';
+    RDLCLayout = './src/reportrdlc/UnitCostzero.rdlc';
 
     dataset
     {

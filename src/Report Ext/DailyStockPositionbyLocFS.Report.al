@@ -1,7 +1,7 @@
 report 50185 "Daily Stock Position by Loc-FS"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/DailyStockPositionbyLocFS.rdlc';
+    RDLCLayout = './src/reportrdlc/DailyStockPositionbyLocFS.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
 

@@ -3,7 +3,7 @@ report 50087 "Container By Month Shipment"
     // LastFieldNo := FIELDNO(Category);
     // "Sales Shipment Header".GETFILTERS
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/ContainerByMonthShipment.rdlc';
+    RDLCLayout = './src/reportrdlc/ContainerByMonthShipment.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
 

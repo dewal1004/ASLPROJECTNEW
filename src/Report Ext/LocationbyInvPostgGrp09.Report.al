@@ -1,7 +1,7 @@
 report 90503 "Location by Inv. Postg Grp0..9"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/LocationbyInvPostgGrp09.rdlc';
+    RDLCLayout = './src/reportrdlc/LocationbyInvPostgGrp09.rdlc';
 
     dataset
     {

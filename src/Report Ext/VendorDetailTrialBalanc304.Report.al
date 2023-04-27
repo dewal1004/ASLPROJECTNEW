@@ -1,7 +1,7 @@
 report 50134 "Vendor-Detail Trial Balanc-304"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/VendorDetailTrialBalanc304.rdlc';
+    RDLCLayout = './src/reportrdlc/VendorDetailTrialBalanc304.rdlc';
     Caption = 'Vendor - Detail Trial Balance';
 
     dataset

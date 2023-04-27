@@ -10,7 +10,7 @@ report 70041 "Prim7* Reporting Listxx"
     //   FormatAddr.Company(CompanyAddr,CompanyInfo);
     // END;
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/Prim7ReportingListxx.rdlc';
+    RDLCLayout = './src/reportrdlc/Prim7ReportingListxx.rdlc';
 
 
     dataset

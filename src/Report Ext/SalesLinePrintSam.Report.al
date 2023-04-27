@@ -2,7 +2,7 @@ report 55807 "Sales Line Print Sam"
 {
     // "Sales Line".
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/SalesLinePrintSam.rdlc';
+    RDLCLayout = './src/reportrdlc/SalesLinePrintSam.rdlc';
 
 
     dataset

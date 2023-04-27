@@ -2,7 +2,7 @@ report 70090 "Mp Budget reportx"
 {
     // "Employment Contract".Budget
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/MpBudgetreportx.rdlc';
+    RDLCLayout = './src/reportrdlc/MpBudgetreportx.rdlc';
 
 
     dataset

@@ -3,7 +3,7 @@ report 50073 "Proforma Invoice"
     //  SalesLine.Numbers
     //  "Shipment Text"
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/ProformaInvoice.rdlc';
+    RDLCLayout = './src/reportrdlc/ProformaInvoice.rdlc';
 
     Caption = 'Order Confirmation';
 

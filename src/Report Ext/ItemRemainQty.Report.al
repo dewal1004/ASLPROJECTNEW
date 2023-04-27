@@ -1,7 +1,7 @@
 report 70001 "Item Remain Qty"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/ItemRemainQty.rdlc';
+    RDLCLayout = './src/reportrdlc/ItemRemainQty.rdlc';
 
     dataset
     {

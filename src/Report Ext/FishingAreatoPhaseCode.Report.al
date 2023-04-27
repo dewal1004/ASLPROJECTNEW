@@ -1,7 +1,7 @@
 report 90991 "Fishing Area to Phase Code"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/FishingAreatoPhaseCode.rdlc';
+    RDLCLayout = './src/reportrdlc/FishingAreatoPhaseCode.rdlc';
 
     dataset
     {

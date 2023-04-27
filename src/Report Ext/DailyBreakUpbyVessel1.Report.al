@@ -2,7 +2,7 @@ report 50242 "Daily BreakUp by Vessel 1"
 {
     // //
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/DailyBreakUpbyVessel1.rdlc';
+    RDLCLayout = './src/reportrdlc/DailyBreakUpbyVessel1.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
 

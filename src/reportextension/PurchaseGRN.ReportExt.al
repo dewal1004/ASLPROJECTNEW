@@ -1,7 +1,7 @@
 reportextension 55000 "PurchaseGRN" extends "Purchase Document - Test"
 {
 
-    // RDLCLayout = './reportrdlc/PurchaseDocumentTest.rdlc';
+    // RDLCLayout = './src/reportrdlc/PurchaseDocumentTest.rdlc';
     RDLCLayout = './src/reportextension/PurchaseDocumentTest.rdlc';
 
 

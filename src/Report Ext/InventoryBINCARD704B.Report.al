@@ -3,7 +3,7 @@ report 50137 "Inventory - BINCARD 704 B"
     // Item."Unit Cost"
     // "Print Bin Card"
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/InventoryBINCARD704B.rdlc';
+    RDLCLayout = './src/reportrdlc/InventoryBINCARD704B.rdlc';
 
     Caption = 'Inventory - Transaction Detail';
     Permissions = TableData "Sales Shipment Header" = rimd;

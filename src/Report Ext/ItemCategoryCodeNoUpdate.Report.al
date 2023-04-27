@@ -1,7 +1,7 @@
 report 99997 "Item Category Code No Update"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/ItemCategoryCodeNoUpdate.rdlc';
+    RDLCLayout = './src/reportrdlc/ItemCategoryCodeNoUpdate.rdlc';
 
     dataset
     {

@@ -1,7 +1,7 @@
 report 80041 "catch record"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/catchrecord.rdlc';
+    RDLCLayout = './src/reportrdlc/catchrecord.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
 

@@ -7,7 +7,7 @@ report 50056 "Balance At Date (Cust/Vend)VJ"
     // Customer.SETFILTER(Customer."Customer Posting Group",'STAFF');
     // Customer."Date Filter":=0D;
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/BalanceAtDateCustVendVJ.rdlc';
+    RDLCLayout = './src/reportrdlc/BalanceAtDateCustVendVJ.rdlc';
 
 
     dataset

@@ -1,7 +1,7 @@
 report 50027 "Voyage P &  L"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/VoyagePL.rdlc';
+    RDLCLayout = './src/reportrdlc/VoyagePL.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
 

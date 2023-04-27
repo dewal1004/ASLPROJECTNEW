@@ -1,7 +1,7 @@
 report 50117 "Cummulative Payroll Report"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/CummulativePayrollReport.rdlc';
+    RDLCLayout = './src/reportrdlc/CummulativePayrollReport.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
 

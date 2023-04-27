@@ -1,7 +1,7 @@
 report 99989 "Customer Gen Postg GroupX"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/CustomerGenPostgGroupX.rdlc';
+    RDLCLayout = './src/reportrdlc/CustomerGenPostgGroupX.rdlc';
 
     dataset
     {

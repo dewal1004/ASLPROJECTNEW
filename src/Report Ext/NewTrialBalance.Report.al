@@ -11,7 +11,7 @@ report 50039 "New Trial Balance"
     //  "Debit Amount (LCY)"
     //  "Credit Amount (LCY)"
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/NewTrialBalance.rdlc';
+    RDLCLayout = './src/reportrdlc/NewTrialBalance.rdlc';
 
 
     dataset

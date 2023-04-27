@@ -1,7 +1,7 @@
 report 99055 "Cust Bal to Excel buffer"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/CustBaltoExcelbuffer.rdlc';
+    RDLCLayout = './src/reportrdlc/CustBaltoExcelbuffer.rdlc';
 
     dataset
     {

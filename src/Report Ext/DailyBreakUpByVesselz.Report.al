@@ -1,7 +1,7 @@
 report 60042 "Daily Break Up By Vesselz"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/DailyBreakUpByVesselz.rdlc';
+    RDLCLayout = './src/reportrdlc/DailyBreakUpByVesselz.rdlc';
 
     dataset
     {

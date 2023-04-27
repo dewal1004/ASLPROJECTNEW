@@ -1,7 +1,7 @@
 report 70225 "LEKKI Fish Shop Sales ReportM"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/LEKKIFishShopSalesReportM.rdlc';
+    RDLCLayout = './src/reportrdlc/LEKKIFishShopSalesReportM.rdlc';
 
     dataset
     {

@@ -1,7 +1,7 @@
 report 99019 "Inv Postg Group StatisA"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/InvPostgGroupStatisA.rdlc';
+    RDLCLayout = './src/reportrdlc/InvPostgGroupStatisA.rdlc';
 
     dataset
     {

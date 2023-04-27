@@ -1,7 +1,7 @@
 report 99037 "Employee Balance"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/EmployeeBalance.rdlc';
+    RDLCLayout = './src/reportrdlc/EmployeeBalance.rdlc';
 
     dataset
     {

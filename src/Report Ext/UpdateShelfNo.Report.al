@@ -1,7 +1,7 @@
 report 90001 "Update Shelf No."
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/UpdateShelfNo.rdlc';
+    RDLCLayout = './src/reportrdlc/UpdateShelfNo.rdlc';
 
     dataset
     {

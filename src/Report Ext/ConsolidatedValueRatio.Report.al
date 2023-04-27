@@ -1,7 +1,7 @@
 report 50154 "Consolidated Value  & Ratio"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/ConsolidatedValueRatio.rdlc';
+    RDLCLayout = './src/reportrdlc/ConsolidatedValueRatio.rdlc';
     Permissions = TableData "Job Ledger Entry" = rimd,
                   TableData "Value Entry" = rimd;
     UsageCategory = ReportsAndAnalysis;

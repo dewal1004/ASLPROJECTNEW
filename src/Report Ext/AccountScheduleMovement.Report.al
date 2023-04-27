@@ -2,7 +2,7 @@ report 50123 "Account Schedule Movement"
 {
     //  //Text004 ///AAA
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/AccountScheduleMovement.rdlc';
+    RDLCLayout = './src/reportrdlc/AccountScheduleMovement.rdlc';
 
     Caption = 'Account Schedule';
 

@@ -1,7 +1,7 @@
 report 50070 "Increment Employee Earnings"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/IncrementEmployeeEarnings.rdlc';
+    RDLCLayout = './src/reportrdlc/IncrementEmployeeEarnings.rdlc';
 
     dataset
     {

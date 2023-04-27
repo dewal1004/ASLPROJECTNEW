@@ -2,7 +2,7 @@ report 90999 "Class distribution Item"
 {
     // Caught Item category= C
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/ClassdistributionItem.rdlc';
+    RDLCLayout = './src/reportrdlc/ClassdistributionItem.rdlc';
 
 
     dataset

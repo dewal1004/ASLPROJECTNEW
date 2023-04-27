@@ -3,7 +3,7 @@
 //     //     SeaRangeDTot:=SeaRangeDTot+SeaRangeD[Countx];VesselPointTot:=VesselPointTot+VesselPoint[Countx];
 //     //     ShrimpPointTot:=ShrimpPointTot+ShrimpPoint[Countx];FishPointTot:=FishPointTot+FishPoint[Countx];
 //     DefaultLayout = RDLC;
-//     RDLCLayout = './reportrdlc/DailyBreakUpbyVessSummary.rdlc';
+//     RDLCLayout = './src/reportrdlc/DailyBreakUpbyVessSummary.rdlc';
 //     UsageCategory = ReportsAndAnalysis;
 //     ApplicationArea = All, Basic, Suite;
 

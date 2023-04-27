@@ -3,7 +3,7 @@ report 50074 "Inventory - Transaction -test"
     // //Item."Unit Cost"
     // "Print Bin Card"
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/InventoryTransactiontest.rdlc';
+    RDLCLayout = './src/reportrdlc/InventoryTransactiontest.rdlc';
 
     Caption = 'Inventory - Transaction Detail';
 

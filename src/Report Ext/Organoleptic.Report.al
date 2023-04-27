@@ -4,7 +4,7 @@ report 50148 "Organoleptic"
     // "Comment Line"."Loose Shells%"
     // "Comment Line"."Loose Neck%"
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/Organoleptic.rdlc';
+    RDLCLayout = './src/reportrdlc/Organoleptic.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
 

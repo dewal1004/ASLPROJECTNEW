@@ -1,7 +1,7 @@
 report 99501 "Edit Loc, ExtDoc No. On L/E"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/EditLocExtDocNoOnLE.rdlc';
+    RDLCLayout = './src/reportrdlc/EditLocExtDocNoOnLE.rdlc';
 
     dataset
     {

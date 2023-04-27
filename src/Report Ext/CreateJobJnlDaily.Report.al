@@ -1,7 +1,7 @@
 report 90011 "CreateJobJnl Daily"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/CreateJobJnlDaily.rdlc';
+    RDLCLayout = './src/reportrdlc/CreateJobJnlDaily.rdlc';
 
     dataset
     {

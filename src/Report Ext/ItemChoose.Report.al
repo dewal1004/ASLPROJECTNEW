@@ -1,7 +1,7 @@
 report 60500 "Item_Choose"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/ItemChoose.rdlc';
+    RDLCLayout = './src/reportrdlc/ItemChoose.rdlc';
 
     dataset
     {

@@ -1,7 +1,7 @@
 report 90902 "Group Sales Line Sample"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/GroupSalesLineSample.rdlc';
+    RDLCLayout = './src/reportrdlc/GroupSalesLineSample.rdlc';
 
     dataset
     {

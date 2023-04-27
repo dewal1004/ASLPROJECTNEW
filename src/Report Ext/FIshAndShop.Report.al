@@ -1,7 +1,7 @@
 report 50131 "FIsh And Shop"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/FIshAndShop.rdlc';
+    RDLCLayout = './src/reportrdlc/FIshAndShop.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
 

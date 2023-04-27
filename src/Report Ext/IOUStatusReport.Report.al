@@ -3,7 +3,7 @@ report 50116 "IOU Status Report"
     // IOU.EmployeeName
     // StartBalanceLCY
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/IOUStatusReport.rdlc';
+    RDLCLayout = './src/reportrdlc/IOUStatusReport.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
 

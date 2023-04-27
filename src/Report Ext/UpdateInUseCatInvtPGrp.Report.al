@@ -1,7 +1,7 @@
 report 90992 "Update InUse/Cat Invt.PGrp"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/UpdateInUseCatInvtPGrp.rdlc';
+    RDLCLayout = './src/reportrdlc/UpdateInUseCatInvtPGrp.rdlc';
 
     dataset
     {

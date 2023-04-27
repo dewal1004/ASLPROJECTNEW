@@ -1,7 +1,7 @@
 report 50335 "Periodic Landing Report1"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/PeriodicLandingReport1.rdlc';
+    RDLCLayout = './src/reportrdlc/PeriodicLandingReport1.rdlc';
 
     dataset
     {

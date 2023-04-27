@@ -2,7 +2,7 @@ report 90032 "Purchase Requisition Approvalx"
 {
     // Item."Monthly Consumption"
     DefaultLayout = RDLC;
-    RDLCLayout = './reportrdlc/PurchaseRequisitionApprovalx.rdlc';
+    RDLCLayout = './src/reportrdlc/PurchaseRequisitionApprovalx.rdlc';
 
 
     dataset
