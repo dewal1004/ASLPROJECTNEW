@@ -1,0 +1,8 @@
+.vscode/.alcache/*.*
+.vscode/rad.json
+# .vscode/*.*
+.alpackages/*.*
+.snapshots/*.*
+cache_*.*
+# app*.*
+*.app
