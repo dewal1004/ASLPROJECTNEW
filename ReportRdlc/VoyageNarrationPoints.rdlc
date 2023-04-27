@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="DataSource">
+      <ConnectionProperties>
+        <DataProvider>SQL</DataProvider>
+        <ConnectString />
+      </ConnectionProperties>
+      <rd:SecurityType>None</rd:SecurityType>
+    </DataSource>
+  </DataSources>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <Height>2in</Height>
+        <Style />
+      </Body>
+      <Width>6.5in</Width>
+      <Page>
+        <Style />
+      </Page>
+    </ReportSection>
+  </ReportSections>
+  <Code>Public Function BlankZero(ByVal Value As Decimal)
+    if Value = 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankPos(ByVal Value As Decimal)
+    if Value &gt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankZeroAndPos(ByVal Value As Decimal)
+    if Value &gt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNeg(ByVal Value As Decimal)
+    if Value &lt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNegAndZero(ByVal Value As Decimal)
+    if Value &lt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+</Code>
+  <Language>=User!Language</Language>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="COMPANYNAME">
+          <DataField>COMPANYNAME</DataField>
+        </Field>
+        <Field Name="FORMAT_TODAY_0_4_">
+          <DataField>FORMAT_TODAY_0_4_</DataField>
+        </Field>
+        <Field Name="USERID">
+          <DataField>USERID</DataField>
+        </Field>
+        <Field Name="CurrReport_PAGENO">
+          <DataField>CurrReport_PAGENO</DataField>
+        </Field>
+        <Field Name="Date_Period_Type">
+          <DataField>Date_Period_Type</DataField>
+        </Field>
+        <Field Name="Job__Voyage_No__">
+          <DataField>Job__Voyage_No__</DataField>
+        </Field>
+        <Field Name="Skipper">
+          <DataField>Skipper</DataField>
+        </Field>
+        <Field Name="CountryText">
+          <DataField>CountryText</DataField>
+        </Field>
+        <Field Name="Job__Sea_Days_">
+          <DataField>Job__Sea_Days_</DataField>
+        </Field>
+        <Field Name="Job__Starting_Date_">
+          <DataField>Job__Starting_Date_</DataField>
+        </Field>
+        <Field Name="Job__Ending_Date_">
+          <DataField>Job__Ending_Date_</DataField>
+        </Field>
+        <Field Name="VessNam">
+          <DataField>VessNam</DataField>
+        </Field>
+        <Field Name="Date_Date__Period_Start_">
+          <DataField>Date_Date__Period_Start_</DataField>
+        </Field>
+        <Field Name="HoursLost">
+          <DataField>HoursLost</DataField>
+        </Field>
+        <Field Name="HoursLostFormat">
+          <DataField>HoursLostFormat</DataField>
+        </Field>
+        <Field Name="DaysLost">
+          <DataField>DaysLost</DataField>
+        </Field>
+        <Field Name="Comments">
+          <DataField>Comments</DataField>
+        </Field>
+        <Field Name="Points">
+          <DataField>Points</DataField>
+        </Field>
+        <Field Name="PointsFormat">
+          <DataField>PointsFormat</DataField>
+        </Field>
+        <Field Name="DayofTide__Day_of_tide_">
+          <DataField>DayofTide__Day_of_tide_</DataField>
+        </Field>
+        <Field Name="Voyage_Narration_ReportCaption">
+          <DataField>Voyage_Narration_ReportCaption</DataField>
+        </Field>
+        <Field Name="CurrReport_PAGENOCaption">
+          <DataField>CurrReport_PAGENOCaption</DataField>
+        </Field>
+        <Field Name="Job__Voyage_No__Caption">
+          <DataField>Job__Voyage_No__Caption</DataField>
+        </Field>
+        <Field Name="SkipperCaption">
+          <DataField>SkipperCaption</DataField>
+        </Field>
+        <Field Name="CountryTextCaption">
+          <DataField>CountryTextCaption</DataField>
+        </Field>
+        <Field Name="Job__Ending_Date_Caption">
+          <DataField>Job__Ending_Date_Caption</DataField>
+        </Field>
+        <Field Name="Job__Starting_Date_Caption">
+          <DataField>Job__Starting_Date_Caption</DataField>
+        </Field>
+        <Field Name="Job__Sea_Days_Caption">
+          <DataField>Job__Sea_Days_Caption</DataField>
+        </Field>
+        <Field Name="Date_Date__Period_Start_Caption">
+          <DataField>Date_Date__Period_Start_Caption</DataField>
+        </Field>
+        <Field Name="Hours_LostCaption">
+          <DataField>Hours_LostCaption</DataField>
+        </Field>
+        <Field Name="DaysLostCaption">
+          <DataField>DaysLostCaption</DataField>
+        </Field>
+        <Field Name="CommentsCaption">
+          <DataField>CommentsCaption</DataField>
+        </Field>
+        <Field Name="PointsCaption">
+          <DataField>PointsCaption</DataField>
+        </Field>
+        <Field Name="DayofTide__Day_of_tide_Caption">
+          <DataField>DayofTide__Day_of_tide_Caption</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
+</Report>

@@ -1,0 +1,299 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="DataSource">
+      <ConnectionProperties>
+        <DataProvider>SQL</DataProvider>
+        <ConnectString />
+      </ConnectionProperties>
+      <rd:SecurityType>None</rd:SecurityType>
+    </DataSource>
+  </DataSources>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <Height>2in</Height>
+        <Style />
+      </Body>
+      <Width>6.5in</Width>
+      <Page>
+        <Style />
+      </Page>
+    </ReportSection>
+  </ReportSections>
+  <Code>Public Function BlankZero(ByVal Value As Decimal)
+    if Value = 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankPos(ByVal Value As Decimal)
+    if Value &gt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankZeroAndPos(ByVal Value As Decimal)
+    if Value &gt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNeg(ByVal Value As Decimal)
+    if Value &lt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNegAndZero(ByVal Value As Decimal)
+    if Value &lt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+</Code>
+  <Language>=User!Language</Language>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="FORMAT_TODAY_0_4_">
+          <DataField>FORMAT_TODAY_0_4_</DataField>
+        </Field>
+        <Field Name="COMPANYNAME">
+          <DataField>COMPANYNAME</DataField>
+        </Field>
+        <Field Name="CurrReport_PAGENO">
+          <DataField>CurrReport_PAGENO</DataField>
+        </Field>
+        <Field Name="USERID">
+          <DataField>USERID</DataField>
+        </Field>
+        <Field Name="GETFILTERS">
+          <DataField>GETFILTERS</DataField>
+        </Field>
+        <Field Name="Operation_Daily_Radio_Name">
+          <DataField>Operation_Daily_Radio_Name</DataField>
+        </Field>
+        <Field Name="Operation_Daily_Radio__Job_No__">
+          <DataField>Operation_Daily_Radio__Job_No__</DataField>
+        </Field>
+        <Field Name="Jobs_Vessel">
+          <DataField>Jobs_Vessel</DataField>
+        </Field>
+        <Field Name="Jobs__Starting_Date_">
+          <DataField>Jobs__Starting_Date_</DataField>
+        </Field>
+        <Field Name="Jobs__Ending_Date_">
+          <DataField>Jobs__Ending_Date_</DataField>
+        </Field>
+        <Field Name="Jobs__Voyage_No__">
+          <DataField>Jobs__Voyage_No__</DataField>
+        </Field>
+        <Field Name="Operation_Daily_Radio_Date">
+          <DataField>Operation_Daily_Radio_Date</DataField>
+        </Field>
+        <Field Name="Operation_Daily_Radio__Fuel_Balance_">
+          <DataField>Operation_Daily_Radio__Fuel_Balance_</DataField>
+        </Field>
+        <Field Name="Operation_Daily_Radio__Fuel_Balance_Format">
+          <DataField>Operation_Daily_Radio__Fuel_Balance_Format</DataField>
+        </Field>
+        <Field Name="Operation_Daily_Radio__R_P_M__">
+          <DataField>Operation_Daily_Radio__R_P_M__</DataField>
+        </Field>
+        <Field Name="Operation_Daily_Radio__R_P_M__Format">
+          <DataField>Operation_Daily_Radio__R_P_M__Format</DataField>
+        </Field>
+        <Field Name="Operation_Daily_Radio__Fish_Hold_Temp_">
+          <DataField>Operation_Daily_Radio__Fish_Hold_Temp_</DataField>
+        </Field>
+        <Field Name="Operation_Daily_Radio__Fish_Hold_Temp_Format">
+          <DataField>Operation_Daily_Radio__Fish_Hold_Temp_Format</DataField>
+        </Field>
+        <Field Name="Operation_Daily_Radio__Fishing_Ground_">
+          <DataField>Operation_Daily_Radio__Fishing_Ground_</DataField>
+        </Field>
+        <Field Name="Operation_Daily_Radio__Sea_Temperature_">
+          <DataField>Operation_Daily_Radio__Sea_Temperature_</DataField>
+        </Field>
+        <Field Name="Operation_Daily_Radio__Sea_Temperature_Format">
+          <DataField>Operation_Daily_Radio__Sea_Temperature_Format</DataField>
+        </Field>
+        <Field Name="Operation_Daily_Radio__Job_No___Control1000000027">
+          <DataField>Operation_Daily_Radio__Job_No___Control1000000027</DataField>
+        </Field>
+        <Field Name="Jobs_Vessel_Control1000000028">
+          <DataField>Jobs_Vessel_Control1000000028</DataField>
+        </Field>
+        <Field Name="Jobs__Starting_Date__Control1000000029">
+          <DataField>Jobs__Starting_Date__Control1000000029</DataField>
+        </Field>
+        <Field Name="Jobs__Ending_Date__Control1000000030">
+          <DataField>Jobs__Ending_Date__Control1000000030</DataField>
+        </Field>
+        <Field Name="Jobs__Voyage_No___Control1000000031">
+          <DataField>Jobs__Voyage_No___Control1000000031</DataField>
+        </Field>
+        <Field Name="Operation_Daily_Radio_Date_Control17">
+          <DataField>Operation_Daily_Radio_Date_Control17</DataField>
+        </Field>
+        <Field Name="Operation_Daily_Radio__Fuel_Balance__Control20">
+          <DataField>Operation_Daily_Radio__Fuel_Balance__Control20</DataField>
+        </Field>
+        <Field Name="Operation_Daily_Radio__Fuel_Balance__Control20Format">
+          <DataField>Operation_Daily_Radio__Fuel_Balance__Control20Format</DataField>
+        </Field>
+        <Field Name="Operation_Daily_Radio__R_P_M___Control23">
+          <DataField>Operation_Daily_Radio__R_P_M___Control23</DataField>
+        </Field>
+        <Field Name="Operation_Daily_Radio__R_P_M___Control23Format">
+          <DataField>Operation_Daily_Radio__R_P_M___Control23Format</DataField>
+        </Field>
+        <Field Name="Operation_Daily_Radio__Fish_Hold_Temp__Control26">
+          <DataField>Operation_Daily_Radio__Fish_Hold_Temp__Control26</DataField>
+        </Field>
+        <Field Name="Operation_Daily_Radio__Fish_Hold_Temp__Control26Format">
+          <DataField>Operation_Daily_Radio__Fish_Hold_Temp__Control26Format</DataField>
+        </Field>
+        <Field Name="Operation_Daily_Radio__Fishing_Ground__Control29">
+          <DataField>Operation_Daily_Radio__Fishing_Ground__Control29</DataField>
+        </Field>
+        <Field Name="Operation_Daily_Radio__Sea_Temperature__Control32">
+          <DataField>Operation_Daily_Radio__Sea_Temperature__Control32</DataField>
+        </Field>
+        <Field Name="Operation_Daily_Radio__Sea_Temperature__Control32Format">
+          <DataField>Operation_Daily_Radio__Sea_Temperature__Control32Format</DataField>
+        </Field>
+        <Field Name="TotalFor___FIELDCAPTION__Job_No___">
+          <DataField>TotalFor___FIELDCAPTION__Job_No___</DataField>
+        </Field>
+        <Field Name="Operation_Daily_Radio__R_P_M___Control35">
+          <DataField>Operation_Daily_Radio__R_P_M___Control35</DataField>
+        </Field>
+        <Field Name="Operation_Daily_Radio__R_P_M___Control35Format">
+          <DataField>Operation_Daily_Radio__R_P_M___Control35Format</DataField>
+        </Field>
+        <Field Name="Operation_Daily_Radio__Fish_Hold_Temp__Control36">
+          <DataField>Operation_Daily_Radio__Fish_Hold_Temp__Control36</DataField>
+        </Field>
+        <Field Name="Operation_Daily_Radio__Fish_Hold_Temp__Control36Format">
+          <DataField>Operation_Daily_Radio__Fish_Hold_Temp__Control36Format</DataField>
+        </Field>
+        <Field Name="Operation_Daily_Radio__Sea_Temperature__Control37">
+          <DataField>Operation_Daily_Radio__Sea_Temperature__Control37</DataField>
+        </Field>
+        <Field Name="Operation_Daily_Radio__Sea_Temperature__Control37Format">
+          <DataField>Operation_Daily_Radio__Sea_Temperature__Control37Format</DataField>
+        </Field>
+        <Field Name="TotalFor___FIELDCAPTION_Name_">
+          <DataField>TotalFor___FIELDCAPTION_Name_</DataField>
+        </Field>
+        <Field Name="Operation_Daily_Radio__R_P_M___Control39">
+          <DataField>Operation_Daily_Radio__R_P_M___Control39</DataField>
+        </Field>
+        <Field Name="Operation_Daily_Radio__R_P_M___Control39Format">
+          <DataField>Operation_Daily_Radio__R_P_M___Control39Format</DataField>
+        </Field>
+        <Field Name="Operation_Daily_Radio__Fish_Hold_Temp__Control40">
+          <DataField>Operation_Daily_Radio__Fish_Hold_Temp__Control40</DataField>
+        </Field>
+        <Field Name="Operation_Daily_Radio__Fish_Hold_Temp__Control40Format">
+          <DataField>Operation_Daily_Radio__Fish_Hold_Temp__Control40Format</DataField>
+        </Field>
+        <Field Name="Operation_Daily_Radio__Sea_Temperature__Control41">
+          <DataField>Operation_Daily_Radio__Sea_Temperature__Control41</DataField>
+        </Field>
+        <Field Name="Operation_Daily_Radio__Sea_Temperature__Control41Format">
+          <DataField>Operation_Daily_Radio__Sea_Temperature__Control41Format</DataField>
+        </Field>
+        <Field Name="Operation_Daily_RadioCaption">
+          <DataField>Operation_Daily_RadioCaption</DataField>
+        </Field>
+        <Field Name="CurrReport_PAGENOCaption">
+          <DataField>CurrReport_PAGENOCaption</DataField>
+        </Field>
+        <Field Name="Operation_Daily_Radio__Fuel_Balance_Caption">
+          <DataField>Operation_Daily_Radio__Fuel_Balance_Caption</DataField>
+        </Field>
+        <Field Name="Operation_Daily_Radio__Job_No___Control1000000027Caption">
+          <DataField>Operation_Daily_Radio__Job_No___Control1000000027Caption</DataField>
+        </Field>
+        <Field Name="Jobs_Vessel_Control1000000028Caption">
+          <DataField>Jobs_Vessel_Control1000000028Caption</DataField>
+        </Field>
+        <Field Name="Jobs__Starting_Date__Control1000000029Caption">
+          <DataField>Jobs__Starting_Date__Control1000000029Caption</DataField>
+        </Field>
+        <Field Name="Jobs__Ending_Date__Control1000000030Caption">
+          <DataField>Jobs__Ending_Date__Control1000000030Caption</DataField>
+        </Field>
+        <Field Name="Jobs__Voyage_No___Control1000000031Caption">
+          <DataField>Jobs__Voyage_No___Control1000000031Caption</DataField>
+        </Field>
+        <Field Name="Operation_Daily_Radio__R_P_M__Caption">
+          <DataField>Operation_Daily_Radio__R_P_M__Caption</DataField>
+        </Field>
+        <Field Name="Operation_Daily_Radio__Fish_Hold_Temp_Caption">
+          <DataField>Operation_Daily_Radio__Fish_Hold_Temp_Caption</DataField>
+        </Field>
+        <Field Name="Operation_Daily_Radio__Fishing_Ground_Caption">
+          <DataField>Operation_Daily_Radio__Fishing_Ground_Caption</DataField>
+        </Field>
+        <Field Name="Operation_Daily_Radio__Sea_Temperature_Caption">
+          <DataField>Operation_Daily_Radio__Sea_Temperature_Caption</DataField>
+        </Field>
+        <Field Name="Operation_Daily_Radio_DateCaption">
+          <DataField>Operation_Daily_Radio_DateCaption</DataField>
+        </Field>
+        <Field Name="Operation_Daily_Radio__Fuel_Balance__Control20Caption">
+          <DataField>Operation_Daily_Radio__Fuel_Balance__Control20Caption</DataField>
+        </Field>
+        <Field Name="Operation_Daily_Radio__R_P_M___Control23Caption">
+          <DataField>Operation_Daily_Radio__R_P_M___Control23Caption</DataField>
+        </Field>
+        <Field Name="Operation_Daily_Radio__Sea_Temperature__Control32Caption">
+          <DataField>Operation_Daily_Radio__Sea_Temperature__Control32Caption</DataField>
+        </Field>
+        <Field Name="Operation_Daily_Radio__Fishing_Ground__Control29Caption">
+          <DataField>Operation_Daily_Radio__Fishing_Ground__Control29Caption</DataField>
+        </Field>
+        <Field Name="Operation_Daily_Radio__Fish_Hold_Temp__Control26Caption">
+          <DataField>Operation_Daily_Radio__Fish_Hold_Temp__Control26Caption</DataField>
+        </Field>
+        <Field Name="Operation_Daily_Radio_Date_Control17Caption">
+          <DataField>Operation_Daily_Radio_Date_Control17Caption</DataField>
+        </Field>
+        <Field Name="Operation_Daily_Radio_NameCaption">
+          <DataField>Operation_Daily_Radio_NameCaption</DataField>
+        </Field>
+        <Field Name="Operation_Daily_Radio__Job_No__Caption">
+          <DataField>Operation_Daily_Radio__Job_No__Caption</DataField>
+        </Field>
+        <Field Name="Jobs_VesselCaption">
+          <DataField>Jobs_VesselCaption</DataField>
+        </Field>
+        <Field Name="Jobs__Starting_Date_Caption">
+          <DataField>Jobs__Starting_Date_Caption</DataField>
+        </Field>
+        <Field Name="Jobs__Ending_Date_Caption">
+          <DataField>Jobs__Ending_Date_Caption</DataField>
+        </Field>
+        <Field Name="Jobs__Voyage_No__Caption">
+          <DataField>Jobs__Voyage_No__Caption</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
+</Report>

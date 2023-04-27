@@ -1,0 +1,350 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="DataSource">
+      <ConnectionProperties>
+        <DataProvider>SQL</DataProvider>
+        <ConnectString />
+      </ConnectionProperties>
+      <rd:SecurityType>None</rd:SecurityType>
+    </DataSource>
+  </DataSources>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <Height>2in</Height>
+        <Style />
+      </Body>
+      <Width>6.5in</Width>
+      <Page>
+        <Style />
+      </Page>
+    </ReportSection>
+  </ReportSections>
+  <Code>Public Function BlankZero(ByVal Value As Decimal)
+    if Value = 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankPos(ByVal Value As Decimal)
+    if Value &gt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankZeroAndPos(ByVal Value As Decimal)
+    if Value &gt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNeg(ByVal Value As Decimal)
+    if Value &lt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNegAndZero(ByVal Value As Decimal)
+    if Value &lt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+</Code>
+  <Language>=User!Language</Language>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="COMPANYNAME">
+          <DataField>COMPANYNAME</DataField>
+        </Field>
+        <Field Name="Item_TABLECAPTION__________ItemFilter">
+          <DataField>Item_TABLECAPTION__________ItemFilter</DataField>
+        </Field>
+        <Field Name="Period_Length_Used____PeriodLength">
+          <DataField>Period_Length_Used____PeriodLength</DataField>
+        </Field>
+        <Field Name="Text004_FORMAT_PeriodStartDate_4__">
+          <DataField>Text004_FORMAT_PeriodStartDate_4__</DataField>
+        </Field>
+        <Field Name="Text004_FORMAT_PeriodStartDate_5__">
+          <DataField>Text004_FORMAT_PeriodStartDate_5__</DataField>
+        </Field>
+        <Field Name="Item__Item_Category_Code_">
+          <DataField>Item__Item_Category_Code_</DataField>
+        </Field>
+        <Field Name="Item__Inventory_Posting_Group_">
+          <DataField>Item__Inventory_Posting_Group_</DataField>
+        </Field>
+        <Field Name="Item__No__">
+          <DataField>Item__No__</DataField>
+        </Field>
+        <Field Name="Item_Description">
+          <DataField>Item_Description</DataField>
+        </Field>
+        <Field Name="Stk_6__">
+          <DataField>Stk_6__</DataField>
+        </Field>
+        <Field Name="Stk_6__Format">
+          <DataField>Stk_6__Format</DataField>
+        </Field>
+        <Field Name="Stk_2__">
+          <DataField>Stk_2__</DataField>
+        </Field>
+        <Field Name="Stk_2__Format">
+          <DataField>Stk_2__Format</DataField>
+        </Field>
+        <Field Name="Stk_3__">
+          <DataField>Stk_3__</DataField>
+        </Field>
+        <Field Name="Stk_3__Format">
+          <DataField>Stk_3__Format</DataField>
+        </Field>
+        <Field Name="Stk_4__">
+          <DataField>Stk_4__</DataField>
+        </Field>
+        <Field Name="Stk_4__Format">
+          <DataField>Stk_4__Format</DataField>
+        </Field>
+        <Field Name="Stk_5__">
+          <DataField>Stk_5__</DataField>
+        </Field>
+        <Field Name="Stk_5__Format">
+          <DataField>Stk_5__Format</DataField>
+        </Field>
+        <Field Name="Stk_1__">
+          <DataField>Stk_1__</DataField>
+        </Field>
+        <Field Name="Stk_1__Format">
+          <DataField>Stk_1__Format</DataField>
+        </Field>
+        <Field Name="Stk_7__">
+          <DataField>Stk_7__</DataField>
+        </Field>
+        <Field Name="Stk_7__Format">
+          <DataField>Stk_7__Format</DataField>
+        </Field>
+        <Field Name="Stk_8__">
+          <DataField>Stk_8__</DataField>
+        </Field>
+        <Field Name="Stk_8__Format">
+          <DataField>Stk_8__Format</DataField>
+        </Field>
+        <Field Name="TotalFor___FIELDCAPTION__Inventory_Posting_Group__">
+          <DataField>TotalFor___FIELDCAPTION__Inventory_Posting_Group__</DataField>
+        </Field>
+        <Field Name="Stk_1___Control1000000000">
+          <DataField>Stk_1___Control1000000000</DataField>
+        </Field>
+        <Field Name="Stk_1___Control1000000000Format">
+          <DataField>Stk_1___Control1000000000Format</DataField>
+        </Field>
+        <Field Name="Stk_2___Control1000000001">
+          <DataField>Stk_2___Control1000000001</DataField>
+        </Field>
+        <Field Name="Stk_2___Control1000000001Format">
+          <DataField>Stk_2___Control1000000001Format</DataField>
+        </Field>
+        <Field Name="Stk_3___Control1000000002">
+          <DataField>Stk_3___Control1000000002</DataField>
+        </Field>
+        <Field Name="Stk_3___Control1000000002Format">
+          <DataField>Stk_3___Control1000000002Format</DataField>
+        </Field>
+        <Field Name="Stk_4___Control1000000003">
+          <DataField>Stk_4___Control1000000003</DataField>
+        </Field>
+        <Field Name="Stk_4___Control1000000003Format">
+          <DataField>Stk_4___Control1000000003Format</DataField>
+        </Field>
+        <Field Name="Stk_5___Control1000000004">
+          <DataField>Stk_5___Control1000000004</DataField>
+        </Field>
+        <Field Name="Stk_5___Control1000000004Format">
+          <DataField>Stk_5___Control1000000004Format</DataField>
+        </Field>
+        <Field Name="Stk_6___Control1000000005">
+          <DataField>Stk_6___Control1000000005</DataField>
+        </Field>
+        <Field Name="Stk_6___Control1000000005Format">
+          <DataField>Stk_6___Control1000000005Format</DataField>
+        </Field>
+        <Field Name="Stk_7___Control1000000013">
+          <DataField>Stk_7___Control1000000013</DataField>
+        </Field>
+        <Field Name="Stk_7___Control1000000013Format">
+          <DataField>Stk_7___Control1000000013Format</DataField>
+        </Field>
+        <Field Name="Stk_8___Control1000000029">
+          <DataField>Stk_8___Control1000000029</DataField>
+        </Field>
+        <Field Name="Stk_8___Control1000000029Format">
+          <DataField>Stk_8___Control1000000029Format</DataField>
+        </Field>
+        <Field Name="Stk_1___Control1000000006">
+          <DataField>Stk_1___Control1000000006</DataField>
+        </Field>
+        <Field Name="Stk_1___Control1000000006Format">
+          <DataField>Stk_1___Control1000000006Format</DataField>
+        </Field>
+        <Field Name="Stk_2___Control1000000007">
+          <DataField>Stk_2___Control1000000007</DataField>
+        </Field>
+        <Field Name="Stk_2___Control1000000007Format">
+          <DataField>Stk_2___Control1000000007Format</DataField>
+        </Field>
+        <Field Name="Stk_3___Control1000000008">
+          <DataField>Stk_3___Control1000000008</DataField>
+        </Field>
+        <Field Name="Stk_3___Control1000000008Format">
+          <DataField>Stk_3___Control1000000008Format</DataField>
+        </Field>
+        <Field Name="Stk_4___Control1000000009">
+          <DataField>Stk_4___Control1000000009</DataField>
+        </Field>
+        <Field Name="Stk_4___Control1000000009Format">
+          <DataField>Stk_4___Control1000000009Format</DataField>
+        </Field>
+        <Field Name="Stk_5___Control1000000010">
+          <DataField>Stk_5___Control1000000010</DataField>
+        </Field>
+        <Field Name="Stk_5___Control1000000010Format">
+          <DataField>Stk_5___Control1000000010Format</DataField>
+        </Field>
+        <Field Name="Stk_6___Control1000000011">
+          <DataField>Stk_6___Control1000000011</DataField>
+        </Field>
+        <Field Name="Stk_6___Control1000000011Format">
+          <DataField>Stk_6___Control1000000011Format</DataField>
+        </Field>
+        <Field Name="Stk_7___Control1000000014">
+          <DataField>Stk_7___Control1000000014</DataField>
+        </Field>
+        <Field Name="Stk_7___Control1000000014Format">
+          <DataField>Stk_7___Control1000000014Format</DataField>
+        </Field>
+        <Field Name="Stk_8___Control1000000031">
+          <DataField>Stk_8___Control1000000031</DataField>
+        </Field>
+        <Field Name="Stk_8___Control1000000031Format">
+          <DataField>Stk_8___Control1000000031Format</DataField>
+        </Field>
+        <Field Name="Item__Item_Category_Code__Control1000000034">
+          <DataField>Item__Item_Category_Code__Control1000000034</DataField>
+        </Field>
+        <Field Name="Stk_1___Control1000000021">
+          <DataField>Stk_1___Control1000000021</DataField>
+        </Field>
+        <Field Name="Stk_1___Control1000000021Format">
+          <DataField>Stk_1___Control1000000021Format</DataField>
+        </Field>
+        <Field Name="Stk_2___Control1000000022">
+          <DataField>Stk_2___Control1000000022</DataField>
+        </Field>
+        <Field Name="Stk_2___Control1000000022Format">
+          <DataField>Stk_2___Control1000000022Format</DataField>
+        </Field>
+        <Field Name="Stk_3___Control1000000023">
+          <DataField>Stk_3___Control1000000023</DataField>
+        </Field>
+        <Field Name="Stk_3___Control1000000023Format">
+          <DataField>Stk_3___Control1000000023Format</DataField>
+        </Field>
+        <Field Name="Stk_4___Control1000000024">
+          <DataField>Stk_4___Control1000000024</DataField>
+        </Field>
+        <Field Name="Stk_4___Control1000000024Format">
+          <DataField>Stk_4___Control1000000024Format</DataField>
+        </Field>
+        <Field Name="Stk_5___Control1000000025">
+          <DataField>Stk_5___Control1000000025</DataField>
+        </Field>
+        <Field Name="Stk_5___Control1000000025Format">
+          <DataField>Stk_5___Control1000000025Format</DataField>
+        </Field>
+        <Field Name="Stk_6___Control1000000026">
+          <DataField>Stk_6___Control1000000026</DataField>
+        </Field>
+        <Field Name="Stk_6___Control1000000026Format">
+          <DataField>Stk_6___Control1000000026Format</DataField>
+        </Field>
+        <Field Name="Stk_7___Control1000000027">
+          <DataField>Stk_7___Control1000000027</DataField>
+        </Field>
+        <Field Name="Stk_7___Control1000000027Format">
+          <DataField>Stk_7___Control1000000027Format</DataField>
+        </Field>
+        <Field Name="Stk_8___Control1000000032">
+          <DataField>Stk_8___Control1000000032</DataField>
+        </Field>
+        <Field Name="Stk_8___Control1000000032Format">
+          <DataField>Stk_8___Control1000000032Format</DataField>
+        </Field>
+        <Field Name="Item_Report__Periodic_Movement_Caption">
+          <DataField>Item_Report__Periodic_Movement_Caption</DataField>
+        </Field>
+        <Field Name="Item__No__Caption">
+          <DataField>Item__No__Caption</DataField>
+        </Field>
+        <Field Name="Item_DescriptionCaption">
+          <DataField>Item_DescriptionCaption</DataField>
+        </Field>
+        <Field Name="Stk_6__Caption">
+          <DataField>Stk_6__Caption</DataField>
+        </Field>
+        <Field Name="Stk_2__Caption">
+          <DataField>Stk_2__Caption</DataField>
+        </Field>
+        <Field Name="Stk_3__Caption">
+          <DataField>Stk_3__Caption</DataField>
+        </Field>
+        <Field Name="Stk_4__Caption">
+          <DataField>Stk_4__Caption</DataField>
+        </Field>
+        <Field Name="Stk_5__Caption">
+          <DataField>Stk_5__Caption</DataField>
+        </Field>
+        <Field Name="Stk_1__Caption">
+          <DataField>Stk_1__Caption</DataField>
+        </Field>
+        <Field Name="Stk_7__Caption">
+          <DataField>Stk_7__Caption</DataField>
+        </Field>
+        <Field Name="Stk_8__Caption">
+          <DataField>Stk_8__Caption</DataField>
+        </Field>
+        <Field Name="Item__Item_Category_Code_Caption">
+          <DataField>Item__Item_Category_Code_Caption</DataField>
+        </Field>
+        <Field Name="Item__Inventory_Posting_Group_Caption">
+          <DataField>Item__Inventory_Posting_Group_Caption</DataField>
+        </Field>
+        <Field Name="EndingDate">
+          <DataField>EndingDate</DataField>
+        </Field>
+        <Field Name="PrintLine">
+          <DataField>PrintLine</DataField>
+        </Field>
+        <Field Name="Item_Inventory">
+          <DataField>Item_Inventory</DataField>
+        </Field>
+        <Field Name="Item_InventoryFormat">
+          <DataField>Item_InventoryFormat</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
+</Report>

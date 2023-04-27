@@ -1,0 +1,218 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="DataSource">
+      <ConnectionProperties>
+        <DataProvider>SQL</DataProvider>
+        <ConnectString />
+      </ConnectionProperties>
+      <rd:SecurityType>None</rd:SecurityType>
+    </DataSource>
+  </DataSources>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <Height>2in</Height>
+        <Style />
+      </Body>
+      <Width>6.5in</Width>
+      <Page>
+        <Style />
+      </Page>
+    </ReportSection>
+  </ReportSections>
+  <Code>Public Function BlankZero(ByVal Value As Decimal)
+    if Value = 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankPos(ByVal Value As Decimal)
+    if Value &gt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankZeroAndPos(ByVal Value As Decimal)
+    if Value &gt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNeg(ByVal Value As Decimal)
+    if Value &lt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNegAndZero(ByVal Value As Decimal)
+    if Value &lt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+</Code>
+  <Language>=User!Language</Language>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="COMPANYNAME">
+          <DataField>COMPANYNAME</DataField>
+        </Field>
+        <Field Name="TAX_REFUND_CARD__">
+          <DataField>TAX_REFUND_CARD__</DataField>
+        </Field>
+        <Field Name="FORMAT_TODAY_0_4_">
+          <DataField>FORMAT_TODAY_0_4_</DataField>
+        </Field>
+        <Field Name="USERID">
+          <DataField>USERID</DataField>
+        </Field>
+        <Field Name="CurrReport_PAGENO">
+          <DataField>CurrReport_PAGENO</DataField>
+        </Field>
+        <Field Name="Payroll_Payslip_Header___GETFILTERS__">
+          <DataField>Payroll_Payslip_Header___GETFILTERS__</DataField>
+        </Field>
+        <Field Name="Payroll_Payslip_Header___Employee_Name_">
+          <DataField>Payroll_Payslip_Header___Employee_Name_</DataField>
+        </Field>
+        <Field Name="TAX_">
+          <DataField>TAX_</DataField>
+        </Field>
+        <Field Name="ENTERTAINMENT_">
+          <DataField>ENTERTAINMENT_</DataField>
+        </Field>
+        <Field Name="UTILITY_">
+          <DataField>UTILITY_</DataField>
+        </Field>
+        <Field Name="MEAL_">
+          <DataField>MEAL_</DataField>
+        </Field>
+        <Field Name="HOUSING_">
+          <DataField>HOUSING_</DataField>
+        </Field>
+        <Field Name="TRANSPORT_">
+          <DataField>TRANSPORT_</DataField>
+        </Field>
+        <Field Name="BASIC_">
+          <DataField>BASIC_</DataField>
+        </Field>
+        <Field Name="MONTHS_">
+          <DataField>MONTHS_</DataField>
+        </Field>
+        <Field Name="Payroll_Payslip_Header___Employee_No_">
+          <DataField>Payroll_Payslip_Header___Employee_No_</DataField>
+        </Field>
+        <Field Name="Basicamt">
+          <DataField>Basicamt</DataField>
+        </Field>
+        <Field Name="BasicamtFormat">
+          <DataField>BasicamtFormat</DataField>
+        </Field>
+        <Field Name="Transportamt">
+          <DataField>Transportamt</DataField>
+        </Field>
+        <Field Name="TransportamtFormat">
+          <DataField>TransportamtFormat</DataField>
+        </Field>
+        <Field Name="Housingamt">
+          <DataField>Housingamt</DataField>
+        </Field>
+        <Field Name="HousingamtFormat">
+          <DataField>HousingamtFormat</DataField>
+        </Field>
+        <Field Name="Mealamt">
+          <DataField>Mealamt</DataField>
+        </Field>
+        <Field Name="MealamtFormat">
+          <DataField>MealamtFormat</DataField>
+        </Field>
+        <Field Name="Utilityamt">
+          <DataField>Utilityamt</DataField>
+        </Field>
+        <Field Name="UtilityamtFormat">
+          <DataField>UtilityamtFormat</DataField>
+        </Field>
+        <Field Name="Taxamt">
+          <DataField>Taxamt</DataField>
+        </Field>
+        <Field Name="TaxamtFormat">
+          <DataField>TaxamtFormat</DataField>
+        </Field>
+        <Field Name="Payroll_Payslip_Header___Period_Name_">
+          <DataField>Payroll_Payslip_Header___Period_Name_</DataField>
+        </Field>
+        <Field Name="Entertainmentamt">
+          <DataField>Entertainmentamt</DataField>
+        </Field>
+        <Field Name="EntertainmentamtFormat">
+          <DataField>EntertainmentamtFormat</DataField>
+        </Field>
+        <Field Name="tTaxamt">
+          <DataField>tTaxamt</DataField>
+        </Field>
+        <Field Name="tTaxamtFormat">
+          <DataField>tTaxamtFormat</DataField>
+        </Field>
+        <Field Name="tEntertainmentamt">
+          <DataField>tEntertainmentamt</DataField>
+        </Field>
+        <Field Name="tEntertainmentamtFormat">
+          <DataField>tEntertainmentamtFormat</DataField>
+        </Field>
+        <Field Name="tUtilityamt">
+          <DataField>tUtilityamt</DataField>
+        </Field>
+        <Field Name="tUtilityamtFormat">
+          <DataField>tUtilityamtFormat</DataField>
+        </Field>
+        <Field Name="tMealamt">
+          <DataField>tMealamt</DataField>
+        </Field>
+        <Field Name="tMealamtFormat">
+          <DataField>tMealamtFormat</DataField>
+        </Field>
+        <Field Name="tHousingamt">
+          <DataField>tHousingamt</DataField>
+        </Field>
+        <Field Name="tHousingamtFormat">
+          <DataField>tHousingamtFormat</DataField>
+        </Field>
+        <Field Name="tTransportamt">
+          <DataField>tTransportamt</DataField>
+        </Field>
+        <Field Name="tTransportamtFormat">
+          <DataField>tTransportamtFormat</DataField>
+        </Field>
+        <Field Name="tBasicamt">
+          <DataField>tBasicamt</DataField>
+        </Field>
+        <Field Name="tBasicamtFormat">
+          <DataField>tBasicamtFormat</DataField>
+        </Field>
+        <Field Name="CurrReport_PAGENOCaption">
+          <DataField>CurrReport_PAGENOCaption</DataField>
+        </Field>
+        <Field Name="Payroll_Payslip_Header___Employee_No_Caption">
+          <DataField>Payroll_Payslip_Header___Employee_No_Caption</DataField>
+        </Field>
+        <Field Name="Payroll_Payslip_Header__Payroll_Period">
+          <DataField>Payroll_Payslip_Header__Payroll_Period</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
+</Report>

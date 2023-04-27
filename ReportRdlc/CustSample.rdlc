@@ -1,0 +1,320 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="DataSource">
+      <ConnectionProperties>
+        <DataProvider>SQL</DataProvider>
+        <ConnectString />
+      </ConnectionProperties>
+      <rd:SecurityType>None</rd:SecurityType>
+    </DataSource>
+  </DataSources>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <Height>2in</Height>
+        <Style />
+      </Body>
+      <Width>6.5in</Width>
+      <Page>
+        <Style />
+      </Page>
+    </ReportSection>
+  </ReportSections>
+  <Code>Public Function BlankZero(ByVal Value As Decimal)
+    if Value = 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankPos(ByVal Value As Decimal)
+    if Value &gt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankZeroAndPos(ByVal Value As Decimal)
+    if Value &gt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNeg(ByVal Value As Decimal)
+    if Value &lt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNegAndZero(ByVal Value As Decimal)
+    if Value &lt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+</Code>
+  <Language>=User!Language</Language>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="No_Customer">
+          <DataField>No_Customer</DataField>
+        </Field>
+        <Field Name="Name_Customer">
+          <DataField>Name_Customer</DataField>
+        </Field>
+        <Field Name="SearchName_Customer">
+          <DataField>SearchName_Customer</DataField>
+        </Field>
+        <Field Name="Name2_Customer">
+          <DataField>Name2_Customer</DataField>
+        </Field>
+        <Field Name="CurrReport_PAGENO">
+          <DataField>CurrReport_PAGENO</DataField>
+        </Field>
+        <Field Name="CurrReport_PAGENO_Control1000000056">
+          <DataField>CurrReport_PAGENO_Control1000000056</DataField>
+        </Field>
+        <Field Name="CurrReport_PAGENOCaption">
+          <DataField>CurrReport_PAGENOCaption</DataField>
+        </Field>
+        <Field Name="CurrReport_PAGENO_Control1000000056Caption">
+          <DataField>CurrReport_PAGENO_Control1000000056Caption</DataField>
+        </Field>
+        <Field Name="USERID">
+          <DataField>USERID</DataField>
+        </Field>
+        <Field Name="Filters_________GETFILTERS__">
+          <DataField>Filters_________GETFILTERS__</DataField>
+        </Field>
+        <Field Name="BalAtDat">
+          <DataField>BalAtDat</DataField>
+        </Field>
+        <Field Name="BalAtDatFormat">
+          <DataField>BalAtDatFormat</DataField>
+        </Field>
+        <Field Name="Customer___Credit_Amount__LCY__">
+          <DataField>Customer___Credit_Amount__LCY__</DataField>
+        </Field>
+        <Field Name="Customer___Credit_Amount__LCY__Format">
+          <DataField>Customer___Credit_Amount__LCY__Format</DataField>
+        </Field>
+        <Field Name="BalB4Per">
+          <DataField>BalB4Per</DataField>
+        </Field>
+        <Field Name="BalB4PerFormat">
+          <DataField>BalB4PerFormat</DataField>
+        </Field>
+        <Field Name="Customer__Debit_Amount__LCY__">
+          <DataField>Customer__Debit_Amount__LCY__</DataField>
+        </Field>
+        <Field Name="Customer__Debit_Amount__LCY__Format">
+          <DataField>Customer__Debit_Amount__LCY__Format</DataField>
+        </Field>
+        <Field Name="USERID_Control1000000058">
+          <DataField>USERID_Control1000000058</DataField>
+        </Field>
+        <Field Name="Totals___">
+          <DataField>Totals___</DataField>
+        </Field>
+        <Field Name="BalAtDat_Control1000000003">
+          <DataField>BalAtDat_Control1000000003</DataField>
+        </Field>
+        <Field Name="BalAtDat_Control1000000003Format">
+          <DataField>BalAtDat_Control1000000003Format</DataField>
+        </Field>
+        <Field Name="Customer___Credit_Amount__LCY___Control1000000010">
+          <DataField>Customer___Credit_Amount__LCY___Control1000000010</DataField>
+        </Field>
+        <Field Name="Customer___Credit_Amount__LCY___Control1000000010Format">
+          <DataField>Customer___Credit_Amount__LCY___Control1000000010Format</DataField>
+        </Field>
+        <Field Name="Customer__Debit_Amount__LCY___Control1000000011">
+          <DataField>Customer__Debit_Amount__LCY___Control1000000011</DataField>
+        </Field>
+        <Field Name="Customer__Debit_Amount__LCY___Control1000000011Format">
+          <DataField>Customer__Debit_Amount__LCY___Control1000000011Format</DataField>
+        </Field>
+        <Field Name="BalB4Per_Control1000000012">
+          <DataField>BalB4Per_Control1000000012</DataField>
+        </Field>
+        <Field Name="BalB4Per_Control1000000012Format">
+          <DataField>BalB4Per_Control1000000012Format</DataField>
+        </Field>
+        <Field Name="Balance_At_DateCaption">
+          <DataField>Balance_At_DateCaption</DataField>
+        </Field>
+        <Field Name="Customer_Balance_At_DateCaption">
+          <DataField>Customer_Balance_At_DateCaption</DataField>
+        </Field>
+        <Field Name="Customer__No__Caption">
+          <DataField>Customer__No__Caption</DataField>
+        </Field>
+        <Field Name="Customer_NameCaption">
+          <DataField>Customer_NameCaption</DataField>
+        </Field>
+        <Field Name="Balance_At_DateCaption_Control18">
+          <DataField>Balance_At_DateCaption_Control18</DataField>
+        </Field>
+        <Field Name="Opening_Balance_Caption">
+          <DataField>Opening_Balance_Caption</DataField>
+        </Field>
+        <Field Name="DebitCaption">
+          <DataField>DebitCaption</DataField>
+        </Field>
+        <Field Name="CreditCaption">
+          <DataField>CreditCaption</DataField>
+        </Field>
+        <Field Name="Balance_At_DateCaption_Control1000000049">
+          <DataField>Balance_At_DateCaption_Control1000000049</DataField>
+        </Field>
+        <Field Name="CreditCaption_Control1000000050">
+          <DataField>CreditCaption_Control1000000050</DataField>
+        </Field>
+        <Field Name="DebitCaption_Control1000000051">
+          <DataField>DebitCaption_Control1000000051</DataField>
+        </Field>
+        <Field Name="Opening_Balance_Caption_Control1000000052">
+          <DataField>Opening_Balance_Caption_Control1000000052</DataField>
+        </Field>
+        <Field Name="Customer_NameCaption_Control1000000053">
+          <DataField>Customer_NameCaption_Control1000000053</DataField>
+        </Field>
+        <Field Name="Customer__No__Caption_Control1000000054">
+          <DataField>Customer__No__Caption_Control1000000054</DataField>
+        </Field>
+        <Field Name="FORMAT_TODAY_0_4__Control1000000044">
+          <DataField>FORMAT_TODAY_0_4__Control1000000044</DataField>
+        </Field>
+        <Field Name="CurrReport_PAGENO_Control1000000045">
+          <DataField>CurrReport_PAGENO_Control1000000045</DataField>
+        </Field>
+        <Field Name="USERID_Control1000000047">
+          <DataField>USERID_Control1000000047</DataField>
+        </Field>
+        <Field Name="No_Vendor">
+          <DataField>No_Vendor</DataField>
+        </Field>
+        <Field Name="Name_Vendor">
+          <DataField>Name_Vendor</DataField>
+        </Field>
+        <Field Name="Filters_________GETFILTERS___Control1000000048">
+          <DataField>Filters_________GETFILTERS___Control1000000048</DataField>
+        </Field>
+        <Field Name="BalAtDat_Control1000000024">
+          <DataField>BalAtDat_Control1000000024</DataField>
+        </Field>
+        <Field Name="BalAtDat_Control1000000024Format">
+          <DataField>BalAtDat_Control1000000024Format</DataField>
+        </Field>
+        <Field Name="Vendor___Credit_Amount__LCY__">
+          <DataField>Vendor___Credit_Amount__LCY__</DataField>
+        </Field>
+        <Field Name="Vendor___Credit_Amount__LCY__Format">
+          <DataField>Vendor___Credit_Amount__LCY__Format</DataField>
+        </Field>
+        <Field Name="Vendor__Debit_Amount__LCY__">
+          <DataField>Vendor__Debit_Amount__LCY__</DataField>
+        </Field>
+        <Field Name="Vendor__Debit_Amount__LCY__Format">
+          <DataField>Vendor__Debit_Amount__LCY__Format</DataField>
+        </Field>
+        <Field Name="BalB4Per_Control1000000027">
+          <DataField>BalB4Per_Control1000000027</DataField>
+        </Field>
+        <Field Name="BalB4Per_Control1000000027Format">
+          <DataField>BalB4Per_Control1000000027Format</DataField>
+        </Field>
+        <Field Name="CurrReport_PAGENO_Control1000000060">
+          <DataField>CurrReport_PAGENO_Control1000000060</DataField>
+        </Field>
+        <Field Name="USERID_Control1000000061">
+          <DataField>USERID_Control1000000061</DataField>
+        </Field>
+        <Field Name="BalAtDat_Control1000000032">
+          <DataField>BalAtDat_Control1000000032</DataField>
+        </Field>
+        <Field Name="BalAtDat_Control1000000032Format">
+          <DataField>BalAtDat_Control1000000032Format</DataField>
+        </Field>
+        <Field Name="Vendor___Credit_Amount__LCY___Control1000000033">
+          <DataField>Vendor___Credit_Amount__LCY___Control1000000033</DataField>
+        </Field>
+        <Field Name="Vendor___Credit_Amount__LCY___Control1000000033Format">
+          <DataField>Vendor___Credit_Amount__LCY___Control1000000033Format</DataField>
+        </Field>
+        <Field Name="Vendor__Debit_Amount__LCY___Control1000000034">
+          <DataField>Vendor__Debit_Amount__LCY___Control1000000034</DataField>
+        </Field>
+        <Field Name="Vendor__Debit_Amount__LCY___Control1000000034Format">
+          <DataField>Vendor__Debit_Amount__LCY___Control1000000034Format</DataField>
+        </Field>
+        <Field Name="BalB4Per_Control1000000035">
+          <DataField>BalB4Per_Control1000000035</DataField>
+        </Field>
+        <Field Name="BalB4Per_Control1000000035Format">
+          <DataField>BalB4Per_Control1000000035Format</DataField>
+        </Field>
+        <Field Name="Totals____Control1000000036">
+          <DataField>Totals____Control1000000036</DataField>
+        </Field>
+        <Field Name="Vendor_Balance_At_DateCaption">
+          <DataField>Vendor_Balance_At_DateCaption</DataField>
+        </Field>
+        <Field Name="CurrReport_PAGENO_Control1000000045Caption">
+          <DataField>CurrReport_PAGENO_Control1000000045Caption</DataField>
+        </Field>
+        <Field Name="Balance_At_DateCaption_Control1000000017">
+          <DataField>Balance_At_DateCaption_Control1000000017</DataField>
+        </Field>
+        <Field Name="CreditCaption_Control1000000018">
+          <DataField>CreditCaption_Control1000000018</DataField>
+        </Field>
+        <Field Name="DebitCaption_Control1000000020">
+          <DataField>DebitCaption_Control1000000020</DataField>
+        </Field>
+        <Field Name="Opening_Balance_Caption_Control1000000021">
+          <DataField>Opening_Balance_Caption_Control1000000021</DataField>
+        </Field>
+        <Field Name="Vendor_NameCaption">
+          <DataField>Vendor_NameCaption</DataField>
+        </Field>
+        <Field Name="Vendor__No__Caption">
+          <DataField>Vendor__No__Caption</DataField>
+        </Field>
+        <Field Name="Balance_At_DateCaption_Control1000000037">
+          <DataField>Balance_At_DateCaption_Control1000000037</DataField>
+        </Field>
+        <Field Name="CreditCaption_Control1000000038">
+          <DataField>CreditCaption_Control1000000038</DataField>
+        </Field>
+        <Field Name="DebitCaption_Control1000000039">
+          <DataField>DebitCaption_Control1000000039</DataField>
+        </Field>
+        <Field Name="Opening_Balance_Caption_Control1000000040">
+          <DataField>Opening_Balance_Caption_Control1000000040</DataField>
+        </Field>
+        <Field Name="Vendor_NameCaption_Control1000000041">
+          <DataField>Vendor_NameCaption_Control1000000041</DataField>
+        </Field>
+        <Field Name="Vendor__No__Caption_Control1000000043">
+          <DataField>Vendor__No__Caption_Control1000000043</DataField>
+        </Field>
+        <Field Name="CurrReport_PAGENO_Control1000000060Caption">
+          <DataField>CurrReport_PAGENO_Control1000000060Caption</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
+</Report>

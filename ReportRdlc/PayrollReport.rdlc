@@ -1,0 +1,398 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="DataSource">
+      <ConnectionProperties>
+        <DataProvider>SQL</DataProvider>
+        <ConnectString />
+      </ConnectionProperties>
+      <rd:SecurityType>None</rd:SecurityType>
+    </DataSource>
+  </DataSources>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <Height>2in</Height>
+        <Style />
+      </Body>
+      <Width>6.5in</Width>
+      <Page>
+        <Style />
+      </Page>
+    </ReportSection>
+  </ReportSections>
+  <Code>Public Function BlankZero(ByVal Value As Decimal)
+    if Value = 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankPos(ByVal Value As Decimal)
+    if Value &gt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankZeroAndPos(ByVal Value As Decimal)
+    if Value &gt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNeg(ByVal Value As Decimal)
+    if Value &lt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNegAndZero(ByVal Value As Decimal)
+    if Value &lt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+</Code>
+  <Language>=User!Language</Language>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="S_No">
+          <DataField>S_No</DataField>
+        </Field>
+        <Field Name="CompanyData_Name">
+          <DataField>CompanyData_Name</DataField>
+        </Field>
+        <Field Name="Payroll_Payslip_Lines___GETFILTER__Payroll_Period___________PeriodTxt">
+          <DataField>Payroll_Payslip_Lines___GETFILTER__Payroll_Period___________PeriodTxt</DataField>
+        </Field>
+        <Field Name="EmplHeadTxt">
+          <DataField>EmplHeadTxt</DataField>
+        </Field>
+        <Field Name="TODAY">
+          <DataField>TODAY</DataField>
+        </Field>
+        <Field Name="Amount">
+          <DataField>Amount</DataField>
+        </Field>
+        <Field Name="AmountFormat">
+          <DataField>AmountFormat</DataField>
+        </Field>
+        <Field Name="CurrReport_PAGENO">
+          <DataField>CurrReport_PAGENO</DataField>
+        </Field>
+        <Field Name="EDText_1_1_">
+          <DataField>EDText_1_1_</DataField>
+        </Field>
+        <Field Name="EDText_1_2_">
+          <DataField>EDText_1_2_</DataField>
+        </Field>
+        <Field Name="EDText_2_1_">
+          <DataField>EDText_2_1_</DataField>
+        </Field>
+        <Field Name="EDText_2_2_">
+          <DataField>EDText_2_2_</DataField>
+        </Field>
+        <Field Name="EDText_3_1_">
+          <DataField>EDText_3_1_</DataField>
+        </Field>
+        <Field Name="EDText_3_2_">
+          <DataField>EDText_3_2_</DataField>
+        </Field>
+        <Field Name="EDText_4_1_">
+          <DataField>EDText_4_1_</DataField>
+        </Field>
+        <Field Name="EDText_4_2_">
+          <DataField>EDText_4_2_</DataField>
+        </Field>
+        <Field Name="EDText_5_1_">
+          <DataField>EDText_5_1_</DataField>
+        </Field>
+        <Field Name="EDText_5_2_">
+          <DataField>EDText_5_2_</DataField>
+        </Field>
+        <Field Name="EDText_6_1_">
+          <DataField>EDText_6_1_</DataField>
+        </Field>
+        <Field Name="EDText_6_2_">
+          <DataField>EDText_6_2_</DataField>
+        </Field>
+        <Field Name="EDText_7_1_">
+          <DataField>EDText_7_1_</DataField>
+        </Field>
+        <Field Name="EDText_7_2_">
+          <DataField>EDText_7_2_</DataField>
+        </Field>
+        <Field Name="EDText_8_1_">
+          <DataField>EDText_8_1_</DataField>
+        </Field>
+        <Field Name="EDText_8_2_">
+          <DataField>EDText_8_2_</DataField>
+        </Field>
+        <Field Name="EDText_9_1_">
+          <DataField>EDText_9_1_</DataField>
+        </Field>
+        <Field Name="EDText_9_2_">
+          <DataField>EDText_9_2_</DataField>
+        </Field>
+        <Field Name="EDText_10_1_">
+          <DataField>EDText_10_1_</DataField>
+        </Field>
+        <Field Name="EDText_10_2_">
+          <DataField>EDText_10_2_</DataField>
+        </Field>
+        <Field Name="EDText_11_1_">
+          <DataField>EDText_11_1_</DataField>
+        </Field>
+        <Field Name="EDText_11_2_">
+          <DataField>EDText_11_2_</DataField>
+        </Field>
+        <Field Name="EDText_12_1_">
+          <DataField>EDText_12_1_</DataField>
+        </Field>
+        <Field Name="EDText_12_2_">
+          <DataField>EDText_12_2_</DataField>
+        </Field>
+        <Field Name="DELCHR__EmployeeName_______">
+          <DataField>DELCHR__EmployeeName_______</DataField>
+        </Field>
+        <Field Name="Payroll_Payslip_Lines___Employee_No_">
+          <DataField>Payroll_Payslip_Lines___Employee_No_</DataField>
+        </Field>
+        <Field Name="GlobalDim1">
+          <DataField>GlobalDim1</DataField>
+        </Field>
+        <Field Name="GlobalDim2">
+          <DataField>GlobalDim2</DataField>
+        </Field>
+        <Field Name="EDAmountsArray_1_">
+          <DataField>EDAmountsArray_1_</DataField>
+        </Field>
+        <Field Name="EDAmountsArray_1_Format">
+          <DataField>EDAmountsArray_1_Format</DataField>
+        </Field>
+        <Field Name="EDAmountsArray_2_">
+          <DataField>EDAmountsArray_2_</DataField>
+        </Field>
+        <Field Name="EDAmountsArray_2_Format">
+          <DataField>EDAmountsArray_2_Format</DataField>
+        </Field>
+        <Field Name="EDAmountsArray_3_">
+          <DataField>EDAmountsArray_3_</DataField>
+        </Field>
+        <Field Name="EDAmountsArray_3_Format">
+          <DataField>EDAmountsArray_3_Format</DataField>
+        </Field>
+        <Field Name="EDAmountsArray_4_">
+          <DataField>EDAmountsArray_4_</DataField>
+        </Field>
+        <Field Name="EDAmountsArray_4_Format">
+          <DataField>EDAmountsArray_4_Format</DataField>
+        </Field>
+        <Field Name="EDAmountsArray_5_">
+          <DataField>EDAmountsArray_5_</DataField>
+        </Field>
+        <Field Name="EDAmountsArray_5_Format">
+          <DataField>EDAmountsArray_5_Format</DataField>
+        </Field>
+        <Field Name="EDAmountsArray_6_">
+          <DataField>EDAmountsArray_6_</DataField>
+        </Field>
+        <Field Name="EDAmountsArray_6_Format">
+          <DataField>EDAmountsArray_6_Format</DataField>
+        </Field>
+        <Field Name="EDAmountsArray_7_">
+          <DataField>EDAmountsArray_7_</DataField>
+        </Field>
+        <Field Name="EDAmountsArray_7_Format">
+          <DataField>EDAmountsArray_7_Format</DataField>
+        </Field>
+        <Field Name="EDAmountsArray_8_">
+          <DataField>EDAmountsArray_8_</DataField>
+        </Field>
+        <Field Name="EDAmountsArray_8_Format">
+          <DataField>EDAmountsArray_8_Format</DataField>
+        </Field>
+        <Field Name="EDAmountsArray_9_">
+          <DataField>EDAmountsArray_9_</DataField>
+        </Field>
+        <Field Name="EDAmountsArray_9_Format">
+          <DataField>EDAmountsArray_9_Format</DataField>
+        </Field>
+        <Field Name="EDAmountsArray_10_">
+          <DataField>EDAmountsArray_10_</DataField>
+        </Field>
+        <Field Name="EDAmountsArray_10_Format">
+          <DataField>EDAmountsArray_10_Format</DataField>
+        </Field>
+        <Field Name="EDAmountsArray_11_">
+          <DataField>EDAmountsArray_11_</DataField>
+        </Field>
+        <Field Name="EDAmountsArray_11_Format">
+          <DataField>EDAmountsArray_11_Format</DataField>
+        </Field>
+        <Field Name="EDAmountsArray_12_">
+          <DataField>EDAmountsArray_12_</DataField>
+        </Field>
+        <Field Name="EDAmountsArray_12_Format">
+          <DataField>EDAmountsArray_12_Format</DataField>
+        </Field>
+        <Field Name="CountZ">
+          <DataField>CountZ</DataField>
+        </Field>
+        <Field Name="EmplCount">
+          <DataField>EmplCount</DataField>
+        </Field>
+        <Field Name="EDAmountsArray_10__Control33">
+          <DataField>EDAmountsArray_10__Control33</DataField>
+        </Field>
+        <Field Name="EDAmountsArray_10__Control33Format">
+          <DataField>EDAmountsArray_10__Control33Format</DataField>
+        </Field>
+        <Field Name="Total11">
+          <DataField>Total11</DataField>
+        </Field>
+        <Field Name="Total11Format">
+          <DataField>Total11Format</DataField>
+        </Field>
+        <Field Name="Total12">
+          <DataField>Total12</DataField>
+        </Field>
+        <Field Name="Total12Format">
+          <DataField>Total12Format</DataField>
+        </Field>
+        <Field Name="Salary_schedule_for_Period_Caption">
+          <DataField>Salary_schedule_for_Period_Caption</DataField>
+        </Field>
+        <Field Name="Report_print_date_Caption">
+          <DataField>Report_print_date_Caption</DataField>
+        </Field>
+        <Field Name="Report_page_Caption">
+          <DataField>Report_page_Caption</DataField>
+        </Field>
+        <Field Name="Employee_NumberCaption">
+          <DataField>Employee_NumberCaption</DataField>
+        </Field>
+        <Field Name="NameCaption">
+          <DataField>NameCaption</DataField>
+        </Field>
+        <Field Name="S_No_Caption">
+          <DataField>S_No_Caption</DataField>
+        </Field>
+        <Field Name="AmountsCaption">
+          <DataField>AmountsCaption</DataField>
+        </Field>
+        <Field Name="No__of_records_Processed_Caption">
+          <DataField>No__of_records_Processed_Caption</DataField>
+        </Field>
+        <Field Name="No__of_employees_Shown_Caption">
+          <DataField>No__of_employees_Shown_Caption</DataField>
+        </Field>
+        <Field Name="Payroll_Payslip_Lines__Payroll_Period">
+          <DataField>Payroll_Payslip_Lines__Payroll_Period</DataField>
+        </Field>
+        <Field Name="Payroll_Payslip_Lines__E_D_Code">
+          <DataField>Payroll_Payslip_Lines__E_D_Code</DataField>
+        </Field>
+        <Field Name="Payroll_Payslip_Lines__Global_Dimension_1_Code">
+          <DataField>Payroll_Payslip_Lines__Global_Dimension_1_Code</DataField>
+        </Field>
+        <Field Name="Payroll_Payslip_Lines__Global_Dimension_2_Code">
+          <DataField>Payroll_Payslip_Lines__Global_Dimension_2_Code</DataField>
+        </Field>
+        <Field Name="employee_name">
+          <DataField>employee_name</DataField>
+        </Field>
+        <Field Name="RowSum">
+          <DataField>RowSum</DataField>
+        </Field>
+        <Field Name="RowSumFormat">
+          <DataField>RowSumFormat</DataField>
+        </Field>
+        <Field Name="GrandTotals1">
+          <DataField>GrandTotals1</DataField>
+        </Field>
+        <Field Name="GrandTotals1Format">
+          <DataField>GrandTotals1Format</DataField>
+        </Field>
+        <Field Name="GrandTotals2">
+          <DataField>GrandTotals2</DataField>
+        </Field>
+        <Field Name="GrandTotals2Format">
+          <DataField>GrandTotals2Format</DataField>
+        </Field>
+        <Field Name="GrandTotals3">
+          <DataField>GrandTotals3</DataField>
+        </Field>
+        <Field Name="GrandTotals3Format">
+          <DataField>GrandTotals3Format</DataField>
+        </Field>
+        <Field Name="GrandTotals4">
+          <DataField>GrandTotals4</DataField>
+        </Field>
+        <Field Name="GrandTotals4Format">
+          <DataField>GrandTotals4Format</DataField>
+        </Field>
+        <Field Name="GrandTotals5">
+          <DataField>GrandTotals5</DataField>
+        </Field>
+        <Field Name="GrandTotals5Format">
+          <DataField>GrandTotals5Format</DataField>
+        </Field>
+        <Field Name="GrandTotals6">
+          <DataField>GrandTotals6</DataField>
+        </Field>
+        <Field Name="GrandTotals6Format">
+          <DataField>GrandTotals6Format</DataField>
+        </Field>
+        <Field Name="GrandTotals7">
+          <DataField>GrandTotals7</DataField>
+        </Field>
+        <Field Name="GrandTotals7Format">
+          <DataField>GrandTotals7Format</DataField>
+        </Field>
+        <Field Name="GrandTotals8">
+          <DataField>GrandTotals8</DataField>
+        </Field>
+        <Field Name="GrandTotals8Format">
+          <DataField>GrandTotals8Format</DataField>
+        </Field>
+        <Field Name="GrandTotals9">
+          <DataField>GrandTotals9</DataField>
+        </Field>
+        <Field Name="GrandTotals9Format">
+          <DataField>GrandTotals9Format</DataField>
+        </Field>
+        <Field Name="GrandTotals10">
+          <DataField>GrandTotals10</DataField>
+        </Field>
+        <Field Name="GrandTotals10Format">
+          <DataField>GrandTotals10Format</DataField>
+        </Field>
+        <Field Name="GrandTotals11">
+          <DataField>GrandTotals11</DataField>
+        </Field>
+        <Field Name="GrandTotals11Format">
+          <DataField>GrandTotals11Format</DataField>
+        </Field>
+        <Field Name="GrandTotals12">
+          <DataField>GrandTotals12</DataField>
+        </Field>
+        <Field Name="GrandTotals12Format">
+          <DataField>GrandTotals12Format</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
+</Report>

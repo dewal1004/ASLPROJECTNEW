@@ -1,0 +1,221 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="DataSource">
+      <ConnectionProperties>
+        <DataProvider>SQL</DataProvider>
+        <ConnectString />
+      </ConnectionProperties>
+      <rd:SecurityType>None</rd:SecurityType>
+    </DataSource>
+  </DataSources>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <Height>2in</Height>
+        <Style />
+      </Body>
+      <Width>6.5in</Width>
+      <Page>
+        <Style />
+      </Page>
+    </ReportSection>
+  </ReportSections>
+  <Code>Public Function BlankZero(ByVal Value As Decimal)
+    if Value = 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankPos(ByVal Value As Decimal)
+    if Value &gt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankZeroAndPos(ByVal Value As Decimal)
+    if Value &gt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNeg(ByVal Value As Decimal)
+    if Value &lt; 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+
+Public Function BlankNegAndZero(ByVal Value As Decimal)
+    if Value &lt;= 0 then
+        Return ""
+    end if
+    Return Value
+End Function
+</Code>
+  <Language>=User!Language</Language>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>0eeb6585-38ae-40f1-885b-8d50088d51b4</rd:ReportID>
+  <DataSets>
+    <DataSet Name="DataSet_Result">
+      <Fields>
+        <Field Name="FORMAT_TODAY_0_4_">
+          <DataField>FORMAT_TODAY_0_4_</DataField>
+        </Field>
+        <Field Name="COMPANYNAME">
+          <DataField>COMPANYNAME</DataField>
+        </Field>
+        <Field Name="CurrReport_PAGENO">
+          <DataField>CurrReport_PAGENO</DataField>
+        </Field>
+        <Field Name="USERID">
+          <DataField>USERID</DataField>
+        </Field>
+        <Field Name="Transfer_To_____FORMAT_ReportOptions_">
+          <DataField>Transfer_To_____FORMAT_ReportOptions_</DataField>
+        </Field>
+        <Field Name="GETFILTERS">
+          <DataField>GETFILTERS</DataField>
+        </Field>
+        <Field Name="SerialNo">
+          <DataField>SerialNo</DataField>
+        </Field>
+        <Field Name="sno">
+          <DataField>sno</DataField>
+        </Field>
+        <Field Name="Value_Entry__Item_No__">
+          <DataField>Value_Entry__Item_No__</DataField>
+        </Field>
+        <Field Name="ItemRec_Description">
+          <DataField>ItemRec_Description</DataField>
+        </Field>
+        <Field Name="Qty_1_">
+          <DataField>Qty_1_</DataField>
+        </Field>
+        <Field Name="Qty_1_Format">
+          <DataField>Qty_1_Format</DataField>
+        </Field>
+        <Field Name="valqty">
+          <DataField>valqty</DataField>
+        </Field>
+        <Field Name="valqtyFormat">
+          <DataField>valqtyFormat</DataField>
+        </Field>
+        <Field Name="Qty_2_">
+          <DataField>Qty_2_</DataField>
+        </Field>
+        <Field Name="Qty_2_Format">
+          <DataField>Qty_2_Format</DataField>
+        </Field>
+        <Field Name="Total">
+          <DataField>Total</DataField>
+        </Field>
+        <Field Name="TotalFormat">
+          <DataField>TotalFormat</DataField>
+        </Field>
+        <Field Name="ReportOptions">
+          <DataField>ReportOptions</DataField>
+        </Field>
+        <Field Name="test1">
+          <DataField>test1</DataField>
+        </Field>
+        <Field Name="Test2">
+          <DataField>Test2</DataField>
+        </Field>
+        <Field Name="SerialNo_Control1000000079">
+          <DataField>SerialNo_Control1000000079</DataField>
+        </Field>
+        <Field Name="Value_Entry__Item_No___Control1000000080">
+          <DataField>Value_Entry__Item_No___Control1000000080</DataField>
+        </Field>
+        <Field Name="ItemRec_Description_Control1000000081">
+          <DataField>ItemRec_Description_Control1000000081</DataField>
+        </Field>
+        <Field Name="c">
+          <DataField>c</DataField>
+        </Field>
+        <Field Name="cFormat">
+          <DataField>cFormat</DataField>
+        </Field>
+        <Field Name="Qty_1__Control1000000021">
+          <DataField>Qty_1__Control1000000021</DataField>
+        </Field>
+        <Field Name="Qty_1__Control1000000021Format">
+          <DataField>Qty_1__Control1000000021Format</DataField>
+        </Field>
+        <Field Name="Qty_2__Control1000000022">
+          <DataField>Qty_2__Control1000000022</DataField>
+        </Field>
+        <Field Name="Qty_2__Control1000000022Format">
+          <DataField>Qty_2__Control1000000022Format</DataField>
+        </Field>
+        <Field Name="Qty_3_">
+          <DataField>Qty_3_</DataField>
+        </Field>
+        <Field Name="Qty_3_Format">
+          <DataField>Qty_3_Format</DataField>
+        </Field>
+        <Field Name="Value_Entry__Valued_Quantity__Control1000000077">
+          <DataField>Value_Entry__Valued_Quantity__Control1000000077</DataField>
+        </Field>
+        <Field Name="Value_Entry__Valued_Quantity__Control1000000077Format">
+          <DataField>Value_Entry__Valued_Quantity__Control1000000077Format</DataField>
+        </Field>
+        <Field Name="CurrReport_PAGENOCaption">
+          <DataField>CurrReport_PAGENOCaption</DataField>
+        </Field>
+        <Field Name="TotalCaption">
+          <DataField>TotalCaption</DataField>
+        </Field>
+        <Field Name="Qty_2_Caption">
+          <DataField>Qty_2_Caption</DataField>
+        </Field>
+        <Field Name="Qty_1_Caption">
+          <DataField>Qty_1_Caption</DataField>
+        </Field>
+        <Field Name="ItemRec_DescriptionCaption">
+          <DataField>ItemRec_DescriptionCaption</DataField>
+        </Field>
+        <Field Name="Value_Entry__Item_No__Caption">
+          <DataField>Value_Entry__Item_No__Caption</DataField>
+        </Field>
+        <Field Name="SerialNoCaption">
+          <DataField>SerialNoCaption</DataField>
+        </Field>
+        <Field Name="Item_DescriptionCaption">
+          <DataField>Item_DescriptionCaption</DataField>
+        </Field>
+        <Field Name="Item_No_Caption">
+          <DataField>Item_No_Caption</DataField>
+        </Field>
+        <Field Name="S_NCaption">
+          <DataField>S_NCaption</DataField>
+        </Field>
+        <Field Name="Value_Entry__Valued_Quantity_Caption">
+          <DataField>Value_Entry__Valued_Quantity_Caption</DataField>
+        </Field>
+        <Field Name="TotalCaption_Control1000000018">
+          <DataField>TotalCaption_Control1000000018</DataField>
+        </Field>
+        <Field Name="TotalCaption_Control1000000075">
+          <DataField>TotalCaption_Control1000000075</DataField>
+        </Field>
+        <Field Name="Value_Entry_Entry_No_">
+          <DataField>Value_Entry_Entry_No_</DataField>
+        </Field>
+        <Field Name="Value_Entry_Inventory_Posting_Group">
+          <DataField>Value_Entry_Inventory_Posting_Group</DataField>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DataSource</DataSourceName>
+        <CommandText />
+      </Query>
+    </DataSet>
+  </DataSets>
+</Report>
