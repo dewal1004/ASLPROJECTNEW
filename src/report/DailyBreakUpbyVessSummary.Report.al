@@ -139,7 +139,7 @@ report 50012 "Daily BreakUp by Vess Summary"
             }
             column(FishgArea_15_; FishgArea[15])
             {
-                DecimalPlaces = 0 : 0;
+                // DecimalPlaces = 0 : 0;
             }
             column(ShrimpPoint_16_; ShrimpPoint[16])
             {
@@ -211,7 +211,7 @@ report 50012 "Daily BreakUp by Vess Summary"
             }
             column(FishgArea_24_; FishgArea[24])
             {
-                DecimalPlaces = 0 : 0;
+                // DecimalPlaces = 0 : 0;
             }
             column(ShrimpPoint_25_; ShrimpPoint[25])
             {
@@ -465,7 +465,7 @@ report 50012 "Daily BreakUp by Vess Summary"
             }
             column(SeaRange_1_; SeaRange[1])
             {
-                DecimalPlaces = 0 : 0;
+                // DecimalPlaces = 0 : 0;
             }
             column(SeaRange_16_; SeaRange[16])
             {
@@ -484,7 +484,7 @@ report 50012 "Daily BreakUp by Vess Summary"
             }
             column(SeaRange_21_; SeaRange[21])
             {
-                DecimalPlaces = 0 : 0;
+                // DecimalPlaces = 0 : 0;
             }
             column(SeaRange_22_; SeaRange[22])
             {
@@ -821,7 +821,7 @@ report 50012 "Daily BreakUp by Vess Summary"
             }
             column(FishgArea_28_; FishgArea[28])
             {
-                DecimalPlaces = 0 : 0;
+                // DecimalPlaces = 0 : 0;
             }
             column(VesselPoint_28_; VesselPoint[28])
             {
@@ -878,7 +878,7 @@ report 50012 "Daily BreakUp by Vess Summary"
             }
             column(FishgArea_31_; FishgArea[31])
             {
-                DecimalPlaces = 0 : 0;
+                // DecimalPlaces = 0 : 0;
             }
             column(VesselPoint_31_; VesselPoint[31])
             {
@@ -897,7 +897,7 @@ report 50012 "Daily BreakUp by Vess Summary"
             }
             column(FishgArea_32_; FishgArea[32])
             {
-                DecimalPlaces = 0 : 0;
+                // DecimalPlaces = 0 : 0;
             }
             column(VesselPoint_32_; VesselPoint[32])
             {
@@ -935,7 +935,7 @@ report 50012 "Daily BreakUp by Vess Summary"
             }
             column(FishgArea_34_; FishgArea[34])
             {
-                DecimalPlaces = 0 : 0;
+                // DecimalPlaces = 0 : 0;
             }
             column(VesselPoint_34_; VesselPoint[34])
             {
@@ -992,7 +992,7 @@ report 50012 "Daily BreakUp by Vess Summary"
             }
             column(FishgArea_37_; FishgArea[37])
             {
-                DecimalPlaces = 0 : 0;
+                // DecimalPlaces = 0 : 0;
             }
             column(VesselPoint_37_; VesselPoint[37])
             {
@@ -1030,11 +1030,11 @@ report 50012 "Daily BreakUp by Vess Summary"
             }
             column(FishgArea_39_; FishgArea[39])
             {
-                DecimalPlaces = 0 : 0;
+                // DecimalPlaces = 0 : 0;
             }
             column(VesselPoint_39_; VesselPoint[39])
             {
-                DecimalPlaces = 0 : 0;
+                // DecimalPlaces = 0 : 0;
             }
             column(SeaRangeD_39_; SeaRangeD[39])
             {
@@ -1049,7 +1049,7 @@ report 50012 "Daily BreakUp by Vess Summary"
             }
             column(FishgArea_40_; FishgArea[40])
             {
-                DecimalPlaces = 0 : 0;
+                // DecimalPlaces = 0 : 0;
             }
             column(VesselPoint_40_; VesselPoint[40])
             {
@@ -1068,7 +1068,7 @@ report 50012 "Daily BreakUp by Vess Summary"
             }
             column(FishgArea_41_; FishgArea[41])
             {
-                DecimalPlaces = 0 : 0;
+                // DecimalPlaces = 0 : 0;
             }
             column(VesselPoint_41_; VesselPoint[41])
             {
@@ -1106,7 +1106,7 @@ report 50012 "Daily BreakUp by Vess Summary"
             }
             column(FishgArea_43_; FishgArea[43])
             {
-                DecimalPlaces = 0 : 0;
+                // DecimalPlaces = 0 : 0;
             }
             column(VesselPoint_43_; VesselPoint[43])
             {
@@ -1126,7 +1126,7 @@ report 50012 "Daily BreakUp by Vess Summary"
             }
             column(FishgArea_44_; FishgArea[44])
             {
-                DecimalPlaces = 0 : 0;
+                // DecimalPlaces = 0 : 0;
             }
             column(VesselPoint_44_; VesselPoint[44])
             {
@@ -1145,7 +1145,7 @@ report 50012 "Daily BreakUp by Vess Summary"
             }
             column(FishgArea_45_; FishgArea[45])
             {
-                DecimalPlaces = 0 : 0;
+                // DecimalPlaces = 0 : 0;
             }
             column(VesselPoint_45_; VesselPoint[45])
             {
@@ -1164,7 +1164,7 @@ report 50012 "Daily BreakUp by Vess Summary"
             }
             column(FishgArea_46_; FishgArea[46])
             {
-                DecimalPlaces = 0 : 0;
+                // DecimalPlaces = 0 : 0;
             }
             column(VesselPoint_46_; VesselPoint[46])
             {
@@ -1202,7 +1202,7 @@ report 50012 "Daily BreakUp by Vess Summary"
             }
             column(FishgArea_48_; FishgArea[48])
             {
-                DecimalPlaces = 0 : 0;
+                // DecimalPlaces = 0 : 0;
             }
             column(VesselPoint_48_; VesselPoint[48])
             {
@@ -1221,7 +1221,7 @@ report 50012 "Daily BreakUp by Vess Summary"
             }
             column(FishgArea_49_; FishgArea[49])
             {
-                DecimalPlaces = 0 : 0;
+                // DecimalPlaces = 0 : 0;
             }
             column(VesselPoint_49_; VesselPoint[49])
             {
@@ -1931,7 +1931,7 @@ report 50012 "Daily BreakUp by Vess Summary"
             }
             column(FishgArea_51_; FishgArea[51])
             {
-                DecimalPlaces = 0 : 0;
+                // DecimalPlaces = 0 : 0;
             }
             column(VesselPoint_51_; VesselPoint[51])
             {
@@ -1969,7 +1969,7 @@ report 50012 "Daily BreakUp by Vess Summary"
             }
             column(FishgArea_53_; FishgArea[53])
             {
-                DecimalPlaces = 0 : 0;
+                // DecimalPlaces = 0 : 0;
             }
             column(VesselPoint_53_; VesselPoint[53])
             {
@@ -1988,7 +1988,7 @@ report 50012 "Daily BreakUp by Vess Summary"
             }
             column(FishgArea_54_; FishgArea[54])
             {
-                DecimalPlaces = 0 : 0;
+                // DecimalPlaces = 0 : 0;
             }
             column(VesselPoint_54_; VesselPoint[54])
             {
@@ -2007,7 +2007,7 @@ report 50012 "Daily BreakUp by Vess Summary"
             }
             column(FishgArea_55_; FishgArea[55])
             {
-                DecimalPlaces = 0 : 0;
+                // DecimalPlaces = 0 : 0;
             }
             column(VesselPoint_55_; VesselPoint[55])
             {
@@ -2026,7 +2026,7 @@ report 50012 "Daily BreakUp by Vess Summary"
             }
             column(FishgArea_56_; FishgArea[56])
             {
-                DecimalPlaces = 0 : 0;
+                // DecimalPlaces = 0 : 0;
             }
             column(VesselPoint_56_; VesselPoint[56])
             {
@@ -2045,7 +2045,7 @@ report 50012 "Daily BreakUp by Vess Summary"
             }
             column(FishgArea_57_; FishgArea[57])
             {
-                DecimalPlaces = 0 : 0;
+                // DecimalPlaces = 0 : 0;
             }
             column(VesselPoint_57_; VesselPoint[57])
             {
@@ -2064,7 +2064,7 @@ report 50012 "Daily BreakUp by Vess Summary"
             }
             column(FishgArea_58_; FishgArea[58])
             {
-                DecimalPlaces = 0 : 0;
+                // DecimalPlaces = 0 : 0;
             }
             column(VesselPoint_58_; VesselPoint[58])
             {
@@ -2083,7 +2083,7 @@ report 50012 "Daily BreakUp by Vess Summary"
             }
             column(FishgArea_59_; FishgArea[59])
             {
-                DecimalPlaces = 0 : 0;
+                // DecimalPlaces = 0 : 0;
             }
             column(VesselPoint_59_; VesselPoint[59])
             {
@@ -2102,7 +2102,7 @@ report 50012 "Daily BreakUp by Vess Summary"
             }
             column(FishgArea_60_; FishgArea[60])
             {
-                DecimalPlaces = 0 : 0;
+                // DecimalPlaces = 0 : 0;
             }
             column(VesselPoint_60_; VesselPoint[60])
             {
@@ -2121,7 +2121,7 @@ report 50012 "Daily BreakUp by Vess Summary"
             }
             column(FishgArea_61_; FishgArea[61])
             {
-                DecimalPlaces = 0 : 0;
+                // DecimalPlaces = 0 : 0;
             }
             column(VesselPoint_61_; VesselPoint[61])
             {
@@ -2140,7 +2140,7 @@ report 50012 "Daily BreakUp by Vess Summary"
             }
             column(FishgArea_62_; FishgArea[62])
             {
-                DecimalPlaces = 0 : 0;
+                // DecimalPlaces = 0 : 0;
             }
             column(VesselPoint_62_; VesselPoint[62])
             {
@@ -2159,7 +2159,7 @@ report 50012 "Daily BreakUp by Vess Summary"
             }
             column(FishgArea_63_; FishgArea[63])
             {
-                DecimalPlaces = 0 : 0;
+                // DecimalPlaces = 0 : 0;
             }
             column(VesselPoint_63_; VesselPoint[63])
             {
@@ -2178,7 +2178,7 @@ report 50012 "Daily BreakUp by Vess Summary"
             }
             column(FishgArea_64_; FishgArea[64])
             {
-                DecimalPlaces = 0 : 0;
+                // DecimalPlaces = 0 : 0;
             }
             column(VesselPoint_64_; VesselPoint[64])
             {
@@ -2197,7 +2197,7 @@ report 50012 "Daily BreakUp by Vess Summary"
             }
             column(FishgArea_65_; FishgArea[65])
             {
-                DecimalPlaces = 0 : 0;
+                // DecimalPlaces = 0 : 0;
             }
             column(VesselPoint_65_; VesselPoint[65])
             {
@@ -2216,7 +2216,7 @@ report 50012 "Daily BreakUp by Vess Summary"
             }
             column(FishgArea_66_; FishgArea[66])
             {
-                DecimalPlaces = 0 : 0;
+                // DecimalPlaces = 0 : 0;
             }
             column(VesselPoint_66_; VesselPoint[66])
             {
@@ -2235,7 +2235,7 @@ report 50012 "Daily BreakUp by Vess Summary"
             }
             column(FishgArea_67_; FishgArea[67])
             {
-                DecimalPlaces = 0 : 0;
+                // DecimalPlaces = 0 : 0;
             }
             column(VesselPoint_67_; VesselPoint[67])
             {
@@ -2254,7 +2254,7 @@ report 50012 "Daily BreakUp by Vess Summary"
             }
             column(FishgArea_68_; FishgArea[68])
             {
-                DecimalPlaces = 0 : 0;
+                // DecimalPlaces = 0 : 0;
             }
             column(VesselPoint_68_; VesselPoint[68])
             {
@@ -2273,7 +2273,7 @@ report 50012 "Daily BreakUp by Vess Summary"
             }
             column(FishgArea_69_; FishgArea[69])
             {
-                DecimalPlaces = 0 : 0;
+                // DecimalPlaces = 0 : 0;
             }
             column(VesselPoint_69_; VesselPoint[69])
             {
@@ -2292,7 +2292,7 @@ report 50012 "Daily BreakUp by Vess Summary"
             }
             column(FishgArea_70_; FishgArea[70])
             {
-                DecimalPlaces = 0 : 0;
+                // DecimalPlaces = 0 : 0;
             }
             column(VesselPoint_70_; VesselPoint[70])
             {
@@ -2311,7 +2311,7 @@ report 50012 "Daily BreakUp by Vess Summary"
             }
             column(FishgArea_71_; FishgArea[71])
             {
-                DecimalPlaces = 0 : 0;
+                // DecimalPlaces = 0 : 0;
             }
             column(VesselPoint_71_; VesselPoint[71])
             {
@@ -2330,7 +2330,7 @@ report 50012 "Daily BreakUp by Vess Summary"
             }
             column(FishgArea_72_; FishgArea[72])
             {
-                DecimalPlaces = 0 : 0;
+                // DecimalPlaces = 0 : 0;
             }
             column(VesselPoint_72_; VesselPoint[72])
             {
@@ -2349,7 +2349,7 @@ report 50012 "Daily BreakUp by Vess Summary"
             }
             column(FishgArea_73_; FishgArea[73])
             {
-                DecimalPlaces = 0 : 0;
+                // DecimalPlaces = 0 : 0;
             }
             column(VesselPoint_73_; VesselPoint[73])
             {
@@ -2368,7 +2368,7 @@ report 50012 "Daily BreakUp by Vess Summary"
             }
             column(FishgArea_74_; FishgArea[74])
             {
-                DecimalPlaces = 0 : 0;
+                // DecimalPlaces = 0 : 0;
             }
             column(VesselPoint_74_; VesselPoint[74])
             {
@@ -2387,7 +2387,7 @@ report 50012 "Daily BreakUp by Vess Summary"
             }
             column(FishgArea_75_; FishgArea[75])
             {
-                DecimalPlaces = 0 : 0;
+                // DecimalPlaces = 0 : 0;
             }
             column(VesselPoint_75_; VesselPoint[75])
             {
