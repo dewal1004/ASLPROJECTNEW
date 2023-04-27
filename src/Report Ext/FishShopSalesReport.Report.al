@@ -1,10 +1,10 @@
 report 50077 "Fish Shop Sales Report"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/FishShopSalesReport.rdlc';
+    RDLCLayout = './reportrdlc/FishShopSalesReport.rdlc';
     Caption = 'Inventory - Top 10 List';
     UsageCategory = ReportsAndAnalysis;
-    ApplicationArea = All,Basic,Suite;
+    ApplicationArea = All, Basic, Suite;
 
     dataset
     {

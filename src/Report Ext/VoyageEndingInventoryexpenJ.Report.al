@@ -4,7 +4,7 @@ report 70043 "Voyage Ending Inventory expenJ"
     // ItemUOV== Items Used On Vessel
     // //
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/VoyageEndingInventoryexpenJ.rdlc';
+    RDLCLayout = './reportrdlc/VoyageEndingInventoryexpenJ.rdlc';
 
 
     dataset

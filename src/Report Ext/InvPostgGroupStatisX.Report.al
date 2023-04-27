@@ -1,7 +1,7 @@
 report 99099 "Inv Postg Group StatisX"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/InvPostgGroupStatisX.rdlc';
+    RDLCLayout = './reportrdlc/InvPostgGroupStatisX.rdlc';
 
     dataset
     {

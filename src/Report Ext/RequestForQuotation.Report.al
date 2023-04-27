@@ -1,7 +1,7 @@
 report 50217 "Request For Quotation"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/RequestForQuotation.rdlc';
+    RDLCLayout = './reportrdlc/RequestForQuotation.rdlc';
 
     dataset
     {

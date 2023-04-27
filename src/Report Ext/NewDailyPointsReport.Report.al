@@ -1,7 +1,7 @@
 report 50075 "New Daily Points Report"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/NewDailyPointsReport.rdlc';
+    RDLCLayout = './reportrdlc/NewDailyPointsReport.rdlc';
     Caption = 'New Daily Points Report';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;

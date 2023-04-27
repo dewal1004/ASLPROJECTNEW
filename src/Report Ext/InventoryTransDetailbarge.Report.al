@@ -3,12 +3,12 @@ report 50243 "Inventory-Trans.Detail-barge"
     // Item."Unit Cost"
     // "Print Bin Card"
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/InventoryTransDetailbarge.rdlc';
+    RDLCLayout = './reportrdlc/InventoryTransDetailbarge.rdlc';
 
     Caption = 'Inventory - Transaction Detail';
     Permissions = TableData "Sales Shipment Header" = rimd;
     UsageCategory = ReportsAndAnalysis;
-    ApplicationArea = All,Basic,Suite;
+    ApplicationArea = All, Basic, Suite;
 
     dataset
     {

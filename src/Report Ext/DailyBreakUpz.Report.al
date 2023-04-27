@@ -2,7 +2,7 @@ report 90042 "Daily Break Upz"
 {
     // Invt[1]
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/DailyBreakUpz.rdlc';
+    RDLCLayout = './reportrdlc/DailyBreakUpz.rdlc';
 
 
     dataset

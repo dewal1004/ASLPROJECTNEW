@@ -6,9 +6,9 @@ report 50176 "New Daily Points by Capt Rep"
     // IF GCountCum[k]<>0 THEN GTotPtsA[k]:= GTotPts[k]/GCountCum[k] ELSE GTotPtsA[k]:=0;
     // SeaDaysTot:=0;SeaDayA:=0;
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/NewDailyPointsbyCaptRep.rdlc';
+    RDLCLayout = './reportrdlc/NewDailyPointsbyCaptRep.rdlc';
     UsageCategory = ReportsAndAnalysis;
-    ApplicationArea = All,Basic,Suite;
+    ApplicationArea = All, Basic, Suite;
 
     Caption = 'New Daily Points Report';
 

@@ -3,9 +3,9 @@ report 50218 "Consolidated Daily Points Fast"
     // UNL-ASL3.60.01.004 (Santus) May 11, 2005
     // -> modified report to write output data to the Entry/Exit Table. the data will be stored as historical data.
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/ConsolidatedDailyPointsFast.rdlc';
+    RDLCLayout = './reportrdlc/ConsolidatedDailyPointsFast.rdlc';
     UsageCategory = ReportsAndAnalysis;
-    ApplicationArea = All,Basic,Suite;
+    ApplicationArea = All, Basic, Suite;
 
     Caption = 'New Daily Points Report';
 

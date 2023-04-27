@@ -1,7 +1,7 @@
 report 90187 "Periodic Stock PositionX"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/PeriodicStockPositionX.rdlc';
+    RDLCLayout = './reportrdlc/PeriodicStockPositionX.rdlc';
 
     dataset
     {

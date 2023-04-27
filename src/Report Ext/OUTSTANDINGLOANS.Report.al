@@ -2,9 +2,9 @@ report 50069 "OUTSTANDING LOANS"
 {
     // UNL-ASL3.60.01.007 (Santus) May 24, 2005
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/OUTSTANDINGLOANS.rdlc';
+    RDLCLayout = './reportrdlc/OUTSTANDINGLOANS.rdlc';
     UsageCategory = ReportsAndAnalysis;
-    ApplicationArea = All,Basic,Suite;
+    ApplicationArea = All, Basic, Suite;
 
 
     dataset

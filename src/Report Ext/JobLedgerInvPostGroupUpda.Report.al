@@ -1,7 +1,7 @@
 report 50206 "Job Ledger Inv Post Group Upda"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/JobLedgerInvPostGroupUpda.rdlc';
+    RDLCLayout = './reportrdlc/JobLedgerInvPostGroupUpda.rdlc';
 
     dataset
     {

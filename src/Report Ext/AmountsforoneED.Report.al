@@ -4,7 +4,7 @@ report 50065 "Amounts for one E/D"
     // The amounts are listed per Employee. Employees without this E/D within the
     // selected period will not be listed in the report
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/AmountsforoneED.rdlc';
+    RDLCLayout = './reportrdlc/AmountsforoneED.rdlc';
 
 
     dataset

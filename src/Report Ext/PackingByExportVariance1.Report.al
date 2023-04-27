@@ -5,7 +5,7 @@ report 59181 "Packing By Export Variance1"
     // Stat Cd 0 filtered to Packg Materials Only
     // "Inventory Posting Group".Inventory
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/PackingByExportVariance1.rdlc';
+    RDLCLayout = './reportrdlc/PackingByExportVariance1.rdlc';
 
 
     dataset

@@ -11,7 +11,7 @@ report 50181 "Packing By Export Variance"
     // 5  :: Variance
     // 10 :: Inventory
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/PackingByExportVariance.rdlc';
+    RDLCLayout = './reportrdlc/PackingByExportVariance.rdlc';
 
 
     dataset

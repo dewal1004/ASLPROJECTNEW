@@ -1,7 +1,7 @@
 report 90013 "Update Job Journal Batch Name"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/UpdateJobJournalBatchName.rdlc';
+    RDLCLayout = './reportrdlc/UpdateJobJournalBatchName.rdlc';
 
     dataset
     {

@@ -1,7 +1,7 @@
 report 50052 "Check Applied Qty"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/CheckAppliedQty.rdlc';
+    RDLCLayout = './reportrdlc/CheckAppliedQty.rdlc';
 
     dataset
     {

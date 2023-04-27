@@ -1,7 +1,7 @@
 report 99974 "Narration update type=1"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/Narrationupdatetype1.rdlc';
+    RDLCLayout = './reportrdlc/Narrationupdatetype1.rdlc';
 
     dataset
     {

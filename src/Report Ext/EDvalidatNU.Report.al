@@ -1,7 +1,7 @@
 report 52148 "EDvalidat NU*"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/EDvalidatNU.rdlc';
+    RDLCLayout = './reportrdlc/EDvalidatNU.rdlc';
 
     dataset
     {

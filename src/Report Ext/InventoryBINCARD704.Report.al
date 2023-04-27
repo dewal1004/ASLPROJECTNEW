@@ -4,7 +4,7 @@ report 50136 "Inventory - BINCARD 704"
     // "Print Bin Card"
     // //
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/InventoryBINCARD704.rdlc';
+    RDLCLayout = './reportrdlc/InventoryBINCARD704.rdlc';
 
     Caption = 'Inventory - Bincard Detail';
     Permissions = TableData "Sales Shipment Header" = rimd;
@@ -163,8 +163,8 @@ report 50136 "Inventory - BINCARD 704"
                     column(Item_Description_Control32; Item.Description)
                     {
                     }
-                    Column(Requisition_No;IssueNo)
-                    {                        
+                    Column(Requisition_No; IssueNo)
+                    {
                     }
                     column(IncreasesQty_Control33; IncreasesQty)
                     {
@@ -175,8 +175,8 @@ report 50136 "Inventory - BINCARD 704"
                     column(StartOnHand___Quantity_Control35; StartOnHand + Quantity)
                     {
                     }
-                    Column(RequisitionNo;IssueNo)
-                    {                        
+                    Column(RequisitionNo; IssueNo)
+                    {
                     }
                     column(DecreasesQty_Control1000000044; DecreasesQty)
                     {
@@ -216,7 +216,7 @@ report 50136 "Inventory - BINCARD 704"
                     trigger OnAfterGetRecord()
                     var
                         HandQty: Decimal;
-                       // IssueNo: Text[30];
+                    // IssueNo: Text[30];
                     begin
                         CurrReport.CreateTotals(Quantity, IncreasesQty, DecreasesQty);
                         HandQty := 0;
@@ -314,7 +314,7 @@ report 50136 "Inventory - BINCARD 704"
 
     }
     requestpage
-    { 
+    {
         SaveValues = true;
 
         layout

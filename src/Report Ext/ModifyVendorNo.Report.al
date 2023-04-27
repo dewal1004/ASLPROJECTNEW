@@ -1,7 +1,7 @@
 report 99981 "Modify Vendor No"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/ModifyVendorNo.rdlc';
+    RDLCLayout = './reportrdlc/ModifyVendorNo.rdlc';
 
     dataset
     {

@@ -3,7 +3,7 @@ report 60151 "Voyage P&L Ledger LineX"
     // PeopleOnVoyJob."No. of Deck Hands"
     // expcnt  //
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/VoyagePLLedgerLineX.rdlc';
+    RDLCLayout = './reportrdlc/VoyagePLLedgerLineX.rdlc';
 
 
     dataset

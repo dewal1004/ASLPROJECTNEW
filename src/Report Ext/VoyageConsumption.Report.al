@@ -1,9 +1,9 @@
 report 50080 "Voyage Consumption"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/VoyageConsumption.rdlc';
+    RDLCLayout = './reportrdlc/VoyageConsumption.rdlc';
     UsageCategory = ReportsAndAnalysis;
-    ApplicationArea = All,Basic,Suite;
+    ApplicationArea = All, Basic, Suite;
 
     dataset
     {

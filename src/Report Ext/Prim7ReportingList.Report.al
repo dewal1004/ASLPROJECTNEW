@@ -1,9 +1,9 @@
 report 50041 "Prim7* Reporting List"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/Prim7ReportingList.rdlc';
+    RDLCLayout = './reportrdlc/Prim7ReportingList.rdlc';
     UsageCategory = ReportsAndAnalysis;
-    ApplicationArea = All,Basic,Suite;
+    ApplicationArea = All, Basic, Suite;
 
     dataset
     {

@@ -2,7 +2,7 @@ report 99020 "Organolepticx"
 {
     // //"Comment Line"."Pack Size"
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/Organolepticx.rdlc';
+    RDLCLayout = './reportrdlc/Organolepticx.rdlc';
 
 
     dataset

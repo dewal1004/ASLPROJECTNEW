@@ -1,7 +1,7 @@
 report 50247 "Voyage P&L Ledger Line 2.swamy"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/VoyagePLLedgerLine2swamy.rdlc';
+    RDLCLayout = './reportrdlc/VoyagePLLedgerLine2swamy.rdlc';
     Permissions = TableData "Job Ledger Entry" = rimd;
 
     dataset

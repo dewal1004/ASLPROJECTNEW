@@ -1,7 +1,7 @@
 report 99970 "Update Vessel on Job Catch Def"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/UpdateVesselonJobCatchDef.rdlc';
+    RDLCLayout = './reportrdlc/UpdateVesselonJobCatchDef.rdlc';
 
     dataset
     {

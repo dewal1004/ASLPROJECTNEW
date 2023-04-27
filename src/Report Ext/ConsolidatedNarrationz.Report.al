@@ -2,7 +2,7 @@ report 99087 "Consolidated Narrationz"
 {
     // "Comment Line"."Day Lost Cause"
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/ConsolidatedNarrationz.rdlc';
+    RDLCLayout = './reportrdlc/ConsolidatedNarrationz.rdlc';
 
 
     dataset

@@ -2,9 +2,9 @@ report 50044 "Daily BreakUp by Fishing Area"
 {
     // T001
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/DailyBreakUpbyFishingArea.rdlc';
+    RDLCLayout = './reportrdlc/DailyBreakUpbyFishingArea.rdlc';
     UsageCategory = ReportsAndAnalysis;
-    ApplicationArea = All,Basic,Suite;
+    ApplicationArea = All, Basic, Suite;
 
 
     dataset

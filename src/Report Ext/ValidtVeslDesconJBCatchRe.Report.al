@@ -1,7 +1,7 @@
 report 99994 "Validt Vesl Desc on JBCatch Re"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/ValidtVeslDesconJBCatchRe.rdlc';
+    RDLCLayout = './reportrdlc/ValidtVeslDesconJBCatchRe.rdlc';
 
     dataset
     {

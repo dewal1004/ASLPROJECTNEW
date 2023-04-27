@@ -2,7 +2,7 @@ report 50089 "Catch Incentive"
 {
     //"Inventory Posting Group"."Inventory Incentive"
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/CatchIncentive.rdlc';
+    RDLCLayout = './reportrdlc/CatchIncentive.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
 

@@ -1,7 +1,7 @@
 report 90985 "Initiate Item Level"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/InitiateItemLevel.rdlc';
+    RDLCLayout = './reportrdlc/InitiateItemLevel.rdlc';
 
     dataset
     {

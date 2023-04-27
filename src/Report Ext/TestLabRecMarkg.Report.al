@@ -1,7 +1,7 @@
 report 99124 "Test Lab Rec Markg"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/TestLabRecMarkg.rdlc';
+    RDLCLayout = './reportrdlc/TestLabRecMarkg.rdlc';
 
     dataset
     {

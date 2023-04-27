@@ -1,7 +1,7 @@
 report 50244 "Purchase Return Way Bill"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/PurchaseReturnWayBill.rdlc';
+    RDLCLayout = './reportrdlc/PurchaseReturnWayBill.rdlc';
 
     dataset
     {

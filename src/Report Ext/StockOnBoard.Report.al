@@ -4,7 +4,7 @@
 report 50213 "Stock On Board"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/StockOnBoard.rdlc';
+    RDLCLayout = './reportrdlc/StockOnBoard.rdlc';
 
     dataset
     {

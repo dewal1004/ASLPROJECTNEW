@@ -1,7 +1,7 @@
 report 99982 "Modify Cust No"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/ModifyCustNo.rdlc';
+    RDLCLayout = './reportrdlc/ModifyCustNo.rdlc';
 
     dataset
     {

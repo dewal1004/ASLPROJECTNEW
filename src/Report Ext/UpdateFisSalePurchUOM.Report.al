@@ -1,7 +1,7 @@
 report 99983 "Update Fis Sale & Purch UOM"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/UpdateFisSalePurchUOM.rdlc';
+    RDLCLayout = './reportrdlc/UpdateFisSalePurchUOM.rdlc';
 
     dataset
     {

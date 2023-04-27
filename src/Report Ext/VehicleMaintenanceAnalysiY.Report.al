@@ -1,7 +1,7 @@
 report 58028 "Vehicle Maintenance - AnalysiY"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/VehicleMaintenanceAnalysiY.rdlc';
+    RDLCLayout = './reportrdlc/VehicleMaintenanceAnalysiY.rdlc';
     Caption = 'Vehicle Maintenance - Analysis';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;

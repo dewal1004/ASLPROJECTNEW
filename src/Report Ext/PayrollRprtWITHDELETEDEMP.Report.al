@@ -9,7 +9,7 @@ report 50030 "Payroll Rprt- WITH DELETED EMP"
     // The user can specify that the ED.Descriptions appear in the column headers
     // instead of the ED.Codes.
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/PayrollRprtWITHDELETEDEMP.rdlc';
+    RDLCLayout = './reportrdlc/PayrollRprtWITHDELETEDEMP.rdlc';
 
 
     dataset

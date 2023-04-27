@@ -2,9 +2,9 @@ report 50190 "Vessel Performance"
 {
     // Job.GETFILTERS
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/VesselPerformance.rdlc';
+    RDLCLayout = './reportrdlc/VesselPerformance.rdlc';
     UsageCategory = ReportsAndAnalysis;
-    ApplicationArea = All,Basic,Suite;
+    ApplicationArea = All, Basic, Suite;
 
 
     dataset

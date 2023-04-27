@@ -4,7 +4,7 @@ report 85703 "Transfer Orderxa"
     // "Transfer Header"."Received By"
     // "Transfer Header"."Issued By"
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/TransferOrderxa.rdlc';
+    RDLCLayout = './reportrdlc/TransferOrderxa.rdlc';
 
     Caption = 'Transfer Order';
 

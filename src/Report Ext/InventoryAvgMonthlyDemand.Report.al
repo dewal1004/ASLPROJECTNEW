@@ -1,9 +1,9 @@
 report 50153 "Inventory Avg. Monthly Demand"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/InventoryAvgMonthlyDemand.rdlc';
+    RDLCLayout = './reportrdlc/InventoryAvgMonthlyDemand.rdlc';
     UsageCategory = ReportsAndAnalysis;
-    ApplicationArea = All,Basic,Suite;
+    ApplicationArea = All, Basic, Suite;
 
     dataset
     {

@@ -1,9 +1,9 @@
 report 50108 "IOU Balance"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/IOUBalance.rdlc';
+    RDLCLayout = './reportrdlc/IOUBalance.rdlc';
     UsageCategory = ReportsAndAnalysis;
-    ApplicationArea = All,Basic,Suite;
+    ApplicationArea = All, Basic, Suite;
 
     dataset
     {

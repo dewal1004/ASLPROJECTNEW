@@ -1,7 +1,7 @@
 report 99212 "Modify Export Order No"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/ModifyExportOrderNo.rdlc';
+    RDLCLayout = './reportrdlc/ModifyExportOrderNo.rdlc';
 
     dataset
     {

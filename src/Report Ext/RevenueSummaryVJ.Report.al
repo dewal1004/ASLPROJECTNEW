@@ -1,7 +1,7 @@
 report 50142 "Revenue Summary VJ"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/RevenueSummaryVJ.rdlc';
+    RDLCLayout = './reportrdlc/RevenueSummaryVJ.rdlc';
 
     dataset
     {

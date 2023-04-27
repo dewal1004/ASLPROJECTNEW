@@ -1,9 +1,9 @@
 report 50060 "Issues To Cost Centers"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/IssuesToCostCenters.rdlc';
+    RDLCLayout = './reportrdlc/IssuesToCostCenters.rdlc';
     UsageCategory = ReportsAndAnalysis;
-    ApplicationArea = All,Basic,Suite;
+    ApplicationArea = All, Basic, Suite;
 
     dataset
     {

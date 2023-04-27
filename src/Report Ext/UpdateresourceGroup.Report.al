@@ -1,7 +1,7 @@
 report 99995 "Update resource Group"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/UpdateresourceGroup.rdlc';
+    RDLCLayout = './reportrdlc/UpdateresourceGroup.rdlc';
 
     dataset
     {

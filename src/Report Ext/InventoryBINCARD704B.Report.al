@@ -3,17 +3,17 @@ report 50137 "Inventory - BINCARD 704 B"
     // Item."Unit Cost"
     // "Print Bin Card"
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/InventoryBINCARD704B.rdlc';
+    RDLCLayout = './reportrdlc/InventoryBINCARD704B.rdlc';
 
     Caption = 'Inventory - Transaction Detail';
     Permissions = TableData "Sales Shipment Header" = rimd;
-    
+
     dataset
     {
         dataitem(Item; Item)
         {
             PrintOnlyIfDetail = true;
-            RequestFilterFields = "No.", Description, "Assembly BOM", "Inventory Posting Group","Date Filter","Location Filter";
+            RequestFilterFields = "No.", Description, "Assembly BOM", "Inventory Posting Group", "Date Filter", "Location Filter";
             column(FORMAT_TODAY_0_4_; Format(Today, 0, 4))
             {
             }
@@ -219,7 +219,7 @@ report 50137 "Inventory - BINCARD 704 B"
                                 End;
 
                         end;
-                        
+
                         PurchRec.SETRANGE(PurchRec."No.", "Document No.");
                         IF PurchRec.FINDFIRST THEN BEGIN
                             TransFr := PurchRec."Buy-from Vendor No.";

@@ -1,7 +1,7 @@
 report 50235 "Local Sales Rep-Need Stat Grp"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/LocalSalesRepNeedStatGrp.rdlc';
+    RDLCLayout = './reportrdlc/LocalSalesRepNeedStatGrp.rdlc';
     Caption = 'Inventory - Top 10 List';
 
     dataset

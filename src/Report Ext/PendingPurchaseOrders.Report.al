@@ -1,9 +1,9 @@
 report 50035 "Pending Purchase Orders"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/PendingPurchaseOrders.rdlc';
+    RDLCLayout = './reportrdlc/PendingPurchaseOrders.rdlc';
     UsageCategory = ReportsAndAnalysis;
-    ApplicationArea = All,Basic,Suite;
+    ApplicationArea = All, Basic, Suite;
 
     dataset
     {

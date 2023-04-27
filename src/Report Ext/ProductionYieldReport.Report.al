@@ -1,9 +1,9 @@
 report 50208 "Production Yield Report.."
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/ProductionYieldReport.rdlc';
+    RDLCLayout = './reportrdlc/ProductionYieldReport.rdlc';
     UsageCategory = ReportsAndAnalysis;
-    ApplicationArea = All,Basic,Suite;
+    ApplicationArea = All, Basic, Suite;
 
     dataset
     {
@@ -108,7 +108,7 @@ report 50208 "Production Yield Report.."
                 //ItemLedgerEntry2.CALCSUMS(ItemLedgerEntry2.Quantity);
                 if ItemLedgerEntry2.Find('-') then begin
                     //repeat
-                        TotalOutput += ItemLedgerEntry2.Quantity
+                    TotalOutput += ItemLedgerEntry2.Quantity
                     //until ItemLedgerEntry2.Next = 0;
                     //MESSAGE('Total Output for Document No %1 is %2',"Document No.",TotalOutput);
                 end;
@@ -155,7 +155,7 @@ report 50208 "Production Yield Report.."
         ItemLedgerEntry4.SetFilter(ItemLedgerEntry4."Entry Type", '%1', ItemLedgerEntry4."Entry Type"::Output);
         if ItemLedgerEntry4.Find('-') then begin
             //repeat
-                TotalQtyFP += ItemLedgerEntry4.Quantity
+            TotalQtyFP += ItemLedgerEntry4.Quantity
             //until ItemLedgerEntry4.Next = 0;
 
         end;

@@ -9,7 +9,7 @@ report 50095 "Payroll Report - NSITF"
     // The user can specify that the ED.Descriptions appear in the column headers
     // instead of the ED.Codes.
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/PayrollReportNSITF.rdlc';
+    RDLCLayout = './reportrdlc/PayrollReportNSITF.rdlc';
 
 
     dataset

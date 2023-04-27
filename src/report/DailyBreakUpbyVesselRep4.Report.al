@@ -1,13 +1,13 @@
 report 50010 "Daily BreakUp by Vessel Rep 4"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/DailyBreakUpbyVesselRep4.rdlc';
+    RDLCLayout = './reportrdlc/DailyBreakUpbyVesselRep4.rdlc';
 
     dataset
     {
         dataitem("Inventory Posting G Cat Tot"; "Inventory Posting Group")
         {
-            DataItemTableView = SORTING ("Statistics Group", Category, "S/No.") WHERE ("In Use" = CONST (true), "Statistics Group" = FILTER (> 0), Category = FILTER (<> ''));
+            DataItemTableView = SORTING("Statistics Group", Category, "S/No.") WHERE("In Use" = CONST(true), "Statistics Group" = FILTER(> 0), Category = FILTER(<> ''));
             RequestFilterFields = "Statistics Group", Category, "Date Filter";
             column(test; Test)
             {
@@ -2438,14 +2438,14 @@ report 50010 "Daily BreakUp by Vessel Rep 4"
                         else
                             VesselCounter += 1;
                         Countx := Countx + 1;
-                        //END;
+                    //END;
                     until locate.Next = 0;
 
             end;
         }
         dataitem("Inventory Posting Group"; "Inventory Posting Group")
         {
-            DataItemTableView = SORTING ("Statistics Group", Category, "S/No.") WHERE ("In Use" = CONST (true), "Statistics Group" = FILTER (> 0));
+            DataItemTableView = SORTING("Statistics Group", Category, "S/No.") WHERE("In Use" = CONST(true), "Statistics Group" = FILTER(> 0));
             column(testing123; testing123)
             {
             }

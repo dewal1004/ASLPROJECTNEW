@@ -1,10 +1,10 @@
 report 50230 "Inventory(Value) - Top 10 List"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/InventoryValueTop10List.rdlc';
+    RDLCLayout = './reportrdlc/InventoryValueTop10List.rdlc';
     Caption = 'Inventory - Top 10 List';
     UsageCategory = ReportsAndAnalysis;
-    ApplicationArea = All,Basic,Suite;
+    ApplicationArea = All, Basic, Suite;
 
     dataset
     {

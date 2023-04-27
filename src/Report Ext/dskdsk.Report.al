@@ -1,7 +1,7 @@
 report 99125 "dskdsk"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/dskdsk.rdlc';
+    RDLCLayout = './reportrdlc/dskdsk.rdlc';
 
     dataset
     {

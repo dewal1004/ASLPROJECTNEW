@@ -1,7 +1,7 @@
 report 99801 "Print Inventory"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/PrintInventory.rdlc';
+    RDLCLayout = './reportrdlc/PrintInventory.rdlc';
 
     dataset
     {

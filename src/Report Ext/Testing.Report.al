@@ -1,7 +1,7 @@
 report 80225 "Testing"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/Testing.rdlc';
+    RDLCLayout = './reportrdlc/Testing.rdlc';
 
     dataset
     {

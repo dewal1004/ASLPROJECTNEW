@@ -2,7 +2,7 @@ report 50119 "Crew List"
 {
     // {Comp."Ship-to City"
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/CrewList.rdlc';
+    RDLCLayout = './reportrdlc/CrewList.rdlc';
 
 
     dataset

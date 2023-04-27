@@ -1,7 +1,7 @@
 // report 50007 "Daily BreakUp by Vessel Rep 1"
 // {
 //     DefaultLayout = RDLC;
-//     RDLCLayout = './ReportRdlc/DailyBreakUpbyVesselRep1.rdlc';
+//     RDLCLayout = './reportrdlc/DailyBreakUpbyVesselRep1.rdlc';
 //     UsageCategory = ReportsAndAnalysis;
 //     ApplicationArea = All, Basic, Suite;
 //     // Caption = 'Daily BreakUp by Vessel Rep 1';

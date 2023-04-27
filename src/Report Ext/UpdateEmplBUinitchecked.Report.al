@@ -1,7 +1,7 @@
 report 99988 "Update Empl.BU init checked"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/UpdateEmplBUinitchecked.rdlc';
+    RDLCLayout = './reportrdlc/UpdateEmplBUinitchecked.rdlc';
 
     dataset
     {

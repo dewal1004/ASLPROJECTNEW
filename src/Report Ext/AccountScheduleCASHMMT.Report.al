@@ -2,7 +2,7 @@ report 50125 "Account Schedule CASH MMT"
 {
     // //Text004 //AAA
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/AccountScheduleCASHMMT.rdlc';
+    RDLCLayout = './reportrdlc/AccountScheduleCASHMMT.rdlc';
 
     Caption = 'Account Schedule';
 

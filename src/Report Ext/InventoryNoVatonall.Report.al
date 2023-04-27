@@ -1,7 +1,7 @@
 report 99986 "Inventory No Vat on all"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/InventoryNoVatonall.rdlc';
+    RDLCLayout = './reportrdlc/InventoryNoVatonall.rdlc';
 
     dataset
     {

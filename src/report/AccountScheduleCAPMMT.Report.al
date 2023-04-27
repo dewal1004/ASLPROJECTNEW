@@ -2,7 +2,7 @@ report 50124 "Account Schedule CAP MMT"
 {
     //  //Text004 //AAA
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/AccountScheduleCAPMMT.rdlc';
+    RDLCLayout = './reportrdlc/AccountScheduleCAPMMT.rdlc';
 
     Caption = 'Account Schedule';
 

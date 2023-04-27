@@ -2,7 +2,7 @@ report 50992 "Voyage P&L Header"
 {
     // GETFILTER("No.")
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/VoyagePLHeader.rdlc';
+    RDLCLayout = './reportrdlc/VoyagePLHeader.rdlc';
 
 
     dataset

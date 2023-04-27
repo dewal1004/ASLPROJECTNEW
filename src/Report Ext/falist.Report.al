@@ -1,7 +1,7 @@
 report 99332 "fa list"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/falist.rdlc';
+    RDLCLayout = './reportrdlc/falist.rdlc';
 
     dataset
     {

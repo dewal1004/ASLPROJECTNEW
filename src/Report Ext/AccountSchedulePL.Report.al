@@ -2,7 +2,7 @@ report 50223 "Account Schedule PL"
 {
     // Text004
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/AccountSchedulePL.rdlc';
+    RDLCLayout = './reportrdlc/AccountSchedulePL.rdlc';
 
     Caption = 'Account Schedule';
 

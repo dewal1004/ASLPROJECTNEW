@@ -1,7 +1,7 @@
 report 99507 "Deposit Balance"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/DepositBalance.rdlc';
+    RDLCLayout = './reportrdlc/DepositBalance.rdlc';
 
     dataset
     {

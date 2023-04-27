@@ -1,7 +1,7 @@
 report 99978 "Variant Removal"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/VariantRemoval.rdlc';
+    RDLCLayout = './reportrdlc/VariantRemoval.rdlc';
 
     dataset
     {

@@ -1,7 +1,7 @@
 report 99039 "Daily Stock Report"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/DailyStockReport.rdlc';
+    RDLCLayout = './reportrdlc/DailyStockReport.rdlc';
 
     dataset
     {

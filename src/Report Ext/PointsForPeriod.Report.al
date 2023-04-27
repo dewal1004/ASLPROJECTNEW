@@ -6,7 +6,7 @@ report 50135 "Points For Period"
     // UNL-ASL3.60.01.014 (Santus) July 19, 2005
     // -> new report
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/PointsForPeriod.rdlc';
+    RDLCLayout = './reportrdlc/PointsForPeriod.rdlc';
     dataset
     {
         dataitem("Job Ledger Entry"; "Job Ledger Entry")

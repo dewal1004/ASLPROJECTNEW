@@ -2,9 +2,9 @@ report 50198 "Export Order Details"
 {
     // "Source No. Filter" is used for Customer Filter
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/ExportOrderDetails.rdlc';
+    RDLCLayout = './reportrdlc/ExportOrderDetails.rdlc';
     UsageCategory = ReportsAndAnalysis;
-    ApplicationArea = All,Basic,Suite;
+    ApplicationArea = All, Basic, Suite;
 
 
     dataset

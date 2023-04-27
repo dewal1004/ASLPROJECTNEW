@@ -1,7 +1,7 @@
 report 50188 "Historical Daily Points Rep!"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/HistoricalDailyPointsRep.rdlc';
+    RDLCLayout = './reportrdlc/HistoricalDailyPointsRep.rdlc';
 
     dataset
     {

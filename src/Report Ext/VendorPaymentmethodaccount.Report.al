@@ -1,7 +1,7 @@
 report 99992 "Vendor Payment method=account;"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/VendorPaymentmethodaccount.rdlc';
+    RDLCLayout = './reportrdlc/VendorPaymentmethodaccount.rdlc';
 
     dataset
     {

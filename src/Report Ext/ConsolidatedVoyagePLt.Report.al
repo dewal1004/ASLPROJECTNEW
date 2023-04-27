@@ -1,7 +1,7 @@
 report 95150 "Consolidated Voyage P&Lt"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/ConsolidatedVoyagePLt.rdlc';
+    RDLCLayout = './reportrdlc/ConsolidatedVoyagePLt.rdlc';
 
     dataset
     {

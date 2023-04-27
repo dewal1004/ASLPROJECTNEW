@@ -1,7 +1,7 @@
 report 50100 "Staff Login Count"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/StaffLoginCount.rdlc';
+    RDLCLayout = './reportrdlc/StaffLoginCount.rdlc';
 
     dataset
     {

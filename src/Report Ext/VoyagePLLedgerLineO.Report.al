@@ -4,7 +4,7 @@ report 50991 "Voyage P&L Ledger LineO"
     // "Period Start"
     // "Period End"
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/VoyagePLLedgerLineO.rdlc';
+    RDLCLayout = './reportrdlc/VoyagePLLedgerLineO.rdlc';
 
 
     dataset

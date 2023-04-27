@@ -7,9 +7,9 @@ report 50103 "Weekly Points Report"
     // -> modified report to kep track of hours lost and average voyage points,
     //   block report from checking for sea days less than 8 or 9, added functionality for sending report results to excel.
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/WeeklyPointsReport.rdlc';
+    RDLCLayout = './reportrdlc/WeeklyPointsReport.rdlc';
     UsageCategory = ReportsAndAnalysis;
-    ApplicationArea = All,Basic,Suite;
+    ApplicationArea = All, Basic, Suite;
 
 
     dataset

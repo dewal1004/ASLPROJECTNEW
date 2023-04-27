@@ -1,7 +1,7 @@
 report 99502 "Edit Loc;EDoc No. of PTransOrd"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/EditLocEDocNoofPTransOrd.rdlc';
+    RDLCLayout = './reportrdlc/EditLocEDocNoofPTransOrd.rdlc';
 
     dataset
     {

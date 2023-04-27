@@ -2,7 +2,7 @@ report 99975 "Gen. Bus Postg Grp 4 Item JLn"
 {
     // NewGenBPostG
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/GenBusPostgGrp4ItemJLn.rdlc';
+    RDLCLayout = './reportrdlc/GenBusPostgGrp4ItemJLn.rdlc';
 
 
     dataset

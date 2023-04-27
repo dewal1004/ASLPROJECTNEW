@@ -1,7 +1,7 @@
 report 50164 "Mp Budget report1"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/MpBudgetreport1.rdlc';
+    RDLCLayout = './reportrdlc/MpBudgetreport1.rdlc';
 
     dataset
     {

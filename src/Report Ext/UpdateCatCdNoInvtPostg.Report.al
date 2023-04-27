@@ -1,7 +1,7 @@
 report 99996 "Update Cat Cd No.- Invt Postg"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/UpdateCatCdNoInvtPostg.rdlc';
+    RDLCLayout = './reportrdlc/UpdateCatCdNoInvtPostg.rdlc';
 
     dataset
     {

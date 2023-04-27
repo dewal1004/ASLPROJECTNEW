@@ -6,7 +6,7 @@ report 50016 "Periodic Landing Report"
     // UNL-ASL3.60.01.012 (Santus) 05 July, 2005
     // -> new report
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/PeriodicLandingReport.rdlc';
+    RDLCLayout = './reportrdlc/PeriodicLandingReport.rdlc';
 
 
     dataset

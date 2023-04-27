@@ -1,7 +1,7 @@
 report 81083 "Daily BreakUp by Vessel Excelg"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/DailyBreakUpbyVesselExcelg.rdlc';
+    RDLCLayout = './reportrdlc/DailyBreakUpbyVesselExcelg.rdlc';
 
     dataset
     {

@@ -1,7 +1,7 @@
 report 50995 "TEST GROUPZ"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/TESTGROUPZ.rdlc';
+    RDLCLayout = './reportrdlc/TESTGROUPZ.rdlc';
 
     dataset
     {

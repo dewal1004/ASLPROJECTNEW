@@ -1,7 +1,7 @@
 report 99969 "Catch to Cold Room & Budget"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/CatchtoColdRoomBudget.rdlc';
+    RDLCLayout = './reportrdlc/CatchtoColdRoomBudget.rdlc';
 
     dataset
     {

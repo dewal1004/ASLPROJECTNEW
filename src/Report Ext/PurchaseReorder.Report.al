@@ -1,7 +1,7 @@
 report 50038 "Purchase Re-order"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/PurchaseReorder.rdlc';
+    RDLCLayout = './reportrdlc/PurchaseReorder.rdlc';
 
     dataset
     {

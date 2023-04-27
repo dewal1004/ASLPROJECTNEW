@@ -1,7 +1,7 @@
 report 50121 "Import Items Summary VJ"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/ImportItemsSummaryVJ.rdlc';
+    RDLCLayout = './reportrdlc/ImportItemsSummaryVJ.rdlc';
 
     dataset
     {

@@ -1,7 +1,7 @@
 report 51404 "Bank Acc. - Detail Trial Bal.S"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/BankAccDetailTrialBalS.rdlc';
+    RDLCLayout = './reportrdlc/BankAccDetailTrialBalS.rdlc';
     Caption = 'Bank Acc. - Detail Trial Bal.';
 
     dataset

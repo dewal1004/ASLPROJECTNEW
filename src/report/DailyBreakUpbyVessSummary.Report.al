@@ -3,14 +3,14 @@ report 50012 "Daily BreakUp by Vess Summary"
     //     SeaRangeDTot:=SeaRangeDTot+SeaRangeD[Countx];VesselPointTot:=VesselPointTot+VesselPoint[Countx];
     //     ShrimpPointTot:=ShrimpPointTot+ShrimpPoint[Countx];FishPointTot:=FishPointTot+FishPoint[Countx];
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/DailyBreakUpbyVessSummary.rdlc';
+    RDLCLayout = './reportrdlc/DailyBreakUpbyVessSummary.rdlc';
 
 
     dataset
     {
         dataitem("Inventory Posting G Cat Tot"; "Inventory Posting Group")
         {
-            DataItemTableView = SORTING ("Statistics Group", Category, "S/No.") WHERE ("In Use" = CONST (true), "Statistics Group" = FILTER (> 0));
+            DataItemTableView = SORTING("Statistics Group", Category, "S/No.") WHERE("In Use" = CONST(true), "Statistics Group" = FILTER(> 0));
             RequestFilterFields = "Statistics Group", Category, "Date Filter";
             column(Total_Vessels; TotLoc)
             {
@@ -773,7 +773,7 @@ report 50012 "Daily BreakUp by Vess Summary"
         }
         dataitem("Inventory Posting Group"; "Inventory Posting Group")
         {
-            DataItemTableView = SORTING ("Statistics Group", Category, "S/No.") WHERE ("In Use" = CONST (true), "Statistics Group" = FILTER (> 0));
+            DataItemTableView = SORTING("Statistics Group", Category, "S/No.") WHERE("In Use" = CONST(true), "Statistics Group" = FILTER(> 0));
             column(Vessel2; 2)
             {
             }
@@ -1696,7 +1696,7 @@ report 50012 "Daily BreakUp by Vess Summary"
         }
         dataitem("Inventory Posting Group 2"; "Inventory Posting Group")
         {
-            DataItemTableView = SORTING ("Statistics Group", Category, "S/No.") WHERE ("In Use" = CONST (true), "Statistics Group" = FILTER (> 0));
+            DataItemTableView = SORTING("Statistics Group", Category, "S/No.") WHERE("In Use" = CONST(true), "Statistics Group" = FILTER(> 0));
             column(TESTING123; TESTING123)
             {
             }

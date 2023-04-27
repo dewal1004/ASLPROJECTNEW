@@ -2,7 +2,7 @@ report 91042 "Daily Break Up By Vessel-y"
 {
     // Invt[1]
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/DailyBreakUpByVessely.91042.rdlc';
+    RDLCLayout = './reportrdlc/DailyBreakUpByVessely.91042.rdlc';
 
 
     dataset

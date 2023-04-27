@@ -1,7 +1,7 @@
 report 50168 "Purchase Register"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/PurchaseRegister.rdlc';
+    RDLCLayout = './reportrdlc/PurchaseRegister.rdlc';
 
     dataset
     {

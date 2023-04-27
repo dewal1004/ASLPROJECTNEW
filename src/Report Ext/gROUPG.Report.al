@@ -1,7 +1,7 @@
 report 99991 "gROUPG"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/gROUPG.rdlc';
+    RDLCLayout = './reportrdlc/gROUPG.rdlc';
 
     dataset
     {

@@ -2,9 +2,9 @@ report 50205 "Fish Shop Sales Rep new"
 {
     //   "Sea Food categories"
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/FishShopSalesRepnew.rdlc';
+    RDLCLayout = './reportrdlc/FishShopSalesRepnew.rdlc';
     UsageCategory = ReportsAndAnalysis;
-    ApplicationArea = All,Basic,Suite;
+    ApplicationArea = All, Basic, Suite;
 
 
     dataset

@@ -1,7 +1,7 @@
 report 50051 "Monthly Payslip"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/MonthlyPayslip.rdlc';
+    RDLCLayout = './reportrdlc/MonthlyPayslip.rdlc';
     ApplicationArea = Basic, Suite;
     Caption = 'Monthly Payslip';
     UsageCategory = ReportsAndAnalysis;
@@ -15,7 +15,7 @@ report 50051 "Monthly Payslip"
             PrintOnlyIfDetail = true;
             RequestFilterFields = "No.", "Employee Group", "Period Filter", "Posting Group", "Global Dimension 1 Code", "Global Dimension 2 Code";
             RequestFilterHeading = 'Payslip Filters';
-            
+
             column(Employee_No_; "No.")
             {
             }

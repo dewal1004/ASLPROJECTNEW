@@ -1,7 +1,7 @@
 report 50042 "Voyage P&L LedgerLineBatchTest"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/VoyagePLLedgerLineBatchTest.rdlc';
+    RDLCLayout = './reportrdlc/VoyagePLLedgerLineBatchTest.rdlc';
 
     dataset
     {

@@ -3,7 +3,7 @@ report 50241 "NewDailyPointsReport Fast-AP"
     // {UNL-ASL3.60.01.004 (Santus) May 11, 2005
     // -> modified report to write output data to the Entry/Exit Table. the data will be stored as historical data.
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/NewDailyPointsReportFastAP.rdlc';
+    RDLCLayout = './reportrdlc/NewDailyPointsReportFastAP.rdlc';
 
     Caption = 'New Daily Points Report';
 

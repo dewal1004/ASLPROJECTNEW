@@ -1,7 +1,7 @@
 report 99999 "Update Catch Sea Day on Jlegen"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/UpdateCatchSeaDayonJlegen.rdlc';
+    RDLCLayout = './reportrdlc/UpdateCatchSeaDayonJlegen.rdlc';
 
     dataset
     {

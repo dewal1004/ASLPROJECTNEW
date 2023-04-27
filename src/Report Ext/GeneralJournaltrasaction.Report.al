@@ -1,7 +1,7 @@
 report 50014 "General Journal - trasaction"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/GeneralJournaltrasaction.rdlc';
+    RDLCLayout = './reportrdlc/GeneralJournaltrasaction.rdlc';
     Caption = 'General Journal - Test';
 
     dataset

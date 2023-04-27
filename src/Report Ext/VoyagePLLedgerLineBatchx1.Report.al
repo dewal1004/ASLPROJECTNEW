@@ -1,7 +1,7 @@
 report 61156 "Voyage P&L Ledger Line Batchx1"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/VoyagePLLedgerLineBatchx1.rdlc';
+    RDLCLayout = './reportrdlc/VoyagePLLedgerLineBatchx1.rdlc';
 
     dataset
     {

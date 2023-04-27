@@ -1,7 +1,7 @@
 report 99333 "temp"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/temp.rdlc';
+    RDLCLayout = './reportrdlc/temp.rdlc';
 
     dataset
     {

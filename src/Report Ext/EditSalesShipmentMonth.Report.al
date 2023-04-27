@@ -1,7 +1,7 @@
 report 99508 "Edit Sales Shipment Month"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/EditSalesShipmentMonth.rdlc';
+    RDLCLayout = './reportrdlc/EditSalesShipmentMonth.rdlc';
 
     dataset
     {

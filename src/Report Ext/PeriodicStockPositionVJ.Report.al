@@ -1,7 +1,7 @@
 report 50139 "Periodic Stock Position VJ"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/PeriodicStockPositionVJ.rdlc';
+    RDLCLayout = './reportrdlc/PeriodicStockPositionVJ.rdlc';
 
     dataset
     {

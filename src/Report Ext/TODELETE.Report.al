@@ -1,7 +1,7 @@
 report 66777 "TO DELETE"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/TODELETE.rdlc';
+    RDLCLayout = './reportrdlc/TODELETE.rdlc';
 
     dataset
     {

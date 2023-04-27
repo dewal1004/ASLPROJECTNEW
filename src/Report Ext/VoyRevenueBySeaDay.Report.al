@@ -2,10 +2,10 @@ report 50197 "Voy Revenue By Sea Day"
 {
     // HdrStore.Description
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/VoyRevenueBySeaDay.rdlc';
+    RDLCLayout = './reportrdlc/VoyRevenueBySeaDay.rdlc';
     UsageCategory = ReportsAndAnalysis;
-    ApplicationArea = All,Basic,Suite;
-    Caption = 'Voy Revenue By Sea Day';  
+    ApplicationArea = All, Basic, Suite;
+    Caption = 'Voy Revenue By Sea Day';
 
 
     dataset

@@ -1,7 +1,7 @@
 report 50032 "Voyage Ending Inventory expD"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/VoyageEndingInventoryexpD.rdlc';
+    RDLCLayout = './reportrdlc/VoyageEndingInventoryexpD.rdlc';
 
     dataset
     {
@@ -322,17 +322,16 @@ report 50032 "Voyage Ending Inventory expD"
             JobJL."Shortcut Dimension 1 Code" := Job."Global Dimension 1 Code";
             JobJL."Posting Date" := Job."Ending Date";
             JobJL."Phase Code" := Job.Vessel;// &  u
-            if ItemCat.Get(Items."Item Category Code") then 
-            begin
+            if ItemCat.Get(Items."Item Category Code") then begin
                 if ItemCat."Parent Category" <> '' then
-                JobJL."Task Code" := ItemCat."Parent Category"
-            else
-                JobJL."Task Code" := ItemCat.code;
+                    JobJL."Task Code" := ItemCat."Parent Category"
+                else
+                    JobJL."Task Code" := ItemCat.code;
             end else
                 JobJL."Task Code" := Items."Item Category Code";
 
             //JobJL."Task Code" := Item."Item Category Code";// &u
-                                                           //  JobJL."Step Code":='0';// & u
+            //  JobJL."Step Code":='0';// & u
             JobTask.SetRange("Job No.", JobJL."Job No.");
             if JobTask.FindFirst then
                 Jobtask_No := JobTask."Job Task No.";

@@ -4,9 +4,9 @@ report 50049 "Skipper/Vessel Performance"
     // Consd_Deductible_Days
     // NetSeaDay
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/SkipperVesselPerformance.rdlc';
+    RDLCLayout = './reportrdlc/SkipperVesselPerformance.rdlc';
     UsageCategory = ReportsAndAnalysis;
-    ApplicationArea = All,Basic,Suite;
+    ApplicationArea = All, Basic, Suite;
 
 
     dataset

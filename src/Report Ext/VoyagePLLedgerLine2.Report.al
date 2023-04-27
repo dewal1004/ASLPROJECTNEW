@@ -1,7 +1,7 @@
 report 62000 "Voyage P&L Ledger Line 2!"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/VoyagePLLedgerLine2.62000.rdlc';
+    RDLCLayout = './reportrdlc/VoyagePLLedgerLine2.62000.rdlc';
     Permissions = TableData "Job Ledger Entry" = rimd;
 
     dataset

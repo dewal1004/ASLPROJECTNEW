@@ -1,7 +1,7 @@
 report 99345 "FISH Area By Location"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/FISHAreaByLocation.rdlc';
+    RDLCLayout = './reportrdlc/FISHAreaByLocation.rdlc';
 
     dataset
     {

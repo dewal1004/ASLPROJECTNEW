@@ -1,7 +1,7 @@
 report 50158 "Gen Employee Lost Day Monthly"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/GenEmployeeLostDayMonthly.rdlc';
+    RDLCLayout = './reportrdlc/GenEmployeeLostDayMonthly.rdlc';
 
     dataset
     {

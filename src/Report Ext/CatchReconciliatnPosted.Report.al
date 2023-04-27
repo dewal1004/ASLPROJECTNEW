@@ -5,9 +5,9 @@ report 50182 "Catch Reconciliatn Posted"
     // U need only do this once or whenevever there is a change in
     // GroupSort.
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/CatchReconciliatnPosted.rdlc';
+    RDLCLayout = './reportrdlc/CatchReconciliatnPosted.rdlc';
     UsageCategory = ReportsAndAnalysis;
-    ApplicationArea = All,Basic,Suite;
+    ApplicationArea = All, Basic, Suite;
 
     dataset
     {

@@ -2,7 +2,7 @@ report 50127 "Account Schedule FUNDS OP"
 {
     //  //Text004 ///AAA
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/AccountScheduleFUNDSOP.rdlc';
+    RDLCLayout = './reportrdlc/AccountScheduleFUNDSOP.rdlc';
 
     Caption = 'Account Schedule';
 

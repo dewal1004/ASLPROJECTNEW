@@ -1,7 +1,7 @@
 report 50152 "Employeee Absence Total"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/EmployeeeAbsenceTotal.rdlc';
+    RDLCLayout = './reportrdlc/EmployeeeAbsenceTotal.rdlc';
 
     dataset
     {

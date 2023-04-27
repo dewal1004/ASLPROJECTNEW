@@ -1,7 +1,7 @@
 report 99002 "Location BU Update"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/LocationBUUpdate.rdlc';
+    RDLCLayout = './reportrdlc/LocationBUUpdate.rdlc';
 
     dataset
     {

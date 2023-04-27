@@ -3,7 +3,7 @@ report 50170 "Receipt Report"
     // GJLINE."Posting Date"
     // NUm2Words.ToWords("Amount (LCY)",CurrencyName,CurrencyUnit,100,'')+'
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/ReceiptReport.rdlc';
+    RDLCLayout = './reportrdlc/ReceiptReport.rdlc';
 
 
     dataset

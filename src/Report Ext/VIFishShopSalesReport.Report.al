@@ -2,7 +2,7 @@ report 50221 "VI Fish Shop Sales Report"
 {
     //   "Sea Food categories"
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/VIFishShopSalesReport.rdlc';
+    RDLCLayout = './reportrdlc/VIFishShopSalesReport.rdlc';
 
 
     dataset

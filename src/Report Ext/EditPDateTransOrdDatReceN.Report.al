@@ -1,7 +1,7 @@
 report 99513 "Edit PDate>Trans Ord Dat ReceN"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/EditPDateTransOrdDatReceN.rdlc';
+    RDLCLayout = './reportrdlc/EditPDateTransOrdDatReceN.rdlc';
 
     dataset
     {

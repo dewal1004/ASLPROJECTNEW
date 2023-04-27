@@ -1,7 +1,7 @@
 report 59018 "Group Inventory Valuationx"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/GroupInventoryValuationx.rdlc';
+    RDLCLayout = './reportrdlc/GroupInventoryValuationx.rdlc';
 
     dataset
     {

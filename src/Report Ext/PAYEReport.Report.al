@@ -9,9 +9,9 @@ report 50064 "PAYE Report"
     // The user can specify that the ED.Descriptions appear in the column headers
     // instead of the ED.Codes.
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/PAYEReport.rdlc';
+    RDLCLayout = './reportrdlc/PAYEReport.rdlc';
     UsageCategory = ReportsAndAnalysis;
-    ApplicationArea = All,Basic,Suite;
+    ApplicationArea = All, Basic, Suite;
 
 
     dataset

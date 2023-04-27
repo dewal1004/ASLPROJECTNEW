@@ -2,7 +2,7 @@ report 50178 "Vessel budget per item"
 {
     // Item."Gen. Prod. Posting Group"
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/Vesselbudgetperitem.rdlc';
+    RDLCLayout = './reportrdlc/Vesselbudgetperitem.rdlc';
 
 
     dataset

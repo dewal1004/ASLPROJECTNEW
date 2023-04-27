@@ -2,7 +2,7 @@ report 50024 "Account Schedule BS"
 {
     //  Text004
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/AccountScheduleBS.rdlc';
+    RDLCLayout = './reportrdlc/AccountScheduleBS.rdlc';
 
     Caption = 'Account Schedule';
 

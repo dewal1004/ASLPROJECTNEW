@@ -1,7 +1,7 @@
 report 51100 "employeeCorrection"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/employeeCorrection.rdlc';
+    RDLCLayout = './reportrdlc/employeeCorrection.rdlc';
 
     dataset
     {

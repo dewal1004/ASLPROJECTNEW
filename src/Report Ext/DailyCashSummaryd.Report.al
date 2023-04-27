@@ -3,9 +3,9 @@ report 58015 "Daily Cash Summaryd"
     // IOU.EmployeeName
     // StartBalanceLCY
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/DailyCashSummaryd.rdlc';
+    RDLCLayout = './reportrdlc/DailyCashSummaryd.rdlc';
     UsageCategory = ReportsAndAnalysis;
-    ApplicationArea = All,Basic,Suite;
+    ApplicationArea = All, Basic, Suite;
 
 
     dataset

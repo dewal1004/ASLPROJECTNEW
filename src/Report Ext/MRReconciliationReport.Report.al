@@ -1,9 +1,9 @@
 report 50057 "MR Reconciliation Report"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/MRReconciliationReport.rdlc';
+    RDLCLayout = './reportrdlc/MRReconciliationReport.rdlc';
     UsageCategory = ReportsAndAnalysis;
-    ApplicationArea = All,Basic,Suite;
+    ApplicationArea = All, Basic, Suite;
 
     dataset
     {

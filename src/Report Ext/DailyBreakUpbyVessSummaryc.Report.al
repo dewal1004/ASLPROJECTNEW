@@ -3,7 +3,7 @@ report 90113 "Daily BreakUp by Vess Summaryc"
     //     SeaRangeDTot:=SeaRangeDTot+SeaRangeD[Countx];VesselPointTot:=VesselPointTot+VesselPoint[Countx];
     //     ShrimpPointTot:=ShrimpPointTot+ShrimpPoint[Countx];FishPointTot:=FishPointTot+FishPoint[Countx];
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/DailyBreakUpbyVessSummaryc.rdlc';
+    RDLCLayout = './reportrdlc/DailyBreakUpbyVessSummaryc.rdlc';
 
 
     dataset

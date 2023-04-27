@@ -2,9 +2,9 @@ report 50902 "CREATE PHYS. JOURNAL ZERO STOC"
 {
     // CVXV
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/CREATEPHYSJOURNALZEROSTOC.rdlc';
+    RDLCLayout = './reportrdlc/CREATEPHYSJOURNALZEROSTOC.rdlc';
     UsageCategory = Administration;
-    ApplicationArea = All,basic,suite;
+    ApplicationArea = All, basic, suite;
 
     dataset
     {

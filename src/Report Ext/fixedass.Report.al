@@ -5,7 +5,7 @@ report 50250 "fixed ass"
     // StartingDate:=010103D;
     // EndingDate:=013103D;
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/fixedass.rdlc';
+    RDLCLayout = './reportrdlc/fixedass.rdlc';
 
 
     dataset

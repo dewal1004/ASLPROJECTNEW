@@ -1,7 +1,7 @@
 report 53177 "Detail Trial Balance - 5"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/DetailTrialBalance5.rdlc';
+    RDLCLayout = './reportrdlc/DetailTrialBalance5.rdlc';
     Caption = 'Detail Trial Balance';
 
     dataset

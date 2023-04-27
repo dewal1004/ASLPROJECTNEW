@@ -1,7 +1,7 @@
 report 50033 "Transfer Waybill"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/TransferWaybill.rdlc';
+    RDLCLayout = './reportrdlc/TransferWaybill.rdlc';
     Caption = 'Transfer Shipment';
     UsageCategory = Documents;
     ApplicationArea = all;

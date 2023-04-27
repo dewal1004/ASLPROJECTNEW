@@ -2,7 +2,7 @@ report 80044 "Daily BreakUp by FISg AreaX"
 {
     // T001
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/DailyBreakUpbyFISgAreaX.rdlc';
+    RDLCLayout = './reportrdlc/DailyBreakUpbyFISgAreaX.rdlc';
 
 
     dataset

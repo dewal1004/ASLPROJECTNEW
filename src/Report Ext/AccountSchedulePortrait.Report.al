@@ -2,7 +2,7 @@ report 50120 "Account Schedule Portrait"
 {
     //  Text004
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/AccountSchedulePortrait.rdlc';
+    RDLCLayout = './reportrdlc/AccountSchedulePortrait.rdlc';
 
     Caption = 'Account Schedule';
 

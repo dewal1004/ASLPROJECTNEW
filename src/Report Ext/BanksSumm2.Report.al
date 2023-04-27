@@ -3,7 +3,7 @@ report 99313 "Banks Summ2"
     // IOU.EmployeeName
     // StartBalanceLCY
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/BanksSumm2.rdlc';
+    RDLCLayout = './reportrdlc/BanksSumm2.rdlc';
 
 
     dataset

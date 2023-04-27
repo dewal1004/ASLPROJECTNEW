@@ -1,7 +1,7 @@
 report 50207 "Update Port Captain on Job"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/UpdatePortCaptainonJob.rdlc';
+    RDLCLayout = './reportrdlc/UpdatePortCaptainonJob.rdlc';
 
     dataset
     {

@@ -1,7 +1,7 @@
 report 50034 "Purchase Import Status"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/PurchaseImportStatus.rdlc';
+    RDLCLayout = './reportrdlc/PurchaseImportStatus.rdlc';
 
     dataset
     {

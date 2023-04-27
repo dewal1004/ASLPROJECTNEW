@@ -1,7 +1,7 @@
 report 50071 "BANK LIST local currency"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/BANKLISTlocalcurrency.rdlc';
+    RDLCLayout = './reportrdlc/BANKLISTlocalcurrency.rdlc';
 
     dataset
     {

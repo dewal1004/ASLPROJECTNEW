@@ -1,7 +1,7 @@
 report 90041 "Prim7* Reporting ListZ"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/Prim7ReportingListZ.rdlc';
+    RDLCLayout = './reportrdlc/Prim7ReportingListZ.rdlc';
 
     dataset
     {

@@ -1,7 +1,7 @@
 report 66778 "to be deleted after use"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/tobedeletedafteruse.rdlc';
+    RDLCLayout = './reportrdlc/tobedeletedafteruse.rdlc';
 
     dataset
     {

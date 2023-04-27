@@ -1,7 +1,7 @@
 report 86666 "REPORT DDD"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/REPORTDDD.rdlc';
+    RDLCLayout = './reportrdlc/REPORTDDD.rdlc';
 
     dataset
     {

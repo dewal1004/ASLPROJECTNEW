@@ -1,7 +1,7 @@
 report 50245 "Consolidated Narration_kk"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/ConsolidatedNarrationkk.rdlc';
+    RDLCLayout = './reportrdlc/ConsolidatedNarrationkk.rdlc';
 
     dataset
     {

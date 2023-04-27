@@ -1,7 +1,7 @@
 report 99504 "Edit PDate>Trans Ord Dat Ship"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/EditPDateTransOrdDatShip.rdlc';
+    RDLCLayout = './reportrdlc/EditPDateTransOrdDatShip.rdlc';
 
     dataset
     {

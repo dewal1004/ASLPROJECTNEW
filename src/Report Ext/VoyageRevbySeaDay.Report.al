@@ -1,9 +1,9 @@
 report 50196 "Voyage Rev by Sea Day"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/VoyageRevbySeaDay.rdlc';
+    RDLCLayout = './reportrdlc/VoyageRevbySeaDay.rdlc';
     UsageCategory = ReportsAndAnalysis;
-    ApplicationArea = All,Basic,Suite;
+    ApplicationArea = All, Basic, Suite;
 
     dataset
     {

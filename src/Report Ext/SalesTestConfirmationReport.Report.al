@@ -2,7 +2,7 @@ report 50088 "Sales Test/Confirmation Report"
 {
     // "Sales Line"."Line Amount"
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/SalesTestConfirmationReport.rdlc';
+    RDLCLayout = './reportrdlc/SalesTestConfirmationReport.rdlc';
 
 
     dataset

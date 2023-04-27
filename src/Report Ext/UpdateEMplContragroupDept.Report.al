@@ -1,7 +1,7 @@
 report 99990 "Update EMpl Contra group-Dept"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/UpdateEMplContragroupDept.rdlc';
+    RDLCLayout = './reportrdlc/UpdateEMplContragroupDept.rdlc';
 
     dataset
     {

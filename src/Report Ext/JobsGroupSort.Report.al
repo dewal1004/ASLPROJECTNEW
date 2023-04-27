@@ -1,7 +1,7 @@
 report 93405 "Jobs Group Sort"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/JobsGroupSort.rdlc';
+    RDLCLayout = './reportrdlc/JobsGroupSort.rdlc';
 
     dataset
     {

@@ -1,7 +1,7 @@
 report 99902 "Sort S/No."
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/SortSNo.rdlc';
+    RDLCLayout = './reportrdlc/SortSNo.rdlc';
 
     dataset
     {

@@ -3,7 +3,7 @@ report 50183 "Voyage Ending Inv Cons exp-New"
     // Item.Inventory
     // ItemUOV== Items Used On Vessel
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/VoyageEndingInvConsexpNew.rdlc';
+    RDLCLayout = './reportrdlc/VoyageEndingInvConsexpNew.rdlc';
 
 
     dataset

@@ -3,9 +3,9 @@ report 50173 "Fish Shop Receipt"
     //  SalesLine.Numbers
     //  "Shipment Text"
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/FishShopReceipt.rdlc';
+    RDLCLayout = './reportrdlc/FishShopReceipt.rdlc';
     UsageCategory = ReportsAndAnalysis;
-    ApplicationArea = All,Basic,Suite;
+    ApplicationArea = All, Basic, Suite;
 
     Caption = 'Order Confirmation';
 

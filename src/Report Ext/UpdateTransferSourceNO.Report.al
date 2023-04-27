@@ -1,7 +1,7 @@
 report 50172 "Update Transfer Source NO."
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/UpdateTransferSourceNO.rdlc';
+    RDLCLayout = './reportrdlc/UpdateTransferSourceNO.rdlc';
 
     dataset
     {

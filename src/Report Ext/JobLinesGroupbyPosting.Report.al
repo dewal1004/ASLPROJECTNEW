@@ -1,7 +1,7 @@
 report 98015 "Job Lines Group by Posting"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/JobLinesGroupbyPosting.rdlc';
+    RDLCLayout = './reportrdlc/JobLinesGroupbyPosting.rdlc';
 
     dataset
     {

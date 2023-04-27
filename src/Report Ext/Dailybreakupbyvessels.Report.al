@@ -1,7 +1,7 @@
 report 99001 "Daily break up by vessels"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/Dailybreakupbyvessels.rdlc';
+    RDLCLayout = './reportrdlc/Dailybreakupbyvessels.rdlc';
 
     dataset
     {

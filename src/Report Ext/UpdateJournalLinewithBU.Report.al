@@ -1,7 +1,7 @@
 report 99901 "Update Journal Line with BU"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/UpdateJournalLinewithBU.rdlc';
+    RDLCLayout = './reportrdlc/UpdateJournalLinewithBU.rdlc';
 
     dataset
     {

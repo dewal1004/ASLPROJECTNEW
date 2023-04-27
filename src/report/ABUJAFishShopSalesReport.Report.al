@@ -2,7 +2,7 @@ report 50222 "ABUJA Fish Shop Sales Report."
 {
     //   "Sea Food categories"
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/ABUJAFishShopSalesReport.rdlc';
+    RDLCLayout = './reportrdlc/ABUJAFishShopSalesReport.rdlc';
 
 
     dataset

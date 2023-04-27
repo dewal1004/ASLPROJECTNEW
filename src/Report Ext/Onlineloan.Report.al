@@ -1,9 +1,9 @@
 report 50163 "Online loan"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/Onlineloan.rdlc';
+    RDLCLayout = './reportrdlc/Onlineloan.rdlc';
     UsageCategory = ReportsAndAnalysis;
-    ApplicationArea = All,Basic,Suite;
+    ApplicationArea = All, Basic, Suite;
 
     dataset
     {

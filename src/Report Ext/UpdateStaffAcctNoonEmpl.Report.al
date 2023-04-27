@@ -1,7 +1,7 @@
 report 99985 "Update Staff Acct No. on Empl."
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/UpdateStaffAcctNoonEmpl.rdlc';
+    RDLCLayout = './reportrdlc/UpdateStaffAcctNoonEmpl.rdlc';
 
     dataset
     {

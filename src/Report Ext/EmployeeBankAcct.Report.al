@@ -9,7 +9,7 @@ report 50029 "Employee-Bank Acct"
     // The user can specify that the ED.Descriptions appear in the column headers
     // instead of the ED.Codes.
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/EmployeeBankAcct.rdlc';
+    RDLCLayout = './reportrdlc/EmployeeBankAcct.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
 

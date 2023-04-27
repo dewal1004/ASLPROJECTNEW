@@ -2,7 +2,7 @@ report 50234 "Institutional Sales Report"
 {
     //   "Sea Food categories"
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/InstitutionalSalesReport.rdlc';
+    RDLCLayout = './reportrdlc/InstitutionalSalesReport.rdlc';
 
 
     dataset

@@ -2,9 +2,9 @@ report 50130 "Consolidatdd Daily Points Rep!"
 {
     // //
     DefaultLayout = RDLC;
-    RDLCLayout = './ReportRdlc/ConsolidatddDailyPointsRep.rdlc';
+    RDLCLayout = './reportrdlc/ConsolidatddDailyPointsRep.rdlc';
     UsageCategory = ReportsAndAnalysis;
-    ApplicationArea = All,Basic,Suite;
+    ApplicationArea = All, Basic, Suite;
 
     dataset
     {
@@ -263,82 +263,81 @@ report 50130 "Consolidatdd Daily Points Rep!"
 
             trigger OnAfterGetRecord()
             begin
-                
-                IF RepDate<>0D THEN Workdat:=RepDate
-                ELSE Workdat:=TODAY;
-                
-                j:=1;
+
+                IF RepDate <> 0D THEN
+                    Workdat := RepDate
+                ELSE
+                    Workdat := TODAY;
+
+                j := 1;
                 REPEAT
-                 pts[j]:=0;
-                 j:=j+1;
+                    pts[j] := 0;
+                    j := j + 1;
                 UNTIL j = 10;
-                
+
                 job1.GET(Job."No.");
                 job1.SETRANGE(job1."Task Filter");
                 job1.SETRANGE(job1."Date Filter");
-                
-                JobLdgr.SETCURRENTKEY(JobLdgr."Job No.",JobLdgr."Posting Date");
-                JobLdgr.SETFILTER(JobLdgr."Job No.",job1."No.");
-                JobLdgr.SETRANGE(JobLdgr."Posting Date",0D,Workdat);
-                JobLdgr.SETRANGE(JobLdgr.Type,0,1);
-                IF JobLdgr.FIND('+') THEN
-                BEGIN
-                  //SeTemp:= JobLdgr."Step Code";
-                  SeArea:=JobLdgr."Phase Code";
+
+                JobLdgr.SETCURRENTKEY(JobLdgr."Job No.", JobLdgr."Posting Date");
+                JobLdgr.SETFILTER(JobLdgr."Job No.", job1."No.");
+                JobLdgr.SETRANGE(JobLdgr."Posting Date", 0D, Workdat);
+                JobLdgr.SETRANGE(JobLdgr.Type, 0, 1);
+                IF JobLdgr.FIND('+') THEN BEGIN
+                    //SeTemp:= JobLdgr."Step Code";
+                    SeArea := JobLdgr."Phase Code";
                 END
-                ELSE
-                BEGIN
-                  SeTemp:='';
-                  SeArea:='';
+                ELSE BEGIN
+                    SeTemp := '';
+                    SeArea := '';
                 END;
-                
-                
+
+
                 // Cumulative
                 //MESSAGE('Date is %1',Workdat);
-                job1.SETRANGE(job1."Date Filter",0D,Workdat);
+                job1.SETRANGE(job1."Date Filter", 0D, Workdat);
                 //job1.CALCFIELDS(job1.Points);
-                pts[6]:= job1.PointZ(job1."No.",'',job1.GETFILTER("Date Filter"),'','','',job1.Vessel);
-                
-                job1.SETFILTER(job1."Task Filter",'SHR');
+                pts[6] := job1.PointZ(job1."No.", '', job1.GETFILTER("Date Filter"), '', '', '', job1.Vessel);
+
+                job1.SETFILTER(job1."Task Filter", 'SHR');
                 //job1.CALCFIELDS(job1.Points);
-                pts[5]:=job1.PointZ(job1."No.",'',job1.GETFILTER("Date Filter"),'','SHR','',job1.Vessel);
-                
-                job1.SETFILTER(job1."Task Filter",'FIS');
+                pts[5] := job1.PointZ(job1."No.", '', job1.GETFILTER("Date Filter"), '', 'SHR', '', job1.Vessel);
+
+                job1.SETFILTER(job1."Task Filter", 'FIS');
                 //job1.CALCFIELDS(job1.Points);
-                pts[4]:=job1.PointZ(job1."No.",'',job1.GETFILTER("Date Filter"),'','FIS','',job1.Vessel);
-                
+                pts[4] := job1.PointZ(job1."No.", '', job1.GETFILTER("Date Filter"), '', 'FIS', '', job1.Vessel);
+
                 //Average
                 //AAA* IF  job1."Starting Date"<>0D THEN SeaDays:=TODAY-job1."Starting Date" ELSE SeaDays:=0;
-                IF job1."Starting Date"<>0D THEN SeaDays:=Workdat-job1."Starting Date" ELSE SeaDays:=0;
-                IF SeaDays<>0 THEN
-                BEGIN
-                  pts[9]:=pts[6]/SeaDays;
-                  pts[8]:=pts[5]/SeaDays;
-                  pts[7]:=pts[4]/SeaDays
+                IF job1."Starting Date" <> 0D THEN SeaDays := Workdat - job1."Starting Date" ELSE SeaDays := 0;
+                IF SeaDays <> 0 THEN BEGIN
+                    pts[9] := pts[6] / SeaDays;
+                    pts[8] := pts[5] / SeaDays;
+                    pts[7] := pts[4] / SeaDays
                 END;
-                
+
                 //Daily
-                job1.SETFILTER(job1."Date Filter",'=%1',Workdat);
+                job1.SETFILTER(job1."Date Filter", '=%1', Workdat);
                 job1.SETRANGE(job1."Task Filter");
                 //job1.CALCFIELDS(job1.Points);
-                pts[3]:=job1.PointZ(job1."No.",'',job1.GETFILTER("Date Filter"),'','','',job1.Vessel);
-                
-                job1.SETFILTER(job1."Task Filter",'SHR');
+                pts[3] := job1.PointZ(job1."No.", '', job1.GETFILTER("Date Filter"), '', '', '', job1.Vessel);
+
+                job1.SETFILTER(job1."Task Filter", 'SHR');
                 //job1.CALCFIELDS(job1.Points);
-                pts[2]:=job1.PointZ(job1."No.",'',job1.GETFILTER("Date Filter"),'','SHR','',job1.Vessel);
-                
-                job1.SETFILTER(job1."Task Filter",'FIS');
+                pts[2] := job1.PointZ(job1."No.", '', job1.GETFILTER("Date Filter"), '', 'SHR', '', job1.Vessel);
+
+                job1.SETFILTER(job1."Task Filter", 'FIS');
                 //job1.CALCFIELDS(job1.Points);
-                pts[1]:=job1.PointZ(job1."No.",'',job1.GETFILTER("Date Filter"),'','FIS','',job1.Vessel);
-                
+                pts[1] := job1.PointZ(job1."No.", '', job1.GETFILTER("Date Filter"), '', 'FIS', '', job1.Vessel);
+
                 //No Catch Record Exist
                 job1.SETRANGE(job1."Task Filter");
                 //job1.SETRANGE(job1."Type Filter",0);
                 job1.CALCFIELDS(job1.NoCatchExist);
-                NoCatch:=job1.NoCatchExist;
-                
+                NoCatch := job1.NoCatchExist;
+
                 //SeaDaysTot:=SeaDaysTot+SeaDays;
-                 //#1
+                //#1
 
             end;
         }
