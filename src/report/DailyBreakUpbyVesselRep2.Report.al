@@ -1353,7 +1353,7 @@ report 50008 "Daily BreakUp by Vessel Rep 2"
             }
             column(SeaRange_18_; SeaRange[18])
             {
-                DecimalPlaces = 0 : 0;
+                // DecimalPlaces = 0 : 0;
             }
             column(SeaRange_19_; SeaRange[19])
             {
@@ -1363,7 +1363,7 @@ report 50008 "Daily BreakUp by Vessel Rep 2"
             }
             column(SeaRange_21_; SeaRange[21])
             {
-                DecimalPlaces = 0 : 0;
+                //DecimalPlaces = 0 : 0;
             }
             column(SeaRange_22_; SeaRange[22])
             {
@@ -1430,7 +1430,7 @@ report 50008 "Daily BreakUp by Vessel Rep 2"
             }
             column(SeaRange_43_; SeaRange[43])
             {
-                DecimalPlaces = 0 : 0;
+                // DecimalPlaces = 0 : 0;
             }
             column(SeaRange_44_; SeaRange[44])
             {
@@ -1551,7 +1551,7 @@ report 50008 "Daily BreakUp by Vessel Rep 2"
             }
             column(SeaRange_83_; SeaRange[83])
             {
-                DecimalPlaces = 0 : 0;
+                // DecimalPlaces = 0 : 0;
             }
             column(SeaRange_84_; SeaRange[84])
             {
@@ -2463,7 +2463,7 @@ report 50008 "Daily BreakUp by Vessel Rep 2"
             }
             column(SeaRange_18__Control1000001210; SeaRange[18])
             {
-                DecimalPlaces = 0 : 0;
+                // DecimalPlaces = 0 : 0;
             }
             column(ShrimpPoint_18__Control1000001211; ShrimpPoint[18])
             {
@@ -2529,7 +2529,7 @@ report 50008 "Daily BreakUp by Vessel Rep 2"
             }
             column(SeaRange_21__Control1000001314; SeaRange[21])
             {
-                DecimalPlaces = 0 : 0;
+                // DecimalPlaces = 0 : 0;
             }
             column(ShrimpPoint_22__Control1000001315; ShrimpPoint[22])
             {
@@ -2948,7 +2948,7 @@ report 50008 "Daily BreakUp by Vessel Rep 2"
             }
             column(SeaRange_43__Control1000001424; SeaRange[43])
             {
-                DecimalPlaces = 0 : 0;
+                // DecimalPlaces = 0 : 0;
             }
             column(ShrimpPoint_44__Control1000001425; ShrimpPoint[44])
             {
@@ -3709,7 +3709,7 @@ report 50008 "Daily BreakUp by Vessel Rep 2"
             }
             column(SeaRange_83__Control1000001626; SeaRange[83])
             {
-                DecimalPlaces = 0 : 0;
+                // DecimalPlaces = 0 : 0;
             }
             column(ShrimpPoint_84__Control1000001627; ShrimpPoint[84])
             {
@@ -3966,11 +3966,11 @@ report 50008 "Daily BreakUp by Vessel Rep 2"
             }
             column(SeaRange_18__Control1000000159; SeaRange[18])
             {
-                DecimalPlaces = 0 : 0;
+                // DecimalPlaces = 0 : 0;
             }
             column(SeaRange_21__Control1000000110; SeaRange[21])
             {
-                DecimalPlaces = 0 : 0;
+                // DecimalPlaces = 0 : 0;
             }
             column(SeaRange_22__Control1000000117; SeaRange[22])
             {
@@ -4037,7 +4037,7 @@ report 50008 "Daily BreakUp by Vessel Rep 2"
             }
             column(SeaRange_43__Control1000000187; SeaRange[43])
             {
-                DecimalPlaces = 0 : 0;
+                // DecimalPlaces = 0 : 0;
             }
             column(SeaRange_44__Control1000000190; SeaRange[44])
             {
@@ -4098,7 +4098,7 @@ report 50008 "Daily BreakUp by Vessel Rep 2"
             }
             column(SeaRange_83__Control1000000209; SeaRange[83])
             {
-                DecimalPlaces = 0 : 0;
+                // DecimalPlaces = 0 : 0;
             }
             column(SeaRange_84__Control1000000212; SeaRange[84])
             {
