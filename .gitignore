@@ -1,4 +1,5 @@
 .vscode/rad.json
+.vscode/settings.json
 .alpackages/*.*
 .snapshots/*.*
 cache_*.*
