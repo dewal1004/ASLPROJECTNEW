@@ -5282,12 +5282,15 @@ report 50010 "Daily BreakUp by Vessel Rep 4"
                     ShowCaption = false;
                     field("Arrenge Column by"; ArrangeBy)
                     {
+                        ApplicationArea = All;
                     }
                     field("Report Mode"; ReportBy)
                     {
+                        ApplicationArea = All;
                     }
                     field("Show Category total"; "Show Category total")
                     {
+                        ApplicationArea = All;
                     }
                 }
             }

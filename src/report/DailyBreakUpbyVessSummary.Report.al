@@ -2794,12 +2794,15 @@ report 50012 "Daily BreakUp by Vess Summary"
             {
                 field("Arrange Column By"; ArrangeBy)
                 {
+                    ApplicationArea = All;
                 }
                 field("Report Mode"; ReportBy)
                 {
+                    ApplicationArea = All;
                 }
                 field("Show Category Total"; "Show Category total")
                 {
+                    ApplicationArea = All;
                 }
             }
         }

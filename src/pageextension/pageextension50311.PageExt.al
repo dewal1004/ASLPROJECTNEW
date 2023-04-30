@@ -9,25 +9,26 @@ pageextension 50311 "pageextension50311" extends "Production Journal"
         movebefore("Consump. Qty."; Quantity)
         modify(Quantity)
         {
-          Visible = True;
+            Visible = True;
         }
         modify("Location Code")
         {
-          Visible = true;
+            Visible = true;
         }
         modify("Gen. Prod. Posting Group")
         {
-          Visible = true;
+            Visible = true;
         }
         addafter("Scrap Quantity")
         {
-          field("Consumed Quantity";"Consumed Quantity")
-          {
-            Visible = true;
-          }
+            field("Consumed Quantity"; "Consumed Quantity")
+            {
+                Visible = true;
+                ApplicationArea = All;
+            }
 
         }
-        
+
     }
 
 
@@ -37,23 +38,23 @@ pageextension 50311 "pageextension50311" extends "Production Journal"
 
 
 
-        //Unsupported feature: Property Deletion (CaptionML) on "Quantity(Control 23)".
+    //Unsupported feature: Property Deletion (CaptionML) on "Quantity(Control 23)".
 
 
-        //Unsupported feature: Code Insertion on ""Scrap Quantity"(Control 128)".
+    //Unsupported feature: Code Insertion on ""Scrap Quantity"(Control 128)".
 
-        //trigger OnAfterValidate()
-        //Parameters and return type have not been exported.
-        //begin
-        /*
-        {
-        IF "Entry Type" = "Entry Type"::Consumption THEN BEGIN
-          IF (Quantity <> 0) AND ("Consumed Quantity" <> 0) AND ("Scrap Quantity" <> 0) THEN
-          "Consumed Quantity" :=  Quantity - "Scrap Quantity";
-         END;
-         }
-        */
-        //end;
+    //trigger OnAfterValidate()
+    //Parameters and return type have not been exported.
+    //begin
+    /*
+    {
+    IF "Entry Type" = "Entry Type"::Consumption THEN BEGIN
+      IF (Quantity <> 0) AND ("Consumed Quantity" <> 0) AND ("Scrap Quantity" <> 0) THEN
+      "Consumed Quantity" :=  Quantity - "Scrap Quantity";
+     END;
+     }
+    */
+    //end;
     //Unsupported feature: Property Modification (Id) on "DimVisible8(Variable 1000)".
 
     //var
