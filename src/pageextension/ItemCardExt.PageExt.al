@@ -114,7 +114,10 @@ pageextension 50259 "Item Card Ext" extends "Item Card"
         modify(ItemAttributesFactbox) { Visible = false; }
         addfirst(OrderModifiers)
         {
-            field("Monthly Consumption"; rec."Monthly Consumption") { }
+            field("Monthly Consumption"; rec."Monthly Consumption")
+            {
+                ApplicationArea = All;
+            }
         }
         addafter("Use Cross-Docking")
         {

@@ -4,7 +4,8 @@ page 50072 "Employee Group Detail Update"
     PageType = Worksheet;
     SourceTable = "Payroll-Employee Group Lines.";
     UsageCategory = Administration;
-    
+    ApplicationArea = All;
+
     layout
     {
         area(content)
