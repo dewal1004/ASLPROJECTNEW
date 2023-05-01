@@ -8,7 +8,8 @@ report 50007 "Daily BreakUp by Vessel Rep 1"
     {
         dataitem("Inventory Posting G Cat Tot"; "Inventory Posting Group")
         {
-            DataItemTableView = SORTING("Statistics Group", Category, "S/No.") WHERE("In Use" = CONST(true), "Statistics Group" = FILTER(> 0), Category = FILTER(<> ''));
+            // DataItemTableView = SORTING("Statistics Group", Category, "S/No.") WHERE("In Use" = CONST(true), "Statistics Group" = FILTER(> 0), Category = FILTER(<> ''));
+            DataItemTableView = SORTING("Statistics Group", Category, "S/No.") WHERE("In Use" = CONST(true), "Statistics Group" = FILTER('1..3'), Category = FILTER(<> ''));
             RequestFilterFields = "Statistics Group", Category, "Date Filter";
             column(test; Test)
             {
@@ -2395,7 +2396,8 @@ report 50007 "Daily BreakUp by Vessel Rep 1"
         }
         dataitem("Inventory Posting Group"; "Inventory Posting Group")
         {
-            DataItemTableView = SORTING("Statistics Group", Category, "S/No.") WHERE("In Use" = CONST(true), "Statistics Group" = FILTER(> 0));
+            // DataItemTableView = SORTING("Statistics Group", Category, "S/No.") WHERE("In Use" = CONST(true), "Statistics Group" = FILTER(> 0));
+            DataItemTableView = SORTING("Statistics Group", Category, "S/No.") WHERE("In Use" = CONST(true), "Statistics Group" = FILTER('1..3'));
             column(testing123; testing123)
             {
             }
@@ -5251,6 +5253,12 @@ report 50007 "Daily BreakUp by Vessel Rep 1"
         actions
         {
         }
+
+        trigger OnOpenPage()
+        begin
+            //ArrangeBy := ArrangeBy::"Sea Days";   //Revisit;
+            //ReportBy := ReportBy::Stock;
+        end;
     }
 
     labels
@@ -5332,4 +5340,3 @@ report 50007 "Daily BreakUp by Vessel Rep 1"
         testing123: Decimal;
         testc: array[100] of Decimal;
 }
-
