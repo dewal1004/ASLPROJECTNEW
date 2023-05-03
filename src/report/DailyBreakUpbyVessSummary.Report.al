@@ -4,7 +4,8 @@ report 50012 "Daily BreakUp by Vess Summary"
     //     ShrimpPointTot:=ShrimpPointTot+ShrimpPoint[Countx];FishPointTot:=FishPointTot+FishPoint[Countx];
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/DailyBreakUpbyVessSummary.rdlc';
-
+    UsageCategory = ReportsAndAnalysis;
+    ApplicationArea = All, Basic, Suite;
 
     dataset
     {
@@ -2779,7 +2780,6 @@ report 50012 "Daily BreakUp by Vess Summary"
 
     requestpage
     {
-
         layout
         {
             area(content)
@@ -2798,36 +2798,18 @@ report 50012 "Daily BreakUp by Vess Summary"
                 }
             }
         }
-
-        actions
-        {
-        }
     }
-
-    labels
-    {
-    }
-
-    trigger OnPreReport()
-    begin
-        //DateFilter := "Inventory Posting G Cat Tot".GETFILTER("Date Filter");
-    end;
 
     var
-        LastFieldNo: Integer;
-        FooterPrinted: Boolean;
         TotalFor: Label ' Total';
-        "----------------": Integer;
         locate: Record Location;
         locate2: Record Location;
         Operatn: Record Job;
         Countx: Integer;
         level: Integer;
-        LocGroup: Integer;
         TotLoc: Integer;
         TestC: array[100] of Decimal;
         SeaRangeC: array[100] of Decimal;
-        T001: Text[80];
         T002: Text[80];
         SeaRange: array[100] of Text[30];
         SeaRangeD: array[100] of Decimal;
@@ -2835,9 +2817,6 @@ report 50012 "Daily BreakUp by Vess Summary"
         VesselPoint: array[100] of Decimal;
         FishPoint: array[100] of Decimal;
         FishgArea: array[100] of Code[10];
-        Cat: Code[15];
-        job1: Record Job;
-        Nocatch: Boolean;
         "Show Category total": Boolean;
         ArrangeBy: Option "Vessel Points","Sea Days";
         ReportBy: Option Catch,Stock;
@@ -2849,7 +2828,6 @@ report 50012 "Daily BreakUp by Vess Summary"
         VesselPointTot: Decimal;
         FishPointTot: Decimal;
         PntLess: Integer;
-        Text010: Label 'Fishing Area';
         Inventory_Total_CaptionLbl: Label 'Inventory Total ';
         DescriptionCaptionLbl: Label 'Description';
         Sea_DaysCaptionLbl: Label 'Sea Days';

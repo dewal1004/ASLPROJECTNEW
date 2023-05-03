@@ -2,18 +2,9 @@ OBJECT Report 50012 Daily BreakUp by Vess Summary
 {
   OBJECT-PROPERTIES
   {
-    Date=31/12/20;
-    Time=08:40:01;
-    Modified=Yes;
-    Version List=;
+    
   }
-  PROPERTIES
-  {
-    OnPreReport=BEGIN
-                  //DateFilter := "Inventory Posting G Cat Tot".GETFILTER("Date Filter");
-                END;
-
-  }
+  
   DATASET
   {
     { 9194;    ;DataItem;Inventory Posting G Cat Tot;
