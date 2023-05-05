@@ -12,27 +12,39 @@ report 50508 "Location Vessel Sea Day"
             DataItemTableView = sorting(VSDVal) where("location type" = const(1));  //"location type" ::Vessel
             RequestFilterFields = "date filter";
 
-            column(Code; "Code")
-            {
-            }
-            column(Name; Name)
-            {
-            }
-            column(VSDVal; VSDVal)
-            {
-            }
-            column(LastRepOperationNoVal; "Last Rep Operation No. Val")
-            {
-            }
-            column(Values; Values)
-            {
-            }
-            column(Inventory; Inventory)
-            {
-            }
-            column(VoyageSeaDays; "Voyage Sea Days")
-            {
-            }
+            column(Code; "Code") { }
+            column(Name; Name) { }
+            column(VSDVal; VSDVal) { }
+            column(Last_Reportd_Vessel_Pts; "Last Reportd Vessel Pts") { DecimalPlaces = 0 : 1; }
+            column(LastRepOperationNoVal; "Last Rep Operation No. Val") { }
+            column(Values; Values) { DecimalPlaces = 0 : 2; }
+            column(Inventory; Inventory) { DecimalPlaces = 0 : 1; }
+            column(VoyageSeaDays; "Voyage Sea Days") { }
+
+            trigger OnAfterGetRecord()
+            var
+                myInt: Integer;
+            begin
+                "Last Rep Operation No. Val" := LastRepOpNo(Code, DateFilter);
+                // VSDVal := VoySeaAnyTime(LastRepOptNo, Code, DateFilter);
+                VSDVal := VoySeaAnyTime("Last Rep Operation No. Val", Code, DateFilter);
+                if Operation.Get("Last Rep Operation No. Val") then
+                    Operation.SetFilter(Operation."Date Filter", '%1', GetRangeMax("Date Filter"));
+
+                "Last Reportd Vessel Pts" := Operation.PointZ(Operation."No.", Code, DateFilter, '', '', '', Operation.Vessel);
+                Operation.SetFilter(Operation."Task Filter", 'SHR');
+                "Last Reportd Shrimps Pts" := Operation.PointZ(Operation."No.", Code, DateFilter, '', 'SHR', '', Operation.Vessel);
+                "Fishing Area" := Operation.FishingArea(Operation."No.", Code, DateFilter, '', '', '', Operation.Vessel);
+                Operation.SetRange(Operation."Task Filter");
+                Modify();
+
+            end;
+
+            trigger OnPreDataItem()
+            begin
+                DateFilter := Location.GetFilter("date filter");
+                // MaxDateFilter := Location.GetRangeMax("date filter");
+            end;
         }
 
     }
@@ -54,4 +66,11 @@ report 50508 "Location Vessel Sea Day"
             }
         }
     }
+
+    var
+        DateFilter: Text;
+        MaxDateFilter: Text;
+        Operation: Record job;
+
+
 }
