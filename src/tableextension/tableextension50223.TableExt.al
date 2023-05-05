@@ -463,6 +463,7 @@ tableextension 50223 "tableextension50223" extends Location
             JobLedgEntry.SetFilter(JobLedgEntry."Location Code", LocFilter);
         if DateFilter <> '' then
             JobLedgEntry.SetFilter(JobLedgEntry."Posting Date", DateFilter);
+        JobLedgEntry.SetRange("Entry Type",JobLedgEntry.Type::Item);   
         if JobLedgEntry.Find('+') then
             exit(JobLedgEntry."Catch Sea Days")
         else
