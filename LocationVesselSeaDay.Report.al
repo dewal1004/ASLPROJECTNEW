@@ -9,7 +9,7 @@ report 50508 "Location Vessel Sea Day"
     {
         dataitem(Location; Location)
         {
-            DataItemTableView = sorting(VSDVal) where("location type" = const(1));  //"location type" ::Vessel
+            DataItemTableView = where("location type" = const(1));  //"location type" ::Vessel
             RequestFilterFields = "date filter";
 
             column(Code; "Code") { }
@@ -17,13 +17,8 @@ report 50508 "Location Vessel Sea Day"
             column(VSDVal; VSDVal) { }
             column(Last_Reportd_Vessel_Pts; "Last Reportd Vessel Pts") { DecimalPlaces = 0 : 1; }
             column(LastRepOperationNoVal; "Last Rep Operation No. Val") { }
-            column(Values; Values) { DecimalPlaces = 0 : 2; }
-            column(Inventory; Inventory) { DecimalPlaces = 0 : 1; }
-            column(VoyageSeaDays; "Voyage Sea Days") { }
-
+            
             trigger OnAfterGetRecord()
-            var
-                myInt: Integer;
             begin
                 "Last Rep Operation No. Val" := LastRepOpNo(Code, DateFilter);
                 // VSDVal := VoySeaAnyTime(LastRepOptNo, Code, DateFilter);
@@ -37,13 +32,11 @@ report 50508 "Location Vessel Sea Day"
                 "Fishing Area" := Operation.FishingArea(Operation."No.", Code, DateFilter, '', '', '', Operation.Vessel);
                 Operation.SetRange(Operation."Task Filter");
                 Modify();
-
             end;
 
             trigger OnPreDataItem()
             begin
                 DateFilter := Location.GetFilter("date filter");
-                // MaxDateFilter := Location.GetRangeMax("date filter");
             end;
         }
 
