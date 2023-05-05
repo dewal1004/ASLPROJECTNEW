@@ -62,7 +62,6 @@ report 50508 "Location Vessel Sea Day"
 
     var
         DateFilter: Text;
-        MaxDateFilter: Text;
         Operation: Record job;
 
 
