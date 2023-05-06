@@ -1,4 +1,4 @@
-tableextension 50232 "tableextension50232" extends "Job Ledger Entry"
+tableextension 50232 "Job Ledger Entry Ext" extends "Job Ledger Entry"
 {
     fields
     {
@@ -52,8 +52,8 @@ tableextension 50232 "tableextension50232" extends "Job Ledger Entry"
                 case Type of
                     Type::Resource:
                         begin
-                            Validate(Quantity); 
-                           // ("Ending Date" - "Starting Date"));
+                            Validate(Quantity);
+                            // ("Ending Date" - "Starting Date"));
                         end;
                 end;
             end;
@@ -95,31 +95,24 @@ tableextension 50232 "tableextension50232" extends "Job Ledger Entry"
 
     keys
     {
-        Key(Key9; GroupSort,"Inventory posting Group")
-            {
-            }
+        key(ASLKey2; "Job No.", "Location Code", "Work Type Code") { }
+        key(ASLKey6; Type, "No.", "Location Code", "Posting Date") {}
+        key(ASLKey7; "Catch Sea Days") { }
+        Key(ASLKey9; GroupSort, "Inventory posting Group") { }
 
-    //     key(Key1; "Job No.", "Location Code", "Posting Date", "Journal Batch Name", Type, "Gen. Prod. Posting Group", "Task Code");
-    //     {
-    //        SumIndexFields = "Total Price";
-    //     }
-    //     key(Key2; "Job No.", "Location Code", "Work Type Code")
-    //     {
-    //     }
-    //     key(Key3; "Job No.", "Location Code", GroupSort)
-    //     {
-    //     }
-    //     key(Key4; GroupSort, "Location Code", "Posting Date", "External Document No.")
-    //     {
-    //         SumIndexFields = Quantity;
-    //     }
-    //     key(Key5; "Inventory Posting Group", "Location Code", "Posting Date", "External Document No.")
-    //     {
-    //         SumIndexFields = Quantity;
-    //     }
-    //     key(Key6; Type, "No.", "Location Code", "Posting Date")
-    //     {
-    //     }
+        // key(ASLKey1; "Job No.", "Location Code", "Posting Date", "Journal Batch Name", Type, "Gen. Prod. Posting Group", "Task Code");
+        // {
+        //    SumIndexFields = "Total Price";
+        // }
+        // key(ASLKey3; "Job No.", "Location Code", GroupSort) {}
+        // key(ASLKey4; GroupSort, "Location Code", "Posting Date", "External Document No.")
+        // {
+        //     SumIndexFields = Quantity;
+        // }
+        // key(ASLKey5; "Inventory Posting Group", "Location Code", "Posting Date", "External Document No.")
+        // {
+        //     SumIndexFields = Quantity;
+        // }
     }
 
 
