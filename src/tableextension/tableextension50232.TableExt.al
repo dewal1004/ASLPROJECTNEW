@@ -105,12 +105,12 @@ tableextension 50232 "Job Ledger Entry Ext" extends "Job Ledger Entry"
         Key(ASLKey9; GroupSort, "Inventory posting Group") { }
     
         // key(ASLKey1; "Job No.", "Location Code", "Posting Date", "Journal Batch Name", Type, "Gen. Prod. Posting Group", "Task Code");
-        // {SumIndexFields = "Total Price"; }
+        //   {SumIndexFields = "Total Price"; }
         // key(ASLKey3; "Job No.", "Location Code", GroupSort) {}
         // key(ASLKey4; GroupSort, "Location Code", "Posting Date", "External Document No.")
-        // {SumIndexFields = Quantity;}
+        //   {SumIndexFields = Quantity;}
         // key(ASLKey5; "Inventory Posting Group", "Location Code", "Posting Date", "External Document No.")
-        // {SumIndexFields = Quantity;}
+        //   {SumIndexFields = Quantity;}
     }
 
 
@@ -147,4 +147,3 @@ tableextension 50232 "Job Ledger Entry Ext" extends "Job Ledger Entry"
         "Starting Date": Date;
         Res: Record Resource;
 }
-
