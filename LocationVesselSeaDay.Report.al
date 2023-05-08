@@ -39,8 +39,8 @@ report 50508 "Location Vessel Sea Day"
                 DateFilter := Location.GetFilter("date filter");
             end;
         }
-
     }
+    
     requestpage
     {
         layout
