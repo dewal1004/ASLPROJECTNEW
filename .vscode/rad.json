@@ -1,1 +1,1 @@
-﻿{"Added":[],"Modified":[{"Id":50059,"Kind":12,"Name":"Store Requisition Card","PackagePath":"/src/src/page/StoreRequisitionCard.Page.al"},{"Id":50031,"Kind":10,"Name":"Store Requisition Header New","PackagePath":"/src/src/table/StoreRequisitionHeaderNew.Table.al"}],"Removed":[]}
+﻿{"Added":[],"Modified":[{"Id":50031,"Kind":10,"Name":"Store Requisition Header New","PackagePath":"/src/src/table/StoreRequisitionHeaderNew.Table.al"},{"Id":50059,"Kind":12,"Name":"Store Requisition Card","PackagePath":"/src/src/page/StoreRequisitionCard.Page.al"}],"Removed":[]}
