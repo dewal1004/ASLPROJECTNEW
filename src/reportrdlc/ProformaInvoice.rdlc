@@ -7,7 +7,7 @@
         <DataProvider>SQL</DataProvider>
         <ConnectString />
       </ConnectionProperties>
-      <rd:SecurityType>None</rd:SecurityType>
+      <rd:DataSourceID>c704a592-65d1-4772-b924-e806724dfbfd</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <ReportSections>
@@ -987,7 +987,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>5% VAT</Value>
+                                  <Value>7.5% VAT</Value>
                                   <Style>
                                     <FontSize>8pt</FontSize>
                                     <FontWeight>Normal</FontWeight>
@@ -3200,9 +3200,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>0.54066cm</Top>
               <Left>6.73145cm</Left>
-              <Height>0.531cm</Height>
+              <Height>1.07166cm</Height>
               <Width>7.7964cm</Width>
               <ZIndex>8</ZIndex>
               <Style>
@@ -4646,6 +4645,7 @@ RaRVaCvMUXIrrXuJQC9z/wDa+//Z</ImageData>
   <Language>=User!Language</Language>
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
+  <rd:ReportID>1872d233-eda9-4ec6-921f-63a4835b2487</rd:ReportID>
   <DataSets>
     <DataSet Name="DataSet_Result">
       <Fields>

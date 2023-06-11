@@ -496,7 +496,7 @@ pageextension 50353 "pageextension50353" extends "Job Card"
                     trigger OnAction()
                     begin
                         SetFilter("No.", "No.");
-                        REPORT.Run(50047, true, true, Rec);
+                        REPORT.Run(50113, true, true, Rec);
                     end;
                 }
                 action("Voyage End (Catch)")

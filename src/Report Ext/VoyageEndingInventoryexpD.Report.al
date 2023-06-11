@@ -1,7 +1,21 @@
+/// <summary>
+/// Report Voyage Ending Inventory expD (ID 50032).
+/// </summary>
 report 50032 "Voyage Ending Inventory expD"
 {
     DefaultLayout = RDLC;
-    RDLCLayout = './src/reportrdlc/VoyageEndingInventoryexpD.rdlc';
+    RDLCLayout = './ReportRdlc/VoyageEndingInventoryexpD.rdlc';
+    Permissions = 
+        tabledata "Inventory Posting Group" = R,
+        tabledata Item = R,
+        tabledata "Item Category" = R,
+        tabledata Job = R,
+        tabledata "Job Journal Batch" = RIMD,
+        tabledata "Job Journal Line" = RIM,
+        tabledata "Job Planning Line" = R,
+        tabledata "Job Task" = R,
+        tabledata Location = R,
+        tabledata Resource = RM;
 
     dataset
     {

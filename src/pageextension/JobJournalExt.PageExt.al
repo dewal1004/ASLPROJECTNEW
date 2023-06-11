@@ -12,6 +12,7 @@ pageextension 50242 "Job Journal Ext" extends "Job Journal"
         modify("Total Cost") { Visible = false; }
         modify("Unit Price") { Visible = false; }
         modify("Work Type Code") {Visible = false; }
+        
 
 
         addafter(CurrentJnlBatchName)
@@ -32,6 +33,11 @@ pageextension 50242 "Job Journal Ext" extends "Job Journal"
         }
         addafter(Quantity)
         {
+            field("ASL Source Code";"ASL Source Code")
+            {
+                Caption = 'Change Source Code';
+                ApplicationArea = All;
+            }
             field(Catch; Catch) { ApplicationArea = All; }
             field("Stock Position Calc."; "Stock Position Calc.") { ApplicationArea = All; }
             field("Posting Group"; "Posting Group") { ApplicationArea = All; }
@@ -48,7 +54,12 @@ pageextension 50242 "Job Journal Ext" extends "Job Journal"
         }
         addafter("Total Cost (LCY)")
         {
-            field("Source Code"; "Source Code") { ApplicationArea = All; }
+            field("Source Code"; "Source Code") 
+            { 
+                ApplicationArea = All; 
+                Editable = True;
+                
+                }
         }
         addafter("Shortcut Dimension 2 Code")
         {
@@ -434,7 +445,7 @@ pageextension 50242 "Job Journal Ext" extends "Job Journal"
                 JobJnlLineCopy.Init;
                 JobJnlLineCopy.TransferFields(JobJournalLine);
                 ///***P JobJnlLineCopy."Journal Batch Name" := CurrentJnlBatchName;
-                JobJnlLineCopy.Insert;
+              if not JobJnlLineCopy.Insert then JobJnlLineCopy.Modify;
             until JobJournalLine.Next = 0;
         Message('Line Coppied from Vessel %1', "Copy From  Vesel");
     end;

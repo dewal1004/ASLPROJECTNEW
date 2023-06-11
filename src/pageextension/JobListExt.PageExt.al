@@ -381,7 +381,7 @@ pageextension 50354 "Job List Ext" extends "Job List"
         myInt: Integer;
     begin
         StyleText := '';
-        if Status = Status::"Close Job Card" then
+        if Status = Status::Completed then
             StyleText := 'Unfavorable'
         else
             StyleText := 'standard';

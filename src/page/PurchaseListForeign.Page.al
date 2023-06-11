@@ -8,7 +8,8 @@ page 50553 "Purchase List Foreign"
     ApplicationArea = All, Basic;
     SourceTable = "Purchase Header";
     SourceTableView = SORTING("Document Type", "No.")
-                      WHERE("Document Type" = CONST(Order));
+                      WHERE("Document Type" = CONST(Order),
+                                    "Order Type" = FILTER(Foreign));
 
     layout
     {
@@ -209,7 +210,7 @@ page 50553 "Purchase List Foreign"
                     var
                         PageManagement: Codeunit "Page Management";
                     begin
-                        //PageManagement.PageRun(Rec);
+                        PageManagement.PageRun(Rec);
                     end;
                 }
             }

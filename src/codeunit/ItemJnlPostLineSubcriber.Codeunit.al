@@ -31,18 +31,18 @@ codeunit 50028 "ItemJnlPostLineSubcriber"
     //     end
     // end;
 
-    // [EventSubscriber(ObjectType::Codeunit, Codeunit::"Item Jnl.-Post Line", 'OnAfterInitItemLedgEntry', '', true, true)]
-    // local procedure ItemJnlPostLineOnAfterInitItemLedgEntry(var NewItemLedgEntry: Record "Item Ledger Entry"; var ItemJournalLine: Record "Item Journal Line")
-    // begin
-    //     NewItemLedgEntry."Source Code" := ItemJournalLine."Source Code";
-    //     NewItemLedgEntry."Scrap Quantity" := ItemJournalLine."Scrap Quantity";
-    //     NewItemLedgEntry."Consumed Quantity" := ItemJournalLine."Consumed Quantity";
-    //     NewItemLedgEntry."Vessel Type" := ItemJournalLine."Vessel Type";
-    //     if ItemJournalLine."Entry Type" = ItemJournalLine."Entry Type"::Consumption then begin
-    //         NewItemLedgEntry.Quantity := -ItemJournalLine."Consumed Quantity";
-    //         NewItemLedgEntry."Invoiced Quantity" := -ItemJournalLine."Consumed Quantity";
-    //     end;
-    // end;
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Item Jnl.-Post Line", 'OnAfterInitItemLedgEntry', '', true, true)]
+    local procedure ItemJnlPostLineOnAfterInitItemLedgEntry(var NewItemLedgEntry: Record "Item Ledger Entry"; var ItemJournalLine: Record "Item Journal Line")
+    begin
+        NewItemLedgEntry."Source Code" := ItemJournalLine."Source Code";
+        NewItemLedgEntry."Scrap Quantity" := ItemJournalLine."Scrap Quantity";
+        NewItemLedgEntry."Consumed Quantity" := ItemJournalLine."Consumed Quantity";
+        NewItemLedgEntry."Vessel Type" := ItemJournalLine."Vessel Type";
+        if ItemJournalLine."Entry Type" = ItemJournalLine."Entry Type"::Consumption then begin
+            NewItemLedgEntry.Quantity := -ItemJournalLine."Consumed Quantity";
+            NewItemLedgEntry."Invoiced Quantity" := -ItemJournalLine."Consumed Quantity";
+        end;
+    end;
 
     // [EventSubscriber(ObjectType::Codeunit, Codeunit::"Item Jnl.-Post Line", 'OnBeforePostInventoryToGL', '', true, true)]
     // local procedure ItemJnlPostLineOnBeforePostInventoryToGL(var ValueEntry: Record "Value Entry"; var IsHandled: Boolean)

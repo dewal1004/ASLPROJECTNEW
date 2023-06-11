@@ -1224,7 +1224,7 @@ report 50001 "New Daily Points Report Fast"
         CountJx: Integer;
         PntsAvg: Decimal;
         Historical: Boolean;
-        HistoricalData: Record "ASL Entry/Exit P";
+        HistoricalData: Record "ASL Entry/Exit Point";
         OperationCaptionLbl: Label 'Operation';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
         Sr__No_CaptionLbl: Label 'Sr. No.';

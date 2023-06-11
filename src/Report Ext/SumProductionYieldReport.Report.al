@@ -2,6 +2,7 @@ report 50000 "Sum. Production Yield Report"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/SumProductionYieldReport.rdlc';
+    Caption = 'ASL Production Yield Report';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
 

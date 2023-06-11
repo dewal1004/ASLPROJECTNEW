@@ -7,7 +7,7 @@
         <DataProvider>SQL</DataProvider>
         <ConnectString />
       </ConnectionProperties>
-      <rd:SecurityType>None</rd:SecurityType>
+      <rd:DataSourceID>a00fcc5e-a731-4b68-9827-0568027b9e44</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <ReportSections>
@@ -2238,6 +2238,7 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -3060,6 +3061,7 @@ End Function
   <Language>=User!Language</Language>
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
+  <rd:ReportID>65562822-416b-4dbb-9cf0-f0130f5fbc33</rd:ReportID>
   <DataSets>
     <DataSet Name="DataSet_Result">
       <Fields>

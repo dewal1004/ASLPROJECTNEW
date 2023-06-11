@@ -7,16 +7,25 @@ tableextension 50241 "Job Journal Line Ext" extends "Job Journal Line"
     {
         modify("Source Code")
         {
-            TableRelation = IF ("External Document No." = FILTER('')) "Source Code"
-            ELSE
-            IF ("External Document No." = FILTER(<> '')) Location WHERE("Location Type" = CONST(Vessel));
-        }
+            TableRelation =IF ("External Document No." = FILTER(<> '')) Location WHERE("Location Type" = CONST(Vessel))
+            else
+            "Source Code";
 
-        modify("Work Type Code")
+        }
+         modify("Work Type Code")
         {
             TableRelation = IF (Type = CONST(Item)) "Item Category"
             else
             "Work Type";
+        }
+
+        field(50299;"ASL Source Code";Code[20])
+        {   
+            TableRelation = Location WHERE("Location Type" = CONST(Vessel));
+            trigger OnValidate()
+            begin
+              "Source Code" := "ASL Source Code";  
+            end;
         }
 
         field(50300; Catch; Decimal)
@@ -31,6 +40,7 @@ tableextension 50241 "Job Journal Line Ext" extends "Job Journal Line"
                     Points := Item.Points;
                     "Unit Price" := Points;
                 end;
+                // "Source Code" := "Location Code";
 
                 "Total Price" := "Unit Price" * Catch;
                 "Reason Code" := 'CATCH';
@@ -426,7 +436,7 @@ tableextension 50241 "Job Journal Line Ext" extends "Job Journal Line"
         Validate("Unit Price");
     end;
 
-    procedure FindItemPrice() 
+    procedure FindItemPrice()
 
     begin
         /*

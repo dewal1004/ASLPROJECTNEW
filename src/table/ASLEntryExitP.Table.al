@@ -1,4 +1,4 @@
-table 50050 "ASL Entry/Exit P"
+table 50050 "ASL Entry/Exit Point"
 {
     Caption = 'ASL Entry/Exit P';
     DataClassification = ToBeClassified;
@@ -9,7 +9,7 @@ table 50050 "ASL Entry/Exit P"
         {
            
         }
-        field(2; Description; Text[30])
+        field(2; Description; Text[50])
         {
             
         }
@@ -103,6 +103,6 @@ table 50050 "ASL Entry/Exit P"
     end;
 
     var
-        HistoricalPtsData: Record "ASL Entry/Exit P";
+        HistoricalPtsData: Record "ASL Entry/Exit Point";
 
 }
