@@ -136,8 +136,8 @@ table 50031 "Store Requisition Header New"
         field(14; "Final Approval to"; Code[50])
         {
             Caption = 'Final Approval to';
-            TableRelation = if ("Fish Store Requisition" = Const(true)) "User Setup"."User ID" WHERE ("Fish Stk Req F.Approval" = Const(True)) 
-            else 
+            TableRelation = if ("Fish Store Requisition" = Const(true)) "User Setup"."User ID" WHERE("Fish Stk Req F.Approval" = Const(True))
+            else
             if ("Fish Store Requisition" = const(false)) "User Setup"."User ID" WHERE("Store Req Final Approval" = CONST(true));
 
             trigger OnValidate()
@@ -464,7 +464,7 @@ table 50031 "Store Requisition Header New"
         {
         }
         field(55; "Fish Store Requisition"; Boolean)
-        {            
+        {
         }
     }
 
@@ -700,7 +700,6 @@ table 50031 "Store Requisition Header New"
         Modify;
         Message(Text50005, "Journal Batch");
     end;
-
     // [Scope('OnPrem')]
     procedure CreateJobJnl()
     var
@@ -716,18 +715,18 @@ table 50031 "Store Requisition Header New"
         TestField("Document No.", '');
         TestField("Issued Captured");
         TestField("Job No.");
-        "Processed Date" := Today;
-        ReqLines.SetRange(ReqLines."Req. No.", "Req. No");
+        rec."Processed Date" := Today;
+        ReqLines.SetRange(ReqLines."Req. No.", rec."Req. No");
         ReqLines.SetFilter(ReqLines."Issued Quantity", '<>%1', 0);
         if not ReqLines.FindSet then
             Error('Notting To Issue. All Lines has Zero quantity Issued');
 
         JobJnl.SetRange(JobJnl."Journal Template Name", 'Job');
-        JobJnl.SetRange(JobJnl."Journal Batch Name", "Journal Batch");
+        JobJnl.SetRange(JobJnl."Journal Batch Name", rec."Journal Batch");
         if JobJnl.FindLast then
             LineNo := JobJnl."Line No." else
             LineNo := 0;
-        if ReqLines.FindFirst then
+        if ReqLines.Findset() then
             repeat
                 LineNo += 10000;
                 JobJnl.Init;
@@ -736,9 +735,10 @@ table 50031 "Store Requisition Header New"
                 JobJnl."Reason Code" := "Reason Code";
                 JobJnl."External Document No." := "External Document No";
                 JobJnl."Line No." := LineNo;
+                JobJnl.Insert();
                 JobJnl."Document No." := ReqLines."Req. No.";
-                JobJnl.Validate(JobJnl."Posting Date", "Processed Date");
-                JobJnl.Validate(JobJnl."Job No.", "Job No.");
+                JobJnl.Validate(JobJnl."Posting Date", rec."Processed Date");
+                JobJnl.Validate(JobJnl."Job No.", rec."Job No.");
                 JobJnl.Type := JobJnl.Type::Item;
                 JobJnl.Validate(JobJnl."No.", ReqLines."Item No.");
                 JobJnl."Gen. Bus. Posting Group" := "Gen Bus. posting Grp.";
@@ -746,11 +746,12 @@ table 50031 "Store Requisition Header New"
                 JobJnl."Location Code" := ReqLines."Store Location";
                 JobJnl.Validate(JobJnl.Quantity, ReqLines."Issued Quantity");
                 JobJnl."Lock Qty" := true;
-                /*InveSetup.GET();
-                IF InveSetup."Auto Post Job Journal" THEN
-                 PostJob.RUN(JobJnl)
-                ELSE*/
-                JobJnl.Insert;
+                JobJnl.Modify();
+                //InveSetup.GET();
+                //IF InveSetup."Auto Post Job Journal" THEN
+                //  PostJob.RUN(JobJnl)
+                //ELSE
+
                 ReqLines.Processed := true;
                 ReqLines.Modify;
             until ReqLines.Next = 0;
@@ -831,10 +832,9 @@ table 50031 "Store Requisition Header New"
             "Processed By" := UserRec."Full Name";
         Modify;
         InveSetup.Get();
-        if InveSetup."Auto Post Transfer Req" then
-        begin
-            Transheader.Validate(Transheader."Direct Transfer",true);
-            Transheader.Modify(true);            
+        if InveSetup."Auto Post Transfer Req" then begin
+            Transheader.Validate(Transheader."Direct Transfer", true);
+            Transheader.Modify(true);
             posttrans.Run(Transheader)
         end
         else

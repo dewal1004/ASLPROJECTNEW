@@ -226,13 +226,11 @@ page 50059 "Store Requisition Card"
             action("Create Transfer Order")
             {
                 ApplicationArea = All;
-
                 trigger OnAction()
                 begin
                     TransferOrder
                 end;
-            }
-            action("Create Adjustments")
+            } action("Create Adjustments")
             {
                 ApplicationArea = All;
 

@@ -1,3 +1,6 @@
+/// <summary>
+/// TableExtension tableextension50230 (ID 50230) extends Record Job.
+/// </summary>
 tableextension 50230 "tableextension50230" extends Job
 {
     LookupPageID = "Dry Docking/Job  list";
@@ -397,7 +400,7 @@ tableextension 50230 "tableextension50230" extends Job
         }
         field(50393; Deratg; Date)
         {
-            Description = 'Derating Certificate';
+            Description = 'Operating Certificate';
             Editable = false;
         }
         field(50394; "Rad Tel"; Date)
