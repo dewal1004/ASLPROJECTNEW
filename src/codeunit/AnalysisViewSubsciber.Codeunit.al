@@ -1,8 +1,11 @@
-codeunit 50014 "AnalysisViewSubsciber"
+/// <summary>
+/// CodeUnit AnalysisViewSubsciber (ID 50014).
+/// </summary>
+CodeUnit 50014 "AnalysisViewSubscriber"
 {
   EventSubscriberInstance = StaticAutomatic;
   
-  [EventSubscriber(ObjectType::Codeunit, Codeunit::"Update Analysis View", 'OnFlushAnalysisViewEntryOnBeforeAnalysisViewEntryInsert', '', true, true)]
+  [EventSubscriber(ObjectType::CodeUnit, CodeUnit::"Update Analysis View", 'OnFlushAnalysisViewEntryOnBeforeAnalysisViewEntryInsert', '', true, true)]
   local procedure MyProcedure()
   begin
     

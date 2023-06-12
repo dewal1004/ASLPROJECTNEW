@@ -1,3 +1,6 @@
+/// <summary>
+/// Enum ASLEntryExitReportType (ID 50001).
+/// </summary>
 enum 50001 "ASLEntryExitReportType"
 {
     Extensible = true;

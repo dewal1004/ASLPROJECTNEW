@@ -10,13 +10,19 @@
     "CRS.RenameWithGit": true,
     "editor.accessibilityPageSize": 10,
     "editor.formatOnSave": true,
-    "window.zoomLevel": 0,
+    "window.zoomLevel": -1,
     "al.enableCodeAnalysis": true,
     "al.enableCodeActions": true,
     "editor.foldingMaximumRegions": 10000,
     "editor.guides.bracketPairs": true,
     "cSpell.enableFiletypes": [
         "al"
+    ],
+    "cSpell.words": [
+        "Codeunit",
+        "Ledg",
+        "Mgmt",
+        "RDLC"
     ],
     // "al.codeAnalyzers": [
     //     "${CodeCop}",

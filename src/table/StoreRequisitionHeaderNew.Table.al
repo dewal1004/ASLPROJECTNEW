@@ -1,3 +1,6 @@
+/// <summary>
+/// Table Store Requisition Header New (ID 50031).
+/// </summary>
 table 50031 "Store Requisition Header New"
 {
 
@@ -539,7 +542,7 @@ table 50031 "Store Requisition Header New"
         Text50003: Label 'Transfer Order %1 Created. Kindly Check the Transfer Order and post  to Update your Inventory';
         Text50004: Label 'Sales Invoice %1 has been Created. Kindly Check and post the Invoice to Update your stock';
         Text50005: Label 'Adjustment Journal has been Created in Item  Journal %1. Kindly Check and post to update your Inventory.';
-        Text50006: Label 'Purchase Order %1 has been Created. Kindly Check and Post when neccessary to update your Inventory.';
+        Text50006: Label 'Purchase Order %1 has been Created. Kindly Check and Post when necessary to update your Inventory.';
         LocationRec: Record Location;
         PostItem: Codeunit "Item Jnl.-Post Line";
         ItemBatch: Record "Item Journal Batch";
@@ -592,7 +595,7 @@ table 50031 "Store Requisition Header New"
         ReqLines.SetRange(ReqLines."Req. No.", "Req. No");
         ReqLines.SetFilter(ReqLines."Issued Quantity", '<>%1', 0);
         if not ReqLines.FindSet then
-            Error('Notting To Invoice because All Lines has Zero quantity Issued');
+            Error('Nothing To Invoice because All Lines has Zero quantity Issued');
 
         SalesSetup.Get;
         DocNo := noseriesmgt.GetNextNo(SalesSetup."Invoice Nos.", Today, true);
@@ -634,6 +637,9 @@ table 50031 "Store Requisition Header New"
     end;
 
     // [Scope('OnPrem')]
+    ///This procedure create Journal for the Issue Item and post
+    /// CreateAdjSmt.
+    /// </summary>
     procedure CreateAdjSmt()
     var
         ItemJnl: Record "Item Journal Line";
@@ -651,7 +657,7 @@ table 50031 "Store Requisition Header New"
         ReqLines.SetRange(ReqLines."Req. No.", "Req. No");
         ReqLines.SetFilter(ReqLines."Issued Quantity", '<>%1', 0);
         if not ReqLines.FindSet then
-            Error('Notting To Issue. All Lines has Zero quantity Issued');
+            Error('Nothing To Issue. All Lines has Zero quantity Issued');
 
         ItemJnl.SetRange(ItemJnl."Journal Template Name", 'ITEM');
         ItemJnl.SetRange(ItemJnl."Journal Batch Name", "Journal Batch");

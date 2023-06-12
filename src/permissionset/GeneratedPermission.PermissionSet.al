@@ -593,7 +593,7 @@ permissionset 50000 "GeneratedPermission"
         report "Voyage Rev by Sea Day"=X,
         report "Weekly Points Report"=X,
         report "Zero Value Entry"=X,
-        codeunit AnalysisViewSubsciber=X,
+        codeunit "AnalysisViewSubscriber"=X,
         codeunit AssemblyPostSubscriber=X,
         codeunit AvailableMgmtSubscriber=X,
         codeunit "Code For Approval setup"=X,

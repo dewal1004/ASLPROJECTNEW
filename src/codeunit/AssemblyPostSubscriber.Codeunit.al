@@ -1,4 +1,7 @@
-codeunit 50022 "AssemblyPostSubscriber"
+/// <summary>
+/// Codeunit AssemblyPostSubscriber (ID 50022).
+/// </summary>
+CodeUnit 50022 "AssemblyPostSubscriber"
 {
     EventSubscriberInstance = StaticAutomatic;
 

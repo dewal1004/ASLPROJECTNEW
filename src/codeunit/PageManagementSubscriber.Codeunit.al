@@ -1,4 +1,7 @@
-codeunit 50021 "PageManagementSubscriber"
+/// <summary>
+/// Codeunit PageManagementSubscriber (ID 50021).
+/// </summary>
+CodeUnit 50021 "PageManagementSubscriber"
 {
     EventSubscriberInstance = StaticAutomatic;
 
