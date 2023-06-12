@@ -13,7 +13,7 @@ tableextension 50247 "tableextension50247" extends "Job Journal Batch"
 
             //Unsupported feature: Property Modification (Data type) on "Name(Field 2)".
 
-            TableRelation = IF ("Journal Template Name" = CONST ('RECURRING')) Location WHERE ("Location Type" = CONST (Vessel));
+            TableRelation = IF ("Journal Template Name" = CONST('RECURRING')) Location WHERE("Location Type" = CONST(Vessel));
         }
 
         //Unsupported feature: Code Insertion on "Name(Field 2)".
@@ -125,8 +125,8 @@ tableextension 50247 "tableextension50247" extends "Job Journal Batch"
         }
         field(50305; "Job No."; Code[20])
         {
-            TableRelation = Job WHERE (Vessel = FIELD (Name),
-                                       Status = FILTER (2));
+            TableRelation = Job WHERE(Vessel = FIELD(Name),
+                                       Status = FILTER(2));
 
             trigger OnValidate()
             begin
@@ -158,7 +158,7 @@ tableextension 50247 "tableextension50247" extends "Job Journal Batch"
             CaptionClass = '1,1,2';
             Caption = 'Global Dimension 2 Code';
             NotBlank = true;
-            TableRelation = "Dimension Value".Code WHERE ("Global Dimension No." = CONST (2));
+            TableRelation = "Dimension Value".Code WHERE("Global Dimension No." = CONST(2));
         }
         field(50318; "Init Journal"; Boolean)
         {

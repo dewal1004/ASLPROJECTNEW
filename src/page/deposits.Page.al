@@ -10,39 +10,39 @@ page 50110 "deposits"
             repeater(Control1)
             {
                 ShowCaption = false;
-                field("Deposit ID"; "Deposit ID")
+                field("Deposit ID"; Rec."Deposit ID")
                 {
                     ApplicationArea = All;
                 }
-                field("Bank Acc. No."; "Bank Acc. No.")
+                field("Bank Acc. No."; Rec."Bank Acc. No.")
                 {
                     ApplicationArea = All;
                 }
-                field("Bank Name"; "Bank Name")
+                field("Bank Name"; Rec."Bank Name")
                 {
                     ApplicationArea = All;
                 }
-                field("Date of Deposit"; "Date of Deposit")
+                field("Date of Deposit"; Rec."Date of Deposit")
                 {
                     ApplicationArea = All;
                 }
-                field("Deposit Balance"; "Deposit Balance")
+                field("Deposit Balance"; Rec."Deposit Balance")
                 {
                     ApplicationArea = All;
                 }
-                field("Maturity Date"; "Maturity Date")
+                field("Maturity Date"; Rec."Maturity Date")
                 {
                     ApplicationArea = All;
                 }
-                field("Interest Rate"; "Interest Rate")
+                field("Interest Rate"; Rec."Interest Rate")
                 {
                     ApplicationArea = All;
                 }
-                field("Interest accruing on deposit"; "Interest accruing on deposit")
+                field("Interest accruing on deposit"; Rec."Interest accruing on deposit")
                 {
                     ApplicationArea = All;
                 }
-                field("Amount of deposit"; "Amount of deposit")
+                field("Amount of deposit"; Rec."Amount of deposit")
                 {
                     ApplicationArea = All;
                 }

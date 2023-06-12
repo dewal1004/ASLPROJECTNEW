@@ -5,7 +5,7 @@ query 50000 "Production Report"
     {
         dataitem(Item_Ledger_Entry; "Item Ledger Entry")
         {
-            DataItemTableFilter = "Order Type" = CONST (Production);
+            DataItemTableFilter = "Order Type" = CONST(Production);
             column(Item_No; "Item No.")
             {
             }

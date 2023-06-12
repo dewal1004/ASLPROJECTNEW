@@ -34,8 +34,8 @@ pageextension 50364 "pageextension50364" extends "Sales Invoice List"
 
                 trigger OnAction()
                 begin
-                    TrasRec.SetRange(TrasRec."No.", "No.");
-                    TrasRec.SetRange(TrasRec."Document Type", "Document Type");
+                    TrasRec.SetRange(TrasRec."No.", Rec."No.");
+                    TrasRec.SetRange(TrasRec."Document Type", Rec."Document Type");
                     if TrasRec.FindFirst then
                         REPORT.RunModal(50093, true, false, TrasRec);
                 end;

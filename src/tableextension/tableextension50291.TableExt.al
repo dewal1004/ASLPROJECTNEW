@@ -8,7 +8,7 @@ tableextension 50291 "tableextension50291" extends "Misc. Article"
         }
         field(50001; "Item No."; Code[20])
         {
-            TableRelation = IF ("Mat Type" = CONST ("Stock Item")) Item."No.";
+            TableRelation = IF ("Mat Type" = CONST("Stock Item")) Item."No.";
 
             trigger OnValidate()
             begin

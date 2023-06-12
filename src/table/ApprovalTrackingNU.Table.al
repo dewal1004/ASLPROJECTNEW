@@ -27,7 +27,7 @@ table 54002 "Approval Tracking NU*"
         }
         field(7; UserID; Code[10])
         {
-          //  TableRelation = Table2000000002.Field1;
+            //  TableRelation = Table2000000002.Field1;
         }
         field(8; "Action"; Option)
         {
@@ -41,7 +41,7 @@ table 54002 "Approval Tracking NU*"
         }
         field(11; "New Desk"; Code[10])
         {
-           // TableRelation = Table2000000002.Field1;
+            // TableRelation = Table2000000002.Field1;
         }
     }
 

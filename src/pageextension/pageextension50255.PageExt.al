@@ -8,30 +8,30 @@ pageextension 50255 "pageextension50255" extends "Item Journal Batches"
         }
         addafter("Posting No. Series")
         {
-            field("Entry Type"; "Entry Type")
+            field("Entry Type"; Rec."Entry Type")
             {
                 ApplicationArea = All;
             }
-            field("Transfer From"; "Transfer From")
+            field("Transfer From"; Rec."Transfer From")
             {
                 ApplicationArea = All;
             }
-            field("Transfer To"; "Transfer To")
+            field("Transfer To"; Rec."Transfer To")
             {
                 ApplicationArea = All;
             }
-            field("Document No."; "Document No.")
+            field("Document No."; Rec."Document No.")
             {
                 ApplicationArea = All;
             }
-            field("Gen. Bus. Posting Group"; "Gen. Bus. Posting Group")
+            field("Gen. Bus. Posting Group"; Rec."Gen. Bus. Posting Group")
             {
                 ApplicationArea = All;
             }
         }
         addafter("Reason Code")
         {
-            field("Lock batch"; "Lock batch")
+            field("Lock batch"; Rec."Lock batch")
             {
                 ApplicationArea = All;
             }

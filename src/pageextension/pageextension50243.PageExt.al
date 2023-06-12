@@ -4,12 +4,12 @@ pageextension 50243 "pageextension50243" extends "Units of Measure"
     {
         addafter("International Standard Code")
         {
-            field("Catch Code"; "Catch Code")
+            field("Catch Code"; Rec."Catch Code")
             {
                 Visible = false;
                 ApplicationArea = All;
             }
-            field("In Use"; "In Use")
+            field("In Use"; Rec."In Use")
             {
                 Visible = false;
                 ApplicationArea = All;

@@ -4,7 +4,7 @@ pageextension 50228 "pageextension50228" extends "Posted Purchase Receipts"
     {
         addafter("Shipment Method Code")
         {
-            field("Order No."; "Order No.")
+            field("Order No."; Rec."Order No.")
             {
                 ApplicationArea = All;
             }

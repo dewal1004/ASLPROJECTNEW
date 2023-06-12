@@ -16,7 +16,7 @@ pageextension 50266 "pageextension50266" extends "Phys. Inventory Journal"
 
             trigger OnAfterValidate()
             begin
-                ValidateShortcutDimCode(8, ShortcutDimCode[8]);
+                Rec.ValidateShortcutDimCode(8, ShortcutDimCode[8]);
 
                 //*** OnAfterValidateShortcutDimCode(Rec, ShortcutDimCode, 8);
             end;

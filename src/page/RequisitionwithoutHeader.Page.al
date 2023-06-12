@@ -12,59 +12,59 @@ page 50112 "Requisition without Header"
         {
             repeater(Group)
             {
-                field("Req. No."; "Req. No.")
+                field("Req. No."; Rec."Req. No.")
                 {
                     ApplicationArea = All;
                 }
-                field("Line No."; "Line No.")
+                field("Line No."; Rec."Line No.")
                 {
                     ApplicationArea = All;
                 }
-                field("Item No."; "Item No.")
+                field("Item No."; Rec."Item No.")
                 {
                     ApplicationArea = All;
                 }
-                field("Item Description"; "Item Description")
+                field("Item Description"; Rec."Item Description")
                 {
                     ApplicationArea = All;
                 }
-                field("Requested Quantity"; "Requested Quantity")
+                field("Requested Quantity"; Rec."Requested Quantity")
                 {
                     ApplicationArea = All;
                 }
-                field("Approved Quantity"; "Approved Quantity")
+                field("Approved Quantity"; Rec."Approved Quantity")
                 {
                     ApplicationArea = All;
                 }
-                field("Issued Quantity"; "Issued Quantity")
+                field("Issued Quantity"; Rec."Issued Quantity")
                 {
                     ApplicationArea = All;
                 }
-                field("Claim by Employee"; "Claim by Employee")
+                field("Claim by Employee"; Rec."Claim by Employee")
                 {
                     ApplicationArea = All;
                 }
-                field("Mat. Req.  No."; "Mat. Req.  No.")
+                field("Mat. Req.  No."; Rec."Mat. Req.  No.")
                 {
                     ApplicationArea = All;
                 }
-                field("1st Approval"; "1st Approval")
+                field("1st Approval"; Rec."1st Approval")
                 {
                     ApplicationArea = All;
                 }
-                field("Final Approval"; "Final Approval")
+                field("Final Approval"; Rec."Final Approval")
                 {
                     ApplicationArea = All;
                 }
-                field(Processed; Processed)
+                field(Processed; Rec.Processed)
                 {
                     ApplicationArea = All;
                 }
-                field("Req. Type"; "Req. Type")
+                field("Req. Type"; Rec."Req. Type")
                 {
                     ApplicationArea = All;
                 }
-                field("No Header"; "No Header")
+                field("No Header"; Rec."No Header")
                 {
                     ApplicationArea = All;
                 }

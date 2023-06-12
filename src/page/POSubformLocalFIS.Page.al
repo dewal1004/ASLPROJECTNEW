@@ -15,310 +15,310 @@ page 50155 "PO Subform Local - FIS"
             repeater(Control1)
             {
                 ShowCaption = false;
-                field(Type; Type)
+                field(Type; Rec.Type)
                 {
                     ApplicationArea = All;
                 }
-                field(ProdCd; ProdCd)
+                field(ProdCd; Rec.ProdCd)
                 {
                     Visible = ProdCdVisible;
                     ApplicationArea = All;
                 }
-                field("Pack Size"; "Pack Size")
+                field("Pack Size"; Rec."Pack Size")
                 {
                     Visible = "Pack SizeVisible";
                     ApplicationArea = All;
                 }
-                field(Brand; Brand)
+                field(Brand; Rec.Brand)
                 {
                     Visible = BrandVisible;
                     ApplicationArea = All;
                 }
-                field("No."; "No.")
+                field("No."; Rec."No.")
                 {
                     ApplicationArea = All;
 
                     trigger OnValidate()
                     begin
-                        ShowShortcutDimCode(ShortcutDimCode);
+                        Rec.ShowShortcutDimCode(ShortcutDimCode);
                         NoOnAfterValidate;
                     end;
                 }
-                field("Reason Code"; "Reason Code")
+                field("Reason Code"; Rec."Reason Code")
                 {
                     Visible = "Reason CodeVisible";
                     ApplicationArea = All;
                 }
-                field("External Document No."; "External Document No.")
+                field("External Document No."; Rec."External Document No.")
                 {
                     Visible = "External Document No.Visible";
                     ApplicationArea = All;
                 }
-                field("Gen. Prod. Posting Group"; "Gen. Prod. Posting Group")
+                field("Gen. Prod. Posting Group"; Rec."Gen. Prod. Posting Group")
                 {
                     ApplicationArea = All;
                 }
-                field("Gen. Bus. Posting Group"; "Gen. Bus. Posting Group")
+                field("Gen. Bus. Posting Group"; Rec."Gen. Bus. Posting Group")
                 {
                     ApplicationArea = All;
                 }
-                field("Cross-Reference No."; "Cross-Reference No.")
+                field("Cross-Reference No."; Rec."Cross-Reference No.")
                 {
                     Visible = false;
                     ApplicationArea = All;
 
                     trigger OnLookup(var Text: Text): Boolean
                     begin
-                        if Type = Type::Item then begin
-                            PurchHeader.Get("Document Type", "Document No.");
+                        if Rec.Type = Rec.Type::Item then begin
+                            PurchHeader.Get(Rec."Document Type", Rec."Document No.");
                             ItemCrossReference.Reset;
                             ItemCrossReference.SetCurrentKey("Cross-Reference Type", "Cross-Reference Type No.");
                             ItemCrossReference.SetRange("Cross-Reference Type", ItemCrossReference."Cross-Reference Type"::Vendor);
                             ItemCrossReference.SetRange("Cross-Reference Type No.", PurchHeader."Buy-from Vendor No.");
                             if PAGE.RunModal(PAGE::"Cross Reference List", ItemCrossReference) = ACTION::LookupOK then begin
-                                Validate("Cross-Reference No.", ItemCrossReference."Cross-Reference No.");
+                                Rec.Validate("Cross-Reference No.", ItemCrossReference."Cross-Reference No.");
                                 InsertExtendedText(false);
                             end;
                         end;
                     end;
                 }
-                field("Variant Code"; "Variant Code")
+                field("Variant Code"; Rec."Variant Code")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field(Nonstock; Nonstock)
+                field(Nonstock; Rec.Nonstock)
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("VAT Prod. Posting Group"; "VAT Prod. Posting Group")
+                field("VAT Prod. Posting Group"; Rec."VAT Prod. Posting Group")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field(Description; Description)
+                field(Description; Rec.Description)
                 {
                     ApplicationArea = All;
                 }
-                field("Duty Rate%"; "Duty Rate%")
-                {
-                    Visible = false;
-                    ApplicationArea = All;
-                }
-                field("Quantity Ordered"; "Quantity Ordered")
+                field("Duty Rate%"; Rec."Duty Rate%")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field(Control80; "Drop Shipment")
+                field("Quantity Ordered"; Rec."Quantity Ordered")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("Location Code"; "Location Code")
+                field(Control80; Rec."Drop Shipment")
+                {
+                    Visible = false;
+                    ApplicationArea = All;
+                }
+                field("Location Code"; Rec."Location Code")
                 {
                     ApplicationArea = All;
                 }
-                field(Quantity; Quantity)
+                field(Quantity; Rec.Quantity)
                 {
                     BlankZero = true;
                     ApplicationArea = All;
                 }
-                field("Reserved Quantity"; "Reserved Quantity")
-                {
-                    BlankZero = true;
-                    Visible = false;
-                    ApplicationArea = All;
-                }
-                field("Unit of Measure Code"; "Unit of Measure Code")
-                {
-                    ApplicationArea = All;
-                }
-                field("Unit of Measure"; "Unit of Measure")
-                {
-                    Visible = false;
-                    ApplicationArea = All;
-                }
-                field("Direct Unit Cost"; "Direct Unit Cost")
-                {
-                    BlankZero = true;
-                    ApplicationArea = All;
-                }
-                field("Indirect Cost %"; "Indirect Cost %")
-                {
-                    Visible = false;
-                    ApplicationArea = All;
-                }
-                field("Unit Cost (LCY)"; "Unit Cost (LCY)")
-                {
-                    Visible = false;
-                    ApplicationArea = All;
-                }
-                field("Unit Price (LCY)"; "Unit Price (LCY)")
-                {
-                    Visible = false;
-                    ApplicationArea = All;
-                }
-                field(Amount; Amount)
-                {
-                    Visible = false;
-                    ApplicationArea = All;
-                }
-                field("Line Amount"; "Line Amount")
-                {
-                    BlankZero = true;
-                    ApplicationArea = All;
-                }
-                field("Line Discount %"; "Line Discount %")
-                {
-                    BlankZero = true;
-                    ApplicationArea = All;
-                }
-                field("Line Discount Amount"; "Line Discount Amount")
-                {
-                    Visible = false;
-                    ApplicationArea = All;
-                }
-                field("Allow Invoice Disc."; "Allow Invoice Disc.")
-                {
-                    Visible = false;
-                    ApplicationArea = All;
-                }
-                field("Inv. Discount Amount"; "Inv. Discount Amount")
-                {
-                    Visible = false;
-                    ApplicationArea = All;
-                }
-                field("Qty. to Receive"; "Qty. to Receive")
-                {
-                    BlankZero = true;
-                    ApplicationArea = All;
-                }
-                field("Quantity Received"; "Quantity Received")
+                field("Reserved Quantity"; Rec."Reserved Quantity")
                 {
                     BlankZero = true;
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("Qty. to Invoice"; "Qty. to Invoice")
+                field("Unit of Measure Code"; Rec."Unit of Measure Code")
+                {
+                    ApplicationArea = All;
+                }
+                field("Unit of Measure"; Rec."Unit of Measure")
+                {
+                    Visible = false;
+                    ApplicationArea = All;
+                }
+                field("Direct Unit Cost"; Rec."Direct Unit Cost")
+                {
+                    BlankZero = true;
+                    ApplicationArea = All;
+                }
+                field("Indirect Cost %"; Rec."Indirect Cost %")
+                {
+                    Visible = false;
+                    ApplicationArea = All;
+                }
+                field("Unit Cost (LCY)"; Rec."Unit Cost (LCY)")
+                {
+                    Visible = false;
+                    ApplicationArea = All;
+                }
+                field("Unit Price (LCY)"; Rec."Unit Price (LCY)")
+                {
+                    Visible = false;
+                    ApplicationArea = All;
+                }
+                field(Amount; Rec.Amount)
+                {
+                    Visible = false;
+                    ApplicationArea = All;
+                }
+                field("Line Amount"; Rec."Line Amount")
+                {
+                    BlankZero = true;
+                    ApplicationArea = All;
+                }
+                field("Line Discount %"; Rec."Line Discount %")
+                {
+                    BlankZero = true;
+                    ApplicationArea = All;
+                }
+                field("Line Discount Amount"; Rec."Line Discount Amount")
+                {
+                    Visible = false;
+                    ApplicationArea = All;
+                }
+                field("Allow Invoice Disc."; Rec."Allow Invoice Disc.")
+                {
+                    Visible = false;
+                    ApplicationArea = All;
+                }
+                field("Inv. Discount Amount"; Rec."Inv. Discount Amount")
+                {
+                    Visible = false;
+                    ApplicationArea = All;
+                }
+                field("Qty. to Receive"; Rec."Qty. to Receive")
+                {
+                    BlankZero = true;
+                    ApplicationArea = All;
+                }
+                field("Quantity Received"; Rec."Quantity Received")
                 {
                     BlankZero = true;
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("Quantity Invoiced"; "Quantity Invoiced")
+                field("Qty. to Invoice"; Rec."Qty. to Invoice")
                 {
                     BlankZero = true;
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("Allow Item Charge Assignment"; "Allow Item Charge Assignment")
+                field("Quantity Invoiced"; Rec."Quantity Invoiced")
+                {
+                    BlankZero = true;
+                    Visible = false;
+                    ApplicationArea = All;
+                }
+                field("Allow Item Charge Assignment"; Rec."Allow Item Charge Assignment")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("Requested Receipt Date"; "Requested Receipt Date")
+                field("Requested Receipt Date"; Rec."Requested Receipt Date")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("Promised Receipt Date"; "Promised Receipt Date")
+                field("Promised Receipt Date"; Rec."Promised Receipt Date")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("Planned Receipt Date"; "Planned Receipt Date")
+                field("Planned Receipt Date"; Rec."Planned Receipt Date")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("Expected Receipt Date"; "Expected Receipt Date")
+                field("Expected Receipt Date"; Rec."Expected Receipt Date")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("Order Date"; "Order Date")
+                field("Order Date"; Rec."Order Date")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("Lead Time Calculation"; "Lead Time Calculation")
+                field("Lead Time Calculation"; Rec."Lead Time Calculation")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("Job No."; "Job No.")
+                field("Job No."; Rec."Job No.")
                 {
                     Visible = false;
                     ApplicationArea = All;
 
                     trigger OnValidate()
                     begin
-                        ShowShortcutDimCode(ShortcutDimCode);
+                        Rec.ShowShortcutDimCode(ShortcutDimCode);
                     end;
                 }
-                field("Planning Flexibility"; "Planning Flexibility")
+                field("Planning Flexibility"; Rec."Planning Flexibility")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("Prod. Order Line No."; "Prod. Order Line No.")
+                field("Prod. Order Line No."; Rec."Prod. Order Line No.")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("Prod. Order No."; "Prod. Order No.")
+                field("Prod. Order No."; Rec."Prod. Order No.")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("Operation No."; "Operation No.")
+                field("Operation No."; Rec."Operation No.")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("Work Center No."; "Work Center No.")
+                field("Work Center No."; Rec."Work Center No.")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field(Finished; Finished)
+                field(Finished; Rec.Finished)
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("Whse. Outstanding Qty. (Base)"; "Whse. Outstanding Qty. (Base)")
+                field("Whse. Outstanding Qty. (Base)"; Rec."Whse. Outstanding Qty. (Base)")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("Inbound Whse. Handling Time"; "Inbound Whse. Handling Time")
+                field("Inbound Whse. Handling Time"; Rec."Inbound Whse. Handling Time")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("Blanket Order No."; "Blanket Order No.")
+                field("Blanket Order No."; Rec."Blanket Order No.")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("Blanket Order Line No."; "Blanket Order Line No.")
+                field("Blanket Order Line No."; Rec."Blanket Order Line No.")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("Appl.-to Item Entry"; "Appl.-to Item Entry")
+                field("Appl.-to Item Entry"; Rec."Appl.-to Item Entry")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("Shortcut Dimension 1 Code"; "Shortcut Dimension 1 Code")
+                field("Shortcut Dimension 1 Code"; Rec."Shortcut Dimension 1 Code")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("Shortcut Dimension 2 Code"; "Shortcut Dimension 2 Code")
+                field("Shortcut Dimension 2 Code"; Rec."Shortcut Dimension 2 Code")
                 {
                     Visible = false;
                     ApplicationArea = All;
@@ -331,12 +331,12 @@ page 50155 "PO Subform Local - FIS"
 
                     trigger OnLookup(var Text: Text): Boolean
                     begin
-                        LookupShortcutDimCode(3, ShortcutDimCode[3]);
+                        Rec.LookupShortcutDimCode(3, ShortcutDimCode[3]);
                     end;
 
                     trigger OnValidate()
                     begin
-                        ValidateShortcutDimCode(3, ShortcutDimCode[3]);
+                        Rec.ValidateShortcutDimCode(3, ShortcutDimCode[3]);
                     end;
                 }
                 field("ShortcutDimCode[4]"; ShortcutDimCode[4])
@@ -347,12 +347,12 @@ page 50155 "PO Subform Local - FIS"
 
                     trigger OnLookup(var Text: Text): Boolean
                     begin
-                        LookupShortcutDimCode(4, ShortcutDimCode[4]);
+                        Rec.LookupShortcutDimCode(4, ShortcutDimCode[4]);
                     end;
 
                     trigger OnValidate()
                     begin
-                        ValidateShortcutDimCode(4, ShortcutDimCode[4]);
+                        Rec.ValidateShortcutDimCode(4, ShortcutDimCode[4]);
                     end;
                 }
                 field("ShortcutDimCode[5]"; ShortcutDimCode[5])
@@ -363,12 +363,12 @@ page 50155 "PO Subform Local - FIS"
 
                     trigger OnLookup(var Text: Text): Boolean
                     begin
-                        LookupShortcutDimCode(5, ShortcutDimCode[5]);
+                        Rec.LookupShortcutDimCode(5, ShortcutDimCode[5]);
                     end;
 
                     trigger OnValidate()
                     begin
-                        ValidateShortcutDimCode(5, ShortcutDimCode[5]);
+                        Rec.ValidateShortcutDimCode(5, ShortcutDimCode[5]);
                     end;
                 }
                 field("ShortcutDimCode[6]"; ShortcutDimCode[6])
@@ -379,12 +379,12 @@ page 50155 "PO Subform Local - FIS"
 
                     trigger OnLookup(var Text: Text): Boolean
                     begin
-                        LookupShortcutDimCode(6, ShortcutDimCode[6]);
+                        Rec.LookupShortcutDimCode(6, ShortcutDimCode[6]);
                     end;
 
                     trigger OnValidate()
                     begin
-                        ValidateShortcutDimCode(6, ShortcutDimCode[6]);
+                        Rec.ValidateShortcutDimCode(6, ShortcutDimCode[6]);
                     end;
                 }
                 field("ShortcutDimCode[7]"; ShortcutDimCode[7])
@@ -395,12 +395,12 @@ page 50155 "PO Subform Local - FIS"
 
                     trigger OnLookup(var Text: Text): Boolean
                     begin
-                        LookupShortcutDimCode(7, ShortcutDimCode[7]);
+                        Rec.LookupShortcutDimCode(7, ShortcutDimCode[7]);
                     end;
 
                     trigger OnValidate()
                     begin
-                        ValidateShortcutDimCode(7, ShortcutDimCode[7]);
+                        Rec.ValidateShortcutDimCode(7, ShortcutDimCode[7]);
                     end;
                 }
                 field("ShortcutDimCode[8]"; ShortcutDimCode[8])
@@ -411,140 +411,140 @@ page 50155 "PO Subform Local - FIS"
 
                     trigger OnLookup(var Text: Text): Boolean
                     begin
-                        LookupShortcutDimCode(8, ShortcutDimCode[8]);
+                        Rec.LookupShortcutDimCode(8, ShortcutDimCode[8]);
                     end;
 
                     trigger OnValidate()
                     begin
-                        ValidateShortcutDimCode(8, ShortcutDimCode[8]);
+                        Rec.ValidateShortcutDimCode(8, ShortcutDimCode[8]);
                     end;
                 }
-                field("Freight(LCY)"; "Freight(LCY)")
+                field("Freight(LCY)"; Rec."Freight(LCY)")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("Ancillary(LCY)"; "Ancillary(LCY)")
+                field("Ancillary(LCY)"; Rec."Ancillary(LCY)")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("Duty(LCY)"; "Duty(LCY)")
+                field("Duty(LCY)"; Rec."Duty(LCY)")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("Insurance(LCY)"; "Insurance(LCY)")
+                field("Insurance(LCY)"; Rec."Insurance(LCY)")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("Surcharge Duty(LCY)"; "Surcharge Duty(LCY)")
+                field("Surcharge Duty(LCY)"; Rec."Surcharge Duty(LCY)")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("Ecowas Duty(LCY)"; "Ecowas Duty(LCY)")
+                field("Ecowas Duty(LCY)"; Rec."Ecowas Duty(LCY)")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("CISS(LCY)"; "CISS(LCY)")
+                field("CISS(LCY)"; Rec."CISS(LCY)")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("Vat (LCY)"; "Vat (LCY)")
+                field("Vat (LCY)"; Rec."Vat (LCY)")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("Clearing(LCY)"; "Clearing(LCY)")
+                field("Clearing(LCY)"; Rec."Clearing(LCY)")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("Interest(LCY)"; "Interest(LCY)")
+                field("Interest(LCY)"; Rec."Interest(LCY)")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("Total Overhead(LCY)"; "Total Overhead(LCY)")
+                field("Total Overhead(LCY)"; Rec."Total Overhead(LCY)")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("LandedAmount(LCY)"; "LandedAmount(LCY)")
+                field("LandedAmount(LCY)"; Rec."LandedAmount(LCY)")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("ActualFreight(LCY)"; "ActualFreight(LCY)")
+                field("ActualFreight(LCY)"; Rec."ActualFreight(LCY)")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("ActualAncillary(LCY)"; "ActualAncillary(LCY)")
+                field("ActualAncillary(LCY)"; Rec."ActualAncillary(LCY)")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("ActualDuty(LCY)"; "ActualDuty(LCY)")
+                field("ActualDuty(LCY)"; Rec."ActualDuty(LCY)")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("ActualInsurance(LCY)"; "ActualInsurance(LCY)")
+                field("ActualInsurance(LCY)"; Rec."ActualInsurance(LCY)")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("ActualSurcharge Duty(LCY)"; "ActualSurcharge Duty(LCY)")
+                field("ActualSurcharge Duty(LCY)"; Rec."ActualSurcharge Duty(LCY)")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("ActualEcowas Duty(LCY)"; "ActualEcowas Duty(LCY)")
+                field("ActualEcowas Duty(LCY)"; Rec."ActualEcowas Duty(LCY)")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("ActualCISS(LCY)"; "ActualCISS(LCY)")
+                field("ActualCISS(LCY)"; Rec."ActualCISS(LCY)")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("ActualVat (LCY)"; "ActualVat (LCY)")
+                field("ActualVat (LCY)"; Rec."ActualVat (LCY)")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("ActualClearing(LCY)"; "ActualClearing(LCY)")
+                field("ActualClearing(LCY)"; Rec."ActualClearing(LCY)")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("ActualInterest(LCY)"; "ActualInterest(LCY)")
+                field("ActualInterest(LCY)"; Rec."ActualInterest(LCY)")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("ActualDuty Rate%"; "ActualDuty Rate%")
+                field("ActualDuty Rate%"; Rec."ActualDuty Rate%")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("ActualTotal Overhead(LCY)"; "ActualTotal Overhead(LCY)")
+                field("ActualTotal Overhead(LCY)"; Rec."ActualTotal Overhead(LCY)")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("ActualLandedAmount(LCY)"; "ActualLandedAmount(LCY)")
+                field("ActualLandedAmount(LCY)"; Rec."ActualLandedAmount(LCY)")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("Original Purc. Order No."; "Original Purc. Order No.")
+                field("Original Purc. Order No."; Rec."Original Purc. Order No.")
                 {
                     Visible = false;
                     ApplicationArea = All;
@@ -791,7 +791,7 @@ page 50155 "PO Subform Local - FIS"
 
     trigger OnAfterGetRecord()
     begin
-        ShowShortcutDimCode(ShortcutDimCode);
+        Rec.ShowShortcutDimCode(ShortcutDimCode);
         //UpdateEnabled();
         UpdateUsageForm();
     end;
@@ -803,10 +803,10 @@ page 50155 "PO Subform Local - FIS"
 
     trigger OnNewRecord(BelowxRec: Boolean)
     begin
-        Type := xRec.Type;
+        Rec.Type := xRec.Type;
         Clear(ShortcutDimCode);
         //AAA
-        "Original Purc. Order No." := xRec."Original Purc. Order No.";
+        Rec."Original Purc. Order No." := xRec."Original Purc. Order No.";
     end;
 
     var
@@ -857,7 +857,7 @@ page 50155 "PO Subform Local - FIS"
         SalesHeader: Record "Sales Header";
         SalesOrder: Page "Sales Order";
     begin
-        SalesHeader.SetRange("No.", "Sales Order No.");
+        SalesHeader.SetRange("No.", Rec."Sales Order No.");
         SalesOrder.SetTableView(SalesHeader);
         SalesOrder.Editable := false;
         SalesOrder.Run;
@@ -888,14 +888,14 @@ page 50155 "PO Subform Local - FIS"
     [Scope('Onprem')]
     procedure _ShowReservation()
     begin
-        Find;
+        Rec.Find;
         Rec.ShowReservation;
     end;
 
     [Scope('Onprem')]
     procedure ASLShowReservation()
     begin
-        Find;
+        Rec.Find;
         Rec.ShowReservation;
     end;
 
@@ -968,7 +968,7 @@ page 50155 "PO Subform Local - FIS"
         SalesHeader: Record "Sales Header";
         SalesOrder: Page "Sales Order";
     begin
-        SalesHeader.SetRange("No.", "Special Order Sales No.");
+        SalesHeader.SetRange("No.", Rec."Special Order Sales No.");
         SalesOrder.SetTableView(SalesHeader);
         SalesOrder.Editable := false;
         SalesOrder.Run;
@@ -1050,7 +1050,7 @@ page 50155 "PO Subform Local - FIS"
     [Scope('Onprem')]
     procedure UpdateUsageForm()
     begin
-        if PurchHeader.Get("Document Type", "Document No.") then
+        if PurchHeader.Get(Rec."Document Type", Rec."Document No.") then
             if PurchHeader."Reason Code" <> '' then begin
                 "Reason CodeVisible" := true;
                 "External Document No.Visible" := true;
@@ -1081,12 +1081,12 @@ page 50155 "PO Subform Local - FIS"
     local procedure NoOnAfterValidate()
     begin
         InsertExtendedText(false);
-        if (Type = Type::"Charge (Item)") and ("No." <> xRec."No.") and
+        if (Rec.Type = Rec.Type::"Charge (Item)") and (Rec."No." <> xRec."No.") and
            (xRec."No." <> '')
         then
             CurrPage.SaveRecord;
-        if Type = Type::Item then
-            Validate("Indirect Cost %", -100);
+        if Rec.Type = Rec.Type::Item then
+            Rec.Validate("Indirect Cost %", -100);
     end;
 }
 

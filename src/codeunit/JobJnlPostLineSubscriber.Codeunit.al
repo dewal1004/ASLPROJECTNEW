@@ -36,19 +36,17 @@ codeunit 50025 "JobJnlPostLineSubscriber"
         if ApplyToJobContractEntryNo then
             ItemJnlLine."Job Contract Entry No." := JobPlanningLine."Job Contract Entry No.";
     end;
-    
+
     local procedure JobPlanningReservationExists(ItemNo: Code[20]; JobNo: Code[20]): Boolean
     var
         ReservationEntry: Record "Reservation Entry";
         Job: Record job;
     begin
-        with ReservationEntry do begin
-            SetRange("Item No.", ItemNo);
-            SetRange("Source Type", DATABASE::"Job Planning Line");
-            SetRange("Source Subtype", Job.Status::"Open");
-            SetRange("Source ID", JobNo);
-            exit(not IsEmpty);
-        end;
+        ReservationEntry.SetRange("Item No.", ItemNo);
+        ReservationEntry.SetRange("Source Type", DATABASE::"Job Planning Line");
+        ReservationEntry.SetRange("Source Subtype", Job.Status::"Open");
+        ReservationEntry.SetRange("Source ID", JobNo);
+        exit(not ReservationEntry.IsEmpty);
     end;
 
     local procedure ApplyToMatchingJobPlanningLine(var JobJnlLine: Record "Job Journal Line"; var JobPlanningLine: Record "Job Planning Line"): Boolean

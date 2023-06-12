@@ -2,7 +2,7 @@ report 50084 "Calculate Inventory By Group"
 {
     ProcessingOnly = true;
     UsageCategory = ReportsAndAnalysis;
-    ApplicationArea = All,Basic,Suite;
+    ApplicationArea = All, Basic, Suite;
     dataset
     {
         dataitem(Item; Item)
@@ -30,41 +30,39 @@ report 50084 "Calculate Inventory By Group"
 
                         ItemLedgEntry.CalcSums(Quantity);
 
-                    with QuantityOnHandBuffer do begin
-                        if (ItemLedgEntry.Quantity <> 0) or ZeroQty then begin
-                            Reset;
-                            SetRange("Item No.", ItemLedgEntry."Item No.");
-                            SetRange("Variant Code", ItemLedgEntry."Variant Code");
-                            /*IF ByDept THEN
-                              SETRANGE("Department Code",ItemLedgEntry."Global Dimension 1 Code");
-                            IF ByProj THEN
-                              SETRANGE("Solution Code",ItemLedgEntry."Global Dimension 2 Code");
-                            */
+                    if (ItemLedgEntry.Quantity <> 0) or ZeroQty then begin
+                        QuantityOnHandBuffer.Reset;
+                        QuantityOnHandBuffer.SetRange("Item No.", ItemLedgEntry."Item No.");
+                        QuantityOnHandBuffer.SetRange("Variant Code", ItemLedgEntry."Variant Code");
+                        /*IF ByDept THEN
+                          SETRANGE("Department Code",ItemLedgEntry."Global Dimension 1 Code");
+                        IF ByProj THEN
+                          SETRANGE("Solution Code",ItemLedgEntry."Global Dimension 2 Code");
+                        */
+                        if ByLocation then
+                            QuantityOnHandBuffer.SetRange("Location Code", ItemLedgEntry."Location Code");
+                        //IF ByBin THEN
+                        //SETRANGE("Bin Code",ItemLedgEntry."Bin Code");
+                        if QuantityOnHandBuffer.Find('-') then begin
+                            QuantityOnHandBuffer.Quantity := QuantityOnHandBuffer.Quantity + ItemLedgEntry.Quantity;
+                            QuantityOnHandBuffer.Modify;
+                        end else begin
+                            QuantityOnHandBuffer."Item No." := ItemLedgEntry."Item No.";
+                            QuantityOnHandBuffer."Variant Code" := ItemLedgEntry."Variant Code";
+                            /* IF ByDept THEN
+                               "Department Code" := ItemLedgEntry."Global Dimension 1 Code";
+                              IF ByProj THEN
+                               "Solution Code" := ItemLedgEntry."Global Dimension 2 Code";
+                             */
                             if ByLocation then
-                                SetRange("Location Code", ItemLedgEntry."Location Code");
+                                QuantityOnHandBuffer."Location Code" := ItemLedgEntry."Location Code";
                             //IF ByBin THEN
-                            //SETRANGE("Bin Code",ItemLedgEntry."Bin Code");
-                            if Find('-') then begin
-                                Quantity := Quantity + ItemLedgEntry.Quantity;
-                                Modify;
-                            end else begin
-                                "Item No." := ItemLedgEntry."Item No.";
-                                "Variant Code" := ItemLedgEntry."Variant Code";
-                                /* IF ByDept THEN
-                                   "Department Code" := ItemLedgEntry."Global Dimension 1 Code";
-                                  IF ByProj THEN
-                                   "Solution Code" := ItemLedgEntry."Global Dimension 2 Code";
-                                 */
-                                if ByLocation then
-                                    "Location Code" := ItemLedgEntry."Location Code";
-                                //IF ByBin THEN
-                                //"Bin Code" := ItemLedgEntry."Bin Code";
-                                Quantity := ItemLedgEntry.Quantity;
-                                Insert;
-                            end;
+                            //"Bin Code" := ItemLedgEntry."Bin Code";
+                            QuantityOnHandBuffer.Quantity := ItemLedgEntry.Quantity;
+                            QuantityOnHandBuffer.Insert;
                         end;
-                        ItemLedgEntry.Find('+');
                     end;
+                    ItemLedgEntry.Find('+');
 
                     Step := 0;
                     if ByBin then begin
@@ -124,14 +122,12 @@ report 50084 "Calculate Inventory By Group"
 
             trigger OnPostDataItem()
             begin
-                with QuantityOnHandBuffer do begin
-                    Reset;
-                    if Find('-') then begin
-                        repeat
-                            InsertItemJnlLine("Item No.", "Variant Code", A1, A2, "Location Code", "Bin Code", Quantity);
-                        until Next = 0;
-                        DeleteAll;
-                    end;
+                QuantityOnHandBuffer.Reset;
+                if QuantityOnHandBuffer.Find('-') then begin
+                    repeat
+                        InsertItemJnlLine(QuantityOnHandBuffer."Item No.", QuantityOnHandBuffer."Variant Code", A1, A2, QuantityOnHandBuffer."Location Code", QuantityOnHandBuffer."Bin Code", QuantityOnHandBuffer.Quantity);
+                    until QuantityOnHandBuffer.Next = 0;
+                    QuantityOnHandBuffer.DeleteAll;
                 end;
             end;
 
@@ -226,47 +222,45 @@ report 50084 "Calculate Inventory By Group"
     var
         ItemLedgEntry: Record "Item Ledger Entry";
     begin
-        with ItemJnlLine do begin
-            if NextLineNo = 0 then begin
-                LockTable;
-                SetRange("Journal Template Name", "Journal Template Name");
-                SetRange("Journal Batch Name", "Journal Batch Name");
-                if Find('+') then
-                    NextLineNo := "Line No.";
+        if NextLineNo = 0 then begin
+            ItemJnlLine.LockTable;
+            ItemJnlLine.SetRange("Journal Template Name", ItemJnlLine."Journal Template Name");
+            ItemJnlLine.SetRange("Journal Batch Name", ItemJnlLine."Journal Batch Name");
+            if ItemJnlLine.Find('+') then
+                NextLineNo := ItemJnlLine."Line No.";
 
-                SourceCodeSetup.Get;
-            end;
-            NextLineNo := NextLineNo + 10000;
+            SourceCodeSetup.Get;
+        end;
+        NextLineNo := NextLineNo + 10000;
 
-            if (Quantity2 <> 0) or ZeroQty then begin
-                Init;
-                "Line No." := NextLineNo;
-                Validate("Posting Date", PostingDate);
-                Validate("Entry Type", "Entry Type"::"Positive Adjmt.");
-                Validate("Document No.", NextDocNo);
-                Validate("Item No.", ItemNo);
-                Validate("Variant Code", VariantCode2);
-                //VALIDATE("Shortcut Dimension 1 Code",'ADM');
-                //VALIDATE("Shortcut Dimension 2 Code",'LAG');
-                Validate("Location Code", LocationCode2);
-                Validate("Bin Code", BinCode2);
-                //VALIDATE("Gen. Bus. Posting Group",'ADJ');
-                Validate("Source Code", SourceCodeSetup."Phys. Inventory Journal");
-                "Qty. (Phys. Inventory)" := Quantity2;
-                ItemJnlLine."Phys. Inventory" := true;
-                Validate("Qty. (Calculated)", Quantity2);
-                Validate("Unit Amount", 0);
+        if (Quantity2 <> 0) or ZeroQty then begin
+            ItemJnlLine.Init;
+            ItemJnlLine."Line No." := NextLineNo;
+            ItemJnlLine.Validate("Posting Date", PostingDate);
+            ItemJnlLine.Validate("Entry Type", ItemJnlLine."Entry Type"::"Positive Adjmt.");
+            ItemJnlLine.Validate("Document No.", NextDocNo);
+            ItemJnlLine.Validate("Item No.", ItemNo);
+            ItemJnlLine.Validate("Variant Code", VariantCode2);
+            //VALIDATE("Shortcut Dimension 1 Code",'ADM');
+            //VALIDATE("Shortcut Dimension 2 Code",'LAG');
+            ItemJnlLine.Validate("Location Code", LocationCode2);
+            ItemJnlLine.Validate("Bin Code", BinCode2);
+            //VALIDATE("Gen. Bus. Posting Group",'ADJ');
+            ItemJnlLine.Validate("Source Code", SourceCodeSetup."Phys. Inventory Journal");
+            ItemJnlLine."Qty. (Phys. Inventory)" := Quantity2;
+            ItemJnlLine."Phys. Inventory" := true;
+            ItemJnlLine.Validate("Qty. (Calculated)", Quantity2);
+            ItemJnlLine.Validate("Unit Amount", 0);
 
-                ItemLedgEntry.Reset;
-                ItemLedgEntry.SetCurrentKey("Item No.");
-                ItemLedgEntry.SetRange("Item No.", Item."No.");
-                if ItemLedgEntry.Find('+') then
-                    "Last Item Ledger Entry No." := ItemLedgEntry."Entry No."
-                else
-                    "Last Item Ledger Entry No." := 0;
+            ItemLedgEntry.Reset;
+            ItemLedgEntry.SetCurrentKey("Item No.");
+            ItemLedgEntry.SetRange("Item No.", Item."No.");
+            if ItemLedgEntry.Find('+') then
+                ItemJnlLine."Last Item Ledger Entry No." := ItemLedgEntry."Entry No."
+            else
+                ItemJnlLine."Last Item Ledger Entry No." := 0;
 
-                Insert(true);
-            end;
+            ItemJnlLine.Insert(true);
         end;
     end;
 

@@ -7,7 +7,7 @@ pageextension 50320 "pageextension50320" extends "Location Card"
             group(Vessel)
             {
                 Caption = 'Vessel';
-                field("Location Type"; "Location Type")
+                field("Location Type"; Rec."Location Type")
                 {
                     ApplicationArea = All;
 
@@ -19,59 +19,59 @@ pageextension 50320 "pageextension50320" extends "Location Card"
                 // field(Captain; Captain)  //Revisit
                 // {
                 // }
-                field("Ves Age"; "Ves Age")
+                field("Ves Age"; Rec."Ves Age")
                 {
                     ApplicationArea = All;
                 }
-                field("Insurance Rate"; "Insurance Rate")
+                field("Insurance Rate"; Rec."Insurance Rate")
                 {
                     ApplicationArea = All;
                 }
-                field("Depreciation Rate"; "Depreciation Rate")
+                field("Depreciation Rate"; Rec."Depreciation Rate")
                 {
                     ApplicationArea = All;
                 }
-                field("Budgeted Voyages"; "Budgeted Voyages")
+                field("Budgeted Voyages"; Rec."Budgeted Voyages")
                 {
                     ApplicationArea = All;
                 }
-                field("Current Operation"; "Current Operation")
+                field("Current Operation"; Rec."Current Operation")
                 {
                     ApplicationArea = All;
                 }
-                field("Current Voyage"; "Current Voyage")
+                field("Current Voyage"; Rec."Current Voyage")
                 {
                     ApplicationArea = All;
                 }
-                field("Rad Tel"; "Rad Tel")
+                field("Rad Tel"; Rec."Rad Tel")
                 {
                     ApplicationArea = All;
                 }
-                field(ExpCode; ExpCode)
+                field(ExpCode; Rec.ExpCode)
                 {
                     ApplicationArea = All;
                 }
-                field("Interest Rate"; "Interest Rate")
+                field("Interest Rate"; Rec."Interest Rate")
                 {
                     ApplicationArea = All;
                 }
-                field("Vessel Endurance"; "Vessel Endurance")
+                field("Vessel Endurance"; Rec."Vessel Endurance")
                 {
                     ApplicationArea = All;
                 }
-                field("Port Captain"; "Port Captain")
+                field("Port Captain"; Rec."Port Captain")
                 {
                     ApplicationArea = All;
                 }
-                field("Vessel Type"; "Vessel Type")
+                field("Vessel Type"; Rec."Vessel Type")
                 {
                     ApplicationArea = All;
                 }
-                field("FA Code"; "FA Code")
+                field("FA Code"; Rec."FA Code")
                 {
                     ApplicationArea = All;
                 }
-                field("Sea Days"; "Sea Days")
+                field("Sea Days"; Rec."Sea Days")
                 {
                     ApplicationArea = All;
                 }
@@ -79,95 +79,95 @@ pageextension 50320 "pageextension50320" extends "Location Card"
             group("Vessel Schedules")
             {
                 Caption = 'Vessel Schedules';
-                field("Lst Ovh"; "Lst Ovh")
+                field("Lst Ovh"; Rec."Lst Ovh")
                 {
                     ApplicationArea = All;
                 }
-                field("Nxt Ovh"; "Nxt Ovh")
+                field("Nxt Ovh"; Rec."Nxt Ovh")
                 {
                     ApplicationArea = All;
                 }
-                field("Lst Ddk"; "Lst Ddk")
+                field("Lst Ddk"; Rec."Lst Ddk")
                 {
                     ApplicationArea = All;
                 }
-                field("Nxt Ddk"; "Nxt Ddk")
+                field("Nxt Ddk"; Rec."Nxt Ddk")
                 {
                     ApplicationArea = All;
                 }
-                field("Brnd Pk"; "Brnd Pk")
+                field("Brnd Pk"; Rec."Brnd Pk")
                 {
                     ApplicationArea = All;
                 }
-                field("Inner P"; "Inner P")
+                field("Inner P"; Rec."Inner P")
                 {
                     ApplicationArea = All;
                 }
-                field(Grades; Grades)
+                field(Grades; Rec.Grades)
                 {
                     ApplicationArea = All;
                 }
-                field(Deratg; Deratg)
+                field(Deratg; Rec.Deratg)
                 {
                     ApplicationArea = All;
                 }
-                field("Crab CW"; "Crab CW")
+                field("Crab CW"; Rec."Crab CW")
                 {
                     ApplicationArea = All;
                 }
-                field("WT GL/W"; "WT GL/W")
+                field("WT GL/W"; Rec."WT GL/W")
                 {
                     ApplicationArea = All;
                 }
-                field(Batch; Batch)
+                field(Batch; Rec.Batch)
                 {
                     ApplicationArea = All;
                 }
-                field("R Flare"; "R Flare")
+                field("R Flare"; Rec."R Flare")
                 {
                     ApplicationArea = All;
                 }
-                field("Str Lic"; "Str Lic")
+                field("Str Lic"; Rec."Str Lic")
                 {
                     ApplicationArea = All;
                 }
-                field("Fsh Ins"; "Fsh Ins")
+                field("Fsh Ins"; Rec."Fsh Ins")
                 {
                     ApplicationArea = All;
                 }
-                field("Fsh Dst"; "Fsh Dst")
+                field("Fsh Dst"; Rec."Fsh Dst")
                 {
                     ApplicationArea = All;
                 }
-                field("Ins Sur"; "Ins Sur")
+                field("Ins Sur"; Rec."Ins Sur")
                 {
                     ApplicationArea = All;
                 }
-                field("Dst Sur"; "Dst Sur")
+                field("Dst Sur"; Rec."Dst Sur")
                 {
                     ApplicationArea = All;
                 }
-                field("Pow Ext"; "Pow Ext")
+                field("Pow Ext"; Rec."Pow Ext")
                 {
                     ApplicationArea = All;
                 }
-                field("Fom Ext"; "Fom Ext")
+                field("Fom Ext"; Rec."Fom Ext")
                 {
                     ApplicationArea = All;
                 }
-                field("CO2 Ext"; "CO2 Ext")
+                field("CO2 Ext"; Rec."CO2 Ext")
                 {
                     ApplicationArea = All;
                 }
-                field("Life Rf"; "Life Rf")
+                field("Life Rf"; Rec."Life Rf")
                 {
                     ApplicationArea = All;
                 }
-                field(Parchut; Parchut)
+                field(Parchut; Rec.Parchut)
                 {
                     ApplicationArea = All;
                 }
-                field("E.U. No"; "E.U. No")
+                field("E.U. No"; Rec."E.U. No")
                 {
                     ApplicationArea = All;
                 }

@@ -13,7 +13,7 @@ pageextension 50321 "pageextension50321" extends "Detailed Cust. Ledg. Entries"
 
         addafter("User ID")
         {
-            field("Ledger Entry Amount"; "Ledger Entry Amount")
+            field("Ledger Entry Amount"; Rec."Ledger Entry Amount")
             {
                 ApplicationArea = All;
             }

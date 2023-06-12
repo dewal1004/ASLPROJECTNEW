@@ -4,7 +4,7 @@ pageextension 50316 "pageextension50316" extends "FA Posting Group Card"
     {
         addafter("Maintenance Expense Account")
         {
-            field(Description; Description)
+            field(Description; Rec.Description)
             {
                 ApplicationArea = All;
             }

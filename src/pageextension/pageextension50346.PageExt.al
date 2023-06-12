@@ -4,7 +4,7 @@ pageextension 50346 "pageextension50346" extends "Sales Comment Sheet"
     {
         addafter("Code")
         {
-            field(Quantity; Quantity)
+            field(Quantity; Rec.Quantity)
             {
                 Visible = false;
                 ApplicationArea = All;

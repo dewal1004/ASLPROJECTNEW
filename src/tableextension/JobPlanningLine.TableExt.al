@@ -10,9 +10,10 @@ tableextension 50202 "tableextension50202" extends "Job Planning Line"
                 if rec.Type = Type::Resource then begin
                     Res.GET("No.");
                     Res.TESTFIELD(Blocked, FALSE);
-                    if res.Posted then Error('Resource is Already Posted')
+                    if res.Posted then
+                        Error('Resource is Already Posted')
                     else
-                    Res.Posted := TRUE;
+                        Res.Posted := TRUE;
                     Res.MODIFY;
                     "Unit Cost" := Res."Unit Cost";
                     "Unit Price" := Res."Unit Price";
@@ -276,14 +277,13 @@ tableextension 50202 "tableextension50202" extends "Job Planning Line"
     */
     trigger OnAfterDelete()
     begin
-    if Res.Get("No.") then 
-    begin
-      Res.Posted:=false;
-      Res.Modify;
-    end;
+        if Res.Get("No.") then begin
+            Res.Posted := false;
+            Res.Modify;
+        end;
 
-    if "Schedule Line" then
-      Job.UpdateOverBudgetValue("Job No.",false,"Total Cost (LCY)");
+        if "Schedule Line" then
+            Job.UpdateOverBudgetValue("Job No.", false, "Total Cost (LCY)");
     end;
 
 
@@ -312,16 +312,15 @@ tableextension 50202 "tableextension50202" extends "Job Planning Line"
     */
     trigger OnAfterInsert()
     begin
-    Job.Get("Job No.");
-    "Starting Date" := Job."Starting Date";
-    "Ending Date":=Job."Ending Date";        //AAA-April2002
+        Job.Get("Job No.");
+        "Starting Date" := Job."Starting Date";
+        "Ending Date" := Job."Ending Date";        //AAA-April2002
 
-    if Res.Get("No.") then
-    begin
-      Res.Posted:=true;
-     Res.Modify;
-    end;
-      
+        if Res.Get("No.") then begin
+            Res.Posted := true;
+            Res.Modify;
+        end;
+
     end;
 
 
@@ -338,20 +337,19 @@ tableextension 50202 "tableextension50202" extends "Job Planning Line"
     //begin
     trigger OnAfterRename()
     begin
-      case Type of
-      Type::Resource:
-        begin
-          if Res.Get("No.") then
-          begin
-            Res.Posted:=false;
-            Res.Modify;
-            Commit;
-          end;
-        end
-    end;
+        case Type of
+            Type::Resource:
+                begin
+                    if Res.Get("No.") then begin
+                        Res.Posted := false;
+                        Res.Modify;
+                        Commit;
+                    end;
+                end
+        end;
 
-    Error(RecordRenameErr,FieldCaption("Job No."),FieldCaption("Job Task No."),TableCaption);
-    
+        Error(RecordRenameErr, FieldCaption("Job No."), FieldCaption("Job Task No."), TableCaption);
+
     end;
 
     //Unsupported feature: Property Modification (Name) on "SetBypassQtyValidation(PROCEDURE 32)".

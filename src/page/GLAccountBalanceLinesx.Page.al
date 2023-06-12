@@ -14,12 +14,12 @@ page 50416 "G/L Account Balance Linesx"
             repeater(Control1)
             {
                 ShowCaption = false;
-                field("Period Start"; "Period Start")
+                field("Period Start"; Rec."Period Start")
                 {
                     Editable = false;
                     ApplicationArea = All;
                 }
-                field("Period Name"; "Period Name")
+                field("Period Name"; Rec."Period Name")
                 {
                     Editable = false;
                     ApplicationArea = All;
@@ -95,7 +95,7 @@ page 50416 "G/L Account Balance Linesx"
 
     trigger OnOpenPage()
     begin
-        Reset;
+        Rec.Reset;
     end;
 
     var
@@ -136,9 +136,9 @@ page 50416 "G/L Account Balance Linesx"
     local procedure SetDateFilter()
     begin
         if AmountType = AmountType::"Net Change" then
-            GLAcc.SetRange("Date Filter", "Period Start", "Period End")
+            GLAcc.SetRange("Date Filter", Rec."Period Start", Rec."Period End")
         else
-            GLAcc.SetRange("Date Filter", 0D, "Period End");
+            GLAcc.SetRange("Date Filter", 0D, Rec."Period End");
         if ClosingEntryFilter = ClosingEntryFilter::Exclude then begin
             AccountingPeriod.SetCurrentKey("New Fiscal Year");
             AccountingPeriod.SetRange("New Fiscal Year", true);

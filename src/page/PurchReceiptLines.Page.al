@@ -10,31 +10,31 @@ page 50100 "PurchReceiptLines"
             repeater(Control1)
             {
                 ShowCaption = false;
-                field("Document No."; "Document No.")
+                field("Document No."; Rec."Document No.")
                 {
                     ApplicationArea = All;
                 }
-                field(Type; Type)
+                field(Type; Rec.Type)
                 {
                     ApplicationArea = All;
                 }
-                field("No."; "No.")
+                field("No."; Rec."No.")
                 {
                     ApplicationArea = All;
                 }
-                field(Quantity; Quantity)
+                field(Quantity; Rec.Quantity)
                 {
                     ApplicationArea = All;
                 }
-                field("Order No."; "Order No.")
+                field("Order No."; Rec."Order No.")
                 {
                     ApplicationArea = All;
                 }
-                field("Original Purc. Order No."; "Original Purc. Order No.")
+                field("Original Purc. Order No."; Rec."Original Purc. Order No.")
                 {
                     ApplicationArea = All;
                 }
-                field("Quantity Ordered"; "Quantity Ordered")
+                field("Quantity Ordered"; Rec."Quantity Ordered")
                 {
                     ApplicationArea = All;
                 }

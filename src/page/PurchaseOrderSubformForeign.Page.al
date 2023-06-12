@@ -33,7 +33,7 @@ page 50055 "Purchase Order Subform Foreign"
                         var
                             PurchaseHeader: Record "Purchase Header";
                         begin
-                            PurchaseHeader.Get("Document Type", "Document No.");
+                            PurchaseHeader.Get(Rec."Document Type", Rec."Document No.");
                             PurchCalcDiscByType.ApplyInvDiscBasedOnAmt(TotalPurchaseLine."Inv. Discount Amount", PurchaseHeader);
                             CurrPage.Update(false);
                         end;
@@ -104,7 +104,7 @@ page 50055 "Purchase Order Subform Foreign"
             repeater(Control1)
             {
                 ShowCaption = false;
-                field(Type; Type)
+                field(Type; Rec.Type)
                 {
                     ApplicationArea = All;
 
@@ -117,25 +117,25 @@ page 50055 "Purchase Order Subform Foreign"
                             RedistributeTotalsOnAfterValidate;
                     end;
                 }
-                field("No."; "No.")
+                field("No."; Rec."No.")
                 {
                     ShowMandatory = TypeChosen;
                     ApplicationArea = All;
 
                     trigger OnValidate()
                     begin
-                        ShowShortcutDimCode(ShortcutDimCode);
+                        Rec.ShowShortcutDimCode(ShortcutDimCode);
                         NoOnAfterValidate;
 
                         if xRec."No." <> '' then
                             RedistributeTotalsOnAfterValidate;
                     end;
                 }
-                field(Description; Description)
+                field(Description; Rec.Description)
                 {
                     ApplicationArea = All;
                 }
-                field(Quantity; Quantity)
+                field(Quantity; Rec.Quantity)
                 {
                     BlankZero = true;
                     ShowMandatory = TypeChosen;
@@ -146,7 +146,7 @@ page 50055 "Purchase Order Subform Foreign"
                         RedistributeTotalsOnAfterValidate;
                     end;
                 }
-                field("Unit of Measure Code"; "Unit of Measure Code")
+                field("Unit of Measure Code"; Rec."Unit of Measure Code")
                 {
                     ApplicationArea = All;
 
@@ -155,68 +155,68 @@ page 50055 "Purchase Order Subform Foreign"
                         RedistributeTotalsOnAfterValidate;
                     end;
                 }
-                field("Direct Unit Cost"; "Direct Unit Cost")
+                field("Direct Unit Cost"; Rec."Direct Unit Cost")
                 {
                     ApplicationArea = All;
                 }
-                field("HasTypeToFillMandatoryFields()"; HasTypeToFillMandatoryFields())
+                field("HasTypeToFillMandatoryFields()"; Rec.HasTypeToFillMandatoryFields())
                 {
                     ApplicationArea = All;
                 }
-                field("ActualFreight(LCY)"; "ActualFreight(LCY)")
+                field("ActualFreight(LCY)"; Rec."ActualFreight(LCY)")
                 {
                     ApplicationArea = All;
                 }
-                field("ActualDuty(LCY)"; "ActualDuty(LCY)")
+                field("ActualDuty(LCY)"; Rec."ActualDuty(LCY)")
                 {
                     ApplicationArea = All;
                 }
-                field("ActualInsurance(LCY)"; "ActualInsurance(LCY)")
+                field("ActualInsurance(LCY)"; Rec."ActualInsurance(LCY)")
                 {
                     ApplicationArea = All;
                 }
-                field("ActualClearing(LCY)"; "ActualClearing(LCY)")
+                field("ActualClearing(LCY)"; Rec."ActualClearing(LCY)")
                 {
                     ApplicationArea = All;
                 }
-                field("ActualInterest(LCY)"; "ActualInterest(LCY)")
+                field("ActualInterest(LCY)"; Rec."ActualInterest(LCY)")
                 {
                     ApplicationArea = All;
                 }
-                field("ActualDuty Rate%"; "ActualDuty Rate%")
+                field("ActualDuty Rate%"; Rec."ActualDuty Rate%")
                 {
                     ApplicationArea = All;
                 }
-                field("ActualTotal Overhead(LCY)"; "ActualTotal Overhead(LCY)")
+                field("ActualTotal Overhead(LCY)"; Rec."ActualTotal Overhead(LCY)")
                 {
                     ApplicationArea = All;
                 }
-                field("IC Partner Code"; "IC Partner Code")
-                {
-                    Visible = false;
-                    ApplicationArea = All;
-                }
-                field("IC Partner Ref. Type"; "IC Partner Ref. Type")
+                field("IC Partner Code"; Rec."IC Partner Code")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("IC Partner Reference"; "IC Partner Reference")
+                field("IC Partner Ref. Type"; Rec."IC Partner Ref. Type")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("Variant Code"; "Variant Code")
+                field("IC Partner Reference"; Rec."IC Partner Reference")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field(Nonstock; Nonstock)
+                field("Variant Code"; Rec."Variant Code")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("VAT Prod. Posting Group"; "VAT Prod. Posting Group")
+                field(Nonstock; Rec.Nonstock)
+                {
+                    Visible = false;
+                    ApplicationArea = All;
+                }
+                field("VAT Prod. Posting Group"; Rec."VAT Prod. Posting Group")
                 {
                     Visible = false;
                     ApplicationArea = All;
@@ -226,49 +226,49 @@ page 50055 "Purchase Order Subform Foreign"
                         RedistributeTotalsOnAfterValidate;
                     end;
                 }
-                field("Gen. Prod. Posting Group"; "Gen. Prod. Posting Group")
+                field("Gen. Prod. Posting Group"; Rec."Gen. Prod. Posting Group")
                 {
                     ApplicationArea = All;
                 }
-                field("Drop Shipment"; "Drop Shipment")
-                {
-                    Visible = false;
-                    ApplicationArea = All;
-                }
-                field("QtytoReceiveAmount(LCY)"; "QtytoReceiveAmount(LCY)")
-                {
-                    ApplicationArea = All;
-                }
-                field("Return Reason Code"; "Return Reason Code")
+                field("Drop Shipment"; Rec."Drop Shipment")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("Location Code"; "Location Code")
+                field("QtytoReceiveAmount(LCY)"; Rec."QtytoReceiveAmount(LCY)")
                 {
                     ApplicationArea = All;
                 }
-                field("Duty Rate%"; "Duty Rate%")
-                {
-                    ApplicationArea = All;
-                }
-                field("Bin Code"; "Bin Code")
+                field("Return Reason Code"; Rec."Return Reason Code")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("Reserved Quantity"; "Reserved Quantity")
+                field("Location Code"; Rec."Location Code")
+                {
+                    ApplicationArea = All;
+                }
+                field("Duty Rate%"; Rec."Duty Rate%")
+                {
+                    ApplicationArea = All;
+                }
+                field("Bin Code"; Rec."Bin Code")
+                {
+                    Visible = false;
+                    ApplicationArea = All;
+                }
+                field("Reserved Quantity"; Rec."Reserved Quantity")
                 {
                     BlankZero = true;
                     ApplicationArea = All;
                 }
-                field("Job Remaining Qty."; "Job Remaining Qty.")
+                field("Job Remaining Qty."; Rec."Job Remaining Qty.")
                 {
                     BlankZero = true;
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("Unit of Measure"; "Unit of Measure")
+                field("Unit of Measure"; Rec."Unit of Measure")
                 {
                     Visible = false;
                     ApplicationArea = All;
@@ -278,37 +278,27 @@ page 50055 "Purchase Order Subform Foreign"
                         RedistributeTotalsOnAfterValidate;
                     end;
                 }
-                field("ActualAncillary(LCY)"; "ActualAncillary(LCY)")
+                field("ActualAncillary(LCY)"; Rec."ActualAncillary(LCY)")
                 {
                     ApplicationArea = All;
                 }
-                field("ActualSurcharge Duty(LCY)"; "ActualSurcharge Duty(LCY)")
+                field("ActualSurcharge Duty(LCY)"; Rec."ActualSurcharge Duty(LCY)")
                 {
                     ApplicationArea = All;
                 }
-                field("ActualEcowas Duty(LCY)"; "ActualEcowas Duty(LCY)")
+                field("ActualEcowas Duty(LCY)"; Rec."ActualEcowas Duty(LCY)")
                 {
                     ApplicationArea = All;
                 }
-                field("ActualCISS(LCY)"; "ActualCISS(LCY)")
+                field("ActualCISS(LCY)"; Rec."ActualCISS(LCY)")
                 {
                     ApplicationArea = All;
                 }
-                field("ActualLandedAmount(LCY)"; "ActualLandedAmount(LCY)")
+                field("ActualLandedAmount(LCY)"; Rec."ActualLandedAmount(LCY)")
                 {
                     ApplicationArea = All;
                 }
-                field("Indirect Cost %"; "Indirect Cost %")
-                {
-                    Visible = false;
-                    ApplicationArea = All;
-
-                    trigger OnValidate()
-                    begin
-                        RedistributeTotalsOnAfterValidate;
-                    end;
-                }
-                field("Unit Cost (LCY)"; "Unit Cost (LCY)")
+                field("Indirect Cost %"; Rec."Indirect Cost %")
                 {
                     Visible = false;
                     ApplicationArea = All;
@@ -318,19 +308,29 @@ page 50055 "Purchase Order Subform Foreign"
                         RedistributeTotalsOnAfterValidate;
                     end;
                 }
-                field("ActualVat (LCY)"; "ActualVat (LCY)")
+                field("Unit Cost (LCY)"; Rec."Unit Cost (LCY)")
+                {
+                    Visible = false;
+                    ApplicationArea = All;
+
+                    trigger OnValidate()
+                    begin
+                        RedistributeTotalsOnAfterValidate;
+                    end;
+                }
+                field("ActualVat (LCY)"; Rec."ActualVat (LCY)")
                 {
                     ApplicationArea = All;
                 }
-                field("Clearing(LCY)"; "Clearing(LCY)")
+                field("Clearing(LCY)"; Rec."Clearing(LCY)")
                 {
                     ApplicationArea = All;
                 }
-                field("Interest(LCY)"; "Interest(LCY)")
+                field("Interest(LCY)"; Rec."Interest(LCY)")
                 {
                     ApplicationArea = All;
                 }
-                field("Unit Price (LCY)"; "Unit Price (LCY)")
+                field("Unit Price (LCY)"; Rec."Unit Price (LCY)")
                 {
                     BlankZero = true;
                     Visible = false;
@@ -341,7 +341,7 @@ page 50055 "Purchase Order Subform Foreign"
                         RedistributeTotalsOnAfterValidate;
                     end;
                 }
-                field("Line Discount %"; "Line Discount %")
+                field("Line Discount %"; Rec."Line Discount %")
                 {
                     BlankZero = true;
                     ApplicationArea = All;
@@ -351,7 +351,7 @@ page 50055 "Purchase Order Subform Foreign"
                         RedistributeTotalsOnAfterValidate;
                     end;
                 }
-                field("Line Discount Amount"; "Line Discount Amount")
+                field("Line Discount Amount"; Rec."Line Discount Amount")
                 {
                     Visible = false;
                     ApplicationArea = All;
@@ -361,7 +361,7 @@ page 50055 "Purchase Order Subform Foreign"
                         RedistributeTotalsOnAfterValidate;
                     end;
                 }
-                field("Prepayment %"; "Prepayment %")
+                field("Prepayment %"; Rec."Prepayment %")
                 {
                     Visible = false;
                     ApplicationArea = All;
@@ -371,7 +371,7 @@ page 50055 "Purchase Order Subform Foreign"
                         RedistributeTotalsOnAfterValidate;
                     end;
                 }
-                field("Prepmt. Line Amount"; "Prepmt. Line Amount")
+                field("Prepmt. Line Amount"; Rec."Prepmt. Line Amount")
                 {
                     Visible = false;
                     ApplicationArea = All;
@@ -381,7 +381,7 @@ page 50055 "Purchase Order Subform Foreign"
                         RedistributeTotalsOnAfterValidate;
                     end;
                 }
-                field("Prepmt. Amt. Inv."; "Prepmt. Amt. Inv.")
+                field("Prepmt. Amt. Inv."; Rec."Prepmt. Amt. Inv.")
                 {
                     Visible = false;
                     ApplicationArea = All;
@@ -391,195 +391,195 @@ page 50055 "Purchase Order Subform Foreign"
                         RedistributeTotalsOnAfterValidate;
                     end;
                 }
-                field("Allow Invoice Disc."; "Allow Invoice Disc.")
+                field("Allow Invoice Disc."; Rec."Allow Invoice Disc.")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("Inv. Discount Amount"; "Inv. Discount Amount")
+                field("Inv. Discount Amount"; Rec."Inv. Discount Amount")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("Qty. to Receive"; "Qty. to Receive")
+                field("Qty. to Receive"; Rec."Qty. to Receive")
                 {
                     BlankZero = true;
                     ApplicationArea = All;
                 }
-                field("Quantity Received"; "Quantity Received")
+                field("Quantity Received"; Rec."Quantity Received")
                 {
                     BlankZero = true;
                     ApplicationArea = All;
                 }
-                field("Qty. to Invoice"; "Qty. to Invoice")
+                field("Qty. to Invoice"; Rec."Qty. to Invoice")
                 {
                     BlankZero = true;
                     ApplicationArea = All;
                 }
-                field("Quantity Invoiced"; "Quantity Invoiced")
+                field("Quantity Invoiced"; Rec."Quantity Invoiced")
                 {
                     BlankZero = true;
                     ApplicationArea = All;
                 }
-                field("Job No."; "Job No.")
+                field("Job No."; Rec."Job No.")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("Job Task No."; "Job Task No.")
+                field("Job Task No."; Rec."Job Task No.")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("Job Planning Line No."; "Job Planning Line No.")
+                field("Job Planning Line No."; Rec."Job Planning Line No.")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("Job Line Type"; "Job Line Type")
+                field("Job Line Type"; Rec."Job Line Type")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("Job Unit Price"; "Job Unit Price")
+                field("Job Unit Price"; Rec."Job Unit Price")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("Job Line Amount"; "Job Line Amount")
+                field("Job Line Amount"; Rec."Job Line Amount")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("Job Line Discount Amount"; "Job Line Discount Amount")
+                field("Job Line Discount Amount"; Rec."Job Line Discount Amount")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("Job Line Discount %"; "Job Line Discount %")
+                field("Job Line Discount %"; Rec."Job Line Discount %")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("Job Total Price"; "Job Total Price")
+                field("Job Total Price"; Rec."Job Total Price")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("Job Unit Price (LCY)"; "Job Unit Price (LCY)")
+                field("Job Unit Price (LCY)"; Rec."Job Unit Price (LCY)")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("Job Total Price (LCY)"; "Job Total Price (LCY)")
+                field("Job Total Price (LCY)"; Rec."Job Total Price (LCY)")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("Job Line Amount (LCY)"; "Job Line Amount (LCY)")
+                field("Job Line Amount (LCY)"; Rec."Job Line Amount (LCY)")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("Job Line Disc. Amount (LCY)"; "Job Line Disc. Amount (LCY)")
+                field("Job Line Disc. Amount (LCY)"; Rec."Job Line Disc. Amount (LCY)")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("Requested Receipt Date"; "Requested Receipt Date")
+                field("Requested Receipt Date"; Rec."Requested Receipt Date")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("Promised Receipt Date"; "Promised Receipt Date")
+                field("Promised Receipt Date"; Rec."Promised Receipt Date")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("Planned Receipt Date"; "Planned Receipt Date")
+                field("Planned Receipt Date"; Rec."Planned Receipt Date")
                 {
                     ApplicationArea = All;
                 }
-                field("Expected Receipt Date"; "Expected Receipt Date")
+                field("Expected Receipt Date"; Rec."Expected Receipt Date")
                 {
                     ApplicationArea = All;
                 }
-                field("Order Date"; "Order Date")
+                field("Order Date"; Rec."Order Date")
                 {
                     ApplicationArea = All;
                 }
-                field("Lead Time Calculation"; "Lead Time Calculation")
+                field("Lead Time Calculation"; Rec."Lead Time Calculation")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("Planning Flexibility"; "Planning Flexibility")
+                field("Planning Flexibility"; Rec."Planning Flexibility")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("Prod. Order No."; "Prod. Order No.")
+                field("Prod. Order No."; Rec."Prod. Order No.")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("Prod. Order Line No."; "Prod. Order Line No.")
+                field("Prod. Order Line No."; Rec."Prod. Order Line No.")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("Operation No."; "Operation No.")
+                field("Operation No."; Rec."Operation No.")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("Work Center No."; "Work Center No.")
+                field("Work Center No."; Rec."Work Center No.")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field(Finished; Finished)
+                field(Finished; Rec.Finished)
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("Whse. Outstanding Qty. (Base)"; "Whse. Outstanding Qty. (Base)")
+                field("Whse. Outstanding Qty. (Base)"; Rec."Whse. Outstanding Qty. (Base)")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("Inbound Whse. Handling Time"; "Inbound Whse. Handling Time")
+                field("Inbound Whse. Handling Time"; Rec."Inbound Whse. Handling Time")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("Blanket Order No."; "Blanket Order No.")
+                field("Blanket Order No."; Rec."Blanket Order No.")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("Blanket Order Line No."; "Blanket Order Line No.")
+                field("Blanket Order Line No."; Rec."Blanket Order Line No.")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("Appl.-to Item Entry"; "Appl.-to Item Entry")
+                field("Appl.-to Item Entry"; Rec."Appl.-to Item Entry")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("Deferral Code"; "Deferral Code")
+                field("Deferral Code"; Rec."Deferral Code")
                 {
-                    Enabled = (Type <> Type::"Fixed Asset") AND (Type <> Type::" ");
+                    Enabled = (Rec.Type <> Rec.Type::"Fixed Asset") AND (Rec.Type <> Rec.Type::" ");
                     TableRelation = "Deferral Template"."Deferral Code";
                     ApplicationArea = All;
                 }
-                field("Shortcut Dimension 1 Code"; "Shortcut Dimension 1 Code")
+                field("Shortcut Dimension 1 Code"; Rec."Shortcut Dimension 1 Code")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("Shortcut Dimension 2 Code"; "Shortcut Dimension 2 Code")
+                field("Shortcut Dimension 2 Code"; Rec."Shortcut Dimension 2 Code")
                 {
                     Visible = false;
                     ApplicationArea = All;
@@ -595,7 +595,7 @@ page 50055 "Purchase Order Subform Foreign"
 
                     trigger OnValidate()
                     begin
-                        ValidateShortcutDimCode(3, ShortcutDimCode[3]);
+                        Rec.ValidateShortcutDimCode(3, ShortcutDimCode[3]);
                     end;
                 }
                 field("ShortcutDimCode[4]"; ShortcutDimCode[4])
@@ -609,7 +609,7 @@ page 50055 "Purchase Order Subform Foreign"
 
                     trigger OnValidate()
                     begin
-                        ValidateShortcutDimCode(4, ShortcutDimCode[4]);
+                        Rec.ValidateShortcutDimCode(4, ShortcutDimCode[4]);
                     end;
                 }
                 field("ShortcutDimCode[5]"; ShortcutDimCode[5])
@@ -623,7 +623,7 @@ page 50055 "Purchase Order Subform Foreign"
 
                     trigger OnValidate()
                     begin
-                        ValidateShortcutDimCode(5, ShortcutDimCode[5]);
+                        Rec.ValidateShortcutDimCode(5, ShortcutDimCode[5]);
                     end;
                 }
                 field("ShortcutDimCode[6]"; ShortcutDimCode[6])
@@ -637,7 +637,7 @@ page 50055 "Purchase Order Subform Foreign"
 
                     trigger OnValidate()
                     begin
-                        ValidateShortcutDimCode(6, ShortcutDimCode[6]);
+                        Rec.ValidateShortcutDimCode(6, ShortcutDimCode[6]);
                     end;
                 }
                 field("ShortcutDimCode[7]"; ShortcutDimCode[7])
@@ -651,7 +651,7 @@ page 50055 "Purchase Order Subform Foreign"
 
                     trigger OnValidate()
                     begin
-                        ValidateShortcutDimCode(7, ShortcutDimCode[7]);
+                        Rec.ValidateShortcutDimCode(7, ShortcutDimCode[7]);
                     end;
                 }
                 field("ShortcutDimCode[8]"; ShortcutDimCode[8])
@@ -665,42 +665,42 @@ page 50055 "Purchase Order Subform Foreign"
 
                     trigger OnValidate()
                     begin
-                        ValidateShortcutDimCode(8, ShortcutDimCode[8]);
+                        Rec.ValidateShortcutDimCode(8, ShortcutDimCode[8]);
                     end;
                 }
-                field("Outstanding Amount (LCY)"; "Outstanding Amount (LCY)")
+                field("Outstanding Amount (LCY)"; Rec."Outstanding Amount (LCY)")
                 {
                     ApplicationArea = All;
                 }
-                field("Freight(LCY)"; "Freight(LCY)")
+                field("Freight(LCY)"; Rec."Freight(LCY)")
                 {
                     ApplicationArea = All;
                 }
-                field("Ancillary(LCY)"; "Ancillary(LCY)")
+                field("Ancillary(LCY)"; Rec."Ancillary(LCY)")
                 {
                     ApplicationArea = All;
                 }
-                field("Duty(LCY)"; "Duty(LCY)")
+                field("Duty(LCY)"; Rec."Duty(LCY)")
                 {
                     ApplicationArea = All;
                 }
-                field("Insurance(LCY)"; "Insurance(LCY)")
+                field("Insurance(LCY)"; Rec."Insurance(LCY)")
                 {
                     ApplicationArea = All;
                 }
-                field("Surcharge Duty(LCY)"; "Surcharge Duty(LCY)")
+                field("Surcharge Duty(LCY)"; Rec."Surcharge Duty(LCY)")
                 {
                     ApplicationArea = All;
                 }
-                field("Ecowas Duty(LCY)"; "Ecowas Duty(LCY)")
+                field("Ecowas Duty(LCY)"; Rec."Ecowas Duty(LCY)")
                 {
                     ApplicationArea = All;
                 }
-                field("CISS(LCY)"; "CISS(LCY)")
+                field("CISS(LCY)"; Rec."CISS(LCY)")
                 {
                     ApplicationArea = All;
                 }
-                field("Vat (LCY)"; "Vat (LCY)")
+                field("Vat (LCY)"; Rec."Vat (LCY)")
                 {
                     ApplicationArea = All;
                 }
@@ -786,7 +786,7 @@ page 50055 "Purchase Order Subform Foreign"
 
                     trigger OnAction()
                     begin
-                        ShowReservationEntries(true);
+                        Rec.ShowReservationEntries(true);
                     end;
                 }
                 action("Item Tracking Lines")
@@ -798,7 +798,7 @@ page 50055 "Purchase Order Subform Foreign"
 
                     trigger OnAction()
                     begin
-                        OpenItemTrackingLines;
+                        Rec.OpenItemTrackingLines;
                     end;
                 }
                 action(Dimensions)
@@ -811,7 +811,7 @@ page 50055 "Purchase Order Subform Foreign"
 
                     trigger OnAction()
                     begin
-                        ShowDimensions;
+                        Rec.ShowDimensions;
                     end;
                 }
                 action("Co&mments")
@@ -822,7 +822,7 @@ page 50055 "Purchase Order Subform Foreign"
 
                     trigger OnAction()
                     begin
-                        ShowLineComments;
+                        Rec.ShowLineComments;
                     end;
                 }
                 action(ItemChargeAssignment)
@@ -834,20 +834,20 @@ page 50055 "Purchase Order Subform Foreign"
 
                     trigger OnAction()
                     begin
-                        ShowItemChargeAssgnt;
+                        Rec.ShowItemChargeAssgnt;
                     end;
                 }
                 action(DeferralSchedule)
                 {
                     Caption = 'Deferral Schedule';
-                    Enabled = "Deferral Code" <> '';
+                    Enabled = Rec."Deferral Code" <> '';
                     Image = PaymentPeriod;
                     ApplicationArea = All;
 
                     trigger OnAction()
                     begin
-                        PurchHeader.Get("Document Type", "Document No.");
-                        ShowDeferrals(PurchHeader."Posting Date", PurchHeader."Currency Code")
+                        PurchHeader.Get(Rec."Document Type", Rec."Document No.");
+                        Rec.ShowDeferrals(PurchHeader."Posting Date", PurchHeader."Currency Code")
                     end;
                 }
             }
@@ -888,8 +888,8 @@ page 50055 "Purchase Order Subform Foreign"
 
                     trigger OnAction()
                     begin
-                        Find;
-                        ShowReservation;
+                        Rec.Find;
+                        Rec.ShowReservation;
                     end;
                 }
                 action(OrderTracking)
@@ -948,7 +948,7 @@ page 50055 "Purchase Order Subform Foreign"
 
     trigger OnAfterGetCurrRecord()
     begin
-        if PurchHeader.Get("Document Type", "Document No.") then;
+        if PurchHeader.Get(Rec."Document Type", Rec."Document No.") then;
 
         DocumentTotals.PurchaseUpdateTotalsControls(Rec, TotalPurchaseHeader, TotalPurchaseLine, RefreshMessageEnabled,
           TotalAmountStyle, RefreshMessageText, InvDiscAmountEditable, VATAmount);
@@ -956,15 +956,15 @@ page 50055 "Purchase Order Subform Foreign"
 
     trigger OnAfterGetRecord()
     begin
-        ShowShortcutDimCode(ShortcutDimCode);
-        TypeChosen := HasTypeToFillMandatoryFields();
+        Rec.ShowShortcutDimCode(ShortcutDimCode);
+        TypeChosen := Rec.HasTypeToFillMandatoryFields();
     end;
 
     trigger OnDeleteRecord(): Boolean
     var
         ReservePurchLine: Codeunit "Purch. Line-Reserve";
     begin
-        if (Quantity <> 0) and ItemExists("No.") then begin
+        if (Rec.Quantity <> 0) and Rec.ItemExists(Rec."No.") then begin
             Commit;
             if not ReservePurchLine.DeleteLineConfirm(Rec) then
                 exit(false);
@@ -974,7 +974,7 @@ page 50055 "Purchase Order Subform Foreign"
 
     trigger OnNewRecord(BelowxRec: Boolean)
     begin
-        InitType;
+        Rec.InitType;
         Clear(ShortcutDimCode);
     end;
 
@@ -1011,7 +1011,7 @@ page 50055 "Purchase Order Subform Foreign"
 
     local procedure ExplodeBOM()
     begin
-        if "Prepmt. Amt. Inv." <> 0 then
+        if Rec."Prepmt. Amt. Inv." <> 0 then
             Error(Text001);
         CODEUNIT.Run(CODEUNIT::"Purch.-Explode BOM", Rec);
     end;
@@ -1021,8 +1021,8 @@ page 50055 "Purchase Order Subform Foreign"
         SalesHeader: Record "Sales Header";
         SalesOrder: Page "Sales Order";
     begin
-        TestField("Sales Order No.");
-        SalesHeader.SetRange("No.", "Sales Order No.");
+        Rec.TestField("Sales Order No.");
+        SalesHeader.SetRange("No.", Rec."Sales Order No.");
         SalesOrder.SetTableView(SalesHeader);
         SalesOrder.Editable := false;
         SalesOrder.Run;
@@ -1052,8 +1052,8 @@ page 50055 "Purchase Order Subform Foreign"
         SalesHeader: Record "Sales Header";
         SalesOrder: Page "Sales Order";
     begin
-        TestField("Special Order Sales No.");
-        SalesHeader.SetRange("No.", "Special Order Sales No.");
+        Rec.TestField("Special Order Sales No.");
+        SalesHeader.SetRange("No.", Rec."Special Order Sales No.");
         SalesOrder.SetTableView(SalesHeader);
         SalesOrder.Editable := false;
         SalesOrder.Run;
@@ -1082,14 +1082,14 @@ page 50055 "Purchase Order Subform Foreign"
 
     local procedure ShowPrices()
     begin
-        PurchHeader.Get("Document Type", "Document No.");
+        PurchHeader.Get(Rec."Document Type", Rec."Document No.");
         Clear(PurchPriceCalcMgt);
         PurchPriceCalcMgt.GetPurchLinePrice(PurchHeader, Rec);
     end;
 
     local procedure ShowLineDisc()
     begin
-        PurchHeader.Get("Document Type", "Document No.");
+        PurchHeader.Get(Rec."Document Type", Rec."Document No.");
         Clear(PurchPriceCalcMgt);
         PurchPriceCalcMgt.GetPurchLineLineDisc(PurchHeader, Rec);
     end;
@@ -1097,7 +1097,7 @@ page 50055 "Purchase Order Subform Foreign"
     local procedure NoOnAfterValidate()
     begin
         InsertExtendedText(false);
-        if (Type = Type::"Charge (Item)") and ("No." <> xRec."No.") and
+        if (Rec.Type = Rec.Type::"Charge (Item)") and (Rec."No." <> xRec."No.") and
            (xRec."No." <> '')
         then
             CurrPage.SaveRecord;
@@ -1112,7 +1112,7 @@ page 50055 "Purchase Order Subform Foreign"
     begin
         CurrPage.SaveRecord;
 
-        PurchHeader.Get("Document Type", "Document No.");
+        PurchHeader.Get(Rec."Document Type", Rec."Document No.");
         if DocumentTotals.PurchaseCheckNumberOfLinesLimit(PurchHeader) then
             DocumentTotals.PurchaseRedistributeInvoiceDiscountAmounts(Rec, VATAmount, TotalPurchaseLine);
         CurrPage.Update;

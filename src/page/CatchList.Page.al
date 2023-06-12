@@ -10,11 +10,11 @@ page 80089 "Catch List"
             repeater(Control1)
             {
                 ShowCaption = false;
-                field("Line No"; "Line No")
+                field("Line No"; Rec."Line No")
                 {
                     ApplicationArea = All;
                 }
-                field("Employee No"; "Employee No")
+                field("Employee No"; Rec."Employee No")
                 {
                     ApplicationArea = All;
                 }

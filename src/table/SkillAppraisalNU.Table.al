@@ -73,7 +73,7 @@ table 60017 "Skill Appraisal. NU*"
                         Points := 3;
                     Performance::Average:
                         Points := 2;
-                    
+
                 end;
             end;
         }

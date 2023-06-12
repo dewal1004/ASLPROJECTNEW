@@ -16,47 +16,47 @@ page 50098 "MR Reconciliation"
         {
             repeater(Group)
             {
-                field("Req. No."; "Req. No.")
+                field("Req. No."; Rec."Req. No.")
                 {
                     ApplicationArea = All;
                 }
-                field("Item No."; "Item No.")
+                field("Item No."; Rec."Item No.")
                 {
                     ApplicationArea = All;
                 }
-                field("Item Description"; "Item Description")
+                field("Item Description"; Rec."Item Description")
                 {
                     ApplicationArea = All;
                 }
-                field("Requested Quantity"; "Requested Quantity")
+                field("Requested Quantity"; Rec."Requested Quantity")
                 {
                     ApplicationArea = All;
                 }
-                field("Approved Quantity"; "Approved Quantity")
+                field("Approved Quantity"; Rec."Approved Quantity")
                 {
                     ApplicationArea = All;
                 }
-                field("Issued Quantity"; "Issued Quantity")
+                field("Issued Quantity"; Rec."Issued Quantity")
                 {
                     ApplicationArea = All;
                 }
-                field("Store Location"; "Store Location")
+                field("Store Location"; Rec."Store Location")
                 {
                     ApplicationArea = All;
                 }
-                field("Claim by Employee"; "Claim by Employee")
+                field("Claim by Employee"; Rec."Claim by Employee")
                 {
                     ApplicationArea = All;
                 }
-                field("Final Approval"; "Final Approval")
+                field("Final Approval"; Rec."Final Approval")
                 {
                     ApplicationArea = All;
                 }
-                field("Issues Captured Date"; "Issues Captured Date")
+                field("Issues Captured Date"; Rec."Issues Captured Date")
                 {
                     ApplicationArea = All;
                 }
-                field(Processed; Processed)
+                field(Processed; Rec.Processed)
                 {
                     ApplicationArea = All;
                 }

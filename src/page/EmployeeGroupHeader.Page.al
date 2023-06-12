@@ -10,24 +10,24 @@ page 50015 "Employee Group Header."
             group(General)
             {
                 Caption = 'General';
-                field("Code"; Code)
+                field("Code"; Rec.Code)
                 {
                     Lookup = false;
                     ApplicationArea = All;
                 }
-                field("Posting Group Code"; "Posting Group Code")
+                field("Posting Group Code"; Rec."Posting Group Code")
                 {
                     ApplicationArea = All;
                 }
-                field(Grade; Grade)
+                field(Grade; Rec.Grade)
                 {
                     ApplicationArea = All;
                 }
-                field(Step; Step)
+                field(Step; Rec.Step)
                 {
                     ApplicationArea = All;
                 }
-                field("Search Name"; "Search Name")
+                field("Search Name"; Rec."Search Name")
                 {
                     ApplicationArea = All;
                 }

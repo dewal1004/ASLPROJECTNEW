@@ -10,55 +10,55 @@ page 50999 "Fields Overview"
             repeater(Control1)
             {
                 ShowCaption = false;
-                field(TableNo; TableNo)
+                field(TableNo; Rec.TableNo)
                 {
                     ApplicationArea = All;
                 }
-                field("No."; "No.")
+                field("No."; Rec."No.")
                 {
                     ApplicationArea = All;
                 }
-                field(TableName; TableName)
+                field(TableName; Rec.TableName)
                 {
                     ApplicationArea = All;
                 }
-                field(FieldName; FieldName)
+                field(FieldName; Rec.FieldName)
                 {
                     ApplicationArea = All;
                 }
-                field(Type; Type)
+                field(Type; Rec.Type)
                 {
                     ApplicationArea = All;
                 }
-                field(Len; Len)
+                field(Len; Rec.Len)
                 {
                     ApplicationArea = All;
                 }
-                field(Class; Class)
+                field(Class; Rec.Class)
                 {
                     ApplicationArea = All;
                 }
-                field(Enabled; Enabled)
+                field(Enabled; Rec.Enabled)
                 {
                     ApplicationArea = All;
                 }
-                field("Type Name"; "Type Name")
+                field("Type Name"; Rec."Type Name")
                 {
                     ApplicationArea = All;
                 }
-                field("Field Caption"; "Field Caption")
+                field("Field Caption"; Rec."Field Caption")
                 {
                     ApplicationArea = All;
                 }
-                field(RelationTableNo; RelationTableNo)
+                field(RelationTableNo; Rec.RelationTableNo)
                 {
                     ApplicationArea = All;
                 }
-                field(RelationFieldNo; RelationFieldNo)
+                field(RelationFieldNo; Rec.RelationFieldNo)
                 {
                     ApplicationArea = All;
                 }
-                field(SQLDataType; SQLDataType)
+                field(SQLDataType; Rec.SQLDataType)
                 {
                     ApplicationArea = All;
                 }

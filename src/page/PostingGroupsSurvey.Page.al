@@ -11,23 +11,23 @@ page 50018 "Posting Groups Survey."
             repeater(Control1)
             {
                 ShowCaption = false;
-                field("Posting Group Code"; "Posting Group Code")
+                field("Posting Group Code"; Rec."Posting Group Code")
                 {
                     ApplicationArea = All;
                 }
-                field("Search Name"; "Search Name")
+                field("Search Name"; Rec."Search Name")
                 {
                     ApplicationArea = All;
                 }
-                field(Description; Description)
+                field(Description; Rec.Description)
                 {
                     ApplicationArea = All;
                 }
-                field(Management; Management)
+                field(Management; Rec.Management)
                 {
                     ApplicationArea = All;
                 }
-                field(StaffCount; StaffCount)
+                field(StaffCount; Rec.StaffCount)
                 {
                     ApplicationArea = All;
                 }

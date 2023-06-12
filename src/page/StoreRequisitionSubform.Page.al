@@ -10,109 +10,109 @@ page 50060 "Store Requisition Subform"
             repeater(Group)
             {
                 FreezeColumn = "Item Description";
-                field("Req. No."; "Req. No.")
+                field("Req. No."; Rec."Req. No.")
                 {
                     ApplicationArea = All;
                 }
-                field("Line No."; "Line No.")
+                field("Line No."; Rec."Line No.")
                 {
                     ApplicationArea = All;
                 }
-                field("Store Location"; "Store Location")
+                field("Store Location"; Rec."Store Location")
                 {
                     ApplicationArea = All;
                 }
-                field("Item No."; "Item No.")
+                field("Item No."; Rec."Item No.")
                 {
                     ApplicationArea = All;
                 }
-                field("Item Description"; "Item Description")
+                field("Item Description"; Rec."Item Description")
                 {
                     ApplicationArea = All;
                 }
-                field("Inventory Posting Group"; "Inventory Posting Group")
+                field("Inventory Posting Group"; Rec."Inventory Posting Group")
                 {
                     ApplicationArea = All;
                 }
-                field("Claim by Employee"; "Claim by Employee")
+                field("Claim by Employee"; Rec."Claim by Employee")
                 {
                     ApplicationArea = All;
                 }
-                field("Requested Quantity"; "Requested Quantity")
+                field("Requested Quantity"; Rec."Requested Quantity")
                 {
                     ApplicationArea = All;
                 }
-                field("Approved Quantity"; "Approved Quantity")
+                field("Approved Quantity"; Rec."Approved Quantity")
                 {
                     ApplicationArea = All;
                 }
-                field("Issued Quantity"; "Issued Quantity")
-                {
-                    Editable = false;
-                    ApplicationArea = All;
-                }
-                field("Claim by Resources"; "Claim by Resources")
-                {
-                    ApplicationArea = All;
-                }
-                field(Comment; Comment)
-                {
-                    ApplicationArea = All;
-                }
-                field("Req. Type"; "Req. Type")
-                {
-                    Importance = Additional;
-                    ApplicationArea = All;
-                }
-                field("Available Quantity"; "Available Quantity")
-                {
-                    Importance = Additional;
-                    ApplicationArea = All;
-                }
-                field("Pending Approved Qty"; "Pending Approved Qty")
-                {
-                    Importance = Additional;
-                    ApplicationArea = All;
-                }
-                field("1st Approval"; "1st Approval")
-                {
-                    Importance = Additional;
-                    ApplicationArea = All;
-                }
-                field("Final Approval"; "Final Approval")
-                {
-                    Importance = Additional;
-                    ApplicationArea = All;
-                }
-                field("Issued By"; "Issued By")
-                {
-                    ApplicationArea = All;
-                }
-                field("Procurement Request"; "Procurement Request")
+                field("Issued Quantity"; Rec."Issued Quantity")
                 {
                     Editable = false;
                     ApplicationArea = All;
                 }
-                field("Shortage Qty"; "Shortage Qty")
+                field("Claim by Resources"; Rec."Claim by Resources")
                 {
                     ApplicationArea = All;
                 }
-                field("Item Category"; "Item Category")
+                field(Comment; Rec.Comment)
+                {
+                    ApplicationArea = All;
+                }
+                field("Req. Type"; Rec."Req. Type")
                 {
                     Importance = Additional;
                     ApplicationArea = All;
                 }
-                field("Last Replacement Date"; "Last Replacement Date")
+                field("Available Quantity"; Rec."Available Quantity")
+                {
+                    Importance = Additional;
+                    ApplicationArea = All;
+                }
+                field("Pending Approved Qty"; Rec."Pending Approved Qty")
+                {
+                    Importance = Additional;
+                    ApplicationArea = All;
+                }
+                field("1st Approval"; Rec."1st Approval")
+                {
+                    Importance = Additional;
+                    ApplicationArea = All;
+                }
+                field("Final Approval"; Rec."Final Approval")
+                {
+                    Importance = Additional;
+                    ApplicationArea = All;
+                }
+                field("Issued By"; Rec."Issued By")
+                {
+                    ApplicationArea = All;
+                }
+                field("Procurement Request"; Rec."Procurement Request")
                 {
                     Editable = false;
                     ApplicationArea = All;
                 }
-                field("Expected Replacement Date"; "Expected Replacement Date")
+                field("Shortage Qty"; Rec."Shortage Qty")
+                {
+                    ApplicationArea = All;
+                }
+                field("Item Category"; Rec."Item Category")
+                {
+                    Importance = Additional;
+                    ApplicationArea = All;
+                }
+                field("Last Replacement Date"; Rec."Last Replacement Date")
                 {
                     Editable = false;
                     ApplicationArea = All;
                 }
-                field(Replaced; Replaced)
+                field("Expected Replacement Date"; Rec."Expected Replacement Date")
+                {
+                    Editable = false;
+                    ApplicationArea = All;
+                }
+                field(Replaced; Rec.Replaced)
                 {
                     ApplicationArea = All;
                 }
@@ -130,8 +130,8 @@ page 50060 "Store Requisition Subform"
 
                 trigger OnAction()
                 begin
-                    ReqRec.SetRange(ReqRec."No.", "Item No.");
-                    ReqRec.SetFilter(ReqRec."Location Filter", "Store Location");
+                    ReqRec.SetRange(ReqRec."No.", Rec."Item No.");
+                    ReqRec.SetFilter(ReqRec."Location Filter", Rec."Store Location");
                     if ReqRec.FindFirst then
                         REPORT.RunModal(704, true, false, ReqRec);
                 end;
@@ -142,8 +142,8 @@ page 50060 "Store Requisition Subform"
 
                 trigger OnAction()
                 begin
-                    StoreHead.Get("Req. No.");
-                    ReqRec.SetRange(ReqRec."No.", "Item No.");
+                    StoreHead.Get(Rec."Req. No.");
+                    ReqRec.SetRange(ReqRec."No.", Rec."Item No.");
                     ReqRec.SetFilter(ReqRec."Location Filter", StoreHead."Transfer To.");
                     if ReqRec.FindFirst then
                         REPORT.RunModal(704, true, false, ReqRec);

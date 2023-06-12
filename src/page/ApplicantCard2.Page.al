@@ -10,164 +10,164 @@ page 60122 "Applicant Card2"
         {
             group(General)
             {
-                field("No."; "No.")
+                field("No."; Rec."No.")
                 {
                     ApplicationArea = All;
                 }
-                field(Title; Title)
+                field(Title; Rec.Title)
                 {
                     ApplicationArea = All;
                 }
-                field(Surname; Surname)
+                field(Surname; Rec.Surname)
                 {
                     ApplicationArea = All;
                 }
-                field("First Name"; "First Name")
+                field("First Name"; Rec."First Name")
                 {
                     ApplicationArea = All;
                 }
-                field("Middle Name"; "Middle Name")
+                field("Middle Name"; Rec."Middle Name")
                 {
                     ApplicationArea = All;
                 }
-                field(Address; Address)
+                field(Address; Rec.Address)
                 {
                     ApplicationArea = All;
                 }
-                field("Address 2"; "Address 2")
+                field("Address 2"; Rec."Address 2")
                 {
                     ApplicationArea = All;
                 }
-                field("Post Code"; "Post Code")
+                field("Post Code"; Rec."Post Code")
                 {
                     ApplicationArea = All;
                 }
-                field(County; County)
+                field(County; Rec.County)
                 {
                     ApplicationArea = All;
                 }
-                field("Phone No."; "Phone No.")
+                field("Phone No."; Rec."Phone No.")
                 {
                     ApplicationArea = All;
                 }
-                field("Advert Ref No"; "Advert Ref No")
+                field("Advert Ref No"; Rec."Advert Ref No")
                 {
                     ApplicationArea = All;
                 }
-                field("Modified By"; "Modified By")
+                field("Modified By"; Rec."Modified By")
                 {
                     ApplicationArea = All;
                 }
-                field("Last Date Modified"; "Last Date Modified")
+                field("Last Date Modified"; Rec."Last Date Modified")
                 {
                     ApplicationArea = All;
                 }
-                field("Search Name"; "Search Name")
+                field("Search Name"; Rec."Search Name")
                 {
                     ApplicationArea = All;
                 }
-                field(Sex; Sex)
+                field(Sex; Rec.Sex)
                 {
                     ApplicationArea = All;
                 }
-                field("Birth Date"; "Birth Date")
+                field("Birth Date"; Rec."Birth Date")
                 {
                     ApplicationArea = All;
                 }
-                field("Position Applied For"; "Position Applied For")
+                field("Position Applied For"; Rec."Position Applied For")
                 {
                     ApplicationArea = All;
                 }
-                field("Next of Kin"; "Next of Kin")
+                field("Next of Kin"; Rec."Next of Kin")
                 {
                     ApplicationArea = All;
                 }
             }
             group(Communication)
             {
-                field("Mobile Phone No."; "Mobile Phone No.")
+                field("Mobile Phone No."; Rec."Mobile Phone No.")
                 {
                     ApplicationArea = All;
                 }
-                field(Pager; Pager)
+                field(Pager; Rec.Pager)
                 {
                     ApplicationArea = All;
                 }
-                field("E-Mail"; "E-Mail")
+                field("E-Mail"; Rec."E-Mail")
                 {
                     ApplicationArea = All;
                 }
-                field("Company E-Mail"; "Company E-Mail")
+                field("Company E-Mail"; Rec."Company E-Mail")
                 {
                     ApplicationArea = All;
                 }
-                field("Alt. Address Code"; "Alt. Address Code")
+                field("Alt. Address Code"; Rec."Alt. Address Code")
                 {
                     ApplicationArea = All;
                 }
-                field("Alt. Address Start Date"; "Alt. Address Start Date")
+                field("Alt. Address Start Date"; Rec."Alt. Address Start Date")
                 {
                     ApplicationArea = All;
                 }
-                field("Alt. Address End Date"; "Alt. Address End Date")
+                field("Alt. Address End Date"; Rec."Alt. Address End Date")
                 {
                     ApplicationArea = All;
                 }
             }
             group(Administration)
             {
-                field("Region Code"; "Region Code")
+                field("Region Code"; Rec."Region Code")
                 {
                     ApplicationArea = All;
                 }
-                field("Global Dimension 1 Code"; "Global Dimension 1 Code")
+                field("Global Dimension 1 Code"; Rec."Global Dimension 1 Code")
                 {
                     ApplicationArea = All;
                 }
-                field("Global Dimension 2 Code"; "Global Dimension 2 Code")
+                field("Global Dimension 2 Code"; Rec."Global Dimension 2 Code")
                 {
                     ApplicationArea = All;
                 }
             }
             group(Interview)
             {
-                field("First Interview"; "First Interview")
+                field("First Interview"; Rec."First Interview")
                 {
                     ApplicationArea = All;
                 }
-                field("Second Interview"; "Second Interview")
+                field("Second Interview"; Rec."Second Interview")
                 {
                     ApplicationArea = All;
                 }
-                field("Final Interview"; "Final Interview")
+                field("Final Interview"; Rec."Final Interview")
                 {
                     ApplicationArea = All;
                 }
-                field("Application Status"; "Application Status")
+                field("Application Status"; Rec."Application Status")
                 {
                     ApplicationArea = All;
                 }
-                field("Date Accepted/Rejected"; "Date Accepted/Rejected")
+                field("Date Accepted/Rejected"; Rec."Date Accepted/Rejected")
                 {
                     ApplicationArea = All;
                 }
-                field("Date Offer Made"; "Date Offer Made")
+                field("Date Offer Made"; Rec."Date Offer Made")
                 {
                     ApplicationArea = All;
                 }
-                field("Agreed Start Date"; "Agreed Start Date")
+                field("Agreed Start Date"; Rec."Agreed Start Date")
                 {
                     ApplicationArea = All;
                 }
-                field("Assigned Employee No"; "Assigned Employee No")
+                field("Assigned Employee No"; Rec."Assigned Employee No")
                 {
                     ApplicationArea = All;
                 }
-                field("Posting Group"; "Posting Group")
+                field("Posting Group"; Rec."Posting Group")
                 {
                     ApplicationArea = All;
                 }
-                field("Employee Group"; "Employee Group")
+                field("Employee Group"; Rec."Employee Group")
                 {
                     ApplicationArea = All;
                 }

@@ -90,14 +90,12 @@ report 50105 "ASL Adjust Exchenge Rate"
                         GetJnlLineDefDim(GenJnlLine, TempDimSetEntry);
                         CopyDimSetEntryToDimBuf(TempDimSetEntry, TempDimBuf);
                         PostGenJnlLine(GenJnlLine, TempDimSetEntry);
-                        with TempEntryNoAmountBuf do begin
-                            Init;
-                            "Business Unit Code" := '';
-                            "Entry No." := "Entry No." + 1;
-                            Amount := AdjAmount;
-                            Amount2 := AdjBase;
-                            Insert;
-                        end;
+                        TempEntryNoAmountBuf.Init;
+                        TempEntryNoAmountBuf."Business Unit Code" := '';
+                        TempEntryNoAmountBuf."Entry No." := TempEntryNoAmountBuf."Entry No." + 1;
+                        TempEntryNoAmountBuf.Amount := AdjAmount;
+                        TempEntryNoAmountBuf.Amount2 := AdjBase;
+                        TempEntryNoAmountBuf.Insert;
                         TempDimBuf2.Init();
                         TempDimBuf2."Table ID" := TempEntryNoAmountBuf."Entry No.";
                         TempDimBuf2."Entry No." := GetDimCombID(TempDimBuf);
@@ -275,7 +273,7 @@ report 50105 "ASL Adjust Exchenge Rate"
                 if not AdjCustVendBank then
                     CurrReport.Break();
                 if Not AdjCust then
-                CurrReport.Break();
+                    CurrReport.Break();
 
                 DtldCustLedgEntry.LockTable();
                 CustLedgerEntry.LockTable();
@@ -584,20 +582,18 @@ report 50105 "ASL Adjust Exchenge Rate"
                         PostGenJnlLine(GenJnlLine, TempDimSetEntry);
                     end;
 
-                    with ExchRateAdjReg do begin
-                        "No." := "No." + 1;
-                        "Creation Date" := PostingDate;
-                        "Account Type" := "Account Type"::"G/L Account";
-                        "Posting Group" := '';
-                        "Currency Code" := GLSetup."Additional Reporting Currency";
-                        "Currency Factor" := CurrExchRate2."Adjustment Exch. Rate Amount";
-                        "Adjusted Base" := 0;
-                        "Adjusted Base (LCY)" := GLNetChangeBase;
-                        "Adjusted Amt. (LCY)" := GLAmtTotal;
-                        "Adjusted Base (Add.-Curr.)" := GLAddCurrNetChangeBase;
-                        "Adjusted Amt. (Add.-Curr.)" := GLAddCurrAmtTotal;
-                        Insert;
-                    end;
+                    ExchRateAdjReg."No." := ExchRateAdjReg."No." + 1;
+                    ExchRateAdjReg."Creation Date" := PostingDate;
+                    ExchRateAdjReg."Account Type" := ExchRateAdjReg."Account Type"::"G/L Account";
+                    ExchRateAdjReg."Posting Group" := '';
+                    ExchRateAdjReg."Currency Code" := GLSetup."Additional Reporting Currency";
+                    ExchRateAdjReg."Currency Factor" := CurrExchRate2."Adjustment Exch. Rate Amount";
+                    ExchRateAdjReg."Adjusted Base" := 0;
+                    ExchRateAdjReg."Adjusted Base (LCY)" := GLNetChangeBase;
+                    ExchRateAdjReg."Adjusted Amt. (LCY)" := GLAmtTotal;
+                    ExchRateAdjReg."Adjusted Base (Add.-Curr.)" := GLAddCurrNetChangeBase;
+                    ExchRateAdjReg."Adjusted Amt. (Add.-Curr.)" := GLAddCurrAmtTotal;
+                    ExchRateAdjReg.Insert;
 
                     TotalGLAccountsAdjusted += 1;
                 end;
@@ -775,41 +771,39 @@ report 50105 "ASL Adjust Exchenge Rate"
             "G/L Account".Get(Currency3.GetRealizedGLLossesAccount);
             "G/L Account".TestField("Exchange Rate Adjustment", "G/L Account"."Exchange Rate Adjustment"::"No Adjustment");
 
-            with VATPostingSetup2 do
-                if Find('-') then
-                    repeat
-                        if "VAT Calculation Type" <> "VAT Calculation Type"::"Sales Tax" then begin
-                            CheckExchRateAdjustment(
-                              "Purchase VAT Account", TableCaption, FieldCaption("Purchase VAT Account"));
-                            CheckExchRateAdjustment(
-                              "Reverse Chrg. VAT Acc.", TableCaption, FieldCaption("Reverse Chrg. VAT Acc."));
-                            CheckExchRateAdjustment(
-                              "Purch. VAT Unreal. Account", TableCaption, FieldCaption("Purch. VAT Unreal. Account"));
-                            CheckExchRateAdjustment(
-                              "Reverse Chrg. VAT Unreal. Acc.", TableCaption, FieldCaption("Reverse Chrg. VAT Unreal. Acc."));
-                            CheckExchRateAdjustment(
-                              "Sales VAT Account", TableCaption, FieldCaption("Sales VAT Account"));
-                            CheckExchRateAdjustment(
-                              "Sales VAT Unreal. Account", TableCaption, FieldCaption("Sales VAT Unreal. Account"));
-                        end;
-                    until Next() = 0;
+            if VATPostingSetup2.Find('-') then
+                repeat
+                    if VATPostingSetup2."VAT Calculation Type" <> VATPostingSetup2."VAT Calculation Type"::"Sales Tax" then begin
+                        CheckExchRateAdjustment(
+                          VATPostingSetup2."Purchase VAT Account", VATPostingSetup2.TableCaption, VATPostingSetup2.FieldCaption("Purchase VAT Account"));
+                        CheckExchRateAdjustment(
+                          VATPostingSetup2."Reverse Chrg. VAT Acc.", VATPostingSetup2.TableCaption, VATPostingSetup2.FieldCaption("Reverse Chrg. VAT Acc."));
+                        CheckExchRateAdjustment(
+                          VATPostingSetup2."Purch. VAT Unreal. Account", VATPostingSetup2.TableCaption, VATPostingSetup2.FieldCaption("Purch. VAT Unreal. Account"));
+                        CheckExchRateAdjustment(
+                          VATPostingSetup2."Reverse Chrg. VAT Unreal. Acc.", VATPostingSetup2.TableCaption, VATPostingSetup2.FieldCaption("Reverse Chrg. VAT Unreal. Acc."));
+                        CheckExchRateAdjustment(
+                          VATPostingSetup2."Sales VAT Account", VATPostingSetup2.TableCaption, VATPostingSetup2.FieldCaption("Sales VAT Account"));
+                        CheckExchRateAdjustment(
+                          VATPostingSetup2."Sales VAT Unreal. Account", VATPostingSetup2.TableCaption, VATPostingSetup2.FieldCaption("Sales VAT Unreal. Account"));
+                    end;
+                until VATPostingSetup2.Next() = 0;
 
-            with TaxJurisdiction2 do
-                if Find('-') then
-                    repeat
-                        CheckExchRateAdjustment(
-                          "Tax Account (Purchases)", TableCaption, FieldCaption("Tax Account (Purchases)"));
-                        CheckExchRateAdjustment(
-                          "Reverse Charge (Purchases)", TableCaption, FieldCaption("Reverse Charge (Purchases)"));
-                        CheckExchRateAdjustment(
-                          "Unreal. Tax Acc. (Purchases)", TableCaption, FieldCaption("Unreal. Tax Acc. (Purchases)"));
-                        CheckExchRateAdjustment(
-                          "Unreal. Rev. Charge (Purch.)", TableCaption, FieldCaption("Unreal. Rev. Charge (Purch.)"));
-                        CheckExchRateAdjustment(
-                          "Tax Account (Sales)", TableCaption, FieldCaption("Tax Account (Sales)"));
-                        CheckExchRateAdjustment(
-                          "Unreal. Tax Acc. (Sales)", TableCaption, FieldCaption("Unreal. Tax Acc. (Sales)"));
-                    until Next() = 0;
+            if TaxJurisdiction2.Find('-') then
+                repeat
+                    CheckExchRateAdjustment(
+                      TaxJurisdiction2."Tax Account (Purchases)", TaxJurisdiction2.TableCaption, TaxJurisdiction2.FieldCaption("Tax Account (Purchases)"));
+                    CheckExchRateAdjustment(
+                      TaxJurisdiction2."Reverse Charge (Purchases)", TaxJurisdiction2.TableCaption, TaxJurisdiction2.FieldCaption("Reverse Charge (Purchases)"));
+                    CheckExchRateAdjustment(
+                      TaxJurisdiction2."Unreal. Tax Acc. (Purchases)", TaxJurisdiction2.TableCaption, TaxJurisdiction2.FieldCaption("Unreal. Tax Acc. (Purchases)"));
+                    CheckExchRateAdjustment(
+                      TaxJurisdiction2."Unreal. Rev. Charge (Purch.)", TaxJurisdiction2.TableCaption, TaxJurisdiction2.FieldCaption("Unreal. Rev. Charge (Purch.)"));
+                    CheckExchRateAdjustment(
+                      TaxJurisdiction2."Tax Account (Sales)", TaxJurisdiction2.TableCaption, TaxJurisdiction2.FieldCaption("Tax Account (Sales)"));
+                    CheckExchRateAdjustment(
+                      TaxJurisdiction2."Unreal. Tax Acc. (Sales)", TaxJurisdiction2.TableCaption, TaxJurisdiction2.FieldCaption("Unreal. Tax Acc. (Sales)"));
+                until TaxJurisdiction2.Next() = 0;
 
             AddCurrCurrencyFactor :=
               CurrExchRate2.ExchangeRateAdjmt(PostingDate, GLSetup."Additional Reporting Currency");
@@ -921,23 +915,22 @@ report 50105 "ASL Adjust Exchenge Rate"
 
     local procedure PostAdjmt(GLAccNo: Code[20]; PostingAmount: Decimal; AdjBase2: Decimal; CurrencyCode2: Code[10]; var DimSetEntry: Record "Dimension Set Entry"; PostingDate2: Date; ICCode: Code[20]) TransactionNo: Integer
     begin
-        with GenJnlLine do
-            if PostingAmount <> 0 then begin
-                Init;
-                Validate("Posting Date", PostingDate2);
-                "Document No." := PostingDocNo;
-                "Account Type" := "Account Type"::"G/L Account";
-                Validate("Account No.", GLAccNo);
-                Description := PadStr(StrSubstNo(PostingDescription, CurrencyCode2, AdjBase2), MaxStrLen(Description));
-                Validate(Amount, PostingAmount);
-                "Source Currency Code" := CurrencyCode2;
-                "IC Partner Code" := ICCode;
-                if CurrencyCode2 = GLSetup."Additional Reporting Currency" then
-                    "Source Currency Amount" := 0;
-                "Source Code" := SourceCodeSetup."Exchange Rate Adjmt.";
-                "System-Created Entry" := true;
-                TransactionNo := PostGenJnlLine(GenJnlLine, DimSetEntry);
-            end;
+        if PostingAmount <> 0 then begin
+            GenJnlLine.Init;
+            GenJnlLine.Validate("Posting Date", PostingDate2);
+            GenJnlLine."Document No." := PostingDocNo;
+            GenJnlLine."Account Type" := GenJnlLine."Account Type"::"G/L Account";
+            GenJnlLine.Validate("Account No.", GLAccNo);
+            GenJnlLine.Description := PadStr(StrSubstNo(PostingDescription, CurrencyCode2, AdjBase2), MaxStrLen(GenJnlLine.Description));
+            GenJnlLine.Validate(Amount, PostingAmount);
+            GenJnlLine."Source Currency Code" := CurrencyCode2;
+            GenJnlLine."IC Partner Code" := ICCode;
+            if CurrencyCode2 = GLSetup."Additional Reporting Currency" then
+                GenJnlLine."Source Currency Amount" := 0;
+            GenJnlLine."Source Code" := SourceCodeSetup."Exchange Rate Adjmt.";
+            GenJnlLine."System-Created Entry" := true;
+            TransactionNo := PostGenJnlLine(GenJnlLine, DimSetEntry);
+        end;
     end;
 
     local procedure InsertExchRateAdjmtReg(AdjustAccType: Integer; PostingGrCode: Code[20]; CurrencyCode: Code[10])
@@ -945,18 +938,16 @@ report 50105 "ASL Adjust Exchenge Rate"
         if Currency2.Code <> CurrencyCode then
             Currency2.Get(CurrencyCode);
 
-        with ExchRateAdjReg do begin
-            "No." := "No." + 1;
-            "Creation Date" := PostingDate;
-            "Account Type" := AdjustAccType;
-            "Posting Group" := PostingGrCode;
-            "Currency Code" := Currency2.Code;
-            "Currency Factor" := Currency2."Currency Factor";
-            "Adjusted Base" := AdjExchRateBuffer.AdjBase;
-            "Adjusted Base (LCY)" := AdjExchRateBuffer.AdjBaseLCY;
-            "Adjusted Amt. (LCY)" := AdjExchRateBuffer.AdjAmount;
-            Insert;
-        end;
+        ExchRateAdjReg."No." := ExchRateAdjReg."No." + 1;
+        ExchRateAdjReg."Creation Date" := PostingDate;
+        ExchRateAdjReg."Account Type" := AdjustAccType;
+        ExchRateAdjReg."Posting Group" := PostingGrCode;
+        ExchRateAdjReg."Currency Code" := Currency2.Code;
+        ExchRateAdjReg."Currency Factor" := Currency2."Currency Factor";
+        ExchRateAdjReg."Adjusted Base" := AdjExchRateBuffer.AdjBase;
+        ExchRateAdjReg."Adjusted Base (LCY)" := AdjExchRateBuffer.AdjBaseLCY;
+        ExchRateAdjReg."Adjusted Amt. (LCY)" := AdjExchRateBuffer.AdjAmount;
+        ExchRateAdjReg.Insert;
     end;
 
     procedure InitializeRequest(NewStartDate: Date; NewEndDate: Date; NewPostingDescription: Text[100]; NewPostingDate: Date)
@@ -1039,60 +1030,56 @@ report 50105 "ASL Adjust Exchenge Rate"
             // Post per posting group and per currency
             if AdjExchRateBuffer2.Find('-') then
                 repeat
-                    with AdjExchRateBuffer do begin
-                        SetRange("Currency Code", AdjExchRateBuffer2."Currency Code");
-                        SetRange("Dimension Entry No.", AdjExchRateBuffer2."Dimension Entry No.");
-                        SetRange("Posting Date", AdjExchRateBuffer2."Posting Date");
-                        SetRange("IC Partner Code", AdjExchRateBuffer2."IC Partner Code");
-                        TempDimBuf.Reset();
-                        TempDimBuf.DeleteAll();
-                        TempDimSetEntry.Reset();
-                        TempDimSetEntry.DeleteAll();
-                        Find('-');
-                        DimBufMgt.GetDimensions("Dimension Entry No.", TempDimBuf);
-                        DimMgt.CopyDimBufToDimSetEntry(TempDimBuf, TempDimSetEntry);
-                        repeat
-                            TempDtldCVLedgEntryBuf.Init();
-                            TempDtldCVLedgEntryBuf."Entry No." := Index;
-                            if AdjAmount <> 0 then
-                                case AdjustAccType of
-                                    1: // Customer
-                                        begin
-                                            CustPostingGr.Get("Posting Group");
-                                            TempDtldCVLedgEntryBuf."Transaction No." :=
-                                              PostAdjmt(
-                                                CustPostingGr.GetReceivablesAccount, AdjAmount, AdjBase, "Currency Code", TempDimSetEntry,
-                                                AdjExchRateBuffer2."Posting Date", "IC Partner Code");
-                                            if TempDtldCVLedgEntryBuf.Insert() then;
-                                            InsertExchRateAdjmtReg(1, "Posting Group", "Currency Code");
-                                            TotalCustomersAdjusted += 1;
-                                        end;
-                                    2: // Vendor
-                                        begin
-                                            VendPostingGr.Get("Posting Group");
-                                            TempDtldCVLedgEntryBuf."Transaction No." :=
-                                              PostAdjmt(
-                                                VendPostingGr.GetPayablesAccount, AdjAmount, AdjBase, "Currency Code", TempDimSetEntry,
-                                                AdjExchRateBuffer2."Posting Date", "IC Partner Code");
-                                            if TempDtldCVLedgEntryBuf.Insert() then;
-                                            InsertExchRateAdjmtReg(2, "Posting Group", "Currency Code");
-                                            TotalVendorsAdjusted += 1;
-                                        end;
-                                end;
-                        until Next() = 0;
-                    end;
+                    AdjExchRateBuffer.SetRange("Currency Code", AdjExchRateBuffer2."Currency Code");
+                    AdjExchRateBuffer.SetRange("Dimension Entry No.", AdjExchRateBuffer2."Dimension Entry No.");
+                    AdjExchRateBuffer.SetRange("Posting Date", AdjExchRateBuffer2."Posting Date");
+                    AdjExchRateBuffer.SetRange("IC Partner Code", AdjExchRateBuffer2."IC Partner Code");
+                    TempDimBuf.Reset();
+                    TempDimBuf.DeleteAll();
+                    TempDimSetEntry.Reset();
+                    TempDimSetEntry.DeleteAll();
+                    AdjExchRateBuffer.Find('-');
+                    DimBufMgt.GetDimensions(AdjExchRateBuffer."Dimension Entry No.", TempDimBuf);
+                    DimMgt.CopyDimBufToDimSetEntry(TempDimBuf, TempDimSetEntry);
+                    repeat
+                        TempDtldCVLedgEntryBuf.Init();
+                        TempDtldCVLedgEntryBuf."Entry No." := AdjExchRateBuffer.Index;
+                        if AdjExchRateBuffer.AdjAmount <> 0 then
+                            case AdjustAccType of
+                                1: // Customer
+                                    begin
+                                        CustPostingGr.Get(AdjExchRateBuffer."Posting Group");
+                                        TempDtldCVLedgEntryBuf."Transaction No." :=
+                                          PostAdjmt(
+                                            CustPostingGr.GetReceivablesAccount, AdjExchRateBuffer.AdjAmount, AdjExchRateBuffer.AdjBase, AdjExchRateBuffer."Currency Code", TempDimSetEntry,
+                                            AdjExchRateBuffer2."Posting Date", AdjExchRateBuffer."IC Partner Code");
+                                        if TempDtldCVLedgEntryBuf.Insert() then;
+                                        InsertExchRateAdjmtReg(1, AdjExchRateBuffer."Posting Group", AdjExchRateBuffer."Currency Code");
+                                        TotalCustomersAdjusted += 1;
+                                    end;
+                                2: // Vendor
+                                    begin
+                                        VendPostingGr.Get(AdjExchRateBuffer."Posting Group");
+                                        TempDtldCVLedgEntryBuf."Transaction No." :=
+                                          PostAdjmt(
+                                            VendPostingGr.GetPayablesAccount, AdjExchRateBuffer.AdjAmount, AdjExchRateBuffer.AdjBase, AdjExchRateBuffer."Currency Code", TempDimSetEntry,
+                                            AdjExchRateBuffer2."Posting Date", AdjExchRateBuffer."IC Partner Code");
+                                        if TempDtldCVLedgEntryBuf.Insert() then;
+                                        InsertExchRateAdjmtReg(2, AdjExchRateBuffer."Posting Group", AdjExchRateBuffer."Currency Code");
+                                        TotalVendorsAdjusted += 1;
+                                    end;
+                            end;
+                    until AdjExchRateBuffer.Next() = 0;
 
-                    with AdjExchRateBuffer2 do begin
-                        Currency2.Get("Currency Code");
-                        if TotalGainsAmount <> 0 then
-                            PostAdjmt(
-                              Currency2.GetUnrealizedGainsAccount, -TotalGainsAmount, AdjBase, "Currency Code", TempDimSetEntry,
-                              "Posting Date", "IC Partner Code");
-                        if TotalLossesAmount <> 0 then
-                            PostAdjmt(
-                              Currency2.GetUnrealizedLossesAccount, -TotalLossesAmount, AdjBase, "Currency Code", TempDimSetEntry,
-                              "Posting Date", "IC Partner Code");
-                    end;
+                    Currency2.Get(AdjExchRateBuffer2."Currency Code");
+                    if AdjExchRateBuffer2.TotalGainsAmount <> 0 then
+                        PostAdjmt(
+                          Currency2.GetUnrealizedGainsAccount, -AdjExchRateBuffer2.TotalGainsAmount, AdjExchRateBuffer2.AdjBase, AdjExchRateBuffer2."Currency Code", TempDimSetEntry,
+                          AdjExchRateBuffer2."Posting Date", AdjExchRateBuffer2."IC Partner Code");
+                    if AdjExchRateBuffer2.TotalLossesAmount <> 0 then
+                        PostAdjmt(
+                          Currency2.GetUnrealizedLossesAccount, -AdjExchRateBuffer2.TotalLossesAmount, AdjExchRateBuffer2.AdjBase, AdjExchRateBuffer2."Currency Code", TempDimSetEntry,
+                          AdjExchRateBuffer2."Posting Date", AdjExchRateBuffer2."IC Partner Code");
                 until AdjExchRateBuffer2.Next() = 0;
 
             GLEntry.GetLastEntry(LastEntryNo, LastTransactionNo);
@@ -1133,60 +1120,58 @@ report 50105 "ASL Adjust Exchenge Rate"
     local procedure AdjustVATEntries(VATType: Enum "General Posting Type"; UseTax: Boolean)
     begin
         Clear(VATEntry2);
-        With VATEntry do begin
-            SetRange(Type, VATType);
-            SetRange("Use Tax", UseTax);
-            If Find('-') then
-                repeat
-                    Accumulate(VATEntry2.Base, Base);
-                    Accumulate(VATEntry2.Amount, Amount);
-                    Accumulate(VATEntry2."Unrealized Amount", "Unrealized Amount");
-                    Accumulate(VATEntry2."Unrealized Base", "Unrealized Base");
-                    Accumulate(VATEntry2."Remaining Unrealized Amount", "Remaining Unrealized Amount");
-                    Accumulate(VATEntry2."Remaining Unrealized Base", "Remaining Unrealized Base");
-                    Accumulate(VATEntry2."Additional-Currency Amount", "Additional-Currency Amount");
-                    Accumulate(VATEntry2."Additional-Currency Base", "Additional-Currency Base");
-                    Accumulate(VATEntry2."Add.-Currency Unrealized Amt.", "Add.-Currency Unrealized Amt.");
-                    Accumulate(VATEntry2."Add.-Currency Unrealized Base", "Add.-Currency Unrealized Base");
-                    Accumulate(VATEntry2."Add.-Curr. Rem. Unreal. Amount", "Add.-Curr. Rem. Unreal. Amount");
-                    Accumulate(VATEntry2."Add.-Curr. Rem. Unreal. Base", "Add.-Curr. Rem. Unreal. Base");
+        VATEntry.SetRange(Type, VATType);
+        VATEntry.SetRange("Use Tax", UseTax);
+        If VATEntry.Find('-') then
+            repeat
+                Accumulate(VATEntry2.Base, VATEntry.Base);
+                Accumulate(VATEntry2.Amount, VATEntry.Amount);
+                Accumulate(VATEntry2."Unrealized Amount", VATEntry."Unrealized Amount");
+                Accumulate(VATEntry2."Unrealized Base", VATEntry."Unrealized Base");
+                Accumulate(VATEntry2."Remaining Unrealized Amount", VATEntry."Remaining Unrealized Amount");
+                Accumulate(VATEntry2."Remaining Unrealized Base", VATEntry."Remaining Unrealized Base");
+                Accumulate(VATEntry2."Additional-Currency Amount", VATEntry."Additional-Currency Amount");
+                Accumulate(VATEntry2."Additional-Currency Base", VATEntry."Additional-Currency Base");
+                Accumulate(VATEntry2."Add.-Currency Unrealized Amt.", VATEntry."Add.-Currency Unrealized Amt.");
+                Accumulate(VATEntry2."Add.-Currency Unrealized Base", VATEntry."Add.-Currency Unrealized Base");
+                Accumulate(VATEntry2."Add.-Curr. Rem. Unreal. Amount", VATEntry."Add.-Curr. Rem. Unreal. Amount");
+                Accumulate(VATEntry2."Add.-Curr. Rem. Unreal. Base", VATEntry."Add.-Curr. Rem. Unreal. Base");
 
-                    Accumulate(VATEntryTotalBase.Base, Base);
-                    Accumulate(VATEntryTotalBase.Amount, Amount);
-                    Accumulate(VATEntryTotalBase."Unrealized Amount", "Unrealized Amount");
-                    Accumulate(VATEntryTotalBase."Unrealized Base", "Unrealized Base");
-                    Accumulate(VATEntryTotalBase."Remaining Unrealized Amount", "Remaining Unrealized Amount");
-                    Accumulate(VATEntryTotalBase."Remaining Unrealized Base", "Remaining Unrealized Base");
-                    Accumulate(VATEntryTotalBase."Additional-Currency Amount", "Additional-Currency Amount");
-                    Accumulate(VATEntryTotalBase."Additional-Currency Base", "Additional-Currency Base");
-                    Accumulate(VATEntryTotalBase."Add.-Currency Unrealized Amt.", "Add.-Currency Unrealized Amt.");
-                    Accumulate(VATEntryTotalBase."Add.-Currency Unrealized Base", "Add.-Currency Unrealized Base");
-                    Accumulate(
-                      VATEntryTotalBase."Add.-Curr. Rem. Unreal. Amount", "Add.-Curr. Rem. Unreal. Amount");
-                    Accumulate(VATEntryTotalBase."Add.-Curr. Rem. Unreal. Base", "Add.-Curr. Rem. Unreal. Base");
+                Accumulate(VATEntryTotalBase.Base, VATEntry.Base);
+                Accumulate(VATEntryTotalBase.Amount, VATEntry.Amount);
+                Accumulate(VATEntryTotalBase."Unrealized Amount", VATEntry."Unrealized Amount");
+                Accumulate(VATEntryTotalBase."Unrealized Base", VATEntry."Unrealized Base");
+                Accumulate(VATEntryTotalBase."Remaining Unrealized Amount", VATEntry."Remaining Unrealized Amount");
+                Accumulate(VATEntryTotalBase."Remaining Unrealized Base", VATEntry."Remaining Unrealized Base");
+                Accumulate(VATEntryTotalBase."Additional-Currency Amount", VATEntry."Additional-Currency Amount");
+                Accumulate(VATEntryTotalBase."Additional-Currency Base", VATEntry."Additional-Currency Base");
+                Accumulate(VATEntryTotalBase."Add.-Currency Unrealized Amt.", VATEntry."Add.-Currency Unrealized Amt.");
+                Accumulate(VATEntryTotalBase."Add.-Currency Unrealized Base", VATEntry."Add.-Currency Unrealized Base");
+                Accumulate(
+                  VATEntryTotalBase."Add.-Curr. Rem. Unreal. Amount", VATEntry."Add.-Curr. Rem. Unreal. Amount");
+                Accumulate(VATEntryTotalBase."Add.-Curr. Rem. Unreal. Base", VATEntry."Add.-Curr. Rem. Unreal. Base");
 
-                    AdjustVATAmount(Base, "Additional-Currency Base");
-                    AdjustVATAmount(Amount, "Additional-Currency Amount");
-                    AdjustVATAmount("Unrealized Amount", "Add.-Currency Unrealized Amt.");
-                    AdjustVATAmount("Unrealized Base", "Add.-Currency Unrealized Base");
-                    AdjustVATAmount("Remaining Unrealized Amount", "Add.-Curr. Rem. Unreal. Amount");
-                    AdjustVATAmount("Remaining Unrealized Base", "Add.-Curr. Rem. Unreal. Base");
-                    Modify;
+                AdjustVATAmount(VATEntry.Base, VATEntry."Additional-Currency Base");
+                AdjustVATAmount(VATEntry.Amount, VATEntry."Additional-Currency Amount");
+                AdjustVATAmount(VATEntry."Unrealized Amount", VATEntry."Add.-Currency Unrealized Amt.");
+                AdjustVATAmount(VATEntry."Unrealized Base", VATEntry."Add.-Currency Unrealized Base");
+                AdjustVATAmount(VATEntry."Remaining Unrealized Amount", VATEntry."Add.-Curr. Rem. Unreal. Amount");
+                AdjustVATAmount(VATEntry."Remaining Unrealized Base", VATEntry."Add.-Curr. Rem. Unreal. Base");
+                VATEntry.Modify;
 
-                    Accumulate(VATEntry2.Base, -Base);
-                    Accumulate(VATEntry2.Amount, -Amount);
-                    Accumulate(VATEntry2."Unrealized Amount", -"Unrealized Amount");
-                    Accumulate(VATEntry2."Unrealized Base", -"Unrealized Base");
-                    Accumulate(VATEntry2."Remaining Unrealized Amount", -"Remaining Unrealized Amount");
-                    Accumulate(VATEntry2."Remaining Unrealized Base", -"Remaining Unrealized Base");
-                    Accumulate(VATEntry2."Additional-Currency Amount", -"Additional-Currency Amount");
-                    Accumulate(VATEntry2."Additional-Currency Base", -"Additional-Currency Base");
-                    Accumulate(VATEntry2."Add.-Currency Unrealized Amt.", -"Add.-Currency Unrealized Amt.");
-                    Accumulate(VATEntry2."Add.-Currency Unrealized Base", -"Add.-Currency Unrealized Base");
-                    Accumulate(VATEntry2."Add.-Curr. Rem. Unreal. Amount", -"Add.-Curr. Rem. Unreal. Amount");
-                    Accumulate(VATEntry2."Add.-Curr. Rem. Unreal. Base", -"Add.-Curr. Rem. Unreal. Base");
-                until Next() = 0;
-        end;
+                Accumulate(VATEntry2.Base, -VATEntry.Base);
+                Accumulate(VATEntry2.Amount, -VATEntry.Amount);
+                Accumulate(VATEntry2."Unrealized Amount", -VATEntry."Unrealized Amount");
+                Accumulate(VATEntry2."Unrealized Base", -VATEntry."Unrealized Base");
+                Accumulate(VATEntry2."Remaining Unrealized Amount", -VATEntry."Remaining Unrealized Amount");
+                Accumulate(VATEntry2."Remaining Unrealized Base", -VATEntry."Remaining Unrealized Base");
+                Accumulate(VATEntry2."Additional-Currency Amount", -VATEntry."Additional-Currency Amount");
+                Accumulate(VATEntry2."Additional-Currency Base", -VATEntry."Additional-Currency Base");
+                Accumulate(VATEntry2."Add.-Currency Unrealized Amt.", -VATEntry."Add.-Currency Unrealized Amt.");
+                Accumulate(VATEntry2."Add.-Currency Unrealized Base", -VATEntry."Add.-Currency Unrealized Base");
+                Accumulate(VATEntry2."Add.-Curr. Rem. Unreal. Amount", -VATEntry."Add.-Curr. Rem. Unreal. Amount");
+                Accumulate(VATEntry2."Add.-Curr. Rem. Unreal. Base", -VATEntry."Add.-Curr. Rem. Unreal. Base");
+            until VATEntry.Next() = 0;
     end;
 
     local procedure AdjustVATAmount(var AmountLCY: Decimal; var AmountAddCurr: Decimal)
@@ -1389,18 +1374,16 @@ report 50105 "ASL Adjust Exchenge Rate"
         TableID: array[10] of Integer;
         No: array[10] of Code[20];
     begin
-        with GenJnlLine do begin
-            case "Account Type" of
-                "Account Type"::"G/L Account":
-                    TableID[1] := DATABASE::"G/L Account";
-                "Account Type"::"Bank Account":
-                    TableID[1] := DATABASE::"Bank Account";
-            end;
-            No[1] := "Account No.";
-            DimSetID :=
-              DimMgt.GetDefaultDimID(
-                TableID, No, "Source Code", "Shortcut Dimension 1 Code", "Shortcut Dimension 2 Code", "Dimension Set ID", 0);
+        case GenJnlLine."Account Type" of
+            GenJnlLine."Account Type"::"G/L Account":
+                TableID[1] := DATABASE::"G/L Account";
+            GenJnlLine."Account Type"::"Bank Account":
+                TableID[1] := DATABASE::"Bank Account";
         end;
+        No[1] := GenJnlLine."Account No.";
+        DimSetID :=
+          DimMgt.GetDefaultDimID(
+            TableID, No, GenJnlLine."Source Code", GenJnlLine."Shortcut Dimension 1 Code", GenJnlLine."Shortcut Dimension 2 Code", GenJnlLine."Dimension Set ID", 0);
         DimMgt.GetDimensionSet(DimSetEntry, DimSetID);
     end;
 
@@ -1469,167 +1452,165 @@ report 50105 "ASL Adjust Exchenge Rate"
         Adjust: Boolean;
         AdjExchRateBufIndex: Integer;
     begin
-        with CusLedgerEntry do begin
-            SetRange("Date Filter", 0D, PostingDate2);
-            Currency2.Get("Currency Code");
-            GainsAmount := 0;
-            LossesAmount := 0;
-            OldAdjAmount := 0;
-            Adjust := false;
+        CusLedgerEntry.SetRange("Date Filter", 0D, PostingDate2);
+        Currency2.Get(CusLedgerEntry."Currency Code");
+        GainsAmount := 0;
+        LossesAmount := 0;
+        OldAdjAmount := 0;
+        Adjust := false;
 
-            TempDimSetEntry.Reset();
-            TempDimSetEntry.DeleteAll();
-            TempDimBuf.Reset();
-            TempDimBuf.DeleteAll();
-            DimSetEntry.SetRange("Dimension Set ID", "Dimension Set ID");
-            CopyDimSetEntryToDimBuf(DimSetEntry, TempDimBuf);
-            DimEntryNo := GetDimCombID(TempDimBuf);
+        TempDimSetEntry.Reset();
+        TempDimSetEntry.DeleteAll();
+        TempDimBuf.Reset();
+        TempDimBuf.DeleteAll();
+        DimSetEntry.SetRange("Dimension Set ID", CusLedgerEntry."Dimension Set ID");
+        CopyDimSetEntryToDimBuf(DimSetEntry, TempDimBuf);
+        DimEntryNo := GetDimCombID(TempDimBuf);
 
-            CalcFields(
-              Amount, "Amount (LCY)", "Remaining Amount", "Remaining Amt. (LCY)", "Original Amt. (LCY)",
-              "Debit Amount", "Credit Amount", "Debit Amount (LCY)", "Credit Amount (LCY)");
+        CusLedgerEntry.CalcFields(
+          Amount, "Amount (LCY)", "Remaining Amount", "Remaining Amt. (LCY)", "Original Amt. (LCY)",
+          "Debit Amount", "Credit Amount", "Debit Amount (LCY)", "Credit Amount (LCY)");
 
-            // Calculate Old Unrealized Gains and Losses
-            SetUnrealizedGainLossFilterCust(DtldCustLedgEntry, "Entry No.");
-            DtldCustLedgEntry.CalcSums("Amount (LCY)");
+        // Calculate Old Unrealized Gains and Losses
+        SetUnrealizedGainLossFilterCust(DtldCustLedgEntry, CusLedgerEntry."Entry No.");
+        DtldCustLedgEntry.CalcSums("Amount (LCY)");
 
-            SetUnrealizedGainLossFilterCust(TempDtldCustLedgEntrySums, "Entry No.");
-            TempDtldCustLedgEntrySums.CalcSums("Amount (LCY)");
-            OldAdjAmount := DtldCustLedgEntry."Amount (LCY)" + TempDtldCustLedgEntrySums."Amount (LCY)";
-            "Remaining Amt. (LCY)" := "Remaining Amt. (LCY)" + TempDtldCustLedgEntrySums."Amount (LCY)";
-            "Debit Amount (LCY)" := "Debit Amount (LCY)" + TempDtldCustLedgEntrySums."Amount (LCY)";
-            "Credit Amount (LCY)" := "Credit Amount (LCY)" + TempDtldCustLedgEntrySums."Amount (LCY)";
-            TempDtldCustLedgEntrySums.Reset();
+        SetUnrealizedGainLossFilterCust(TempDtldCustLedgEntrySums, CusLedgerEntry."Entry No.");
+        TempDtldCustLedgEntrySums.CalcSums("Amount (LCY)");
+        OldAdjAmount := DtldCustLedgEntry."Amount (LCY)" + TempDtldCustLedgEntrySums."Amount (LCY)";
+        CusLedgerEntry."Remaining Amt. (LCY)" := CusLedgerEntry."Remaining Amt. (LCY)" + TempDtldCustLedgEntrySums."Amount (LCY)";
+        CusLedgerEntry."Debit Amount (LCY)" := CusLedgerEntry."Debit Amount (LCY)" + TempDtldCustLedgEntrySums."Amount (LCY)";
+        CusLedgerEntry."Credit Amount (LCY)" := CusLedgerEntry."Credit Amount (LCY)" + TempDtldCustLedgEntrySums."Amount (LCY)";
+        TempDtldCustLedgEntrySums.Reset();
 
-            // Modify Currency factor on Customer Ledger Entry
-            if "Adjusted Currency Factor" <> Currency2."Currency Factor" then begin
-                "Adjusted Currency Factor" := Currency2."Currency Factor";
-                Modify;
-            end;
+        // Modify Currency factor on Customer Ledger Entry
+        if CusLedgerEntry."Adjusted Currency Factor" <> Currency2."Currency Factor" then begin
+            CusLedgerEntry."Adjusted Currency Factor" := Currency2."Currency Factor";
+            CusLedgerEntry.Modify;
+        end;
 
-            // Calculate New Unrealized Gains and Losses
-            AdjAmount :=
-              Round(
-                CurrExchRate.ExchangeAmtFCYToLCYAdjmt(
-                  PostingDate2, Currency2.Code, "Remaining Amount", Currency2."Currency Factor")) -
-              "Remaining Amt. (LCY)";
+        // Calculate New Unrealized Gains and Losses
+        AdjAmount :=
+          Round(
+            CurrExchRate.ExchangeAmtFCYToLCYAdjmt(
+              PostingDate2, Currency2.Code, CusLedgerEntry."Remaining Amount", Currency2."Currency Factor")) -
+          CusLedgerEntry."Remaining Amt. (LCY)";
 
-            if AdjAmount <> 0 then begin
-                OnAdjustCustomerLedgerEntryOnBeforeInitDtldCustLedgEntry(Customer, CusLedgerEntry);
-                InitDtldCustLedgEntry(CusLedgerEntry, TempDtldCustLedgEntry);
-                TempDtldCustLedgEntry."Entry No." := NewEntryNo;
-                TempDtldCustLedgEntry."Posting Date" := PostingDate2;
-                TempDtldCustLedgEntry."Document No." := PostingDocNo;
+        if AdjAmount <> 0 then begin
+            OnAdjustCustomerLedgerEntryOnBeforeInitDtldCustLedgEntry(Customer, CusLedgerEntry);
+            InitDtldCustLedgEntry(CusLedgerEntry, TempDtldCustLedgEntry);
+            TempDtldCustLedgEntry."Entry No." := NewEntryNo;
+            TempDtldCustLedgEntry."Posting Date" := PostingDate2;
+            TempDtldCustLedgEntry."Document No." := PostingDocNo;
 
-                Correction :=
-                  ("Debit Amount" < 0) or
-                  ("Credit Amount" < 0) or
-                  ("Debit Amount (LCY)" < 0) or
-                  ("Credit Amount (LCY)" < 0);
+            Correction :=
+              (CusLedgerEntry."Debit Amount" < 0) or
+              (CusLedgerEntry."Credit Amount" < 0) or
+              (CusLedgerEntry."Debit Amount (LCY)" < 0) or
+              (CusLedgerEntry."Credit Amount (LCY)" < 0);
 
-                if OldAdjAmount > 0 then
-                    case true of
-                        (AdjAmount > 0):
-                            begin
-                                TempDtldCustLedgEntry."Amount (LCY)" := AdjAmount;
-                                TempDtldCustLedgEntry."Entry Type" := TempDtldCustLedgEntry."Entry Type"::"Unrealized Gain";
-                                HandleCustDebitCredit(Correction, TempDtldCustLedgEntry."Amount (LCY)");
-                                InsertTempDtldCustomerLedgerEntry;
-                                NewEntryNo := NewEntryNo + 1;
-                                GainsAmount := AdjAmount;
-                                Adjust := true;
-                            end;
-                        (AdjAmount < 0):
-                            if -AdjAmount <= OldAdjAmount then begin
-                                TempDtldCustLedgEntry."Amount (LCY)" := AdjAmount;
-                                TempDtldCustLedgEntry."Entry Type" := TempDtldCustLedgEntry."Entry Type"::"Unrealized Loss";
-                                HandleCustDebitCredit(Correction, TempDtldCustLedgEntry."Amount (LCY)");
-                                InsertTempDtldCustomerLedgerEntry;
-                                NewEntryNo := NewEntryNo + 1;
-                                LossesAmount := AdjAmount;
-                                Adjust := true;
-                            end else begin
-                                AdjAmount := AdjAmount + OldAdjAmount;
-                                TempDtldCustLedgEntry."Amount (LCY)" := -OldAdjAmount;
-                                TempDtldCustLedgEntry."Entry Type" := TempDtldCustLedgEntry."Entry Type"::"Unrealized Loss";
-                                HandleCustDebitCredit(Correction, TempDtldCustLedgEntry."Amount (LCY)");
-                                InsertTempDtldCustomerLedgerEntry;
-                                NewEntryNo := NewEntryNo + 1;
-                                AdjExchRateBufIndex :=
-                                  AdjExchRateBufferUpdate(
-                                    "Currency Code", Customer."Customer Posting Group",
-                                    0, 0, -OldAdjAmount, 0, -OldAdjAmount, DimEntryNo, PostingDate2, Customer."IC Partner Code");
-                                TempDtldCustLedgEntry."Transaction No." := AdjExchRateBufIndex;
-                                ModifyTempDtldCustomerLedgerEntry;
-                                Adjust := false;
-                            end;
-                    end;
-                if OldAdjAmount < 0 then
-                    case true of
-                        (AdjAmount < 0):
-                            begin
-                                TempDtldCustLedgEntry."Amount (LCY)" := AdjAmount;
-                                TempDtldCustLedgEntry."Entry Type" := TempDtldCustLedgEntry."Entry Type"::"Unrealized Loss";
-                                HandleCustDebitCredit(Correction, TempDtldCustLedgEntry."Amount (LCY)");
-                                InsertTempDtldCustomerLedgerEntry;
-                                NewEntryNo := NewEntryNo + 1;
-                                LossesAmount := AdjAmount;
-                                Adjust := true;
-                            end;
-                        (AdjAmount > 0):
-                            if AdjAmount <= -OldAdjAmount then begin
-                                TempDtldCustLedgEntry."Amount (LCY)" := AdjAmount;
-                                TempDtldCustLedgEntry."Entry Type" := TempDtldCustLedgEntry."Entry Type"::"Unrealized Gain";
-                                HandleCustDebitCredit(Correction, TempDtldCustLedgEntry."Amount (LCY)");
-                                InsertTempDtldCustomerLedgerEntry;
-                                NewEntryNo := NewEntryNo + 1;
-                                GainsAmount := AdjAmount;
-                                Adjust := true;
-                            end else begin
-                                AdjAmount := OldAdjAmount + AdjAmount;
-                                TempDtldCustLedgEntry."Amount (LCY)" := -OldAdjAmount;
-                                TempDtldCustLedgEntry."Entry Type" := TempDtldCustLedgEntry."Entry Type"::"Unrealized Gain";
-                                HandleCustDebitCredit(Correction, TempDtldCustLedgEntry."Amount (LCY)");
-                                InsertTempDtldCustomerLedgerEntry;
-                                NewEntryNo := NewEntryNo + 1;
-                                AdjExchRateBufIndex :=
-                                  AdjExchRateBufferUpdate(
-                                    "Currency Code", Customer."Customer Posting Group",
-                                    0, 0, -OldAdjAmount, -OldAdjAmount, 0, DimEntryNo, PostingDate2, Customer."IC Partner Code");
-                                TempDtldCustLedgEntry."Transaction No." := AdjExchRateBufIndex;
-                                ModifyTempDtldCustomerLedgerEntry;
-                                Adjust := false;
-                            end;
-                    end;
-                if not Adjust then begin
-                    TempDtldCustLedgEntry."Amount (LCY)" := AdjAmount;
-                    HandleCustDebitCredit(Correction, TempDtldCustLedgEntry."Amount (LCY)");
-                    TempDtldCustLedgEntry."Entry No." := NewEntryNo;
-                    if AdjAmount < 0 then begin
-                        TempDtldCustLedgEntry."Entry Type" := TempDtldCustLedgEntry."Entry Type"::"Unrealized Loss";
-                        GainsAmount := 0;
-                        LossesAmount := AdjAmount;
-                    end else
-                        if AdjAmount > 0 then begin
+            if OldAdjAmount > 0 then
+                case true of
+                    (AdjAmount > 0):
+                        begin
+                            TempDtldCustLedgEntry."Amount (LCY)" := AdjAmount;
                             TempDtldCustLedgEntry."Entry Type" := TempDtldCustLedgEntry."Entry Type"::"Unrealized Gain";
+                            HandleCustDebitCredit(Correction, TempDtldCustLedgEntry."Amount (LCY)");
+                            InsertTempDtldCustomerLedgerEntry;
+                            NewEntryNo := NewEntryNo + 1;
                             GainsAmount := AdjAmount;
-                            LossesAmount := 0;
+                            Adjust := true;
                         end;
-                    InsertTempDtldCustomerLedgerEntry;
-                    NewEntryNo := NewEntryNo + 1;
+                    (AdjAmount < 0):
+                        if -AdjAmount <= OldAdjAmount then begin
+                            TempDtldCustLedgEntry."Amount (LCY)" := AdjAmount;
+                            TempDtldCustLedgEntry."Entry Type" := TempDtldCustLedgEntry."Entry Type"::"Unrealized Loss";
+                            HandleCustDebitCredit(Correction, TempDtldCustLedgEntry."Amount (LCY)");
+                            InsertTempDtldCustomerLedgerEntry;
+                            NewEntryNo := NewEntryNo + 1;
+                            LossesAmount := AdjAmount;
+                            Adjust := true;
+                        end else begin
+                            AdjAmount := AdjAmount + OldAdjAmount;
+                            TempDtldCustLedgEntry."Amount (LCY)" := -OldAdjAmount;
+                            TempDtldCustLedgEntry."Entry Type" := TempDtldCustLedgEntry."Entry Type"::"Unrealized Loss";
+                            HandleCustDebitCredit(Correction, TempDtldCustLedgEntry."Amount (LCY)");
+                            InsertTempDtldCustomerLedgerEntry;
+                            NewEntryNo := NewEntryNo + 1;
+                            AdjExchRateBufIndex :=
+                              AdjExchRateBufferUpdate(
+                                CusLedgerEntry."Currency Code", Customer."Customer Posting Group",
+                                0, 0, -OldAdjAmount, 0, -OldAdjAmount, DimEntryNo, PostingDate2, Customer."IC Partner Code");
+                            TempDtldCustLedgEntry."Transaction No." := AdjExchRateBufIndex;
+                            ModifyTempDtldCustomerLedgerEntry;
+                            Adjust := false;
+                        end;
                 end;
-
-                TotalAdjAmount := TotalAdjAmount + AdjAmount;
-                if not HideUI then
-                    Window.Update(4, TotalAdjAmount);
-                AdjExchRateBufIndex :=
-                  AdjExchRateBufferUpdate(
-                    "Currency Code", Customer."Customer Posting Group",
-                    "Remaining Amount", "Remaining Amt. (LCY)", TempDtldCustLedgEntry."Amount (LCY)",
-                    GainsAmount, LossesAmount, DimEntryNo, PostingDate2, Customer."IC Partner Code");
-                TempDtldCustLedgEntry."Transaction No." := AdjExchRateBufIndex;
-                ModifyTempDtldCustomerLedgerEntry;
+            if OldAdjAmount < 0 then
+                case true of
+                    (AdjAmount < 0):
+                        begin
+                            TempDtldCustLedgEntry."Amount (LCY)" := AdjAmount;
+                            TempDtldCustLedgEntry."Entry Type" := TempDtldCustLedgEntry."Entry Type"::"Unrealized Loss";
+                            HandleCustDebitCredit(Correction, TempDtldCustLedgEntry."Amount (LCY)");
+                            InsertTempDtldCustomerLedgerEntry;
+                            NewEntryNo := NewEntryNo + 1;
+                            LossesAmount := AdjAmount;
+                            Adjust := true;
+                        end;
+                    (AdjAmount > 0):
+                        if AdjAmount <= -OldAdjAmount then begin
+                            TempDtldCustLedgEntry."Amount (LCY)" := AdjAmount;
+                            TempDtldCustLedgEntry."Entry Type" := TempDtldCustLedgEntry."Entry Type"::"Unrealized Gain";
+                            HandleCustDebitCredit(Correction, TempDtldCustLedgEntry."Amount (LCY)");
+                            InsertTempDtldCustomerLedgerEntry;
+                            NewEntryNo := NewEntryNo + 1;
+                            GainsAmount := AdjAmount;
+                            Adjust := true;
+                        end else begin
+                            AdjAmount := OldAdjAmount + AdjAmount;
+                            TempDtldCustLedgEntry."Amount (LCY)" := -OldAdjAmount;
+                            TempDtldCustLedgEntry."Entry Type" := TempDtldCustLedgEntry."Entry Type"::"Unrealized Gain";
+                            HandleCustDebitCredit(Correction, TempDtldCustLedgEntry."Amount (LCY)");
+                            InsertTempDtldCustomerLedgerEntry;
+                            NewEntryNo := NewEntryNo + 1;
+                            AdjExchRateBufIndex :=
+                              AdjExchRateBufferUpdate(
+                                CusLedgerEntry."Currency Code", Customer."Customer Posting Group",
+                                0, 0, -OldAdjAmount, -OldAdjAmount, 0, DimEntryNo, PostingDate2, Customer."IC Partner Code");
+                            TempDtldCustLedgEntry."Transaction No." := AdjExchRateBufIndex;
+                            ModifyTempDtldCustomerLedgerEntry;
+                            Adjust := false;
+                        end;
+                end;
+            if not Adjust then begin
+                TempDtldCustLedgEntry."Amount (LCY)" := AdjAmount;
+                HandleCustDebitCredit(Correction, TempDtldCustLedgEntry."Amount (LCY)");
+                TempDtldCustLedgEntry."Entry No." := NewEntryNo;
+                if AdjAmount < 0 then begin
+                    TempDtldCustLedgEntry."Entry Type" := TempDtldCustLedgEntry."Entry Type"::"Unrealized Loss";
+                    GainsAmount := 0;
+                    LossesAmount := AdjAmount;
+                end else
+                    if AdjAmount > 0 then begin
+                        TempDtldCustLedgEntry."Entry Type" := TempDtldCustLedgEntry."Entry Type"::"Unrealized Gain";
+                        GainsAmount := AdjAmount;
+                        LossesAmount := 0;
+                    end;
+                InsertTempDtldCustomerLedgerEntry;
+                NewEntryNo := NewEntryNo + 1;
             end;
+
+            TotalAdjAmount := TotalAdjAmount + AdjAmount;
+            if not HideUI then
+                Window.Update(4, TotalAdjAmount);
+            AdjExchRateBufIndex :=
+              AdjExchRateBufferUpdate(
+                CusLedgerEntry."Currency Code", Customer."Customer Posting Group",
+                CusLedgerEntry."Remaining Amount", CusLedgerEntry."Remaining Amt. (LCY)", TempDtldCustLedgEntry."Amount (LCY)",
+                GainsAmount, LossesAmount, DimEntryNo, PostingDate2, Customer."IC Partner Code");
+            TempDtldCustLedgEntry."Transaction No." := AdjExchRateBufIndex;
+            ModifyTempDtldCustomerLedgerEntry;
         end;
     end;
 
@@ -1641,166 +1622,164 @@ report 50105 "ASL Adjust Exchenge Rate"
         Adjust: Boolean;
         AdjExchRateBufIndex: Integer;
     begin
-        with VendLedgerEntry do begin
-            SetRange("Date Filter", 0D, PostingDate2);
-            Currency2.Get("Currency Code");
-            GainsAmount := 0;
-            LossesAmount := 0;
-            OldAdjAmount := 0;
-            Adjust := false;
+        VendLedgerEntry.SetRange("Date Filter", 0D, PostingDate2);
+        Currency2.Get(VendLedgerEntry."Currency Code");
+        GainsAmount := 0;
+        LossesAmount := 0;
+        OldAdjAmount := 0;
+        Adjust := false;
 
-            TempDimBuf.Reset();
-            TempDimBuf.DeleteAll();
-            DimSetEntry.SetRange("Dimension Set ID", "Dimension Set ID");
-            CopyDimSetEntryToDimBuf(DimSetEntry, TempDimBuf);
-            DimEntryNo := GetDimCombID(TempDimBuf);
+        TempDimBuf.Reset();
+        TempDimBuf.DeleteAll();
+        DimSetEntry.SetRange("Dimension Set ID", VendLedgerEntry."Dimension Set ID");
+        CopyDimSetEntryToDimBuf(DimSetEntry, TempDimBuf);
+        DimEntryNo := GetDimCombID(TempDimBuf);
 
-            CalcFields(
-              Amount, "Amount (LCY)", "Remaining Amount", "Remaining Amt. (LCY)", "Original Amt. (LCY)",
-              "Debit Amount", "Credit Amount", "Debit Amount (LCY)", "Credit Amount (LCY)");
+        VendLedgerEntry.CalcFields(
+          Amount, "Amount (LCY)", "Remaining Amount", "Remaining Amt. (LCY)", "Original Amt. (LCY)",
+          "Debit Amount", "Credit Amount", "Debit Amount (LCY)", "Credit Amount (LCY)");
 
-            // Calculate Old Unrealized GainLoss
-            SetUnrealizedGainLossFilterVend(DtldVendLedgEntry, "Entry No.");
-            DtldVendLedgEntry.CalcSums("Amount (LCY)");
+        // Calculate Old Unrealized GainLoss
+        SetUnrealizedGainLossFilterVend(DtldVendLedgEntry, VendLedgerEntry."Entry No.");
+        DtldVendLedgEntry.CalcSums("Amount (LCY)");
 
-            SetUnrealizedGainLossFilterVend(TempDtldVendLedgEntrySums, "Entry No.");
-            TempDtldVendLedgEntrySums.CalcSums("Amount (LCY)");
-            OldAdjAmount := DtldVendLedgEntry."Amount (LCY)" + TempDtldVendLedgEntrySums."Amount (LCY)";
-            "Remaining Amt. (LCY)" := "Remaining Amt. (LCY)" + TempDtldVendLedgEntrySums."Amount (LCY)";
-            "Debit Amount (LCY)" := "Debit Amount (LCY)" + TempDtldVendLedgEntrySums."Amount (LCY)";
-            "Credit Amount (LCY)" := "Credit Amount (LCY)" + TempDtldVendLedgEntrySums."Amount (LCY)";
-            TempDtldVendLedgEntrySums.Reset();
+        SetUnrealizedGainLossFilterVend(TempDtldVendLedgEntrySums, VendLedgerEntry."Entry No.");
+        TempDtldVendLedgEntrySums.CalcSums("Amount (LCY)");
+        OldAdjAmount := DtldVendLedgEntry."Amount (LCY)" + TempDtldVendLedgEntrySums."Amount (LCY)";
+        VendLedgerEntry."Remaining Amt. (LCY)" := VendLedgerEntry."Remaining Amt. (LCY)" + TempDtldVendLedgEntrySums."Amount (LCY)";
+        VendLedgerEntry."Debit Amount (LCY)" := VendLedgerEntry."Debit Amount (LCY)" + TempDtldVendLedgEntrySums."Amount (LCY)";
+        VendLedgerEntry."Credit Amount (LCY)" := VendLedgerEntry."Credit Amount (LCY)" + TempDtldVendLedgEntrySums."Amount (LCY)";
+        TempDtldVendLedgEntrySums.Reset();
 
-            // Modify Currency factor on Vendor Ledger Entry
-            if "Adjusted Currency Factor" <> Currency2."Currency Factor" then begin
-                "Adjusted Currency Factor" := Currency2."Currency Factor";
-                Modify;
-            end;
+        // Modify Currency factor on Vendor Ledger Entry
+        if VendLedgerEntry."Adjusted Currency Factor" <> Currency2."Currency Factor" then begin
+            VendLedgerEntry."Adjusted Currency Factor" := Currency2."Currency Factor";
+            VendLedgerEntry.Modify;
+        end;
 
-            // Calculate New Unrealized Gains and Losses
-            AdjAmount :=
-              Round(
-                CurrExchRate.ExchangeAmtFCYToLCYAdjmt(
-                  PostingDate2, Currency2.Code, "Remaining Amount", Currency2."Currency Factor")) -
-              "Remaining Amt. (LCY)";
+        // Calculate New Unrealized Gains and Losses
+        AdjAmount :=
+          Round(
+            CurrExchRate.ExchangeAmtFCYToLCYAdjmt(
+              PostingDate2, Currency2.Code, VendLedgerEntry."Remaining Amount", Currency2."Currency Factor")) -
+          VendLedgerEntry."Remaining Amt. (LCY)";
 
-            if AdjAmount <> 0 then begin
-                OnAdjustVendorLedgerEntryOnBeforeInitDtldVendLedgEntry(Vendor, VendLedgerEntry);
-                InitDtldVendLedgEntry(VendLedgerEntry, TempDtldVendLedgEntry);
-                TempDtldVendLedgEntry."Entry No." := NewEntryNo;
-                TempDtldVendLedgEntry."Posting Date" := PostingDate2;
-                TempDtldVendLedgEntry."Document No." := PostingDocNo;
+        if AdjAmount <> 0 then begin
+            OnAdjustVendorLedgerEntryOnBeforeInitDtldVendLedgEntry(Vendor, VendLedgerEntry);
+            InitDtldVendLedgEntry(VendLedgerEntry, TempDtldVendLedgEntry);
+            TempDtldVendLedgEntry."Entry No." := NewEntryNo;
+            TempDtldVendLedgEntry."Posting Date" := PostingDate2;
+            TempDtldVendLedgEntry."Document No." := PostingDocNo;
 
-                Correction :=
-                  ("Debit Amount" < 0) or
-                  ("Credit Amount" < 0) or
-                  ("Debit Amount (LCY)" < 0) or
-                  ("Credit Amount (LCY)" < 0);
+            Correction :=
+              (VendLedgerEntry."Debit Amount" < 0) or
+              (VendLedgerEntry."Credit Amount" < 0) or
+              (VendLedgerEntry."Debit Amount (LCY)" < 0) or
+              (VendLedgerEntry."Credit Amount (LCY)" < 0);
 
-                if OldAdjAmount > 0 then
-                    case true of
-                        (AdjAmount > 0):
-                            begin
-                                TempDtldVendLedgEntry."Amount (LCY)" := AdjAmount;
-                                TempDtldVendLedgEntry."Entry Type" := TempDtldVendLedgEntry."Entry Type"::"Unrealized Gain";
-                                HandleVendDebitCredit(Correction, TempDtldVendLedgEntry."Amount (LCY)");
-                                InsertTempDtldVendorLedgerEntry;
-                                NewEntryNo := NewEntryNo + 1;
-                                GainsAmount := AdjAmount;
-                                Adjust := true;
-                            end;
-                        (AdjAmount < 0):
-                            if -AdjAmount <= OldAdjAmount then begin
-                                TempDtldVendLedgEntry."Amount (LCY)" := AdjAmount;
-                                TempDtldVendLedgEntry."Entry Type" := TempDtldVendLedgEntry."Entry Type"::"Unrealized Loss";
-                                HandleVendDebitCredit(Correction, TempDtldVendLedgEntry."Amount (LCY)");
-                                InsertTempDtldVendorLedgerEntry;
-                                NewEntryNo := NewEntryNo + 1;
-                                LossesAmount := AdjAmount;
-                                Adjust := true;
-                            end else begin
-                                AdjAmount := AdjAmount + OldAdjAmount;
-                                TempDtldVendLedgEntry."Amount (LCY)" := -OldAdjAmount;
-                                TempDtldVendLedgEntry."Entry Type" := TempDtldVendLedgEntry."Entry Type"::"Unrealized Loss";
-                                HandleVendDebitCredit(Correction, TempDtldVendLedgEntry."Amount (LCY)");
-                                InsertTempDtldVendorLedgerEntry;
-                                NewEntryNo := NewEntryNo + 1;
-                                AdjExchRateBufIndex :=
-                                  AdjExchRateBufferUpdate(
-                                    "Currency Code", Vendor."Vendor Posting Group",
-                                    0, 0, -OldAdjAmount, 0, -OldAdjAmount, DimEntryNo, PostingDate2, Vendor."IC Partner Code");
-                                TempDtldVendLedgEntry."Transaction No." := AdjExchRateBufIndex;
-                                ModifyTempDtldVendorLedgerEntry;
-                                Adjust := false;
-                            end;
-                    end;
-                if OldAdjAmount < 0 then
-                    case true of
-                        (AdjAmount < 0):
-                            begin
-                                TempDtldVendLedgEntry."Amount (LCY)" := AdjAmount;
-                                TempDtldVendLedgEntry."Entry Type" := TempDtldVendLedgEntry."Entry Type"::"Unrealized Loss";
-                                HandleVendDebitCredit(Correction, TempDtldVendLedgEntry."Amount (LCY)");
-                                InsertTempDtldVendorLedgerEntry;
-                                NewEntryNo := NewEntryNo + 1;
-                                LossesAmount := AdjAmount;
-                                Adjust := true;
-                            end;
-                        (AdjAmount > 0):
-                            if AdjAmount <= -OldAdjAmount then begin
-                                TempDtldVendLedgEntry."Amount (LCY)" := AdjAmount;
-                                TempDtldVendLedgEntry."Entry Type" := TempDtldVendLedgEntry."Entry Type"::"Unrealized Gain";
-                                HandleVendDebitCredit(Correction, TempDtldVendLedgEntry."Amount (LCY)");
-                                InsertTempDtldVendorLedgerEntry;
-                                NewEntryNo := NewEntryNo + 1;
-                                GainsAmount := AdjAmount;
-                                Adjust := true;
-                            end else begin
-                                AdjAmount := OldAdjAmount + AdjAmount;
-                                TempDtldVendLedgEntry."Amount (LCY)" := -OldAdjAmount;
-                                TempDtldVendLedgEntry."Entry Type" := TempDtldVendLedgEntry."Entry Type"::"Unrealized Gain";
-                                HandleVendDebitCredit(Correction, TempDtldVendLedgEntry."Amount (LCY)");
-                                InsertTempDtldVendorLedgerEntry;
-                                NewEntryNo := NewEntryNo + 1;
-                                AdjExchRateBufIndex :=
-                                  AdjExchRateBufferUpdate(
-                                    "Currency Code", Vendor."Vendor Posting Group",
-                                    0, 0, -OldAdjAmount, -OldAdjAmount, 0, DimEntryNo, PostingDate2, Vendor."IC Partner Code");
-                                TempDtldVendLedgEntry."Transaction No." := AdjExchRateBufIndex;
-                                ModifyTempDtldVendorLedgerEntry;
-                                Adjust := false;
-                            end;
-                    end;
-
-                if not Adjust then begin
-                    TempDtldVendLedgEntry."Amount (LCY)" := AdjAmount;
-                    HandleVendDebitCredit(Correction, TempDtldVendLedgEntry."Amount (LCY)");
-                    TempDtldVendLedgEntry."Entry No." := NewEntryNo;
-                    if AdjAmount < 0 then begin
-                        TempDtldVendLedgEntry."Entry Type" := TempDtldVendLedgEntry."Entry Type"::"Unrealized Loss";
-                        GainsAmount := 0;
-                        LossesAmount := AdjAmount;
-                    end else
-                        if AdjAmount > 0 then begin
+            if OldAdjAmount > 0 then
+                case true of
+                    (AdjAmount > 0):
+                        begin
+                            TempDtldVendLedgEntry."Amount (LCY)" := AdjAmount;
                             TempDtldVendLedgEntry."Entry Type" := TempDtldVendLedgEntry."Entry Type"::"Unrealized Gain";
+                            HandleVendDebitCredit(Correction, TempDtldVendLedgEntry."Amount (LCY)");
+                            InsertTempDtldVendorLedgerEntry;
+                            NewEntryNo := NewEntryNo + 1;
                             GainsAmount := AdjAmount;
-                            LossesAmount := 0;
+                            Adjust := true;
                         end;
-                    InsertTempDtldVendorLedgerEntry;
-                    NewEntryNo := NewEntryNo + 1;
+                    (AdjAmount < 0):
+                        if -AdjAmount <= OldAdjAmount then begin
+                            TempDtldVendLedgEntry."Amount (LCY)" := AdjAmount;
+                            TempDtldVendLedgEntry."Entry Type" := TempDtldVendLedgEntry."Entry Type"::"Unrealized Loss";
+                            HandleVendDebitCredit(Correction, TempDtldVendLedgEntry."Amount (LCY)");
+                            InsertTempDtldVendorLedgerEntry;
+                            NewEntryNo := NewEntryNo + 1;
+                            LossesAmount := AdjAmount;
+                            Adjust := true;
+                        end else begin
+                            AdjAmount := AdjAmount + OldAdjAmount;
+                            TempDtldVendLedgEntry."Amount (LCY)" := -OldAdjAmount;
+                            TempDtldVendLedgEntry."Entry Type" := TempDtldVendLedgEntry."Entry Type"::"Unrealized Loss";
+                            HandleVendDebitCredit(Correction, TempDtldVendLedgEntry."Amount (LCY)");
+                            InsertTempDtldVendorLedgerEntry;
+                            NewEntryNo := NewEntryNo + 1;
+                            AdjExchRateBufIndex :=
+                              AdjExchRateBufferUpdate(
+                                VendLedgerEntry."Currency Code", Vendor."Vendor Posting Group",
+                                0, 0, -OldAdjAmount, 0, -OldAdjAmount, DimEntryNo, PostingDate2, Vendor."IC Partner Code");
+                            TempDtldVendLedgEntry."Transaction No." := AdjExchRateBufIndex;
+                            ModifyTempDtldVendorLedgerEntry;
+                            Adjust := false;
+                        end;
+                end;
+            if OldAdjAmount < 0 then
+                case true of
+                    (AdjAmount < 0):
+                        begin
+                            TempDtldVendLedgEntry."Amount (LCY)" := AdjAmount;
+                            TempDtldVendLedgEntry."Entry Type" := TempDtldVendLedgEntry."Entry Type"::"Unrealized Loss";
+                            HandleVendDebitCredit(Correction, TempDtldVendLedgEntry."Amount (LCY)");
+                            InsertTempDtldVendorLedgerEntry;
+                            NewEntryNo := NewEntryNo + 1;
+                            LossesAmount := AdjAmount;
+                            Adjust := true;
+                        end;
+                    (AdjAmount > 0):
+                        if AdjAmount <= -OldAdjAmount then begin
+                            TempDtldVendLedgEntry."Amount (LCY)" := AdjAmount;
+                            TempDtldVendLedgEntry."Entry Type" := TempDtldVendLedgEntry."Entry Type"::"Unrealized Gain";
+                            HandleVendDebitCredit(Correction, TempDtldVendLedgEntry."Amount (LCY)");
+                            InsertTempDtldVendorLedgerEntry;
+                            NewEntryNo := NewEntryNo + 1;
+                            GainsAmount := AdjAmount;
+                            Adjust := true;
+                        end else begin
+                            AdjAmount := OldAdjAmount + AdjAmount;
+                            TempDtldVendLedgEntry."Amount (LCY)" := -OldAdjAmount;
+                            TempDtldVendLedgEntry."Entry Type" := TempDtldVendLedgEntry."Entry Type"::"Unrealized Gain";
+                            HandleVendDebitCredit(Correction, TempDtldVendLedgEntry."Amount (LCY)");
+                            InsertTempDtldVendorLedgerEntry;
+                            NewEntryNo := NewEntryNo + 1;
+                            AdjExchRateBufIndex :=
+                              AdjExchRateBufferUpdate(
+                                VendLedgerEntry."Currency Code", Vendor."Vendor Posting Group",
+                                0, 0, -OldAdjAmount, -OldAdjAmount, 0, DimEntryNo, PostingDate2, Vendor."IC Partner Code");
+                            TempDtldVendLedgEntry."Transaction No." := AdjExchRateBufIndex;
+                            ModifyTempDtldVendorLedgerEntry;
+                            Adjust := false;
+                        end;
                 end;
 
-                TotalAdjAmount := TotalAdjAmount + AdjAmount;
-                if not HideUI then
-                    Window.Update(4, TotalAdjAmount);
-                AdjExchRateBufIndex :=
-                  AdjExchRateBufferUpdate(
-                    "Currency Code", Vendor."Vendor Posting Group",
-                    "Remaining Amount", "Remaining Amt. (LCY)",
-                    TempDtldVendLedgEntry."Amount (LCY)", GainsAmount, LossesAmount, DimEntryNo, PostingDate2, Vendor."IC Partner Code");
-                TempDtldVendLedgEntry."Transaction No." := AdjExchRateBufIndex;
-                ModifyTempDtldVendorLedgerEntry;
+            if not Adjust then begin
+                TempDtldVendLedgEntry."Amount (LCY)" := AdjAmount;
+                HandleVendDebitCredit(Correction, TempDtldVendLedgEntry."Amount (LCY)");
+                TempDtldVendLedgEntry."Entry No." := NewEntryNo;
+                if AdjAmount < 0 then begin
+                    TempDtldVendLedgEntry."Entry Type" := TempDtldVendLedgEntry."Entry Type"::"Unrealized Loss";
+                    GainsAmount := 0;
+                    LossesAmount := AdjAmount;
+                end else
+                    if AdjAmount > 0 then begin
+                        TempDtldVendLedgEntry."Entry Type" := TempDtldVendLedgEntry."Entry Type"::"Unrealized Gain";
+                        GainsAmount := AdjAmount;
+                        LossesAmount := 0;
+                    end;
+                InsertTempDtldVendorLedgerEntry;
+                NewEntryNo := NewEntryNo + 1;
             end;
+
+            TotalAdjAmount := TotalAdjAmount + AdjAmount;
+            if not HideUI then
+                Window.Update(4, TotalAdjAmount);
+            AdjExchRateBufIndex :=
+              AdjExchRateBufferUpdate(
+                VendLedgerEntry."Currency Code", Vendor."Vendor Posting Group",
+                VendLedgerEntry."Remaining Amount", VendLedgerEntry."Remaining Amt. (LCY)",
+                TempDtldVendLedgEntry."Amount (LCY)", GainsAmount, LossesAmount, DimEntryNo, PostingDate2, Vendor."IC Partner Code");
+            TempDtldVendLedgEntry."Transaction No." := AdjExchRateBufIndex;
+            ModifyTempDtldVendorLedgerEntry;
         end;
     end;
 
@@ -1811,31 +1790,29 @@ report 50105 "ASL Adjust Exchenge Rate"
         DetailedCustLedgEntry: Record "Detailed Cust. Ledg. Entry";
         PostingDate2: Date;
     begin
-        with CustLedgerEntry do begin
-            PostingDate2 := GenJournalLine."Posting Date";
-            if TempCustLedgerEntry.FindSet then
-                repeat
-                    Get(TempCustLedgerEntry."Entry No.");
-                    SetRange("Date Filter", 0D, PostingDate2);
-                    CalcFields("Remaining Amount", "Remaining Amt. (LCY)");
-                    if ShouldAdjustEntry(
-                         PostingDate2, "Currency Code", "Remaining Amount", "Remaining Amt. (LCY)", "Adjusted Currency Factor")
-                    then begin
-                        InitVariablesForSetLedgEntry(GenJournalLine);
-                        SetCustLedgEntry(CustLedgerEntry);
-                        AdjustCustomerLedgerEntry(CustLedgerEntry, PostingDate2);
+        PostingDate2 := GenJournalLine."Posting Date";
+        if TempCustLedgerEntry.FindSet then
+            repeat
+                CustLedgerEntry.Get(TempCustLedgerEntry."Entry No.");
+                CustLedgerEntry.SetRange("Date Filter", 0D, PostingDate2);
+                CustLedgerEntry.CalcFields("Remaining Amount", "Remaining Amt. (LCY)");
+                if ShouldAdjustEntry(
+                     PostingDate2, CustLedgerEntry."Currency Code", CustLedgerEntry."Remaining Amount", CustLedgerEntry."Remaining Amt. (LCY)", CustLedgerEntry."Adjusted Currency Factor")
+                then begin
+                    InitVariablesForSetLedgEntry(GenJournalLine);
+                    SetCustLedgEntry(CustLedgerEntry);
+                    AdjustCustomerLedgerEntry(CustLedgerEntry, PostingDate2);
 
-                        DetailedCustLedgEntry.SetCurrentKey("Cust. Ledger Entry No.");
-                        DetailedCustLedgEntry.SetRange("Cust. Ledger Entry No.", "Entry No.");
-                        DetailedCustLedgEntry.SetFilter("Posting Date", '%1..', CalcDate('<+1D>', PostingDate2));
-                        if DetailedCustLedgEntry.FindSet then
-                            repeat
-                                AdjustCustomerLedgerEntry(CustLedgerEntry, DetailedCustLedgEntry."Posting Date");
-                            until DetailedCustLedgEntry.Next() = 0;
-                        HandlePostAdjmt(1);
-                    end;
-                until TempCustLedgerEntry.Next() = 0;
-        end;
+                    DetailedCustLedgEntry.SetCurrentKey("Cust. Ledger Entry No.");
+                    DetailedCustLedgEntry.SetRange("Cust. Ledger Entry No.", CustLedgerEntry."Entry No.");
+                    DetailedCustLedgEntry.SetFilter("Posting Date", '%1..', CalcDate('<+1D>', PostingDate2));
+                    if DetailedCustLedgEntry.FindSet then
+                        repeat
+                            AdjustCustomerLedgerEntry(CustLedgerEntry, DetailedCustLedgEntry."Posting Date");
+                        until DetailedCustLedgEntry.Next() = 0;
+                    HandlePostAdjmt(1);
+                end;
+            until TempCustLedgerEntry.Next() = 0;
     end;
 
     [Scope('OnPrem')]
@@ -1845,31 +1822,29 @@ report 50105 "ASL Adjust Exchenge Rate"
         DetailedVendLedgEntry: Record "Detailed Vendor Ledg. Entry";
         PostingDate2: Date;
     begin
-        with VendLedgerEntry do begin
-            PostingDate2 := GenJournalLine."Posting Date";
-            if TempVendLedgerEntry.FindSet then
-                repeat
-                    Get(TempVendLedgerEntry."Entry No.");
-                    SetRange("Date Filter", 0D, PostingDate2);
-                    CalcFields("Remaining Amount", "Remaining Amt. (LCY)");
-                    if ShouldAdjustEntry(
-                         PostingDate2, "Currency Code", "Remaining Amount", "Remaining Amt. (LCY)", "Adjusted Currency Factor")
-                    then begin
-                        InitVariablesForSetLedgEntry(GenJournalLine);
-                        SetVendLedgEntry(VendLedgerEntry);
-                        AdjustVendorLedgerEntry(VendLedgerEntry, PostingDate2);
+        PostingDate2 := GenJournalLine."Posting Date";
+        if TempVendLedgerEntry.FindSet then
+            repeat
+                VendLedgerEntry.Get(TempVendLedgerEntry."Entry No.");
+                VendLedgerEntry.SetRange("Date Filter", 0D, PostingDate2);
+                VendLedgerEntry.CalcFields("Remaining Amount", "Remaining Amt. (LCY)");
+                if ShouldAdjustEntry(
+                     PostingDate2, VendLedgerEntry."Currency Code", VendLedgerEntry."Remaining Amount", VendLedgerEntry."Remaining Amt. (LCY)", VendLedgerEntry."Adjusted Currency Factor")
+                then begin
+                    InitVariablesForSetLedgEntry(GenJournalLine);
+                    SetVendLedgEntry(VendLedgerEntry);
+                    AdjustVendorLedgerEntry(VendLedgerEntry, PostingDate2);
 
-                        DetailedVendLedgEntry.SetCurrentKey("Vendor Ledger Entry No.");
-                        DetailedVendLedgEntry.SetRange("Vendor Ledger Entry No.", "Entry No.");
-                        DetailedVendLedgEntry.SetFilter("Posting Date", '%1..', CalcDate('<+1D>', PostingDate2));
-                        if DetailedVendLedgEntry.FindSet then
-                            repeat
-                                AdjustVendorLedgerEntry(VendLedgerEntry, DetailedVendLedgEntry."Posting Date");
-                            until DetailedVendLedgEntry.Next() = 0;
-                        HandlePostAdjmt(2);
-                    end;
-                until TempVendLedgerEntry.Next() = 0;
-        end;
+                    DetailedVendLedgEntry.SetCurrentKey("Vendor Ledger Entry No.");
+                    DetailedVendLedgEntry.SetRange("Vendor Ledger Entry No.", VendLedgerEntry."Entry No.");
+                    DetailedVendLedgEntry.SetFilter("Posting Date", '%1..', CalcDate('<+1D>', PostingDate2));
+                    if DetailedVendLedgEntry.FindSet then
+                        repeat
+                            AdjustVendorLedgerEntry(VendLedgerEntry, DetailedVendLedgEntry."Posting Date");
+                        until DetailedVendLedgEntry.Next() = 0;
+                    HandlePostAdjmt(2);
+                end;
+            until TempVendLedgerEntry.Next() = 0;
     end;
 
     local procedure SetCustLedgEntry(CustLedgerEntryToAdjust: Record "Cust. Ledger Entry")
@@ -1923,64 +1898,56 @@ report 50105 "ASL Adjust Exchenge Rate"
 
     local procedure InitDtldCustLedgEntry(CustLedgEntry: Record "Cust. Ledger Entry"; var DtldCustLedgEntry: Record "Detailed Cust. Ledg. Entry")
     begin
-        with CustLedgEntry do begin
-            DtldCustLedgEntry.Init();
-            DtldCustLedgEntry."Cust. Ledger Entry No." := "Entry No.";
-            DtldCustLedgEntry.Amount := 0;
-            DtldCustLedgEntry."Customer No." := "Customer No.";
-            DtldCustLedgEntry."Currency Code" := "Currency Code";
-            DtldCustLedgEntry."User ID" := UserId;
-            DtldCustLedgEntry."Source Code" := SourceCodeSetup."Exchange Rate Adjmt.";
-            DtldCustLedgEntry."Journal Batch Name" := "Journal Batch Name";
-            DtldCustLedgEntry."Reason Code" := "Reason Code";
-            DtldCustLedgEntry."Initial Entry Due Date" := "Due Date";
-            DtldCustLedgEntry."Initial Entry Global Dim. 1" := "Global Dimension 1 Code";
-            DtldCustLedgEntry."Initial Entry Global Dim. 2" := "Global Dimension 2 Code";
-            DtldCustLedgEntry."Initial Document Type" := "Document Type";
-        end;
+        DtldCustLedgEntry.Init();
+        DtldCustLedgEntry."Cust. Ledger Entry No." := CustLedgEntry."Entry No.";
+        DtldCustLedgEntry.Amount := 0;
+        DtldCustLedgEntry."Customer No." := CustLedgEntry."Customer No.";
+        DtldCustLedgEntry."Currency Code" := CustLedgEntry."Currency Code";
+        DtldCustLedgEntry."User ID" := UserId;
+        DtldCustLedgEntry."Source Code" := SourceCodeSetup."Exchange Rate Adjmt.";
+        DtldCustLedgEntry."Journal Batch Name" := CustLedgEntry."Journal Batch Name";
+        DtldCustLedgEntry."Reason Code" := CustLedgEntry."Reason Code";
+        DtldCustLedgEntry."Initial Entry Due Date" := CustLedgEntry."Due Date";
+        DtldCustLedgEntry."Initial Entry Global Dim. 1" := CustLedgEntry."Global Dimension 1 Code";
+        DtldCustLedgEntry."Initial Entry Global Dim. 2" := CustLedgEntry."Global Dimension 2 Code";
+        DtldCustLedgEntry."Initial Document Type" := CustLedgEntry."Document Type";
 
         OnAfterInitDtldCustLedgerEntry(DtldCustLedgEntry);
     end;
 
     local procedure InitDtldVendLedgEntry(VendLedgEntry: Record "Vendor Ledger Entry"; var DtldVendLedgEntry: Record "Detailed Vendor Ledg. Entry")
     begin
-        with VendLedgEntry do begin
-            DtldVendLedgEntry.Init();
-            DtldVendLedgEntry."Vendor Ledger Entry No." := "Entry No.";
-            DtldVendLedgEntry.Amount := 0;
-            DtldVendLedgEntry."Vendor No." := "Vendor No.";
-            DtldVendLedgEntry."Currency Code" := "Currency Code";
-            DtldVendLedgEntry."User ID" := UserId;
-            DtldVendLedgEntry."Source Code" := SourceCodeSetup."Exchange Rate Adjmt.";
-            DtldVendLedgEntry."Journal Batch Name" := "Journal Batch Name";
-            DtldVendLedgEntry."Reason Code" := "Reason Code";
-            DtldVendLedgEntry."Initial Entry Due Date" := "Due Date";
-            DtldVendLedgEntry."Initial Entry Global Dim. 1" := "Global Dimension 1 Code";
-            DtldVendLedgEntry."Initial Entry Global Dim. 2" := "Global Dimension 2 Code";
-            DtldVendLedgEntry."Initial Document Type" := "Document Type";
-        end;
+        DtldVendLedgEntry.Init();
+        DtldVendLedgEntry."Vendor Ledger Entry No." := VendLedgEntry."Entry No.";
+        DtldVendLedgEntry.Amount := 0;
+        DtldVendLedgEntry."Vendor No." := VendLedgEntry."Vendor No.";
+        DtldVendLedgEntry."Currency Code" := VendLedgEntry."Currency Code";
+        DtldVendLedgEntry."User ID" := UserId;
+        DtldVendLedgEntry."Source Code" := SourceCodeSetup."Exchange Rate Adjmt.";
+        DtldVendLedgEntry."Journal Batch Name" := VendLedgEntry."Journal Batch Name";
+        DtldVendLedgEntry."Reason Code" := VendLedgEntry."Reason Code";
+        DtldVendLedgEntry."Initial Entry Due Date" := VendLedgEntry."Due Date";
+        DtldVendLedgEntry."Initial Entry Global Dim. 1" := VendLedgEntry."Global Dimension 1 Code";
+        DtldVendLedgEntry."Initial Entry Global Dim. 2" := VendLedgEntry."Global Dimension 2 Code";
+        DtldVendLedgEntry."Initial Document Type" := VendLedgEntry."Document Type";
 
         OnAfterInitDtldVendLedgerEntry(DtldVendLedgEntry);
     end;
 
     local procedure SetUnrealizedGainLossFilterCust(var DtldCustLedgEntry: Record "Detailed Cust. Ledg. Entry"; EntryNo: Integer)
     begin
-        with DtldCustLedgEntry do begin
-            Reset;
-            SetCurrentKey("Cust. Ledger Entry No.", "Entry Type");
-            SetRange("Cust. Ledger Entry No.", EntryNo);
-            SetRange("Entry Type", "Entry Type"::"Unrealized Loss", "Entry Type"::"Unrealized Gain");
-        end;
+        DtldCustLedgEntry.Reset;
+        DtldCustLedgEntry.SetCurrentKey("Cust. Ledger Entry No.", "Entry Type");
+        DtldCustLedgEntry.SetRange("Cust. Ledger Entry No.", EntryNo);
+        DtldCustLedgEntry.SetRange("Entry Type", DtldCustLedgEntry."Entry Type"::"Unrealized Loss", DtldCustLedgEntry."Entry Type"::"Unrealized Gain");
     end;
 
     local procedure SetUnrealizedGainLossFilterVend(var DtldVendLedgEntry: Record "Detailed Vendor Ledg. Entry"; EntryNo: Integer)
     begin
-        with DtldVendLedgEntry do begin
-            Reset;
-            SetCurrentKey("Vendor Ledger Entry No.", "Entry Type");
-            SetRange("Vendor Ledger Entry No.", EntryNo);
-            SetRange("Entry Type", "Entry Type"::"Unrealized Loss", "Entry Type"::"Unrealized Gain");
-        end;
+        DtldVendLedgEntry.Reset;
+        DtldVendLedgEntry.SetCurrentKey("Vendor Ledger Entry No.", "Entry Type");
+        DtldVendLedgEntry.SetRange("Vendor Ledger Entry No.", EntryNo);
+        DtldVendLedgEntry.SetRange("Entry Type", DtldVendLedgEntry."Entry Type"::"Unrealized Loss", DtldVendLedgEntry."Entry Type"::"Unrealized Gain");
     end;
 
     local procedure InsertTempDtldCustomerLedgerEntry()
@@ -2064,30 +2031,30 @@ report 50105 "ASL Adjust Exchenge Rate"
 
 
 
-   /* ApplicationArea = All;
-    Caption = 'ASL Adjust Exchenge Rate';
-    UsageCategory = Administration;
-    dataset
-    {
-        dataitem(; "")
-        {
-        }
-    }
-    requestpage
-    {
-        layout
-        {
-            area(content)
-            {
-                group(GroupName)
-                {
-                }
-            }
-        }
-        actions
-        {
-            area(processing)
-            {
-            }
-        }
-    }*/
+/* ApplicationArea = All;
+ Caption = 'ASL Adjust Exchenge Rate';
+ UsageCategory = Administration;
+ dataset
+ {
+     dataitem(; "")
+     {
+     }
+ }
+ requestpage
+ {
+     layout
+     {
+         area(content)
+         {
+             group(GroupName)
+             {
+             }
+         }
+     }
+     actions
+     {
+         area(processing)
+         {
+         }
+     }
+ }*/

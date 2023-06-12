@@ -39,7 +39,7 @@ tableextension 50292 "tableextension50292" extends "Misc. Article Information"
         }
         field(50001; "Item No."; Code[20])
         {
-            TableRelation = IF ("Mat Type" = CONST ("Stock Item")) Item."No.";
+            TableRelation = IF ("Mat Type" = CONST("Stock Item")) Item."No.";
         }
         field(50002; Returnable; Boolean)
         {

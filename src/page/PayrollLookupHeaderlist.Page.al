@@ -9,43 +9,43 @@ page 50135 "Payroll-Lookup Header list"
             group(Control12)
             {
                 ShowCaption = false;
-                field(TableId; TableId)
+                field(TableId; Rec.TableId)
                 {
                     ApplicationArea = All;
                 }
-                field(Type; Type)
+                field(Type; Rec.Type)
                 {
                     ApplicationArea = All;
                 }
-                field(Description; Description)
+                field(Description; Rec.Description)
                 {
                     ApplicationArea = All;
                 }
-                field("Search Name"; "Search Name")
+                field("Search Name"; Rec."Search Name")
                 {
                     ApplicationArea = All;
                 }
-                field("Max. Extract Amount"; "Max. Extract Amount")
+                field("Max. Extract Amount"; Rec."Max. Extract Amount")
                 {
                     ApplicationArea = All;
                 }
-                field("Min. Extract Amount"; "Min. Extract Amount")
+                field("Min. Extract Amount"; Rec."Min. Extract Amount")
                 {
                     ApplicationArea = All;
                 }
-                field("Input Factor"; "Input Factor")
+                field("Input Factor"; Rec."Input Factor")
                 {
                     ApplicationArea = All;
                 }
-                field("Output Factor"; "Output Factor")
+                field("Output Factor"; Rec."Output Factor")
                 {
                     ApplicationArea = All;
                 }
-                field("Rounding Precision"; "Rounding Precision")
+                field("Rounding Precision"; Rec."Rounding Precision")
                 {
                     ApplicationArea = All;
                 }
-                field("Rounding Direction"; "Rounding Direction")
+                field("Rounding Direction"; Rec."Rounding Direction")
                 {
                     ApplicationArea = All;
                 }

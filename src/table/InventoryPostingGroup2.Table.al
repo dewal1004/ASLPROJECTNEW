@@ -40,14 +40,14 @@ table 50094 "Inventory Posting Group2"
             CaptionClass = '1,3,1';
             Caption = 'Global Dimension 1 Filter';
             FieldClass = FlowFilter;
-            TableRelation = "Dimension Value".Code WHERE ("Global Dimension No." = CONST (1));
+            TableRelation = "Dimension Value".Code WHERE("Global Dimension No." = CONST(1));
         }
         field(50366; "Global Dimension 2 Filter"; Code[20])
         {
             CaptionClass = '1,3,2';
             Caption = 'Global Dimension 2 Filter';
             FieldClass = FlowFilter;
-            TableRelation = "Dimension Value".Code WHERE ("Global Dimension No." = CONST (2));
+            TableRelation = "Dimension Value".Code WHERE("Global Dimension No." = CONST(2));
         }
         field(50367; "Location Filter"; Code[10])
         {
@@ -57,16 +57,16 @@ table 50094 "Inventory Posting Group2"
         }
         field(50368; Inventory; Decimal)
         {
-            CalcFormula = Sum ("Value Entry"."Valued Quantity" WHERE ("Inventory Posting Group" = FIELD (Code),
-                                                                     "Global Dimension 1 Code" = FIELD ("Global Dimension 1 Filter"),
-                                                                     "Global Dimension 2 Code" = FIELD ("Global Dimension 2 Filter"),
-                                                                     "Location Code" = FIELD ("Location Filter"),
-                                                                     "Drop Shipment" = FIELD ("Drop Shipment Filter"),
-                                                                     "Variant Code" = FIELD ("Variant Filter"),
-                                                                    //  Field5403 = FIELD ("Bin Filter"), ***
-                                                                     "Posting Date" = FIELD ("Date Filter"),
-                                                                     "Source Code" = FIELD ("Source Filter"),
-                                                                     "Source No." = FIELD ("Source No.  Filter")));
+            CalcFormula = Sum("Value Entry"."Valued Quantity" WHERE("Inventory Posting Group" = FIELD(Code),
+                                                                     "Global Dimension 1 Code" = FIELD("Global Dimension 1 Filter"),
+                                                                     "Global Dimension 2 Code" = FIELD("Global Dimension 2 Filter"),
+                                                                     "Location Code" = FIELD("Location Filter"),
+                                                                     "Drop Shipment" = FIELD("Drop Shipment Filter"),
+                                                                     "Variant Code" = FIELD("Variant Filter"),
+                                                                     //  Field5403 = FIELD ("Bin Filter"), ***
+                                                                     "Posting Date" = FIELD("Date Filter"),
+                                                                     "Source Code" = FIELD("Source Filter"),
+                                                                     "Source No." = FIELD("Source No.  Filter")));
             Caption = 'Inventory Total';
             DecimalPlaces = 0 : 5;
             Editable = false;
@@ -74,24 +74,24 @@ table 50094 "Inventory Posting Group2"
         }
         field(50369; Points; Decimal)
         {
-            CalcFormula = Sum ("Value Entry"."Sales Amount (Actual)" WHERE ("Inventory Posting Group" = FIELD (Code),
-                                                                           "Global Dimension 1 Code" = FIELD ("Global Dimension 1 Filter"),
-                                                                           "Global Dimension 2 Code" = FIELD ("Global Dimension 2 Filter"),
-                                                                           "Location Code" = FIELD ("Location Filter"),
-                                                                           "Drop Shipment" = FIELD ("Drop Shipment Filter"),
-                                                                           "Variant Code" = FIELD ("Variant Filter"),
-                                                                        //    Field5403 = FIELD ("Bin Filter"),
-                                                                           "Posting Date" = FIELD ("Date Filter"),
-                                                                           "Source Code" = FIELD ("Source Filter"),
-                                                                           "Source No." = FIELD ("Source No.  Filter")));
+            CalcFormula = Sum("Value Entry"."Sales Amount (Actual)" WHERE("Inventory Posting Group" = FIELD(Code),
+                                                                           "Global Dimension 1 Code" = FIELD("Global Dimension 1 Filter"),
+                                                                           "Global Dimension 2 Code" = FIELD("Global Dimension 2 Filter"),
+                                                                           "Location Code" = FIELD("Location Filter"),
+                                                                           "Drop Shipment" = FIELD("Drop Shipment Filter"),
+                                                                           "Variant Code" = FIELD("Variant Filter"),
+                                                                           //    Field5403 = FIELD ("Bin Filter"),
+                                                                           "Posting Date" = FIELD("Date Filter"),
+                                                                           "Source Code" = FIELD("Source Filter"),
+                                                                           "Source No." = FIELD("Source No.  Filter")));
             Editable = false;
             FieldClass = FlowField;
         }
         field(50378; Inventory1; Decimal)
         {
-            CalcFormula = Sum ("Value Entry"."Valued Quantity" WHERE ("Inventory Posting Group" = FIELD (Code),
-                                                                     "Location Code" = FIELD ("Location Filter"),
-                                                                     "Posting Date" = FIELD ("Date Filter")));
+            CalcFormula = Sum("Value Entry"."Valued Quantity" WHERE("Inventory Posting Group" = FIELD(Code),
+                                                                     "Location Code" = FIELD("Location Filter"),
+                                                                     "Posting Date" = FIELD("Date Filter")));
             Caption = 'Inventory Total';
             DecimalPlaces = 0 : 5;
             Editable = false;
@@ -99,16 +99,16 @@ table 50094 "Inventory Posting Group2"
         }
         field(50379; Inventory2; Decimal)
         {
-            CalcFormula = Sum ("Value Entry"."Valued Quantity" WHERE ("Inventory Posting Group" = FIELD (Code),
-                                                                     "Global Dimension 1 Code" = FIELD ("Global Dimension 1 Filter"),
-                                                                     "Global Dimension 2 Code" = FIELD ("Global Dimension 2 Filter"),
-                                                                     "Location Code" = FIELD ("Location Filter"),
-                                                                     "Drop Shipment" = FIELD ("Drop Shipment Filter"),
-                                                                     "Variant Code" = FIELD ("Variant Filter"),
-                                                                    //  Field5403 = FIELD ("Bin Filter"),
-                                                                     "Posting Date" = FIELD ("Date Filter"),
-                                                                     "Source Code" = FILTER (<> ''),
-                                                                     "Source No." = FIELD ("Source No.  Filter")));
+            CalcFormula = Sum("Value Entry"."Valued Quantity" WHERE("Inventory Posting Group" = FIELD(Code),
+                                                                     "Global Dimension 1 Code" = FIELD("Global Dimension 1 Filter"),
+                                                                     "Global Dimension 2 Code" = FIELD("Global Dimension 2 Filter"),
+                                                                     "Location Code" = FIELD("Location Filter"),
+                                                                     "Drop Shipment" = FIELD("Drop Shipment Filter"),
+                                                                     "Variant Code" = FIELD("Variant Filter"),
+                                                                     //  Field5403 = FIELD ("Bin Filter"),
+                                                                     "Posting Date" = FIELD("Date Filter"),
+                                                                     "Source Code" = FILTER(<> ''),
+                                                                     "Source No." = FIELD("Source No.  Filter")));
             Caption = 'Inventory Total';
             DecimalPlaces = 0 : 5;
             Editable = false;
@@ -149,17 +149,17 @@ table 50094 "Inventory Posting Group2"
         }
         field(55429; "Inventory total1"; Decimal)
         {
-            CalcFormula = Sum ("Value Entry"."Valued Quantity" WHERE ("Inventory Posting Group" = FIELD (Code),
-                                                                     "Global Dimension 1 Code" = FIELD ("Global Dimension 1 Filter"),
-                                                                     "Global Dimension 2 Code" = FIELD ("Global Dimension 2 Filter"),
-                                                                     "Location Code" = FILTER (<> 'CRM-ASL'),
-                                                                     "Drop Shipment" = FIELD ("Drop Shipment Filter"),
-                                                                     "Variant Code" = FIELD ("Variant Filter"),
-                                                                    //  Field5403 = FIELD ("Bin Filter"),
-                                                                     "Posting Date" = FIELD ("Date Filter"),
-                                                                     "Source Code" = FIELD ("Source Filter"),
-                                                                     "Source Code" = FILTER (<> ''),
-                                                                     "Valued Quantity" = FILTER (> 0)));
+            CalcFormula = Sum("Value Entry"."Valued Quantity" WHERE("Inventory Posting Group" = FIELD(Code),
+                                                                     "Global Dimension 1 Code" = FIELD("Global Dimension 1 Filter"),
+                                                                     "Global Dimension 2 Code" = FIELD("Global Dimension 2 Filter"),
+                                                                     "Location Code" = FILTER(<> 'CRM-ASL'),
+                                                                     "Drop Shipment" = FIELD("Drop Shipment Filter"),
+                                                                     "Variant Code" = FIELD("Variant Filter"),
+                                                                     //  Field5403 = FIELD ("Bin Filter"),
+                                                                     "Posting Date" = FIELD("Date Filter"),
+                                                                     "Source Code" = FIELD("Source Filter"),
+                                                                     "Source Code" = FILTER(<> ''),
+                                                                     "Valued Quantity" = FILTER(> 0)));
             Caption = 'Inventory Total Vessel';
             DecimalPlaces = 0 : 5;
             Editable = false;
@@ -167,16 +167,16 @@ table 50094 "Inventory Posting Group2"
         }
         field(55430; "Inventory total2"; Decimal)
         {
-            CalcFormula = Sum ("Value Entry"."Valued Quantity" WHERE ("Inventory Posting Group" = FIELD (Code),
-                                                                     "Global Dimension 1 Code" = FIELD ("Global Dimension 1 Filter"),
-                                                                     "Global Dimension 2 Code" = FIELD ("Global Dimension 2 Filter"),
-                                                                     "Location Code" = FILTER (<> 'CRM-ASL'),
-                                                                     "Drop Shipment" = FIELD ("Drop Shipment Filter"),
-                                                                     "Variant Code" = FIELD ("Variant Filter"),
-                                                                    //  Field5403 = FIELD ("Bin Filter"),
-                                                                     "Posting Date" = FIELD ("Date Filter"),
-                                                                     "Source Code" = FILTER (<> ''),
-                                                                     "External Document No." = FILTER ('')));
+            CalcFormula = Sum("Value Entry"."Valued Quantity" WHERE("Inventory Posting Group" = FIELD(Code),
+                                                                     "Global Dimension 1 Code" = FIELD("Global Dimension 1 Filter"),
+                                                                     "Global Dimension 2 Code" = FIELD("Global Dimension 2 Filter"),
+                                                                     "Location Code" = FILTER(<> 'CRM-ASL'),
+                                                                     "Drop Shipment" = FIELD("Drop Shipment Filter"),
+                                                                     "Variant Code" = FIELD("Variant Filter"),
+                                                                     //  Field5403 = FIELD ("Bin Filter"),
+                                                                     "Posting Date" = FIELD("Date Filter"),
+                                                                     "Source Code" = FILTER(<> ''),
+                                                                     "External Document No." = FILTER('')));
             Caption = 'Inventory Total Fishing Grd';
             DecimalPlaces = 0 : 5;
             Editable = false;
@@ -188,32 +188,32 @@ table 50094 "Inventory Posting Group2"
         }
         field(55432; Inventory3; Decimal)
         {
-            CalcFormula = - Sum ("Value Entry"."Valued Quantity" WHERE ("Inventory Posting Group" = FIELD (Code),
-                                                                      "Global Dimension 1 Code" = FIELD ("Global Dimension 1 Filter"),
-                                                                      "Global Dimension 2 Code" = FIELD ("Global Dimension 2 Filter"),
-                                                                      "Location Code" = FIELD ("Location Filter"),
-                                                                      "Drop Shipment" = FIELD ("Drop Shipment Filter"),
-                                                                      "Variant Code" = FIELD ("Variant Filter"),
-                                                                    //   Field5403 = FIELD ("Bin Filter"),
-                                                                      "Posting Date" = FIELD ("Date Filter"),
-                                                                      "Source Code" = FILTER (<> ''),
-                                                                      "Source No." = FIELD ("Source No.  Filter"),
-                                                                      "Valued Quantity" = FILTER (< 0)));
+            CalcFormula = - Sum("Value Entry"."Valued Quantity" WHERE("Inventory Posting Group" = FIELD(Code),
+                                                                      "Global Dimension 1 Code" = FIELD("Global Dimension 1 Filter"),
+                                                                      "Global Dimension 2 Code" = FIELD("Global Dimension 2 Filter"),
+                                                                      "Location Code" = FIELD("Location Filter"),
+                                                                      "Drop Shipment" = FIELD("Drop Shipment Filter"),
+                                                                      "Variant Code" = FIELD("Variant Filter"),
+                                                                      //   Field5403 = FIELD ("Bin Filter"),
+                                                                      "Posting Date" = FIELD("Date Filter"),
+                                                                      "Source Code" = FILTER(<> ''),
+                                                                      "Source No." = FIELD("Source No.  Filter"),
+                                                                      "Valued Quantity" = FILTER(< 0)));
             FieldClass = FlowField;
         }
         field(55433; "Inventory total3"; Decimal)
         {
-            CalcFormula = - Sum ("Value Entry"."Valued Quantity" WHERE ("Inventory Posting Group" = FIELD (Code),
-                                                                      "Global Dimension 1 Code" = FIELD ("Global Dimension 1 Filter"),
-                                                                      "Global Dimension 2 Code" = FIELD ("Global Dimension 2 Filter"),
-                                                                      "Location Code" = FILTER (<> 'CRM-ASL'),
-                                                                      "Drop Shipment" = FIELD ("Drop Shipment Filter"),
-                                                                      "Variant Code" = FIELD ("Variant Filter"),
-                                                                    //   Field5403 = FIELD ("Bin Filter"),
-                                                                      "Posting Date" = FIELD ("Date Filter"),
-                                                                      "Source Code" = FIELD ("Source Filter"),
-                                                                      "Source Code" = FILTER (<> ''),
-                                                                      "Valued Quantity" = FILTER (< 0)));
+            CalcFormula = - Sum("Value Entry"."Valued Quantity" WHERE("Inventory Posting Group" = FIELD(Code),
+                                                                      "Global Dimension 1 Code" = FIELD("Global Dimension 1 Filter"),
+                                                                      "Global Dimension 2 Code" = FIELD("Global Dimension 2 Filter"),
+                                                                      "Location Code" = FILTER(<> 'CRM-ASL'),
+                                                                      "Drop Shipment" = FIELD("Drop Shipment Filter"),
+                                                                      "Variant Code" = FIELD("Variant Filter"),
+                                                                      //   Field5403 = FIELD ("Bin Filter"),
+                                                                      "Posting Date" = FIELD("Date Filter"),
+                                                                      "Source Code" = FIELD("Source Filter"),
+                                                                      "Source Code" = FILTER(<> ''),
+                                                                      "Valued Quantity" = FILTER(< 0)));
             FieldClass = FlowField;
         }
     }

@@ -34,7 +34,7 @@ table 50030 "Casual Employees"
         field(6; "Global Dimension 2 Code"; Code[10])
         {
             CaptionClass = '1,1,2';
-            TableRelation = "Dimension Value".Code WHERE ("Global Dimension No." = CONST (2));
+            TableRelation = "Dimension Value".Code WHERE("Global Dimension No." = CONST(2));
 
             trigger OnValidate()
             begin
@@ -64,7 +64,7 @@ table 50030 "Casual Employees"
         {
             CaptionClass = '1,3,2';
             FieldClass = FlowFilter;
-            TableRelation = "Dimension Value".Code WHERE ("Global Dimension No." = CONST (2));
+            TableRelation = "Dimension Value".Code WHERE("Global Dimension No." = CONST(2));
         }
         field(13; "Date Employed Filter"; Date)
         {
@@ -77,10 +77,10 @@ table 50030 "Casual Employees"
         field(15; "Employee Count"; Integer)
         {
             BlankZero = true;
-            CalcFormula = Count ("Casual Employees" WHERE ("No." = FIELD ("Employee No Filter"),
-                                                          "Job Code" = FIELD ("Job Code Filter"),
-                                                          "Date Employed" = FIELD ("Date Employed Filter"),
-                                                          "Leaving Date" = FIELD ("Leaving Date Filter")));
+            CalcFormula = Count("Casual Employees" WHERE("No." = FIELD("Employee No Filter"),
+                                                          "Job Code" = FIELD("Job Code Filter"),
+                                                          "Date Employed" = FIELD("Date Employed Filter"),
+                                                          "Leaving Date" = FIELD("Leaving Date Filter")));
             Editable = false;
             FieldClass = FlowField;
         }
@@ -95,7 +95,7 @@ table 50030 "Casual Employees"
         field(19; "Global Dimension 1 Code"; Code[10])
         {
             CaptionClass = '1,1,1';
-            TableRelation = "Dimension Value".Code WHERE ("Global Dimension No." = CONST (1));
+            TableRelation = "Dimension Value".Code WHERE("Global Dimension No." = CONST(1));
 
             trigger OnValidate()
             begin
@@ -191,20 +191,18 @@ table 50030 "Casual Employees"
         BCRec: Record "Business Unit";
         Cemployee: Record "Casual Employees";
 
-   // [Scope(Internal)
+    // [Scope(Internal)
     procedure AssistEdit(OldEmployee: Record "Casual Employees"): Boolean
     begin
-        with Cemployee do begin
-            Cemployee := Rec;
+        Cemployee := Rec;
+        HumanResSetup.Get;
+        HumanResSetup.TestField("Casual Employees No.");
+        if NoSeriesMgt.SelectSeries(HumanResSetup."Casual Employees No.", OldEmployee."No. Series", Cemployee."No. Series") then begin
             HumanResSetup.Get;
             HumanResSetup.TestField("Casual Employees No.");
-            if NoSeriesMgt.SelectSeries(HumanResSetup."Casual Employees No.", OldEmployee."No. Series", "No. Series") then begin
-                HumanResSetup.Get;
-                HumanResSetup.TestField("Casual Employees No.");
-                NoSeriesMgt.SetSeries("No.");
-                Rec := Cemployee;
-                exit(true);
-            end;
+            NoSeriesMgt.SetSeries(Cemployee."No.");
+            Rec := Cemployee;
+            exit(true);
         end;
     end;
 }

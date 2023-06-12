@@ -9,11 +9,11 @@ pageextension 50354 "Job List Ext" extends "Job List"
                 StyleExpr = StyleText;
                 ApplicationArea = All;
             }
-            field("Voyage No."; "Voyage No.")
+            field("Voyage No."; Rec."Voyage No.")
             {
                 ApplicationArea = All;
             }
-            field("Fuel Consumed"; "Fuel Consumed")
+            field("Fuel Consumed"; Rec."Fuel Consumed")
             {
                 ApplicationArea = All;
             }
@@ -21,53 +21,53 @@ pageextension 50354 "Job List Ext" extends "Job List"
 
         addafter("Person Responsible")
         {
-            field(Captain; Captain)
+            field(Captain; Rec.Captain)
             {
                 ApplicationArea = All;
             }
         }
         addafter("% of Overdue Planning Lines")
         {
-            field("Starting Date"; "Starting Date")
+            field("Starting Date"; Rec."Starting Date")
             {
                 ApplicationArea = All;
             }
         }
         addafter("% Invoiced")
         {
-            field("Sea Days"; "Sea Days")
+            field("Sea Days"; Rec."Sea Days")
             {
                 ApplicationArea = All;
             }
-            field("Cycle Day (Manual)"; "Cycle Day (Manual)")
+            field("Cycle Day (Manual)"; Rec."Cycle Day (Manual)")
             {
                 ApplicationArea = All;
             }
-            field("Fishing Day (Manual)"; "Fishing Day (Manual)")
+            field("Fishing Day (Manual)"; Rec."Fishing Day (Manual)")
             {
                 ApplicationArea = All;
             }
-            field("Lost At Sea (Manual)"; "Lost At Sea (Manual)")
+            field("Lost At Sea (Manual)"; Rec."Lost At Sea (Manual)")
             {
                 ApplicationArea = All;
             }
-            field("Port Day (Manual)"; "Port Day (Manual)")
+            field("Port Day (Manual)"; Rec."Port Day (Manual)")
             {
                 ApplicationArea = All;
             }
-            field("Points Actual"; "Points Actual")
+            field("Points Actual"; Rec."Points Actual")
             {
                 ApplicationArea = All;
             }
-            field(Batch; Batch)
+            field(Batch; Rec.Batch)
             {
                 ApplicationArea = All;
             }
-            field(Points; Points)
+            field(Points; Rec.Points)
             {
                 ApplicationArea = All;
             }
-            field("Ending Date"; "Ending Date")
+            field("Ending Date"; Rec."Ending Date")
             {
                 ApplicationArea = All;
             }
@@ -381,7 +381,7 @@ pageextension 50354 "Job List Ext" extends "Job List"
         myInt: Integer;
     begin
         StyleText := '';
-        if Status = Status::Completed then
+        if Rec.Status = Rec.Status::Completed then
             StyleText := 'Unfavorable'
         else
             StyleText := 'standard';

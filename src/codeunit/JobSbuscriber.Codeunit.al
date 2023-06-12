@@ -73,159 +73,159 @@ codeunit 50037 "JobSbuscriber"
         if UserId <> GenSetup.Administrator then begin
             if Rec.Status = xRec.Status then
                 exit;
-        // {
-        //  IF Rec.Status < xRec.Status THEN
-        //         ERROR(Text001);
+            // {
+            //  IF Rec.Status < xRec.Status THEN
+            //         ERROR(Text001);
 
-        //     ChangeJobStatus :=
-        //       CONFIRM(
-        //         Text002 +
-        //         Text003, FALSE,
-        //         rec.FieldCaption(Rec.Status));
+            //     ChangeJobStatus :=
+            //       CONFIRM(
+            //         Text002 +
+            //         Text003, FALSE,
+            //         rec.FieldCaption(Rec.Status));
 
-        //     IF NOT ChangeJobStatus THEN BEGIN
-        //         Rec.Status := xRec.Status;
-        //         EXIT;
-        //     END;
-        // //  }
-        //  if (Status = Status::"Close Job Card") and (CopyStr(Job."No.",1,1)='J') then
-        //    TestField("Voyage Ended",true);
-        // if xRec.Status <> Status then 
-        // begin
+            //     IF NOT ChangeJobStatus THEN BEGIN
+            //         Rec.Status := xRec.Status;
+            //         EXIT;
+            //     END;
+            // //  }
+            //  if (Status = Status::"Close Job Card") and (CopyStr(Job."No.",1,1)='J') then
+            //    TestField("Voyage Ended",true);
+            // if xRec.Status <> Status then 
+            // begin
 
-        // end;
-    end; 
-    end;   
+            // end;
+        end;
+    end;
 }
 
 // OnValidate Status
 //>>>> MODIFIED CODE:
-        //begin
-        /*
-        GenSetup.Get;
-        if UserId<>GenSetup.Administrator then
-        begin
-          if Status = xRec.Status then
-           exit;
-        {
-         IF Status < xRec.Status THEN
-           ERROR(Text001);
+//begin
+/*
+GenSetup.Get;
+if UserId<>GenSetup.Administrator then
+begin
+  if Status = xRec.Status then
+   exit;
+{
+ IF Status < xRec.Status THEN
+   ERROR(Text001);
 
-         ChangeJobStatus :=
-           CONFIRM(
-             Text002+
-             Text003,FALSE,
-             FIELDCAPTION(Status));
+ ChangeJobStatus :=
+   CONFIRM(
+     Text002+
+     Text003,FALSE,
+     FIELDCAPTION(Status));
 
-         IF NOT ChangeJobStatus THEN
-         BEGIN
-           Status := xRec.Status;
-           EXIT;
-         END;
-         }
-         if (Status = Status::"Close Job Card") and (CopyStr(Job."No.",1,1)='J') then
-           TestField("Voyage Ended",true);
-        if xRec.Status <> Status then
-        begin
-        #2..11
-          if JobPlanningLine.FindSet then
-          begin
-        #13..20
-        end;
-        */
-        //end;
+ IF NOT ChangeJobStatus THEN
+ BEGIN
+   Status := xRec.Status;
+   EXIT;
+ END;
+ }
+ if (Status = Status::"Close Job Card") and (CopyStr(Job."No.",1,1)='J') then
+   TestField("Voyage Ended",true);
+if xRec.Status <> Status then
+begin
+#2..11
+  if JobPlanningLine.FindSet then
+  begin
+#13..20
+end;
+*/
+//end;
 
-        //OnValidate
-        //""Person Responsible"(Field 20)".
+//OnValidate
+//""Person Responsible"(Field 20)".
 
-        //trigger OnValidate()
-        //Parameters and return type have not been exported.
-        //begin
-        /*
-        if "Person Responsible" = '' then
-          exit;
+//trigger OnValidate()
+//Parameters and return type have not been exported.
+//begin
+/*
+if "Person Responsible" = '' then
+  exit;
 
-        SetRange("Person Responsible",Res."No.");
-        if Res.Get("Person Responsible") then
-          Validate(Captain, Res.Name);
+SetRange("Person Responsible",Res."No.");
+if Res.Get("Person Responsible") then
+  Validate(Captain, Res.Name);
 
-        JobTask.SetRange(JobTask."Job No.","No.");
-        JobTask.SetRange(JobTask."Job Task No.",'temp');
-        if JobTask.FindFirst then begin
-          InitPlanningLines;
-        end else begin
-          JobTask.Init;
-          JobTask."Job No." := "No.";
-          JobTask."Job Task No." := 'temp';
-          JobTask."Job Task Type" := JobTask."Job Task Type"::Posting;
-          JobTask."Job Posting Group" := 'OPERATION';
-          JobTask.Description := Description;
-          JobTask.Insert(true);
-          InitPlanningLines;
-        end;
-        */
-        //end;
+JobTask.SetRange(JobTask."Job No.","No.");
+JobTask.SetRange(JobTask."Job Task No.",'temp');
+if JobTask.FindFirst then begin
+  InitPlanningLines;
+end else begin
+  JobTask.Init;
+  JobTask."Job No." := "No.";
+  JobTask."Job Task No." := 'temp';
+  JobTask."Job Task Type" := JobTask."Job Task Type"::Posting;
+  JobTask."Job Posting Group" := 'OPERATION';
+  JobTask.Description := Description;
+  JobTask.Insert(true);
+  InitPlanningLines;
+end;
+*/
+//end;
 
-        
-        
-        //Unsupported feature: Code Modification on ""Apply Usage Link"(Field 1025).OnValidate".
 
-        //trigger OnValidate()
-        //Parameters and return type have not been exported.
-        //>>>> ORIGINAL CODE:
-        //begin
-        /*
-        if "Apply Usage Link" then begin
-          JobLedgerEntry.SetCurrentKey("Job No.");
-          JobLedgerEntry.SetRange("Job No.","No.");
-          JobLedgerEntry.SetRange("Entry Type",JobLedgerEntry."Entry Type"::Usage);
-          if JobLedgerEntry.FindFirst then begin
-            JobUsageLink.SetRange("Entry No.",JobLedgerEntry."Entry No.");
-            if JobUsageLink.IsEmpty then
-              Error(ApplyUsageLinkErr,TableCaption);
-          end;
-        #10..18
-              JobPlanningLine.Modify(true);
-            until JobPlanningLine.Next = 0;
-        end;
-        */
-        //end;
-        //>>>> MODIFIED CODE:
-        //begin
-        /*
-        #1..5
-            //JobUsageLink.SETRANGE("Entry No.",JobLedgerEntry."Entry No.");
-        #7..21
-        */
-        //end;
 
-        //Unsupported feature: Code Modification on "OnModify".
+//Unsupported feature: Code Modification on ""Apply Usage Link"(Field 1025).OnValidate".
 
-    //trigger OnModify()
-    //>>>> ORIGINAL CODE:
-    //begin
-    /*
-    "Last Date Modified" := Today;
+//trigger OnValidate()
+//Parameters and return type have not been exported.
+//>>>> ORIGINAL CODE:
+//begin
+/*
+if "Apply Usage Link" then begin
+  JobLedgerEntry.SetCurrentKey("Job No.");
+  JobLedgerEntry.SetRange("Job No.","No.");
+  JobLedgerEntry.SetRange("Entry Type",JobLedgerEntry."Entry Type"::Usage);
+  if JobLedgerEntry.FindFirst then begin
+    JobUsageLink.SetRange("Entry No.",JobLedgerEntry."Entry No.");
+    if JobUsageLink.IsEmpty then
+      Error(ApplyUsageLinkErr,TableCaption);
+  end;
+#10..18
+      JobPlanningLine.Modify(true);
+    until JobPlanningLine.Next = 0;
+end;
+*/
+//end;
+//>>>> MODIFIED CODE:
+//begin
+/*
+#1..5
+    //JobUsageLink.SETRANGE("Entry No.",JobLedgerEntry."Entry No.");
+#7..21
+*/
+//end;
 
-    if (("Project Manager" <> xRec."Project Manager") and (xRec."Project Manager" <> '')) or (Status <> Status::Open) then
-      RemoveFromMyJobs;
+//Unsupported feature: Code Modification on "OnModify".
 
-    if ("Project Manager" <> '') and (xRec."Project Manager" <> "Project Manager") then
-      if Status = Status::Open then
-        AddToMyJobs("Project Manager");
-    */
-    //end;
-    //>>>> MODIFIED CODE:
-    //begin
-    /*
-    "Last Date Modified" := Today;
+//trigger OnModify()
+//>>>> ORIGINAL CODE:
+//begin
+/*
+"Last Date Modified" := Today;
 
-    if (("Project Manager" <> xRec."Project Manager") and (xRec."Project Manager" <> '')) or (Status <> Status::"Voyage Start") then
-    #4..6
-      if Status = Status::"Voyage Start" then
-        AddToMyJobs("Project Manager");
-    */
-    //end;
+if (("Project Manager" <> xRec."Project Manager") and (xRec."Project Manager" <> '')) or (Status <> Status::Open) then
+  RemoveFromMyJobs;
+
+if ("Project Manager" <> '') and (xRec."Project Manager" <> "Project Manager") then
+  if Status = Status::Open then
+    AddToMyJobs("Project Manager");
+*/
+//end;
+//>>>> MODIFIED CODE:
+//begin
+/*
+"Last Date Modified" := Today;
+
+if (("Project Manager" <> xRec."Project Manager") and (xRec."Project Manager" <> '')) or (Status <> Status::"Voyage Start") then
+#4..6
+  if Status = Status::"Voyage Start" then
+    AddToMyJobs("Project Manager");
+*/
+//end;
 
 
 

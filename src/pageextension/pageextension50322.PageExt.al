@@ -4,11 +4,11 @@ pageextension 50322 "pageextension50322" extends "Transfer Order"
     {
         addafter("Transfer-from")
         {
-            field("Transfer From Voy. No."; "Transfer From Voy. No.")
+            field("Transfer From Voy. No."; Rec."Transfer From Voy. No.")
             {
                 ApplicationArea = All;
             }
-            field("Transfer To Voy. No."; "Transfer To Voy. No.")
+            field("Transfer To Voy. No."; Rec."Transfer To Voy. No.")
             {
                 ApplicationArea = All;
             }
@@ -32,7 +32,7 @@ pageextension 50322 "pageextension50322" extends "Transfer Order"
                 var
                     TrasRec: Record "Transfer Header";
                 begin
-                    TrasRec.SetRange(TrasRec."No.", "No.");
+                    TrasRec.SetRange(TrasRec."No.", Rec."No.");
                     if TrasRec.FindFirst() then
                         REPORT.runmodal(50033, true, false, TrasRec);
                 end;

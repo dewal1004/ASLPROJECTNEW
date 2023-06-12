@@ -10,59 +10,59 @@ page 50046 "Casual Employees List"
             repeater(Control1)
             {
                 ShowCaption = false;
-                field("No."; "No.")
+                field("No."; Rec."No.")
                 {
                     ApplicationArea = All;
                 }
-                field("Employee name"; "Employee name")
+                field("Employee name"; Rec."Employee name")
                 {
                     ApplicationArea = All;
                 }
-                field(Address; Address)
+                field(Address; Rec.Address)
                 {
                     ApplicationArea = All;
                 }
-                field(Sex; Sex)
+                field(Sex; Rec.Sex)
                 {
                     ApplicationArea = All;
                 }
-                field("Date of Birth"; "Date of Birth")
+                field("Date of Birth"; Rec."Date of Birth")
                 {
                     ApplicationArea = All;
                 }
-                field("Job Code"; "Job Code")
+                field("Job Code"; Rec."Job Code")
                 {
                     ApplicationArea = All;
                 }
-                field("Global Dimension 2 Code"; "Global Dimension 2 Code")
+                field("Global Dimension 2 Code"; Rec."Global Dimension 2 Code")
                 {
                     ApplicationArea = All;
                 }
-                field("Date Employed"; "Date Employed")
+                field("Date Employed"; Rec."Date Employed")
                 {
                     ApplicationArea = All;
                 }
-                field("Leaving Date"; "Leaving Date")
+                field("Leaving Date"; Rec."Leaving Date")
                 {
                     ApplicationArea = All;
                 }
-                field("Employee No Filter"; "Employee No Filter")
+                field("Employee No Filter"; Rec."Employee No Filter")
                 {
                     ApplicationArea = All;
                 }
-                field("Job Code Filter"; "Job Code Filter")
+                field("Job Code Filter"; Rec."Job Code Filter")
                 {
                     ApplicationArea = All;
                 }
-                field("Global Dimension 2 Filter"; "Global Dimension 2 Filter")
+                field("Global Dimension 2 Filter"; Rec."Global Dimension 2 Filter")
                 {
                     ApplicationArea = All;
                 }
-                field("Date Employed Filter"; "Date Employed Filter")
+                field("Date Employed Filter"; Rec."Date Employed Filter")
                 {
                     ApplicationArea = All;
                 }
-                field("Leaving Date Filter"; "Leaving Date Filter")
+                field("Leaving Date Filter"; Rec."Leaving Date Filter")
                 {
                     ApplicationArea = All;
                 }

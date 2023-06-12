@@ -10,79 +10,79 @@ page 50006 "Payslip Lines."
             repeater(Control1)
             {
                 ShowCaption = false;
-                field("E/D Code"; "E/D Code")
+                field("E/D Code"; Rec."E/D Code")
                 {
                     ApplicationArea = All;
                 }
-                field("Payslip Text"; "Payslip Text")
+                field("Payslip Text"; Rec."Payslip Text")
                 {
                     ApplicationArea = All;
                 }
-                field(Units; Units)
+                field(Units; Rec.Units)
                 {
                     ApplicationArea = All;
                 }
-                field(Quantity; Quantity)
+                field(Quantity; Rec.Quantity)
                 {
                     ApplicationArea = All;
                 }
-                field(Rate; Rate)
+                field(Rate; Rec.Rate)
                 {
                     ApplicationArea = All;
                 }
-                field(Amount; Amount)
+                field(Amount; Rec.Amount)
                 {
                     ApplicationArea = All;
                 }
-                field("Loan ID"; "Loan ID")
+                field("Loan ID"; Rec."Loan ID")
                 {
                     ApplicationArea = All;
                 }
-                field("Debit Account"; "Debit Account")
+                field("Debit Account"; Rec."Debit Account")
                 {
                     ApplicationArea = All;
                 }
-                field("Credit Account"; "Credit Account")
+                field("Credit Account"; Rec."Credit Account")
                 {
                     ApplicationArea = All;
                 }
-                field("Global Dimension 1 Code"; "Global Dimension 1 Code")
+                field("Global Dimension 1 Code"; Rec."Global Dimension 1 Code")
                 {
                     ApplicationArea = All;
                 }
-                field("Payslip Print Column"; "Payslip Print Column")
+                field("Payslip Print Column"; Rec."Payslip Print Column")
                 {
                     ApplicationArea = All;
                 }
-                field("Global Dimension 2 Code"; "Global Dimension 2 Code")
+                field("Global Dimension 2 Code"; Rec."Global Dimension 2 Code")
                 {
                     ApplicationArea = All;
                 }
-                field("Payslip appearance"; "Payslip appearance")
+                field("Payslip appearance"; Rec."Payslip appearance")
                 {
                     ApplicationArea = All;
                 }
-                field("Payslip Column"; "Payslip Column")
+                field("Payslip Column"; Rec."Payslip Column")
                 {
                     ApplicationArea = All;
                 }
-                field("Payslip Group ID"; "Payslip Group ID")
+                field("Payslip Group ID"; Rec."Payslip Group ID")
                 {
                     ApplicationArea = All;
                 }
-                field("Pos. In Payslip Grp."; "Pos. In Payslip Grp.")
+                field("Pos. In Payslip Grp."; Rec."Pos. In Payslip Grp.")
                 {
                     ApplicationArea = All;
                 }
-                field("Overline Column"; "Overline Column")
+                field("Overline Column"; Rec."Overline Column")
                 {
                     ApplicationArea = All;
                 }
-                field("Underline Amount"; "Underline Amount")
+                field("Underline Amount"; Rec."Underline Amount")
                 {
                     ApplicationArea = All;
                 }
-                field("Postg Group"; "Postg Group")
+                field("Postg Group"; Rec."Postg Group")
                 {
                     Visible = false;
                     ApplicationArea = All;

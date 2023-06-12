@@ -7,103 +7,103 @@ pageextension 50209 "pageextension50209" extends "User Setup"
     {
         addafter("Allow Posting To")
         {
-            field("E-Mail"; "E-Mail")
+            field("E-Mail"; Rec."E-Mail")
             {
                 ApplicationArea = All;
             }
         }
         addafter("Time Sheet Admin.")
         {
-            field("Create Loan"; "Create Loan")
+            field("Create Loan"; Rec."Create Loan")
             {
                 ShowCaption = true;
                 ApplicationArea = All;
             }
-            field("Unblock Employee"; "Unblock Employee")
+            field("Unblock Employee"; Rec."Unblock Employee")
             {
                 ShowCaption = true;
                 ApplicationArea = All;
             }
-            field("Edit Resource"; "Edit Resource")
+            field("Edit Resource"; Rec."Edit Resource")
             {
                 ShowCaption = true;
                 ApplicationArea = All;
             }
-            field("Periodic Activits/SetUp Access"; "Periodic Activits/SetUp Access")
+            field("Periodic Activits/SetUp Access"; Rec."Periodic Activits/SetUp Access")
             {
                 ShowCaption = true;
                 ApplicationArea = All;
             }
-            field("Job Catch"; "Job Catch")
+            field("Job Catch"; Rec."Job Catch")
             {
                 ShowCaption = true;
                 ApplicationArea = All;
             }
-            field("Pick Blocked Empl in Journal"; "Pick Blocked Empl in Journal")
+            field("Pick Blocked Empl in Journal"; Rec."Pick Blocked Empl in Journal")
             {
                 ShowCaption = true;
                 ApplicationArea = All;
             }
-            field("JrnllineShowCRM-ASL"; "JrnllineShowCRM-ASL")
+            field("JrnllineShowCRM-ASL"; Rec."JrnllineShowCRM-ASL")
             {
                 ApplicationArea = All;
             }
-            field("Confirm StockOutWarning"; "Confirm StockOutWarning")
+            field("Confirm StockOutWarning"; Rec."Confirm StockOutWarning")
             {
                 ShowCaption = true;
                 Visible = true;
                 ApplicationArea = All;
             }
-            field("Sales Price"; "Sales Price")
+            field("Sales Price"; Rec."Sales Price")
             {
                 ApplicationArea = All;
             }
-            field("Store Req 1st Approval"; "Store Req 1st Approval")
+            field("Store Req 1st Approval"; Rec."Store Req 1st Approval")
             {
                 ApplicationArea = All;
             }
-            field("Store Req Final Approval"; "Store Req Final Approval")
+            field("Store Req Final Approval"; Rec."Store Req Final Approval")
             {
                 ApplicationArea = All;
             }
-            field("Fish Stk Req F.Approval"; "Fish Stk Req F.Approval")
+            field("Fish Stk Req F.Approval"; Rec."Fish Stk Req F.Approval")
             {
                 ApplicationArea = All;
             }
-            field("Print DN"; "Print DN")
+            field("Print DN"; Rec."Print DN")
             {
                 ApplicationArea = All;
             }
-            field("Reprint DN"; "Reprint DN")
+            field("Reprint DN"; Rec."Reprint DN")
             {
                 ApplicationArea = All;
             }
-            field("Return Release To Open"; "Return Release To Open")
+            field("Return Release To Open"; Rec."Return Release To Open")
             {
                 Caption = 'Change Status Release To Open';
                 ApplicationArea = All;
             }
-            field("Print MR"; "Print MR")
+            field("Print MR"; Rec."Print MR")
             {
                 ApplicationArea = All;
             }
-            field("Reprint MR"; "Reprint MR")
+            field("Reprint MR"; Rec."Reprint MR")
             {
                 ApplicationArea = All;
             }
-            field("Modify Item"; "Modify Item")
+            field("Modify Item"; Rec."Modify Item")
             {
                 ApplicationArea = All;
             }
-            field("Modify Vendor"; "Modify Vendor")
+            field("Modify Vendor"; Rec."Modify Vendor")
             {
                 ApplicationArea = All;
             }
-            field("Use Item Journal"; "Use Item Journal")
+            field("Use Item Journal"; Rec."Use Item Journal")
             {
                 ApplicationArea = All;
             }
-            field("Modify Customer"; "Modify Customer")
+            field("Modify Customer"; Rec."Modify Customer")
             {
                 ApplicationArea = All;
             }

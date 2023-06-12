@@ -10,23 +10,23 @@ page 50014 "Posting Group Lines."
             repeater(Control1)
             {
                 ShowCaption = false;
-                field("E/D Code"; "E/D Code")
+                field("E/D Code"; Rec."E/D Code")
                 {
                     ApplicationArea = All;
                 }
-                field("Debit Account No."; "Debit Account No.")
+                field("Debit Account No."; Rec."Debit Account No.")
                 {
                     ApplicationArea = All;
                 }
-                field("Credit Account No."; "Credit Account No.")
+                field("Credit Account No."; Rec."Credit Account No.")
                 {
                     ApplicationArea = All;
                 }
-                field("Transfer Department"; "Transfer Department")
+                field("Transfer Department"; Rec."Transfer Department")
                 {
                     ApplicationArea = All;
                 }
-                field("Transfer Business Units"; "Transfer Business Units")
+                field("Transfer Business Units"; Rec."Transfer Business Units")
                 {
                     ApplicationArea = All;
                 }

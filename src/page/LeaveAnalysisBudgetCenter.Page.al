@@ -79,10 +79,10 @@ page 60023 "Leave Analysis/Budget Center"
 
     local procedure PasteFilter()
     begin
-        DeptFilter := GetFilter("Global Dimension 1 Filter");
-        ProjFilter := GetFilter("Global Dimension 2 Filter");
+        DeptFilter := Rec.GetFilter("Global Dimension 1 Filter");
+        ProjFilter := Rec.GetFilter("Global Dimension 2 Filter");
         Evaluate(LeaveFilter, Format(LFilter));          //GETFILTER("Leave Type Filter")
-        EmployeeNoFilter := GetFilter("Employee No. Filter");
+        EmployeeNoFilter := Rec.GetFilter("Employee No. Filter");
 
         /*CurrPage.SubForm.PAGE.MatrixUpdate(
           LeaveAmountType,PeriodType,

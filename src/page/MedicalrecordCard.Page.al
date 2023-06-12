@@ -10,19 +10,19 @@ page 50044 "Medical record Card"
             group(General)
             {
                 Caption = 'General';
-                field("Line No"; "Line No")
+                field("Line No"; Rec."Line No")
                 {
                     ApplicationArea = All;
                 }
-                field("Employee No"; "Employee No")
+                field("Employee No"; Rec."Employee No")
                 {
                     ApplicationArea = All;
                 }
-                field("employee.GetFullName(""Employee No"")"; employee.GetFullName("Employee No"))
+                field("employee.GetFullName(""Employee No"")"; employee.GetFullName(Rec."Employee No"))
                 {
                     ApplicationArea = All;
                 }
-                field("Hospital Code"; "Hospital Code")
+                field("Hospital Code"; Rec."Hospital Code")
                 {
                     Editable = "Hospital CodeEditable";
                     ApplicationArea = All;
@@ -32,11 +32,11 @@ page 50044 "Medical record Card"
                     Editable = false;
                     ApplicationArea = All;
                 }
-                field(Beneficiary; Beneficiary)
+                field(Beneficiary; Rec.Beneficiary)
                 {
                     ApplicationArea = All;
                 }
-                field("Transaction Type"; "Transaction Type")
+                field("Transaction Type"; Rec."Transaction Type")
                 {
                     Caption = 'Transaction Code';
                     ApplicationArea = All;
@@ -46,21 +46,21 @@ page 50044 "Medical record Card"
                         CheckTransType
                     end;
                 }
-                field("Transaction Description"; "Transaction Description")
+                field("Transaction Description"; Rec."Transaction Description")
                 {
                     ApplicationArea = All;
                 }
-                field("Transaction Date"; "Transaction Date")
+                field("Transaction Date"; Rec."Transaction Date")
                 {
                     ApplicationArea = All;
                 }
-                field("ASL Ref No"; "ASL Ref No")
+                field("ASL Ref No"; Rec."ASL Ref No")
                 {
                     Caption = 'ASL Ref No';
                     Editable = "ASL Ref NoEditable";
                     ApplicationArea = All;
                 }
-                field(Amount; Amount)
+                field(Amount; Rec.Amount)
                 {
                     ApplicationArea = All;
                 }
@@ -68,15 +68,15 @@ page 50044 "Medical record Card"
             group(Employee)
             {
                 Caption = 'Employee';
-                field("Global Dimension 1 Code"; "Global Dimension 1 Code")
+                field("Global Dimension 1 Code"; Rec."Global Dimension 1 Code")
                 {
                     ApplicationArea = All;
                 }
-                field("Global Dimension 2 Code"; "Global Dimension 2 Code")
+                field("Global Dimension 2 Code"; Rec."Global Dimension 2 Code")
                 {
                     ApplicationArea = All;
                 }
-                field("Region Code"; "Region Code")
+                field("Region Code"; Rec."Region Code")
                 {
                     Visible = false;
                     ApplicationArea = All;
@@ -130,11 +130,11 @@ page 50044 "Medical record Card"
     procedure CheckTransType()
     begin
 
-        if "Transaction Type" <> "Transaction Type"::H then begin
+        if Rec."Transaction Type" <> Rec."Transaction Type"::H then begin
             "Hospital CodeEditable" := false;
             "ASL Ref NoEditable" := false;
-            "Hospital Code" := '';
-            "ASL Ref No" := ''
+            Rec."Hospital Code" := '';
+            Rec."ASL Ref No" := ''
         end
         else begin
             "Hospital CodeEditable" := true;
@@ -144,7 +144,7 @@ page 50044 "Medical record Card"
 
     local procedure HospitalCodeOnFormat()
     begin
-        if Vendor.Get("Hospital Code") then
+        if Vendor.Get(Rec."Hospital Code") then
             VendName := Vendor.Name
         else
             VendName := '';

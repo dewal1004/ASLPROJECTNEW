@@ -12,40 +12,40 @@ page 50091 "IOU"
             repeater(Control1)
             {
                 ShowCaption = false;
-                field(Date; Date)
+                field(Date; Rec.Date)
                 {
                     ApplicationArea = All;
                 }
-                field("No."; "No.")
+                field("No."; Rec."No.")
                 {
                     ApplicationArea = All;
                 }
-                field("Employee No."; "Employee No.")
+                field("Employee No."; Rec."Employee No.")
                 {
                     ApplicationArea = All;
                 }
-                field(EmployeeName; EmployeeName)
+                field(EmployeeName; Rec.EmployeeName)
                 {
                     Caption = 'Full Name';
                     ApplicationArea = All;
                 }
-                field(Amount; Amount)
+                field(Amount; Rec.Amount)
                 {
                     ApplicationArea = All;
                 }
-                field("Due Date"; "Due Date")
+                field("Due Date"; Rec."Due Date")
                 {
                     ApplicationArea = All;
                 }
-                field("Global Dimension 1 Code"; "Global Dimension 1 Code")
+                field("Global Dimension 1 Code"; Rec."Global Dimension 1 Code")
                 {
                     ApplicationArea = All;
                 }
-                field(Redeemed; Redeemed)
+                field(Redeemed; Rec.Redeemed)
                 {
                     ApplicationArea = All;
                 }
-                field("Redeemded by Voucher No."; "Redeemded by Voucher No.")
+                field("Redeemded by Voucher No."; Rec."Redeemded by Voucher No.")
                 {
                     ApplicationArea = All;
                 }
@@ -59,7 +59,7 @@ page 50091 "IOU"
 
     local procedure EmployeeNameOnInputChange(var Text: Text[1024])
     begin
-        EmployeeName
+        Rec.EmployeeName
     end;
 }
 

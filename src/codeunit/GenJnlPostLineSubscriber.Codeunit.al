@@ -5,59 +5,57 @@ codeunit 50002 "GenJnlPostLineSubscriber"
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Gen. Jnl.-Post Line", 'OnBeforeInitAmounts', '', true, true)]
     local procedure OnBeforeInitAmountGenJnlPostLine(var GenJnlLine: Record "Gen. Journal Line"; var Currency: Record Currency)
     begin
-      with GenJnlLine do begin
-            if "Currency Code" = '' then begin
-              if "Deferral Code" <> '' then
-                "VAT Base Amount (LCY)" := "xVAT Base Amount (LCY)";   //Revisit
-            end;
-      end;
-      
+        if GenJnlLine."Currency Code" = '' then begin
+            if GenJnlLine."Deferral Code" <> '' then
+                GenJnlLine."VAT Base Amount (LCY)" := "xVAT Base Amount (LCY)";   //Revisit
+        end;
+
     end;
 
-    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Gen. Jnl.-Post Line",'OnPostCustOnAfterTempDtldCVLedgEntryBufCopyFromGenJnlLine', '', true, true)]
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Gen. Jnl.-Post Line", 'OnPostCustOnAfterTempDtldCVLedgEntryBufCopyFromGenJnlLine', '', true, true)]
     local procedure OnPostCustGenJnlPostLineOnPostCustOnAfterTempDtldCVLedgEntryBufCopyFromGenJnlLine(var GenJournalLine: Record "Gen. Journal Line"; var TempDtldCVLedgEntryBuf: Record "Detailed CV Ledg. Entry Buffer")
-      
+
     begin
-      TempDtldCVLedgEntryBuf. "Loan ID":= GenJournalLine."Loan ID";
+        TempDtldCVLedgEntryBuf."Loan ID" := GenJournalLine."Loan ID";
     end;
-      
-    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Gen. Jnl.-Post Line",'OnBeforeCustLedgEntryInsert', '', true, true)]
+
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Gen. Jnl.-Post Line", 'OnBeforeCustLedgEntryInsert', '', true, true)]
     local procedure OnPostCustGenJnlPostLineOnPostCustOnBeforeCustLedgEntryInsert(var CustLedgerEntry: Record "Cust. Ledger Entry"; var GenJournalLine: Record "Gen. Journal Line")
     begin
-      CustLedgerEntry."Loan ID":= GenJournalLine."Loan ID";
+        CustLedgerEntry."Loan ID" := GenJournalLine."Loan ID";
     end;
 
-    [EventSubscriber(ObjectType::Table, Database::"Detailed CV Ledg. Entry Buffer",'OnAfterCopyFromGenJnlLine', '', true, true)]
-    local procedure OnPostCustGenJnlPostLineOnAfterCopyFromGenJnlLine(var DtldCVLedgEntryBuffer: Record "Detailed CV Ledg. Entry Buffer";GenJnlLine: Record "Gen. Journal Line")
+    [EventSubscriber(ObjectType::Table, Database::"Detailed CV Ledg. Entry Buffer", 'OnAfterCopyFromGenJnlLine', '', true, true)]
+    local procedure OnPostCustGenJnlPostLineOnAfterCopyFromGenJnlLine(var DtldCVLedgEntryBuffer: Record "Detailed CV Ledg. Entry Buffer"; GenJnlLine: Record "Gen. Journal Line")
     begin
-      DtldCVLedgEntryBuffer. "Loan ID":= GenJnlLine."Loan ID";  //This also applies to Cust and Employee
-    end;
-      
-    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Gen. Jnl.-Post Line",'OnBeforeVendLedgEntryInsert', '', true, true)]
-    local procedure GenJnlPostLineOnPostCustOnBeforeVendLedgEntryInsert(var VendorLedgerEntry: Record "Vendor Ledger Entry"; GenJournalLine: Record "Gen. Journal Line" )
-    begin
-      VendorLedgerEntry."Loan ID":= GenJournalLine."Loan ID";
+        DtldCVLedgEntryBuffer."Loan ID" := GenJnlLine."Loan ID";  //This also applies to Cust and Employee
     end;
 
-    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Gen. Jnl.-Post Line",'OnAfterInitBankAccLedgEntry', '', true, true)]
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Gen. Jnl.-Post Line", 'OnBeforeVendLedgEntryInsert', '', true, true)]
+    local procedure GenJnlPostLineOnPostCustOnBeforeVendLedgEntryInsert(var VendorLedgerEntry: Record "Vendor Ledger Entry"; GenJournalLine: Record "Gen. Journal Line")
+    begin
+        VendorLedgerEntry."Loan ID" := GenJournalLine."Loan ID";
+    end;
+
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Gen. Jnl.-Post Line", 'OnAfterInitBankAccLedgEntry', '', true, true)]
     local procedure GenJnlPostLineOnAfterInitBankAccLedgEntry(var BankAccountLedgerEntry: Record "Bank Account Ledger Entry"; GenJournalLine: Record "Gen. Journal Line")
     begin
-      BankAccountLedgerEntry."DEPOSIT ID":= GenJournalLine."Deposit ID";
+        BankAccountLedgerEntry."DEPOSIT ID" := GenJournalLine."Deposit ID";
     end;
 
-    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Gen. Jnl.-Post Line",'OnAfterInitGLEntry', '', true, true)]
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Gen. Jnl.-Post Line", 'OnAfterInitGLEntry', '', true, true)]
     local procedure GenJnlPostLineOnAfterInitGLEntry(var GLEntry: Record "G/L Entry"; GenJournalLine: Record "Gen. Journal Line")
     begin
-      GLEntry."Maintenance Code":=GenJournalLine."Maintenance Code";                
-      GLEntry."Gen. Bus. Posting Group":=GenJournalLine."Gen. Bus. Posting Group";  
+        GLEntry."Maintenance Code" := GenJournalLine."Maintenance Code";
+        GLEntry."Gen. Bus. Posting Group" := GenJournalLine."Gen. Bus. Posting Group";
     end;
 
 
 
 
     var
-      "xVAT Base Amount (LCY)": Decimal;
-      
+        "xVAT Base Amount (LCY)": Decimal;
+
 
 }
 

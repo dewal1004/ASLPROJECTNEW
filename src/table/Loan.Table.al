@@ -392,18 +392,16 @@ table 50005 "Loan."
     //[Scope('OnPrem')]
     procedure AssistEdit(LRec: Record "Loan."): Boolean
     begin
-        with LoanRec do begin
-            LoanRec := Rec;
+        LoanRec := Rec;
+        PaySetup.Get;
+        PaySetup.TestField(PaySetup."Loan Nos.");
+        if NoSeriesMgt.SelectSeries(PaySetup."Loan Nos.", PaySetup."Loan Nos.", PaySetup."Loan Nos.")
+        then begin
             PaySetup.Get;
             PaySetup.TestField(PaySetup."Loan Nos.");
-            if NoSeriesMgt.SelectSeries(PaySetup."Loan Nos.", PaySetup."Loan Nos.", PaySetup."Loan Nos.")
-            then begin
-                PaySetup.Get;
-                PaySetup.TestField(PaySetup."Loan Nos.");
-                NoSeriesMgt.SetSeries("Loan ID");
-                Rec := LoanRec;
-                exit(true);
-            end;
+            NoSeriesMgt.SetSeries(LoanRec."Loan ID");
+            Rec := LoanRec;
+            exit(true);
         end;
     end;
 

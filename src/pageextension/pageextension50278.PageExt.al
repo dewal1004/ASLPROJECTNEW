@@ -8,7 +8,7 @@ pageextension 50278 "pageextension50278" extends "Sales Order Subform"
         }
         addafter("Unit of Measure")
         {
-            field("Unit Cost"; "Unit Cost")
+            field("Unit Cost"; Rec."Unit Cost")
             {
                 ApplicationArea = All;
             }

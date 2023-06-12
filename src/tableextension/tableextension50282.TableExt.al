@@ -4,9 +4,9 @@ tableextension 50282 "tableextension50282" extends "Alternative Address"
     {
         modify("Employee No.")
         {
-            TableRelation = IF (Source = CONST (" ")) Employee
+            TableRelation = IF (Source = CONST(" ")) Employee
             ELSE
-            IF (Source = CONST (Applicant)) Applicants;
+            IF (Source = CONST(Applicant)) Applicants;
         }
 
         //Unsupported feature: Code Modification on ""Employee No."(Field 1).OnValidate".

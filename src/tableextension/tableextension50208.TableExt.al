@@ -13,14 +13,14 @@ tableextension 50208 "tableextension50208" extends "Sales Cr.Memo Header"
         }
         field(50303; "Skill Score"; Decimal)
         {
-            CalcFormula = Sum ("Sales Line".Quantity WHERE (Type = CONST (1),
-                                                           "Document No." = FIELD ("No."),
-                                                           "Document Type" = CONST (Order)));
+            CalcFormula = Sum("Sales Line".Quantity WHERE(Type = CONST(1),
+                                                           "Document No." = FIELD("No."),
+                                                           "Document Type" = CONST(Order)));
             FieldClass = FlowField;
         }
         field(50304; "Skill Total"; Decimal)
         {
-            CalcFormula = Sum ("Sales Line".Quantity WHERE ("Document No." = FIELD ("No.")));
+            CalcFormula = Sum("Sales Line".Quantity WHERE("Document No." = FIELD("No.")));
             FieldClass = FlowField;
         }
         field(50305; "Skill Percentage"; Decimal)
@@ -28,15 +28,15 @@ tableextension 50208 "tableextension50208" extends "Sales Cr.Memo Header"
         }
         field(50306; "Performance Score"; Decimal)
         {
-            CalcFormula = Sum ("Sales Line".Quantity WHERE (
-                                                           "Document No." = FIELD ("No."),
-                                                           "Document Type" = CONST (Order)));
+            CalcFormula = Sum("Sales Line".Quantity WHERE(
+                                                           "Document No." = FIELD("No."),
+                                                           "Document Type" = CONST(Order)));
             FieldClass = FlowField;
         }
         field(50307; "Performance Total"; Decimal)
         {
-            CalcFormula = Sum ("Sales Line".quantity1 WHERE (
-                                                      "Document No." = FIELD ("No.")));
+            CalcFormula = Sum("Sales Line".quantity1 WHERE(
+                                                      "Document No." = FIELD("No.")));
             FieldClass = FlowField;
         }
         field(50308; "Performance Percentage"; Decimal)
@@ -53,8 +53,8 @@ tableextension 50208 "tableextension50208" extends "Sales Cr.Memo Header"
         }
         field(50385; "Return Quantity"; Decimal)
         {
-            CalcFormula = - Sum ("Sales Cr.Memo Line".Quantity WHERE ("Document No." = FIELD ("No."),
-                                                                    "Item Category Code" = FIELD ("Item Category Code filter")));
+            CalcFormula = - Sum("Sales Cr.Memo Line".Quantity WHERE("Document No." = FIELD("No."),
+                                                                    "Item Category Code" = FIELD("Item Category Code filter")));
             DecimalPlaces = 0 : 0;
             Editable = false;
             FieldClass = FlowField;

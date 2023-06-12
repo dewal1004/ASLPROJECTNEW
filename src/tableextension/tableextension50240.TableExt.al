@@ -9,16 +9,16 @@ tableextension 50240 "tableextension50240" extends "Cust. Ledger Entry"
         field(90016; "Remaining Amt. (LCY)1"; Decimal)
         {
             AutoFormatType = 1;
-            CalcFormula = Sum ("Detailed Cust. Ledg. Entry"."Amount (LCY)" WHERE ("Cust. Ledger Entry No." = FIELD ("Entry No."),
-                                                                                 "Posting Date" = FIELD ("Date Filter")));
+            CalcFormula = Sum("Detailed Cust. Ledg. Entry"."Amount (LCY)" WHERE("Cust. Ledger Entry No." = FIELD("Entry No."),
+                                                                                 "Posting Date" = FIELD("Date Filter")));
             Caption = 'Remaining Amt. (LCY)';
             Editable = false;
             FieldClass = FlowField;
         }
         field(90017; "Customer Group Map"; Boolean)
         {
-            CalcFormula = Exist (Customer WHERE ("No." = FIELD ("Customer No."),
-                                                "Customer Posting Group" = FIELD ("Customer Posting Group")));
+            CalcFormula = Exist(Customer WHERE("No." = FIELD("Customer No."),
+                                                "Customer Posting Group" = FIELD("Customer Posting Group")));
             FieldClass = FlowField;
         }
     }

@@ -23,17 +23,17 @@ tableextension 50273 "tableextension50273" extends "Purchase Header"
 
         modify("Vendor Invoice No.")
         {
-            TableRelation = IF ("Reason Code" = CONST ('USAGEFA')) "Fixed Asset" WHERE ("FA Class Code" = FILTER (<> 'TRAWLER'))
+            TableRelation = IF ("Reason Code" = CONST('USAGEFA')) "Fixed Asset" WHERE("FA Class Code" = FILTER(<> 'TRAWLER'))
             ELSE
-            IF ("Reason Code" = CONST ('USAGERES')) Location WHERE ("Location Type" = FILTER (Residence))
+            IF ("Reason Code" = CONST('USAGERES')) Location WHERE("Location Type" = FILTER(Residence))
             ELSE
-            IF ("Reason Code" = CONST ('USAGEVES')) Location WHERE ("Location Type" = FILTER (Vessel))
+            IF ("Reason Code" = CONST('USAGEVES')) Location WHERE("Location Type" = FILTER(Vessel))
             ELSE
-            IF ("Reason Code" = CONST ('USAGEOTR')) "Standard Text" WHERE (Others = CONST (true));
+            IF ("Reason Code" = CONST('USAGEOTR')) "Standard Text" WHERE(Others = CONST(true));
         }
         modify("Reason Code")
         {
-            TableRelation = "Reason Code" WHERE (Type = FILTER (Usage | " "));
+            TableRelation = "Reason Code" WHERE(Type = FILTER(Usage | " "));
         }
 
         //Unsupported feature: Code Modification on ""Buy-from Vendor No."(Field 2).OnValidate".
@@ -134,17 +134,17 @@ tableextension 50273 "tableextension50273" extends "Purchase Header"
         }
         field(50001; Overhead; Decimal)
         {
-            CalcFormula = Sum ("G/L Entry".Amount WHERE ("External Document No." = FIELD ("No."),
-                                                        "G/L Account No." = FILTER ('12090030')));
+            CalcFormula = Sum("G/L Entry".Amount WHERE("External Document No." = FIELD("No."),
+                                                        "G/L Account No." = FILTER('12090030')));
             Description = 'BPR1.00,LC';
             FieldClass = FlowField;
         }
         field(50002; "Total Amount Item (LCY)"; Decimal)
         {
-            CalcFormula = Sum ("Purchase Line"."Outstanding Amount (LCY)" WHERE ("Document Type" = FIELD ("Document Type"),
-                                                                                "Document No." = FIELD ("No."),
-                                                                                Type = FILTER (<> " " & <> "G/L Account" & <> "Charge (Item)"),
-                                                                                "Qty. to Receive" = FILTER (<> 0)));
+            CalcFormula = Sum("Purchase Line"."Outstanding Amount (LCY)" WHERE("Document Type" = FIELD("Document Type"),
+                                                                                "Document No." = FIELD("No."),
+                                                                                Type = FILTER(<> " " & <> "G/L Account" & <> "Charge (Item)"),
+                                                                                "Qty. to Receive" = FILTER(<> 0)));
             Description = 'BPR1.00,LC';
             Editable = false;
             FieldClass = FlowField;
@@ -155,17 +155,17 @@ tableextension 50273 "tableextension50273" extends "Purchase Header"
         }
         field(50011; "Total Amount account"; Decimal)
         {
-            CalcFormula = Sum ("Purchase Line"."Outstanding Amount (LCY)" WHERE ("Document Type" = FIELD ("Document Type"),
-                                                                                "Document No." = FIELD ("No."),
-                                                                                Type = FILTER ("G/L Account")));
+            CalcFormula = Sum("Purchase Line"."Outstanding Amount (LCY)" WHERE("Document Type" = FIELD("Document Type"),
+                                                                                "Document No." = FIELD("No."),
+                                                                                Type = FILTER("G/L Account")));
             Description = 'BPR1.00,LC';
             FieldClass = FlowField;
         }
         field(50012; "Total Amt. Item to Rec. (LCY)"; Decimal)
         {
-            CalcFormula = Sum ("Purchase Line"."QtytoReceiveAmount(LCY)" WHERE ("Document No." = FIELD ("No."),
-                                                                               Type = FILTER (<> " " & <> "G/L Account"),
-                                                                               "Outstanding Quantity" = FILTER (<> 0)));
+            CalcFormula = Sum("Purchase Line"."QtytoReceiveAmount(LCY)" WHERE("Document No." = FIELD("No."),
+                                                                               Type = FILTER(<> " " & <> "G/L Account"),
+                                                                               "Outstanding Quantity" = FILTER(<> 0)));
             Description = 'BPR1.00,LC';
             FieldClass = FlowField;
         }
@@ -248,149 +248,149 @@ tableextension 50273 "tableextension50273" extends "Purchase Header"
         }
         field(50330; "Freight(LCY)LT"; Decimal)
         {
-            CalcFormula = Sum ("Purchase Line"."Freight(LCY)" WHERE ("Document Type" = FIELD ("Document Type"),
-                                                                    "Document No." = FIELD ("No.")));
+            CalcFormula = Sum("Purchase Line"."Freight(LCY)" WHERE("Document Type" = FIELD("Document Type"),
+                                                                    "Document No." = FIELD("No.")));
             Description = 'LT-Landed Total';
             Editable = false;
             FieldClass = FlowField;
         }
         field(50331; "Ancillary(LCY)LT"; Decimal)
         {
-            CalcFormula = Sum ("Purchase Line"."Ancillary(LCY)" WHERE ("Document Type" = FIELD ("Document Type"),
-                                                                      "Document No." = FIELD ("No.")));
+            CalcFormula = Sum("Purchase Line"."Ancillary(LCY)" WHERE("Document Type" = FIELD("Document Type"),
+                                                                      "Document No." = FIELD("No.")));
             Editable = false;
             FieldClass = FlowField;
         }
         field(50332; "Duty(LCY)LT"; Decimal)
         {
-            CalcFormula = Sum ("Purchase Line"."Duty(LCY)" WHERE ("Document Type" = FIELD ("Document Type"),
-                                                                 "Document No." = FIELD ("No.")));
+            CalcFormula = Sum("Purchase Line"."Duty(LCY)" WHERE("Document Type" = FIELD("Document Type"),
+                                                                 "Document No." = FIELD("No.")));
             Editable = false;
             FieldClass = FlowField;
         }
         field(50333; "Insurance(LCY)LT"; Decimal)
         {
-            CalcFormula = Sum ("Purchase Line"."Insurance(LCY)" WHERE ("Document Type" = FIELD ("Document Type"),
-                                                                      "Document No." = FIELD ("No.")));
+            CalcFormula = Sum("Purchase Line"."Insurance(LCY)" WHERE("Document Type" = FIELD("Document Type"),
+                                                                      "Document No." = FIELD("No.")));
             Editable = false;
             FieldClass = FlowField;
         }
         field(50334; "Surcharge Duty(LCY)LT"; Decimal)
         {
-            CalcFormula = Sum ("Purchase Line"."Surcharge Duty(LCY)" WHERE ("Document Type" = FIELD ("Document Type"),
-                                                                           "Document No." = FIELD ("No.")));
+            CalcFormula = Sum("Purchase Line"."Surcharge Duty(LCY)" WHERE("Document Type" = FIELD("Document Type"),
+                                                                           "Document No." = FIELD("No.")));
             Editable = false;
             FieldClass = FlowField;
         }
         field(50335; "Ecowas Duty(LCY)LT"; Decimal)
         {
-            CalcFormula = Sum ("Purchase Line"."Ecowas Duty(LCY)" WHERE ("Document Type" = FIELD ("Document Type"),
-                                                                        "Document No." = FIELD ("No.")));
+            CalcFormula = Sum("Purchase Line"."Ecowas Duty(LCY)" WHERE("Document Type" = FIELD("Document Type"),
+                                                                        "Document No." = FIELD("No.")));
             Editable = false;
             FieldClass = FlowField;
         }
         field(50336; "CISS(LCYLT"; Decimal)
         {
-            CalcFormula = Sum ("Purchase Line"."CISS(LCY)" WHERE ("Document Type" = FIELD ("Document Type"),
-                                                                 "Document No." = FIELD ("No.")));
+            CalcFormula = Sum("Purchase Line"."CISS(LCY)" WHERE("Document Type" = FIELD("Document Type"),
+                                                                 "Document No." = FIELD("No.")));
             Editable = false;
             FieldClass = FlowField;
         }
         field(50337; "Vat (LCY)LT"; Decimal)
         {
-            CalcFormula = Sum ("Purchase Line"."Vat (LCY)" WHERE ("Document Type" = FIELD ("Document Type"),
-                                                                 "Document No." = FIELD ("No.")));
+            CalcFormula = Sum("Purchase Line"."Vat (LCY)" WHERE("Document Type" = FIELD("Document Type"),
+                                                                 "Document No." = FIELD("No.")));
             Editable = false;
             FieldClass = FlowField;
         }
         field(50338; "Clearing(LCY)LT"; Decimal)
         {
-            CalcFormula = Sum ("Purchase Line"."Clearing(LCY)" WHERE ("Document Type" = FIELD ("Document Type"),
-                                                                     "Document No." = FIELD ("No.")));
+            CalcFormula = Sum("Purchase Line"."Clearing(LCY)" WHERE("Document Type" = FIELD("Document Type"),
+                                                                     "Document No." = FIELD("No.")));
             Editable = false;
             FieldClass = FlowField;
         }
         field(50339; "Interest(LCY)LT"; Decimal)
         {
-            CalcFormula = Sum ("Purchase Line"."Interest(LCY)" WHERE ("Document Type" = FIELD ("Document Type"),
-                                                                     "Document No." = FIELD ("No.")));
+            CalcFormula = Sum("Purchase Line"."Interest(LCY)" WHERE("Document Type" = FIELD("Document Type"),
+                                                                     "Document No." = FIELD("No.")));
             Editable = false;
             FieldClass = FlowField;
         }
         field(50340; "Freight(LCY)LTS"; Decimal)
         {
-            CalcFormula = Sum ("Purchase Line"."ActualFreight(LCY)" WHERE ("Document Type" = FIELD ("Document Type"),
-                                                                          "Document No." = FIELD ("No.")));
+            CalcFormula = Sum("Purchase Line"."ActualFreight(LCY)" WHERE("Document Type" = FIELD("Document Type"),
+                                                                          "Document No." = FIELD("No.")));
             Description = 'LT-Landed Total Sum 4 Header';
             Editable = false;
             FieldClass = FlowField;
         }
         field(50341; "Ancillary(LCY)LTS"; Decimal)
         {
-            CalcFormula = Sum ("Purchase Line"."ActualAncillary(LCY)" WHERE ("Document Type" = FIELD ("Document Type"),
-                                                                            "Document No." = FIELD ("No.")));
+            CalcFormula = Sum("Purchase Line"."ActualAncillary(LCY)" WHERE("Document Type" = FIELD("Document Type"),
+                                                                            "Document No." = FIELD("No.")));
             Editable = false;
             FieldClass = FlowField;
         }
         field(50342; "Duty(LCY)LTS"; Decimal)
         {
-            CalcFormula = Sum ("Purchase Line"."ActualDuty(LCY)" WHERE ("Document Type" = FIELD ("Document Type"),
-                                                                       "Document No." = FIELD ("No.")));
+            CalcFormula = Sum("Purchase Line"."ActualDuty(LCY)" WHERE("Document Type" = FIELD("Document Type"),
+                                                                       "Document No." = FIELD("No.")));
             Editable = false;
             FieldClass = FlowField;
         }
         field(50343; "Insurance(LCY)LTS"; Decimal)
         {
-            CalcFormula = Sum ("Purchase Line"."ActualInsurance(LCY)" WHERE ("Document Type" = FIELD ("Document Type"),
-                                                                            "Document No." = FIELD ("No.")));
+            CalcFormula = Sum("Purchase Line"."ActualInsurance(LCY)" WHERE("Document Type" = FIELD("Document Type"),
+                                                                            "Document No." = FIELD("No.")));
             Editable = false;
             FieldClass = FlowField;
         }
         field(50344; "Surcharge Duty(LCY)LTS"; Decimal)
         {
-            CalcFormula = Sum ("Purchase Line"."ActualSurcharge Duty(LCY)" WHERE ("Document Type" = FIELD ("Document Type"),
-                                                                                 "Document No." = FIELD ("No.")));
+            CalcFormula = Sum("Purchase Line"."ActualSurcharge Duty(LCY)" WHERE("Document Type" = FIELD("Document Type"),
+                                                                                 "Document No." = FIELD("No.")));
             Editable = false;
             FieldClass = FlowField;
         }
         field(50345; "Ecowas Duty(LCY)LTS"; Decimal)
         {
-            CalcFormula = Sum ("Purchase Line"."ActualEcowas Duty(LCY)" WHERE ("Document Type" = FIELD ("Document Type"),
-                                                                              "Document No." = FIELD ("No.")));
+            CalcFormula = Sum("Purchase Line"."ActualEcowas Duty(LCY)" WHERE("Document Type" = FIELD("Document Type"),
+                                                                              "Document No." = FIELD("No.")));
             Editable = false;
             FieldClass = FlowField;
         }
         field(50346; "CISS(LCYLTS"; Decimal)
         {
-            CalcFormula = Sum ("Purchase Line"."ActualCISS(LCY)" WHERE ("Document Type" = FIELD ("Document Type"),
-                                                                       "Document No." = FIELD ("No.")));
+            CalcFormula = Sum("Purchase Line"."ActualCISS(LCY)" WHERE("Document Type" = FIELD("Document Type"),
+                                                                       "Document No." = FIELD("No.")));
             Editable = false;
             FieldClass = FlowField;
         }
         field(50347; "Vat (LCY)LTS"; Decimal)
         {
-            CalcFormula = Sum ("Purchase Line"."ActualVat (LCY)" WHERE ("Document Type" = FIELD ("Document Type"),
-                                                                       "Document No." = FIELD ("No.")));
+            CalcFormula = Sum("Purchase Line"."ActualVat (LCY)" WHERE("Document Type" = FIELD("Document Type"),
+                                                                       "Document No." = FIELD("No.")));
             Editable = false;
             FieldClass = FlowField;
         }
         field(50348; "Clearing(LCY)LTS"; Decimal)
         {
-            CalcFormula = Sum ("Purchase Line"."ActualClearing(LCY)" WHERE ("Document Type" = FIELD ("Document Type"),
-                                                                           "Document No." = FIELD ("No.")));
+            CalcFormula = Sum("Purchase Line"."ActualClearing(LCY)" WHERE("Document Type" = FIELD("Document Type"),
+                                                                           "Document No." = FIELD("No.")));
             Editable = false;
             FieldClass = FlowField;
         }
         field(50349; "Interest(LCY)LTS"; Decimal)
         {
-            CalcFormula = Sum ("Purchase Line"."ActualInterest(LCY)" WHERE ("Document Type" = FIELD ("Document Type"),
-                                                                           "Document No." = FIELD ("No.")));
+            CalcFormula = Sum("Purchase Line"."ActualInterest(LCY)" WHERE("Document Type" = FIELD("Document Type"),
+                                                                           "Document No." = FIELD("No.")));
             Editable = false;
             FieldClass = FlowField;
         }
         field(50360; "Original Purc. Order No."; Code[20])
         {
-            TableRelation = "Purch. Rcpt. Header"."Order No." WHERE ("Buy-from Vendor No." = FIELD ("Buy-from Vendor No."));
+            TableRelation = "Purch. Rcpt. Header"."Order No." WHERE("Buy-from Vendor No." = FIELD("Buy-from Vendor No."));
 
             trigger OnValidate()
             begin
@@ -407,16 +407,16 @@ tableextension 50273 "tableextension50273" extends "Purchase Header"
         }
         field(50361; "Total Quantity Received"; Decimal)
         {
-            CalcFormula = Sum ("Purchase Line"."Quantity Received" WHERE ("Document Type" = FIELD ("Document Type"),
-                                                                         "Document No." = FIELD ("No.")));
+            CalcFormula = Sum("Purchase Line"."Quantity Received" WHERE("Document Type" = FIELD("Document Type"),
+                                                                         "Document No." = FIELD("No.")));
             FieldClass = FlowField;
         }
         field(50370; "Line Amount"; Decimal)
         {
             AutoFormatExpression = "Currency Code";
             AutoFormatType = 1;
-            CalcFormula = Sum ("Purchase Line"."Line Amount" WHERE ("Document Type" = FIELD ("Document Type"),
-                                                                   "Document No." = FIELD ("No.")));
+            CalcFormula = Sum("Purchase Line"."Line Amount" WHERE("Document Type" = FIELD("Document Type"),
+                                                                   "Document No." = FIELD("No.")));
             Caption = 'Line Amount';
             Editable = false;
             FieldClass = FlowField;
@@ -482,9 +482,9 @@ tableextension 50273 "tableextension50273" extends "Purchase Header"
         }
         field(50398; "Actual Value"; Decimal)
         {
-            CalcFormula = Sum ("G/L Entry".Amount WHERE ("G/L Account No." = CONST ('12090030'),
-                                                        "External Document No." = FIELD ("No."),
-                                                        "Reason Code" = FIELD ("Reason Code Filter")));
+            CalcFormula = Sum("G/L Entry".Amount WHERE("G/L Account No." = CONST('12090030'),
+                                                        "External Document No." = FIELD("No."),
+                                                        "Reason Code" = FIELD("Reason Code Filter")));
             FieldClass = FlowField;
         }
         field(50399; "Reason Code Filter"; Code[10])
@@ -494,7 +494,7 @@ tableextension 50273 "tableextension50273" extends "Purchase Header"
         }
         field(50400; "Purchase Order Req. No"; Code[20])
         {
-            TableRelation = "Requisition Wksh. Name".Name WHERE ("Worksheet Template Name" = FILTER (<> 'RECURRING'));
+            TableRelation = "Requisition Wksh. Name".Name WHERE("Worksheet Template Name" = FILTER(<> 'RECURRING'));
         }
         field(50500; "Created By"; Code[20])
         {
@@ -511,21 +511,21 @@ tableextension 50273 "tableextension50273" extends "Purchase Header"
             Caption = 'User ID';
             NotBlank = true;
             TableRelation = User."User Name";
-/*
-            trigger OnLookup()
-            var
-                UserMgt: Codeunit "User Management";
-            begin
-                UserMgt.LookupUserID("Approved By");
-            end;
+            /*
+                        trigger OnLookup()
+                        var
+                            UserMgt: Codeunit "User Management";
+                        begin
+                            UserMgt.LookupUserID("Approved By");
+                        end;
 
-            trigger OnValidate()
-            var
-                UserMgt: Codeunit "User Management";
-            begin
-                UserMgt.ValidateUserID("Approved By");
-            end;
-            */
+                        trigger OnValidate()
+                        var
+                            UserMgt: Codeunit "User Management";
+                        begin
+                            UserMgt.ValidateUserID("Approved By");
+                        end;
+                        */
         }
         field(50504; "Latest Shipment Date"; Date)
         {

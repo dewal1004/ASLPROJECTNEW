@@ -9,7 +9,7 @@ table 60022 "Leave Payment-NEW NU*"
         }
         field(2; "Leave Plan  Serial No"; Code[10])
         {
-            TableRelation = "Leave Plan DELETE NU*"."Serial No" WHERE ("Entry Type" = FILTER (Actual));
+            TableRelation = "Leave Plan DELETE NU*"."Serial No" WHERE("Entry Type" = FILTER(Actual));
         }
         field(3; "Document No"; Code[10])
         {

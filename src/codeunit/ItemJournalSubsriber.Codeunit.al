@@ -29,10 +29,10 @@ codeunit 50004 "ItemJournalSubsriber"
            (ItemJnlLine."Entry Type" = ItemJnlLine."Entry Type"::"Negative Adjmt.") then begin
             Item.Get(ItemJnlLine."Item No.");
             If ItemJnlLine."Shortcut Dimension 2 Code" <> '' then
-            Item.Setrange(Item."Global Dimension 2 Filter", ItemJnlLine."Shortcut Dimension 2 Code");
+                Item.Setrange(Item."Global Dimension 2 Filter", ItemJnlLine."Shortcut Dimension 2 Code");
             Item.SetRange(Item."Location Filter", ItemJnlLine."Location Code");
             if ItemJnlLine."Variant Code" <> '' then
-            Item.Setrange(Item."Variant Filter", ItemJnlLine."Variant Code");
+                Item.Setrange(Item."Variant Filter", ItemJnlLine."Variant Code");
             Item.CalcFields(Inventory);
             if Item.Inventory <= 0 then
                 Error('Item No. %1, is not in Inventory at\' +

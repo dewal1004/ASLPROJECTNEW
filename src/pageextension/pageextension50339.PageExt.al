@@ -8,7 +8,7 @@ pageextension 50339 "pageextension50339" extends "Sales Return Order Arc Subform
     }
     local procedure ShowLineComments()
     begin
-        ShowLineComments;
+        Rec.ShowLineComments;
     end;
 }
 

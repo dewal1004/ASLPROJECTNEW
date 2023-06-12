@@ -5,7 +5,7 @@ report 50032 "Voyage Ending Inventory expD"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './ReportRdlc/VoyageEndingInventoryexpD.rdlc';
-    Permissions = 
+    Permissions =
         tabledata "Inventory Posting Group" = R,
         tabledata Item = R,
         tabledata "Item Category" = R,

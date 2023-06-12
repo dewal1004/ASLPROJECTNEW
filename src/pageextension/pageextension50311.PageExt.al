@@ -21,7 +21,7 @@ pageextension 50311 "pageextension50311" extends "Production Journal"
         }
         addafter("Scrap Quantity")
         {
-            field("Consumed Quantity"; "Consumed Quantity")
+            field("Consumed Quantity"; Rec."Consumed Quantity")
             {
                 Visible = true;
                 ApplicationArea = All;

@@ -223,7 +223,7 @@ pageextension 50284 "Purchase Order Ext" extends "Purchase Order"
         // }
         addafter("Buy-from Contact")
         {
-            field("Your Reference"; "Your Reference")
+            field("Your Reference"; Rec."Your Reference")
             {
                 ApplicationArea = All;
             }
@@ -238,22 +238,22 @@ pageextension 50284 "Purchase Order Ext" extends "Purchase Order"
         }
         addafter("Document Date")
         {
-            field("Created By"; "Created By")
+            field("Created By"; Rec."Created By")
             {
                 ApplicationArea = All;
             }
-            field("Order Type"; "Order Type")
+            field("Order Type"; Rec."Order Type")
             {
                 ApplicationArea = All;
             }
-            field("Posting No."; "Posting No.")
+            field("Posting No."; Rec."Posting No.")
             {
                 ApplicationArea = All;
             }
         }
         addfirst("Invoice Details")
         {
-            field("Pay-to Vendor No."; "Pay-to Vendor No.")
+            field("Pay-to Vendor No."; Rec."Pay-to Vendor No.")
             {
                 Importance = Promoted;
                 ApplicationArea = All;
@@ -278,39 +278,39 @@ pageextension 50284 "Purchase Order Ext" extends "Purchase Order"
         //addafter(Status)
         addafter("Foreign Trade")
         {
-            field("Clearing(LCY)"; "Clearing(LCY)")
+            field("Clearing(LCY)"; Rec."Clearing(LCY)")
             {
                 ApplicationArea = All;
             }
-            field("Totat Freight"; "Totat Freight")
+            field("Totat Freight"; Rec."Totat Freight")
             {
                 ApplicationArea = All;
             }
-            field("Total Ancillary Charges"; "Total Ancillary Charges")
+            field("Total Ancillary Charges"; Rec."Total Ancillary Charges")
             {
                 ApplicationArea = All;
             }
-            field("Total Ancillary Charges(LCY)"; "Total Ancillary Charges(LCY)")
+            field("Total Ancillary Charges(LCY)"; Rec."Total Ancillary Charges(LCY)")
             {
                 ApplicationArea = All;
             }
-            field(Overhead; Overhead)
+            field(Overhead; Rec.Overhead)
             {
                 ApplicationArea = All;
             }
-            field("Interest Expense(LCY)"; "Interest Expense(LCY)")
+            field("Interest Expense(LCY)"; Rec."Interest Expense(LCY)")
             {
                 ApplicationArea = All;
             }
-            field("Total Freight (LCY)"; "Total Freight (LCY)")
+            field("Total Freight (LCY)"; Rec."Total Freight (LCY)")
             {
                 ApplicationArea = All;
             }
-            field("Total Amount Item (LCY)"; "Total Amount Item (LCY)")
+            field("Total Amount Item (LCY)"; Rec."Total Amount Item (LCY)")
             {
                 ApplicationArea = All;
             }
-            field("Approved By"; "Approved By")
+            field("Approved By"; Rec."Approved By")
             {
                 ApplicationArea = All;
             }
@@ -388,9 +388,9 @@ pageextension 50284 "Purchase Order Ext" extends "Purchase Order"
                     // nav 3.0 //AAA
                     if not Confirm('Are all charges Captured!') then exit;
 
-                    SetRange("No.", "No.");
+                    Rec.SetRange("No.", Rec."No.");
                     REPORT.Run(REPORT::"Standard Cost", true, true, Rec);
-                    SetRange("No.");
+                    Rec.SetRange("No.");
                 end;
             }
             action("Calculate Actual Landed Cost")
@@ -402,9 +402,9 @@ pageextension 50284 "Purchase Order Ext" extends "Purchase Order"
                     //Nav 3.0
                     if not Confirm('Are all charges Captured!') then exit;
 
-                    SetRange("No.", "No.");
+                    Rec.SetRange("No.", Rec."No.");
                     REPORT.Run(REPORT::"Landed Cost", true, true, Rec);
-                    SetRange("No.");
+                    Rec.SetRange("No.");
                 end;
             }
         }

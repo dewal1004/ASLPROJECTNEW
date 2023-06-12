@@ -12,45 +12,45 @@ page 60076 "Resource CardX"
             group(General)
             {
                 Caption = 'General';
-                field("No."; "No.")
+                field("No."; Rec."No.")
                 {
                     ApplicationArea = All;
 
                     trigger OnAssistEdit()
                     begin
-                        if AssistEdit(xRec) then
+                        if Rec.AssistEdit(xRec) then
                             CurrPage.Update;
                     end;
                 }
-                field(Name; Name)
+                field(Name; Rec.Name)
                 {
                     ApplicationArea = All;
                 }
-                field(Type; Type)
+                field(Type; Rec.Type)
                 {
                     ApplicationArea = All;
                 }
-                field("Base Unit of Measure"; "Base Unit of Measure")
+                field("Base Unit of Measure"; Rec."Base Unit of Measure")
                 {
                     ApplicationArea = All;
                 }
-                field("Country/Region Code"; "Country/Region Code")
+                field("Country/Region Code"; Rec."Country/Region Code")
                 {
                     ApplicationArea = All;
                 }
-                field("Search Name"; "Search Name")
+                field("Search Name"; Rec."Search Name")
                 {
                     ApplicationArea = All;
                 }
-                field("Resource Group No."; "Resource Group No.")
+                field("Resource Group No."; Rec."Resource Group No.")
                 {
                     ApplicationArea = All;
                 }
-                field(Blocked; Blocked)
+                field(Blocked; Rec.Blocked)
                 {
                     ApplicationArea = All;
                 }
-                field("Last Date Modified"; "Last Date Modified")
+                field("Last Date Modified"; Rec."Last Date Modified")
                 {
                     ApplicationArea = All;
                 }
@@ -58,39 +58,39 @@ page 60076 "Resource CardX"
             group(Invoicing)
             {
                 Caption = 'Invoicing';
-                field("Direct Unit Cost"; "Direct Unit Cost")
+                field("Direct Unit Cost"; Rec."Direct Unit Cost")
                 {
                     ApplicationArea = All;
                 }
-                field("Indirect Cost %"; "Indirect Cost %")
+                field("Indirect Cost %"; Rec."Indirect Cost %")
                 {
                     ApplicationArea = All;
                 }
-                field("Unit Cost"; "Unit Cost")
+                field("Unit Cost"; Rec."Unit Cost")
                 {
                     ApplicationArea = All;
                 }
-                field("Price/Profit Calculation"; "Price/Profit Calculation")
+                field("Price/Profit Calculation"; Rec."Price/Profit Calculation")
                 {
                     ApplicationArea = All;
                 }
-                field("Profit %"; "Profit %")
+                field("Profit %"; Rec."Profit %")
                 {
                     ApplicationArea = All;
                 }
-                field("Unit Price"; "Unit Price")
+                field("Unit Price"; Rec."Unit Price")
                 {
                     ApplicationArea = All;
                 }
-                field("Gen. Prod. Posting Group"; "Gen. Prod. Posting Group")
+                field("Gen. Prod. Posting Group"; Rec."Gen. Prod. Posting Group")
                 {
                     ApplicationArea = All;
                 }
-                field("VAT Prod. Posting Group"; "VAT Prod. Posting Group")
+                field("VAT Prod. Posting Group"; Rec."VAT Prod. Posting Group")
                 {
                     ApplicationArea = All;
                 }
-                field("Automatic Ext. Texts"; "Automatic Ext. Texts")
+                field("Automatic Ext. Texts"; Rec."Automatic Ext. Texts")
                 {
                     ApplicationArea = All;
                 }
@@ -98,60 +98,60 @@ page 60076 "Resource CardX"
             group("Personal Data")
             {
                 Caption = 'Personal Data';
-                field("Job Title"; "Job Title")
+                field("Job Title"; Rec."Job Title")
                 {
                     ApplicationArea = All;
                 }
-                field(Address; Address)
+                field(Address; Rec.Address)
                 {
                     ApplicationArea = All;
                 }
-                field("Address 2"; "Address 2")
+                field("Address 2"; Rec."Address 2")
                 {
                     ApplicationArea = All;
                 }
-                field("Post Code"; "Post Code")
+                field("Post Code"; Rec."Post Code")
                 {
                     Caption = 'Post Code/City';
                     ApplicationArea = All;
                 }
-                field(City; City)
+                field(City; Rec.City)
                 {
                     ApplicationArea = All;
                 }
-                field("Social Security No."; "Social Security No.")
+                field("Social Security No."; Rec."Social Security No.")
                 {
                     ApplicationArea = All;
                 }
-                field(Education; Education)
+                field(Education; Rec.Education)
                 {
                     ApplicationArea = All;
                 }
-                field("Contract Class"; "Contract Class")
+                field("Contract Class"; Rec."Contract Class")
                 {
                     ApplicationArea = All;
                 }
-                field("Employment Date"; "Employment Date")
+                field("Employment Date"; Rec."Employment Date")
                 {
                     ApplicationArea = All;
                 }
-                field(Posted; Posted)
+                field(Posted; Rec.Posted)
                 {
                     ApplicationArea = All;
                 }
-                field("Sick Leave"; "Sick Leave")
+                field("Sick Leave"; Rec."Sick Leave")
                 {
                     ApplicationArea = All;
                 }
-                field("Annual Leave"; "Annual Leave")
+                field("Annual Leave"; Rec."Annual Leave")
                 {
                     ApplicationArea = All;
                 }
-                field("Casual Leave"; "Casual Leave")
+                field("Casual Leave"; Rec."Casual Leave")
                 {
                     ApplicationArea = All;
                 }
-                field(Suspension; Suspension)
+                field(Suspension; Rec.Suspension)
                 {
                     ApplicationArea = All;
                 }

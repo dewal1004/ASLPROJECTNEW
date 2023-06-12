@@ -19,71 +19,71 @@ page 50127 "Processed Approved DPS"
         {
             repeater(Group)
             {
-                field("DPS No."; "DPS No.")
+                field("DPS No."; Rec."DPS No.")
                 {
                     ApplicationArea = All;
                 }
-                field("Base Date"; "Base Date")
+                field("Base Date"; Rec."Base Date")
                 {
                     ApplicationArea = All;
                 }
-                field("Location Code"; "Location Code")
+                field("Location Code"; Rec."Location Code")
                 {
                     ApplicationArea = All;
                 }
-                field("Item Filter"; "Item Filter")
+                field("Item Filter"; Rec."Item Filter")
                 {
                     ApplicationArea = All;
                 }
-                field("Inventory Group Filter"; "Inventory Group Filter")
+                field("Inventory Group Filter"; Rec."Inventory Group Filter")
                 {
                     ApplicationArea = All;
                 }
-                field("Gen. Product Posting Group"; "Gen. Product Posting Group")
+                field("Gen. Product Posting Group"; Rec."Gen. Product Posting Group")
                 {
                     ApplicationArea = All;
                 }
-                field("Maxmum Order Period"; "Maxmum Order Period")
+                field("Maxmum Order Period"; Rec."Maxmum Order Period")
                 {
                     ApplicationArea = All;
                 }
-                field("Surggest Items"; "Surggest Items")
+                field("Surggest Items"; Rec."Surggest Items")
                 {
                     ApplicationArea = All;
                 }
-                field(Processed; Processed)
+                field(Processed; Rec.Processed)
                 {
                     ApplicationArea = All;
                 }
-                field("Process Date"; "Process Date")
+                field("Process Date"; Rec."Process Date")
                 {
                     ApplicationArea = All;
                 }
-                field("Process By"; "Process By")
+                field("Process By"; Rec."Process By")
                 {
                     ApplicationArea = All;
                 }
-                field("Process By Name"; "Process By Name")
+                field("Process By Name"; Rec."Process By Name")
                 {
                     ApplicationArea = All;
                 }
-                field("Update Record"; "Update Record")
+                field("Update Record"; Rec."Update Record")
                 {
                     ApplicationArea = All;
                 }
-                field("Location Filter"; "Location Filter")
+                field("Location Filter"; Rec."Location Filter")
                 {
                     ApplicationArea = All;
                 }
-                field("Send For Approval"; "Send For Approval")
+                field("Send For Approval"; Rec."Send For Approval")
                 {
                     ApplicationArea = All;
                 }
-                field("Send For Approval By"; "Send For Approval By")
+                field("Send For Approval By"; Rec."Send For Approval By")
                 {
                     ApplicationArea = All;
                 }
-                field(Approved; Approved)
+                field(Approved; Rec.Approved)
                 {
                     ApplicationArea = All;
                 }

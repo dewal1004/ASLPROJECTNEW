@@ -10,51 +10,51 @@ page 50190 "Edit Shipment Month"
             repeater(Control1)
             {
                 ShowCaption = false;
-                field("No."; "No.")
+                field("No."; Rec."No.")
                 {
                     Editable = false;
                     ApplicationArea = All;
                 }
-                field("Sell-to Customer No."; "Sell-to Customer No.")
+                field("Sell-to Customer No."; Rec."Sell-to Customer No.")
                 {
                     Editable = false;
                     ApplicationArea = All;
                 }
-                field("Order Date"; "Order Date")
+                field("Order Date"; Rec."Order Date")
                 {
                     Editable = false;
                     ApplicationArea = All;
                 }
-                field("Posting Date"; "Posting Date")
+                field("Posting Date"; Rec."Posting Date")
                 {
                     Editable = false;
                     ApplicationArea = All;
                 }
-                field("Shipment Date"; "Shipment Date")
+                field("Shipment Date"; Rec."Shipment Date")
                 {
                     Editable = false;
                     ApplicationArea = All;
                 }
-                field("Order No."; "Order No.")
+                field("Order No."; Rec."Order No.")
                 {
                     Editable = false;
                     ApplicationArea = All;
                 }
-                field("Document Date"; "Document Date")
+                field("Document Date"; Rec."Document Date")
                 {
                     Editable = false;
                     ApplicationArea = All;
                 }
-                field("External Document No."; "External Document No.")
+                field("External Document No."; Rec."External Document No.")
                 {
                     Editable = false;
                     ApplicationArea = All;
                 }
-                field("Currency Code"; "Currency Code")
+                field("Currency Code"; Rec."Currency Code")
                 {
                     ApplicationArea = All;
                 }
-                field("Shipment Month"; "Shipment Month")
+                field("Shipment Month"; Rec."Shipment Month")
                 {
                     ApplicationArea = All;
                 }

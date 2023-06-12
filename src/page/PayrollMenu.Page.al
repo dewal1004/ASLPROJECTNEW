@@ -158,7 +158,7 @@ page 50000 "Payroll Menu"
                     Reportlist: Record "Report Selections";
                 Begin
                     ;
-                    WITH Reportlist DO;
+                    ;
                     //reportlist.ShowList(FIELDNO("Payroll Reports"));                   
                 end;
             }

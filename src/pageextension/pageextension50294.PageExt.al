@@ -10,7 +10,7 @@ pageextension 50294 "pageextension50294" extends "Employee Qualifications"
     {
         addafter("Course Grade")
         {
-            field(Source; Source)
+            field(Source; Rec.Source)
             {
                 ApplicationArea = All;
             }

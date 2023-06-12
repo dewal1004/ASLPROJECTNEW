@@ -68,13 +68,13 @@ table 60020 "Leave Payment Rev 2 NU*"
         }
         field(9; "Amount Due"; Decimal)
         {
-            CalcFormula = Sum ("Leave Plan Lines Rev 2 NU*"."Amount Due" WHERE ("Serial No" = FIELD ("Leave Plan No.")));
+            CalcFormula = Sum("Leave Plan Lines Rev 2 NU*"."Amount Due" WHERE("Serial No" = FIELD("Leave Plan No.")));
             Editable = false;
             FieldClass = FlowField;
         }
         field(10; "Total Paid for Leave"; Decimal)
         {
-            CalcFormula = Sum ("Leave Payment Rev 2 NU*"."Amount Paid" WHERE ("Leave Plan No." = FIELD ("Leave Plan No.")));
+            CalcFormula = Sum("Leave Payment Rev 2 NU*"."Amount Paid" WHERE("Leave Plan No." = FIELD("Leave Plan No.")));
             FieldClass = FlowField;
         }
     }

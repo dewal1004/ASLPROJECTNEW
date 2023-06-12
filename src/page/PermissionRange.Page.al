@@ -10,39 +10,39 @@ page 90077 "Permission Range"
             repeater(Control1)
             {
                 ShowCaption = false;
-                field("Object Type"; "Object Type")
+                field("Object Type"; Rec."Object Type")
                 {
                     ApplicationArea = All;
                 }
-                field(Index; Index)
+                field(Index; Rec.Index)
                 {
                     ApplicationArea = All;
                 }
-                field(From; From)
+                field(From; Rec.From)
                 {
                     ApplicationArea = All;
                 }
-                field("To"; "To")
+                field("To"; Rec."To")
                 {
                     ApplicationArea = All;
                 }
-                field("Read Permission"; "Read Permission")
+                field("Read Permission"; Rec."Read Permission")
                 {
                     ApplicationArea = All;
                 }
-                field("Insert Permission"; "Insert Permission")
+                field("Insert Permission"; Rec."Insert Permission")
                 {
                     ApplicationArea = All;
                 }
-                field("Modify Permission"; "Modify Permission")
+                field("Modify Permission"; Rec."Modify Permission")
                 {
                     ApplicationArea = All;
                 }
-                field("Delete Permission"; "Delete Permission")
+                field("Delete Permission"; Rec."Delete Permission")
                 {
                     ApplicationArea = All;
                 }
-                field("Execute Permission"; "Execute Permission")
+                field("Execute Permission"; Rec."Execute Permission")
                 {
                     ApplicationArea = All;
                 }

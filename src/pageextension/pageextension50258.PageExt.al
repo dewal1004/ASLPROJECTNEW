@@ -66,7 +66,7 @@ pageextension 50258 "pageextension50258" extends "Recurring Job Jnl."
         }
         addfirst(Control1)
         {
-            field(Code1; Code1)
+            field(Code1; Rec.Code1)
             {
                 Editable = true;
                 ApplicationArea = All;
@@ -77,18 +77,18 @@ pageextension 50258 "pageextension50258" extends "Recurring Job Jnl."
                     Rec."Task Code" := items."Item Category Code"; //Items."Product Group Code";
                 end;
             }
-            field(Catch; Catch)
+            field(Catch; Rec.Catch)
             {
                 ApplicationArea = All;
             }
-            field(Pack; Pack)
+            field(Pack; Rec.Pack)
             {
                 ApplicationArea = All;
             }
         }
         addafter(Description)
         {
-            field("Line No."; "Line No.")
+            field("Line No."; Rec."Line No.")
             {
                 Editable = false;
                 ApplicationArea = All;
@@ -97,25 +97,25 @@ pageextension 50258 "pageextension50258" extends "Recurring Job Jnl."
         moveafter("External Document No."; "Recurring Method")
         addafter("Job No.")
         {
-            field("Vessel Type"; "Vessel Type")
+            field("Vessel Type"; Rec."Vessel Type")
             {
                 ApplicationArea = All;
             }
         }
         addafter("No.")
         {
-            field("Phase Code"; "Phase Code")
+            field("Phase Code"; Rec."Phase Code")
             {
                 ApplicationArea = All;
             }
-            field("Task Code"; "Task Code")
+            field("Task Code"; Rec."Task Code")
             {
                 ApplicationArea = All;
             }
         }
         addafter("ShortcutDimCode[8]")
         {
-            field("Source Code"; "Source Code")
+            field("Source Code"; Rec."Source Code")
             {
                 ApplicationArea = All;
             }
@@ -127,7 +127,7 @@ pageextension 50258 "pageextension50258" extends "Recurring Job Jnl."
             group("Shrimp Points")
             {
                 Caption = 'Shrimp Points';
-                field(Control9; "Shrimp Points")
+                field(Control9; Rec."Shrimp Points")
                 {
                     ApplicationArea = All;
                 }
@@ -135,7 +135,7 @@ pageextension 50258 "pageextension50258" extends "Recurring Job Jnl."
             group("Fish Points")
             {
                 Caption = 'Fish Points';
-                field(Control13; "Fish Points")
+                field(Control13; Rec."Fish Points")
                 {
                     ApplicationArea = All;
                 }
@@ -143,7 +143,7 @@ pageextension 50258 "pageextension50258" extends "Recurring Job Jnl."
             group("Catch Points")
             {
                 Caption = 'Catch Points';
-                field(Control17; "Catch Points")
+                field(Control17; Rec."Catch Points")
                 {
                     ApplicationArea = All;
                 }
@@ -151,7 +151,7 @@ pageextension 50258 "pageextension50258" extends "Recurring Job Jnl."
             group("Catch Total")
             {
                 Caption = 'Catch Total';
-                field(Control21; "Catch Total")
+                field(Control21; Rec."Catch Total")
                 {
                     ApplicationArea = All;
                 }
@@ -171,13 +171,13 @@ pageextension 50258 "pageextension50258" extends "Recurring Job Jnl."
         {
             trigger OnBeforeAction()
             begin
-                SetFilter(Quantity, '<>%1', 0);
-                SetRange("Location Code");
+                Rec.SetFilter(Quantity, '<>%1', 0);
+                Rec.SetRange("Location Code");
             end;
 
             trigger OnAfterAction()
             begin
-                SetRange(Quantity);
+                Rec.SetRange(Quantity);
 
             end;
         }
@@ -185,13 +185,13 @@ pageextension 50258 "pageextension50258" extends "Recurring Job Jnl."
         {
             trigger OnBeforeAction()
             begin
-                SetFilter(Quantity, '<>%1', 0);
-                SetRange("Location Code");
+                Rec.SetFilter(Quantity, '<>%1', 0);
+                Rec.SetRange("Location Code");
             end;
 
             trigger OnAfterAction()
             begin
-                SetRange(Quantity);
+                Rec.SetRange(Quantity);
 
             end;
         }
@@ -251,7 +251,7 @@ pageextension 50258 "pageextension50258" extends "Recurring Job Jnl."
                 trigger OnAction()
                 begin
                     //ClearCatch;
-                    ClearCatch;
+                    Rec.ClearCatch;
                 end;
             }
             action("Update Catch")
@@ -264,7 +264,7 @@ pageextension 50258 "pageextension50258" extends "Recurring Job Jnl."
 
                 trigger OnAction()
                 begin
-                    ClearCatchUpdate;
+                    Rec.ClearCatchUpdate;
                 end;
             }
             action("Initialize Vessel")

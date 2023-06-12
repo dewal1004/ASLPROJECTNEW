@@ -17,7 +17,7 @@ report 50508 "Location Vessel Sea Day"
             column(VSDVal; VSDVal) { }
             column(Last_Reportd_Vessel_Pts; "Last Reportd Vessel Pts") { DecimalPlaces = 0 : 1; }
             column(LastRepOperationNoVal; "Last Rep Operation No. Val") { }
-            
+
             trigger OnAfterGetRecord()
             begin
                 "Last Rep Operation No. Val" := LastRepOpNo(Code, DateFilter);
@@ -40,7 +40,7 @@ report 50508 "Location Vessel Sea Day"
             end;
         }
     }
-    
+
     requestpage
     {
         layout

@@ -12,11 +12,11 @@ pageextension 50251 "pageextension50251" extends "Cash Receipt Journal"
         }
         addafter(Amount)
         {
-            field("Loan ID"; "Loan ID")
+            field("Loan ID"; Rec."Loan ID")
             {
                 ApplicationArea = All;
             }
-            field("FA Posting Type"; "FA Posting Type")
+            field("FA Posting Type"; Rec."FA Posting Type")
             {
                 ApplicationArea = All;
             }

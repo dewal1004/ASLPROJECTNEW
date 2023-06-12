@@ -7,15 +7,15 @@ pageextension 50212 "pageextension50212" extends "Comment List"
 
         addafter("Code")
         {
-            field(Vessel; Vessel)
+            field(Vessel; Rec.Vessel)
             {
                 ApplicationArea = All;
             }
-            field("Day Lost Cause"; "Day Lost Cause")
+            field("Day Lost Cause"; Rec."Day Lost Cause")
             {
                 ApplicationArea = All;
             }
-            field("Days Lost"; "Days Lost")
+            field("Days Lost"; Rec."Days Lost")
             {
                 Visible = false;
                 ApplicationArea = All;

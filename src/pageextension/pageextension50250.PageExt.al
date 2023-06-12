@@ -4,7 +4,7 @@ pageextension 50250 "pageextension50250" extends "General Journal Batches"
     {
         addfirst(Control1)
         {
-            field("Journal Template Name"; "Journal Template Name")
+            field("Journal Template Name"; Rec."Journal Template Name")
             {
                 Visible = true;
                 ApplicationArea = All;
@@ -23,12 +23,12 @@ pageextension 50250 "pageextension50250" extends "General Journal Batches"
                 // var
                 //     HideValidationDialog: Booleans;
             }
-            field("Template Type"; "Template Type")
+            field("Template Type"; Rec."Template Type")
             {
                 Visible = true;
                 ApplicationArea = All;
             }
-            field(Recurring; Recurring)
+            field(Recurring; Rec.Recurring)
             {
                 Visible = true;
                 ApplicationArea = All;
@@ -37,12 +37,12 @@ pageextension 50250 "pageextension50250" extends "General Journal Batches"
         }
         addafter(Name)
         {
-            field("Shortcut Dimension 1 Code"; "Shortcut Dimension 1 Code")
+            field("Shortcut Dimension 1 Code"; Rec."Shortcut Dimension 1 Code")
             {
                 Visible = true;
                 ApplicationArea = All;
             }
-            field("Shortcut Dimension 2 Code"; "Shortcut Dimension 2 Code")
+            field("Shortcut Dimension 2 Code"; Rec."Shortcut Dimension 2 Code")
             {
                 Visible = true;
                 ApplicationArea = All;

@@ -15,38 +15,38 @@ page 50116 "Purchase Delivery Sec. check"
             repeater(Group)
             {
                 Editable = false;
-                field("Req No."; "Req No.")
+                field("Req No."; Rec."Req No.")
                 {
                     Editable = false;
                     ApplicationArea = All;
                 }
-                field("Req Location"; "Req Location")
+                field("Req Location"; Rec."Req Location")
                 {
                     Editable = false;
                     ApplicationArea = All;
                 }
-                field("Item No."; "Item No.")
+                field("Item No."; Rec."Item No.")
                 {
                     Editable = false;
                     ApplicationArea = All;
                 }
-                field(Description; Description)
+                field(Description; Rec.Description)
                 {
                     Editable = false;
                     ApplicationArea = All;
                 }
-                field("Supply By"; "Supply By")
+                field("Supply By"; Rec."Supply By")
                 {
                     Editable = false;
                     Importance = Additional;
                     ApplicationArea = All;
                 }
-                field("Supplier Name"; "Supplier Name")
+                field("Supplier Name"; Rec."Supplier Name")
                 {
                     Editable = false;
                     ApplicationArea = All;
                 }
-                field("Sent to Security"; "Sent to Security")
+                field("Sent to Security"; Rec."Sent to Security")
                 {
                     Editable = false;
                     ApplicationArea = All;
@@ -54,25 +54,25 @@ page 50116 "Purchase Delivery Sec. check"
             }
             group("Security Action")
             {
-                field("Security Check Quantity"; "Security Check Quantity")
+                field("Security Check Quantity"; Rec."Security Check Quantity")
                 {
                     ApplicationArea = All;
                 }
-                field("Security Comment"; "Security Comment")
+                field("Security Comment"; Rec."Security Comment")
                 {
                     Importance = Additional;
                     ApplicationArea = All;
                 }
-                field("Security checked"; "Security checked")
+                field("Security checked"; Rec."Security checked")
                 {
                     ApplicationArea = All;
                 }
-                field("Security Check By"; "Security Check By")
+                field("Security Check By"; Rec."Security Check By")
                 {
                     Editable = false;
                     ApplicationArea = All;
                 }
-                field("Security Check Time"; "Security Check Time")
+                field("Security Check Time"; Rec."Security Check Time")
                 {
                     Editable = false;
                     ApplicationArea = All;

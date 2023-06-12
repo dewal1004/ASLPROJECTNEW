@@ -91,7 +91,7 @@ tableextension 50301 "tableextension50301" extends "Transfer Header"
         field(50000; "Voyage No."; Code[10])
         {
             NotBlank = true;
-            TableRelation = Job.Status WHERE (Vessel = FIELD ("Transfer-to Code"));
+            TableRelation = Job.Status WHERE(Vessel = FIELD("Transfer-to Code"));
         }
         field(50001; "Req. Type"; Option)
         {
@@ -115,7 +115,7 @@ tableextension 50301 "tableextension50301" extends "Transfer Header"
         {
             CaptionClass = '1,2,2';
             Caption = 'Shortcut Dimension 2 Code';
-            TableRelation = "Dimension Value".Code WHERE ("Global Dimension No." = CONST (2));
+            TableRelation = "Dimension Value".Code WHERE("Global Dimension No." = CONST(2));
 
             trigger OnValidate()
             begin
@@ -131,8 +131,8 @@ tableextension 50301 "tableextension50301" extends "Transfer Header"
         }
         field(50300; "Transfer From Voy. No."; Code[10])
         {
-            TableRelation = Job WHERE (Vessel = FIELD ("Transfer-from Code"),
-                                       "Voyage Ended" = CONST (false));
+            TableRelation = Job WHERE(Vessel = FIELD("Transfer-from Code"),
+                                       "Voyage Ended" = CONST(false));
 
             trigger OnValidate()
             begin
@@ -143,8 +143,8 @@ tableextension 50301 "tableextension50301" extends "Transfer Header"
         field(50301; "Transfer To Voy. No."; Code[10])
         {
             NotBlank = true;
-            TableRelation = Job WHERE (Vessel = FIELD ("Transfer-to Code"),
-                                       "Voyage Ended" = CONST (false));
+            TableRelation = Job WHERE(Vessel = FIELD("Transfer-to Code"),
+                                       "Voyage Ended" = CONST(false));
 
             trigger OnValidate()
             begin
@@ -180,11 +180,11 @@ tableextension 50301 "tableextension50301" extends "Transfer Header"
         }
         modify("Transfer-from Code")
         {
-         trigger OnAfterValidate()
-         begin
-             Validate("In-Transit Code",'OWN LOG.');
-             Validate("Transfer From Voy. No.");
-         end;   
+            trigger OnAfterValidate()
+            begin
+                Validate("In-Transit Code", 'OWN LOG.');
+                Validate("Transfer From Voy. No.");
+            end;
         }
         modify("Transfer-to Code")
         {

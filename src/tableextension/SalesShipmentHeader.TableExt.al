@@ -28,8 +28,8 @@ tableextension 50204 "tableextension50204" extends "Sales Shipment Header"
     }
     keys
     {
-      //  key(ASLKey1; "Shipment Month", "Order No.")
-       // {
+        //  key(ASLKey1; "Shipment Month", "Order No.")
+        // {
         //}
     }
 }

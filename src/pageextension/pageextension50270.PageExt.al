@@ -26,7 +26,7 @@ pageextension 50270 "pageextension50270" extends "Sales Invoice"
                     ApplicationArea = Basic, Suite;
                     Caption = 'Sales Delivery Note';
                     Image = Delivery;
-                   // RunObject = Report "Sales Delivery Note";
+                    // RunObject = Report "Sales Delivery Note";
                     //RunPageOnRec = true;
                     Promoted = true;
 
@@ -34,8 +34,8 @@ pageextension 50270 "pageextension50270" extends "Sales Invoice"
                     var
                         TrasRec: Record "Sales Header";
                     begin
-                        TrasRec.SetRange(TrasRec."No.", "No.");
-                        TrasRec.SetRange(TrasRec."Document Type", "Document Type");
+                        TrasRec.SetRange(TrasRec."No.", Rec."No.");
+                        TrasRec.SetRange(TrasRec."Document Type", Rec."Document Type");
                         if TrasRec.FindFirst then
                             REPORT.RunModal(50093, true, false, TrasRec);
                     end;
@@ -73,8 +73,8 @@ pageextension 50270 "pageextension50270" extends "Sales Invoice"
                     var
                         myInt: Integer;
                     begin
-                     rec.GenerateFSDailySales();  
-                    end;                  
+                        rec.GenerateFSDailySales();
+                    end;
                 }
             }
 

@@ -23,51 +23,51 @@ page 50122 "PMgr Action Sheet"
                      //The GridLayout property is only supported on controls of type Grid
                      //GridLayout = Columns;
                      ShowCaption = false; */
-                field("Req No."; "Req No.")
+                field("Req No."; Rec."Req No.")
                 {
                     ApplicationArea = All;
                 }
-                field("Req. Line No."; "Req. Line No.")
+                field("Req. Line No."; Rec."Req. Line No.")
                 {
                     ApplicationArea = All;
                 }
-                field("Req Department"; "Req Department")
+                field("Req Department"; Rec."Req Department")
                 {
                     ApplicationArea = All;
                 }
-                field("Req Location"; "Req Location")
+                field("Req Location"; Rec."Req Location")
                 {
                     ApplicationArea = All;
                 }
-                field("Req. By"; "Req. By")
+                field("Req. By"; Rec."Req. By")
                 {
                     ApplicationArea = All;
                 }
-                field("Req. By Name"; "Req. By Name")
+                field("Req. By Name"; Rec."Req. By Name")
                 {
                     ApplicationArea = All;
                 }
-                field("Req. Date"; "Req. Date")
+                field("Req. Date"; Rec."Req. Date")
                 {
                     ApplicationArea = All;
                 }
-                field("Req. Proc. Date"; "Req. Proc. Date")
+                field("Req. Proc. Date"; Rec."Req. Proc. Date")
                 {
                     ApplicationArea = All;
                 }
-                field("Item No."; "Item No.")
+                field("Item No."; Rec."Item No.")
                 {
                     ApplicationArea = All;
                 }
-                field(Description; Description)
+                field(Description; Rec.Description)
                 {
                     ApplicationArea = All;
                 }
-                field(Quantity; Quantity)
+                field(Quantity; Rec.Quantity)
                 {
                     ApplicationArea = All;
                 }
-                field("Shortage Supplied  Quantity"; "Shortage Supplied  Quantity")
+                field("Shortage Supplied  Quantity"; Rec."Shortage Supplied  Quantity")
                 {
                     ApplicationArea = All;
                 }
@@ -80,39 +80,39 @@ page 50122 "PMgr Action Sheet"
                 //GridLayout = Rows;
                 group(Security)
                 {
-                    field("Sent to Security"; "Sent to Security")
+                    field("Sent to Security"; Rec."Sent to Security")
                     {
                         ApplicationArea = All;
                     }
-                    field("Security Check Quantity"; "Security Check Quantity")
+                    field("Security Check Quantity"; Rec."Security Check Quantity")
                     {
                         ApplicationArea = All;
                     }
-                    field("Security Comment"; "Security Comment")
+                    field("Security Comment"; Rec."Security Comment")
                     {
                         ApplicationArea = All;
                     }
-                    field("Security checked"; "Security checked")
+                    field("Security checked"; Rec."Security checked")
                     {
                         ApplicationArea = All;
                     }
-                    field("Security Check By"; "Security Check By")
+                    field("Security Check By"; Rec."Security Check By")
                     {
                         ApplicationArea = All;
                     }
-                    field("Security Checked By Name"; "Security Checked By Name")
+                    field("Security Checked By Name"; Rec."Security Checked By Name")
                     {
                         ApplicationArea = All;
                     }
-                    field("Security Check Time"; "Security Check Time")
+                    field("Security Check Time"; Rec."Security Check Time")
                     {
                         ApplicationArea = All;
                     }
-                    field("Security Returned"; "Security Returned")
+                    field("Security Returned"; Rec."Security Returned")
                     {
                         ApplicationArea = All;
                     }
-                    field("Security Return Quantity"; "Security Return Quantity")
+                    field("Security Return Quantity"; Rec."Security Return Quantity")
                     {
                         ApplicationArea = All;
                     }
@@ -121,35 +121,35 @@ page 50122 "PMgr Action Sheet"
                 {
                     //The GridLayout property is only supported on controls of type Grid
                     //GridLayout = Columns;
-                    field("Sent For QCC"; "Sent For QCC")
+                    field("Sent For QCC"; Rec."Sent For QCC")
                     {
                         ApplicationArea = All;
                     }
-                    field("QCC Check Quantity"; "QCC Check Quantity")
+                    field("QCC Check Quantity"; Rec."QCC Check Quantity")
                     {
                         ApplicationArea = All;
                     }
-                    field("QCC Comment"; "QCC Comment")
+                    field("QCC Comment"; Rec."QCC Comment")
                     {
                         ApplicationArea = All;
                     }
-                    field("QCC Check"; "QCC Check")
+                    field("QCC Check"; Rec."QCC Check")
                     {
                         ApplicationArea = All;
                     }
-                    field("QCC Check  By"; "QCC Check  By")
+                    field("QCC Check  By"; Rec."QCC Check  By")
                     {
                         ApplicationArea = All;
                     }
-                    field("QCC Check  Name"; "QCC Check  Name")
+                    field("QCC Check  Name"; Rec."QCC Check  Name")
                     {
                         ApplicationArea = All;
                     }
-                    field("QCC Check Time"; "QCC Check Time")
+                    field("QCC Check Time"; Rec."QCC Check Time")
                     {
                         ApplicationArea = All;
                     }
-                    field("QCC Rejected Quantity"; "QCC Rejected Quantity")
+                    field("QCC Rejected Quantity"; Rec."QCC Rejected Quantity")
                     {
                         ApplicationArea = All;
                     }
@@ -159,27 +159,27 @@ page 50122 "PMgr Action Sheet"
             {
                 //The GridLayout property is only supported on controls of type Grid
                 //GridLayout = Columns;
-                field("Supply By"; "Supply By")
+                field("Supply By"; Rec."Supply By")
                 {
                     ApplicationArea = All;
                 }
-                field("Supplier Name"; "Supplier Name")
+                field("Supplier Name"; Rec."Supplier Name")
                 {
                     ApplicationArea = All;
                 }
-                field("Quantity To Return"; "Quantity To Return")
+                field("Quantity To Return"; Rec."Quantity To Return")
                 {
                     ApplicationArea = All;
                 }
-                field("Return to Security"; "Return to Security")
+                field("Return to Security"; Rec."Return to Security")
                 {
                     ApplicationArea = All;
                 }
-                field("Unit Price"; "Unit Price")
+                field("Unit Price"; Rec."Unit Price")
                 {
                     ApplicationArea = All;
                 }
-                field("Procurement Mgr. Action"; "Procurement Mgr. Action")
+                field("Procurement Mgr. Action"; Rec."Procurement Mgr. Action")
                 {
                     ApplicationArea = All;
                 }
@@ -189,39 +189,39 @@ page 50122 "PMgr Action Sheet"
                 Editable = false;
                 //The GridLayout property is only supported on controls of type Grid
                 //GridLayout = Columns;
-                field("LPrice1 InvoiceNo"; "LPrice1 InvoiceNo")
+                field("LPrice1 InvoiceNo"; Rec."LPrice1 InvoiceNo")
                 {
                     ApplicationArea = All;
                 }
-                field("LPrice1 Date"; "LPrice1 Date")
+                field("LPrice1 Date"; Rec."LPrice1 Date")
                 {
                     ApplicationArea = All;
                 }
-                field("Last Price1"; "Last Price1")
+                field("Last Price1"; Rec."Last Price1")
                 {
                     ApplicationArea = All;
                 }
-                field("LPrice2 InvoiceNo"; "LPrice2 InvoiceNo")
+                field("LPrice2 InvoiceNo"; Rec."LPrice2 InvoiceNo")
                 {
                     ApplicationArea = All;
                 }
-                field("LPrice2 Date"; "LPrice2 Date")
+                field("LPrice2 Date"; Rec."LPrice2 Date")
                 {
                     ApplicationArea = All;
                 }
-                field("Last Price2"; "Last Price2")
+                field("Last Price2"; Rec."Last Price2")
                 {
                     ApplicationArea = All;
                 }
-                field("LPrice3 InvoiceNo"; "LPrice3 InvoiceNo")
+                field("LPrice3 InvoiceNo"; Rec."LPrice3 InvoiceNo")
                 {
                     ApplicationArea = All;
                 }
-                field("LPrice3 Date"; "LPrice3 Date")
+                field("LPrice3 Date"; Rec."LPrice3 Date")
                 {
                     ApplicationArea = All;
                 }
-                field("Last Price3"; "Last Price3")
+                field("Last Price3"; Rec."Last Price3")
                 {
                     ApplicationArea = All;
                 }
@@ -229,19 +229,19 @@ page 50122 "PMgr Action Sheet"
             group("Process Action")
             {
                 Editable = false;
-                field(Process; Process)
+                field(Process; Rec.Process)
                 {
                     ApplicationArea = All;
                 }
-                field("Process By"; "Process By")
+                field("Process By"; Rec."Process By")
                 {
                     ApplicationArea = All;
                 }
-                field("Process By Name"; "Process By Name")
+                field("Process By Name"; Rec."Process By Name")
                 {
                     ApplicationArea = All;
                 }
-                field("Invoice No."; "Invoice No.")
+                field("Invoice No."; Rec."Invoice No.")
                 {
                     ApplicationArea = All;
                 }

@@ -48,7 +48,7 @@ table 60029 "Educational Institute NU*"
         field(5; "Staffs In"; Integer)
         {
             BlankZero = true;
-            CalcFormula = Count ("Employee Qualification" WHERE ("Institution/Company" = FIELD ("Institute Code")));
+            CalcFormula = Count("Employee Qualification" WHERE("Institution/Company" = FIELD("Institute Code")));
             FieldClass = FlowField;
         }
     }

@@ -14,41 +14,41 @@ page 50074 "Employee Material Issue"
         {
             repeater(Group)
             {
-                field("Req. No."; "Req. No.")
+                field("Req. No."; Rec."Req. No.")
                 {
                     ApplicationArea = All;
                 }
-                field("Item No."; "Item No.")
+                field("Item No."; Rec."Item No.")
                 {
                     ApplicationArea = All;
                 }
-                field("Item Description"; "Item Description")
+                field("Item Description"; Rec."Item Description")
                 {
                     ApplicationArea = All;
                 }
-                field("Requested Quantity"; "Requested Quantity")
-                {
-                    Importance = Additional;
-                    ApplicationArea = All;
-                }
-                field("Approved Quantity"; "Approved Quantity")
+                field("Requested Quantity"; Rec."Requested Quantity")
                 {
                     Importance = Additional;
                     ApplicationArea = All;
                 }
-                field("Issued Quantity"; "Issued Quantity")
+                field("Approved Quantity"; Rec."Approved Quantity")
+                {
+                    Importance = Additional;
+                    ApplicationArea = All;
+                }
+                field("Issued Quantity"; Rec."Issued Quantity")
                 {
                     ApplicationArea = All;
                 }
-                field("Claim by Employee"; "Claim by Employee")
+                field("Claim by Employee"; Rec."Claim by Employee")
                 {
                     ApplicationArea = All;
                 }
-                field(Processed; Processed)
+                field(Processed; Rec.Processed)
                 {
                     ApplicationArea = All;
                 }
-                field("Issues Captured Date"; "Issues Captured Date")
+                field("Issues Captured Date"; Rec."Issues Captured Date")
                 {
                     ApplicationArea = All;
                 }

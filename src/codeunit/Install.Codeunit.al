@@ -9,7 +9,7 @@ codeunit 70001 "Install"
     trigger OnInstallAppPerCompany()
     var
     begin
-        
+
         UpdateRoutingQualityMeasure
     end;
 
@@ -17,10 +17,9 @@ codeunit 70001 "Install"
     var
         RoutingQualityMeasure: Record "Routing Quality Measure";
     begin
-        if RoutingQualityMeasure.FindSet() then 
+        if RoutingQualityMeasure.FindSet() then
             repeat
-                if RoutingQualityMeasure."Version Code" <> '' then 
-                begin
+                if RoutingQualityMeasure."Version Code" <> '' then begin
                     RoutingQualityMeasure."Version CodeTemp" := RoutingQualityMeasure."Version Code";
                     RoutingQualityMeasure."Version Code" := '';
                     RoutingQualityMeasure.Modify();
@@ -28,15 +27,15 @@ codeunit 70001 "Install"
             until RoutingQualityMeasure.Next() = 0;
     end;
 
-    
-    
+
+
 }
 
 // codeunit 50105 RewardsInstallCode
 // {
 //     // Set the codeunit to be an install codeunit. 
 //     Subtype = Install;
-    
+
 //     // This trigger includes code for company-related operations. 
 //     trigger OnInstallAppPerCompany();
 //     var

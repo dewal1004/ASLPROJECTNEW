@@ -107,12 +107,12 @@ table 50013 "Monthly Variables Header."
         field(19; "Global Dimension 1 Code"; Code[10])
         {
             CaptionClass = '1,1,1';
-            TableRelation = "Dimension Value".Code WHERE ("Global Dimension No." = CONST (1));
+            TableRelation = "Dimension Value".Code WHERE("Global Dimension No." = CONST(1));
         }
         field(20; "Global Dimension 2 Code"; Code[10])
         {
             CaptionClass = '1,1,2';
-            TableRelation = "Dimension Value".Code WHERE ("Global Dimension No." = CONST (2));
+            TableRelation = "Dimension Value".Code WHERE("Global Dimension No." = CONST(2));
         }
         field(21; "Customer Number"; Code[20])
         {
@@ -124,13 +124,13 @@ table 50013 "Monthly Variables Header."
         field(23; VariableFilter; Code[10])
         {
             FieldClass = FlowFilter;
-            TableRelation = "Payroll-E/D Codes."."E/D Code" WHERE ("Monthly Variable" = CONST (true));
+            TableRelation = "Payroll-E/D Codes."."E/D Code" WHERE("Monthly Variable" = CONST(true));
         }
         field(24; VariableAmount; Decimal)
         {
-            CalcFormula = Sum ("Monthly Variables Lines.".Amount WHERE ("Payroll Period" = FIELD ("Payroll Period"),
-                                                                       "Employee No" = FIELD ("Employee No"),
-                                                                       "E/D Code" = FIELD (VariableFilter)));
+            CalcFormula = Sum("Monthly Variables Lines.".Amount WHERE("Payroll Period" = FIELD("Payroll Period"),
+                                                                       "Employee No" = FIELD("Employee No"),
+                                                                       "E/D Code" = FIELD(VariableFilter)));
             Editable = false;
             FieldClass = FlowField;
         }

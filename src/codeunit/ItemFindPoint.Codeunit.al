@@ -6,32 +6,30 @@ codeunit 50005 "Item-Find Point"
     trigger OnRun()
     begin
         ItemPoints.Copy(Rec);
-        with ItemPoints do begin
-            Reset;
-            SetCurrentKey(
-              "Item No.", "Variant Code", "Responsibility Center", "Price Group Code",
-              "Unit of Measure Code", "Currency Code", "Starting Date");
-            SetRange("Item No.", "Item No.");
-            SetFilter("Variant Code", '%1|%2', "Variant Code", '');
-            SetFilter("Responsibility Center", '%1|%2', "Responsibility Center", '');
-            SetFilter("Price Group Code", '%1|%2', "Price Group Code", '');
-            SetFilter("Currency Code", '%1|%2', "Currency Code", '');
-            SetFilter("Unit of Measure Code", '%1|%2', "Unit of Measure Code", '');
+        ItemPoints.Reset;
+        ItemPoints.SetCurrentKey(
+          "Item No.", "Variant Code", "Responsibility Center", "Price Group Code",
+          "Unit of Measure Code", "Currency Code", "Starting Date");
+        ItemPoints.SetRange("Item No.", ItemPoints."Item No.");
+        ItemPoints.SetFilter("Variant Code", '%1|%2', ItemPoints."Variant Code", '');
+        ItemPoints.SetFilter("Responsibility Center", '%1|%2', ItemPoints."Responsibility Center", '');
+        ItemPoints.SetFilter("Price Group Code", '%1|%2', ItemPoints."Price Group Code", '');
+        ItemPoints.SetFilter("Currency Code", '%1|%2', ItemPoints."Currency Code", '');
+        ItemPoints.SetFilter("Unit of Measure Code", '%1|%2', ItemPoints."Unit of Measure Code", '');
 
-            SetRange("Starting Date", 0D, "Starting Date");
-            if not Find('+') then begin
-                Item.Get("Item No.");
-                "Price Group Code" := '';
-                "Currency Code" := '';
-                "Unit of Measure Code" := '';
-                "Starting Date" := 0D;
-                "Unit Price" := Item.Points;
-                "Price Includes VAT" := Item."Price Includes VAT";
-                "VAT Bus. Posting Gr. (Price)" := Item."VAT Bus. Posting Gr. (Price)";
-                "Allow Quantity Disc." := true;
-                "Allow Cust./Item Disc." := true;
-                "Allow Invoice Disc." := Item."Allow Invoice Disc.";
-            end;
+        ItemPoints.SetRange("Starting Date", 0D, ItemPoints."Starting Date");
+        if not ItemPoints.Find('+') then begin
+            Item.Get(ItemPoints."Item No.");
+            ItemPoints."Price Group Code" := '';
+            ItemPoints."Currency Code" := '';
+            ItemPoints."Unit of Measure Code" := '';
+            ItemPoints."Starting Date" := 0D;
+            ItemPoints."Unit Price" := Item.Points;
+            ItemPoints."Price Includes VAT" := Item."Price Includes VAT";
+            ItemPoints."VAT Bus. Posting Gr. (Price)" := Item."VAT Bus. Posting Gr. (Price)";
+            ItemPoints."Allow Quantity Disc." := true;
+            ItemPoints."Allow Cust./Item Disc." := true;
+            ItemPoints."Allow Invoice Disc." := Item."Allow Invoice Disc.";
         end;
         Rec := ItemPoints;
     end;

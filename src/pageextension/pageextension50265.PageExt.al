@@ -14,8 +14,8 @@ pageextension 50265 "pageextension50265" extends "General Journal"
             var
                 myInt: Integer;
             begin
-                if ("Reason Code" = 'EMPLOYEE') and ("External Document No." <> '') then begin
-                    Employee.Get("External Document No.");
+                if (Rec."Reason Code" = 'EMPLOYEE') and (Rec."External Document No." <> '') then begin
+                    Employee.Get(Rec."External Document No.");
                     if Employee.Blocked then begin
                         UserSetup.SetRange(UserSetup."User ID", UserId);
                         UserSetup.SetRange(UserSetup."Pick Blocked Empl in Journal", true);
@@ -52,52 +52,52 @@ pageextension 50265 "pageextension50265" extends "General Journal"
         //end;
         addafter("Incoming Document Entry No.")
         {
-            field("Depreciation Book Code"; "Depreciation Book Code")
+            field("Depreciation Book Code"; Rec."Depreciation Book Code")
             {
                 ApplicationArea = All;
             }
         }
         addafter(Description)
         {
-            field(Description1; Description1)
+            field(Description1; Rec.Description1)
             {
                 ApplicationArea = All;
             }
         }
         addafter(Quantity)
         {
-            field("Line No."; "Line No.")
+            field("Line No."; Rec."Line No.")
             {
                 ApplicationArea = All;
             }
         }
         addafter("Direct Debit Mandate ID")
         {
-            field("FA Posting Type"; "FA Posting Type")
+            field("FA Posting Type"; Rec."FA Posting Type")
             {
                 Visible = true;
                 ApplicationArea = All;
             }
-            field("FA Posting Date"; "FA Posting Date")
+            field("FA Posting Date"; Rec."FA Posting Date")
             {
                 Visible = true;
                 ApplicationArea = All;
             }
-            field("Loan ID"; "Loan ID")
+            field("Loan ID"; Rec."Loan ID")
             {
                 Visible = true;
                 ApplicationArea = All;
             }
-            field("Maintenance Code"; "Maintenance Code")
+            field("Maintenance Code"; Rec."Maintenance Code")
             {
                 Visible = true;
                 ApplicationArea = All;
             }
-            field("Job No."; "Job No.")
+            field("Job No."; Rec."Job No.")
             {
                 ApplicationArea = All;
             }
-            field("Deposit ID"; "Deposit ID")
+            field("Deposit ID"; Rec."Deposit ID")
             {
                 Visible = true;
                 ApplicationArea = All;

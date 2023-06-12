@@ -158,7 +158,7 @@ pageextension 50308 "Purchase Ord. Subf. Ext" extends "Purchase Order Subform"
         }
         addafter("Bin Code")
         {
-            field("Duty Rate%"; "Duty Rate%")
+            field("Duty Rate%"; Rec."Duty Rate%")
             {
                 ApplicationArea = All;
             }
@@ -271,7 +271,7 @@ pageextension 50308 "Purchase Ord. Subf. Ext" extends "Purchase Order Subform"
 
         addafter("Operation No.")
         {
-            field("Gen. Prod. Posting Group"; "Gen. Prod. Posting Group")
+            field("Gen. Prod. Posting Group"; Rec."Gen. Prod. Posting Group")
             {
                 ApplicationArea = All;
             }
@@ -311,7 +311,7 @@ pageextension 50308 "Purchase Ord. Subf. Ext" extends "Purchase Order Subform"
     begin
         CurrPage.SaveRecord;
 
-        PurchHeader.Get("Document Type", "Document No.");
+        PurchHeader.Get(Rec."Document Type", Rec."Document No.");
         if DocumentTotals.PurchaseCheckNumberOfLinesLimit(PurchHeader) then
             DocumentTotals.PurchaseRedistributeInvoiceDiscountAmounts(Rec, VATAmount, TotalPurchaseLine);
         CurrPage.Update;

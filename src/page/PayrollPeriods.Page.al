@@ -11,27 +11,27 @@ page 50007 "Payroll Periods."
             repeater(Control1)
             {
                 ShowCaption = false;
-                field("Period Code"; "Period Code")
+                field("Period Code"; Rec."Period Code")
                 {
                     ApplicationArea = All;
                 }
-                field("Start Date"; "Start Date")
+                field("Start Date"; Rec."Start Date")
                 {
                     ApplicationArea = All;
                 }
-                field("End Date"; "End Date")
+                field("End Date"; Rec."End Date")
                 {
                     ApplicationArea = All;
                 }
-                field(Name; Name)
+                field(Name; Rec.Name)
                 {
                     ApplicationArea = All;
                 }
-                field("Search Name"; "Search Name")
+                field("Search Name"; Rec."Search Name")
                 {
                     ApplicationArea = All;
                 }
-                field(Closed; Closed)
+                field(Closed; Rec.Closed)
                 {
                     Editable = true;
                     ApplicationArea = All;

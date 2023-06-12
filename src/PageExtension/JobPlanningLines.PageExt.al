@@ -41,54 +41,54 @@ pageextension 50204 "pageextension50204" extends "Job Planning Lines"
         //end;
         addafter("Line Type")
         {
-            field("Starting Date"; "Starting Date")
+            field("Starting Date"; Rec."Starting Date")
             {
                 ApplicationArea = All;
             }
-            field("Ending Date"; "Ending Date")
+            field("Ending Date"; Rec."Ending Date")
             {
                 ApplicationArea = All;
             }
         }
         addafter(Description)
         {
-            field("Resource Group"; "Resource Group")
+            field("Resource Group"; Rec."Resource Group")
             {
                 ApplicationArea = All;
             }
-            field("Allocation %"; "Allocation %")
+            field("Allocation %"; Rec."Allocation %")
             {
                 ApplicationArea = All;
             }
-            field("Allocation Quantity"; "Allocation Quantity")
+            field("Allocation Quantity"; Rec."Allocation Quantity")
             {
                 ApplicationArea = All;
             }
-            field("Alloted %"; "Alloted %")
+            field("Alloted %"; Rec."Alloted %")
             {
                 ApplicationArea = All;
             }
-            field(Incentive; Incentive)
+            field(Incentive; Rec.Incentive)
             {
                 Editable = true;
                 ApplicationArea = All;
             }
-            field("Hook Inc"; "Hook Inc")
+            field("Hook Inc"; Rec."Hook Inc")
             {
                 ApplicationArea = All;
             }
-            field("Add/Ded"; "Add/Ded")
+            field("Add/Ded"; Rec."Add/Ded")
             {
                 ApplicationArea = All;
             }
-            field("Net Inc"; "Net Inc")
+            field("Net Inc"; Rec."Net Inc")
             {
                 ApplicationArea = All;
             }
         }
         addafter("Posted Line Amount (LCY)")
         {
-            field(Status; Status)
+            field(Status; Rec.Status)
             {
                 ApplicationArea = All;
             }

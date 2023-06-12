@@ -4,22 +4,22 @@ pageextension 50300 "pageextension50300" extends "Misc. Articles"
     {
         addafter("Code")
         {
-            field("Mat Type"; "Mat Type")
+            field("Mat Type"; Rec."Mat Type")
             {
                 ApplicationArea = All;
             }
-            field("Item No."; "Item No.")
+            field("Item No."; Rec."Item No.")
             {
                 ApplicationArea = All;
             }
         }
         addafter(Description)
         {
-            field("Replacement Interval"; "Replacement Interval")
+            field("Replacement Interval"; Rec."Replacement Interval")
             {
                 ApplicationArea = All;
             }
-            field(Replaceable; Replaceable)
+            field(Replaceable; Rec.Replaceable)
             {
                 ApplicationArea = All;
             }

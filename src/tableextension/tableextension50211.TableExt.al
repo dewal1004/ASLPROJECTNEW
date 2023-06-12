@@ -99,10 +99,10 @@ tableextension 50211 "tableextension50211" extends "Purch. Rcpt. Line"
     }
     keys
     {
-       // key(ASLKey1; "Order No.", "Original Purc. Order No.", "No.")
-       // {
+        // key(ASLKey1; "Order No.", "Original Purc. Order No.", "No.")
+        // {
         //    SumIndexFields = Quantity;
-       // }
+        // }
         key(ASLKey2; "Order No.", "No.")
         {
             //SumIndexFields = "Quantity Ordered";

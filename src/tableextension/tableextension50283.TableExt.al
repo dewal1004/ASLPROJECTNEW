@@ -8,9 +8,9 @@ tableextension 50283 "tableextension50283" extends Qualification
         }
         field(50001; "Qualified Applicants"; Integer)
         {
-            CalcFormula = Count ("Employee Qualification" WHERE ("Qualification Code" = FIELD (Code),
-                                                                "Employee Status" = FIELD ("Aplication Status Filter"),
-                                                                Source = CONST (Applicant)));
+            CalcFormula = Count("Employee Qualification" WHERE("Qualification Code" = FIELD(Code),
+                                                                "Employee Status" = FIELD("Aplication Status Filter"),
+                                                                Source = CONST(Applicant)));
             Editable = false;
             FieldClass = FlowField;
         }

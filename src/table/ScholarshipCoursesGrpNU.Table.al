@@ -15,7 +15,7 @@ table 60030 "Scholarship Courses Grp NU*"
         field(3; "Staff Count"; Integer)
         {
             BlankZero = true;
-            CalcFormula = Count ("Scholarship Register NU*" WHERE ("Course Group" = FIELD (Code)));
+            CalcFormula = Count("Scholarship Register NU*" WHERE("Course Group" = FIELD(Code)));
             FieldClass = FlowField;
         }
         field(4; "Date Filter"; Date)

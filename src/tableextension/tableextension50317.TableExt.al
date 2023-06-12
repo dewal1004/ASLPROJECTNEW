@@ -7,7 +7,7 @@ tableextension 50317 "tableextension50317" extends "Return Receipt Line"
 
         key(ASLKey1; "Document No.", "Line No.", "Return Order No.")
         {
-           // Clustered = true;
+            // Clustered = true;
         }
     }
 

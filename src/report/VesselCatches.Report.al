@@ -649,43 +649,39 @@ report 50085 "Vessel Catches"
     local procedure CheckRecurringLine(JobJnlLine2: Record "Job Journal Line")
     begin
 
-        with JobJnlLine2 do begin
-            if JobJnlTemplate.Recurring then begin
-                if "Recurring Method" = 0 then
-                    AddError(StrSubstNo(Text001, FieldCaption("Recurring Method")));
-                if Format("Recurring Frequency") = '' then
-                    AddError(StrSubstNo(Text001, FieldCaption("Recurring Frequency")));
-                if "Recurring Method" = "Recurring Method"::Variable then
-                    if Quantity = 0 then
-                        AddError(StrSubstNo(Text001, FieldCaption(Quantity)));
-            end else begin
-                if "Recurring Method" <> 0 then
-                    AddError(StrSubstNo(Text013, FieldCaption("Recurring Method")));
-                if Format("Recurring Frequency") <> '' then
-                    AddError(StrSubstNo(Text013, FieldCaption("Recurring Frequency")));
-            end;
+        if JobJnlTemplate.Recurring then begin
+            if JobJnlLine2."Recurring Method" = 0 then
+                AddError(StrSubstNo(Text001, JobJnlLine2.FieldCaption("Recurring Method")));
+            if Format(JobJnlLine2."Recurring Frequency") = '' then
+                AddError(StrSubstNo(Text001, JobJnlLine2.FieldCaption("Recurring Frequency")));
+            if JobJnlLine2."Recurring Method" = JobJnlLine2."Recurring Method"::Variable then
+                if JobJnlLine2.Quantity = 0 then
+                    AddError(StrSubstNo(Text001, JobJnlLine2.FieldCaption(Quantity)));
+        end else begin
+            if JobJnlLine2."Recurring Method" <> 0 then
+                AddError(StrSubstNo(Text013, JobJnlLine2.FieldCaption("Recurring Method")));
+            if Format(JobJnlLine2."Recurring Frequency") <> '' then
+                AddError(StrSubstNo(Text013, JobJnlLine2.FieldCaption("Recurring Frequency")));
         end;
     end;
 
     local procedure MakeRecurringTexts(var JobJnlLine2: Record "Job Journal Line")
     begin
 
-        with JobJnlLine2 do begin
-            if ("Posting Date" <> 0D) and ("No." <> '') and ("Recurring Method" <> 0) then begin
-                Day := Date2DMY("Posting Date", 1);
-                Week := Date2DWY("Posting Date", 2);
-                Month := Date2DMY("Posting Date", 2);
-                MonthText := Format("Posting Date", 0, Text014);
-                AccountingPeriod.SetRange("Starting Date", 0D, "Posting Date");
-                if not AccountingPeriod.Find('+') then
-                    AccountingPeriod.Name := '';
-                "Document No." :=
-                  DelChr(PadStr(StrSubstNo("Document No.", Day, Week, Month, MonthText, AccountingPeriod.Name),
-                    MaxStrLen("Document No.")), '>');
-                Description :=
-                  DelChr(PadStr(StrSubstNo(Description, Day, Week, Month, MonthText, AccountingPeriod.Name),
-                    MaxStrLen(Description)), '>');
-            end;
+        if (JobJnlLine2."Posting Date" <> 0D) and (JobJnlLine2."No." <> '') and (JobJnlLine2."Recurring Method" <> 0) then begin
+            Day := Date2DMY(JobJnlLine2."Posting Date", 1);
+            Week := Date2DWY(JobJnlLine2."Posting Date", 2);
+            Month := Date2DMY(JobJnlLine2."Posting Date", 2);
+            MonthText := Format(JobJnlLine2."Posting Date", 0, Text014);
+            AccountingPeriod.SetRange("Starting Date", 0D, JobJnlLine2."Posting Date");
+            if not AccountingPeriod.Find('+') then
+                AccountingPeriod.Name := '';
+            JobJnlLine2."Document No." :=
+              DelChr(PadStr(StrSubstNo(JobJnlLine2."Document No.", Day, Week, Month, MonthText, AccountingPeriod.Name),
+                MaxStrLen(JobJnlLine2."Document No.")), '>');
+            JobJnlLine2.Description :=
+              DelChr(PadStr(StrSubstNo(JobJnlLine2.Description, Day, Week, Month, MonthText, AccountingPeriod.Name),
+                MaxStrLen(JobJnlLine2.Description)), '>');
         end;
     end;
 

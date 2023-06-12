@@ -17,13 +17,13 @@ table 50038 "Catch Default"
         }
         field(2; "Pack Size"; Code[10])
         {
-            TableRelation = "Unit of Measure" WHERE ("In Use" = CONST (true),
-                                                     "Catch Code" = FILTER (<> ''));
+            TableRelation = "Unit of Measure" WHERE("In Use" = CONST(true),
+                                                     "Catch Code" = FILTER(<> ''));
         }
         field(3; Brand; Code[10])
         {
-            TableRelation = "Reason Code" WHERE ("In Use" = CONST (true),
-                                                 Type = CONST (Brands));
+            TableRelation = "Reason Code" WHERE("In Use" = CONST(true),
+                                                 Type = CONST(Brands));
         }
         field(6; Description; Text[30])
         {

@@ -12,7 +12,7 @@ pageextension 50314 "pageextension50314" extends "Fixed Asset Card"
         }
         addafter("Budgeted Asset")
         {
-            field("Global Dimension 2 Code"; "Global Dimension 2 Code")
+            field("Global Dimension 2 Code"; Rec."Global Dimension 2 Code")
             {
                 ApplicationArea = All;
             }

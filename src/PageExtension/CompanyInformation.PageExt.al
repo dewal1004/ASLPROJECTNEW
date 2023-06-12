@@ -20,7 +20,7 @@ pageextension 50201 "pageextension50201" extends "Company Information"
         }
         addafter(Name)
         {
-            field("Name 2"; "Name 2")
+            field("Name 2"; Rec."Name 2")
             {
                 ApplicationArea = All;
 
@@ -28,7 +28,7 @@ pageextension 50201 "pageextension50201" extends "Company Information"
         }
         addafter("Cal. Convergence Time Frame")
         {
-            field("Min Foreign Indirect Cost %"; "Min Foreign Indirect Cost %")
+            field("Min Foreign Indirect Cost %"; Rec."Min Foreign Indirect Cost %")
             {
                 ApplicationArea = All;
             }

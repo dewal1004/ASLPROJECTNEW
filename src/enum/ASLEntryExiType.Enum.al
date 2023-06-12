@@ -1,7 +1,7 @@
 enum 50000 "ASLEntryExiType"
 {
     Extensible = true;
-    
+
     value(0; " ")
     {
         Caption = ' ';

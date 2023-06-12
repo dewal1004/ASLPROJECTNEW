@@ -4,7 +4,7 @@ pageextension 50374 "pageextension50374" extends "Purchase Quote Subform"
     {
         addafter("Unit of Measure")
         {
-            field("Duty Rate%"; "Duty Rate%")
+            field("Duty Rate%"; Rec."Duty Rate%")
             {
                 ApplicationArea = All;
             }

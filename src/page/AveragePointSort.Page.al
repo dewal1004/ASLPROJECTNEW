@@ -10,23 +10,23 @@ page 50195 "Average Point Sort"
             repeater(Control1)
             {
                 ShowCaption = false;
-                field("No."; "No.")
+                field("No."; Rec."No.")
                 {
                     ApplicationArea = All;
                 }
-                field(Vessel; Vessel)
+                field(Vessel; Rec.Vessel)
                 {
                     ApplicationArea = All;
                 }
-                field("Ending Date"; "Ending Date")
+                field("Ending Date"; Rec."Ending Date")
                 {
                     ApplicationArea = All;
                 }
-                field(AvgPtSortBay; AvgPtSortBay)
+                field(AvgPtSortBay; Rec.AvgPtSortBay)
                 {
                     ApplicationArea = All;
                 }
-                field("Points Sort Bay"; "Points Sort Bay")
+                field("Points Sort Bay"; Rec."Points Sort Bay")
                 {
                     ApplicationArea = All;
                 }

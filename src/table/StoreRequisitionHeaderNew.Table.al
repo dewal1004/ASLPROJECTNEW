@@ -554,15 +554,13 @@ table 50031 "Store Requisition Header New"
     var
         ReqRec: Record "Store Requisition Header New";
     begin
-        with ReqRec do begin
-            ReqRec := Rec;
-            InveSetup.Get;
-            InveSetup.TestField("Store Requisition No.");
-            if NoSeriesMgt.SelectSeries(InveSetup."Store Requisition No.", OldRequisition."No. Series", "No. Series") then begin
-                NoSeriesMgt.SetSeries("Req. No");
-                Rec := ReqRec;
-                exit(true);
-            end;
+        ReqRec := Rec;
+        InveSetup.Get;
+        InveSetup.TestField("Store Requisition No.");
+        if NoSeriesMgt.SelectSeries(InveSetup."Store Requisition No.", OldRequisition."No. Series", ReqRec."No. Series") then begin
+            NoSeriesMgt.SetSeries(ReqRec."Req. No");
+            Rec := ReqRec;
+            exit(true);
         end;
     end;
 

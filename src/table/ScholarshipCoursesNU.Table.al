@@ -20,7 +20,7 @@ table 60031 "Scholarship Courses NU*"
         field(4; "Staff Count"; Integer)
         {
             BlankZero = true;
-            CalcFormula = Count ("Scholarship Register NU*" WHERE ("Course Code" = FIELD ("Course Code")));
+            CalcFormula = Count("Scholarship Register NU*" WHERE("Course Code" = FIELD("Course Code")));
             FieldClass = FlowField;
         }
         field(5; "Date Filter"; Date)

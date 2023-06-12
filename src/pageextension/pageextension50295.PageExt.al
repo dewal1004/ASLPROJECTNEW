@@ -11,7 +11,7 @@ pageextension 50295 "pageextension50295" extends "Employee Relatives"
         }
         addafter("Relative's Employee No.")
         {
-            field(Address; Address)
+            field(Address; Rec.Address)
             {
                 ApplicationArea = All;
             }

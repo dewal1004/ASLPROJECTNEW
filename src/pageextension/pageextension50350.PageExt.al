@@ -44,23 +44,23 @@ pageextension 50350 "pageextension50350" extends "Resource Card"
         moveafter("Contract Class"; "Employment Date")
         addafter("Contract Class")
         {
-            field(Posted; Posted)
+            field(Posted; Rec.Posted)
             {
                 ApplicationArea = All;
             }
-            field("Sick Leave"; "Sick Leave")
+            field("Sick Leave"; Rec."Sick Leave")
             {
                 ApplicationArea = All;
             }
-            field("Annual Leave"; "Annual Leave")
+            field("Annual Leave"; Rec."Annual Leave")
             {
                 ApplicationArea = All;
             }
-            field("Casual Leave"; "Casual Leave")
+            field("Casual Leave"; Rec."Casual Leave")
             {
                 ApplicationArea = All;
             }
-            field(Suspension; Suspension)
+            field(Suspension; Rec.Suspension)
             {
                 ApplicationArea = All;
             }

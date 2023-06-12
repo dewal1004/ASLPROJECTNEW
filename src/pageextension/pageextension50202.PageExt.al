@@ -4,7 +4,7 @@ pageextension 50202 "pageextension50202" extends "Countries/Regions"
     {
         addafter("VAT Scheme")
         {
-            field("License Fees Rate"; "License Fees Rate")
+            field("License Fees Rate"; Rec."License Fees Rate")
             {
                 ApplicationArea = All;
             }

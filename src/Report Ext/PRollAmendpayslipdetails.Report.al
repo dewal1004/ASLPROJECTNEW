@@ -10,11 +10,11 @@ report 50559 "PRoll; Amend payslip details"
     {
         dataitem("Payroll-E/D Codes."; "Payroll-E/D Codes.")
         {
-            DataItemTableView = SORTING ("E/D Code");
+            DataItemTableView = SORTING("E/D Code");
             RequestFilterFields = "E/D Code";
             dataitem("Payroll-Payslip Header."; "Payroll-Payslip Header.")
             {
-                DataItemTableView = SORTING ("Payroll Period", "Employee No");
+                DataItemTableView = SORTING("Payroll Period", "Employee No");
                 RequestFilterFields = "Payroll Period", "Employee No", "Closed?";
 
                 trigger OnAfterGetRecord()

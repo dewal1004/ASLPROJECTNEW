@@ -19,33 +19,31 @@ codeunit 80081 "Sales-Post (Yes/No)Z"
 
     local procedure "Code"()
     begin
-        with SalesHeader do begin
-            case "Document Type" of
-                "Document Type"::Order:
-                    begin
-                        Selection := StrMenu(Text000, 3);
-                        if Selection = 0 then
+        case SalesHeader."Document Type" of
+            SalesHeader."Document Type"::Order:
+                begin
+                    Selection := StrMenu(Text000, 3);
+                    if Selection = 0 then
+                        exit;
+                    SalesHeader.Ship := Selection in [1, 3];
+                    SalesHeader.Invoice := Selection in [2, 3];
+                end;
+            SalesHeader."Document Type"::"Credit Memo":
+                begin
+                    Selection := StrMenu(Text002, 3);
+                    if Selection = 0 then
+                        exit;
+                    SalesHeader.Receive := Selection in [1, 3];
+                    SalesHeader.Invoice := Selection in [2, 3];
+                end else
+                        if not
+                           Confirm(
+                             Text001, false,
+                             SalesHeader."Document Type")
+                        then
                             exit;
-                        Ship := Selection in [1, 3];
-                        Invoice := Selection in [2, 3];
-                    end;
-                "Document Type"::"Credit Memo":
-                    begin
-                        Selection := StrMenu(Text002, 3);
-                        if Selection = 0 then
-                            exit;
-                        Receive := Selection in [1, 3];
-                        Invoice := Selection in [2, 3];
-                    end else
-                            if not
-                               Confirm(
-                                 Text001, false,
-                                 "Document Type")
-                            then
-                                exit;
-            end;
-            SalesPost.Run(SalesHeader);
         end;
+        SalesPost.Run(SalesHeader);
     end;
 }
 

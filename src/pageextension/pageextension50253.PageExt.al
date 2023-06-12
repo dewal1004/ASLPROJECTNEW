@@ -5,7 +5,7 @@ pageextension 50253 "pageextension50253" extends "Reason Codes"
     {
         addafter("Code")
         {
-            field(Type; Type)
+            field(Type; Rec.Type)
             {
                 Visible = false;
                 ApplicationArea = All;

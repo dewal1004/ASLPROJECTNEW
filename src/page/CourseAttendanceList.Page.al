@@ -11,47 +11,47 @@ page 50038 "Course Attendance List"
             repeater(Control1)
             {
                 ShowCaption = false;
-                field("Rec No."; "Rec No.")
+                field("Rec No."; Rec."Rec No.")
                 {
                     ApplicationArea = All;
                 }
-                field("Training Course Code"; "Training Course Code")
+                field("Training Course Code"; Rec."Training Course Code")
                 {
                     ApplicationArea = All;
                 }
-                field("Course name"; "Course name")
+                field("Course name"; Rec."Course name")
                 {
                     ApplicationArea = All;
                 }
-                field("Training Group"; "Training Group")
+                field("Training Group"; Rec."Training Group")
                 {
                     ApplicationArea = All;
                 }
-                field("Employee No"; "Employee No")
+                field("Employee No"; Rec."Employee No")
                 {
                     ApplicationArea = All;
                 }
-                field(Cost; Cost)
+                field(Cost; Rec.Cost)
                 {
                     ApplicationArea = All;
                 }
-                field("Employee Name"; "Employee Name")
+                field("Employee Name"; Rec."Employee Name")
                 {
                     ApplicationArea = All;
                 }
-                field("Region Code"; "Region Code")
+                field("Region Code"; Rec."Region Code")
                 {
                     ApplicationArea = All;
                 }
-                field("Global Dimension 1 Code"; "Global Dimension 1 Code")
+                field("Global Dimension 1 Code"; Rec."Global Dimension 1 Code")
                 {
                     ApplicationArea = All;
                 }
-                field("Global Dimension 2 Code"; "Global Dimension 2 Code")
+                field("Global Dimension 2 Code"; Rec."Global Dimension 2 Code")
                 {
                     ApplicationArea = All;
                 }
-                field("Start Date"; "Start Date")
+                field("Start Date"; Rec."Start Date")
                 {
                     ApplicationArea = All;
                 }

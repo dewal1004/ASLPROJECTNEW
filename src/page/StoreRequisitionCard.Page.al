@@ -9,95 +9,95 @@ page 50059 "Store Requisition Card"
         {
             group(General)
             {
-                field("Req. No"; "Req. No")
+                field("Req. No"; Rec."Req. No")
                 {
                     ApplicationArea = All;
 
                     trigger OnAssistEdit()
                     begin
-                        if AssistEdit(xRec) then
+                        if Rec.AssistEdit(xRec) then
                             CurrPage.Update;
                     end;
                 }
-                field("Req. Type"; "Req. Type")
+                field("Req. Type"; Rec."Req. Type")
                 {
                     ApplicationArea = All;
                 }
-                field(Description; Description)
+                field(Description; Rec.Description)
                 {
                     ApplicationArea = All;
                 }
-                field("Req Date"; "Req Date")
-                {
-                    Importance = Additional;
-                    ApplicationArea = All;
-                }
-                field("Processed Date"; "Processed Date")
+                field("Req Date"; Rec."Req Date")
                 {
                     Importance = Additional;
                     ApplicationArea = All;
                 }
-                field("Fish Store Requisition"; "Fish Store Requisition")
-                {
-                    ApplicationArea = All;
-                }
-                field("To Be Collected By"; "To Be Collected By")
-                {
-                    ApplicationArea = All;
-                }
-                field("Transfer From"; "Transfer From")
-                {
-                    ApplicationArea = All;
-                }
-                field("Transfer To."; "Transfer To.")
+                field("Processed Date"; Rec."Processed Date")
                 {
                     Importance = Additional;
                     ApplicationArea = All;
                 }
-                field("Voyage No."; "Voyage No.")
+                field("Fish Store Requisition"; Rec."Fish Store Requisition")
                 {
                     ApplicationArea = All;
                 }
-                field("Requisition Template"; "Requisition Template")
+                field("To Be Collected By"; Rec."To Be Collected By")
                 {
-                    Importance = Additional;
                     ApplicationArea = All;
                 }
-                field("Customer No."; "Customer No.")
+                field("Transfer From"; Rec."Transfer From")
                 {
-                    Importance = Additional;
                     ApplicationArea = All;
                 }
-                field("Customer Name"; "Customer Name")
+                field("Transfer To."; Rec."Transfer To.")
                 {
                     Importance = Additional;
                     ApplicationArea = All;
                 }
-                field("Vendor No."; "Vendor No.")
+                field("Voyage No."; Rec."Voyage No.")
+                {
+                    ApplicationArea = All;
+                }
+                field("Requisition Template"; Rec."Requisition Template")
                 {
                     Importance = Additional;
                     ApplicationArea = All;
                 }
-                field("Vendor Name"; "Vendor Name")
+                field("Customer No."; Rec."Customer No.")
                 {
                     Importance = Additional;
                     ApplicationArea = All;
                 }
-                field("Global Dimension 1 Code"; "Global Dimension 1 Code")
-                {
-                    ApplicationArea = All;
-                }
-                field("Global Dimension 2 Code"; "Global Dimension 2 Code")
+                field("Customer Name"; Rec."Customer Name")
                 {
                     Importance = Additional;
                     ApplicationArea = All;
                 }
-                field("Claim by Employee"; "Claim by Employee")
+                field("Vendor No."; Rec."Vendor No.")
                 {
                     Importance = Additional;
                     ApplicationArea = All;
                 }
-                field("Claim by Resources"; "Claim by Resources")
+                field("Vendor Name"; Rec."Vendor Name")
+                {
+                    Importance = Additional;
+                    ApplicationArea = All;
+                }
+                field("Global Dimension 1 Code"; Rec."Global Dimension 1 Code")
+                {
+                    ApplicationArea = All;
+                }
+                field("Global Dimension 2 Code"; Rec."Global Dimension 2 Code")
+                {
+                    Importance = Additional;
+                    ApplicationArea = All;
+                }
+                field("Claim by Employee"; Rec."Claim by Employee")
+                {
+                    Importance = Additional;
+                    ApplicationArea = All;
+                }
+                field("Claim by Resources"; Rec."Claim by Resources")
                 {
                     Importance = Additional;
                     ApplicationArea = All;
@@ -105,38 +105,38 @@ page 50059 "Store Requisition Card"
             }
             group(Account)
             {
-                field("Job Related"; "Job Related")
+                field("Job Related"; Rec."Job Related")
                 {
                     ApplicationArea = All;
                 }
-                field("Journal Batch"; "Journal Batch")
+                field("Journal Batch"; Rec."Journal Batch")
                 {
                     ApplicationArea = All;
                 }
-                field("Reason Code"; "Reason Code")
+                field("Reason Code"; Rec."Reason Code")
                 {
                     ApplicationArea = All;
                 }
-                field(DryDock; DryDock)
+                field(DryDock; Rec.DryDock)
                 {
                     ApplicationArea = All;
                 }
-                field("Job No."; "Job No.")
+                field("Job No."; Rec."Job No.")
                 {
                     DrillDownPageID = "Dry Docking/Job  list";
                     LookupPageID = "Dry Docking/Job  list";
                     ApplicationArea = All;
 
                 }
-                field("External Document No"; "External Document No")
+                field("External Document No"; Rec."External Document No")
                 {
                     ApplicationArea = All;
                 }
-                field("Gen Bus. posting Grp."; "Gen Bus. posting Grp.")
+                field("Gen Bus. posting Grp."; Rec."Gen Bus. posting Grp.")
                 {
                     ApplicationArea = All;
                 }
-                field(Processed; Processed)
+                field(Processed; Rec.Processed)
                 {
                     ApplicationArea = All;
                 }
@@ -148,60 +148,60 @@ page 50059 "Store Requisition Card"
             }
             group("Approval Section")
             {
-                field("1st Approval to"; "1st Approval to")
+                field("1st Approval to"; Rec."1st Approval to")
                 {
                     ApplicationArea = All;
                 }
-                field("1st Approval Name"; "1st Approval Name")
+                field("1st Approval Name"; Rec."1st Approval Name")
                 {
                     ApplicationArea = All;
                 }
-                field("Mail Body"; "Mail Body")
+                field("Mail Body"; Rec."Mail Body")
                 {
                     Importance = Additional;
                     ApplicationArea = All;
                 }
-                field("Send for Approval"; "Send for Approval")
+                field("Send for Approval"; Rec."Send for Approval")
                 {
                     ApplicationArea = All;
                 }
-                field(Sender; Sender)
+                field(Sender; Rec.Sender)
                 {
                     ApplicationArea = All;
                 }
-                field("Sent Time"; "Sent Time")
+                field("Sent Time"; Rec."Sent Time")
                 {
                     ApplicationArea = All;
                 }
-                field("Final Approval to"; "Final Approval to")
+                field("Final Approval to"; Rec."Final Approval to")
                 {
                     ApplicationArea = All;
                 }
-                field("Final Approval Name"; "Final Approval Name")
+                field("Final Approval Name"; Rec."Final Approval Name")
                 {
                     ApplicationArea = All;
                 }
-                field("1st Approved"; "1st Approved")
+                field("1st Approved"; Rec."1st Approved")
                 {
                     ApplicationArea = All;
                 }
-                field("1st Approved Time"; "1st Approved Time")
+                field("1st Approved Time"; Rec."1st Approved Time")
                 {
                     ApplicationArea = All;
                 }
-                field("Final Approved"; "Final Approved")
+                field("Final Approved"; Rec."Final Approved")
                 {
                     ApplicationArea = All;
                 }
-                field("Final Approved Time"; "Final Approved Time")
+                field("Final Approved Time"; Rec."Final Approved Time")
                 {
                     ApplicationArea = All;
                 }
-                field("Issued Captured"; "Issued Captured")
+                field("Issued Captured"; Rec."Issued Captured")
                 {
                     ApplicationArea = All;
                 }
-                field("Issued By"; "Issued By")
+                field("Issued By"; Rec."Issued By")
                 {
                     ApplicationArea = All;
                 }
@@ -228,15 +228,16 @@ page 50059 "Store Requisition Card"
                 ApplicationArea = All;
                 trigger OnAction()
                 begin
-                    TransferOrder
+                    Rec.TransferOrder
                 end;
-            } action("Create Adjustments")
+            }
+            action("Create Adjustments")
             {
                 ApplicationArea = All;
 
                 trigger OnAction()
                 begin
-                    CreateAdjSmt
+                    Rec.CreateAdjSmt
                 end;
             }
             action("Create Sales Invoice")
@@ -245,7 +246,7 @@ page 50059 "Store Requisition Card"
 
                 trigger OnAction()
                 begin
-                    CreatesalesInv;
+                    Rec.CreatesalesInv;
                 end;
             }
             action("Create Purchase Invoice")
@@ -254,7 +255,7 @@ page 50059 "Store Requisition Card"
 
                 trigger OnAction()
                 begin
-                    CreatePurchInv;
+                    Rec.CreatePurchInv;
                 end;
             }
             action("Print Material Requisition")
@@ -268,7 +269,7 @@ page 50059 "Store Requisition Card"
                 begin
                     Userrec.Get(UserId);
                     if not Userrec."Print MR" then Error('Sorry you are not allowed to Print Store Material Requisition.');
-                    REQREC.SetRange(REQREC."Req. No", "Req. No");
+                    REQREC.SetRange(REQREC."Req. No", Rec."Req. No");
                     if REQREC.FindFirst then
                         REPORT.RunModal(50094, true, false, REQREC);
                 end;
@@ -283,7 +284,7 @@ page 50059 "Store Requisition Card"
 
                 trigger OnAction()
                 begin
-                    LoadTemplate;
+                    Rec.LoadTemplate;
                 end;
             }
             action("Check Staff Replacement")
@@ -292,7 +293,7 @@ page 50059 "Store Requisition Card"
 
                 trigger OnAction()
                 begin
-                    CheckReplacement;
+                    Rec.CheckReplacement;
                 end;
             }
             action("Revalidate Approved Quantity")
@@ -301,8 +302,8 @@ page 50059 "Store Requisition Card"
 
                 trigger OnAction()
                 begin
-                    if "Final Approved" <> "Final Approved"::Approved then
-                        Recline.SetRange(Recline."Req. No.", "Req. No");
+                    if Rec."Final Approved" <> Rec."Final Approved"::Approved then
+                        Recline.SetRange(Recline."Req. No.", Rec."Req. No");
                     if Recline.FindFirst then
                         repeat
                         begin

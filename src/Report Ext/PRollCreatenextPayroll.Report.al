@@ -9,7 +9,7 @@ report 50055 "PRoll; Create next Payroll"
     {
         dataitem("Payroll-Payslip Header."; "Payroll-Payslip Header.")
         {
-            DataItemTableView = SORTING ("Payroll Period", "Employee No");
+            DataItemTableView = SORTING("Payroll Period", "Employee No");
             RequestFilterFields = "Payroll Period", "Employee No";
 
             trigger OnAfterGetRecord()

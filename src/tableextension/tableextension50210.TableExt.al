@@ -44,8 +44,8 @@ tableextension 50210 "tableextension50210" extends "Purch. Rcpt. Header"
         }
         field(50001; Overhead; Decimal)
         {
-            CalcFormula = Sum ("G/L Entry".Amount WHERE ("External Document No." = FIELD ("No."),
-                                                        "G/L Account No." = FILTER ('2185')));
+            CalcFormula = Sum("G/L Entry".Amount WHERE("External Document No." = FIELD("No."),
+                                                        "G/L Account No." = FILTER('2185')));
             Description = 'BPR1.00,LC';
             FieldClass = FlowField;
         }
@@ -64,9 +64,9 @@ tableextension 50210 "tableextension50210" extends "Purch. Rcpt. Header"
         }
         field(50012; "Total Amount Item to Receive"; Decimal)
         {
-            CalcFormula = Sum ("Purchase Line"."QtytoReceiveAmount(LCY)" WHERE ("Document No." = FIELD ("No."),
-                                                                               Type = FILTER (<> " " & <> "G/L Account"),
-                                                                               "Outstanding Quantity" = FILTER (<> 0)));
+            CalcFormula = Sum("Purchase Line"."QtytoReceiveAmount(LCY)" WHERE("Document No." = FIELD("No."),
+                                                                               Type = FILTER(<> " " & <> "G/L Account"),
+                                                                               "Outstanding Quantity" = FILTER(<> 0)));
             Description = 'BPR1.00,LC';
             FieldClass = FlowField;
         }
@@ -242,8 +242,8 @@ tableextension 50210 "tableextension50210" extends "Purch. Rcpt. Header"
         }
         field(50398; QtyDeliveredOrig; Decimal)
         {
-            CalcFormula = Sum ("Item Ledger Entry".Quantity WHERE ("Entry Type" = CONST (Purchase),
-                                                                  "Document No." = FIELD ("No.")));
+            CalcFormula = Sum("Item Ledger Entry".Quantity WHERE("Entry Type" = CONST(Purchase),
+                                                                  "Document No." = FIELD("No.")));
             FieldClass = FlowField;
         }
         field(50399; QtyDeliveredBKord; Decimal)

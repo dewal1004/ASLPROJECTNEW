@@ -12,46 +12,46 @@ page 50027 "Applicant Qualifications"
             repeater(Control1)
             {
                 ShowCaption = false;
-                field("Qualification Code"; "Qualification Code")
+                field("Qualification Code"; Rec."Qualification Code")
                 {
                     ApplicationArea = All;
                 }
-                field("From Date"; "From Date")
+                field("From Date"; Rec."From Date")
                 {
                     ApplicationArea = All;
                 }
-                field("To Date"; "To Date")
+                field("To Date"; Rec."To Date")
                 {
                     ApplicationArea = All;
                 }
-                field(Type; Type)
+                field(Type; Rec.Type)
                 {
                     ApplicationArea = All;
                 }
-                field(Description; Description)
+                field(Description; Rec.Description)
                 {
                     ApplicationArea = All;
                 }
-                field("Expiration Date"; "Expiration Date")
-                {
-                    Visible = false;
-                    ApplicationArea = All;
-                }
-                field("Institution/Company"; "Institution/Company")
-                {
-                    ApplicationArea = All;
-                }
-                field(Cost; Cost)
+                field("Expiration Date"; Rec."Expiration Date")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("Course Grade"; "Course Grade")
+                field("Institution/Company"; Rec."Institution/Company")
+                {
+                    ApplicationArea = All;
+                }
+                field(Cost; Rec.Cost)
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field(Comment; Comment)
+                field("Course Grade"; Rec."Course Grade")
+                {
+                    Visible = false;
+                    ApplicationArea = All;
+                }
+                field(Comment; Rec.Comment)
                 {
                     ApplicationArea = All;
                 }

@@ -10,15 +10,15 @@ page 50036 "Job Category List"
             repeater(Control1)
             {
                 ShowCaption = false;
-                field("Code"; Code)
+                field("Code"; Rec.Code)
                 {
                     ApplicationArea = All;
                 }
-                field(Description; Description)
+                field(Description; Rec.Description)
                 {
                     ApplicationArea = All;
                 }
-                field(Range; Range)
+                field(Range; Rec.Range)
                 {
                     ApplicationArea = All;
                 }

@@ -10,61 +10,61 @@ pageextension 50257 "pageextension50257" extends "Job Journal Batches"
 
         addafter(Name)
         {
-            field("Vessel Name"; "Vessel Name")
+            field("Vessel Name"; Rec."Vessel Name")
             {
                 ApplicationArea = All;
             }
-            field("Job No."; "Job No.")
+            field("Job No."; Rec."Job No.")
             {
                 ApplicationArea = All;
             }
-            field("Voyage No."; "Voyage No.")
+            field("Voyage No."; Rec."Voyage No.")
             {
                 ApplicationArea = All;
             }
-            field("Fuel Balance"; "Fuel Balance")
+            field("Fuel Balance"; Rec."Fuel Balance")
             {
                 ApplicationArea = All;
             }
-            field("R.P.M."; "R.P.M.")
+            field("R.P.M."; Rec."R.P.M.")
             {
                 ApplicationArea = All;
             }
-            field(Speed; Speed)
+            field(Speed; Rec.Speed)
             {
                 ApplicationArea = All;
             }
-            field("Sea Temperature"; "Sea Temperature")
+            field("Sea Temperature"; Rec."Sea Temperature")
             {
                 ApplicationArea = All;
             }
-            field("Fish Hold Temp"; "Fish Hold Temp")
+            field("Fish Hold Temp"; Rec."Fish Hold Temp")
             {
                 ApplicationArea = All;
             }
-            field("Fishing Ground"; "Fishing Ground")
+            field("Fishing Ground"; Rec."Fishing Ground")
             {
                 ApplicationArea = All;
             }
-            field("Catch Date"; "Catch Date")
+            field("Catch Date"; Rec."Catch Date")
             {
                 ApplicationArea = All;
             }
         }
         addafter(Description)
         {
-            field("Batch Type"; "Batch Type")
+            field("Batch Type"; Rec."Batch Type")
             {
                 ApplicationArea = All;
             }
         }
         addafter("Reason Code")
         {
-            field(Posted; Posted)
+            field(Posted; Rec.Posted)
             {
                 ApplicationArea = All;
             }
-            field("Journal Template Name"; "Journal Template Name")
+            field("Journal Template Name"; Rec."Journal Template Name")
             {
                 ApplicationArea = All;
             }

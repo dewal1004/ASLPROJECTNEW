@@ -68,7 +68,7 @@ table 50379 "Detailed Empl. Ledg. Entry NU*"
             var
                 LoginMgt: Codeunit "User Management";
             begin
-      //          LoginMgt.LookupUserID("User ID");
+                //          LoginMgt.LookupUserID("User ID");
             end;
         }
         field(12; "Source Code"; Code[10])

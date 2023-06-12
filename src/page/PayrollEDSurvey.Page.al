@@ -11,74 +11,74 @@ page 50004 "Payroll ED Survey."
             repeater(Control1)
             {
                 ShowCaption = false;
-                field("E/D Code"; "E/D Code")
+                field("E/D Code"; Rec."E/D Code")
                 {
                     ApplicationArea = All;
                 }
-                field("Payslip Text"; "Payslip Text")
+                field("Payslip Text"; Rec."Payslip Text")
                 {
                     ApplicationArea = All;
                 }
-                field("Payslip appearance"; "Payslip appearance")
+                field("Payslip appearance"; Rec."Payslip appearance")
                 {
                     ApplicationArea = All;
                 }
-                field("Payslip Group ID"; "Payslip Group ID")
+                field("Payslip Group ID"; Rec."Payslip Group ID")
                 {
                     ApplicationArea = All;
                 }
-                field("Pos. In Payslip Grp."; "Pos. In Payslip Grp.")
+                field("Pos. In Payslip Grp."; Rec."Pos. In Payslip Grp.")
                 {
                     ApplicationArea = All;
                 }
-                field("Payslip Column"; "Payslip Column")
+                field("Payslip Column"; Rec."Payslip Column")
                 {
                     ApplicationArea = All;
                 }
-                field(Compute; Compute)
+                field(Compute; Rec.Compute)
                 {
                     ApplicationArea = All;
                 }
-                field("Add/Subtract"; "Add/Subtract")
+                field("Add/Subtract"; Rec."Add/Subtract")
                 {
                     ApplicationArea = All;
                 }
-                field("Factor Of"; "Factor Of")
+                field("Factor Of"; Rec."Factor Of")
                 {
                     ApplicationArea = All;
                 }
-                field(Percentage; Percentage)
+                field(Percentage; Rec.Percentage)
                 {
                     ApplicationArea = All;
                 }
-                field("Table Look Up"; "Table Look Up")
+                field("Table Look Up"; Rec."Table Look Up")
                 {
                     ApplicationArea = All;
                 }
-                field("Edit Amount?"; "Edit Amount?")
+                field("Edit Amount?"; Rec."Edit Amount?")
                 {
                     ApplicationArea = All;
                 }
-                field("Edit Grp. Amount?"; "Edit Grp. Amount?")
+                field("Edit Grp. Amount?"; Rec."Edit Grp. Amount?")
                 {
                     ApplicationArea = All;
                 }
-                field("Yes/No Req.?"; "Yes/No Req.?")
+                field("Yes/No Req.?"; Rec."Yes/No Req.?")
                 {
                     ApplicationArea = All;
                 }
-                field("Max. Amount"; "Max. Amount")
+                field("Max. Amount"; Rec."Max. Amount")
                 {
                     MaxValue = 99990;
                     MinValue = 0;
                     NotBlank = true;
                     ApplicationArea = All;
                 }
-                field("Min. Amount"; "Min. Amount")
+                field("Min. Amount"; Rec."Min. Amount")
                 {
                     ApplicationArea = All;
                 }
-                field(Rate; Rate)
+                field(Rate; Rec.Rate)
                 {
                     ApplicationArea = All;
                 }

@@ -4,9 +4,9 @@ tableextension 50286 "tableextension50286" extends "Employee Relative"
     {
         modify("Employee No.")
         {
-            TableRelation = IF (Source = CONST (" ")) Employee
+            TableRelation = IF (Source = CONST(" ")) Employee
             ELSE
-            IF (Source = CONST (Applicant)) Applicants;
+            IF (Source = CONST(Applicant)) Applicants;
         }
         field(50000; Source; Option)
         {

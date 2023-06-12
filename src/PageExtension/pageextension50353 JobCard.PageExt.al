@@ -5,16 +5,16 @@ pageextension 50353 "pageextension50353" extends "Job Card"
 
         addafter("No.")
         {
-            field(Vessel; Vessel)
+            field(Vessel; Rec.Vessel)
             {
                 ApplicationArea = All;
             }
-            field("Vessel Type"; "Vessel Type")
+            field("Vessel Type"; Rec."Vessel Type")
             {
                 Importance = Additional;
                 ApplicationArea = All;
             }
-            field("Voyage No."; "Voyage No.")
+            field("Voyage No."; Rec."Voyage No.")
             {
                 ApplicationArea = All;
             }
@@ -29,30 +29,30 @@ pageextension 50353 "pageextension50353" extends "Job Card"
         }
         addafter(Blocked)
         {
-            field("No. of Deck Hands"; "No. of Deck Hands")
+            field("No. of Deck Hands"; Rec."No. of Deck Hands")
             {
                 ApplicationArea = All;
             }
         }
         addfirst(Posting)
         {
-            field(Control170; "Lost Days")
+            field(Control170; Rec."Lost Days")
             {
                 ApplicationArea = All;
             }
-            field("Fuel Consumed"; "Fuel Consumed")
+            field("Fuel Consumed"; Rec."Fuel Consumed")
             {
                 ApplicationArea = All;
             }
-            field("Fuel Days"; "Fuel Days")
+            field("Fuel Days"; Rec."Fuel Days")
             {
                 ApplicationArea = All;
             }
-            field("Fuel Average"; "Fuel Average")
+            field("Fuel Average"; Rec."Fuel Average")
             {
                 ApplicationArea = All;
             }
-            field("Global Dimension 2 Code"; "Global Dimension 2 Code")
+            field("Global Dimension 2 Code"; Rec."Global Dimension 2 Code")
             {
                 ApplicationArea = All;
             }
@@ -63,27 +63,27 @@ pageextension 50353 "pageextension50353" extends "Job Card"
 
         addfirst(Duration)
         {
-            field("Deductible Lost Days"; "Deductible Lost Days")
+            field("Deductible Lost Days"; Rec."Deductible Lost Days")
             {
                 ApplicationArea = All;
             }
-            field("Cycle Day (Manual)"; "Cycle Day (Manual)")
+            field("Cycle Day (Manual)"; Rec."Cycle Day (Manual)")
             {
                 ApplicationArea = All;
             }
-            field("Fishing Day (Manual)"; "Fishing Day (Manual)")
+            field("Fishing Day (Manual)"; Rec."Fishing Day (Manual)")
             {
                 ApplicationArea = All;
             }
-            field("Lost At Sea (Manual)"; "Lost At Sea (Manual)")
+            field("Lost At Sea (Manual)"; Rec."Lost At Sea (Manual)")
             {
                 ApplicationArea = All;
             }
-            field("Port Day (Manual)"; "Port Day (Manual)")
+            field("Port Day (Manual)"; Rec."Port Day (Manual)")
             {
                 ApplicationArea = All;
             }
-            field("Price Group Code"; "Price Group Code")
+            field("Price Group Code"; Rec."Price Group Code")
             {
                 ApplicationArea = All;
             }
@@ -93,63 +93,63 @@ pageextension 50353 "pageextension50353" extends "Job Card"
             group(Incentive)
             {
                 Caption = 'Incentive';
-                field(Points; Points)
+                field(Points; Rec.Points)
                 {
                     ApplicationArea = All;
                 }
-                field("Incentive Points Determinant"; "Incentive Points Determinant")
+                field("Incentive Points Determinant"; Rec."Incentive Points Determinant")
                 {
                     ApplicationArea = All;
                 }
-                field("Incentive Rate"; "Incentive Rate")
+                field("Incentive Rate"; Rec."Incentive Rate")
                 {
                     ApplicationArea = All;
                 }
-                field("Incentive (Pt. Based)"; "Incentive (Pt. Based)")
+                field("Incentive (Pt. Based)"; Rec."Incentive (Pt. Based)")
                 {
                     ApplicationArea = All;
                 }
-                field("Total Incentive"; "Total Incentive")
+                field("Total Incentive"; Rec."Total Incentive")
                 {
                     ApplicationArea = All;
                 }
-                field("Add/Ded. Crew"; "Add/Ded. Crew")
+                field("Add/Ded. Crew"; Rec."Add/Ded. Crew")
                 {
                     ApplicationArea = All;
                 }
-                field("Net Incentive"; "Net Incentive")
+                field("Net Incentive"; Rec."Net Incentive")
                 {
                     ApplicationArea = All;
                 }
-                field("Incentive (Hook Fish)"; "Incentive (Hook Fish)")
+                field("Incentive (Hook Fish)"; Rec."Incentive (Hook Fish)")
                 {
                     ApplicationArea = All;
                 }
-                field("Points Actual"; "Points Actual")
+                field("Points Actual"; Rec."Points Actual")
                 {
                     ApplicationArea = All;
                 }
-                field("Incentive Pts Determt Actual"; "Incentive Pts Determt Actual")
+                field("Incentive Pts Determt Actual"; Rec."Incentive Pts Determt Actual")
                 {
                     ApplicationArea = All;
                 }
-                field("Incentive Rate Actual"; "Incentive Rate Actual")
+                field("Incentive Rate Actual"; Rec."Incentive Rate Actual")
                 {
                     ApplicationArea = All;
                 }
-                field("Incentive (Pt. Based) Actual"; "Incentive (Pt. Based) Actual")
+                field("Incentive (Pt. Based) Actual"; Rec."Incentive (Pt. Based) Actual")
                 {
                     ApplicationArea = All;
                 }
-                field("Total Incentive Actual"; "Total Incentive Actual")
+                field("Total Incentive Actual"; Rec."Total Incentive Actual")
                 {
                     ApplicationArea = All;
                 }
-                field("Deductible Lost Days (Incentiv"; "Deductible Lost Days (Incentiv")
+                field("Deductible Lost Days (Incentiv"; Rec."Deductible Lost Days (Incentiv")
                 {
                     ApplicationArea = All;
                 }
-                field("Net Incentive Actual"; "Net Incentive Actual")
+                field("Net Incentive Actual"; Rec."Net Incentive Actual")
                 {
                     ApplicationArea = All;
                 }
@@ -177,131 +177,131 @@ pageextension 50353 "pageextension50353" extends "Job Card"
         }
         addafter("Calc. Recog. Costs G/L Amount")
         {
-            field("Ves Age"; "Ves Age")
+            field("Ves Age"; Rec."Ves Age")
             {
                 ApplicationArea = All;
             }
-            field("Nxt Ovh"; "Nxt Ovh")
+            field("Nxt Ovh"; Rec."Nxt Ovh")
             {
                 ApplicationArea = All;
             }
-            field("Lst Ovh"; "Lst Ovh")
+            field("Lst Ovh"; Rec."Lst Ovh")
             {
                 ApplicationArea = All;
             }
-            field("Nxt Ddk"; "Nxt Ddk")
+            field("Nxt Ddk"; Rec."Nxt Ddk")
             {
                 ApplicationArea = All;
             }
-            field("Brnd Pk"; "Brnd Pk")
+            field("Brnd Pk"; Rec."Brnd Pk")
             {
                 ApplicationArea = All;
             }
-            field("Inner P"; "Inner P")
+            field("Inner P"; Rec."Inner P")
             {
                 ApplicationArea = All;
             }
-            field(Grades; Grades)
+            field(Grades; Rec.Grades)
             {
                 ApplicationArea = All;
             }
-            field(xx1; xx1)
+            field(xx1; Rec.xx1)
             {
                 ApplicationArea = All;
             }
-            field(Deratg; Deratg)
+            field(Deratg; Rec.Deratg)
             {
                 ApplicationArea = All;
             }
-            field("Crab CW"; "Crab CW")
+            field("Crab CW"; Rec."Crab CW")
             {
                 ApplicationArea = All;
             }
-            field("WT GL/W"; "WT GL/W")
+            field("WT GL/W"; Rec."WT GL/W")
             {
                 ApplicationArea = All;
             }
-            field("Rad Tel"; "Rad Tel")
+            field("Rad Tel"; Rec."Rad Tel")
             {
                 ApplicationArea = All;
             }
-            field("R Flare"; "R Flare")
+            field("R Flare"; Rec."R Flare")
             {
                 ApplicationArea = All;
             }
-            field("Str Lic"; "Str Lic")
+            field("Str Lic"; Rec."Str Lic")
             {
                 ApplicationArea = All;
             }
-            field("Life Rf"; "Life Rf")
+            field("Life Rf"; Rec."Life Rf")
             {
                 ApplicationArea = All;
             }
-            field("Fsh Ins"; "Fsh Ins")
+            field("Fsh Ins"; Rec."Fsh Ins")
             {
                 ApplicationArea = All;
             }
-            field("Fsh Dst"; "Fsh Dst")
+            field("Fsh Dst"; Rec."Fsh Dst")
             {
                 ApplicationArea = All;
             }
-            field("Ins Sur"; "Ins Sur")
+            field("Ins Sur"; Rec."Ins Sur")
             {
                 ApplicationArea = All;
             }
-            field("Dst Sur"; "Dst Sur")
+            field("Dst Sur"; Rec."Dst Sur")
             {
                 ApplicationArea = All;
             }
-            field("Pow Ext"; "Pow Ext")
+            field("Pow Ext"; Rec."Pow Ext")
             {
                 ApplicationArea = All;
             }
-            field("Fom Ext"; "Fom Ext")
+            field("Fom Ext"; Rec."Fom Ext")
             {
                 ApplicationArea = All;
             }
-            field("CO2 Ext"; "CO2 Ext")
+            field("CO2 Ext"; Rec."CO2 Ext")
             {
                 ApplicationArea = All;
             }
-            field(Parchut; Parchut)
+            field(Parchut; Rec.Parchut)
             {
                 ApplicationArea = All;
             }
-            field("E.U. No"; "E.U. No")
+            field("E.U. No"; Rec."E.U. No")
             {
                 ApplicationArea = All;
             }
-            field(NoCatchExist; NoCatchExist)
+            field(NoCatchExist; Rec.NoCatchExist)
             {
                 ApplicationArea = All;
             }
-            field("Gen. Product PG Filter"; "Gen. Product PG Filter")
+            field("Gen. Product PG Filter"; Rec."Gen. Product PG Filter")
             {
                 ApplicationArea = All;
             }
-            field(AvgPtSortBay; AvgPtSortBay)
+            field(AvgPtSortBay; Rec.AvgPtSortBay)
             {
                 ApplicationArea = All;
             }
-            field("Comsumed Value"; "Comsumed Value")
+            field("Comsumed Value"; Rec."Comsumed Value")
             {
                 ApplicationArea = All;
             }
-            field("Product Quantity"; "Product Quantity")
+            field("Product Quantity"; Rec."Product Quantity")
             {
                 ApplicationArea = All;
             }
-            field("Kilo Actual"; "Kilo Actual")
+            field("Kilo Actual"; Rec."Kilo Actual")
             {
                 ApplicationArea = All;
             }
-            field(Checked; Checked)
+            field(Checked; Rec.Checked)
             {
                 ApplicationArea = All;
             }
-            field("Revenue per Sea Day"; "Revenue per Sea Day")
+            field("Revenue per Sea Day"; Rec."Revenue per Sea Day")
             {
                 ApplicationArea = All;
             }
@@ -309,7 +309,7 @@ pageextension 50353 "pageextension50353" extends "Job Card"
 
         addafter("Bill-to Contact No.")
         {
-            field(Captain; Captain)
+            field(Captain; Rec.Captain)
             {
                 Caption = 'Captain Name';
                 ApplicationArea = All;
@@ -495,7 +495,7 @@ pageextension 50353 "pageextension50353" extends "Job Card"
 
                     trigger OnAction()
                     begin
-                        SetFilter("No.", "No.");
+                        Rec.SetFilter("No.", Rec."No.");
                         REPORT.Run(50113, true, true, Rec);
                     end;
                 }
@@ -507,7 +507,7 @@ pageextension 50353 "pageextension50353" extends "Job Card"
 
                     trigger OnAction()
                     begin
-                        SetFilter("No.", "No.");
+                        Rec.SetFilter("No.", Rec."No.");
                         REPORT.Run(50032, true, true, Rec);
                     end;
                 }

@@ -12,55 +12,55 @@ page 50026 "Applicants List"
             {
                 Editable = false;
                 ShowCaption = false;
-                field("No."; "No.")
+                field("No."; Rec."No.")
                 {
                     ApplicationArea = All;
                 }
-                field("Advert Ref No"; "Advert Ref No")
+                field("Advert Ref No"; Rec."Advert Ref No")
                 {
                     ApplicationArea = All;
                 }
-                field("Position Applied For"; "Position Applied For")
+                field("Position Applied For"; Rec."Position Applied For")
                 {
                     ApplicationArea = All;
                 }
-                field(Surname; Surname)
+                field(Surname; Rec.Surname)
                 {
                     ApplicationArea = All;
                 }
-                field("First Name"; "First Name")
+                field("First Name"; Rec."First Name")
                 {
                     ApplicationArea = All;
                 }
-                field("Middle Name"; "Middle Name")
+                field("Middle Name"; Rec."Middle Name")
                 {
                     ApplicationArea = All;
                 }
-                field(Initials; Initials)
+                field(Initials; Rec.Initials)
                 {
                     ApplicationArea = All;
                 }
-                field("Search Name"; "Search Name")
+                field("Search Name"; Rec."Search Name")
                 {
                     ApplicationArea = All;
                 }
-                field(Address; Address)
+                field(Address; Rec.Address)
                 {
                     ApplicationArea = All;
                 }
-                field("Address 2"; "Address 2")
+                field("Address 2"; Rec."Address 2")
                 {
                     ApplicationArea = All;
                 }
-                field(City; City)
+                field(City; Rec.City)
                 {
                     ApplicationArea = All;
                 }
-                field("Post Code"; "Post Code")
+                field("Post Code"; Rec."Post Code")
                 {
                     ApplicationArea = All;
                 }
-                field(County; County)
+                field(County; Rec.County)
                 {
                     ApplicationArea = All;
                 }

@@ -640,48 +640,44 @@ report 50079 "Initiate Inventory"
 
     local procedure CheckRecurringLine(ItemJnlLine2: Record "Item Journal Line")
     begin
-        with ItemJnlLine2 do begin
-            if ItemJnlTemplate.Recurring then begin
-                if "Recurring Method" = 0 then
-                    AddError(StrSubstNo(Text001, FieldCaption("Recurring Method")));
-                if Format("Recurring Frequency") = '' then
-                    AddError(StrSubstNo(Text001, FieldCaption("Recurring Frequency")));
-                if "Recurring Method" = "Recurring Method"::Variable then
-                    if Quantity = 0 then
-                        AddError(StrSubstNo(Text001, FieldCaption(Quantity)));
-            end else begin
-                if "Recurring Method" <> 0 then
-                    AddError(StrSubstNo(Text016, FieldCaption("Recurring Method")));
-                if Format("Recurring Frequency") <> '' then
-                    AddError(StrSubstNo(Text016, FieldCaption("Recurring Frequency")));
-            end;
+        if ItemJnlTemplate.Recurring then begin
+            if ItemJnlLine2."Recurring Method" = 0 then
+                AddError(StrSubstNo(Text001, ItemJnlLine2.FieldCaption("Recurring Method")));
+            if Format(ItemJnlLine2."Recurring Frequency") = '' then
+                AddError(StrSubstNo(Text001, ItemJnlLine2.FieldCaption("Recurring Frequency")));
+            if ItemJnlLine2."Recurring Method" = ItemJnlLine2."Recurring Method"::Variable then
+                if ItemJnlLine2.Quantity = 0 then
+                    AddError(StrSubstNo(Text001, ItemJnlLine2.FieldCaption(Quantity)));
+        end else begin
+            if ItemJnlLine2."Recurring Method" <> 0 then
+                AddError(StrSubstNo(Text016, ItemJnlLine2.FieldCaption("Recurring Method")));
+            if Format(ItemJnlLine2."Recurring Frequency") <> '' then
+                AddError(StrSubstNo(Text016, ItemJnlLine2.FieldCaption("Recurring Frequency")));
         end;
     end;
 
     local procedure MakeRecurringTexts(var ItemJnlLine2: Record "Item Journal Line")
     begin
-        with ItemJnlLine2 do begin
-            if ("Posting Date" <> 0D) and ("Item No." <> '') and ("Recurring Method" <> 0) then begin
-                Day := Date2DMY("Posting Date", 1);
-                Week := Date2DWY("Posting Date", 2);
-                Month := Date2DMY("Posting Date", 2);
-                MonthText := Format("Posting Date", 0, Text018);
-                AccountingPeriod.SetRange("Starting Date", 0D, "Posting Date");
-                if not AccountingPeriod.Find('+') then
-                    AccountingPeriod.Name := '';
-                "Document No." :=
-                  DelChr(
-                    PadStr(
-                      StrSubstNo("Document No.", Day, Week, Month, MonthText, AccountingPeriod.Name),
-                      MaxStrLen("Document No.")),
-                    '>');
-                Description :=
-                  DelChr(
-                    PadStr(
-                      StrSubstNo(Description, Day, Week, Month, MonthText, AccountingPeriod.Name),
-                      MaxStrLen(Description)),
-                    '>');
-            end;
+        if (ItemJnlLine2."Posting Date" <> 0D) and (ItemJnlLine2."Item No." <> '') and (ItemJnlLine2."Recurring Method" <> 0) then begin
+            Day := Date2DMY(ItemJnlLine2."Posting Date", 1);
+            Week := Date2DWY(ItemJnlLine2."Posting Date", 2);
+            Month := Date2DMY(ItemJnlLine2."Posting Date", 2);
+            MonthText := Format(ItemJnlLine2."Posting Date", 0, Text018);
+            AccountingPeriod.SetRange("Starting Date", 0D, ItemJnlLine2."Posting Date");
+            if not AccountingPeriod.Find('+') then
+                AccountingPeriod.Name := '';
+            ItemJnlLine2."Document No." :=
+              DelChr(
+                PadStr(
+                  StrSubstNo(ItemJnlLine2."Document No.", Day, Week, Month, MonthText, AccountingPeriod.Name),
+                  MaxStrLen(ItemJnlLine2."Document No.")),
+                '>');
+            ItemJnlLine2.Description :=
+              DelChr(
+                PadStr(
+                  StrSubstNo(ItemJnlLine2.Description, Day, Week, Month, MonthText, AccountingPeriod.Name),
+                  MaxStrLen(ItemJnlLine2.Description)),
+                '>');
         end;
     end;
 

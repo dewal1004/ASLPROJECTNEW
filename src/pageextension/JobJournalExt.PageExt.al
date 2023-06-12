@@ -11,8 +11,8 @@ pageextension 50242 "Job Journal Ext" extends "Job Journal"
         modify("Unit Cost") { Visible = false; }
         modify("Total Cost") { Visible = false; }
         modify("Unit Price") { Visible = false; }
-        modify("Work Type Code") {Visible = false; }
-        
+        modify("Work Type Code") { Visible = false; }
+
 
 
         addafter(CurrentJnlBatchName)
@@ -33,33 +33,33 @@ pageextension 50242 "Job Journal Ext" extends "Job Journal"
         }
         addafter(Quantity)
         {
-            field("ASL Source Code";"ASL Source Code")
+            field("ASL Source Code"; Rec."ASL Source Code")
             {
                 Caption = 'Change Source Code';
                 ApplicationArea = All;
             }
-            field(Catch; Catch) { ApplicationArea = All; }
-            field("Stock Position Calc."; "Stock Position Calc.") { ApplicationArea = All; }
-            field("Posting Group"; "Posting Group") { ApplicationArea = All; }
+            field(Catch; Rec.Catch) { ApplicationArea = All; }
+            field("Stock Position Calc."; Rec."Stock Position Calc.") { ApplicationArea = All; }
+            field("Posting Group"; Rec."Posting Group") { ApplicationArea = All; }
         }
         addafter("Gen. Prod. Posting Group")
         {
-            field(Groupsort; Groupsort)
+            field(Groupsort; Rec.Groupsort)
             {
                 Importance = Additional;
                 ApplicationArea = All;
             }
-            field("Reason Code"; "Reason Code") { ApplicationArea = All; }
-            field(ROB; ROB) { ApplicationArea = All; }
+            field("Reason Code"; Rec."Reason Code") { ApplicationArea = All; }
+            field(ROB; Rec.ROB) { ApplicationArea = All; }
         }
         addafter("Total Cost (LCY)")
         {
-            field("Source Code"; "Source Code") 
-            { 
-                ApplicationArea = All; 
+            field("Source Code"; Rec."Source Code")
+            {
+                ApplicationArea = All;
                 Editable = True;
-                
-                }
+
+            }
         }
         addafter("Shortcut Dimension 2 Code")
         {
@@ -74,7 +74,7 @@ pageextension 50242 "Job Journal Ext" extends "Job Journal"
 
                 trigger OnValidate()
                 begin
-                    ValidateShortcutDimCode(3, ShortcutDimCode[3]);
+                    Rec.ValidateShortcutDimCode(3, ShortcutDimCode[3]);
 
                     //***P   OnValidateShortcutDimCode(Rec, ShortcutDimCode, 3);
                 end;
@@ -90,7 +90,7 @@ pageextension 50242 "Job Journal Ext" extends "Job Journal"
 
                 trigger OnValidate()
                 begin
-                    ValidateShortcutDimCode(4, ShortcutDimCode[4]);
+                    Rec.ValidateShortcutDimCode(4, ShortcutDimCode[4]);
 
                     //***P OnValidateShortcutDimCode(Rec, ShortcutDimCode, 4);
                 end;
@@ -98,7 +98,7 @@ pageextension 50242 "Job Journal Ext" extends "Job Journal"
         }
         addafter(AccName)
         {
-            field("Reconciliation Catch Quantity"; "Reconciliation Catch Quantity")
+            field("Reconciliation Catch Quantity"; Rec."Reconciliation Catch Quantity")
             {
                 ApplicationArea = All;
             }
@@ -111,32 +111,32 @@ pageextension 50242 "Job Journal Ext" extends "Job Journal"
         {
             trigger OnBeforeAction()
             begin
-                SetFilter(Quantity, '<>%1', 0);
-                SetRange("Location Code");
+                Rec.SetFilter(Quantity, '<>%1', 0);
+                Rec.SetRange("Location Code");
             end;
 
             trigger OnAfterAction()
             begin
-                SetRange(Quantity);
+                Rec.SetRange(Quantity);
                 Catigo;
                 if (User."Global Dimension 2 Code" <> 'MRKT') then
-                    SetRange("Location Code", 'CRM-ASL');
+                    Rec.SetRange("Location Code", 'CRM-ASL');
             end;
         }
         modify("Post and &Print")
         {
             trigger OnBeforeAction()
             begin
-                SetFilter(Quantity, '<>%1', 0);
-                SetRange("Location Code");
+                Rec.SetFilter(Quantity, '<>%1', 0);
+                Rec.SetRange("Location Code");
             end;
 
             trigger OnAfterAction()
             begin
-                SetRange(Quantity);
+                Rec.SetRange(Quantity);
                 Catigo;
                 if (User."Global Dimension 2 Code" <> 'MRKT') then
-                    SetRange("Location Code", 'CRM-ASL');
+                    Rec.SetRange("Location Code", 'CRM-ASL');
             end;
         }
 
@@ -336,7 +336,7 @@ pageextension 50242 "Job Journal Ext" extends "Job Journal"
 
     procedure Catigo()
     begin
-        SetRange("Statistics Group", Category);
+        Rec.SetRange("Statistics Group", Category);
         CurrPage.Update(false);
         if (User."Global Dimension 2 Code" <> 'MRKT') then begin
             case User.Category of
@@ -344,22 +344,22 @@ pageextension 50242 "Job Journal Ext" extends "Job Journal"
                     begin
                         case Category of
                             0, 4:
-                                SetRange("Statistics Group", 1, 3);
+                                Rec.SetRange("Statistics Group", 1, 3);
                             1:
-                                SetRange("Statistics Group", 1);
+                                Rec.SetRange("Statistics Group", 1);
                             2:
-                                SetRange("Statistics Group", 2);
+                                Rec.SetRange("Statistics Group", 2);
                             3:
-                                SetRange("Statistics Group", 3);
+                                Rec.SetRange("Statistics Group", 3);
                         end;
                     end;
                 2:
                     begin
                         case Category of
                             0, 1, 2, 3:
-                                SetRange("Statistics Group", 4);
+                                Rec.SetRange("Statistics Group", 4);
                             4:
-                                SetRange("Statistics Group", 4);
+                                Rec.SetRange("Statistics Group", 4);
                         end;
                     end;
             end;
@@ -373,7 +373,7 @@ pageextension 50242 "Job Journal Ext" extends "Job Journal"
         RecCount: Integer;
     begin
 
-        if JBat.Get("Journal Template Name", "Journal Batch Name") then begin
+        if JBat.Get(Rec."Journal Template Name", Rec."Journal Batch Name") then begin
             //Job Journal Line Insertion
             i := 0;
             //Insert Default Catches for the Job
@@ -391,13 +391,13 @@ pageextension 50242 "Job Journal Ext" extends "Job Journal"
                     i := i + 1;
                     window.Update(2, i);
                     JobJournalLine.Init;
-                    JobJournalLine."Journal Template Name" := "Journal Template Name";
-                    if "Journal Template Name" = 'RECURRING' then begin
+                    JobJournalLine."Journal Template Name" := Rec."Journal Template Name";
+                    if Rec."Journal Template Name" = 'RECURRING' then begin
                         JobJournalLine."Recurring Method" := 2;
                         if Evaluate(JobJournalLine."Recurring Frequency", '1D') then;
                     end;
 
-                    JobJournalLine."Journal Batch Name" := "Journal Batch Name";
+                    JobJournalLine."Journal Batch Name" := Rec."Journal Batch Name";
                     JobJournalLine.Validate(JobJournalLine."Job No.", JBat."Job No.");
                     JobJournalLine."Posting Date" := JBat."Catch Date";
                     JobJournalLine."Document Date" := JBat."Catch Date";
@@ -445,22 +445,22 @@ pageextension 50242 "Job Journal Ext" extends "Job Journal"
                 JobJnlLineCopy.Init;
                 JobJnlLineCopy.TransferFields(JobJournalLine);
                 ///***P JobJnlLineCopy."Journal Batch Name" := CurrentJnlBatchName;
-              if not JobJnlLineCopy.Insert then JobJnlLineCopy.Modify;
+                if not JobJnlLineCopy.Insert then JobJnlLineCopy.Modify;
             until JobJournalLine.Next = 0;
         Message('Line Coppied from Vessel %1', "Copy From  Vesel");
     end;
 
     trigger OnModifyRecord(): Boolean
     begin
-        if "Lock Qty" then begin
-            if ("No." <> xRec."No.") or (Quantity <> xRec.Quantity) or (Description <> xRec.Description) then
+        if Rec."Lock Qty" then begin
+            if (Rec."No." <> xRec."No.") or (Rec.Quantity <> xRec.Quantity) or (Rec.Description <> xRec.Description) then
                 Error('You Can Not Modify Line Generated from Requisition');
         end;
     end;
 
     trigger OnDeleteRecord(): Boolean
     begin
-        if "Lock Qty" then Error('You Can Not Delete Line Generated from Requisition');
+        if Rec."Lock Qty" then Error('You Can Not Delete Line Generated from Requisition');
     end;
 }
 

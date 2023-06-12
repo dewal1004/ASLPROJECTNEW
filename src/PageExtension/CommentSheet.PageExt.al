@@ -7,15 +7,15 @@ pageextension 50211 "pageextension50211" extends "Comment Sheet"
 
         addafter("Code")
         {
-            field("Fuel Consumed"; "Fuel Consumed")
+            field("Fuel Consumed"; Rec."Fuel Consumed")
             {
                 ApplicationArea = All;
             }
-            field("Fuel Days"; "Fuel Days")
+            field("Fuel Days"; Rec."Fuel Days")
             {
                 ApplicationArea = All;
             }
-            field("Fuel Average"; "Fuel Average")
+            field("Fuel Average"; Rec."Fuel Average")
             {
                 ApplicationArea = All;
             }

@@ -4,21 +4,21 @@ pageextension 50361 "pageextension50361" extends "Item Invoicing FactBox"
     {
         addafter("Unit Price")
         {
-            field(Inventory; Inventory)
+            field(Inventory; Rec.Inventory)
             {
                 ApplicationArea = All;
             }
-            field("CRM / STR"; "CRM / STR")
+            field("CRM / STR"; Rec."CRM / STR")
             {
                 ApplicationArea = All;
             }
             group("Material Requisition")
             {
-                field("MR Pending  Qty"; "MR Pending  Qty")
+                field("MR Pending  Qty"; Rec."MR Pending  Qty")
                 {
                     ApplicationArea = All;
                 }
-                field("MR Approved Qty"; "MR Approved Qty")
+                field("MR Approved Qty"; Rec."MR Approved Qty")
                 {
                     ApplicationArea = All;
                 }

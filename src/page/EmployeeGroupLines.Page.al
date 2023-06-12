@@ -10,15 +10,15 @@ page 50016 "Employee Group Lines."
             repeater(Control1)
             {
                 ShowCaption = false;
-                field("Employee Name"; "Employee Name")
+                field("Employee Name"; Rec."Employee Name")
                 {
                     ApplicationArea = All;
                 }
-                field("Employee Group"; "Employee Group")
+                field("Employee Group"; Rec."Employee Group")
                 {
                     ApplicationArea = All;
                 }
-                field("E/D Code"; "E/D Code")
+                field("E/D Code"; Rec."E/D Code")
                 {
                     ApplicationArea = All;
                     //  Lookup = true;
@@ -29,23 +29,23 @@ page 50016 "Employee Group Lines."
                     Caption = 'Payslip Text';
                     ApplicationArea = All;
                 }
-                field(Units; Units)
+                field(Units; Rec.Units)
                 {
                     ApplicationArea = All;
                 }
-                field(Rate; Rate)
+                field(Rate; Rec.Rate)
                 {
                     ApplicationArea = All;
                 }
-                field(Quantity; Quantity)
+                field(Quantity; Rec.Quantity)
                 {
                     ApplicationArea = All;
                 }
-                field(Flag; Flag)
+                field(Flag; Rec.Flag)
                 {
                     ApplicationArea = All;
                 }
-                field("Default Amount"; "Default Amount")
+                field("Default Amount"; Rec."Default Amount")
                 {
                     DecimalPlaces = 0 :;
                     Editable = false;
@@ -53,15 +53,15 @@ page 50016 "Employee Group Lines."
                     ApplicationArea = All;
                     // Numeric = false;
                 }
-                field("Old Default Amount"; "Old Default Amount")
+                field("Old Default Amount"; Rec."Old Default Amount")
                 {
                     ApplicationArea = All;
                 }
-                field("Date Changed"; "Date Changed")
+                field("Date Changed"; Rec."Date Changed")
                 {
                     ApplicationArea = All;
                 }
-                field("Payslip Group ID"; "Payslip Group ID")
+                field("Payslip Group ID"; Rec."Payslip Group ID")
                 {
                     ApplicationArea = All;
                 }
@@ -79,7 +79,7 @@ page 50016 "Employee Group Lines."
     [Scope('OnPrem')]
     procedure GetEDName(): Text[30]
     begin
-        if EDRec.Get("E/D Code") then exit(EDRec."Payslip Text");
+        if EDRec.Get(Rec."E/D Code") then exit(EDRec."Payslip Text");
     end;
 }
 

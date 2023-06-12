@@ -15,27 +15,27 @@ page 50117 "Purchase QCC List"
         {
             repeater(Group)
             {
-                field("Req No."; "Req No.")
+                field("Req No."; Rec."Req No.")
                 {
                     Enabled = false;
                     ApplicationArea = All;
                 }
-                field("Req Location"; "Req Location")
+                field("Req Location"; Rec."Req Location")
                 {
                     Editable = false;
                     ApplicationArea = All;
                 }
-                field("Item No."; "Item No.")
+                field("Item No."; Rec."Item No.")
                 {
                     Editable = false;
                     ApplicationArea = All;
                 }
-                field(Description; Description)
+                field(Description; Rec.Description)
                 {
                     Editable = false;
                     ApplicationArea = All;
                 }
-                field("Req. By Name"; "Req. By Name")
+                field("Req. By Name"; Rec."Req. By Name")
                 {
                     Editable = false;
                     ApplicationArea = All;
@@ -45,29 +45,29 @@ page 50117 "Purchase QCC List"
             {
                 //The GridLayout property is only supported on controls of type Grid
                 //GridLayout = Rows;
-                field("QCC Check Quantity"; "QCC Check Quantity")
+                field("QCC Check Quantity"; Rec."QCC Check Quantity")
                 {
                     ApplicationArea = All;
                 }
-                field("QCC Comment"; "QCC Comment")
+                field("QCC Comment"; Rec."QCC Comment")
                 {
                     ApplicationArea = All;
                 }
-                field("QCC Check"; "QCC Check")
+                field("QCC Check"; Rec."QCC Check")
                 {
                     ApplicationArea = All;
                 }
-                field("QCC Check  By"; "QCC Check  By")
-                {
-                    Editable = false;
-                    ApplicationArea = All;
-                }
-                field("QCC Check  Name"; "QCC Check  Name")
+                field("QCC Check  By"; Rec."QCC Check  By")
                 {
                     Editable = false;
                     ApplicationArea = All;
                 }
-                field("QCC Check Time"; "QCC Check Time")
+                field("QCC Check  Name"; Rec."QCC Check  Name")
+                {
+                    Editable = false;
+                    ApplicationArea = All;
+                }
+                field("QCC Check Time"; Rec."QCC Check Time")
                 {
                     Editable = false;
                     ApplicationArea = All;

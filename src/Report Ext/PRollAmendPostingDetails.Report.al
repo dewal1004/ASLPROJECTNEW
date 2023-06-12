@@ -6,12 +6,12 @@ report 50660 "PRoll; Amend Posting Details"
     {
         dataitem(Employee; Employee)
         {
-            DataItemTableView = SORTING ("No.");
+            DataItemTableView = SORTING("No.");
             RequestFilterFields = "No.", "Posting Group";
             dataitem("Payroll-Payslip Lines."; "Payroll-Payslip Lines.")
             {
-                DataItemLink = "Employee No" = FIELD ("No.");
-                DataItemTableView = SORTING ("Employee No", "Payroll Period");
+                DataItemLink = "Employee No" = FIELD("No.");
+                DataItemTableView = SORTING("Employee No", "Payroll Period");
                 RequestFilterFields = "Payroll Period", "E/D Code";
 
                 trigger OnAfterGetRecord()

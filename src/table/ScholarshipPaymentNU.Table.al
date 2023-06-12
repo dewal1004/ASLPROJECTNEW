@@ -17,7 +17,7 @@ table 60033 "Scholarship Payment NU*"
         {
             BlankZero = true;
             NotBlank = true;
-            TableRelation = "Scholarship Register NU*"."Reg No" WHERE ("Employee No" = FIELD ("Employee No"));
+            TableRelation = "Scholarship Register NU*"."Reg No" WHERE("Employee No" = FIELD("Employee No"));
         }
         field(4; Amount; Decimal)
         {

@@ -10,11 +10,11 @@ page 50037 "Course Type List"
             repeater(Control1)
             {
                 ShowCaption = false;
-                field("Course Type Code"; "Course Type Code")
+                field("Course Type Code"; Rec."Course Type Code")
                 {
                     ApplicationArea = All;
                 }
-                field(Description; Description)
+                field(Description; Rec.Description)
                 {
                     ApplicationArea = All;
                 }

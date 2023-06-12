@@ -10,11 +10,11 @@ page 50150 "Sea Food Categories"
             repeater(Control1)
             {
                 ShowCaption = false;
-                field("Sea food code"; "Sea food code")
+                field("Sea food code"; Rec."Sea food code")
                 {
                     ApplicationArea = All;
                 }
-                field("Sea food Description"; "Sea food Description")
+                field("Sea food Description"; Rec."Sea food Description")
                 {
                     ApplicationArea = All;
                 }
@@ -34,12 +34,12 @@ page 50150 "Sea Food Categories"
         }
     }
 
-    
+
 
     actions
     {
     }
 
-    
+
 }
 

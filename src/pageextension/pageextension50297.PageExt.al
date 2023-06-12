@@ -8,7 +8,7 @@ pageextension 50297 "pageextension50297" extends "Employee Absences"
         }
         addafter(Quantity)
         {
-            field("Employee Contract code"; "Employee Contract code")
+            field("Employee Contract code"; Rec."Employee Contract code")
             {
                 ApplicationArea = All;
             }

@@ -13,51 +13,51 @@ page 50101 "PayrollEmployeeGroup"
         {
             repeater(Group)
             {
-                field("Code"; Code)
+                field("Code"; Rec.Code)
                 {
                     ApplicationArea = All;
                 }
-                field("Search Name"; "Search Name")
+                field("Search Name"; Rec."Search Name")
                 {
                     ApplicationArea = All;
                 }
-                field("Gross Pay"; "Gross Pay")
+                field("Gross Pay"; Rec."Gross Pay")
                 {
                     ApplicationArea = All;
                 }
-                field("Tax Charged"; "Tax Charged")
+                field("Tax Charged"; Rec."Tax Charged")
                 {
                     ApplicationArea = All;
                 }
-                field("Tax Deducted"; "Tax Deducted")
+                field("Tax Deducted"; Rec."Tax Deducted")
                 {
                     ApplicationArea = All;
                 }
-                field("Taxable Pay"; "Taxable Pay")
+                field("Taxable Pay"; Rec."Taxable Pay")
                 {
                     ApplicationArea = All;
                 }
-                field("Total Deductions"; "Total Deductions")
+                field("Total Deductions"; Rec."Total Deductions")
                 {
                     ApplicationArea = All;
                 }
-                field("Net Pay Due"; "Net Pay Due")
+                field("Net Pay Due"; Rec."Net Pay Due")
                 {
                     ApplicationArea = All;
                 }
-                field("Posting Group Code"; "Posting Group Code")
+                field("Posting Group Code"; Rec."Posting Group Code")
                 {
                     ApplicationArea = All;
                 }
-                field(Grade; Grade)
+                field(Grade; Rec.Grade)
                 {
                     ApplicationArea = All;
                 }
-                field(Step; Step)
+                field(Step; Rec.Step)
                 {
                     ApplicationArea = All;
                 }
-                field(Management; Management)
+                field(Management; Rec.Management)
                 {
                     ApplicationArea = All;
                 }

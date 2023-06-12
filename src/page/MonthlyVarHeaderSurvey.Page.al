@@ -14,23 +14,23 @@ page 50052 "Monthly Var. Header Survey."
             repeater(Control1)
             {
                 ShowCaption = false;
-                field("Payroll Period"; "Payroll Period")
+                field("Payroll Period"; Rec."Payroll Period")
                 {
                     ApplicationArea = All;
                 }
-                field("Period Name"; "Period Name")
+                field("Period Name"; Rec."Period Name")
                 {
                     ApplicationArea = All;
                 }
-                field("Employee No"; "Employee No")
+                field("Employee No"; Rec."Employee No")
                 {
                     ApplicationArea = All;
                 }
-                field("Employee Name"; "Employee Name")
+                field("Employee Name"; Rec."Employee Name")
                 {
                     ApplicationArea = All;
                 }
-                field("Closed?"; "Closed?")
+                field("Closed?"; Rec."Closed?")
                 {
                     ApplicationArea = All;
                 }

@@ -54,7 +54,7 @@ tableextension 50266 "tableextension50266" extends "Item Ledger Entry"
         key(ASLKey5; "Location Code", "Item No.")
         {
         }
-        Key(ASLKey6; "Source Code") {}
+        Key(ASLKey6; "Source Code") { }
     }
 }
 

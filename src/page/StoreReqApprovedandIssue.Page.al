@@ -20,51 +20,51 @@ page 50065 "Store Req.  Approved and Issue"
         {
             repeater(Group)
             {
-                field("Req. No"; "Req. No")
+                field("Req. No"; Rec."Req. No")
                 {
                     ApplicationArea = All;
                 }
-                field("Req. Type"; "Req. Type")
+                field("Req. Type"; Rec."Req. Type")
                 {
                     ApplicationArea = All;
                 }
-                field(Description; Description)
+                field(Description; Rec.Description)
                 {
                     ApplicationArea = All;
                 }
-                field("Req Date"; "Req Date")
+                field("Req Date"; Rec."Req Date")
                 {
                     ApplicationArea = All;
                 }
-                field("Send for Approval"; "Send for Approval")
+                field("Send for Approval"; Rec."Send for Approval")
                 {
                     ApplicationArea = All;
                 }
-                field(Sender; Sender)
+                field(Sender; Rec.Sender)
                 {
                     ApplicationArea = All;
                 }
-                field("Sent Time"; "Sent Time")
+                field("Sent Time"; Rec."Sent Time")
                 {
                     ApplicationArea = All;
                 }
-                field("1st Approval to"; "1st Approval to")
+                field("1st Approval to"; Rec."1st Approval to")
                 {
                     ApplicationArea = All;
                 }
-                field("1st Approved"; "1st Approved")
+                field("1st Approved"; Rec."1st Approved")
                 {
                     ApplicationArea = All;
                 }
-                field("Final Approval to"; "Final Approval to")
+                field("Final Approval to"; Rec."Final Approval to")
                 {
                     ApplicationArea = All;
                 }
-                field("Final Approved"; "Final Approved")
+                field("Final Approved"; Rec."Final Approved")
                 {
                     ApplicationArea = All;
                 }
-                field("Document No."; "Document No.")
+                field("Document No."; Rec."Document No.")
                 {
                     ApplicationArea = All;
                 }

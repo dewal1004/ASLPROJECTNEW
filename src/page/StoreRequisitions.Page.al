@@ -14,39 +14,39 @@ page 50058 "Store Requisitions"
         {
             repeater(Group)
             {
-                field("Req. No"; "Req. No")
+                field("Req. No"; Rec."Req. No")
                 {
                     ApplicationArea = All;
                 }
-                field("Req. Type"; "Req. Type")
+                field("Req. Type"; Rec."Req. Type")
                 {
                     ApplicationArea = All;
                 }
-                field(Description; Description)
+                field(Description; Rec.Description)
                 {
                     ApplicationArea = All;
                 }
-                field("Req Date"; "Req Date")
+                field("Req Date"; Rec."Req Date")
                 {
                     ApplicationArea = All;
                 }
-                field("Fish Store Requisition"; "Fish Store Requisition")
+                field("Fish Store Requisition"; Rec."Fish Store Requisition")
                 {
                     ApplicationArea = All;
                 }
-                field("Send for Approval"; "Send for Approval")
+                field("Send for Approval"; Rec."Send for Approval")
                 {
                     ApplicationArea = All;
                 }
-                field(Sender; Sender)
+                field(Sender; Rec.Sender)
                 {
                     ApplicationArea = All;
                 }
-                field("Document No."; "Document No.")
+                field("Document No."; Rec."Document No.")
                 {
                     ApplicationArea = All;
                 }
-                field("No Of Lines"; "No Of Lines")
+                field("No Of Lines"; Rec."No Of Lines")
                 {
                     ApplicationArea = All;
                 }

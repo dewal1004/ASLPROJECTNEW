@@ -40,18 +40,18 @@ table 50044 "Fish Shop Daily Sales"
         }
         field(11; "Day Sale Qty"; Decimal)
         {
-            CalcFormula = Sum ("Fish Shop Daily Sales".Quantity WHERE ("Item No." = FIELD ("Item No."),
-                                                                      Location = FIELD (Location),
-                                                                      "Transaction Date" = FIELD ("Transaction Date"),
-                                                                      "Payment Type" = FIELD ("Payment Type")));
+            CalcFormula = Sum("Fish Shop Daily Sales".Quantity WHERE("Item No." = FIELD("Item No."),
+                                                                      Location = FIELD(Location),
+                                                                      "Transaction Date" = FIELD("Transaction Date"),
+                                                                      "Payment Type" = FIELD("Payment Type")));
             FieldClass = FlowField;
         }
         field(12; "Day Sale Value"; Decimal)
         {
-            CalcFormula = Sum ("Fish Shop Daily Sales".Amount WHERE ("Item No." = FIELD ("Item No."),
-                                                                    Location = FIELD (Location),
-                                                                    "Transaction Date" = FIELD ("Transaction Date"),
-                                                                    "Payment Type" = FIELD ("Payment Type")));
+            CalcFormula = Sum("Fish Shop Daily Sales".Amount WHERE("Item No." = FIELD("Item No."),
+                                                                    Location = FIELD(Location),
+                                                                    "Transaction Date" = FIELD("Transaction Date"),
+                                                                    "Payment Type" = FIELD("Payment Type")));
             FieldClass = FlowField;
         }
         field(13; "Cust No"; Code[20])

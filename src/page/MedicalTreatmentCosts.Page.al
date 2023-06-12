@@ -9,51 +9,51 @@ page 50040 "Medical Treatment Costs"
         {
             group(General)
             {
-                field("Date Filter"; "Date Filter")
+                field("Date Filter"; Rec."Date Filter")
                 {
                     ApplicationArea = All;
                 }
-                field("Employee Filter"; "Employee Filter")
+                field("Employee Filter"; Rec."Employee Filter")
                 {
                     ApplicationArea = All;
                 }
-                field("Beneficiary Filter"; "Beneficiary Filter")
+                field("Beneficiary Filter"; Rec."Beneficiary Filter")
                 {
                     ApplicationArea = All;
                 }
-                field("Region Filter"; "Region Filter")
+                field("Region Filter"; Rec."Region Filter")
                 {
                     ApplicationArea = All;
                 }
-                field("Global Dimension 1 Filter"; "Global Dimension 1 Filter")
+                field("Global Dimension 1 Filter"; Rec."Global Dimension 1 Filter")
                 {
                     ApplicationArea = All;
                 }
-                field("Global Dimension 2 Filter"; "Global Dimension 2 Filter")
+                field("Global Dimension 2 Filter"; Rec."Global Dimension 2 Filter")
                 {
                     ApplicationArea = All;
                 }
-                field("Transaction  Filter"; "Transaction  Filter")
+                field("Transaction  Filter"; Rec."Transaction  Filter")
                 {
                     ApplicationArea = All;
                 }
-                field("Hospital Filter"; "Hospital Filter")
+                field("Hospital Filter"; Rec."Hospital Filter")
                 {
                     ApplicationArea = All;
                 }
-                field("Clinic Cost"; "Clinic Cost")
+                field("Clinic Cost"; Rec."Clinic Cost")
                 {
                     ApplicationArea = All;
                 }
-                field("Reimbursed Cost"; "Reimbursed Cost")
+                field("Reimbursed Cost"; Rec."Reimbursed Cost")
                 {
                     ApplicationArea = All;
                 }
-                field("Hospital Cost"; "Hospital Cost")
+                field("Hospital Cost"; Rec."Hospital Cost")
                 {
                     ApplicationArea = All;
                 }
-                field("Treatment Cost"; "Treatment Cost")
+                field("Treatment Cost"; Rec."Treatment Cost")
                 {
                     ApplicationArea = All;
                 }
@@ -88,7 +88,7 @@ page 50040 "Medical Treatment Costs"
     procedure UpdateFilter()
     begin
         Rec."Beneficiary Filter" := BenFilter;
-        Validate(Rec."Transaction  Filter", TransFilter);
+        Rec.Validate(Rec."Transaction  Filter", TransFilter);
 
         //CurrForm.UPDATE;
         //MESSAGE(FORMAT("Transaction  Filter"));

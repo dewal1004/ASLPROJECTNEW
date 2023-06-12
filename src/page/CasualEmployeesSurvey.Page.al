@@ -10,27 +10,27 @@ page 50047 "Casual Employees Survey"
             group(General)
             {
                 Caption = 'General';
-                field("Employee No Filter"; "Employee No Filter")
+                field("Employee No Filter"; Rec."Employee No Filter")
                 {
                     ApplicationArea = All;
                 }
-                field("Job Code Filter"; "Job Code Filter")
+                field("Job Code Filter"; Rec."Job Code Filter")
                 {
                     ApplicationArea = All;
                 }
-                field("Global Dimension 2 Filter"; "Global Dimension 2 Filter")
+                field("Global Dimension 2 Filter"; Rec."Global Dimension 2 Filter")
                 {
                     ApplicationArea = All;
                 }
-                field("Date Employed Filter"; "Date Employed Filter")
+                field("Date Employed Filter"; Rec."Date Employed Filter")
                 {
                     ApplicationArea = All;
                 }
-                field("Leaving Date Filter"; "Leaving Date Filter")
+                field("Leaving Date Filter"; Rec."Leaving Date Filter")
                 {
                     ApplicationArea = All;
                 }
-                field("Employee Count"; "Employee Count")
+                field("Employee Count"; Rec."Employee Count")
                 {
                     ApplicationArea = All;
                 }

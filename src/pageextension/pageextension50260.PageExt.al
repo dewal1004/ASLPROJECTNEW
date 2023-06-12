@@ -12,7 +12,7 @@ pageextension 50260 "pageextension50260" extends "Item List"
         }
         addafter("No.")
         {
-            field("No. 2"; "No. 2")
+            field("No. 2"; Rec."No. 2")
             {
                 Visible = false;
                 ApplicationArea = All;
@@ -20,7 +20,7 @@ pageextension 50260 "pageextension50260" extends "Item List"
         }
         addafter("Indirect Cost %")
         {
-            field("Inventory Value Zero"; "Inventory Value Zero")
+            field("Inventory Value Zero"; Rec."Inventory Value Zero")
             {
                 Importance = Additional;
                 ApplicationArea = All;
@@ -28,49 +28,49 @@ pageextension 50260 "pageextension50260" extends "Item List"
         }
         addafter("Default Deferral Template Code")
         {
-            field("Statistics Group"; "Statistics Group")
+            field("Statistics Group"; Rec."Statistics Group")
             {
                 ApplicationArea = All;
             }
-            field(Reserve; Reserve)
-            {
-                Visible = false;
-                ApplicationArea = All;
-            }
-            field("SF Cat"; "SF Cat")
-            {
-                ApplicationArea = All;
-            }
-            field("Country/Region Purchased Code"; "Country/Region Purchased Code")
+            field(Reserve; Rec.Reserve)
             {
                 Visible = false;
                 ApplicationArea = All;
             }
-            field(Points; Points)
+            field("SF Cat"; Rec."SF Cat")
+            {
+                ApplicationArea = All;
+            }
+            field("Country/Region Purchased Code"; Rec."Country/Region Purchased Code")
             {
                 Visible = false;
                 ApplicationArea = All;
             }
-            field("Duty Rate%"; "Duty Rate%")
+            field(Points; Rec.Points)
             {
                 Visible = false;
                 ApplicationArea = All;
             }
-            field("Order Multiple"; "Order Multiple")
+            field("Duty Rate%"; Rec."Duty Rate%")
             {
                 Visible = false;
                 ApplicationArea = All;
             }
-            field("CRM / STR"; "CRM / STR")
-            {
-                ApplicationArea = All;
-            }
-            field("Reorder Point"; "Reorder Point")
+            field("Order Multiple"; Rec."Order Multiple")
             {
                 Visible = false;
                 ApplicationArea = All;
             }
-            field("Reorder Quantity"; "Reorder Quantity")
+            field("CRM / STR"; Rec."CRM / STR")
+            {
+                ApplicationArea = All;
+            }
+            field("Reorder Point"; Rec."Reorder Point")
+            {
+                Visible = false;
+                ApplicationArea = All;
+            }
+            field("Reorder Quantity"; Rec."Reorder Quantity")
             {
                 Visible = false;
                 ApplicationArea = All;

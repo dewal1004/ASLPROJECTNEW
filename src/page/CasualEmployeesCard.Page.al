@@ -12,53 +12,53 @@ page 50045 "Casual Employees Card"
             group(General)
             {
                 Caption = 'General';
-                field("No."; "No.")
+                field("No."; Rec."No.")
                 {
                     ApplicationArea = All;
 
                     trigger OnAssistEdit()
                     begin
-                        if AssistEdit(xRec) then
+                        if Rec.AssistEdit(xRec) then
                             CurrPage.Update;
                     end;
                 }
-                field("Employee name"; "Employee name")
+                field("Employee name"; Rec."Employee name")
                 {
                     ApplicationArea = All;
                 }
-                field(Address; Address)
+                field(Address; Rec.Address)
                 {
                     ApplicationArea = All;
                 }
-                field(Sex; Sex)
+                field(Sex; Rec.Sex)
                 {
                     ApplicationArea = All;
                 }
-                field("Date of Birth"; "Date of Birth")
+                field("Date of Birth"; Rec."Date of Birth")
                 {
                     ApplicationArea = All;
                 }
-                field("Job Code"; "Job Code")
+                field("Job Code"; Rec."Job Code")
                 {
                     ApplicationArea = All;
                 }
-                field(Class; Class)
+                field(Class; Rec.Class)
                 {
                     ApplicationArea = All;
                 }
-                field("Global Dimension 2 Code"; "Global Dimension 2 Code")
+                field("Global Dimension 2 Code"; Rec."Global Dimension 2 Code")
                 {
                     ApplicationArea = All;
                 }
-                field("Global Dimension 1 Code"; "Global Dimension 1 Code")
+                field("Global Dimension 1 Code"; Rec."Global Dimension 1 Code")
                 {
                     ApplicationArea = All;
                 }
-                field(Region; Region)
+                field(Region; Rec.Region)
                 {
                     ApplicationArea = All;
                 }
-                field("Last Date Modified"; "Last Date Modified")
+                field("Last Date Modified"; Rec."Last Date Modified")
                 {
                     ApplicationArea = All;
                 }
@@ -66,35 +66,35 @@ page 50045 "Casual Employees Card"
             group(Admin)
             {
                 Caption = 'Admin';
-                field("Date Employed"; "Date Employed")
+                field("Date Employed"; Rec."Date Employed")
                 {
                     ApplicationArea = All;
                 }
-                field("Leaving Date"; "Leaving Date")
+                field("Leaving Date"; Rec."Leaving Date")
                 {
                     ApplicationArea = All;
                 }
-                field(Blocked; Blocked)
+                field(Blocked; Rec.Blocked)
                 {
                     ApplicationArea = All;
                 }
-                field(Status; Status)
+                field(Status; Rec.Status)
                 {
                     ApplicationArea = All;
                 }
-                field("Inactive Date"; "Inactive Date")
+                field("Inactive Date"; Rec."Inactive Date")
                 {
                     ApplicationArea = All;
                 }
-                field("Cause of Inactivity Code"; "Cause of Inactivity Code")
+                field("Cause of Inactivity Code"; Rec."Cause of Inactivity Code")
                 {
                     ApplicationArea = All;
                 }
-                field("Disengagement Date"; "Disengagement Date")
+                field("Disengagement Date"; Rec."Disengagement Date")
                 {
                     ApplicationArea = All;
                 }
-                field("Disengagement Grounds"; "Disengagement Grounds")
+                field("Disengagement Grounds"; Rec."Disengagement Grounds")
                 {
                     ApplicationArea = All;
                 }
@@ -102,29 +102,29 @@ page 50045 "Casual Employees Card"
             group(Personal)
             {
                 Caption = 'Personal';
-                field("Next of Kin Name"; "Next of Kin Name")
+                field("Next of Kin Name"; Rec."Next of Kin Name")
                 {
                     ApplicationArea = All;
                 }
-                field("Next of Kin Address"; "Next of Kin Address")
+                field("Next of Kin Address"; Rec."Next of Kin Address")
                 {
                     ApplicationArea = All;
                 }
-                field(Guarrantor; Guarrantor)
+                field(Guarrantor; Rec.Guarrantor)
                 {
                     Caption = 'Guarrantor No 1';
                     ApplicationArea = All;
                 }
-                field("Guarrantor Address"; "Guarrantor Address")
+                field("Guarrantor Address"; Rec."Guarrantor Address")
                 {
                     ApplicationArea = All;
                 }
-                field(Guarrantor2; Guarrantor2)
+                field(Guarrantor2; Rec.Guarrantor2)
                 {
                     Caption = 'Guarrantor No 2';
                     ApplicationArea = All;
                 }
-                field("Guarrantor Address2"; "Guarrantor Address2")
+                field("Guarrantor Address2"; Rec."Guarrantor Address2")
                 {
                     Caption = 'Guarrantor Address ';
                     ApplicationArea = All;

@@ -2,16 +2,16 @@ table 50050 "ASL Entry/Exit Point"
 {
     Caption = 'ASL Entry/Exit P';
     DataClassification = ToBeClassified;
-    
+
     fields
     {
         field(1; "Code"; Code[10])
         {
-           
+
         }
         field(2; Description; Text[50])
         {
-            
+
         }
         field(50000; "Entry No."; Integer)
         {
@@ -22,7 +22,7 @@ table 50050 "ASL Entry/Exit Point"
         field(50002; "Type"; Option)
         {
             Optionmembers = " ","Average",Median;
-                 
+
         }
         field(50003; Vessel; Text[30])
         {
@@ -31,14 +31,14 @@ table 50050 "ASL Entry/Exit Point"
         }
         field(50004; Country; Code[10])
         {
-            
+
         }
         field(50005; Skipper; Text[30])
         {
         }
         field(50006; "Sea Days"; Decimal)
         {
-            DecimalPlaces = 0:0;
+            DecimalPlaces = 0 : 0;
         }
         field(50007; "Sea Area"; Code[10])
         {
@@ -76,7 +76,7 @@ table 50050 "ASL Entry/Exit Point"
         field(50018; "Report Type"; Option)
         {
             OptionMembers = " ",Points;
-        }               
+        }
     }
     keys
     {
@@ -84,22 +84,22 @@ table 50050 "ASL Entry/Exit Point"
         {
             Clustered = true;
         }
-        Key(Key2;Code)
+        Key(Key2; Code)
         {
             Clustered = false;
         }
-        key(Key3;Date,Vessel,Type)
-        {}
-   }
+        key(Key3; Date, Vessel, Type)
+        { }
+    }
     trigger OnInsert()
     Begin
-    
-    HistoricalPtsData.SetRange(HistoricalPtsData."Entry No.");
-    if HistoricalPtsData.Find('+') then
-      "Entry No." := HistoricalPtsData."Entry No." + 1
-    else
-      "Entry No." := 1;
-    
+
+        HistoricalPtsData.SetRange(HistoricalPtsData."Entry No.");
+        if HistoricalPtsData.Find('+') then
+            "Entry No." := HistoricalPtsData."Entry No." + 1
+        else
+            "Entry No." := 1;
+
     end;
 
     var

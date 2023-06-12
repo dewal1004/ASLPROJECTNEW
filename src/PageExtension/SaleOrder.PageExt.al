@@ -4,27 +4,27 @@ pageextension 55000 "SaleOrder" extends "Sales Order"
     {
         addafter("Shipping Advice")
         {
-            field("Vessel Name"; "Vessel Name")
+            field("Vessel Name"; Rec."Vessel Name")
             {
                 ApplicationArea = All;
             }
-            field("Seal No"; "Seal No")
+            field("Seal No"; Rec."Seal No")
             {
                 caption = 'Container No.';
                 ApplicationArea = All;
             }
-            field("Container Code"; "Container Code")
+            field("Container Code"; Rec."Container Code")
             {
                 ApplicationArea = All;
             }
-            field("Container Size"; "Container Size")
+            field("Container Size"; Rec."Container Size")
             {
                 ApplicationArea = All;
             }
         }
         addafter("Area")
         {
-            field("Posting No. Series"; "Posting No. Series")
+            field("Posting No. Series"; Rec."Posting No. Series")
             {
                 ApplicationArea = All;
             }

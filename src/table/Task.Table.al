@@ -19,8 +19,8 @@ table 50048 "Task"
         }
         field(50302; "Voyage Sea Days"; Decimal)
         {
-            CalcFormula = Max ("Job Ledger Entry"."Catch Sea Days" WHERE ("Phase Code" = FIELD (Code),
-                                                                         "Posting Date" = FIELD ("date filter")));
+            CalcFormula = Max("Job Ledger Entry"."Catch Sea Days" WHERE("Phase Code" = FIELD(Code),
+                                                                         "Posting Date" = FIELD("date filter")));
             Editable = false;
             FieldClass = FlowField;
 

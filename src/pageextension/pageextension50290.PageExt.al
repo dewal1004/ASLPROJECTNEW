@@ -16,64 +16,64 @@ pageextension 50290 "pageextension50290" extends "Employee Card"
         // }
         addafter("Country/Region Code")
         {
-            field("Global Dimension 2 Code"; "Global Dimension 2 Code")
+            field("Global Dimension 2 Code"; Rec."Global Dimension 2 Code")
             {
                 ApplicationArea = All;
             }
         }
         addafter("Grounds for Term. Code")
         {
-            field("Modified By"; "Modified By")
+            field("Modified By"; Rec."Modified By")
             {
                 ApplicationArea = All;
             }
-            field(Blocked; Blocked)
+            field(Blocked; Rec.Blocked)
             {
                 ApplicationArea = All;
             }
-            field("Blocked Modified Date"; "Blocked Modified Date")
+            field("Blocked Modified Date"; Rec."Blocked Modified Date")
             {
                 ApplicationArea = All;
             }
-            field("Blocked Modified By"; "Blocked Modified By")
+            field("Blocked Modified By"; Rec."Blocked Modified By")
             {
                 ApplicationArea = All;
             }
         }
         addafter("Statistics Group Code")
         {
-            field("Balance (LCY)"; "Balance (LCY)")
+            field("Balance (LCY)"; Rec."Balance (LCY)")
             {
                 ApplicationArea = All;
             }
-            field("Posting Group"; "Posting Group")
+            field("Posting Group"; Rec."Posting Group")
             {
                 ApplicationArea = All;
             }
-            field("Employee Group"; "Employee Group")
+            field("Employee Group"; Rec."Employee Group")
             {
                 ApplicationArea = All;
             }
         }
         addafter("Resource No.")
         {
-            field("MP Status"; "MP Status")
+            field("MP Status"; Rec."MP Status")
             {
                 ApplicationArea = All;
             }
-            field(Suspended; Suspended)
+            field(Suspended; Rec.Suspended)
             {
                 ApplicationArea = All;
             }
-            field("Suspension Modified By"; "Suspension Modified By")
+            field("Suspension Modified By"; Rec."Suspension Modified By")
             {
                 ApplicationArea = All;
             }
-            field("Suspension Modified Date"; "Suspension Modified Date")
+            field("Suspension Modified Date"; Rec."Suspension Modified Date")
             {
                 ApplicationArea = All;
             }
-            field("Global Dimension 1 Code"; "Global Dimension 1 Code")
+            field("Global Dimension 1 Code"; Rec."Global Dimension 1 Code")
             {
                 Caption = 'Department Code';
                 ApplicationArea = All;
@@ -81,45 +81,45 @@ pageextension 50290 "pageextension50290" extends "Employee Card"
         }
         addafter("Salespers./Purch. Code")
         {
-            field(Grade; Grade)
+            field(Grade; Rec.Grade)
             {
                 ApplicationArea = All;
             }
-            field(Step; Step)
+            field(Step; Rec.Step)
             {
                 ApplicationArea = All;
             }
-            field("Bank Account"; "Bank Account")
+            field("Bank Account"; Rec."Bank Account")
             {
                 ApplicationArea = All;
             }
         }
         addafter("Union Code")
         {
-            field("Acct. type"; "Acct. type")
+            field("Acct. type"; Rec."Acct. type")
             {
                 ApplicationArea = All;
             }
-            field("Acct. No"; "Acct. No")
+            field("Acct. No"; Rec."Acct. No")
             {
                 ApplicationArea = All;
             }
         }
         addafter("Union Membership No.")
         {
-            field("Pension Scheme"; "Pension Scheme")
+            field("Pension Scheme"; Rec."Pension Scheme")
             {
                 ApplicationArea = All;
             }
-            field(Married; Married)
+            field(Married; Rec.Married)
             {
                 ApplicationArea = All;
             }
-            field("National ID Number"; "National ID Number")
+            field("National ID Number"; Rec."National ID Number")
             {
                 ApplicationArea = All;
             }
-            field("NSITF Number"; "NSITF Number")
+            field("NSITF Number"; Rec."NSITF Number")
             {
                 ApplicationArea = All;
             }
@@ -151,27 +151,27 @@ pageextension 50290 "pageextension50290" extends "Employee Card"
                        ERROR('The Department must be FLST');*/
                     Res."No." := 'R' + Rec."No.";
                     Res.Type := 0;
-                    Res.Validate(Res.Name, FullName);
-                    Res."Name 2" := "First Name";
-                    Res.Address := Address;
-                    Res."Address 2" := "Address 2";
-                    Res.City := City;
-                    Res."Social Security No." := "Social Security No.";
-                    Res."Job Title" := "Job Title";
-                    Res.Education := "Emplymt. Contract Code";
-                    Eval := Evaluate("MP Status", Res."Contract Class");
-                    Res."Employment Date" := "Employment Date";
-                    if EmpContra.Get("Empl Contr Uni Code") then
+                    Res.Validate(Res.Name, Rec.FullName);
+                    Res."Name 2" := Rec."First Name";
+                    Res.Address := Rec.Address;
+                    Res."Address 2" := Rec."Address 2";
+                    Res.City := Rec.City;
+                    Res."Social Security No." := Rec."Social Security No.";
+                    Res."Job Title" := Rec."Job Title";
+                    Res.Education := Rec."Emplymt. Contract Code";
+                    Eval := Evaluate(Rec."MP Status", Res."Contract Class");
+                    Res."Employment Date" := Rec."Employment Date";
+                    if EmpContra.Get(Rec."Empl Contr Uni Code") then
                         Res."Resource Group No." := EmpContra.ResCode;
                     Message(EmpContra.ResCode);
-                    Res."Global Dimension 1 Code" := "Global Dimension 1 Code";
-                    Res."Global Dimension 2 Code" := "Global Dimension 2 Code";
+                    Res."Global Dimension 1 Code" := Rec."Global Dimension 1 Code";
+                    Res."Global Dimension 2 Code" := Rec."Global Dimension 2 Code";
                     Res."Base Unit of Measure" := 'Hours';
                     Res."Last Date Modified" := Today;
                     Res."Gen. Prod. Posting Group" := 'RES';
-                    Res."Post Code" := "Post Code";
-                    Res.County := County;
-                    Res."Country/Region Code" := "Country Code";
+                    Res."Post Code" := Rec."Post Code";
+                    Res.County := Rec.County;
+                    Res."Country/Region Code" := Rec."Country Code";
                     ResExist;
                     if not Res.Insert then begin
                         Answ := Confirm('Resource already Exist,Change a EmpContra code', true);

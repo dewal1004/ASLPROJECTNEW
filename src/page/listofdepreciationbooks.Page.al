@@ -10,55 +10,55 @@ page 50093 "list of depreciation books"
             repeater(Control1)
             {
                 ShowCaption = false;
-                field("FA No."; "FA No.")
+                field("FA No."; Rec."FA No.")
                 {
                     ApplicationArea = All;
                 }
-                field("FA Posting Group"; "FA Posting Group")
+                field("FA Posting Group"; Rec."FA Posting Group")
                 {
                     ApplicationArea = All;
                 }
-                field("Depreciation Book Code"; "Depreciation Book Code")
+                field("Depreciation Book Code"; Rec."Depreciation Book Code")
                 {
                     ApplicationArea = All;
                 }
-                field("Depreciation Method"; "Depreciation Method")
+                field("Depreciation Method"; Rec."Depreciation Method")
                 {
                     ApplicationArea = All;
                 }
-                field("Depreciation Starting Date"; "Depreciation Starting Date")
+                field("Depreciation Starting Date"; Rec."Depreciation Starting Date")
                 {
                     ApplicationArea = All;
                 }
-                field("Straight-Line %"; "Straight-Line %")
+                field("Straight-Line %"; Rec."Straight-Line %")
                 {
                     ApplicationArea = All;
                 }
-                field("No. of Depreciation Years"; "No. of Depreciation Years")
+                field("No. of Depreciation Years"; Rec."No. of Depreciation Years")
                 {
                     ApplicationArea = All;
                 }
-                field("Acquisition Cost"; "Acquisition Cost")
+                field("Acquisition Cost"; Rec."Acquisition Cost")
                 {
                     ApplicationArea = All;
                 }
-                field(Depreciation; Depreciation)
+                field(Depreciation; Rec.Depreciation)
                 {
                     ApplicationArea = All;
                 }
-                field("Book Value"; "Book Value")
+                field("Book Value"; Rec."Book Value")
                 {
                     ApplicationArea = All;
                 }
-                field("Acquisition Date"; "Acquisition Date")
+                field("Acquisition Date"; Rec."Acquisition Date")
                 {
                     ApplicationArea = All;
                 }
-                field("Last Acquisition Cost Date"; "Last Acquisition Cost Date")
+                field("Last Acquisition Cost Date"; Rec."Last Acquisition Cost Date")
                 {
                     ApplicationArea = All;
                 }
-                field("Last Depreciation Date"; "Last Depreciation Date")
+                field("Last Depreciation Date"; Rec."Last Depreciation Date")
                 {
                     ApplicationArea = All;
                 }

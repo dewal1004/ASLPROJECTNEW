@@ -62,12 +62,12 @@ pageextension 50389 "pageextension50389" extends "Released Prod. Order Lines"
 
     local procedure ShowDimensions()
     begin
-        ShowDimensions;
+        Rec.ShowDimensions;
     end;
 
     local procedure OpenItemTrackingLines()
     begin
-        OpenItemTrackingLines;
+        Rec.OpenItemTrackingLines;
     end;
 }
 

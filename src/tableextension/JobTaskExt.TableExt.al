@@ -2,7 +2,7 @@ tableextension 50201 "Job Task Ext" extends "Job Task"
 {
     fields
     {
-    
+
         field(50500; DescriptionASL; Text[200])
         {
             DataClassification = ToBeClassified;
@@ -99,8 +99,8 @@ tableextension 50201 "Job Task Ext" extends "Job Task"
         }
         field(50317; Counter; Integer)
         {
-            CalcFormula = Count ("Job Task" WHERE ("Job No." = FIELD ("Job No."),
-                                                  "Job Task No." = FILTER (<> '"')));
+            CalcFormula = Count("Job Task" WHERE("Job No." = FIELD("Job No."),
+                                                  "Job Task No." = FILTER(<> '"')));
             Editable = false;
             FieldClass = FlowField;
         }

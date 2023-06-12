@@ -16,89 +16,89 @@ page 50099 "Dry Docking list"
             repeater(Control1)
             {
                 ShowCaption = false;
-                field("No."; "No.")
+                field("No."; Rec."No.")
                 {
                     StyleExpr = StyleText;
                     ApplicationArea = All;
                 }
-                field(Vessel; Vessel)
+                field(Vessel; Rec.Vessel)
                 {
                     ApplicationArea = All;
                 }
-                field("Voyage No."; "Voyage No.")
+                field("Voyage No."; Rec."Voyage No.")
                 {
                     ApplicationArea = All;
                 }
-                field(Description; Description)
+                field(Description; Rec.Description)
                 {
                     ApplicationArea = All;
                 }
-                field("Fuel Consumed"; "Fuel Consumed")
+                field("Fuel Consumed"; Rec."Fuel Consumed")
                 {
                     ApplicationArea = All;
                 }
-                field("Voyage Ended"; "Voyage Ended")
+                field("Voyage Ended"; Rec."Voyage Ended")
                 {
                     ApplicationArea = All;
                 }
-                field("Bill-to Customer No."; "Bill-to Customer No.")
+                field("Bill-to Customer No."; Rec."Bill-to Customer No.")
                 {
                     ApplicationArea = All;
                 }
-                field(Status; Status)
+                field(Status; Rec.Status)
                 {
                     StyleExpr = StyleText;
                     ApplicationArea = All;
                 }
-                field("Person Responsible"; "Person Responsible")
+                field("Person Responsible"; Rec."Person Responsible")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("Next Invoice Date"; "Next Invoice Date")
+                field("Next Invoice Date"; Rec."Next Invoice Date")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("Job Posting Group"; "Job Posting Group")
+                field("Job Posting Group"; Rec."Job Posting Group")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("Search Description"; "Search Description")
+                field("Search Description"; Rec."Search Description")
                 {
                     ApplicationArea = All;
                 }
-                field("% of Overdue Planning Lines"; PercentOverdue)
+                field("% of Overdue Planning Lines"; Rec.PercentOverdue)
                 {
                     Caption = '% of Overdue Planning Lines';
                     Editable = false;
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("Starting Date"; "Starting Date")
+                field("Starting Date"; Rec."Starting Date")
                 {
                     ApplicationArea = All;
                 }
-                field("% Completed"; PercentCompleted)
+                field("% Completed"; Rec.PercentCompleted)
                 {
                     Caption = '% Completed';
                     Editable = false;
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("% Invoiced"; PercentInvoiced)
+                field("% Invoiced"; Rec.PercentInvoiced)
                 {
                     Caption = '% Invoiced';
                     Editable = false;
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("Last Date Modified"; "Last Date Modified")
+                field("Last Date Modified"; Rec."Last Date Modified")
                 {
                     ApplicationArea = All;
                 }
-                field("Ending Date"; "Ending Date")
+                field("Ending Date"; Rec."Ending Date")
                 {
                     ApplicationArea = All;
                 }
@@ -172,7 +172,7 @@ page 50099 "Dry Docking list"
     trigger OnAfterGetRecord()
     begin
         StyleText := '';
-        if Status = Status::Completed then begin
+        if Rec.Status = Rec.Status::Completed then begin
             StyleText := 'Unfavorable';
         end else begin
             StyleText := 'standard'

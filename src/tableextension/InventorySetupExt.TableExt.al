@@ -11,11 +11,11 @@ tableextension 50264 "Inventory Setup Ext" extends "Inventory Setup"
         }
         field(50002; "Default Store"; Code[10])
         {
-            TableRelation = Location WHERE ("Location Type" = FILTER (Store));
+            TableRelation = Location WHERE("Location Type" = FILTER(Store));
         }
         field(50003; "Default Cold Room"; Code[10])
         {
-            TableRelation = Location WHERE ("Location Type" = FILTER (Store));
+            TableRelation = Location WHERE("Location Type" = FILTER(Store));
         }
         field(50004; "FA Acquisition"; Code[10])
         {

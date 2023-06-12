@@ -12,32 +12,32 @@ page 50043 "Employee Training sub form"
             repeater(Control1)
             {
                 ShowCaption = false;
-                field("Employee No"; "Employee No")
+                field("Employee No"; Rec."Employee No")
                 {
                     ApplicationArea = All;
                 }
-                field("Employee Name"; "Employee Name")
+                field("Employee Name"; Rec."Employee Name")
                 {
                     ApplicationArea = All;
                 }
-                field("Region Code"; "Region Code")
+                field("Region Code"; Rec."Region Code")
                 {
                     ApplicationArea = All;
                 }
-                field("Global Dimension 1 Code"; "Global Dimension 1 Code")
+                field("Global Dimension 1 Code"; Rec."Global Dimension 1 Code")
                 {
                     ApplicationArea = All;
                 }
-                field("Global Dimension 2 Code"; "Global Dimension 2 Code")
+                field("Global Dimension 2 Code"; Rec."Global Dimension 2 Code")
                 {
                     ApplicationArea = All;
                 }
-                field(Comments; Comments)
+                field(Comments; Rec.Comments)
                 {
                     Caption = 'Employee Comment';
                     ApplicationArea = All;
                 }
-                field(Cost; Cost)
+                field(Cost; Rec.Cost)
                 {
                     ApplicationArea = All;
                 }

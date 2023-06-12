@@ -9,11 +9,11 @@ page 50079 "Fishing Ground Survey"
         {
             repeater(Group)
             {
-                field("Job Task No."; "Job Task No.")
+                field("Job Task No."; Rec."Job Task No.")
                 {
                     ApplicationArea = All;
                 }
-                field(Description; Description)
+                field(Description; Rec.Description)
                 {
                     ApplicationArea = All;
                 }

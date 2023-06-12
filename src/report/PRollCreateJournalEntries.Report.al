@@ -263,56 +263,54 @@ report 50061 "PRoll; Create Journal Entries"
     procedure SEndToGL(GLLName: Text[30]; DebitAccNo: Code[20]; CreditAccNo: Code[20]; BookDate: Date; VouchNo: Text[30]; GLLtext: Text[30]; GLLAmount: Decimal; DeptCode: Code[10]; ProjCode: Code[10]; ConsNum: Integer; VoucherNum: Code[10]; DebAccType: Integer; CredAccType: Integer; BatchName: Code[10]; LoanIDEX: Code[10]): Integer
     begin
 
-        with GLedgerLine do begin
-            if (DebitAccNo <> '') and (GLLAmount <> 0) then begin
-                Init;
-                GLedgerLine."Journal Template Name" := GLLName;
-                /*BDC*/
-                GLedgerLine."Journal Batch Name" := BatchName;
-                GLedgerLine."Account Type" := DebAccType;
-                GLedgerLine."Account No." := DebitAccNo;
-                Validate(GLedgerLine."Account No.");
-                GLedgerLine."Posting Date" := BookDate;
-                GLedgerLine."Document No." := VoucherNum;
-                GLedgerLine.Description := GLLtext;
-                GLedgerLine.Amount := GLLAmount;
-                Validate(GLedgerLine.Amount);
-                GLedgerLine."Shortcut Dimension 1 Code" := DeptCode;
-                GLedgerLine."Shortcut Dimension 2 Code" := ProjCode;
-                GLedgerLine."Loan ID" := LoanIDEX;
-                GLedgerLine."Line No." := ConsNum;
+        if (DebitAccNo <> '') and (GLLAmount <> 0) then begin
+            GLedgerLine.Init;
+            GLedgerLine."Journal Template Name" := GLLName;
+            /*BDC*/
+            GLedgerLine."Journal Batch Name" := BatchName;
+            GLedgerLine."Account Type" := DebAccType;
+            GLedgerLine."Account No." := DebitAccNo;
+            GLedgerLine.Validate(GLedgerLine."Account No.");
+            GLedgerLine."Posting Date" := BookDate;
+            GLedgerLine."Document No." := VoucherNum;
+            GLedgerLine.Description := GLLtext;
+            GLedgerLine.Amount := GLLAmount;
+            GLedgerLine.Validate(GLedgerLine.Amount);
+            GLedgerLine."Shortcut Dimension 1 Code" := DeptCode;
+            GLedgerLine."Shortcut Dimension 2 Code" := ProjCode;
+            GLedgerLine."Loan ID" := LoanIDEX;
+            GLedgerLine."Line No." := ConsNum;
 
-                GLedgerLine.Description := GLLtext;
-                if not Insert then if Confirm('Do You want to Over Write') then Modify;
+            GLedgerLine.Description := GLLtext;
+            if not GLedgerLine.Insert then if Confirm('Do You want to Over Write') then GLedgerLine.Modify;
 
-                ConsNum := ConsNum + "PC&CConstant";
-            end;
-            if (CreditAccNo <> '') and (GLLAmount <> 0) then begin
-                Init;
-                GLedgerLine."Journal Template Name" := GLLName;
-                /*BDC*/
-                GLedgerLine."Journal Batch Name" := BatchName;
-                GLedgerLine."Account Type" := CredAccType;
-                GLedgerLine."Account No." := CreditAccNo;
-                Validate(GLedgerLine."Account No.");
-                GLedgerLine."Posting Date" := BookDate;
-                GLedgerLine."Document No." := VoucherNum;
-                GLedgerLine.Description := GLLtext;
-                GLedgerLine.Amount := -GLLAmount;
-                Validate(GLedgerLine.Amount);
-                GLedgerLine."Shortcut Dimension 1 Code" := DeptCode;
-                GLedgerLine."Shortcut Dimension 2 Code" := ProjCode;
-                GLedgerLine."Loan ID" := LoanIDEX;
-                GLedgerLine."Line No." := ConsNum;
-                GLedgerLine.Description := GLLtext;
-                GLedgerLine."Loan ID" := LoanIDEX;
-                if GLedgerLine."Loan ID" <> '' then GLedgerLine."Applies-to Doc. No." := ApplytoLoan(GLedgerLine."Loan ID");
-
-                if not Insert then if Confirm('Do You want to Over Write existing created G/L Lines') then Modify;//Insert;
-                ConsNum := ConsNum + "PC&CConstant";
-            end;
-            exit(ConsNum);
+            ConsNum := ConsNum + "PC&CConstant";
         end;
+        if (CreditAccNo <> '') and (GLLAmount <> 0) then begin
+            GLedgerLine.Init;
+            GLedgerLine."Journal Template Name" := GLLName;
+            /*BDC*/
+            GLedgerLine."Journal Batch Name" := BatchName;
+            GLedgerLine."Account Type" := CredAccType;
+            GLedgerLine."Account No." := CreditAccNo;
+            GLedgerLine.Validate(GLedgerLine."Account No.");
+            GLedgerLine."Posting Date" := BookDate;
+            GLedgerLine."Document No." := VoucherNum;
+            GLedgerLine.Description := GLLtext;
+            GLedgerLine.Amount := -GLLAmount;
+            GLedgerLine.Validate(GLedgerLine.Amount);
+            GLedgerLine."Shortcut Dimension 1 Code" := DeptCode;
+            GLedgerLine."Shortcut Dimension 2 Code" := ProjCode;
+            GLedgerLine."Loan ID" := LoanIDEX;
+            GLedgerLine."Line No." := ConsNum;
+            GLedgerLine.Description := GLLtext;
+            GLedgerLine."Loan ID" := LoanIDEX;
+            if GLedgerLine."Loan ID" <> '' then GLedgerLine."Applies-to Doc. No." := ApplytoLoan(GLedgerLine."Loan ID");
+
+            if not GLedgerLine.Insert then if Confirm('Do You want to Over Write existing created G/L Lines') then GLedgerLine.Modify;//Insert;
+            ConsNum := ConsNum + "PC&CConstant";
+        end;
+        exit(ConsNum);
 
     end;
 

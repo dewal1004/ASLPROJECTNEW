@@ -964,100 +964,94 @@ report 50170 "Receipt Report"
 
     local procedure CheckRecurringLine(GenJnlLine2: Record "Gen. Journal Line")
     begin
-        with GenJnlLine2 do begin
-            if GenJnlTemplate.Recurring then begin
-                if "Recurring Method" = 0 then
-                    AddError(StrSubstNo('%1 must be specified.', FieldName("Recurring Method")));
-                //IF "Recurring Frequency" = 0D THEN
-                //  AddError(STRSUBSTNO('%1 must be specified.',FIELDNAME("Recurring Frequency")));
-                if "Bal. Account No." <> '' then
+        if GenJnlTemplate.Recurring then begin
+            if GenJnlLine2."Recurring Method" = 0 then
+                AddError(StrSubstNo('%1 must be specified.', GenJnlLine2.FieldName("Recurring Method")));
+            //IF "Recurring Frequency" = 0D THEN
+            //  AddError(STRSUBSTNO('%1 must be specified.',FIELDNAME("Recurring Frequency")));
+            if GenJnlLine2."Bal. Account No." <> '' then
+                AddError(
+                  StrSubstNo(
+                    '%1 cannot be specified when using recurring journals.',
+                    GenJnlLine2.FieldName("Bal. Account No.")));
+            case GenJnlLine2."Recurring Method" of
+                GenJnlLine2."Recurring Method"::"V  Variable", GenJnlLine2."Recurring Method"::"RV Reversing Variable":
+                    if (GenJnlLine2.Amount = 0) and not AmountError then begin
+                        AmountError := true;
+                        AddError(StrSubstNo('%1 must be specified.', GenJnlLine2.FieldName(Amount)));
+                    end;
+                GenJnlLine2."Recurring Method"::"B  Balance", GenJnlLine2."Recurring Method"::"RB Reversing Balance":
+                    if (GenJnlLine2.Amount <> 0) and not AmountError then begin
+                        AmountError := true;
+                        AddError(StrSubstNo('%1 must be 0.', GenJnlLine2.FieldName(Amount)));
+                    end;
+            end;
+            if (GenJnlLine2."Recurring Method" > GenJnlLine2."Recurring Method"::"V  Variable") then begin
+                if GenJnlLine2."Account Type" = GenJnlLine2."Account Type"::"Fixed Asset" then
                     AddError(
                       StrSubstNo(
-                        '%1 cannot be specified when using recurring journals.',
-                        FieldName("Bal. Account No.")));
-                case "Recurring Method" of
-                    "Recurring Method"::"V  Variable", "Recurring Method"::"RV Reversing Variable":
-                        if (Amount = 0) and not AmountError then begin
-                            AmountError := true;
-                            AddError(StrSubstNo('%1 must be specified.', FieldName(Amount)));
-                        end;
-                    "Recurring Method"::"B  Balance", "Recurring Method"::"RB Reversing Balance":
-                        if (Amount <> 0) and not AmountError then begin
-                            AmountError := true;
-                            AddError(StrSubstNo('%1 must be 0.', FieldName(Amount)));
-                        end;
-                end;
-                if ("Recurring Method" > "Recurring Method"::"V  Variable") then begin
-                    if "Account Type" = "Account Type"::"Fixed Asset" then
-                        AddError(
-                          StrSubstNo(
-                            '%1 must not be %2 when %3 = %4.',
-                            FieldName("Recurring Method"), "Recurring Method",
-                            FieldName("Account Type"), "Account Type"));
-                    if "Bal. Account Type" = "Bal. Account Type"::"Fixed Asset" then
-                        AddError(
-                          StrSubstNo(
-                            '%1 must not be %2 when %3 = %4.',
-                            FieldName("Recurring Method"), "Recurring Method",
-                            FieldName("Bal. Account Type"), "Bal. Account Type"));
-                end;
-            end else begin
-                if "Recurring Method" <> 0 then
-                    AddError(StrSubstNo('%1 cannot be specified.', FieldName("Recurring Method")));
-                //IF "Recurring Frequency" <> '' THEN
-                //AddError(STRSUBSTNO('%1 cannot be specified.',FIELDNAME("Recurring Frequency")));
+                        '%1 must not be %2 when %3 = %4.',
+                        GenJnlLine2.FieldName("Recurring Method"), GenJnlLine2."Recurring Method",
+                        GenJnlLine2.FieldName("Account Type"), GenJnlLine2."Account Type"));
+                if GenJnlLine2."Bal. Account Type" = GenJnlLine2."Bal. Account Type"::"Fixed Asset" then
+                    AddError(
+                      StrSubstNo(
+                        '%1 must not be %2 when %3 = %4.',
+                        GenJnlLine2.FieldName("Recurring Method"), GenJnlLine2."Recurring Method",
+                        GenJnlLine2.FieldName("Bal. Account Type"), GenJnlLine2."Bal. Account Type"));
             end;
+        end else begin
+            if GenJnlLine2."Recurring Method" <> 0 then
+                AddError(StrSubstNo('%1 cannot be specified.', GenJnlLine2.FieldName("Recurring Method")));
+            //IF "Recurring Frequency" <> '' THEN
+            //AddError(STRSUBSTNO('%1 cannot be specified.',FIELDNAME("Recurring Frequency")));
         end;
     end;
 
     local procedure CheckAllocations(GenJnlLine2: Record "Gen. Journal Line")
     begin
-        with GenJnlLine2 do begin
-            GenJnlAlloc.Reset;
-            GenJnlAlloc.SetRange("Journal Template Name", "Journal Template Name");
-            GenJnlAlloc.SetRange("Journal Batch Name", "Journal Batch Name");
-            GenJnlAlloc.SetRange("Journal Line No.", "Line No.");
-            GenJnlAlloc.SetFilter(Amount, '<>0');
-            if GenJnlAlloc.Find('-') then begin
-                if not GenJnlTemplate.Recurring then
-                    AddError('Allocations can only be used with recurring journals.')
-                else begin
-                    GenJnlAlloc.SetRange("Account No.", '');
-                    if GenJnlAlloc.Find('-') then
-                        AddError(
-                          StrSubstNo(
-                            'Please specify %1 in the %2 allocation lines.',
-                            GenJnlAlloc.FieldName("Account No."), GenJnlAlloc.Count));
-                end;
+        GenJnlAlloc.Reset;
+        GenJnlAlloc.SetRange("Journal Template Name", GenJnlLine2."Journal Template Name");
+        GenJnlAlloc.SetRange("Journal Batch Name", GenJnlLine2."Journal Batch Name");
+        GenJnlAlloc.SetRange("Journal Line No.", GenJnlLine2."Line No.");
+        GenJnlAlloc.SetFilter(Amount, '<>0');
+        if GenJnlAlloc.Find('-') then begin
+            if not GenJnlTemplate.Recurring then
+                AddError('Allocations can only be used with recurring journals.')
+            else begin
+                GenJnlAlloc.SetRange("Account No.", '');
+                if GenJnlAlloc.Find('-') then
+                    AddError(
+                      StrSubstNo(
+                        'Please specify %1 in the %2 allocation lines.',
+                        GenJnlAlloc.FieldName("Account No."), GenJnlAlloc.Count));
             end;
         end;
     end;
 
     local procedure MakeRecurringTexts(var GenJnlLine2: Record "Gen. Journal Line")
     begin
-        with GenJnlLine2 do begin
-            GLDocNo := "Document No.";
-            if ("Posting Date" <> 0D) and ("Account No." <> '') and ("Recurring Method" <> 0) then begin
-                Day := Date2DMY("Posting Date", 1);
-                Week := Date2DWY("Posting Date", 2);
-                Month := Date2DMY("Posting Date", 2);
-                MonthText := Format("Posting Date", 0, '<Month Text>');
-                AccountingPeriod.SetRange("Starting Date", 0D, "Posting Date");
-                if not AccountingPeriod.Find('+') then
-                    AccountingPeriod.Name := '';
-                "Document No." :=
-                  DelChr(
-                    PadStr(
-                      StrSubstNo("Document No.", Day, Week, Month, MonthText, AccountingPeriod.Name),
-                      MaxStrLen("Document No.")),
-                    '>');
-                Description :=
-                  DelChr(
-                    PadStr(
-                      StrSubstNo(Description, Day, Week, Month, MonthText, AccountingPeriod.Name),
-                      MaxStrLen(Description)),
-                    '>');
-            end;
+        GLDocNo := GenJnlLine2."Document No.";
+        if (GenJnlLine2."Posting Date" <> 0D) and (GenJnlLine2."Account No." <> '') and (GenJnlLine2."Recurring Method" <> 0) then begin
+            Day := Date2DMY(GenJnlLine2."Posting Date", 1);
+            Week := Date2DWY(GenJnlLine2."Posting Date", 2);
+            Month := Date2DMY(GenJnlLine2."Posting Date", 2);
+            MonthText := Format(GenJnlLine2."Posting Date", 0, '<Month Text>');
+            AccountingPeriod.SetRange("Starting Date", 0D, GenJnlLine2."Posting Date");
+            if not AccountingPeriod.Find('+') then
+                AccountingPeriod.Name := '';
+            GenJnlLine2."Document No." :=
+              DelChr(
+                PadStr(
+                  StrSubstNo(GenJnlLine2."Document No.", Day, Week, Month, MonthText, AccountingPeriod.Name),
+                  MaxStrLen(GenJnlLine2."Document No.")),
+                '>');
+            GenJnlLine2.Description :=
+              DelChr(
+                PadStr(
+                  StrSubstNo(GenJnlLine2.Description, Day, Week, Month, MonthText, AccountingPeriod.Name),
+                  MaxStrLen(GenJnlLine2.Description)),
+                '>');
         end;
     end;
 
@@ -1072,120 +1066,117 @@ report 50170 "Receipt Report"
         NextGenJnlLine := "Gen. Journal Line";
         MakeRecurringTexts(NextGenJnlLine);
         "Gen. Journal Line" := GenJnlLine;
-        with GenJnlLine do
-            if not EmptyLine then begin
-                DocBalance := DocBalance + "Balance (LCY)";
-                DateBalance := DateBalance + "Balance (LCY)";
-                TotalBalance := TotalBalance + "Balance (LCY)";
-                if "Recurring Method" >= "Recurring Method"::"RF Reversing Fixed" then begin
-                    DocBalanceReverse := DocBalanceReverse + "Balance (LCY)";
-                    DateBalanceReverse := DateBalanceReverse + "Balance (LCY)";
-                    TotalBalanceReverse := TotalBalanceReverse + "Balance (LCY)";
-                end;
-                LastDocType := "Document Type";
-                LastDocNo := "Document No.";
-                LastDate := "Posting Date";
-                if TotalBalance = 0 then begin
-                    CurrentCustomerVendors := 0;
-                    VATEntryCreated := false;
-                end;
-                if GenJnlTemplate."Force Doc. Balance" then begin
-                    VATEntryCreated :=
-                      VATEntryCreated or
-                      (("Account Type" = "Account Type"::"G/L Account") and ("Account No." <> '') and
-                       ("Gen. Posting Type" in ["Gen. Posting Type"::Purchase, "Gen. Posting Type"::Sale])) or
-                      (("Bal. Account Type" = "Bal. Account Type"::"G/L Account") and ("Bal. Account No." <> '') and
-                       ("Bal. Gen. Posting Type" in ["Bal. Gen. Posting Type"::Purchase, "Bal. Gen. Posting Type"::Sale]));
-                    if (("Account Type" in ["Account Type"::Customer, "Account Type"::Vendor]) and
-                        ("Account No." <> '')) or
-                       (("Bal. Account Type" in ["Bal. Account Type"::Customer, "Bal. Account Type"::Vendor]) and
-                        ("Bal. Account No." <> ''))
-                       then
-                        CurrentCustomerVendors := CurrentCustomerVendors + 1;
-                    if (CurrentCustomerVendors > 1) and VATEntryCreated then
-                        AddError(
-                          StrSubstNo(
-                            '%1 %2 posted on %3, must be separated by an empty line',
-                            "Document Type", "Document No.", "Posting Date"));
-                end;
+        if not GenJnlLine.EmptyLine then begin
+            DocBalance := DocBalance + GenJnlLine."Balance (LCY)";
+            DateBalance := DateBalance + GenJnlLine."Balance (LCY)";
+            TotalBalance := TotalBalance + GenJnlLine."Balance (LCY)";
+            if GenJnlLine."Recurring Method" >= GenJnlLine."Recurring Method"::"RF Reversing Fixed" then begin
+                DocBalanceReverse := DocBalanceReverse + GenJnlLine."Balance (LCY)";
+                DateBalanceReverse := DateBalanceReverse + GenJnlLine."Balance (LCY)";
+                TotalBalanceReverse := TotalBalanceReverse + GenJnlLine."Balance (LCY)";
             end;
+            LastDocType := GenJnlLine."Document Type";
+            LastDocNo := GenJnlLine."Document No.";
+            LastDate := GenJnlLine."Posting Date";
+            if TotalBalance = 0 then begin
+                CurrentCustomerVendors := 0;
+                VATEntryCreated := false;
+            end;
+            if GenJnlTemplate."Force Doc. Balance" then begin
+                VATEntryCreated :=
+                  VATEntryCreated or
+                  ((GenJnlLine."Account Type" = GenJnlLine."Account Type"::"G/L Account") and (GenJnlLine."Account No." <> '') and
+                   (GenJnlLine."Gen. Posting Type" in [GenJnlLine."Gen. Posting Type"::Purchase, GenJnlLine."Gen. Posting Type"::Sale])) or
+                  ((GenJnlLine."Bal. Account Type" = GenJnlLine."Bal. Account Type"::"G/L Account") and (GenJnlLine."Bal. Account No." <> '') and
+                   (GenJnlLine."Bal. Gen. Posting Type" in [GenJnlLine."Bal. Gen. Posting Type"::Purchase, GenJnlLine."Bal. Gen. Posting Type"::Sale]));
+                if ((GenJnlLine."Account Type" in [GenJnlLine."Account Type"::Customer, GenJnlLine."Account Type"::Vendor]) and
+                    (GenJnlLine."Account No." <> '')) or
+                   ((GenJnlLine."Bal. Account Type" in [GenJnlLine."Bal. Account Type"::Customer, GenJnlLine."Bal. Account Type"::Vendor]) and
+                    (GenJnlLine."Bal. Account No." <> ''))
+                   then
+                    CurrentCustomerVendors := CurrentCustomerVendors + 1;
+                if (CurrentCustomerVendors > 1) and VATEntryCreated then
+                    AddError(
+                      StrSubstNo(
+                        '%1 %2 posted on %3, must be separated by an empty line',
+                        GenJnlLine."Document Type", GenJnlLine."Document No.", GenJnlLine."Posting Date"));
+            end;
+        end;
 
-        with NextGenJnlLine do begin
-            if GenJnlTemplate."Force Doc. Balance" and
-               (LastDate <> 0D) and (LastDocNo <> '') and
-               (("Posting Date" <> LastDate) or
-                ("Document Type" <> LastDocType) or
-                ("Document No." <> LastDocNo) or
-                ("Line No." = LastLineNo))
+        if GenJnlTemplate."Force Doc. Balance" and
+   (LastDate <> 0D) and (LastDocNo <> '') and
+   ((NextGenJnlLine."Posting Date" <> LastDate) or
+    (NextGenJnlLine."Document Type" <> LastDocType) or
+    (NextGenJnlLine."Document No." <> LastDocNo) or
+    (NextGenJnlLine."Line No." = LastLineNo))
+then begin
+            case true of
+                DocBalance <> 0:
+                    AddError(
+                      StrSubstNo(
+                        '%1 %2 is out of balance by %3.',
+                        LastDocType, LastDocNo, DocBalance));
+                DocBalanceReverse <> 0:
+                    AddError(
+                      StrSubstNo(
+                        'The reversing entries for %1 %2 are out of balance by %3.',
+                        LastDocType, LastDocNo, DocBalanceReverse));
+            end;
+            DocBalance := 0;
+            DocBalanceReverse := 0;
+            if (NextGenJnlLine."Posting Date" <> LastDate) or
+               (NextGenJnlLine."Document Type" <> LastDocType) or (NextGenJnlLine."Document No." <> LastDocNo)
             then begin
-                case true of
-                    DocBalance <> 0:
-                        AddError(
-                          StrSubstNo(
-                            '%1 %2 is out of balance by %3.',
-                            LastDocType, LastDocNo, DocBalance));
-                    DocBalanceReverse <> 0:
-                        AddError(
-                          StrSubstNo(
-                            'The reversing entries for %1 %2 are out of balance by %3.',
-                            LastDocType, LastDocNo, DocBalanceReverse));
-                end;
-                DocBalance := 0;
-                DocBalanceReverse := 0;
-                if ("Posting Date" <> LastDate) or
-                   ("Document Type" <> LastDocType) or ("Document No." <> LastDocNo)
-                then begin
-                    CurrentCustomerVendors := 0;
-                    VATEntryCreated := false;
-                    CustPosting := false;
-                    VendPosting := false;
-                    SalesPostingType := false;
-                    PurchPostingType := false;
-                end;
+                CurrentCustomerVendors := 0;
+                VATEntryCreated := false;
+                CustPosting := false;
+                VendPosting := false;
+                SalesPostingType := false;
+                PurchPostingType := false;
             end;
+        end;
 
-            if (LastDate <> 0D) and (("Posting Date" <> LastDate) or ("Line No." = LastLineNo)) then begin
-                case true of
-                    DateBalance <> 0:
-                        AddError(
-                          StrSubstNo(
-                            'As of %1, the lines are out of balance by %2.',
-                            LastDate, DateBalance));
-                    DateBalanceReverse <> 0:
-                        AddError(
-                          StrSubstNo(
-                            'As of %1, the reversing entries are out of balance by %2.',
-                            LastDate, DateBalanceReverse));
-                end;
-                DocBalance := 0;
-                DocBalanceReverse := 0;
-                DateBalance := 0;
-                DateBalanceReverse := 0;
+        if (LastDate <> 0D) and ((NextGenJnlLine."Posting Date" <> LastDate) or (NextGenJnlLine."Line No." = LastLineNo)) then begin
+            case true of
+                DateBalance <> 0:
+                    AddError(
+                      StrSubstNo(
+                        'As of %1, the lines are out of balance by %2.',
+                        LastDate, DateBalance));
+                DateBalanceReverse <> 0:
+                    AddError(
+                      StrSubstNo(
+                        'As of %1, the reversing entries are out of balance by %2.',
+                        LastDate, DateBalanceReverse));
             end;
+            DocBalance := 0;
+            DocBalanceReverse := 0;
+            DateBalance := 0;
+            DateBalanceReverse := 0;
+        end;
 
-            if "Line No." = LastLineNo then begin
-                case true of
-                    TotalBalance <> 0:
-                        AddError(
-                          StrSubstNo(
-                            'The total of the lines is out of balance by %1.',
-                            TotalBalance));
-                    TotalBalanceReverse <> 0:
-                        AddError(
-                          StrSubstNo(
-                            'The total of the reversing entries is out of balance by %1.',
-                            TotalBalanceReverse));
-                end;
-                DocBalance := 0;
-                DocBalanceReverse := 0;
-                DateBalance := 0;
-                DateBalanceReverse := 0;
-                TotalBalance := 0;
-                TotalBalanceReverse := 0;
-                LastDate := 0D;
-                LastDocType := 0;
-                LastDocNo := '';
+        if NextGenJnlLine."Line No." = LastLineNo then begin
+            case true of
+                TotalBalance <> 0:
+                    AddError(
+                      StrSubstNo(
+                        'The total of the lines is out of balance by %1.',
+                        TotalBalance));
+                TotalBalanceReverse <> 0:
+                    AddError(
+                      StrSubstNo(
+                        'The total of the reversing entries is out of balance by %1.',
+                        TotalBalanceReverse));
             end;
+            DocBalance := 0;
+            DocBalanceReverse := 0;
+            DateBalance := 0;
+            DateBalanceReverse := 0;
+            TotalBalance := 0;
+            TotalBalanceReverse := 0;
+            LastDate := 0D;
+            LastDocType := 0;
+            LastDocNo := '';
         end;
     end;
 
@@ -1213,103 +1204,101 @@ report 50170 "Receipt Report"
 
     local procedure CheckGLAcc(var GenJnlLine: Record "Gen. Journal Line"; var AccName: Text[30])
     begin
-        with GenJnlLine do begin
-            if not GLAcc.Get("Account No.") then
+        if not GLAcc.Get(GenJnlLine."Account No.") then
+            AddError(
+              StrSubstNo(
+                '%1 %2 does not exist.',
+                GLAcc.TableName, GenJnlLine."Account No."))
+        else begin
+            AccName := GLAcc.Name;
+
+            if GLAcc.Blocked then
                 AddError(
                   StrSubstNo(
-                    '%1 %2 does not exist.',
-                    GLAcc.TableName, "Account No."))
-            else begin
-                AccName := GLAcc.Name;
-
-                if GLAcc.Blocked then
-                    AddError(
-                      StrSubstNo(
-                        '%1 must be %2 for %3 %4.',
-                        GLAcc.FieldName(Blocked), false, GLAcc.TableName, "Account No."));
-                if GLAcc."Account Type" <> GLAcc."Account Type"::Posting then begin
-                    GLAcc."Account Type" := GLAcc."Account Type"::Posting;
-                    AddError(
-                      StrSubstNo(
-                        '%1 must be %2 for %3 %4.',
-                        GLAcc.FieldName("Account Type"), GLAcc."Account Type", GLAcc.TableName, "Account No."));
-                end;
-                if not "System-Created Entry" then
-                    if "Posting Date" = NormalDate("Posting Date") then
-                        if not GLAcc."Direct Posting" then
-                            AddError(
-                              StrSubstNo(
-                                '%1 must be %2 for %3 %4.',
-                                GLAcc.FieldName("Direct Posting"), true, GLAcc.TableName, "Account No."));
-
-                /*  CASE GLAcc."Department Posting" OF
-                  //  GLAcc."Department Posting"::"1";
-                     IF GenJnlLine."Shortcut Dimension 1 Code" = '' THEN
-                       AddError(
-                         STRSUBSTNO(
-                           '%1 is mandatory when posting to %2 %3.',
-                           FIELDNAME("Shortcut Dimension 1 Code"),GLAcc.TABLENAME,GLAcc."No."));
-                    GLAcc."Department Posting"::"2":
-                      IF GenJnlLine."Shortcut Dimension 1 Code" <> GLAcc."Global Dimension 1 Code" THEN
-                        AddError(
-                          STRSUBSTNO(
-                            '%1 must be %2 when posting to %3 %4.',
-                            FIELDNAME("Shortcut Dimension 1 Code"),GLAcc."Global Dimension 1 Code",GLAcc.TABLENAME,GLAcc."No."));
-                    GLAcc."Department Posting"::"3":
-                      IF GenJnlLine."Shortcut Dimension 1 Code" <> '' THEN
-                        AddError(
-                          STRSUBSTNO(
-                            '%1 must be blank when posting to %2 %3.',
-                            FIELDNAME("Shortcut Dimension 1 Code"),GLAcc.TABLENAME,GLAcc."No."));
-                  END;*/// & u
-
-
-                /*CASE GLAcc."Branch Posting" OF
-                  GLAcc."Branch Posting"::"1":
-                    IF GenJnlLine."Shortcut Dimension 2 Code" = '' THEN
-                      AddError(
-                        STRSUBSTNO(
-                          '%1 is mandatory when posting to %2 %3.',
-                          FIELDNAME("Shortcut Dimension 2 Code"),GLAcc.TABLENAME,GLAcc."No."));
-                  GLAcc."Branch Posting"::"2":
-                    IF GenJnlLine."Shortcut Dimension 2 Code" <> GLAcc."Global Dimension 2 Code" THEN
-                      AddError(
-                        STRSUBSTNO(
-                          '%1 must be %2 when posting to %3 %4.',
-                          FIELDNAME("Shortcut Dimension 2 Code"),GLAcc."Global Dimension 2 Code",GLAcc.TABLENAME,GLAcc."No."));
-                  GLAcc."Branch Posting"::"3":
-                    IF GenJnlLine."Shortcut Dimension 2 Code" <> '' THEN
-                      AddError(
-                        STRSUBSTNO(
-                          '%1 must be blank when posting to %2 %3.',
-                          FIELDNAME("Shortcut Dimension 2 Code"),GLAcc.TABLENAME,GLAcc."No."));
-                END;
-                */
-                if "Gen. Posting Type" > 0 then begin
-                    case "Gen. Posting Type" of
-                        "Gen. Posting Type"::Sale:
-                            SalesPostingType := true;
-                        "Gen. Posting Type"::Purchase:
-                            PurchPostingType := true;
-                    end;
-                    TestPostingType;
-
-                    if not VATPostingSetup.Get("VAT Bus. Posting Group", "VAT Prod. Posting Group") then
+                    '%1 must be %2 for %3 %4.',
+                    GLAcc.FieldName(Blocked), false, GLAcc.TableName, GenJnlLine."Account No."));
+            if GLAcc."Account Type" <> GLAcc."Account Type"::Posting then begin
+                GLAcc."Account Type" := GLAcc."Account Type"::Posting;
+                AddError(
+                  StrSubstNo(
+                    '%1 must be %2 for %3 %4.',
+                    GLAcc.FieldName("Account Type"), GLAcc."Account Type", GLAcc.TableName, GenJnlLine."Account No."));
+            end;
+            if not GenJnlLine."System-Created Entry" then
+                if GenJnlLine."Posting Date" = NormalDate(GenJnlLine."Posting Date") then
+                    if not GLAcc."Direct Posting" then
                         AddError(
                           StrSubstNo(
-                            '%1 %2 %3 does not exist.',
-                            VATPostingSetup.TableName, "VAT Bus. Posting Group", "VAT Prod. Posting Group"))
-                    else
-                        if "VAT Calculation Type" <> VATPostingSetup."VAT Calculation Type" then
-                            AddError(
-                              StrSubstNo(
-                                '%1 must be %2.',
-                                FieldName("VAT Calculation Type"), VATPostingSetup."VAT Calculation Type"))
-                end;
+                            '%1 must be %2 for %3 %4.',
+                            GLAcc.FieldName("Direct Posting"), true, GLAcc.TableName, GenJnlLine."Account No."));
 
-                if GLAcc."Reconciliation Account" then
-                    ReconcileGLAccNo("Account No.", Round("Amount (LCY)" / (1 + "VAT %" / 100)));
+            /*  CASE GLAcc."Department Posting" OF
+              //  GLAcc."Department Posting"::"1";
+                 IF GenJnlLine."Shortcut Dimension 1 Code" = '' THEN
+                   AddError(
+                     STRSUBSTNO(
+                       '%1 is mandatory when posting to %2 %3.',
+                       FIELDNAME("Shortcut Dimension 1 Code"),GLAcc.TABLENAME,GLAcc."No."));
+                GLAcc."Department Posting"::"2":
+                  IF GenJnlLine."Shortcut Dimension 1 Code" <> GLAcc."Global Dimension 1 Code" THEN
+                    AddError(
+                      STRSUBSTNO(
+                        '%1 must be %2 when posting to %3 %4.',
+                        FIELDNAME("Shortcut Dimension 1 Code"),GLAcc."Global Dimension 1 Code",GLAcc.TABLENAME,GLAcc."No."));
+                GLAcc."Department Posting"::"3":
+                  IF GenJnlLine."Shortcut Dimension 1 Code" <> '' THEN
+                    AddError(
+                      STRSUBSTNO(
+                        '%1 must be blank when posting to %2 %3.',
+                        FIELDNAME("Shortcut Dimension 1 Code"),GLAcc.TABLENAME,GLAcc."No."));
+              END;*/// & u
+
+
+            /*CASE GLAcc."Branch Posting" OF
+              GLAcc."Branch Posting"::"1":
+                IF GenJnlLine."Shortcut Dimension 2 Code" = '' THEN
+                  AddError(
+                    STRSUBSTNO(
+                      '%1 is mandatory when posting to %2 %3.',
+                      FIELDNAME("Shortcut Dimension 2 Code"),GLAcc.TABLENAME,GLAcc."No."));
+              GLAcc."Branch Posting"::"2":
+                IF GenJnlLine."Shortcut Dimension 2 Code" <> GLAcc."Global Dimension 2 Code" THEN
+                  AddError(
+                    STRSUBSTNO(
+                      '%1 must be %2 when posting to %3 %4.',
+                      FIELDNAME("Shortcut Dimension 2 Code"),GLAcc."Global Dimension 2 Code",GLAcc.TABLENAME,GLAcc."No."));
+              GLAcc."Branch Posting"::"3":
+                IF GenJnlLine."Shortcut Dimension 2 Code" <> '' THEN
+                  AddError(
+                    STRSUBSTNO(
+                      '%1 must be blank when posting to %2 %3.',
+                      FIELDNAME("Shortcut Dimension 2 Code"),GLAcc.TABLENAME,GLAcc."No."));
+            END;
+            */
+            if GenJnlLine."Gen. Posting Type" > 0 then begin
+                case GenJnlLine."Gen. Posting Type" of
+                    GenJnlLine."Gen. Posting Type"::Sale:
+                        SalesPostingType := true;
+                    GenJnlLine."Gen. Posting Type"::Purchase:
+                        PurchPostingType := true;
+                end;
+                TestPostingType;
+
+                if not VATPostingSetup.Get(GenJnlLine."VAT Bus. Posting Group", GenJnlLine."VAT Prod. Posting Group") then
+                    AddError(
+                      StrSubstNo(
+                        '%1 %2 %3 does not exist.',
+                        VATPostingSetup.TableName, GenJnlLine."VAT Bus. Posting Group", GenJnlLine."VAT Prod. Posting Group"))
+                else
+                    if GenJnlLine."VAT Calculation Type" <> VATPostingSetup."VAT Calculation Type" then
+                        AddError(
+                          StrSubstNo(
+                            '%1 must be %2.',
+                            GenJnlLine.FieldName("VAT Calculation Type"), VATPostingSetup."VAT Calculation Type"))
             end;
+
+            if GLAcc."Reconciliation Account" then
+                ReconcileGLAccNo(GenJnlLine."Account No.", Round(GenJnlLine."Amount (LCY)" / (1 + GenJnlLine."VAT %" / 100)));
         end;
 
     end;
@@ -1431,276 +1420,270 @@ report 50170 "Receipt Report"
 
     local procedure CheckBankAcc(var GenJnlLine: Record "Gen. Journal Line"; var AccName: Text[30])
     begin
-        with GenJnlLine do begin
-            if not BankAcc.Get("Account No.") then
+        if not BankAcc.Get(GenJnlLine."Account No.") then
+            AddError(
+              StrSubstNo(
+                '%1 %2 does not exist.',
+                BankAcc.TableName, GenJnlLine."Account No."))
+        else begin
+            AccName := BankAcc.Name;
+
+            if BankAcc.Blocked then
                 AddError(
                   StrSubstNo(
-                    '%1 %2 does not exist.',
-                    BankAcc.TableName, "Account No."))
-            else begin
-                AccName := BankAcc.Name;
+                    '%1 must be %2 for %3 %4.',
+                    BankAcc.FieldName(Blocked), false, BankAcc.TableName, GenJnlLine."Account No."));
+            if (GenJnlLine."Currency Code" <> BankAcc."Currency Code") and (BankAcc."Currency Code" <> '') then
+                AddError(
+                  StrSubstNo(
+                    '%1 must be %2.',
+                    GenJnlLine.FieldName("Currency Code"), BankAcc."Currency Code"));
 
-                if BankAcc.Blocked then
+            if GenJnlLine."Currency Code" <> '' then
+                if not Currency.Get(GenJnlLine."Currency Code") then
                     AddError(
                       StrSubstNo(
-                        '%1 must be %2 for %3 %4.',
-                        BankAcc.FieldName(Blocked), false, BankAcc.TableName, "Account No."));
-                if ("Currency Code" <> BankAcc."Currency Code") and (BankAcc."Currency Code" <> '') then
-                    AddError(
-                      StrSubstNo(
-                        '%1 must be %2.',
-                        FieldName("Currency Code"), BankAcc."Currency Code"));
+                        'The currency %1 cannot be found. Please check the currency table.',
+                        GenJnlLine."Currency Code"));
 
-                if "Currency Code" <> '' then
-                    if not Currency.Get("Currency Code") then
+            if GenJnlLine."Bank Payment Type" <> 0 then
+                if (GenJnlLine."Bank Payment Type" = GenJnlLine."Bank Payment Type"::"Computer Check") and (GenJnlLine.Amount < 0) then
+                    if BankAcc."Currency Code" <> GenJnlLine."Currency Code" then
                         AddError(
                           StrSubstNo(
-                            'The currency %1 cannot be found. Please check the currency table.',
-                            "Currency Code"));
+                            '%1 must not be filled when %2 is different in %3 and %4.',
+                            GenJnlLine.FieldName("Bank Payment Type"), GenJnlLine.FieldName("Currency Code"),
+                            GenJnlLine.TableName, BankAcc.TableName));
 
-                if "Bank Payment Type" <> 0 then
-                    if ("Bank Payment Type" = "Bank Payment Type"::"Computer Check") and (Amount < 0) then
-                        if BankAcc."Currency Code" <> "Currency Code" then
-                            AddError(
-                              StrSubstNo(
-                                '%1 must not be filled when %2 is different in %3 and %4.',
-                                FieldName("Bank Payment Type"), FieldName("Currency Code"),
-                                TableName, BankAcc.TableName));
-
-                if BankAccPostingGroup.Get(BankAcc."Bank Acc. Posting Group") then
-                    if BankAccPostingGroup."G/L Bank Account No." <> '' then
-                        ReconcileGLAccNo(
-                          BankAccPostingGroup."G/L Bank Account No.",
-                          Round("Amount (LCY)" / (1 + "VAT %" / 100)));
-            end;
+            if BankAccPostingGroup.Get(BankAcc."Bank Acc. Posting Group") then
+                if BankAccPostingGroup."G/L Bank Account No." <> '' then
+                    ReconcileGLAccNo(
+                      BankAccPostingGroup."G/L Bank Account No.",
+                      Round(GenJnlLine."Amount (LCY)" / (1 + GenJnlLine."VAT %" / 100)));
         end;
     end;
 
     local procedure CheckFixedAsset(var GenJnlLine: Record "Gen. Journal Line"; var AccName: Text[30])
     begin
-        with GenJnlLine do begin
-            if not FA.Get("Account No.") then
+        if not FA.Get(GenJnlLine."Account No.") then
+            AddError(
+              StrSubstNo(
+                '%1 %2 does not exist.',
+                FA.TableName, GenJnlLine."Account No."))
+        else begin
+            AccName := FA.Description;
+            if FA.Blocked then
+                AddError(
+                  StrSubstNo(
+                    '%1 must be %2 for %3 %4.',
+                    FA.FieldName(Blocked), false, FA.TableName, GenJnlLine."Account No."));
+            if FA.Inactive then
+                AddError(
+                  StrSubstNo(
+                    '%1 must be %2 for %3 %4.',
+                    FA.FieldName(Inactive), false, FA.TableName, GenJnlLine."Account No."));
+            if FA."Budgeted Asset" then
+                AddError(
+                  StrSubstNo(
+                    '%1 %2 must not have %3 = %4.',
+                    FA.TableName, GenJnlLine."Account No.", FA.FieldName("Budgeted Asset"), true));
+            if DeprBook.Get(GenJnlLine."Depreciation Book Code") then
+                CheckFAIntegration(GenJnlLine)
+            else
                 AddError(
                   StrSubstNo(
                     '%1 %2 does not exist.',
-                    FA.TableName, "Account No."))
-            else begin
-                AccName := FA.Description;
-                if FA.Blocked then
-                    AddError(
-                      StrSubstNo(
-                        '%1 must be %2 for %3 %4.',
-                        FA.FieldName(Blocked), false, FA.TableName, "Account No."));
-                if FA.Inactive then
-                    AddError(
-                      StrSubstNo(
-                        '%1 must be %2 for %3 %4.',
-                        FA.FieldName(Inactive), false, FA.TableName, "Account No."));
-                if FA."Budgeted Asset" then
-                    AddError(
-                      StrSubstNo(
-                        '%1 %2 must not have %3 = %4.',
-                        FA.TableName, "Account No.", FA.FieldName("Budgeted Asset"), true));
-                if DeprBook.Get("Depreciation Book Code") then
-                    CheckFAIntegration(GenJnlLine)
-                else
-                    AddError(
-                      StrSubstNo(
-                        '%1 %2 does not exist.',
-                        DeprBook.TableName, "Depreciation Book Code"));
-                if not FADeprBook.Get(FA."No.", "Depreciation Book Code") then
-                    AddError(
-                      StrSubstNo(
-                        '%1 %2 %3 does not exist.',
-                        FADeprBook.TableName, FA."No.", "Depreciation Book Code"));
-            end;
+                    DeprBook.TableName, GenJnlLine."Depreciation Book Code"));
+            if not FADeprBook.Get(FA."No.", GenJnlLine."Depreciation Book Code") then
+                AddError(
+                  StrSubstNo(
+                    '%1 %2 %3 does not exist.',
+                    FADeprBook.TableName, FA."No.", GenJnlLine."Depreciation Book Code"));
         end;
     end;
 
     local procedure TestFixedAsset(var GenJnlLine: Record "Gen. Journal Line")
     begin
         // Fixed Asset
-        with GenJnlLine do begin
-            if "Job No." <> '' then
-                AddError(
-                  StrSubstNo(
-                    '%1 must not be specified in fixed asset journal lines.', FieldName("Job No.")));
-            if "FA Posting Type" = "FA Posting Type"::" " then
-                AddError(
-                  StrSubstNo(
-                    '%1 must be specified in fixed asset journal lines.', FieldName("FA Posting Type")));
-            if "Depreciation Book Code" = '' then
-                AddError(
-                  StrSubstNo(
-                    '%1 must be specified in fixed asset journal lines.', FieldName("Depreciation Book Code")));
-            if "Depreciation Book Code" = "Duplicate in Depreciation Book" then
-                AddError(
-                  StrSubstNo(
-                    '%1 must be different than %2.',
-                    FieldName("Depreciation Book Code"), FieldName("Duplicate in Depreciation Book")));
-            if "Account Type" = "Bal. Account Type" then
-                AddError(
-                  StrSubstNo(
-                    '%1 and %2 must not both be %3.',
-                    FieldName("Account Type"), FieldName("Bal. Account Type"), "Account Type"));
-            if "Account Type" = "Account Type"::"Fixed Asset" then begin
-                if "FA Posting Type" in
-                  ["FA Posting Type"::"Acquisition Cost", "FA Posting Type"::Disposal, "FA Posting Type"::Maintenance]
-                then begin
-                    if ("Gen. Bus. Posting Group" <> '') or ("Gen. Prod. Posting Group" <> '') then
-                        if "Gen. Posting Type" = "Gen. Posting Type"::" " then
-                            AddError(StrSubstNo('%1 must be specified.', FieldName("Gen. Posting Type")));
-                end else begin
-                    if "Gen. Posting Type" <> "Gen. Posting Type"::" " then
-                        AddError(
-                          StrSubstNo(
-                            '%1  must not be specified when %2 = %3.',
-                            FieldName("Gen. Posting Type"), FieldName("FA Posting Type"), "FA Posting Type"));
-                    if "Gen. Bus. Posting Group" <> '' then
-                        AddError(
-                          StrSubstNo(
-                            '%1 must not be specified when %2 = %3.',
-                            FieldName("Gen. Bus. Posting Group"), FieldName("FA Posting Type"), "FA Posting Type"));
-                    if "Gen. Prod. Posting Group" <> '' then
-                        AddError(
-                          StrSubstNo(
-                            '%1 must not be specified when %2 = %3.',
-                            FieldName("Gen. Prod. Posting Group"), FieldName("FA Posting Type"), "FA Posting Type"));
-                end;
-            end;
-            if "Bal. Account Type" = "Bal. Account Type"::"Fixed Asset" then begin
-                if "FA Posting Type" in
-                  ["FA Posting Type"::"Acquisition Cost", "FA Posting Type"::Disposal, "FA Posting Type"::Maintenance]
-                then begin
-                    if ("Bal. Gen. Bus. Posting Group" <> '') or ("Bal. Gen. Prod. Posting Group" <> '') then
-                        if "Bal. Gen. Posting Type" = "Bal. Gen. Posting Type"::" " then
-                            AddError(StrSubstNo('%1 must be specified.', FieldName("Bal. Gen. Posting Type")));
-                end else begin
-                    if "Bal. Gen. Posting Type" <> "Bal. Gen. Posting Type"::" " then
-                        AddError(
-                          StrSubstNo(
-                          '%1 must not be specified when %2 = %3.',
-                          FieldName("Bal. Gen. Posting Type"), FieldName("FA Posting Type"), "FA Posting Type"));
-                    if "Bal. Gen. Bus. Posting Group" <> '' then
-                        AddError(
-                          StrSubstNo(
-                            '%1 must not be specified when %2 = %3.',
-                            FieldName("Bal. Gen. Bus. Posting Group"), FieldName("FA Posting Type"), "FA Posting Type"));
-                    if "Bal. Gen. Prod. Posting Group" <> '' then
-                        AddError(
-                          StrSubstNo(
-                            '%1 must not be specified when %2 = %3.',
-                            FieldName("Bal. Gen. Prod. Posting Group"), FieldName("FA Posting Type"), "FA Posting Type"));
-                end;
-            end;
-            TempErrorText :=
-              '%1 ' +
+        if GenJnlLine."Job No." <> '' then
+            AddError(
               StrSubstNo(
-                'must not be specified together with %1 = %2.',
-                FieldName("FA Posting Type"), "FA Posting Type");
-            if "FA Posting Type" <> "FA Posting Type"::"Acquisition Cost" then begin
-                if "Depr. Acquisition Cost" then
-                    AddError(StrSubstNo(TempErrorText, FieldName("Depr. Acquisition Cost")));
-                if "Salvage Value" <> 0 then
-                    AddError(StrSubstNo(TempErrorText, FieldName("Salvage Value")));
-                if "FA Posting Type" <> "FA Posting Type"::Maintenance then
-                    if Quantity <> 0 then
-                        AddError(StrSubstNo(TempErrorText, FieldName(Quantity)));
-                if "Insurance No." <> '' then
-                    AddError(StrSubstNo(TempErrorText, FieldName("Insurance No.")));
+                '%1 must not be specified in fixed asset journal lines.', GenJnlLine.FieldName("Job No.")));
+        if GenJnlLine."FA Posting Type" = GenJnlLine."FA Posting Type"::" " then
+            AddError(
+              StrSubstNo(
+                '%1 must be specified in fixed asset journal lines.', GenJnlLine.FieldName("FA Posting Type")));
+        if GenJnlLine."Depreciation Book Code" = '' then
+            AddError(
+              StrSubstNo(
+                '%1 must be specified in fixed asset journal lines.', GenJnlLine.FieldName("Depreciation Book Code")));
+        if GenJnlLine."Depreciation Book Code" = GenJnlLine."Duplicate in Depreciation Book" then
+            AddError(
+              StrSubstNo(
+                '%1 must be different than %2.',
+                GenJnlLine.FieldName("Depreciation Book Code"), GenJnlLine.FieldName("Duplicate in Depreciation Book")));
+        if GenJnlLine."Account Type" = GenJnlLine."Bal. Account Type" then
+            AddError(
+              StrSubstNo(
+                '%1 and %2 must not both be %3.',
+                GenJnlLine.FieldName("Account Type"), GenJnlLine.FieldName("Bal. Account Type"), GenJnlLine."Account Type"));
+        if GenJnlLine."Account Type" = GenJnlLine."Account Type"::"Fixed Asset" then begin
+            if GenJnlLine."FA Posting Type" in
+              [GenJnlLine."FA Posting Type"::"Acquisition Cost", GenJnlLine."FA Posting Type"::Disposal, GenJnlLine."FA Posting Type"::Maintenance]
+            then begin
+                if (GenJnlLine."Gen. Bus. Posting Group" <> '') or (GenJnlLine."Gen. Prod. Posting Group" <> '') then
+                    if GenJnlLine."Gen. Posting Type" = GenJnlLine."Gen. Posting Type"::" " then
+                        AddError(StrSubstNo('%1 must be specified.', GenJnlLine.FieldName("Gen. Posting Type")));
+            end else begin
+                if GenJnlLine."Gen. Posting Type" <> GenJnlLine."Gen. Posting Type"::" " then
+                    AddError(
+                      StrSubstNo(
+                        '%1  must not be specified when %2 = %3.',
+                        GenJnlLine.FieldName("Gen. Posting Type"), GenJnlLine.FieldName("FA Posting Type"), GenJnlLine."FA Posting Type"));
+                if GenJnlLine."Gen. Bus. Posting Group" <> '' then
+                    AddError(
+                      StrSubstNo(
+                        '%1 must not be specified when %2 = %3.',
+                        GenJnlLine.FieldName("Gen. Bus. Posting Group"), GenJnlLine.FieldName("FA Posting Type"), GenJnlLine."FA Posting Type"));
+                if GenJnlLine."Gen. Prod. Posting Group" <> '' then
+                    AddError(
+                      StrSubstNo(
+                        '%1 must not be specified when %2 = %3.',
+                        GenJnlLine.FieldName("Gen. Prod. Posting Group"), GenJnlLine.FieldName("FA Posting Type"), GenJnlLine."FA Posting Type"));
             end;
-            if ("FA Posting Type" = "FA Posting Type"::Maintenance) and "Depr. until FA Posting Date" then
-                AddError(StrSubstNo(TempErrorText, FieldName("Depr. until FA Posting Date")));
-            if ("FA Posting Type" <> "FA Posting Type"::Maintenance) and ("Maintenance Code" <> '') then
-                AddError(StrSubstNo(TempErrorText, FieldName("Maintenance Code")));
-
-            if ("FA Posting Type" <> "FA Posting Type"::Depreciation) and
-               ("FA Posting Type" <> "FA Posting Type"::"Custom 1") and
-               ("No. of Depreciation Days" <> 0)
-            then
-                AddError(StrSubstNo(TempErrorText, FieldName("No. of Depreciation Days")));
-
-            if ("FA Posting Type" = "FA Posting Type"::Disposal) and "FA Reclassification Entry" then
-                AddError(StrSubstNo(TempErrorText, FieldName("FA Reclassification Entry")));
-
-            if ("FA Posting Type" = "FA Posting Type"::Disposal) and ("Budgeted FA No." <> '') then
-                AddError(StrSubstNo(TempErrorText, FieldName("Budgeted FA No.")));
-
-            if "FA Posting Date" = 0D then
-                "FA Posting Date" := "Posting Date";
-            if DeprBook.Get("Depreciation Book Code") then
-                if DeprBook."Use Same FA+G/L Posting Dates" and ("Posting Date" <> "FA Posting Date") then
+        end;
+        if GenJnlLine."Bal. Account Type" = GenJnlLine."Bal. Account Type"::"Fixed Asset" then begin
+            if GenJnlLine."FA Posting Type" in
+              [GenJnlLine."FA Posting Type"::"Acquisition Cost", GenJnlLine."FA Posting Type"::Disposal, GenJnlLine."FA Posting Type"::Maintenance]
+            then begin
+                if (GenJnlLine."Bal. Gen. Bus. Posting Group" <> '') or (GenJnlLine."Bal. Gen. Prod. Posting Group" <> '') then
+                    if GenJnlLine."Bal. Gen. Posting Type" = GenJnlLine."Bal. Gen. Posting Type"::" " then
+                        AddError(StrSubstNo('%1 must be specified.', GenJnlLine.FieldName("Bal. Gen. Posting Type")));
+            end else begin
+                if GenJnlLine."Bal. Gen. Posting Type" <> GenJnlLine."Bal. Gen. Posting Type"::" " then
                     AddError(
                       StrSubstNo(
-                        '%1 must be identical to %2.',
-                        FieldName("Posting Date"), FieldName("FA Posting Date")));
-            if "FA Posting Date" <> 0D then begin
-                if "FA Posting Date" <> NormalDate("FA Posting Date") then
+                      '%1 must not be specified when %2 = %3.',
+                      GenJnlLine.FieldName("Bal. Gen. Posting Type"), GenJnlLine.FieldName("FA Posting Type"), GenJnlLine."FA Posting Type"));
+                if GenJnlLine."Bal. Gen. Bus. Posting Group" <> '' then
                     AddError(
                       StrSubstNo(
-                        '%1 cannot be a closing date.',
-                        FieldName("FA Posting Date")));
-                //    IF NOT ("FA Posting Date" IN [01010001D..31129998D]) THEN
+                        '%1 must not be specified when %2 = %3.',
+                        GenJnlLine.FieldName("Bal. Gen. Bus. Posting Group"), GenJnlLine.FieldName("FA Posting Type"), GenJnlLine."FA Posting Type"));
+                if GenJnlLine."Bal. Gen. Prod. Posting Group" <> '' then
+                    AddError(
+                      StrSubstNo(
+                        '%1 must not be specified when %2 = %3.',
+                        GenJnlLine.FieldName("Bal. Gen. Prod. Posting Group"), GenJnlLine.FieldName("FA Posting Type"), GenJnlLine."FA Posting Type"));
+            end;
+        end;
+        TempErrorText :=
+          '%1 ' +
+          StrSubstNo(
+            'must not be specified together with %1 = %2.',
+            GenJnlLine.FieldName("FA Posting Type"), GenJnlLine."FA Posting Type");
+        if GenJnlLine."FA Posting Type" <> GenJnlLine."FA Posting Type"::"Acquisition Cost" then begin
+            if GenJnlLine."Depr. Acquisition Cost" then
+                AddError(StrSubstNo(TempErrorText, GenJnlLine.FieldName("Depr. Acquisition Cost")));
+            if GenJnlLine."Salvage Value" <> 0 then
+                AddError(StrSubstNo(TempErrorText, GenJnlLine.FieldName("Salvage Value")));
+            if GenJnlLine."FA Posting Type" <> GenJnlLine."FA Posting Type"::Maintenance then
+                if GenJnlLine.Quantity <> 0 then
+                    AddError(StrSubstNo(TempErrorText, GenJnlLine.FieldName(Quantity)));
+            if GenJnlLine."Insurance No." <> '' then
+                AddError(StrSubstNo(TempErrorText, GenJnlLine.FieldName("Insurance No.")));
+        end;
+        if (GenJnlLine."FA Posting Type" = GenJnlLine."FA Posting Type"::Maintenance) and GenJnlLine."Depr. until FA Posting Date" then
+            AddError(StrSubstNo(TempErrorText, GenJnlLine.FieldName("Depr. until FA Posting Date")));
+        if (GenJnlLine."FA Posting Type" <> GenJnlLine."FA Posting Type"::Maintenance) and (GenJnlLine."Maintenance Code" <> '') then
+            AddError(StrSubstNo(TempErrorText, GenJnlLine.FieldName("Maintenance Code")));
+
+        if (GenJnlLine."FA Posting Type" <> GenJnlLine."FA Posting Type"::Depreciation) and
+           (GenJnlLine."FA Posting Type" <> GenJnlLine."FA Posting Type"::"Custom 1") and
+           (GenJnlLine."No. of Depreciation Days" <> 0)
+        then
+            AddError(StrSubstNo(TempErrorText, GenJnlLine.FieldName("No. of Depreciation Days")));
+
+        if (GenJnlLine."FA Posting Type" = GenJnlLine."FA Posting Type"::Disposal) and GenJnlLine."FA Reclassification Entry" then
+            AddError(StrSubstNo(TempErrorText, GenJnlLine.FieldName("FA Reclassification Entry")));
+
+        if (GenJnlLine."FA Posting Type" = GenJnlLine."FA Posting Type"::Disposal) and (GenJnlLine."Budgeted FA No." <> '') then
+            AddError(StrSubstNo(TempErrorText, GenJnlLine.FieldName("Budgeted FA No.")));
+
+        if GenJnlLine."FA Posting Date" = 0D then
+            GenJnlLine."FA Posting Date" := GenJnlLine."Posting Date";
+        if DeprBook.Get(GenJnlLine."Depreciation Book Code") then
+            if DeprBook."Use Same FA+G/L Posting Dates" and (GenJnlLine."Posting Date" <> GenJnlLine."FA Posting Date") then
                 AddError(
                   StrSubstNo(
-                    '%1 is not within your range of allowed posting dates.',
-                    FieldName("FA Posting Date")));
-                if (AllowFAPostingFrom = 0D) and (AllowFAPostingTo = 0D) then begin
-                    if UserId <> '' then
-                        if UserSetup.Get(UserId) then begin
-                            AllowFAPostingFrom := UserSetup."Allow FA Posting From";
-                            AllowFAPostingTo := UserSetup."Allow FA Posting To";
-                        end;
-                    if (AllowFAPostingFrom = 0D) and (AllowFAPostingTo = 0D) then begin
-                        FASetup.Get;
-                        AllowFAPostingFrom := FASetup."Allow FA Posting From";
-                        AllowFAPostingTo := FASetup."Allow FA Posting To";
+                    '%1 must be identical to %2.',
+                    GenJnlLine.FieldName("Posting Date"), GenJnlLine.FieldName("FA Posting Date")));
+        if GenJnlLine."FA Posting Date" <> 0D then begin
+            if GenJnlLine."FA Posting Date" <> NormalDate(GenJnlLine."FA Posting Date") then
+                AddError(
+                  StrSubstNo(
+                    '%1 cannot be a closing date.',
+                    GenJnlLine.FieldName("FA Posting Date")));
+            //    IF NOT ("FA Posting Date" IN [01010001D..31129998D]) THEN
+            AddError(
+              StrSubstNo(
+                '%1 is not within your range of allowed posting dates.',
+                GenJnlLine.FieldName("FA Posting Date")));
+            if (AllowFAPostingFrom = 0D) and (AllowFAPostingTo = 0D) then begin
+                if UserId <> '' then
+                    if UserSetup.Get(UserId) then begin
+                        AllowFAPostingFrom := UserSetup."Allow FA Posting From";
+                        AllowFAPostingTo := UserSetup."Allow FA Posting To";
                     end;
-                    if AllowFAPostingTo = 0D then
-                        //     AllowFAPostingTo := 31129998D; // & u
+                if (AllowFAPostingFrom = 0D) and (AllowFAPostingTo = 0D) then begin
+                    FASetup.Get;
+                    AllowFAPostingFrom := FASetup."Allow FA Posting From";
+                    AllowFAPostingTo := FASetup."Allow FA Posting To";
+                end;
+                if AllowFAPostingTo = 0D then
+                    //     AllowFAPostingTo := 31129998D; // & u
 
-                        if ("FA Posting Date" < AllowFAPostingFrom) or
-               ("FA Posting Date" > AllowFAPostingTo)
+                    if (GenJnlLine."FA Posting Date" < AllowFAPostingFrom) or
+               (GenJnlLine."FA Posting Date" > AllowFAPostingTo)
             then
-                            AddError(
-                              StrSubstNo(
-                                '%1 is not within your range of allowed posting dates.',
-                                FieldName("FA Posting Date")));
-                end;
-                FASetup.Get;
-                if ("FA Posting Type" = "FA Posting Type"::"Acquisition Cost") and
-                   ("Insurance No." <> '') and ("Depreciation Book Code" <> FASetup."Insurance Depr. Book")
-                then
-                    AddError(
-                      StrSubstNo(
-                        'Insurance integration is not activated for %1 %2.',
-                        FieldName("Depreciation Book Code"), "Depreciation Book Code"));
+                        AddError(
+                          StrSubstNo(
+                            '%1 is not within your range of allowed posting dates.',
+                            GenJnlLine.FieldName("FA Posting Date")));
+            end;
+            FASetup.Get;
+            if (GenJnlLine."FA Posting Type" = GenJnlLine."FA Posting Type"::"Acquisition Cost") and
+               (GenJnlLine."Insurance No." <> '') and (GenJnlLine."Depreciation Book Code" <> FASetup."Insurance Depr. Book")
+            then
+                AddError(
+                  StrSubstNo(
+                    'Insurance integration is not activated for %1 %2.',
+                    GenJnlLine.FieldName("Depreciation Book Code"), GenJnlLine."Depreciation Book Code"));
 
-                if "FA Error Entry No." > 0 then begin
-                    TempErrorText :=
-                      '%1 ' +
-                      StrSubstNo(
-                      'must not be specified when %1 is specified.',
-                       FieldName("FA Error Entry No."));
-                    if "Depr. until FA Posting Date" then
-                        AddError(StrSubstNo(TempErrorText, FieldName("Depr. until FA Posting Date")));
-                    if "Depr. Acquisition Cost" then
-                        AddError(StrSubstNo(TempErrorText, FieldName("Depr. Acquisition Cost")));
-                    if "Duplicate in Depreciation Book" <> '' then
-                        AddError(StrSubstNo(TempErrorText, FieldName("Duplicate in Depreciation Book")));
-                    if "Use Duplication List" then
-                        AddError(StrSubstNo(TempErrorText, FieldName("Use Duplication List")));
-                    if "Salvage Value" <> 0 then
-                        AddError(StrSubstNo(TempErrorText, FieldName("Salvage Value")));
-                    if "Insurance No." <> '' then
-                        AddError(StrSubstNo(TempErrorText, FieldName("Insurance No.")));
-                    if "Budgeted FA No." <> '' then
-                        AddError(StrSubstNo(TempErrorText, FieldName("Budgeted FA No.")));
-                    if "Recurring Method" > 0 then
-                        AddError(StrSubstNo(TempErrorText, FieldName("Recurring Method")));
-                    if ("FA Posting Type" = "FA Posting Type"::Maintenance) then
-                        AddError(StrSubstNo(TempErrorText, "FA Posting Type"));
-                end;
+            if GenJnlLine."FA Error Entry No." > 0 then begin
+                TempErrorText :=
+                  '%1 ' +
+                  StrSubstNo(
+                  'must not be specified when %1 is specified.',
+                   GenJnlLine.FieldName("FA Error Entry No."));
+                if GenJnlLine."Depr. until FA Posting Date" then
+                    AddError(StrSubstNo(TempErrorText, GenJnlLine.FieldName("Depr. until FA Posting Date")));
+                if GenJnlLine."Depr. Acquisition Cost" then
+                    AddError(StrSubstNo(TempErrorText, GenJnlLine.FieldName("Depr. Acquisition Cost")));
+                if GenJnlLine."Duplicate in Depreciation Book" <> '' then
+                    AddError(StrSubstNo(TempErrorText, GenJnlLine.FieldName("Duplicate in Depreciation Book")));
+                if GenJnlLine."Use Duplication List" then
+                    AddError(StrSubstNo(TempErrorText, GenJnlLine.FieldName("Use Duplication List")));
+                if GenJnlLine."Salvage Value" <> 0 then
+                    AddError(StrSubstNo(TempErrorText, GenJnlLine.FieldName("Salvage Value")));
+                if GenJnlLine."Insurance No." <> '' then
+                    AddError(StrSubstNo(TempErrorText, GenJnlLine.FieldName("Insurance No.")));
+                if GenJnlLine."Budgeted FA No." <> '' then
+                    AddError(StrSubstNo(TempErrorText, GenJnlLine.FieldName("Budgeted FA No.")));
+                if GenJnlLine."Recurring Method" > 0 then
+                    AddError(StrSubstNo(TempErrorText, GenJnlLine.FieldName("Recurring Method")));
+                if (GenJnlLine."FA Posting Type" = GenJnlLine."FA Posting Type"::Maintenance) then
+                    AddError(StrSubstNo(TempErrorText, GenJnlLine."FA Posting Type"));
             end;
         end;
     end;
@@ -1709,56 +1692,52 @@ report 50170 "Receipt Report"
     var
         GLIntegration: Boolean;
     begin
-        with GenJnlLine do begin
-            if "FA Posting Type" = "FA Posting Type"::" " then
-                exit;
-            case "FA Posting Type" of
-                "FA Posting Type"::"Acquisition Cost":
-                    GLIntegration := DeprBook."G/L Integration - Acq. Cost";
-                "FA Posting Type"::Depreciation:
-                    GLIntegration := DeprBook."G/L Integration - Depreciation";
-                "FA Posting Type"::"Write-Down":
-                    GLIntegration := DeprBook."G/L Integration - Write-Down";
-                "FA Posting Type"::Appreciation:
-                    GLIntegration := DeprBook."G/L Integration - Appreciation";
-                "FA Posting Type"::"Custom 1":
-                    GLIntegration := DeprBook."G/L Integration - Custom 1";
-                "FA Posting Type"::"Custom 2":
-                    GLIntegration := DeprBook."G/L Integration - Custom 2";
-                "FA Posting Type"::Disposal:
-                    GLIntegration := DeprBook."G/L Integration - Disposal";
-                "FA Posting Type"::Maintenance:
-                    GLIntegration := DeprBook."G/L Integration - Maintenance";
-            end;
-            if not GLIntegration then
+        if GenJnlLine."FA Posting Type" = GenJnlLine."FA Posting Type"::" " then
+            exit;
+        case GenJnlLine."FA Posting Type" of
+            GenJnlLine."FA Posting Type"::"Acquisition Cost":
+                GLIntegration := DeprBook."G/L Integration - Acq. Cost";
+            GenJnlLine."FA Posting Type"::Depreciation:
+                GLIntegration := DeprBook."G/L Integration - Depreciation";
+            GenJnlLine."FA Posting Type"::"Write-Down":
+                GLIntegration := DeprBook."G/L Integration - Write-Down";
+            GenJnlLine."FA Posting Type"::Appreciation:
+                GLIntegration := DeprBook."G/L Integration - Appreciation";
+            GenJnlLine."FA Posting Type"::"Custom 1":
+                GLIntegration := DeprBook."G/L Integration - Custom 1";
+            GenJnlLine."FA Posting Type"::"Custom 2":
+                GLIntegration := DeprBook."G/L Integration - Custom 2";
+            GenJnlLine."FA Posting Type"::Disposal:
+                GLIntegration := DeprBook."G/L Integration - Disposal";
+            GenJnlLine."FA Posting Type"::Maintenance:
+                GLIntegration := DeprBook."G/L Integration - Maintenance";
+        end;
+        if not GLIntegration then
+            AddError(
+              StrSubstNo(
+                'When G/L integration is not activated, %1 must not be posted in the general journal.',
+                GenJnlLine."FA Posting Type"));
+
+        if not DeprBook."G/L Integration - Depreciation" then begin
+            if GenJnlLine."Depr. until FA Posting Date" then
                 AddError(
                   StrSubstNo(
-                    'When G/L integration is not activated, %1 must not be posted in the general journal.',
-                    "FA Posting Type"));
-
-            if not DeprBook."G/L Integration - Depreciation" then begin
-                if "Depr. until FA Posting Date" then
-                    AddError(
-                      StrSubstNo(
-                        'When G/L integration is not activated, %1 must not be specified in the general journal.',
-                        FieldName("Depr. until FA Posting Date")));
-                if "Depr. Acquisition Cost" then
-                    AddError(
-                      StrSubstNo(
-                        'When G/L integration is not activated, %1 must not be specified in the general journal.',
-                        FieldName("Depr. Acquisition Cost")));
-            end;
+                    'When G/L integration is not activated, %1 must not be specified in the general journal.',
+                    GenJnlLine.FieldName("Depr. until FA Posting Date")));
+            if GenJnlLine."Depr. Acquisition Cost" then
+                AddError(
+                  StrSubstNo(
+                    'When G/L integration is not activated, %1 must not be specified in the general journal.',
+                    GenJnlLine.FieldName("Depr. Acquisition Cost")));
         end;
     end;
 
     local procedure TestFixedAssetFields(var GenJnlLine: Record "Gen. Journal Line")
     begin
-        with GenJnlLine do begin
-            if "FA Posting Type" <> "FA Posting Type"::" " then
-                AddError(StrSubstNo('%1 must not be specified.', FieldName("FA Posting Type")));
-            if "Depreciation Book Code" <> '' then
-                AddError(StrSubstNo('%1 must not be specified.', FieldName("Depreciation Book Code")));
-        end;
+        if GenJnlLine."FA Posting Type" <> GenJnlLine."FA Posting Type"::" " then
+            AddError(StrSubstNo('%1 must not be specified.', GenJnlLine.FieldName("FA Posting Type")));
+        if GenJnlLine."Depreciation Book Code" <> '' then
+            AddError(StrSubstNo('%1 must not be specified.', GenJnlLine.FieldName("Depreciation Book Code")));
     end;
 
     [Scope('OnPrem')]

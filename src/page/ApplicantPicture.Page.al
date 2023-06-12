@@ -7,7 +7,7 @@ page 50024 "Applicant Picture"
     {
         area(content)
         {
-            field(Picture; Picture)
+            field(Picture; Rec.Picture)
             {
                 ApplicationArea = All;
             }
@@ -59,8 +59,8 @@ page 50024 "Applicant Picture"
                     trigger OnAction()
                     begin
                         if Picture.HasValue then
-                            if Confirm('Do you want to delete the picture of %1 %2?', false, TableName, "No.") then begin
-                                Clear(Picture);
+                            if Confirm('Do you want to delete the picture of %1 %2?', false, Rec.TableName, Rec."No.") then begin
+                                Clear(Rec.Picture);
                                 CurrPage.SaveRecord;
                             end;
                     end;

@@ -21,25 +21,25 @@ page 50067 "Sales Packing Sheet"
             repeater(Control1)
             {
                 ShowCaption = false;
-                field(Date; Date)
+                field(Date; Rec.Date)
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field(Quantity; Quantity)
+                field(Quantity; Rec.Quantity)
                 {
                     ApplicationArea = All;
                 }
-                field(Comment; Comment)
+                field(Comment; Rec.Comment)
                 {
                     ApplicationArea = All;
                 }
-                field("Code"; Code)
+                field("Code"; Rec.Code)
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field(Weight; Weight)
+                field(Weight; Rec.Weight)
                 {
                     ApplicationArea = All;
                 }
@@ -63,7 +63,7 @@ page 50067 "Sales Packing Sheet"
 
                     trigger OnAction()
                     begin
-                        SetRange("No.", "No.");
+                        Rec.SetRange("No.", Rec."No.");
                     end;
                 }
             }
@@ -72,7 +72,7 @@ page 50067 "Sales Packing Sheet"
 
     trigger OnNewRecord(BelowxRec: Boolean)
     begin
-        SetUpNewLine;
+        Rec.SetUpNewLine;
     end;
 }
 

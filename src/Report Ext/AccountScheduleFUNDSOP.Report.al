@@ -578,30 +578,28 @@ report 50127 "Account Schedule FUNDS OP"
         HasRounding := false;
         NoOfCols := 0;
         AccSchedManagement.CopyColumnsToTemp(ColumnLayoutName, ColLayoutTmp);
-        with ColLayoutTmp do begin
-            i := 0;
-            if Find('-') then begin
-                repeat
-                    if Show <> Show::Never then begin
-                        i := i + 1;
-                        if i <= MaxColumnsDisplayed then begin
-                            Header[i] := "Column Header";
-                            RoundingHeader[i] := '';
-                            if "Rounding Factor" in ["Rounding Factor"::"1000", "Rounding Factor"::"1000000"] then begin
-                                HasRounding := true;
-                                case "Rounding Factor" of
-                                    "Rounding Factor"::"1000":
-                                        RoundingHeader[i] := Text000;
-                                    "Rounding Factor"::"1000000":
-                                        RoundingHeader[i] := Text001;
-                                end;
+        i := 0;
+        if ColLayoutTmp.Find('-') then begin
+            repeat
+                if ColLayoutTmp.Show <> ColLayoutTmp.Show::Never then begin
+                    i := i + 1;
+                    if i <= MaxColumnsDisplayed then begin
+                        Header[i] := ColLayoutTmp."Column Header";
+                        RoundingHeader[i] := '';
+                        if ColLayoutTmp."Rounding Factor" in [ColLayoutTmp."Rounding Factor"::"1000", ColLayoutTmp."Rounding Factor"::"1000000"] then begin
+                            HasRounding := true;
+                            case ColLayoutTmp."Rounding Factor" of
+                                ColLayoutTmp."Rounding Factor"::"1000":
+                                    RoundingHeader[i] := Text000;
+                                ColLayoutTmp."Rounding Factor"::"1000000":
+                                    RoundingHeader[i] := Text001;
                             end;
                         end;
                     end;
-                    NoOfCols := NoOfCols + 1;
-                until (i >= MaxColumnsDisplayed) or (Next = 0);
-                MaxColumnsDisplayed := i;
-            end;
+                end;
+                NoOfCols := NoOfCols + 1;
+            until (i >= MaxColumnsDisplayed) or (ColLayoutTmp.Next = 0);
+            MaxColumnsDisplayed := i;
         end;
     end;
 
@@ -617,28 +615,26 @@ report 50127 "Account Schedule FUNDS OP"
         NonZero: Boolean;
     begin
         NonZero := false;
-        with ColLayoutTmp do begin
-            SetRange("Column Layout Name", ColumnLayoutName);
-            i := 0;
-            if Find('-') then
-                repeat
-                    if ColLayoutTmp.Show <> ColLayoutTmp.Show::Never then begin
-                        i := i + 1;
-                        ColumnValuesDisplayed[i] :=
-                          AccSchedManagement.CalcCell("Acc. Schedule Line", ColLayoutTmp, UseAmtsInAddCurr);
-                        if AccSchedManagement.GetDivisionError then begin
-                            if ShowDivideError then
-                                ColumnValuesAsText[i] := Text002
-                            else
-                                ColumnValuesAsText[i] := '';
-                        end else begin
-                            NonZero := NonZero or (ColumnValuesDisplayed[i] <> 0);
-                            ColumnValuesAsText[i] :=
-                              AccSchedManagement.FormatCellAsText(ColLayoutTmp, ColumnValuesDisplayed[i], true);
-                        end;
+        ColLayoutTmp.SetRange("Column Layout Name", ColumnLayoutName);
+        i := 0;
+        if ColLayoutTmp.Find('-') then
+            repeat
+                if ColLayoutTmp.Show <> ColLayoutTmp.Show::Never then begin
+                    i := i + 1;
+                    ColumnValuesDisplayed[i] :=
+                      AccSchedManagement.CalcCell("Acc. Schedule Line", ColLayoutTmp, UseAmtsInAddCurr);
+                    if AccSchedManagement.GetDivisionError then begin
+                        if ShowDivideError then
+                            ColumnValuesAsText[i] := Text002
+                        else
+                            ColumnValuesAsText[i] := '';
+                    end else begin
+                        NonZero := NonZero or (ColumnValuesDisplayed[i] <> 0);
+                        ColumnValuesAsText[i] :=
+                          AccSchedManagement.FormatCellAsText(ColLayoutTmp, ColumnValuesDisplayed[i], true);
                     end;
-                until (i >= MaxColumnsDisplayed) or (Next = 0);
-        end;
+                end;
+            until (i >= MaxColumnsDisplayed) or (ColLayoutTmp.Next = 0);
         exit(NonZero);
     end;
 

@@ -3,7 +3,7 @@ codeunit 50039 "PayslipLines"
     trigger OnRun()
     begin
     end;
-    
+
 }
 
 //***Case

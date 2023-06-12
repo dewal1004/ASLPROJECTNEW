@@ -4,7 +4,7 @@ pageextension 50246 "pageextension50246" extends "Apply Customer Entries"
     {
         addafter("Global Dimension 2 Code")
         {
-            field("Loan ID"; "Loan ID")
+            field("Loan ID"; Rec."Loan ID")
             {
                 ApplicationArea = All;
             }

@@ -4,91 +4,91 @@ pageextension 50229 "pageextension50229" extends "Location List"
     {
         addafter("Code")
         {
-            field(AslName; Name)
+            field(AslName; Rec.Name)
             {
                 ApplicationArea = All;
             }
         }
         addafter(ASLName)
         {
-            field("Name 2"; "Name 2")
+            field("Name 2"; Rec."Name 2")
             {
                 Visible = false;
                 ApplicationArea = All;
             }
-            field(Address; Address)
+            field(Address; Rec.Address)
             {
                 ApplicationArea = All;
             }
-            field("Address 2"; "Address 2")
+            field("Address 2"; Rec."Address 2")
             {
                 ApplicationArea = All;
             }
-            field(City; City)
+            field(City; Rec.City)
             {
                 ApplicationArea = All;
             }
-            field("Phone No."; "Phone No.")
+            field("Phone No."; Rec."Phone No.")
             {
                 ApplicationArea = All;
             }
-            field("Phone No. 2"; "Phone No. 2")
+            field("Phone No. 2"; Rec."Phone No. 2")
             {
                 ApplicationArea = All;
             }
-            field("Telex No."; "Telex No.")
+            field("Telex No."; Rec."Telex No.")
             {
                 ApplicationArea = All;
             }
-            field("Fax No."; "Fax No.")
+            field("Fax No."; Rec."Fax No.")
             {
                 ApplicationArea = All;
             }
-            field(Contact; Contact)
+            field(Contact; Rec.Contact)
             {
                 ApplicationArea = All;
             }
-            field("Post Code"; "Post Code")
+            field("Post Code"; Rec."Post Code")
             {
                 ApplicationArea = All;
             }
-            field(County; County)
+            field(County; Rec.County)
             {
                 ApplicationArea = All;
             }
-            field("E-Mail"; "E-Mail")
+            field("E-Mail"; Rec."E-Mail")
             {
                 ApplicationArea = All;
             }
-            field("Home Page"; "Home Page")
+            field("Home Page"; Rec."Home Page")
             {
                 ApplicationArea = All;
             }
-            field("Country/Region Code"; "Country/Region Code")
+            field("Country/Region Code"; Rec."Country/Region Code")
             {
                 ApplicationArea = All;
             }
-            field("Use As In-Transit"; "Use As In-Transit")
+            field("Use As In-Transit"; Rec."Use As In-Transit")
             {
                 ApplicationArea = All;
             }
-            field("Require Put-away"; "Require Put-away")
+            field("Require Put-away"; Rec."Require Put-away")
             {
                 ApplicationArea = All;
             }
-            field("Require Pick"; "Require Pick")
+            field("Require Pick"; Rec."Require Pick")
             {
                 ApplicationArea = All;
             }
-            field("Cross-Dock Due Date Calc."; "Cross-Dock Due Date Calc.")
+            field("Cross-Dock Due Date Calc."; Rec."Cross-Dock Due Date Calc.")
             {
                 ApplicationArea = All;
             }
-            field("Use Cross-Docking"; "Use Cross-Docking")
+            field("Use Cross-Docking"; Rec."Use Cross-Docking")
             {
                 ApplicationArea = All;
             }
-            field("Require Receive"; "Require Receive")
+            field("Require Receive"; Rec."Require Receive")
             {
                 ApplicationArea = All;
             }
@@ -260,8 +260,8 @@ pageextension 50229 "pageextension50229" extends "Location List"
 
     trigger OnAfterGetRecord()
     begin
-        if JOB.Get(ASLCaptain) then
-            Captain := JOB."Person Responsible";
+        if JOB.Get(Rec.ASLCaptain) then
+            Rec.Captain := JOB."Person Responsible";
     end;
 }
 

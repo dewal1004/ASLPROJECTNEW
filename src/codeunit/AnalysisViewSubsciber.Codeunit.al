@@ -1,20 +1,20 @@
 codeunit 50014 "AnalysisViewSubsciber"
 {
-  EventSubscriberInstance = StaticAutomatic;
-  
-  [EventSubscriber(ObjectType::Codeunit, Codeunit::"Update Analysis View", 'OnFlushAnalysisViewEntryOnBeforeAnalysisViewEntryInsert', '', true, true)]
-  local procedure MyProcedure()
-  begin
-    
-  end;
-  
+    EventSubscriberInstance = StaticAutomatic;
+
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Update Analysis View", 'OnFlushAnalysisViewEntryOnBeforeAnalysisViewEntryInsert', '', true, true)]
+    local procedure MyProcedure()
+    begin
+
+    end;
+
 }
 
 
 
 // {  Pending
 //   OBJECT-PROPERTIES
-  
+
 //   PROPERTIES
 //   {
 //     Target="Update Analysis View"(Codeunit 410);
@@ -200,6 +200,6 @@ codeunit 50014 "AnalysisViewSubsciber"
 //                          Target=SetLastBudgetEntryNo(PROCEDURE 16) }
 //   }
 //   CODE
-  
+
 // }
 

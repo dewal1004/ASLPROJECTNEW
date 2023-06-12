@@ -11,11 +11,11 @@ page 50042 "Employee Training"
             group(General)
             {
                 Caption = 'General';
-                field("Courses Code"; "Courses Code")
+                field("Courses Code"; Rec."Courses Code")
                 {
                     ApplicationArea = All;
                 }
-                field("Training Group"; "Training Group")
+                field("Training Group"; Rec."Training Group")
                 {
                     ApplicationArea = All;
 
@@ -24,61 +24,61 @@ page 50042 "Employee Training"
                         EnableControls
                     end;
                 }
-                field("Course Type"; "Course Type")
+                field("Course Type"; Rec."Course Type")
                 {
                     Caption = 'Course Group';
                     ApplicationArea = All;
                 }
-                field("Course Name"; "Course Name")
+                field("Course Name"; Rec."Course Name")
                 {
                     Editable = false;
                     ApplicationArea = All;
                 }
-                field("Vendor Code"; "Vendor Code")
+                field("Vendor Code"; Rec."Vendor Code")
                 {
                     Enabled = "Vendor CodeEnable";
                     ApplicationArea = All;
 
                     trigger OnValidate()
                     begin
-                        if VendRec.Get("Vendor Code") then "Total CostEnable" := true;
+                        if VendRec.Get(Rec."Vendor Code") then "Total CostEnable" := true;
                     end;
                 }
-                field("Vendor name"; "Vendor name")
+                field("Vendor name"; Rec."Vendor name")
                 {
                     Editable = false;
                     Enabled = "Vendor nameEnable";
                     ApplicationArea = All;
                 }
-                field("Course Description"; "Course Description")
+                field("Course Description"; Rec."Course Description")
                 {
                     Caption = 'Course Description';
                     ApplicationArea = All;
                 }
-                field(Comment; Comment)
+                field(Comment; Rec.Comment)
                 {
                     Caption = 'HHR Comment';
                     ApplicationArea = All;
                 }
-                field("Course Start Date"; "Course Start Date")
+                field("Course Start Date"; Rec."Course Start Date")
                 {
                     ApplicationArea = All;
                 }
-                field(Time; Time)
+                field(Time; Rec.Time)
                 {
                     ApplicationArea = All;
                 }
-                field("Course Duration"; "Course Duration")
+                field("Course Duration"; Rec."Course Duration")
                 {
                     ApplicationArea = All;
                 }
-                field("Unit Cost"; "Unit Cost")
+                field("Unit Cost"; Rec."Unit Cost")
                 {
                     Caption = 'Unit Cost';
                     Editable = false;
                     ApplicationArea = All;
                 }
-                field("Total Cost"; "Total Cost")
+                field("Total Cost"; Rec."Total Cost")
                 {
                     Enabled = "Total CostEnable";
                     ApplicationArea = All;
@@ -137,7 +137,7 @@ page 50042 "Employee Training"
     [Scope('OnPrem')]
     procedure EnableControls()
     begin
-        if ("Training Group" = 0) or ("Training Group" = "Training Group"::"In-House") then begin
+        if (Rec."Training Group" = 0) or (Rec."Training Group" = Rec."Training Group"::"In-House") then begin
             "Vendor CodeEnable" := false;
             "Vendor nameEnable" := false;
         end

@@ -184,12 +184,10 @@ report 50102 "Customer/Item Sale"
     local procedure CalcProfitPct()
     begin
 
-        with "Value Entry" do begin
-            if "Sales Amount (Actual)" <> 0 then
-                ProfitPct := Round(100 * Profit / "Sales Amount (Actual)", 0.1)
-            else
-                ProfitPct := 0;
-        end;
+        if "Value Entry"."Sales Amount (Actual)" <> 0 then
+            ProfitPct := Round(100 * Profit / "Value Entry"."Sales Amount (Actual)", 0.1)
+        else
+            ProfitPct := 0;
     end;
 }
 

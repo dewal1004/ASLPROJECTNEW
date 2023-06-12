@@ -22,7 +22,7 @@
 //             field("Inventory Posting Group"; "Inventory Posting Group") {}
 //             field("Gen. Prod. Posting Group"; "Gen. Prod. Posting Group") {}
 //         }
-        
+
 //         addafter("Receipt Date")
 //         {
 //             field("Quantity (Base)"; "Quantity (Base)") {}

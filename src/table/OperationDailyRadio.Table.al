@@ -10,7 +10,7 @@ table 50039 "Operation Daily Radio"
         {
             Caption = 'Name';
             NotBlank = true;
-            TableRelation = Location WHERE ("Location Type" = CONST (Vessel));
+            TableRelation = Location WHERE("Location Type" = CONST(Vessel));
             //This property is currently not supported
             //TestTableRelation = false;
             ValidateTableRelation = false;
@@ -47,7 +47,7 @@ table 50039 "Operation Daily Radio"
             CaptionClass = '1,1,2';
             Caption = 'Global Dimension 2 Code';
             NotBlank = true;
-            TableRelation = "Dimension Value".Code WHERE ("Global Dimension No." = CONST (2));
+            TableRelation = "Dimension Value".Code WHERE("Global Dimension No." = CONST(2));
         }
         field(50320; "Fish Hold Temp"; Decimal)
         {

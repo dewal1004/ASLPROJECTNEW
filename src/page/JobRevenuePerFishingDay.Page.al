@@ -11,19 +11,19 @@ page 89345 "Job Revenue Per Fishing Day"
             repeater(Control1)
             {
                 ShowCaption = false;
-                field("No."; "No.")
+                field("No."; Rec."No.")
                 {
                     ApplicationArea = All;
                 }
-                field("Ending Date"; "Ending Date")
+                field("Ending Date"; Rec."Ending Date")
                 {
                     ApplicationArea = All;
                 }
-                field(Vessel; Vessel)
+                field(Vessel; Rec.Vessel)
                 {
                     ApplicationArea = All;
                 }
-                field("Revenue per Sea Day"; "Revenue per Sea Day")
+                field("Revenue per Sea Day"; Rec."Revenue per Sea Day")
                 {
                     ApplicationArea = All;
                 }

@@ -17,8 +17,8 @@ tableextension 50216 "tableextension50216" extends "Purch. Cr. Memo Hdr."
         }
         field(50001; Overhead; Decimal)
         {
-            CalcFormula = Sum ("G/L Entry".Amount WHERE ("External Document No." = FIELD ("No."),
-                                                        "G/L Account No." = FILTER ('2185')));
+            CalcFormula = Sum("G/L Entry".Amount WHERE("External Document No." = FIELD("No."),
+                                                        "G/L Account No." = FILTER('2185')));
             Description = 'BPR1.00,LC';
             FieldClass = FlowField;
         }
@@ -37,9 +37,9 @@ tableextension 50216 "tableextension50216" extends "Purch. Cr. Memo Hdr."
         }
         field(50012; "Total Amount Item to Receive"; Decimal)
         {
-            CalcFormula = Sum ("Purchase Line"."QtytoReceiveAmount(LCY)" WHERE ("Document No." = FIELD ("No."),
-                                                                               Type = FILTER (<> " " & <> "G/L Account"),
-                                                                               "Outstanding Quantity" = FILTER (<> 0)));
+            CalcFormula = Sum("Purchase Line"."QtytoReceiveAmount(LCY)" WHERE("Document No." = FIELD("No."),
+                                                                               Type = FILTER(<> " " & <> "G/L Account"),
+                                                                               "Outstanding Quantity" = FILTER(<> 0)));
             Description = 'BPR1.00,LC';
             FieldClass = FlowField;
         }

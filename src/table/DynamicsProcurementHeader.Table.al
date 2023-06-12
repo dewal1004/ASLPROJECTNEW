@@ -271,15 +271,13 @@ Confirm('You have not approved all item in this Requision Continue to Approve', 
     var
         DPSRec: Record "Dynamics Procurement Header";
     begin
-        with DPSRec do begin
-            DPSRec := Rec;
-            InveSetup.Get;
-            InveSetup.TestField(InveSetup."DPS No. Series");
-            if NoSeriesMgt.SelectSeries(InveSetup."DPS No. Series", OldDPS."No. Series", "No. Series") then begin
-                NoSeriesMgt.SetSeries("DPS No.");
-                Rec := DPSRec;
-                exit(true);
-            end;
+        DPSRec := Rec;
+        InveSetup.Get;
+        InveSetup.TestField(InveSetup."DPS No. Series");
+        if NoSeriesMgt.SelectSeries(InveSetup."DPS No. Series", OldDPS."No. Series", DPSRec."No. Series") then begin
+            NoSeriesMgt.SetSeries(DPSRec."DPS No.");
+            Rec := DPSRec;
+            exit(true);
         end;
     end;
 

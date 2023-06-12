@@ -28,13 +28,13 @@ tableextension 50270 "Sales Line Ext" extends "Sales Line"
         //Unsupported feature: Property Modification (Data type) on ""Description 2"(Field 12)".
 
 
-          //Unsupported feature: Property Insertion (Editable) on ""Unit Price"(Field 22)".
+        //Unsupported feature: Property Insertion (Editable) on ""Unit Price"(Field 22)".
 
 
-          //Unsupported feature: Property Insertion (Enabled) on ""Substitution Available"(Field 5702)".
+        //Unsupported feature: Property Insertion (Enabled) on ""Substitution Available"(Field 5702)".
 
 
-          //Unsupported feature: Property Insertion (Enabled) on ""Qty. to Assign"(Field 5801)".
+        //Unsupported feature: Property Insertion (Enabled) on ""Qty. to Assign"(Field 5801)".
 
 
         //Unsupported feature: Property Insertion (Enabled) on ""Qty. Assigned"(Field 5802)".
@@ -1394,7 +1394,7 @@ tableextension 50270 "Sales Line Ext" extends "Sales Line"
             exit("Shipment Date");
 
         IsHandled := false;
-      //***OnCalcShipmentDateOnPlannedShipmentDate(Rec, ShipmentDate, IsHandled);
+        //***OnCalcShipmentDateOnPlannedShipmentDate(Rec, ShipmentDate, IsHandled);
         if IsHandled then
             exit(ShipmentDate);
 
@@ -1466,7 +1466,7 @@ tableextension 50270 "Sales Line Ext" extends "Sales Line"
         ItemAvailByDate: Page "Item Availability by Periods";
         ItemAvailByVar: Page "Item Availability by Variant";
         ItemAvailByLoc: Page "Item Availability by Location";
-       // "............": ;
+        // "............": ;
         Text012: Label 'Change %1 from %2 to %3?';
         userrec: Record "User Setup";
         Customerrec: Record Customer;

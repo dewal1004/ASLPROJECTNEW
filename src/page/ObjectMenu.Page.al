@@ -12,51 +12,51 @@ page 83921 "Object Menu"
             repeater(Control1)
             {
                 ShowCaption = false;
-                field(Type; Type)
+                field(Type; Rec.Type)
                 {
                     ApplicationArea = All;
                 }
-                field("Company Name"; "Company Name")
+                field("Company Name"; Rec."Company Name")
                 {
                     ApplicationArea = All;
                 }
-                field(ID; ID)
+                field(ID; Rec.ID)
                 {
                     ApplicationArea = All;
                 }
-                field(Name; Name)
+                field(Name; Rec.Name)
                 {
                     ApplicationArea = All;
                 }
-                field(Modified; Modified)
+                field(Modified; Rec.Modified)
                 {
                     ApplicationArea = All;
                 }
-                field(Compiled; Compiled)
+                field(Compiled; Rec.Compiled)
                 {
                     ApplicationArea = All;
                 }
-                field("BLOB Reference"; "BLOB Reference")
+                field("BLOB Reference"; Rec."BLOB Reference")
                 {
                     ApplicationArea = All;
                 }
-                field("BLOB Size"; "BLOB Size")
+                field("BLOB Size"; Rec."BLOB Size")
                 {
                     ApplicationArea = All;
                 }
-                field("DBM Table No."; "DBM Table No.")
+                field("DBM Table No."; Rec."DBM Table No.")
                 {
                     ApplicationArea = All;
                 }
-                field(Date; Date)
+                field(Date; Rec.Date)
                 {
                     ApplicationArea = All;
                 }
-                field(Time; Time)
+                field(Time; Rec.Time)
                 {
                     ApplicationArea = All;
                 }
-                field("Version List"; "Version List")
+                field("Version List"; Rec."Version List")
                 {
                     ApplicationArea = All;
                 }

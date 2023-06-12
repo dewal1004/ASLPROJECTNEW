@@ -1804,95 +1804,93 @@ report 50202 "!Sales Document - Test"
         PostedDocDim: Record "Dimension Set Entry";
         TempPostedDimSetEntry: Record "Dimension Set Entry" temporary;
     begin
-        with SalesLine2 do begin
-            if Abs(RemQtyToBeInvoiced) > Abs("Qty. to Ship") then begin
-                SaleShptLine.Reset;
-                case "Document Type" of
-                    "Document Type"::Order:
-                        begin
-                            SaleShptLine.SetCurrentKey("Order No.", "Order Line No.");
-                            SaleShptLine.SetRange("Order No.", "Document No.");
-                            SaleShptLine.SetRange("Order Line No.", "Line No.");
-                        end;
-                    "Document Type"::Invoice:
-                        begin
-                            SaleShptLine.SetRange("Document No.", "Shipment No.");
-                            SaleShptLine.SetRange("Line No.", "Shipment Line No.");
-                        end;
-                end;
-
-                SaleShptLine.SetFilter("Qty. Shipped Not Invoiced", '<>0');
-                if SaleShptLine.Find('-') then
-                    repeat
-                        DimMgt.GetDimensionSet(TempPostedDimSetEntry, SaleShptLine."Dimension Set ID");
-                        if not DimMgt.CheckDimIDConsistency(
-                             TempDimSetEntry, TempPostedDimSetEntry, DATABASE::"Sales Line", DATABASE::"Sales Shipment Line")
-                        then
-                            AddError(DimMgt.GetDocDimConsistencyErr);
-                        if SaleShptLine."Sell-to Customer No." <> "Sell-to Customer No." then
-                            AddError(
-                              StrSubstNo(
-                                Text024,
-                                FieldCaption("Sell-to Customer No.")));
-                        if SaleShptLine.Type <> Type then
-                            AddError(
-                              StrSubstNo(
-                                Text024,
-                                FieldCaption(Type)));
-                        if SaleShptLine."No." <> "No." then
-                            AddError(
-                              StrSubstNo(
-                                Text024,
-                                FieldCaption("No.")));
-                        if SaleShptLine."Gen. Bus. Posting Group" <> "Gen. Bus. Posting Group" then
-                            AddError(
-                              StrSubstNo(
-                                Text024,
-                                FieldCaption("Gen. Bus. Posting Group")));
-                        if SaleShptLine."Gen. Prod. Posting Group" <> "Gen. Prod. Posting Group" then
-                            AddError(
-                              StrSubstNo(
-                                Text024,
-                                FieldCaption("Gen. Prod. Posting Group")));
-                        if SaleShptLine."Location Code" <> "Location Code" then
-                            AddError(
-                              StrSubstNo(
-                                Text024,
-                                FieldCaption("Location Code")));
-                        if SaleShptLine."Job No." <> "Job No." then
-                            AddError(
-                              StrSubstNo(
-                                Text024,
-                                FieldCaption("Job No.")));
-
-                        if -SalesLine."Qty. to Invoice" * SaleShptLine.Quantity < 0 then
-                            AddError(
-                              StrSubstNo(
-                                Text027, FieldCaption("Qty. to Invoice")));
-
-                        QtyToBeInvoiced := RemQtyToBeInvoiced - SalesLine."Qty. to Ship";
-                        if Abs(QtyToBeInvoiced) > Abs(SaleShptLine.Quantity - SaleShptLine."Quantity Invoiced") then
-                            QtyToBeInvoiced := -(SaleShptLine.Quantity - SaleShptLine."Quantity Invoiced");
-                        RemQtyToBeInvoiced := RemQtyToBeInvoiced - QtyToBeInvoiced;
-                        SaleShptLine."Quantity Invoiced" := SaleShptLine."Quantity Invoiced" - QtyToBeInvoiced;
-                        SaleShptLine."Qty. Shipped Not Invoiced" :=
-                          SaleShptLine.Quantity - SaleShptLine."Quantity Invoiced"
-                    until (SaleShptLine.Next = 0) or (Abs(RemQtyToBeInvoiced) <= Abs("Qty. to Ship"))
-                else
-                    AddError(
-                      StrSubstNo(
-                        Text026,
-                        "Shipment Line No.",
-                        "Shipment No."));
+        if Abs(RemQtyToBeInvoiced) > Abs(SalesLine2."Qty. to Ship") then begin
+            SaleShptLine.Reset;
+            case SalesLine2."Document Type" of
+                SalesLine2."Document Type"::Order:
+                    begin
+                        SaleShptLine.SetCurrentKey("Order No.", "Order Line No.");
+                        SaleShptLine.SetRange("Order No.", SalesLine2."Document No.");
+                        SaleShptLine.SetRange("Order Line No.", SalesLine2."Line No.");
+                    end;
+                SalesLine2."Document Type"::Invoice:
+                    begin
+                        SaleShptLine.SetRange("Document No.", SalesLine2."Shipment No.");
+                        SaleShptLine.SetRange("Line No.", SalesLine2."Shipment Line No.");
+                    end;
             end;
 
-            if Abs(RemQtyToBeInvoiced) > Abs("Qty. to Ship") then
-                if "Document Type" = "Document Type"::Invoice then
-                    AddError(
-                      StrSubstNo(
-                        Text036,
-                        "Shipment No."));
+            SaleShptLine.SetFilter("Qty. Shipped Not Invoiced", '<>0');
+            if SaleShptLine.Find('-') then
+                repeat
+                    DimMgt.GetDimensionSet(TempPostedDimSetEntry, SaleShptLine."Dimension Set ID");
+                    if not DimMgt.CheckDimIDConsistency(
+                         TempDimSetEntry, TempPostedDimSetEntry, DATABASE::"Sales Line", DATABASE::"Sales Shipment Line")
+                    then
+                        AddError(DimMgt.GetDocDimConsistencyErr);
+                    if SaleShptLine."Sell-to Customer No." <> SalesLine2."Sell-to Customer No." then
+                        AddError(
+                          StrSubstNo(
+                            Text024,
+                            SalesLine2.FieldCaption("Sell-to Customer No.")));
+                    if SaleShptLine.Type <> SalesLine2.Type then
+                        AddError(
+                          StrSubstNo(
+                            Text024,
+                            SalesLine2.FieldCaption(Type)));
+                    if SaleShptLine."No." <> SalesLine2."No." then
+                        AddError(
+                          StrSubstNo(
+                            Text024,
+                            SalesLine2.FieldCaption("No.")));
+                    if SaleShptLine."Gen. Bus. Posting Group" <> SalesLine2."Gen. Bus. Posting Group" then
+                        AddError(
+                          StrSubstNo(
+                            Text024,
+                            SalesLine2.FieldCaption("Gen. Bus. Posting Group")));
+                    if SaleShptLine."Gen. Prod. Posting Group" <> SalesLine2."Gen. Prod. Posting Group" then
+                        AddError(
+                          StrSubstNo(
+                            Text024,
+                            SalesLine2.FieldCaption("Gen. Prod. Posting Group")));
+                    if SaleShptLine."Location Code" <> SalesLine2."Location Code" then
+                        AddError(
+                          StrSubstNo(
+                            Text024,
+                            SalesLine2.FieldCaption("Location Code")));
+                    if SaleShptLine."Job No." <> SalesLine2."Job No." then
+                        AddError(
+                          StrSubstNo(
+                            Text024,
+                            SalesLine2.FieldCaption("Job No.")));
+
+                    if -SalesLine."Qty. to Invoice" * SaleShptLine.Quantity < 0 then
+                        AddError(
+                          StrSubstNo(
+                            Text027, SalesLine2.FieldCaption("Qty. to Invoice")));
+
+                    QtyToBeInvoiced := RemQtyToBeInvoiced - SalesLine."Qty. to Ship";
+                    if Abs(QtyToBeInvoiced) > Abs(SaleShptLine.Quantity - SaleShptLine."Quantity Invoiced") then
+                        QtyToBeInvoiced := -(SaleShptLine.Quantity - SaleShptLine."Quantity Invoiced");
+                    RemQtyToBeInvoiced := RemQtyToBeInvoiced - QtyToBeInvoiced;
+                    SaleShptLine."Quantity Invoiced" := SaleShptLine."Quantity Invoiced" - QtyToBeInvoiced;
+                    SaleShptLine."Qty. Shipped Not Invoiced" :=
+                      SaleShptLine.Quantity - SaleShptLine."Quantity Invoiced"
+                until (SaleShptLine.Next = 0) or (Abs(RemQtyToBeInvoiced) <= Abs(SalesLine2."Qty. to Ship"))
+            else
+                AddError(
+                  StrSubstNo(
+                    Text026,
+                    SalesLine2."Shipment Line No.",
+                    SalesLine2."Shipment No."));
         end;
+
+        if Abs(RemQtyToBeInvoiced) > Abs(SalesLine2."Qty. to Ship") then
+            if SalesLine2."Document Type" = SalesLine2."Document Type"::Invoice then
+                AddError(
+                  StrSubstNo(
+                    Text036,
+                    SalesLine2."Shipment No."));
     end;
 
     local procedure CheckRcptLines(SalesLine: Record "Sales Line"; SalesLine2: Record "Sales Line")
@@ -1901,94 +1899,92 @@ report 50202 "!Sales Document - Test"
         TempPostedDocDim: Record "Dimension Set Entry" temporary;
         TempPostedDimSetEntry: Record "Dimension Set Entry";
     begin
-        with SalesLine2 do begin
-            if Abs(RemQtyToBeInvoiced) > Abs("Return Qty. to Receive") then begin
-                ReturnRcptLine.Reset;
-                case "Document Type" of
-                    "Document Type"::"Return Order":
-                        begin
-                            ReturnRcptLine.SetCurrentKey("Return Order No.", "Return Order Line No.");
-                            ReturnRcptLine.SetRange("Return Order No.", "Document No.");
-                            ReturnRcptLine.SetRange("Return Order Line No.", "Line No.");
-                        end;
-                    "Document Type"::"Credit Memo":
-                        begin
-                            ReturnRcptLine.SetRange("Document No.", "Return Receipt No.");
-                            ReturnRcptLine.SetRange("Line No.", "Return Receipt Line No.");
-                        end;
-                end;
-
-                ReturnRcptLine.SetFilter("Return Qty. Rcd. Not Invd.", '<>0');
-                if ReturnRcptLine.Find('-') then
-                    repeat
-                        DimMgt.GetDimensionSet(TempPostedDimSetEntry, ReturnRcptLine."Dimension Set ID");
-                        if not DimMgt.CheckDimIDConsistency(
-                             TempDimSetEntry, TempPostedDimSetEntry, DATABASE::"Sales Line", DATABASE::"Return Receipt Line")
-                        then
-                            AddError(DimMgt.GetDocDimConsistencyErr);
-                        if ReturnRcptLine."Sell-to Customer No." <> "Sell-to Customer No." then
-                            AddError(
-                              StrSubstNo(
-                                Text038,
-                                FieldCaption("Sell-to Customer No.")));
-                        if ReturnRcptLine.Type <> Type then
-                            AddError(
-                              StrSubstNo(
-                                Text038,
-                                FieldCaption(Type)));
-                        if ReturnRcptLine."No." <> "No." then
-                            AddError(
-                              StrSubstNo(
-                                Text038,
-                                FieldCaption("No.")));
-                        if ReturnRcptLine."Gen. Bus. Posting Group" <> "Gen. Bus. Posting Group" then
-                            AddError(
-                              StrSubstNo(
-                                Text038,
-                                FieldCaption("Gen. Bus. Posting Group")));
-                        if ReturnRcptLine."Gen. Prod. Posting Group" <> "Gen. Prod. Posting Group" then
-                            AddError(
-                              StrSubstNo(
-                                Text038,
-                                FieldCaption("Gen. Prod. Posting Group")));
-                        if ReturnRcptLine."Location Code" <> "Location Code" then
-                            AddError(
-                              StrSubstNo(
-                                Text038,
-                                FieldCaption("Location Code")));
-                        if ReturnRcptLine."Job No." <> "Job No." then
-                            AddError(
-                              StrSubstNo(
-                                Text038,
-                                FieldCaption("Job No.")));
-
-                        if SalesLine."Qty. to Invoice" * ReturnRcptLine.Quantity < 0 then
-                            AddError(
-                              StrSubstNo(
-                                Text039, FieldCaption("Qty. to Invoice")));
-                        QtyToBeInvoiced := RemQtyToBeInvoiced - SalesLine."Return Qty. to Receive";
-                        if Abs(QtyToBeInvoiced) > Abs(ReturnRcptLine.Quantity - ReturnRcptLine."Quantity Invoiced") then
-                            QtyToBeInvoiced := ReturnRcptLine.Quantity - ReturnRcptLine."Quantity Invoiced";
-                        RemQtyToBeInvoiced := RemQtyToBeInvoiced - QtyToBeInvoiced;
-                        ReturnRcptLine."Quantity Invoiced" := ReturnRcptLine."Quantity Invoiced" + QtyToBeInvoiced;
-                        ReturnRcptLine."Return Qty. Rcd. Not Invd." :=
-                          ReturnRcptLine.Quantity - ReturnRcptLine."Quantity Invoiced";
-                    until (ReturnRcptLine.Next = 0) or (Abs(RemQtyToBeInvoiced) <= Abs("Return Qty. to Receive"))
-                else
-                    AddError(
-                      StrSubstNo(
-                        Text025,
-                        "Return Receipt Line No.",
-                        "Return Receipt No."));
+        if Abs(RemQtyToBeInvoiced) > Abs(SalesLine2."Return Qty. to Receive") then begin
+            ReturnRcptLine.Reset;
+            case SalesLine2."Document Type" of
+                SalesLine2."Document Type"::"Return Order":
+                    begin
+                        ReturnRcptLine.SetCurrentKey("Return Order No.", "Return Order Line No.");
+                        ReturnRcptLine.SetRange("Return Order No.", SalesLine2."Document No.");
+                        ReturnRcptLine.SetRange("Return Order Line No.", SalesLine2."Line No.");
+                    end;
+                SalesLine2."Document Type"::"Credit Memo":
+                    begin
+                        ReturnRcptLine.SetRange("Document No.", SalesLine2."Return Receipt No.");
+                        ReturnRcptLine.SetRange("Line No.", SalesLine2."Return Receipt Line No.");
+                    end;
             end;
 
-            if Abs(RemQtyToBeInvoiced) > Abs("Return Qty. to Receive") then
-                if "Document Type" = "Document Type"::"Credit Memo" then
-                    AddError(
-                      StrSubstNo(
-                        Text037,
-                        "Return Receipt No."));
+            ReturnRcptLine.SetFilter("Return Qty. Rcd. Not Invd.", '<>0');
+            if ReturnRcptLine.Find('-') then
+                repeat
+                    DimMgt.GetDimensionSet(TempPostedDimSetEntry, ReturnRcptLine."Dimension Set ID");
+                    if not DimMgt.CheckDimIDConsistency(
+                         TempDimSetEntry, TempPostedDimSetEntry, DATABASE::"Sales Line", DATABASE::"Return Receipt Line")
+                    then
+                        AddError(DimMgt.GetDocDimConsistencyErr);
+                    if ReturnRcptLine."Sell-to Customer No." <> SalesLine2."Sell-to Customer No." then
+                        AddError(
+                          StrSubstNo(
+                            Text038,
+                            SalesLine2.FieldCaption("Sell-to Customer No.")));
+                    if ReturnRcptLine.Type <> SalesLine2.Type then
+                        AddError(
+                          StrSubstNo(
+                            Text038,
+                            SalesLine2.FieldCaption(Type)));
+                    if ReturnRcptLine."No." <> SalesLine2."No." then
+                        AddError(
+                          StrSubstNo(
+                            Text038,
+                            SalesLine2.FieldCaption("No.")));
+                    if ReturnRcptLine."Gen. Bus. Posting Group" <> SalesLine2."Gen. Bus. Posting Group" then
+                        AddError(
+                          StrSubstNo(
+                            Text038,
+                            SalesLine2.FieldCaption("Gen. Bus. Posting Group")));
+                    if ReturnRcptLine."Gen. Prod. Posting Group" <> SalesLine2."Gen. Prod. Posting Group" then
+                        AddError(
+                          StrSubstNo(
+                            Text038,
+                            SalesLine2.FieldCaption("Gen. Prod. Posting Group")));
+                    if ReturnRcptLine."Location Code" <> SalesLine2."Location Code" then
+                        AddError(
+                          StrSubstNo(
+                            Text038,
+                            SalesLine2.FieldCaption("Location Code")));
+                    if ReturnRcptLine."Job No." <> SalesLine2."Job No." then
+                        AddError(
+                          StrSubstNo(
+                            Text038,
+                            SalesLine2.FieldCaption("Job No.")));
+
+                    if SalesLine."Qty. to Invoice" * ReturnRcptLine.Quantity < 0 then
+                        AddError(
+                          StrSubstNo(
+                            Text039, SalesLine2.FieldCaption("Qty. to Invoice")));
+                    QtyToBeInvoiced := RemQtyToBeInvoiced - SalesLine."Return Qty. to Receive";
+                    if Abs(QtyToBeInvoiced) > Abs(ReturnRcptLine.Quantity - ReturnRcptLine."Quantity Invoiced") then
+                        QtyToBeInvoiced := ReturnRcptLine.Quantity - ReturnRcptLine."Quantity Invoiced";
+                    RemQtyToBeInvoiced := RemQtyToBeInvoiced - QtyToBeInvoiced;
+                    ReturnRcptLine."Quantity Invoiced" := ReturnRcptLine."Quantity Invoiced" + QtyToBeInvoiced;
+                    ReturnRcptLine."Return Qty. Rcd. Not Invd." :=
+                      ReturnRcptLine.Quantity - ReturnRcptLine."Quantity Invoiced";
+                until (ReturnRcptLine.Next = 0) or (Abs(RemQtyToBeInvoiced) <= Abs(SalesLine2."Return Qty. to Receive"))
+            else
+                AddError(
+                  StrSubstNo(
+                    Text025,
+                    SalesLine2."Return Receipt Line No.",
+                    SalesLine2."Return Receipt No."));
         end;
+
+        if Abs(RemQtyToBeInvoiced) > Abs(SalesLine2."Return Qty. to Receive") then
+            if SalesLine2."Document Type" = SalesLine2."Document Type"::"Credit Memo" then
+                AddError(
+                  StrSubstNo(
+                    Text037,
+                    SalesLine2."Return Receipt No."));
     end;
 }
 

@@ -10,64 +10,64 @@ page 50019 "Loan Card."
             group(General)
             {
                 Caption = 'General';
-                field("Loan ID"; "Loan ID")
+                field("Loan ID"; Rec."Loan ID")
                 {
                     ApplicationArea = All;
 
                     trigger OnAssistEdit()
                     begin
 
-                        if AssistEdit(xRec) then
+                        if Rec.AssistEdit(xRec) then
                             CurrPage.Update;
                     end;
                 }
-                field("Staff No."; "Staff No.")
+                field("Staff No."; Rec."Staff No.")
                 {
                     ApplicationArea = All;
                 }
-                field("Staff Name"; "Staff Name")
-                {
-                    Editable = false;
-                    ApplicationArea = All;
-                }
-                field("Job Title"; "Job Title")
+                field("Staff Name"; Rec."Staff Name")
                 {
                     Editable = false;
                     ApplicationArea = All;
                 }
-                field(Department; Department)
+                field("Job Title"; Rec."Job Title")
                 {
                     Editable = false;
                     ApplicationArea = All;
                 }
-                field(EmployeeGrp; EmployeeGrp)
+                field(Department; Rec.Department)
+                {
+                    Editable = false;
+                    ApplicationArea = All;
+                }
+                field(EmployeeGrp; Rec.EmployeeGrp)
                 {
                     Caption = 'Employee Grade/Step';
                     Editable = false;
                     ApplicationArea = All;
                 }
-                field("Emp. Status"; "Emp. Status")
+                field("Emp. Status"; Rec."Emp. Status")
                 {
                     Editable = false;
                     ApplicationArea = All;
                 }
-                field("Loan Type"; "Loan Type")
+                field("Loan Type"; Rec."Loan Type")
                 {
                     ApplicationArea = All;
                 }
-                field(Description; Description)
+                field(Description; Rec.Description)
                 {
                     ApplicationArea = All;
                 }
-                field("Loan ED"; "Loan ED")
+                field("Loan ED"; Rec."Loan ED")
                 {
                     ApplicationArea = All;
                 }
-                field("Journal Batch"; "Journal Batch")
+                field("Journal Batch"; Rec."Journal Batch")
                 {
                     ApplicationArea = All;
                 }
-                field("Loan Created"; "Loan Created")
+                field("Loan Created"; Rec."Loan Created")
                 {
                     Editable = true;
                     ApplicationArea = All;
@@ -76,11 +76,11 @@ page 50019 "Loan Card."
             group(Booking)
             {
                 Caption = 'Booking';
-                field("Acct. Type"; "Acct. Type")
+                field("Acct. Type"; Rec."Acct. Type")
                 {
                     ApplicationArea = All;
                 }
-                field("Acct. No."; "Acct. No.")
+                field("Acct. No."; Rec."Acct. No.")
                 {
                     TableRelation = IF ("Acct. Type" = CONST(Finance)) "G/L Account"
                     ELSE
@@ -89,19 +89,19 @@ page 50019 "Loan Card."
                     IF ("Acct. Type" = CONST(Supplier)) Vendor;
                     ApplicationArea = All;
                 }
-                field("Posting Date for Loan"; "Posting Date for Loan")
+                field("Posting Date for Loan"; Rec."Posting Date for Loan")
                 {
                     ApplicationArea = All;
                 }
-                field("Voucher No. for Loan"; "Voucher No. for Loan")
+                field("Voucher No. for Loan"; Rec."Voucher No. for Loan")
                 {
                     ApplicationArea = All;
                 }
-                field("Counter Acct. Type"; "Counter Acct. Type")
+                field("Counter Acct. Type"; Rec."Counter Acct. Type")
                 {
                     ApplicationArea = All;
                 }
-                field("Counter Acct. No."; "Counter Acct. No.")
+                field("Counter Acct. No."; Rec."Counter Acct. No.")
                 {
                     Editable = false;
                     ApplicationArea = All;
@@ -110,19 +110,19 @@ page 50019 "Loan Card."
             group(Status)
             {
                 Caption = 'Status';
-                field("Loan Amount"; "Loan Amount")
+                field("Loan Amount"; Rec."Loan Amount")
                 {
                     ApplicationArea = All;
                 }
-                field("Number of Payments"; "Number of Payments")
+                field("Number of Payments"; Rec."Number of Payments")
                 {
                     ApplicationArea = All;
                 }
-                field("Interest Percent"; "Interest Percent")
+                field("Interest Percent"; Rec."Interest Percent")
                 {
                     ApplicationArea = All;
                 }
-                field(LPlusInt; LPlusInt)
+                field(LPlusInt; Rec.LPlusInt)
                 {
                     Caption = 'Loan Plus Interest';
                     Editable = false;
@@ -130,38 +130,38 @@ page 50019 "Loan Card."
                     StyleExpr = TRUE;
                     ApplicationArea = All;
                 }
-                field("Monthly Repayment"; "Monthly Repayment")
+                field("Monthly Repayment"; Rec."Monthly Repayment")
                 {
                     Style = Standard;
                     StyleExpr = TRUE;
                     ApplicationArea = All;
                 }
-                field("Remaining Amount"; "Remaining Amount")
+                field("Remaining Amount"; Rec."Remaining Amount")
                 {
                     Style = Standard;
                     StyleExpr = TRUE;
                     ApplicationArea = All;
                 }
-                field("AnnualBasic(1/2)"; "AnnualBasic(1/2)")
+                field("AnnualBasic(1/2)"; Rec."AnnualBasic(1/2)")
                 {
                     Editable = false;
                     Style = StrongAccent;
                     StyleExpr = TRUE;
                     ApplicationArea = All;
                 }
-                field("Start Period"; "Start Period")
+                field("Start Period"; Rec."Start Period")
                 {
                     ApplicationArea = All;
                 }
-                field("Open(Y/N)"; "Open(Y/N)")
+                field("Open(Y/N)"; Rec."Open(Y/N)")
                 {
                     ApplicationArea = All;
                 }
-                field("Suspended(Y/N)"; "Suspended(Y/N)")
+                field("Suspended(Y/N)"; Rec."Suspended(Y/N)")
                 {
                     ApplicationArea = All;
                 }
-                field("MD. Approved"; "MD. Approved")
+                field("MD. Approved"; Rec."MD. Approved")
                 {
                     ApplicationArea = All;
                 }
@@ -186,7 +186,7 @@ page 50019 "Loan Card."
 
                     trigger OnAction()
                     begin
-                        employee.SetRange("No.", "Staff No.");
+                        employee.SetRange("No.", Rec."Staff No.");
                         REPORT.Run(REPORT::"Update RM data  Correction", false, false, employee);
                     end;
                 }
@@ -203,7 +203,7 @@ page 50019 "Loan Card."
 
                 trigger OnAction()
                 begin
-                    InserGlLine;
+                    Rec.InserGlLine;
                     Message('Job Completed!');
                 end;
             }

@@ -26,34 +26,34 @@ pageextension 50259 "Item Card Ext" extends "Item Card"
 
         addafter("Item Category Code")
         {
-            field("Last Imported Cost"; "Last Imported Cost")
+            field("Last Imported Cost"; Rec."Last Imported Cost")
             {
                 ApplicationArea = All;
             }
         }
         addafter("Unit Price")
         {
-            field("Foreign Posting Group"; "Foreign Posting Group")
+            field("Foreign Posting Group"; Rec."Foreign Posting Group")
             {
                 ApplicationArea = Basic, Suite;
                 Importance = Additional;
             }
-            field("Local Posting Group"; "Local Posting Group")
+            field("Local Posting Group"; Rec."Local Posting Group")
             {
                 ApplicationArea = Basic, Suite;
                 Importance = Additional;
             }
-            field("Last Purchase Cost"; "Last Purchase Cost")
+            field("Last Purchase Cost"; Rec."Last Purchase Cost")
             {
                 ApplicationArea = Basic, Suite;
                 Importance = Additional;
             }
-            field("Last Local Cost"; "Last Local Cost")
+            field("Last Local Cost"; Rec."Last Local Cost")
             {
                 ApplicationArea = Basic, Suite;
                 Importance = Additional;
             }
-            field("Last Direct Cost2"; "Last Direct Cost2")
+            field("Last Direct Cost2"; Rec."Last Direct Cost2")
             {
                 ApplicationArea = Basic, Suite;
                 Importance = Additional;
@@ -62,16 +62,16 @@ pageextension 50259 "Item Card Ext" extends "Item Card"
 
         addafter("Indirect Cost %")
         {
-            field("Inventory Value Zero"; "Inventory Value Zero")
+            field("Inventory Value Zero"; Rec."Inventory Value Zero")
             {
                 ApplicationArea = all;
 
                 trigger OnValidate()
                 begin
-                    "Indirect Cost %" := "ASL Indirect Cost %";
+                    Rec."Indirect Cost %" := Rec."ASL Indirect Cost %";
                 end;
             }
-            field("ASL Indirect Cost %"; "ASL Indirect Cost %")
+            field("ASL Indirect Cost %"; Rec."ASL Indirect Cost %")
             {
                 ApplicationArea = Basic, Suite;
                 Importance = Additional;
@@ -121,57 +121,57 @@ pageextension 50259 "Item Card Ext" extends "Item Card"
         }
         addafter("Use Cross-Docking")
         {
-            field("Commission Group"; "Commission Group")
+            field("Commission Group"; Rec."Commission Group")
             {
                 ApplicationArea = All;
             }
-            field("SF Cat"; "SF Cat")
+            field("SF Cat"; Rec."SF Cat")
             {
                 ApplicationArea = All;
             }
-            field("S/No."; "S/No.")
+            field("S/No."; Rec."S/No.")
             {
                 ApplicationArea = All;
             }
-            field("Pack Size (Kg)."; "Pack Size (Kg).")
+            field("Pack Size (Kg)."; Rec."Pack Size (Kg).")
             {
                 ApplicationArea = All;
             }
-            field(Pack; Pack)
+            field(Pack; Rec.Pack)
             {
                 ApplicationArea = All;
             }
-            field("Ves Budg Type 1"; "Ves Budg Type 1")
+            field("Ves Budg Type 1"; Rec."Ves Budg Type 1")
             {
                 ApplicationArea = All;
             }
-            field("Ves Budg Type 2"; "Ves Budg Type 2")
+            field("Ves Budg Type 2"; Rec."Ves Budg Type 2")
             {
                 ApplicationArea = All;
             }
-            field("Ves Budg Type 3"; "Ves Budg Type 3")
+            field("Ves Budg Type 3"; Rec."Ves Budg Type 3")
             {
                 ApplicationArea = All;
             }
-            field("Annual Budget Method"; "Annual Budget Method")
+            field("Annual Budget Method"; Rec."Annual Budget Method")
             {
                 ApplicationArea = All;
             }
-            field("Transferred (Qty.)"; "Transferred (Qty.)")
+            field("Transferred (Qty.)"; Rec."Transferred (Qty.)")
             {
                 ApplicationArea = All;
             }
         }
         addafter("Base Unit of Measure")
         {
-            field(Points; Points)
+            field(Points; Rec.Points)
             {
                 ApplicationArea = All;
             }
         }
         addafter("Use Cross-Docking")
         {
-            field("Statistics Group"; "Statistics Group")
+            field("Statistics Group"; Rec."Statistics Group")
             {
                 ApplicationArea = All;
             }

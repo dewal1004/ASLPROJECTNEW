@@ -11,59 +11,59 @@ page 50039 "Training Courses List"
             repeater(Control1)
             {
                 ShowCaption = false;
-                field("Course Type"; "Course Type")
+                field("Course Type"; Rec."Course Type")
                 {
                     ApplicationArea = All;
                 }
-                field("Courses Code"; "Courses Code")
+                field("Courses Code"; Rec."Courses Code")
                 {
                     ApplicationArea = All;
                 }
-                field("Course Name"; "Course Name")
+                field("Course Name"; Rec."Course Name")
                 {
                     ApplicationArea = All;
                 }
-                field("Training Group"; "Training Group")
+                field("Training Group"; Rec."Training Group")
                 {
                     ApplicationArea = All;
                 }
-                field("Course Description"; "Course Description")
+                field("Course Description"; Rec."Course Description")
                 {
                     ApplicationArea = All;
                 }
-                field("Vendor Code"; "Vendor Code")
+                field("Vendor Code"; Rec."Vendor Code")
                 {
                     ApplicationArea = All;
                 }
-                field("Vendor name"; "Vendor name")
+                field("Vendor name"; Rec."Vendor name")
                 {
                     ApplicationArea = All;
                 }
-                field(Time; Time)
+                field(Time; Rec.Time)
                 {
                     ApplicationArea = All;
                 }
-                field("Course Start Date"; "Course Start Date")
+                field("Course Start Date"; Rec."Course Start Date")
                 {
                     ApplicationArea = All;
                 }
-                field("Course Duration"; "Course Duration")
+                field("Course Duration"; Rec."Course Duration")
                 {
                     ApplicationArea = All;
                 }
-                field("Total Cost"; "Total Cost")
+                field("Total Cost"; Rec."Total Cost")
                 {
                     ApplicationArea = All;
                 }
-                field("Unit Cost"; "Unit Cost")
+                field("Unit Cost"; Rec."Unit Cost")
                 {
                     ApplicationArea = All;
                 }
-                field(Comment; Comment)
+                field(Comment; Rec.Comment)
                 {
                     ApplicationArea = All;
                 }
-                field("No Series"; "No Series")
+                field("No Series"; Rec."No Series")
                 {
                     ApplicationArea = All;
                 }

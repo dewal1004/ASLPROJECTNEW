@@ -10,11 +10,11 @@ page 50035 "Skill Appraisals list"
             repeater(Control1)
             {
                 ShowCaption = false;
-                field("Skill code"; "Skill code")
+                field("Skill code"; Rec."Skill code")
                 {
                     ApplicationArea = All;
                 }
-                field("Skill Description"; "Skill Description")
+                field("Skill Description"; Rec."Skill Description")
                 {
                     ApplicationArea = All;
                 }

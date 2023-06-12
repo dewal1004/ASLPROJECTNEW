@@ -11,12 +11,10 @@ codeunit 50008 "ResJnlCheckLineSubscriber"
     begin
         GLSetup.Get();
 
-        with ResJournalLine do begin
-            if EmptyLine then
-                exit;
+        if ResJournalLine.EmptyLine then
+            exit;
 
-            if "Gen. Prod. Posting Group" = '' then
-                FieldError("Gen. Prod. Posting Group", Text50000);
-        end;
+        if ResJournalLine."Gen. Prod. Posting Group" = '' then
+            ResJournalLine.FieldError("Gen. Prod. Posting Group", Text50000);
     end;
 }

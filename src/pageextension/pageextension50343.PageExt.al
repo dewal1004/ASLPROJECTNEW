@@ -8,7 +8,7 @@ pageextension 50343 "pageextension50343" extends "Purch Return Order Arc Subform
     }
     local procedure ShowLineComments()
     begin
-        ShowLineComments;
+        Rec.ShowLineComments;
     end;
 }
 

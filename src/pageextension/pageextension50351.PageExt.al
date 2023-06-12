@@ -4,11 +4,11 @@ pageextension 50351 "pageextension50351" extends "Resource List"
     {
         addafter("Default Deferral Template Code")
         {
-            field(Posted; Posted)
+            field(Posted; Rec.Posted)
             {
                 ApplicationArea = All;
             }
-            field("Posted To Operation Voyage No."; "Posted To Operation Voyage No.")
+            field("Posted To Operation Voyage No."; Rec."Posted To Operation Voyage No.")
             {
                 ApplicationArea = All;
             }

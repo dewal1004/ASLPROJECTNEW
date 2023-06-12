@@ -4,23 +4,23 @@ pageextension 50301 "pageextension50301" extends "Misc. Article Information"
     {
         addafter("In Use")
         {
-            field("Mat Type"; "Mat Type")
+            field("Mat Type"; Rec."Mat Type")
             {
                 ApplicationArea = All;
             }
-            field("Item No."; "Item No.")
+            field("Item No."; Rec."Item No.")
             {
                 ApplicationArea = All;
             }
-            field(Returnable; Returnable)
+            field(Returnable; Rec.Returnable)
             {
                 ApplicationArea = All;
             }
-            field("Default Quantity"; "Default Quantity")
+            field("Default Quantity"; Rec."Default Quantity")
             {
                 ApplicationArea = All;
             }
-            field("Last Date Collected"; "Last Date Collected")
+            field("Last Date Collected"; Rec."Last Date Collected")
             {
                 ApplicationArea = All;
             }

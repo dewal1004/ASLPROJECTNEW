@@ -17,58 +17,58 @@ page 50086 "Lost Days"
             repeater(Control1)
             {
                 ShowCaption = false;
-                field(Date; Date)
+                field(Date; Rec.Date)
                 {
                     ApplicationArea = All;
                 }
-                field(Vessel; Vessel)
+                field(Vessel; Rec.Vessel)
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("Day Lost Cause"; "Day Lost Cause")
+                field("Day Lost Cause"; Rec."Day Lost Cause")
                 {
                     ApplicationArea = All;
                 }
-                field(Description; Description)
+                field(Description; Rec.Description)
                 {
                     Caption = 'Lost Day Description';
                     ApplicationArea = All;
                 }
-                field(Voyage; Voyage)
+                field(Voyage; Rec.Voyage)
                 {
                     ApplicationArea = All;
                 }
-                field("Operation No."; "Operation No.")
+                field("Operation No."; Rec."Operation No.")
                 {
                     ApplicationArea = All;
                 }
-                field("Day Lost Location"; "Day Lost Location")
+                field("Day Lost Location"; Rec."Day Lost Location")
                 {
                     ApplicationArea = All;
                 }
-                field("Days Lost"; "Days Lost")
+                field("Days Lost"; Rec."Days Lost")
                 {
                     ApplicationArea = All;
                 }
-                field("Hours Lost"; "Hours Lost")
+                field("Hours Lost"; Rec."Hours Lost")
                 {
                     ApplicationArea = All;
                 }
-                field(Comment; Comment)
+                field(Comment; Rec.Comment)
                 {
                     ApplicationArea = All;
                 }
-                field("Code"; Code)
+                field("Code"; Rec.Code)
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field(Deductible; Deductible)
+                field(Deductible; Rec.Deductible)
                 {
                     ApplicationArea = All;
                 }
-                field(Type; Type)
+                field(Type; Rec.Type)
                 {
                     ApplicationArea = All;
                 }
@@ -104,7 +104,7 @@ page 50086 "Lost Days"
     trigger OnNewRecord(BelowxRec: Boolean)
     begin
         // SetUpNewLine(xRec);
-        Type := Type::Narration;
+        Rec.Type := Rec.Type::Narration;
     end;
 }
 

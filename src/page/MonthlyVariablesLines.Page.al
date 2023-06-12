@@ -10,28 +10,28 @@ page 50051 "Monthly Variables Lines."
             repeater(Control1)
             {
                 ShowCaption = false;
-                field("E/D Code"; "E/D Code")
+                field("E/D Code"; Rec."E/D Code")
                 {
                     TableRelation = "Payroll-E/D Codes."."E/D Code" WHERE("Monthly Variable" = CONST(true));
                     ApplicationArea = All;
                 }
-                field("Payslip Text"; "Payslip Text")
+                field("Payslip Text"; Rec."Payslip Text")
                 {
                     ApplicationArea = All;
                 }
-                field("Variable Unit"; "Variable Unit")
+                field("Variable Unit"; Rec."Variable Unit")
                 {
                     ApplicationArea = All;
                 }
-                field(Quantity; Quantity)
+                field(Quantity; Rec.Quantity)
                 {
                     ApplicationArea = All;
                 }
-                field(Rate; Rate)
+                field(Rate; Rec.Rate)
                 {
                     ApplicationArea = All;
                 }
-                field(Amount; Amount)
+                field(Amount; Rec.Amount)
                 {
                     ApplicationArea = All;
                 }

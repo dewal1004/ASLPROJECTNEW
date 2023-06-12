@@ -30,11 +30,11 @@ table 50010 "Payroll-Posting Group Line."
         }
         field(3; "Debit Account No."; Code[20])
         {
-            TableRelation = IF ("Debit Acc. Type" = CONST (Finance)) "G/L Account"
+            TableRelation = IF ("Debit Acc. Type" = CONST(Finance)) "G/L Account"
             ELSE
-            IF ("Debit Acc. Type" = CONST (Customer)) Customer
+            IF ("Debit Acc. Type" = CONST(Customer)) Customer
             ELSE
-            IF ("Debit Acc. Type" = CONST (Supplier)) Vendor;
+            IF ("Debit Acc. Type" = CONST(Supplier)) Vendor;
 
             trigger OnValidate()
             begin
@@ -47,11 +47,11 @@ table 50010 "Payroll-Posting Group Line."
         }
         field(4; "Credit Account No."; Code[20])
         {
-            TableRelation = IF ("Credit Acc. Type" = CONST (Finance)) "G/L Account"
+            TableRelation = IF ("Credit Acc. Type" = CONST(Finance)) "G/L Account"
             ELSE
-            IF ("Credit Acc. Type" = CONST (Customer)) Customer
+            IF ("Credit Acc. Type" = CONST(Customer)) Customer
             ELSE
-            IF ("Credit Acc. Type" = CONST (Supplier)) Vendor;
+            IF ("Credit Acc. Type" = CONST(Supplier)) Vendor;
 
             trigger OnValidate()
             begin
@@ -73,12 +73,12 @@ table 50010 "Payroll-Posting Group Line."
         field(7; "Global Dimension 1 Code"; Code[10])
         {
             CaptionClass = '1,1,1';
-            TableRelation = "Dimension Value".Code WHERE ("Global Dimension No." = CONST (1));
+            TableRelation = "Dimension Value".Code WHERE("Global Dimension No." = CONST(1));
         }
         field(8; "Global Dimension 2 Code"; Code[10])
         {
             CaptionClass = '1,1,2';
-            TableRelation = "Dimension Value".Code WHERE ("Global Dimension No." = CONST (2));
+            TableRelation = "Dimension Value".Code WHERE("Global Dimension No." = CONST(2));
         }
         field(9; "Transfer Department"; Boolean)
         {

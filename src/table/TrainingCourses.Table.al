@@ -26,7 +26,7 @@ table 50027 "Training Courses"
         }
         field(4; "Vendor Code"; Code[10])
         {
-            TableRelation = IF ("Training Group" = FILTER (Mixed | Outdoor)) Vendor."No." WHERE (Trainer = CONST (true));
+            TableRelation = IF ("Training Group" = FILTER(Mixed | Outdoor)) Vendor."No." WHERE(Trainer = CONST(true));
 
             trigger OnValidate()
             begin
@@ -65,7 +65,7 @@ table 50027 "Training Courses"
         field(10; "Unit Cost"; Decimal)
         {
             BlankZero = true;
-            CalcFormula = Average ("Course Attendance".Cost WHERE ("Training Course Code" = FIELD ("Courses Code")));
+            CalcFormula = Average("Course Attendance".Cost WHERE("Training Course Code" = FIELD("Courses Code")));
             FieldClass = FlowField;
 
             trigger OnValidate()
@@ -94,7 +94,7 @@ table 50027 "Training Courses"
         }
         field(17; "Class Size"; Integer)
         {
-            CalcFormula = Count ("Course Attendance" WHERE ("Training Course Code" = FIELD ("Courses Code")));
+            CalcFormula = Count("Course Attendance" WHERE("Training Course Code" = FIELD("Courses Code")));
             Editable = false;
             FieldClass = FlowField;
         }

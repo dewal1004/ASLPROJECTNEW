@@ -4,7 +4,7 @@ pageextension 50376 "pageextension50376" extends "Purch. Cr. Memo Subform"
     {
         addafter(ShortcutDimCode8)
         {
-            field("External Document No."; "External Document No.")
+            field("External Document No."; Rec."External Document No.")
             {
                 Visible = false;
                 ApplicationArea = All;

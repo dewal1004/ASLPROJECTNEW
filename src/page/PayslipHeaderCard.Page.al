@@ -10,50 +10,50 @@ page 50005 "Payslip Header Card."
             group(General)
             {
                 Caption = 'General';
-                field("Payroll Period"; "Payroll Period")
+                field("Payroll Period"; Rec."Payroll Period")
                 {
                     ApplicationArea = All;
                     //*** TableRelation = Table65004;
                 }
-                field("Closed?"; "Closed?")
+                field("Closed?"; Rec."Closed?")
                 {
                     ApplicationArea = All;
                 }
-                field("Employee No"; "Employee No")
+                field("Employee No"; Rec."Employee No")
                 {
                     LookupPageID = "Employee List";
                     ApplicationArea = All;
                     //***TableRelation = Table65005;
                 }
-                field("Employee Name"; "Employee Name")
+                field("Employee Name"; Rec."Employee Name")
                 {
                     ApplicationArea = All;
                 }
-                field(EDFILTER; EDFILTER)
+                field(EDFILTER; Rec.EDFILTER)
                 {
                     ApplicationArea = All;
                 }
-                field("Period Start"; "Period Start")
+                field("Period Start"; Rec."Period Start")
                 {
                     ApplicationArea = All;
                 }
-                field("Period End"; "Period End")
+                field("Period End"; Rec."Period End")
                 {
                     ApplicationArea = All;
                 }
-                field("Global Dimension 1 Code"; "Global Dimension 1 Code")
+                field("Global Dimension 1 Code"; Rec."Global Dimension 1 Code")
                 {
                     Editable = false;
                     TableRelation = "Country/Region Translation";
                     ApplicationArea = All;
                 }
-                field("Global Dimension 2 Code"; "Global Dimension 2 Code")
+                field("Global Dimension 2 Code"; Rec."Global Dimension 2 Code")
                 {
                     Editable = false;
                     ApplicationArea = All;
                     //***  TableRelation = Table12;
                 }
-                field(Edvalue; Edvalue)
+                field(Edvalue; Rec.Edvalue)
                 {
                     ApplicationArea = All;
                 }

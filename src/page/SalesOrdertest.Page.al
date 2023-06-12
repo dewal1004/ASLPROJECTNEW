@@ -14,7 +14,7 @@ page 90000 "Sales Order test"
             group(General)
             {
                 Caption = 'General';
-                field("No."; "No.")
+                field("No."; Rec."No.")
                 {
                     Importance = Promoted;
                     Visible = DocNoVisible;
@@ -22,11 +22,11 @@ page 90000 "Sales Order test"
 
                     trigger OnAssistEdit()
                     begin
-                        if AssistEdit(xRec) then
+                        if Rec.AssistEdit(xRec) then
                             CurrPage.Update;
                     end;
                 }
-                field("Sell-to Customer No."; "Sell-to Customer No.")
+                field("Sell-to Customer No."; Rec."Sell-to Customer No.")
                 {
                     Importance = Promoted;
                     ShowMandatory = true;
@@ -37,90 +37,90 @@ page 90000 "Sales Order test"
                         SelltoCustomerNoOnAfterValidat;
                     end;
                 }
-                field("Sell-to Contact No."; "Sell-to Contact No.")
+                field("Sell-to Contact No."; Rec."Sell-to Contact No.")
                 {
                     Importance = Additional;
                     ApplicationArea = All;
 
                     trigger OnValidate()
                     begin
-                        if GetFilter("Sell-to Contact No.") = xRec."Sell-to Contact No." then
-                            if "Sell-to Contact No." <> xRec."Sell-to Contact No." then
-                                SetRange("Sell-to Contact No.");
+                        if Rec.GetFilter("Sell-to Contact No.") = xRec."Sell-to Contact No." then
+                            if Rec."Sell-to Contact No." <> xRec."Sell-to Contact No." then
+                                Rec.SetRange("Sell-to Contact No.");
                     end;
                 }
-                field("Sell-to Customer Name"; "Sell-to Customer Name")
+                field("Sell-to Customer Name"; Rec."Sell-to Customer Name")
                 {
                     QuickEntry = false;
                     ApplicationArea = All;
                 }
-                field("Sell-to Address"; "Sell-to Address")
+                field("Sell-to Address"; Rec."Sell-to Address")
                 {
                     Importance = Additional;
                     ApplicationArea = All;
                 }
-                field("Sell-to Address 2"; "Sell-to Address 2")
+                field("Sell-to Address 2"; Rec."Sell-to Address 2")
                 {
                     Importance = Additional;
                     ApplicationArea = All;
                 }
-                field("Sell-to Post Code"; "Sell-to Post Code")
+                field("Sell-to Post Code"; Rec."Sell-to Post Code")
                 {
                     Importance = Additional;
                     ApplicationArea = All;
                 }
-                field("Sell-to City"; "Sell-to City")
+                field("Sell-to City"; Rec."Sell-to City")
                 {
                     QuickEntry = false;
                     ApplicationArea = All;
                 }
-                field("Sell-to Contact"; "Sell-to Contact")
+                field("Sell-to Contact"; Rec."Sell-to Contact")
                 {
                     Importance = Additional;
                     ApplicationArea = All;
                 }
-                field("No. of Archived Versions"; "No. of Archived Versions")
+                field("No. of Archived Versions"; Rec."No. of Archived Versions")
                 {
                     Importance = Additional;
                     ApplicationArea = All;
                 }
-                field("Posting Date"; "Posting Date")
+                field("Posting Date"; Rec."Posting Date")
                 {
                     QuickEntry = false;
                     ApplicationArea = All;
                 }
-                field("Order Date"; "Order Date")
+                field("Order Date"; Rec."Order Date")
                 {
                     Importance = Promoted;
                     QuickEntry = false;
                     ApplicationArea = All;
                 }
-                field("Document Date"; "Document Date")
+                field("Document Date"; Rec."Document Date")
                 {
                     QuickEntry = false;
                     ApplicationArea = All;
                 }
-                field("Requested Delivery Date"; "Requested Delivery Date")
+                field("Requested Delivery Date"; Rec."Requested Delivery Date")
                 {
                     ApplicationArea = All;
                 }
-                field("Promised Delivery Date"; "Promised Delivery Date")
-                {
-                    Importance = Additional;
-                    ApplicationArea = All;
-                }
-                field("Quote No."; "Quote No.")
+                field("Promised Delivery Date"; Rec."Promised Delivery Date")
                 {
                     Importance = Additional;
                     ApplicationArea = All;
                 }
-                field("External Document No."; "External Document No.")
+                field("Quote No."; Rec."Quote No.")
+                {
+                    Importance = Additional;
+                    ApplicationArea = All;
+                }
+                field("External Document No."; Rec."External Document No.")
                 {
                     Importance = Promoted;
                     ShowMandatory = ExternalDocNoMandatory;
                     ApplicationArea = All;
                 }
-                field("Salesperson Code"; "Salesperson Code")
+                field("Salesperson Code"; Rec."Salesperson Code")
                 {
                     QuickEntry = false;
                     ApplicationArea = All;
@@ -130,32 +130,32 @@ page 90000 "Sales Order test"
                         SalespersonCodeOnAfterValidate;
                     end;
                 }
-                field("Campaign No."; "Campaign No.")
+                field("Campaign No."; Rec."Campaign No.")
                 {
                     Importance = Additional;
                     ApplicationArea = All;
                 }
-                field("Opportunity No."; "Opportunity No.")
+                field("Opportunity No."; Rec."Opportunity No.")
                 {
                     Importance = Additional;
                     ApplicationArea = All;
                 }
-                field("Responsibility Center"; "Responsibility Center")
+                field("Responsibility Center"; Rec."Responsibility Center")
                 {
                     Importance = Additional;
                     ApplicationArea = All;
                 }
-                field("Assigned User ID"; "Assigned User ID")
+                field("Assigned User ID"; Rec."Assigned User ID")
                 {
                     Importance = Additional;
                     ApplicationArea = All;
                 }
-                field("Job Queue Status"; "Job Queue Status")
+                field("Job Queue Status"; Rec."Job Queue Status")
                 {
                     Importance = Additional;
                     ApplicationArea = All;
                 }
-                field(Status; Status)
+                field(Status; Rec.Status)
                 {
                     Importance = Promoted;
                     QuickEntry = false;
@@ -172,7 +172,7 @@ page 90000 "Sales Order test"
             group(Invoicing)
             {
                 Caption = 'Invoicing';
-                field("Bill-to Customer No."; "Bill-to Customer No.")
+                field("Bill-to Customer No."; Rec."Bill-to Customer No.")
                 {
                     Importance = Promoted;
                     ApplicationArea = All;
@@ -182,40 +182,40 @@ page 90000 "Sales Order test"
                         BilltoCustomerNoOnAfterValidat;
                     end;
                 }
-                field("Bill-to Contact No."; "Bill-to Contact No.")
+                field("Bill-to Contact No."; Rec."Bill-to Contact No.")
                 {
                     Importance = Additional;
                     ApplicationArea = All;
                 }
-                field("Bill-to Name"; "Bill-to Name")
+                field("Bill-to Name"; Rec."Bill-to Name")
                 {
                     ApplicationArea = All;
                 }
-                field("Bill-to Address"; "Bill-to Address")
-                {
-                    Importance = Additional;
-                    ApplicationArea = All;
-                }
-                field("Bill-to Address 2"; "Bill-to Address 2")
+                field("Bill-to Address"; Rec."Bill-to Address")
                 {
                     Importance = Additional;
                     ApplicationArea = All;
                 }
-                field("Bill-to Post Code"; "Bill-to Post Code")
+                field("Bill-to Address 2"; Rec."Bill-to Address 2")
                 {
                     Importance = Additional;
                     ApplicationArea = All;
                 }
-                field("Bill-to City"; "Bill-to City")
-                {
-                    ApplicationArea = All;
-                }
-                field("Bill-to Contact"; "Bill-to Contact")
+                field("Bill-to Post Code"; Rec."Bill-to Post Code")
                 {
                     Importance = Additional;
                     ApplicationArea = All;
                 }
-                field("Shortcut Dimension 1 Code"; "Shortcut Dimension 1 Code")
+                field("Bill-to City"; Rec."Bill-to City")
+                {
+                    ApplicationArea = All;
+                }
+                field("Bill-to Contact"; Rec."Bill-to Contact")
+                {
+                    Importance = Additional;
+                    ApplicationArea = All;
+                }
+                field("Shortcut Dimension 1 Code"; Rec."Shortcut Dimension 1 Code")
                 {
                     ApplicationArea = All;
 
@@ -224,7 +224,7 @@ page 90000 "Sales Order test"
                         ShortcutDimension1CodeOnAfterV;
                     end;
                 }
-                field("Shortcut Dimension 2 Code"; "Shortcut Dimension 2 Code")
+                field("Shortcut Dimension 2 Code"; Rec."Shortcut Dimension 2 Code")
                 {
                     ApplicationArea = All;
 
@@ -233,33 +233,33 @@ page 90000 "Sales Order test"
                         ShortcutDimension2CodeOnAfterV;
                     end;
                 }
-                field("Payment Terms Code"; "Payment Terms Code")
+                field("Payment Terms Code"; Rec."Payment Terms Code")
                 {
                     Importance = Promoted;
                     ApplicationArea = All;
                 }
-                field("Due Date"; "Due Date")
+                field("Due Date"; Rec."Due Date")
                 {
                     Importance = Promoted;
                     ApplicationArea = All;
                 }
-                field("Payment Discount %"; "Payment Discount %")
+                field("Payment Discount %"; Rec."Payment Discount %")
                 {
                     ApplicationArea = All;
                 }
-                field("Pmt. Discount Date"; "Pmt. Discount Date")
+                field("Pmt. Discount Date"; Rec."Pmt. Discount Date")
                 {
                     ApplicationArea = All;
                 }
-                field("Payment Method Code"; "Payment Method Code")
+                field("Payment Method Code"; Rec."Payment Method Code")
                 {
                     ApplicationArea = All;
                 }
-                field("Direct Debit Mandate ID"; "Direct Debit Mandate ID")
+                field("Direct Debit Mandate ID"; Rec."Direct Debit Mandate ID")
                 {
                     ApplicationArea = All;
                 }
-                field("Prices Including VAT"; "Prices Including VAT")
+                field("Prices Including VAT"; Rec."Prices Including VAT")
                 {
                     ApplicationArea = All;
 
@@ -268,7 +268,7 @@ page 90000 "Sales Order test"
                         PricesIncludingVATOnAfterValid;
                     end;
                 }
-                field("VAT Bus. Posting Group"; "VAT Bus. Posting Group")
+                field("VAT Bus. Posting Group"; Rec."VAT Bus. Posting Group")
                 {
                     ApplicationArea = All;
                 }
@@ -286,90 +286,90 @@ page 90000 "Sales Order test"
             group(Shipping)
             {
                 Caption = 'Shipping';
-                field("Ship-to Code"; "Ship-to Code")
+                field("Ship-to Code"; Rec."Ship-to Code")
                 {
                     Importance = Promoted;
                     ApplicationArea = All;
                 }
-                field("Ship-to Name"; "Ship-to Name")
+                field("Ship-to Name"; Rec."Ship-to Name")
                 {
                     ApplicationArea = All;
                 }
-                field("Ship-to Address"; "Ship-to Address")
-                {
-                    Importance = Additional;
-                    ApplicationArea = All;
-                }
-                field("Ship-to Address 2"; "Ship-to Address 2")
+                field("Ship-to Address"; Rec."Ship-to Address")
                 {
                     Importance = Additional;
                     ApplicationArea = All;
                 }
-                field("Ship-to Post Code"; "Ship-to Post Code")
+                field("Ship-to Address 2"; Rec."Ship-to Address 2")
+                {
+                    Importance = Additional;
+                    ApplicationArea = All;
+                }
+                field("Ship-to Post Code"; Rec."Ship-to Post Code")
                 {
                     Importance = Promoted;
                     ApplicationArea = All;
                 }
-                field("Ship-to City"; "Ship-to City")
+                field("Ship-to City"; Rec."Ship-to City")
                 {
                     ApplicationArea = All;
                 }
-                field("Ship-to Contact"; "Ship-to Contact")
-                {
-                    Importance = Additional;
-                    ApplicationArea = All;
-                }
-                field("Location Code"; "Location Code")
-                {
-                    ApplicationArea = All;
-                }
-                field("Outbound Whse. Handling Time"; "Outbound Whse. Handling Time")
+                field("Ship-to Contact"; Rec."Ship-to Contact")
                 {
                     Importance = Additional;
                     ApplicationArea = All;
                 }
-                field("Shipment Method Code"; "Shipment Method Code")
+                field("Location Code"; Rec."Location Code")
                 {
                     ApplicationArea = All;
                 }
-                field("Shipping Agent Code"; "Shipping Agent Code")
-                {
-                    Importance = Additional;
-                    ApplicationArea = All;
-                }
-                field("Shipping Agent Service Code"; "Shipping Agent Service Code")
+                field("Outbound Whse. Handling Time"; Rec."Outbound Whse. Handling Time")
                 {
                     Importance = Additional;
                     ApplicationArea = All;
                 }
-                field("Shipping Time"; "Shipping Time")
+                field("Shipment Method Code"; Rec."Shipment Method Code")
                 {
                     ApplicationArea = All;
                 }
-                field("Late Order Shipping"; "Late Order Shipping")
-                {
-                    Importance = Additional;
-                    ApplicationArea = All;
-                }
-                field("Package Tracking No."; "Package Tracking No.")
+                field("Shipping Agent Code"; Rec."Shipping Agent Code")
                 {
                     Importance = Additional;
                     ApplicationArea = All;
                 }
-                field("Shipment Date"; "Shipment Date")
+                field("Shipping Agent Service Code"; Rec."Shipping Agent Service Code")
+                {
+                    Importance = Additional;
+                    ApplicationArea = All;
+                }
+                field("Shipping Time"; Rec."Shipping Time")
+                {
+                    ApplicationArea = All;
+                }
+                field("Late Order Shipping"; Rec."Late Order Shipping")
+                {
+                    Importance = Additional;
+                    ApplicationArea = All;
+                }
+                field("Package Tracking No."; Rec."Package Tracking No.")
+                {
+                    Importance = Additional;
+                    ApplicationArea = All;
+                }
+                field("Shipment Date"; Rec."Shipment Date")
                 {
                     Importance = Promoted;
                     ApplicationArea = All;
                 }
-                field("Shipping Advice"; "Shipping Advice")
+                field("Shipping Advice"; Rec."Shipping Advice")
                 {
                     Importance = Promoted;
                     ApplicationArea = All;
 
                     trigger OnValidate()
                     begin
-                        if "Shipping Advice" <> xRec."Shipping Advice" then
-                            if not Confirm(Text001, false, FieldCaption("Shipping Advice")) then
+                        if Rec."Shipping Advice" <> xRec."Shipping Advice" then
+                            if not Confirm(Text001, false, Rec.FieldCaption("Shipping Advice")) then
                                 Error(Text002);
                     end;
                 }
@@ -377,7 +377,7 @@ page 90000 "Sales Order test"
             group("Foreign Trade")
             {
                 Caption = 'Foreign Trade';
-                field("Currency Code"; "Currency Code")
+                field("Currency Code"; Rec."Currency Code")
                 {
                     Importance = Promoted;
                     ApplicationArea = All;
@@ -385,12 +385,12 @@ page 90000 "Sales Order test"
                     trigger OnAssistEdit()
                     begin
                         Clear(ChangeExchangeRate);
-                        if "Posting Date" <> 0D then
-                            ChangeExchangeRate.SetParameter("Currency Code", "Currency Factor", "Posting Date")
+                        if Rec."Posting Date" <> 0D then
+                            ChangeExchangeRate.SetParameter(Rec."Currency Code", Rec."Currency Factor", Rec."Posting Date")
                         else
-                            ChangeExchangeRate.SetParameter("Currency Code", "Currency Factor", WorkDate);
+                            ChangeExchangeRate.SetParameter(Rec."Currency Code", Rec."Currency Factor", WorkDate);
                         if ChangeExchangeRate.RunModal = ACTION::OK then begin
-                            Validate("Currency Factor", ChangeExchangeRate.GetParameter);
+                            Rec.Validate("Currency Factor", ChangeExchangeRate.GetParameter);
                             CurrPage.Update;
                         end;
                         Clear(ChangeExchangeRate);
@@ -402,27 +402,27 @@ page 90000 "Sales Order test"
                         SalesCalcDiscountByType.ApplyDefaultInvoiceDiscount(0, Rec);
                     end;
                 }
-                field("EU 3-Party Trade"; "EU 3-Party Trade")
+                field("EU 3-Party Trade"; Rec."EU 3-Party Trade")
                 {
                     ApplicationArea = All;
                 }
-                field("Transaction Type"; "Transaction Type")
+                field("Transaction Type"; Rec."Transaction Type")
                 {
                     ApplicationArea = All;
                 }
-                field("Transaction Specification"; "Transaction Specification")
+                field("Transaction Specification"; Rec."Transaction Specification")
                 {
                     ApplicationArea = All;
                 }
-                field("Transport Method"; "Transport Method")
+                field("Transport Method"; Rec."Transport Method")
                 {
                     ApplicationArea = All;
                 }
-                field("Exit Point"; "Exit Point")
+                field("Exit Point"; Rec."Exit Point")
                 {
                     ApplicationArea = All;
                 }
-                field("Area"; Area)
+                field("Area"; Rec.Area)
                 {
                     ApplicationArea = All;
                 }
@@ -430,7 +430,7 @@ page 90000 "Sales Order test"
             group(Control1900201301)
             {
                 Caption = 'Prepayment';
-                field("Prepayment %"; "Prepayment %")
+                field("Prepayment %"; Rec."Prepayment %")
                 {
                     Importance = Promoted;
                     ApplicationArea = All;
@@ -440,24 +440,24 @@ page 90000 "Sales Order test"
                         Prepayment37OnAfterValidate;
                     end;
                 }
-                field("Compress Prepayment"; "Compress Prepayment")
+                field("Compress Prepayment"; Rec."Compress Prepayment")
                 {
                     ApplicationArea = All;
                 }
-                field("Prepmt. Payment Terms Code"; "Prepmt. Payment Terms Code")
+                field("Prepmt. Payment Terms Code"; Rec."Prepmt. Payment Terms Code")
                 {
                     ApplicationArea = All;
                 }
-                field("Prepayment Due Date"; "Prepayment Due Date")
+                field("Prepayment Due Date"; Rec."Prepayment Due Date")
                 {
                     Importance = Promoted;
                     ApplicationArea = All;
                 }
-                field("Prepmt. Payment Discount %"; "Prepmt. Payment Discount %")
+                field("Prepmt. Payment Discount %"; Rec."Prepmt. Payment Discount %")
                 {
                     ApplicationArea = All;
                 }
-                field("Prepmt. Pmt. Discount Date"; "Prepmt. Pmt. Discount Date")
+                field("Prepmt. Pmt. Discount Date"; Rec."Prepmt. Pmt. Discount Date")
                 {
                     ApplicationArea = All;
                 }
@@ -484,7 +484,7 @@ page 90000 "Sales Order test"
 
                     trigger OnAction()
                     begin
-                        OpenSalesOrderStatistics;
+                        Rec.OpenSalesOrderStatistics;
                         SalesCalcDiscountByType.ResetRecalculateInvoiceDisc(Rec);
                     end;
                 }
@@ -507,7 +507,7 @@ page 90000 "Sales Order test"
 
                     trigger OnAction()
                     begin
-                        ShowDocDim;
+                        Rec.ShowDocDim;
                         CurrPage.SaveRecord;
                     end;
                 }
@@ -521,7 +521,7 @@ page 90000 "Sales Order test"
                     var
                         ApprovalEntries: Page "Approval Entries";
                     begin
-                        ApprovalEntries.Setfilters(DATABASE::"Sales Header", "Document Type", "No.");
+                        ApprovalEntries.Setfilters(DATABASE::"Sales Header", Rec."Document Type", Rec."No.");
                         ApprovalEntries.Run;
                     end;
                 }
@@ -573,7 +573,7 @@ page 90000 "Sales Order test"
                     var
                         CRMIntegrationManagement: Codeunit "CRM Integration Management";
                     begin
-                        CRMIntegrationManagement.ShowCRMEntityFromRecordID(RecordId);
+                        CRMIntegrationManagement.ShowCRMEntityFromRecordID(Rec.RecordId);
                     end;
                 }
             }
@@ -669,7 +669,7 @@ page 90000 "Sales Order test"
                     var
                         ApprovalsMgmt: Codeunit "Approvals Mgmt.";
                     begin
-                        ApprovalsMgmt.ApproveRecordApprovalRequest(RecordId);
+                        ApprovalsMgmt.ApproveRecordApprovalRequest(Rec.RecordId);
                     end;
                 }
                 action(Reject)
@@ -686,7 +686,7 @@ page 90000 "Sales Order test"
                     var
                         ApprovalsMgmt: Codeunit "Approvals Mgmt.";
                     begin
-                        ApprovalsMgmt.RejectRecordApprovalRequest(RecordId);
+                        ApprovalsMgmt.RejectRecordApprovalRequest(Rec.RecordId);
                     end;
                 }
                 action(Delegate)
@@ -702,7 +702,7 @@ page 90000 "Sales Order test"
                     var
                         ApprovalsMgmt: Codeunit "Approvals Mgmt.";
                     begin
-                        ApprovalsMgmt.DelegateRecordApprovalRequest(RecordId);
+                        ApprovalsMgmt.DelegateRecordApprovalRequest(Rec.RecordId);
                     end;
                 }
                 action(Comment)
@@ -861,7 +861,7 @@ page 90000 "Sales Order test"
                         var
                             IncomingDocument: Record "Incoming Document";
                         begin
-                            IncomingDocument.ShowCardFromEntryNo("Incoming Document Entry No.");
+                            IncomingDocument.ShowCardFromEntryNo(Rec."Incoming Document Entry No.");
                         end;
                     }
                     action(SelectIncomingDoc)
@@ -908,7 +908,7 @@ page 90000 "Sales Order test"
 
                         trigger OnAction()
                         begin
-                            "Incoming Document Entry No." := 0;
+                            Rec."Incoming Document Entry No." := 0;
                         end;
                     }
                 }
@@ -928,8 +928,8 @@ page 90000 "Sales Order test"
                     var
                         OrderPromisingLine: Record "Order Promising Line" temporary;
                     begin
-                        OrderPromisingLine.SetRange("Source Type", "Document Type");
-                        OrderPromisingLine.SetRange("Source ID", "No.");
+                        OrderPromisingLine.SetRange("Source Type", Rec."Document Type");
+                        OrderPromisingLine.SetRange("Source ID", Rec."No.");
                         PAGE.RunModal(PAGE::"Order Promising Lines", OrderPromisingLine);
                     end;
                 }
@@ -944,7 +944,7 @@ page 90000 "Sales Order test"
                         DemandOverview: Page "Demand Overview";
                     begin
                         DemandOverview.SetCalculationParameter(true);
-                        DemandOverview.Initialize(0D, 1, "No.", '', '');
+                        DemandOverview.Initialize(0D, 1, Rec."No.", '', '');
                         DemandOverview.RunModal;
                     end;
                 }
@@ -958,7 +958,7 @@ page 90000 "Sales Order test"
                     var
                         SalesPlanForm: Page "Sales Order Planning";
                     begin
-                        SalesPlanForm.SetSalesOrder("No.");
+                        SalesPlanForm.SetSalesOrder(Rec."No.");
                         SalesPlanForm.RunModal;
                     end;
                 }
@@ -1044,10 +1044,10 @@ page 90000 "Sales Order test"
 
                     trigger OnAction()
                     begin
-                        CreateInvtPutAwayPick;
+                        Rec.CreateInvtPutAwayPick;
 
-                        if not Find('=><') then
-                            Init;
+                        if not Rec.Find('=><') then
+                            Rec.Init;
                     end;
                 }
                 action("Create &Whse. Shipment")
@@ -1063,8 +1063,8 @@ page 90000 "Sales Order test"
                     begin
                         GetSourceDocOutbound.CreateFromSalesOrder(Rec);
 
-                        if not Find('=><') then
-                            Init;
+                        if not Rec.Find('=><') then
+                            Rec.Init;
                     end;
                 }
             }
@@ -1152,7 +1152,7 @@ page 90000 "Sales Order test"
 
                     trigger OnAction()
                     begin
-                        CancelBackgroundPosting;
+                        Rec.CancelBackgroundPosting;
                     end;
                 }
                 action("Preview Posting")
@@ -1310,7 +1310,7 @@ page 90000 "Sales Order test"
     begin
         DynamicEditable := CurrPage.Editable;
         //CurrPage.IncomingDocAttachFactBox.PAGE.LoadDataFromRecord(Rec);
-        CRMIsCoupledToRecord := CRMIntegrationEnabled and CRMCouplingManagement.IsRecordCoupledToCRM(RecordId);
+        CRMIsCoupledToRecord := CRMIntegrationEnabled and CRMCouplingManagement.IsRecordCoupledToCRM(Rec.RecordId);
         //ShowWorkflowStatus := CurrPage.WorkflowStatus.PAGE.SetFilterOnWorkflowRecord(RECORDID);
     end;
 
@@ -1322,7 +1322,7 @@ page 90000 "Sales Order test"
     trigger OnDeleteRecord(): Boolean
     begin
         CurrPage.SaveRecord;
-        exit(ConfirmDeletion);
+        exit(Rec.ConfirmDeletion);
     end;
 
     trigger OnInit()
@@ -1332,12 +1332,12 @@ page 90000 "Sales Order test"
 
     trigger OnInsertRecord(BelowxRec: Boolean): Boolean
     begin
-        CheckCreditMaxBeforeInsert;
+        Rec.CheckCreditMaxBeforeInsert;
     end;
 
     trigger OnNewRecord(BelowxRec: Boolean)
     begin
-        "Responsibility Center" := UserMgt.GetSalesFilter;
+        Rec."Responsibility Center" := UserMgt.GetSalesFilter;
     end;
 
     trigger OnOpenPage()
@@ -1345,12 +1345,12 @@ page 90000 "Sales Order test"
         CRMIntegrationManagement: Codeunit "CRM Integration Management";
     begin
         if UserMgt.GetSalesFilter <> '' then begin
-            FilterGroup(2);
-            SetRange("Responsibility Center", UserMgt.GetSalesFilter);
-            FilterGroup(0);
+            Rec.FilterGroup(2);
+            Rec.SetRange("Responsibility Center", UserMgt.GetSalesFilter);
+            Rec.FilterGroup(0);
         end;
 
-        SetRange("Date Filter", 0D, WorkDate - 1);
+        Rec.SetRange("Date Filter", 0D, WorkDate - 1);
 
         SetDocNoVisible;
 
@@ -1384,8 +1384,8 @@ page 90000 "Sales Order test"
 
     local procedure Post(PostingCodeunitID: Integer)
     begin
-        SendToPosting(PostingCodeunitID);
-        if "Job Queue Status" = "Job Queue Status"::"Scheduled for Posting" then
+        Rec.SendToPosting(PostingCodeunitID);
+        if Rec."Job Queue Status" = Rec."Job Queue Status"::"Scheduled for Posting" then
             CurrPage.Close;
         CurrPage.Update(false);
     end;
@@ -1397,9 +1397,9 @@ page 90000 "Sales Order test"
 
     local procedure SelltoCustomerNoOnAfterValidat()
     begin
-        if GetFilter("Sell-to Customer No.") = xRec."Sell-to Customer No." then
-            if "Sell-to Customer No." <> xRec."Sell-to Customer No." then
-                SetRange("Sell-to Customer No.");
+        if Rec.GetFilter("Sell-to Customer No.") = xRec."Sell-to Customer No." then
+            if Rec."Sell-to Customer No." <> xRec."Sell-to Customer No." then
+                Rec.SetRange("Sell-to Customer No.");
         CurrPage.Update;
     end;
 
@@ -1438,7 +1438,7 @@ page 90000 "Sales Order test"
         DocumentNoVisibility: Codeunit DocumentNoVisibility;
         DocType: Option Quote,"Order",Invoice,"Credit Memo","Blanket Order","Return Order",Reminder,FinChMemo;
     begin
-        DocNoVisible := DocumentNoVisibility.SalesDocumentNoIsVisible(DocType::Order, "No.");
+        DocNoVisible := DocumentNoVisibility.SalesDocumentNoIsVisible(DocType::Order, Rec."No.");
     end;
 
     local procedure SetExtDocNoMandatoryCondition()
@@ -1460,12 +1460,12 @@ page 90000 "Sales Order test"
     var
         ApprovalsMgmt: Codeunit "Approvals Mgmt.";
     begin
-        JobQueueVisible := "Job Queue Status" = "Job Queue Status"::"Scheduled for Posting";
-        HasIncomingDocument := "Incoming Document Entry No." <> 0;
+        JobQueueVisible := Rec."Job Queue Status" = Rec."Job Queue Status"::"Scheduled for Posting";
+        HasIncomingDocument := Rec."Incoming Document Entry No." <> 0;
         SetExtDocNoMandatoryCondition;
 
-        OpenApprovalEntriesExistForCurrUser := ApprovalsMgmt.HasOpenApprovalEntriesForCurrentUser(RecordId);
-        OpenApprovalEntriesExist := ApprovalsMgmt.HasOpenApprovalEntries(RecordId);
+        OpenApprovalEntriesExistForCurrUser := ApprovalsMgmt.HasOpenApprovalEntriesForCurrentUser(Rec.RecordId);
+        OpenApprovalEntriesExist := ApprovalsMgmt.HasOpenApprovalEntries(Rec.RecordId);
     end;
 }
 

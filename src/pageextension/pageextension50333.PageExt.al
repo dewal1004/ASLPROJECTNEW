@@ -11,12 +11,12 @@ pageextension 50333 "pageextension50333" extends "Posted Service Shipment Lines"
     }
     local procedure ShowDimensions()
     begin
-        ShowDimensions;
+        Rec.ShowDimensions;
     end;
 
     local procedure ShowItemTrackingLines()
     begin
-        ShowItemTrackingLines;
+        Rec.ShowItemTrackingLines;
     end;
 }
 

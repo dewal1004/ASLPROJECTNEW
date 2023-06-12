@@ -86,16 +86,15 @@ tableextension 50281 "tableextension50281" extends Employee
 
             trigger OnValidate()
             begin
-                EmpGrpRec.SETRANGE(Code,"Employee Group");
-                IF EmpGrpRec.FIND('-') THEN
-                  BEGIN
-                   Grade:= EmpGrpRec.Grade;
-                   Step:=EmpGrpRec.Step;
-                   EmpGrpRec.CALCFIELDS(EmpGrpRec."Gross Pay");
-                   EDAmount:=EmpGrpRec."Gross Pay";
+                EmpGrpRec.SETRANGE(Code, "Employee Group");
+                IF EmpGrpRec.FIND('-') THEN BEGIN
+                    Grade := EmpGrpRec.Grade;
+                    Step := EmpGrpRec.Step;
+                    EmpGrpRec.CALCFIELDS(EmpGrpRec."Gross Pay");
+                    EDAmount := EmpGrpRec."Gross Pay";
 
-                  END;
-               CheckMod;
+                END;
+                CheckMod;
 
             end;
         }
@@ -169,8 +168,7 @@ tableextension 50281 "tableextension50281" extends Employee
             trigger OnValidate()
             begin
                 //Univision Start 6/11/01
-                if "No of Days" > 30 then 
-                begin
+                if "No of Days" > 30 then begin
                     if (Date2DMY("Employment Date", 2) + 1) = Date2DMY(Today, 2) then
                         "day Employeed" := DMY2Date(1, (Date2DMY(Today, 2))) - "Employment Date";
                     if "No of Days" > (30 + "day Employeed") then Error('You Can Not Pay staff for this Number of Days');
@@ -333,14 +331,11 @@ tableextension 50281 "tableextension50281" extends Employee
             begin
                 //Univision Start 6/11/01
                 if not (Sam) and (xRec.Sam) then
-                    if Confirm('Do you want to Remove Sam Account for %1', true, FullName) then 
-                    begin
-                        if CustRec.Get("No.") then 
-                        begin
+                    if Confirm('Do you want to Remove Sam Account for %1', true, FullName) then begin
+                        if CustRec.Get("No.") then begin
                             CustRec.CalcFields(CustRec.Balance);
                             SamBalance := CustRec.Balance;
-                            if (SamBalance = 0) then 
-                            begin
+                            if (SamBalance = 0) then begin
                                 "SAM Number" := '';
                                 Modify;
                                 CustRec.Delete;

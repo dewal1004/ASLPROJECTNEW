@@ -13,50 +13,50 @@ page 50083 "Voyage Catch Default"
             repeater(Control1)
             {
                 ShowCaption = false;
-                field("Table Name"; "Table Name")
+                field("Table Name"; Rec."Table Name")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("No."; "No.")
+                field("No."; Rec."No.")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("Code"; Code)
+                field("Code"; Rec.Code)
                 {
                     ApplicationArea = All;
                 }
-                field(Vessel; Vessel)
+                field(Vessel; Rec.Vessel)
                 {
                     ApplicationArea = All;
                 }
-                field("Pack Size"; "Pack Size")
+                field("Pack Size"; Rec."Pack Size")
                 {
                     ApplicationArea = All;
                 }
-                field(Brand; Brand)
+                field(Brand; Rec.Brand)
                 {
                     ApplicationArea = All;
                 }
-                field("Budget Quantity"; "Budget Quantity")
+                field("Budget Quantity"; Rec."Budget Quantity")
                 {
                     ApplicationArea = All;
                 }
-                field(Description; Description)
+                field(Description; Rec.Description)
                 {
                     ApplicationArea = All;
                 }
-                field("S/No."; "S/No.")
+                field("S/No."; Rec."S/No.")
                 {
                     ApplicationArea = All;
                 }
-                field(GroupSort; GroupSort)
+                field(GroupSort; Rec.GroupSort)
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("Marked Rec"; "Marked Rec")
+                field("Marked Rec"; Rec."Marked Rec")
                 {
                     Visible = false;
                     ApplicationArea = All;
@@ -87,13 +87,13 @@ page 50083 "Voyage Catch Default"
                     DefCatch.SetRange(DefCatch."In Use", true);
                     if DefCatch.Find('-') then
                         repeat
-                            Init;
-                            Code := DefCatch."No.";
-                            "Pack Size" := DefCatch."Pack Size";
-                            Brand := DefCatch.Brand;
-                            Description := DefCatch.Description;
-                            fine := Evaluate("S/No.", Code);
-                            if not Insert then Modify();
+                            Rec.Init;
+                            Rec.Code := DefCatch."No.";
+                            Rec."Pack Size" := DefCatch."Pack Size";
+                            Rec.Brand := DefCatch.Brand;
+                            Rec.Description := DefCatch.Description;
+                            fine := Evaluate(Rec."S/No.", Rec.Code);
+                            if not Rec.Insert then Rec.Modify();
                         until DefCatch.Next = 0;
                 end;
             }
@@ -102,7 +102,7 @@ page 50083 "Voyage Catch Default"
 
     trigger OnAfterGetRecord()
     begin
-        if "Budget Quantity" = 0 then Validate("Budget Quantity");
+        if Rec."Budget Quantity" = 0 then Rec.Validate("Budget Quantity");
     end;
 
     var

@@ -4,7 +4,7 @@ pageextension 50303 "pageextension50303" extends "Human Resources Setup"
     {
         addafter("Employee Nos.")
         {
-            field("Casual Employees No."; "Casual Employees No.")
+            field("Casual Employees No."; Rec."Casual Employees No.")
             {
                 ApplicationArea = All;
             }

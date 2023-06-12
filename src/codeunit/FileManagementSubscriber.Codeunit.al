@@ -1,15 +1,15 @@
 codeunit 50016 "FileManagementSubscriber"
 {
-  EventSubscriberInstance = StaticAutomatic;
+    EventSubscriberInstance = StaticAutomatic;
 
-  [EventSubscriber(ObjectType::Codeunit, Codeunit::"File Management", 'OnBeforeDownloadHandler', '', true, true)]
-  local procedure MyProcedure()
-  var
-  
-  begin
-    
-  end;
-  
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"File Management", 'OnBeforeDownloadHandler', '', true, true)]
+    local procedure MyProcedure()
+    var
+
+    begin
+
+    end;
+
 }
 
 

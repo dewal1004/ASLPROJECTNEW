@@ -233,15 +233,12 @@ report 50216 "Item Age Composition Qty"
         end;
         PeriodStartDate[5] := 19000101D;
 
-        with ValueEntry do begin
-
-            SetCurrentKey("Item Ledger Entry No.", Inventoriable,
-                             "Expected Cost", "Partial Revaluation", "Entry Type");
-            SetFilter("Variant Code", Item.GetFilter("Variant Filter"));
-            SetFilter("Location Code", Item.GetFilter("Location Filter"));
-            SetFilter("Global Dimension 1 Code", Item.GetFilter("Global Dimension 1 Filter"));
-            SetFilter("Global Dimension 2 Code", Item.GetFilter("Global Dimension 2 Filter"));
-        end;
+        ValueEntry.SetCurrentKey("Item Ledger Entry No.", Inventoriable,
+                         "Expected Cost", "Partial Revaluation", "Entry Type");
+        ValueEntry.SetFilter("Variant Code", Item.GetFilter("Variant Filter"));
+        ValueEntry.SetFilter("Location Code", Item.GetFilter("Location Filter"));
+        ValueEntry.SetFilter("Global Dimension 1 Code", Item.GetFilter("Global Dimension 1 Filter"));
+        ValueEntry.SetFilter("Global Dimension 2 Code", Item.GetFilter("Global Dimension 2 Filter"));
     end;
 
     var

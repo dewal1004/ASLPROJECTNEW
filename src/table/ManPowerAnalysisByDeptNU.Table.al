@@ -8,20 +8,20 @@ table 60027 "ManPower Analysis By Dept NU*"
         field(1; "Global Dimension 1 Code"; Code[10])
         {
             CaptionClass = '1,1,1';
-            TableRelation = "Dimension Value".Code WHERE ("Global Dimension No." = CONST (1));
+            TableRelation = "Dimension Value".Code WHERE("Global Dimension No." = CONST(1));
         }
         field(2; "Total Employees"; Integer)
         {
             BlankZero = true;
-            CalcFormula = Count (Employee WHERE (Status = CONST (Active),
-                                                "Global Dimension 1 Code" = FIELD ("Global Dimension 1 Filter")));
+            CalcFormula = Count(Employee WHERE(Status = CONST(Active),
+                                                "Global Dimension 1 Code" = FIELD("Global Dimension 1 Filter")));
             FieldClass = FlowField;
         }
         field(3; "Total Budget"; Decimal)
         {
             BlankZero = true;
-            CalcFormula = Sum ("Manpower Budget Table NU*"."Manpower Budget" WHERE ("Global Dimension 1 Code" = FIELD ("Global Dimension 1 Filter"),
-                                                                                   "Date Filter" = FIELD ("Date Filter")));
+            CalcFormula = Sum("Manpower Budget Table NU*"."Manpower Budget" WHERE("Global Dimension 1 Code" = FIELD("Global Dimension 1 Filter"),
+                                                                                   "Date Filter" = FIELD("Date Filter")));
             DecimalPlaces = 0 : 0;
             FieldClass = FlowField;
         }
@@ -34,7 +34,7 @@ table 60027 "ManPower Analysis By Dept NU*"
         {
             CaptionClass = '1,3,2';
             FieldClass = FlowFilter;
-            TableRelation = "Dimension Value".Code WHERE ("Global Dimension No." = CONST (2));
+            TableRelation = "Dimension Value".Code WHERE("Global Dimension No." = CONST(2));
         }
         field(6; "Employee No. Filter"; Code[20])
         {

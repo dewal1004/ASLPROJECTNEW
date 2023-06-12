@@ -11,11 +11,11 @@ page 51115 "Approvals List"
         {
             repeater(Group)
             {
-                field("User ID"; "User ID")
+                field("User ID"; Rec."User ID")
                 {
                     ApplicationArea = All;
                 }
-                field("Approver ID"; "Approver ID")
+                field("Approver ID"; Rec."Approver ID")
                 {
                     ApplicationArea = All;
                 }

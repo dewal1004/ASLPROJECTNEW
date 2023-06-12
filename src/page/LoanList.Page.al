@@ -13,48 +13,48 @@ page 50020 "Loan List"
             repeater(Control1)
             {
                 ShowCaption = false;
-                field("Loan ID"; "Loan ID")
+                field("Loan ID"; Rec."Loan ID")
                 {
                     ApplicationArea = All;
                 }
-                field("Posting Date for Loan"; "Posting Date for Loan")
+                field("Posting Date for Loan"; Rec."Posting Date for Loan")
                 {
                     ApplicationArea = All;
                 }
-                field("Staff No."; "Staff No.")
+                field("Staff No."; Rec."Staff No.")
                 {
                     ApplicationArea = All;
                 }
-                field("Staff Name"; "Staff Name")
+                field("Staff Name"; Rec."Staff Name")
                 {
                     ApplicationArea = All;
                 }
-                field("Job Title"; "Job Title")
+                field("Job Title"; Rec."Job Title")
                 {
                     Editable = false;
                     ApplicationArea = All;
                 }
-                field("Suspended(Y/N)"; "Suspended(Y/N)")
+                field("Suspended(Y/N)"; Rec."Suspended(Y/N)")
                 {
                     ApplicationArea = All;
                 }
-                field("Loan ED"; "Loan ED")
+                field("Loan ED"; Rec."Loan ED")
                 {
                     ApplicationArea = All;
                 }
-                field("Acct. No."; "Acct. No.")
+                field("Acct. No."; Rec."Acct. No.")
                 {
                     ApplicationArea = All;
                 }
-                field("Remaining Amount"; "Remaining Amount")
+                field("Remaining Amount"; Rec."Remaining Amount")
                 {
                     ApplicationArea = All;
                 }
-                field("Loan Type"; "Loan Type")
+                field("Loan Type"; Rec."Loan Type")
                 {
                     ApplicationArea = All;
                 }
-                field("Start Period"; "Start Period")
+                field("Start Period"; Rec."Start Period")
                 {
                     ApplicationArea = All;
                 }
@@ -86,7 +86,7 @@ page 50020 "Loan List"
 
     trigger OnOpenPage()
     begin
-        SetFilter("Remaining Amount", '<>0');
+        Rec.SetFilter("Remaining Amount", '<>0');
     end;
 }
 

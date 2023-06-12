@@ -29,10 +29,10 @@ tableextension 50230 "tableextension50230" extends Job
             Caption = 'Skipper';
         }
         modify(Status)
-        { 
+        {
             OptionCaption = 'Budget,Preparation,Voyage Start,Close Job Card';
         }
-        
+
         field(50137; "Task Filter"; Code[10])
         {
             Caption = 'Task Filter';
@@ -50,15 +50,13 @@ tableextension 50230 "tableextension50230" extends Job
                 if FA.Get(Vessel) then
                     "Global Dimension 2 Code" := FA."Global Dimension 2 Code"
                 else
-                    if Loc.Get(Vessel) then 
-                    begin
+                    if Loc.Get(Vessel) then begin
                         "Global Dimension 2 Code" := Loc."Shortcut Dimension 2 Code";
                         "Vessel Type" := Loc."Vessel Type";
                     end;
 
                 //Date Initiatn
-                if Loc.Get(Vessel) then 
-                begin
+                if Loc.Get(Vessel) then begin
                     "Lst Ovh" := Loc."Lst Ovh";
                     "Lst Ddk" := Loc."Lst Ddk";
                     xx1 := Loc.xx1;
@@ -545,7 +543,7 @@ tableextension 50230 "tableextension50230" extends Job
             OptionMembers = " ","Short Voyage";
         }
     }
-    
+
     keys
     {
 
@@ -602,7 +600,7 @@ tableextension 50230 "tableextension50230" extends Job
     }
 
 
-    
+
 
     //Unsupported feature: Code Modification on "UpdateCust(PROCEDURE 4)".
 

@@ -11,16 +11,15 @@ report 90014 "Copy Records"
             trigger OnAfterGetRecord()
             begin
                 CopyTable := true;
-                with JobJnlLine do
-                    if CopyTable then begin
-                        ChangeCompany('ATLANTIC SHRIMPERS LIMITED');
-                        if Find('-') then
-                            repeat
-                                ChangeCompany(CompanyName);
-                                Insert(true);
-                                ChangeCompany('ATLANTIC SHRIMPERS LIMITED');
-                            until Next = 0;
-                    end;
+                if CopyTable then begin
+                    JobJnlLine.ChangeCompany('ATLANTIC SHRIMPERS LIMITED');
+                    if JobJnlLine.Find('-') then
+                        repeat
+                            JobJnlLine.ChangeCompany(CompanyName);
+                            JobJnlLine.Insert(true);
+                            JobJnlLine.ChangeCompany('ATLANTIC SHRIMPERS LIMITED');
+                        until JobJnlLine.Next = 0;
+                end;
                 CurrReport.Break;
             end;
         }

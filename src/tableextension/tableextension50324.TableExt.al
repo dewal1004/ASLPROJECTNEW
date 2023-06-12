@@ -4,30 +4,30 @@ tableextension 50324 "tableextension50324" extends "Gen. Journal Line"
     {
         modify("Reason Code")
         {
-            TableRelation = "Reason Code".Code WHERE (Type = FILTER (Import ..));
+            TableRelation = "Reason Code".Code WHERE(Type = FILTER(Import ..));
         }
         modify("External Document No.")
         {
-            TableRelation = IF ("Reason Code" = FILTER ('ANCILLIARY' | 'CISS' | 'CLEARING' | 'DUTY' | 'ECOWAS' | 'FREIGHT' | 'INSURANCE' | 'INTEREST' | 'SURCHARGE')) "Purchase Header"."No." WHERE ("Document Type" = FILTER (> Quote),
-                                                                                                                                                                                  "Buy-from Vendor No." = FILTER (<> ''))
+            TableRelation = IF ("Reason Code" = FILTER('ANCILLIARY' | 'CISS' | 'CLEARING' | 'DUTY' | 'ECOWAS' | 'FREIGHT' | 'INSURANCE' | 'INTEREST' | 'SURCHARGE')) "Purchase Header"."No." WHERE("Document Type" = FILTER(> Quote),
+                                                                                                                                                                                  "Buy-from Vendor No." = FILTER(<> ''))
             ELSE
-            IF ("Account Type" = CONST ("Fixed Asset"),
-                                                                                                                                                                                           "FA Posting Type" = CONST (Maintenance),
-                                                                                                                                                                                           "Maintenance Code" = CONST ('MAINTE')) Item."No." WHERE ("Gen. Prod. Posting Group" = FILTER (<> 'FIS'))
+            IF ("Account Type" = CONST("Fixed Asset"),
+                                                                                                                                                                                           "FA Posting Type" = CONST(Maintenance),
+                                                                                                                                                                                           "Maintenance Code" = CONST('MAINTE')) Item."No." WHERE("Gen. Prod. Posting Group" = FILTER(<> 'FIS'))
             ELSE
-            IF ("Reason Code" = CONST ('USAGEFA')) "Fixed Asset" WHERE ("FA Class Code" = FILTER (<> 'TRAWLER'))
+            IF ("Reason Code" = CONST('USAGEFA')) "Fixed Asset" WHERE("FA Class Code" = FILTER(<> 'TRAWLER'))
             ELSE
-            IF ("Reason Code" = CONST ('USAGERES')) Location WHERE ("Location Type" = FILTER (Residence))
+            IF ("Reason Code" = CONST('USAGERES')) Location WHERE("Location Type" = FILTER(Residence))
             ELSE
-            IF ("Reason Code" = CONST ('USAGEOTR')) "Standard Text" WHERE (Others = CONST (true))
+            IF ("Reason Code" = CONST('USAGEOTR')) "Standard Text" WHERE(Others = CONST(true))
             ELSE
-            IF ("Reason Code" = CONST ('USAGEVES')) Location WHERE ("Location Type" = FILTER (Vessel))
+            IF ("Reason Code" = CONST('USAGEVES')) Location WHERE("Location Type" = FILTER(Vessel))
             ELSE
-            IF ("Reason Code" = CONST ('EMPLOYEE')) Employee;
+            IF ("Reason Code" = CONST('EMPLOYEE')) Employee;
         }
         modify("Maintenance Code")
         {
-            TableRelation = Maintenance.Code WHERE (Type = CONST (ITGEN));
+            TableRelation = Maintenance.Code WHERE(Type = CONST(ITGEN));
         }
 
         //Unsupported feature: Code Modification on "Amount(Field 13).OnValidate".

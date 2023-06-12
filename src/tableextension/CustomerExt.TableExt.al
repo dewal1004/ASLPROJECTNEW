@@ -3,12 +3,12 @@ tableextension 50237 "CustomerExt" extends Customer
     fields
     {
         //modify("Shipping Advice")
-       // {
-            //OptionCaption = 'Complete,Partial';
+        // {
+        //OptionCaption = 'Complete,Partial';
 
-            //Unsupported feature: Property Modification (OptionString) on ""Shipping Advice"(Field 5750)".
+        //Unsupported feature: Property Modification (OptionString) on ""Shipping Advice"(Field 5750)".
 
-      //  }
+        //  }
         field(50300; "Operation Type"; Boolean)
         {
             Description = 'Customer Type is Operation : Customers to be listed on Operation (Job) Card';
@@ -23,7 +23,7 @@ tableextension 50237 "CustomerExt" extends Customer
             OptionMembers = " ","Initial Entry",Application,"Unrealized Loss","Unrealized Gain","Realized Loss","Realized Gain","Payment Discount","Payment Discount (VAT Excl.)","Payment Discount (VAT Adjustment)","Appln. Rounding","Correction of Remaining Amount";
         }
 
-        
+
     }
 
     keys
@@ -33,18 +33,18 @@ tableextension 50237 "CustomerExt" extends Customer
         }
     }
 
-  trigger OnInsert()
-  var
-    myInt: Integer;
-  begin
-    if UserRec.Get(UserId) then
-      if not UserRec."Modify Customer" then Error('You Can Not Create New Customer');
-    "Global Dimension 2 Code":='ATLANTIC';     //AAA - Oct 2002
-    if "No." <> '' then
-      "Shipping Advice" := "Shipping Advice"::Partial; //#1
-    UpdateReferencedIds;
-    // SetLastModifiedDateTime;
-  end;
+    trigger OnInsert()
+    var
+        myInt: Integer;
+    begin
+        if UserRec.Get(UserId) then
+            if not UserRec."Modify Customer" then Error('You Can Not Create New Customer');
+        "Global Dimension 2 Code" := 'ATLANTIC';     //AAA - Oct 2002
+        if "No." <> '' then
+            "Shipping Advice" := "Shipping Advice"::Partial; //#1
+        UpdateReferencedIds;
+        // SetLastModifiedDateTime;
+    end;
 
 
 

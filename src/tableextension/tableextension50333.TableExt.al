@@ -18,8 +18,7 @@ tableextension 50333 "tableextension50333" extends "Comment Line"
             begin
                 if seaport.Get("Day Lost Cause") then
                     "Day Lost Location" := seaport.SeaPort;
-                if Operation.Get("No.") then 
-                begin
+                if Operation.Get("No.") then begin
                     Vessel := Operation.Vessel;
                     "Global Dimension 1 Code" := Operation."Global Dimension 1 Code";
                     "Global Dimension 2 Code" := Operation."Global Dimension 2 Code";
@@ -73,8 +72,7 @@ tableextension 50333 "tableextension50333" extends "Comment Line"
 
             trigger OnValidate()
             begin
-                if Jobss.Get("Operation No.") then 
-                begin
+                if Jobss.Get("Operation No.") then begin
 
                     Captain := Jobss."Person Responsible";
                     Validate(Voyage, Jobss."Voyage No.");
@@ -303,7 +301,7 @@ tableextension 50333 "tableextension50333" extends "Comment Line"
 
             end;
         }
-        field(70000; "Comment Temp"; Text[250]) 
+        field(70000; "Comment Temp"; Text[250])
         {
         }
     }

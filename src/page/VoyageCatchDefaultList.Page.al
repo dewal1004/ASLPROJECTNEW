@@ -14,37 +14,37 @@ page 50183 "Voyage Catch Default List"
             {
                 Editable = false;
                 ShowCaption = false;
-                field("Table Name"; "Table Name")
+                field("Table Name"; Rec."Table Name")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("No."; "No.")
+                field("No."; Rec."No.")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("Code"; Code)
+                field("Code"; Rec.Code)
                 {
                     ApplicationArea = All;
                 }
-                field("Pack Size"; "Pack Size")
+                field("Pack Size"; Rec."Pack Size")
                 {
                     ApplicationArea = All;
                 }
-                field(Brand; Brand)
+                field(Brand; Rec.Brand)
                 {
                     ApplicationArea = All;
                 }
-                field("Budget Quantity"; "Budget Quantity")
+                field("Budget Quantity"; Rec."Budget Quantity")
                 {
                     ApplicationArea = All;
                 }
-                field(Description; Description)
+                field(Description; Rec.Description)
                 {
                     ApplicationArea = All;
                 }
-                field("S/No."; "S/No.")
+                field("S/No."; Rec."S/No.")
                 {
                     ApplicationArea = All;
                 }
@@ -72,13 +72,13 @@ page 50183 "Voyage Catch Default List"
                     DefCatch.SetRange(DefCatch."In Use", true);
                     if DefCatch.Find('-') then
                         repeat
-                            Init;
-                            Code := DefCatch."No.";
-                            "Pack Size" := DefCatch."Pack Size";
-                            Brand := DefCatch.Brand;
-                            Description := DefCatch.Description;
-                            fine := Evaluate("S/No.", Code);
-                            if not Insert then Modify();
+                            Rec.Init;
+                            Rec.Code := DefCatch."No.";
+                            Rec."Pack Size" := DefCatch."Pack Size";
+                            Rec.Brand := DefCatch.Brand;
+                            Rec.Description := DefCatch.Description;
+                            fine := Evaluate(Rec."S/No.", Rec.Code);
+                            if not Rec.Insert then Rec.Modify();
                         until DefCatch.Next = 0;
                 end;
             }
@@ -87,7 +87,7 @@ page 50183 "Voyage Catch Default List"
 
     trigger OnAfterGetRecord()
     begin
-        if "Budget Quantity" = 0 then Validate("Budget Quantity");
+        if Rec."Budget Quantity" = 0 then Rec.Validate("Budget Quantity");
     end;
 
     var

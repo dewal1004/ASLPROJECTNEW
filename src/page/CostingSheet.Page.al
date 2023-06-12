@@ -3,7 +3,7 @@ page 50201 "Costing Sheet"
     Caption = 'Costing Sheet';
     PageType = CardPart;
     SourceTable = "Purchase Line";
-    
+
     layout
     {
         area(content)
@@ -30,59 +30,59 @@ page 50201 "Costing Sheet"
                     ApplicationArea = All;
                     ToolTip = 'Specifies the cost, in LCY, of one unit of the item or resource on the line.';
                 }
-                field("ActualLandedAmount(LCY)";rec."ActualLandedAmount(LCY)")
+                field("ActualLandedAmount(LCY)"; rec."ActualLandedAmount(LCY)")
                 {
                     ApplicationArea = all;
                 }
-                field("ActualFreight(LCY)";"ActualFreight(LCY)")
+                field("ActualFreight(LCY)"; Rec."ActualFreight(LCY)")
                 {
                     ApplicationArea = all;
                 }
-                field("ActualClearing(LCY)";"ActualClearing(LCY)")
+                field("ActualClearing(LCY)"; Rec."ActualClearing(LCY)")
                 {
                     ApplicationArea = all;
                 }
-                field("ActualDuty(LCY)";"ActualDuty(LCY)")
+                field("ActualDuty(LCY)"; Rec."ActualDuty(LCY)")
                 {
                     ApplicationArea = All;
                 }
-                field("Actual Interest(LCY)";"ActualInterest(LCY)")
+                field("Actual Interest(LCY)"; Rec."ActualInterest(LCY)")
                 {
                     ApplicationArea = All;
                 }
-                field("Actual Insurance(LCY)";"ActualInsurance(LCY)")
+                field("Actual Insurance(LCY)"; Rec."ActualInsurance(LCY)")
                 {
                     ApplicationArea = All;
                 }
-                field("Actual Surcharge Duty(LCY)";"ActualSurcharge Duty(LCY)")
+                field("Actual Surcharge Duty(LCY)"; Rec."ActualSurcharge Duty(LCY)")
                 {
                     ApplicationArea = all;
                 }
-                field("Actual CISS(LCY)";"ActualCISS(LCY)")
+                field("Actual CISS(LCY)"; Rec."ActualCISS(LCY)")
                 {
                     ApplicationArea = all;
                 }
-                field("Actual Ancillary(LCY)";"ActualAncillary(LCY)")
+                field("Actual Ancillary(LCY)"; Rec."ActualAncillary(LCY)")
                 {
                     ApplicationArea = all;
                 }
-                field("Actual Ecowas Duty(LCY)";"ActualEcowas Duty(LCY)")
+                field("Actual Ecowas Duty(LCY)"; Rec."ActualEcowas Duty(LCY)")
                 {
                     ApplicationArea = all;
                 }
-                field("Actual Vat (LCY)";"ActualVat (LCY)")
+                field("Actual Vat (LCY)"; Rec."ActualVat (LCY)")
                 {
                     ApplicationArea = all;
                 }
-                field("Actual Total Overhead(LCY)";"ActualTotal Overhead(LCY)")
+                field("Actual Total Overhead(LCY)"; Rec."ActualTotal Overhead(LCY)")
                 {
                     ApplicationArea = All;
                 }
-                field("Landed Amount(LCY)";"LandedAmount(LCY)")
+                field("Landed Amount(LCY)"; Rec."LandedAmount(LCY)")
                 {
                     ApplicationArea = all;
                 }
-                field("Qty to Receive Amount(LCY)";"QtytoReceiveAmount(LCY)")
+                field("Qty to Receive Amount(LCY)"; Rec."QtytoReceiveAmount(LCY)")
                 {
                     ApplicationArea = all;
                 }

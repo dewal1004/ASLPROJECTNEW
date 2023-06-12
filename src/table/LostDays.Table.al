@@ -18,7 +18,7 @@ table 50035 "Lost Days"
         field(4; "Location Filter"; Code[10])
         {
             FieldClass = FlowFilter;
-            TableRelation = Location WHERE ("Location Type" = CONST (Vessel));
+            TableRelation = Location WHERE("Location Type" = CONST(Vessel));
         }
         field(5; Description; Text[30])
         {

@@ -11,31 +11,31 @@ page 50011 "Table Lookup Lines."
         {
             repeater(Group)
             {
-                field("Lower Amount"; "Lower Amount")
+                field("Lower Amount"; Rec."Lower Amount")
                 {
                     ApplicationArea = All;
                 }
-                field("Upper Amount"; "Upper Amount")
+                field("Upper Amount"; Rec."Upper Amount")
                 {
                     ApplicationArea = All;
                 }
-                field("Lower Code"; "Lower Code")
+                field("Lower Code"; Rec."Lower Code")
                 {
                     ApplicationArea = All;
                 }
-                field("Upper Code"; "Upper Code")
+                field("Upper Code"; Rec."Upper Code")
                 {
                     ApplicationArea = All;
                 }
-                field("Extract Amount"; "Extract Amount")
+                field("Extract Amount"; Rec."Extract Amount")
                 {
                     ApplicationArea = All;
                 }
-                field("Tax Rate %"; "Tax Rate %")
+                field("Tax Rate %"; Rec."Tax Rate %")
                 {
                     ApplicationArea = All;
                 }
-                field("Cum. Tax Payable"; "Cum. Tax Payable")
+                field("Cum. Tax Payable"; Rec."Cum. Tax Payable")
                 {
                     ApplicationArea = All;
                 }

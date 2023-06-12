@@ -19,7 +19,7 @@ tableextension 50262 "tableextension50262" extends "Sales & Receivables Setup"
         }
         field(50015; "Default Off Loading Account"; Code[20])
         {
-            TableRelation = "G/L Account"."No." WHERE ("Account Type" = CONST (Posting));
+            TableRelation = "G/L Account"."No." WHERE("Account Type" = CONST(Posting));
         }
     }
 }

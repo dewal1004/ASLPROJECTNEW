@@ -4,11 +4,11 @@ pageextension 50328 "pageextension50328" extends "Posted Transfer Receipts"
     {
         addafter("Shortcut Dimension 1 Code")
         {
-            field("Transfer Order No."; "Transfer Order No.")
+            field("Transfer Order No."; Rec."Transfer Order No.")
             {
                 ApplicationArea = All;
             }
-            field("Transfer Order Date"; "Transfer Order Date")
+            field("Transfer Order Date"; Rec."Transfer Order Date")
             {
                 ApplicationArea = All;
             }

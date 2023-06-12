@@ -35,12 +35,12 @@ pageextension 50345 "pageextension50345" extends "Posted Return Receipt Subform"
 
     local procedure ShowItemTrackingLines()
     begin
-        ShowItemTrackingLines;
+        Rec.ShowItemTrackingLines;
     end;
 
     local procedure ShowLineComments()
     begin
-        ShowLineComments;
+        Rec.ShowLineComments;
     end;
 }
 

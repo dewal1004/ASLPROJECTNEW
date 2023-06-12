@@ -416,7 +416,7 @@ table 50032 "Store Requisition Line New"
         StoreHead.SetFilter(StoreHead."Req. No", '%1', "Req. No.");
         if StoreHead.FindFirst then
             if StoreHead."Document No." <> '' then Error('You Can Not Modify Processed Requisition');
-            if StoreHead."Final Approved" <> StoreHead."Final Approved"::" " then 
+        if StoreHead."Final Approved" <> StoreHead."Final Approved"::" " then
             Error('ÝOu Can Not Modify The Line After Final Approval');
     End;
 

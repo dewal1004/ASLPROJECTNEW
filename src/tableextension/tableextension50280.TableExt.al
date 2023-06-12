@@ -5,11 +5,11 @@ tableextension 50280 "tableextension50280" extends "Invoice Post. Buffer"
         field(50362; "External Document No."; Code[20])
         {
             Caption = 'External Document No.';
-            TableRelation = IF ("Reason Code" = CONST ('USAGE')) "Fixed Asset" WHERE ("FA Subclass Code" = FILTER (<> 'VESSEL'))
+            TableRelation = IF ("Reason Code" = CONST('USAGE')) "Fixed Asset" WHERE("FA Subclass Code" = FILTER(<> 'VESSEL'))
             ELSE
-            IF ("Reason Code" = CONST ('USAGERES')) Location WHERE ("Location Type" = FILTER (Residence))
+            IF ("Reason Code" = CONST('USAGERES')) Location WHERE("Location Type" = FILTER(Residence))
             ELSE
-            IF ("Reason Code" = CONST ('USAGEOTHRS')) "Standard Text" WHERE (Others = CONST (true));
+            IF ("Reason Code" = CONST('USAGEOTHRS')) "Standard Text" WHERE(Others = CONST(true));
         }
         field(50364; "Reason Code"; Code[10])
         {

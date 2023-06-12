@@ -12,8 +12,8 @@ tableextension 50251 "tableextension50251" extends "Vendor Ledger Entry"
         field(90016; "Remaining Amt. (LCY)1"; Decimal)
         {
             AutoFormatType = 1;
-            CalcFormula = Sum ("Detailed Vendor Ledg. Entry"."Amount (LCY)" WHERE ("Vendor Ledger Entry No." = FIELD ("Entry No."),
-                                                                                  "Posting Date" = FIELD ("Date Filter")));
+            CalcFormula = Sum("Detailed Vendor Ledg. Entry"."Amount (LCY)" WHERE("Vendor Ledger Entry No." = FIELD("Entry No."),
+                                                                                  "Posting Date" = FIELD("Date Filter")));
             Caption = 'Remaining Amt. (LCY)';
             Editable = false;
             FieldClass = FlowField;

@@ -18,98 +18,98 @@ page 50553 "Purchase List Foreign"
             repeater(Control1)
             {
                 ShowCaption = false;
-                field("No."; "No.")
+                field("No."; Rec."No.")
                 {
                     ApplicationArea = All;
                 }
-                field("Buy-from Vendor No."; "Buy-from Vendor No.")
+                field("Buy-from Vendor No."; Rec."Buy-from Vendor No.")
                 {
                     ApplicationArea = All;
                 }
-                field("Order Address Code"; "Order Address Code")
-                {
-                    Visible = false;
-                    ApplicationArea = All;
-                }
-                field("Buy-from Vendor Name"; "Buy-from Vendor Name")
-                {
-                    ApplicationArea = All;
-                }
-                field("Vendor Authorization No."; "Vendor Authorization No.")
-                {
-                    ApplicationArea = All;
-                }
-                field("Buy-from Post Code"; "Buy-from Post Code")
+                field("Order Address Code"; Rec."Order Address Code")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("Buy-from Country/Region Code"; "Buy-from Country/Region Code")
+                field("Buy-from Vendor Name"; Rec."Buy-from Vendor Name")
+                {
+                    ApplicationArea = All;
+                }
+                field("Vendor Authorization No."; Rec."Vendor Authorization No.")
+                {
+                    ApplicationArea = All;
+                }
+                field("Buy-from Post Code"; Rec."Buy-from Post Code")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("Buy-from Contact"; "Buy-from Contact")
+                field("Buy-from Country/Region Code"; Rec."Buy-from Country/Region Code")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("Pay-to Vendor No."; "Pay-to Vendor No.")
+                field("Buy-from Contact"; Rec."Buy-from Contact")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("Pay-to Name"; "Pay-to Name")
+                field("Pay-to Vendor No."; Rec."Pay-to Vendor No.")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("Pay-to Post Code"; "Pay-to Post Code")
+                field("Pay-to Name"; Rec."Pay-to Name")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("Pay-to Country/Region Code"; "Pay-to Country/Region Code")
+                field("Pay-to Post Code"; Rec."Pay-to Post Code")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("Pay-to Contact"; "Pay-to Contact")
+                field("Pay-to Country/Region Code"; Rec."Pay-to Country/Region Code")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("Ship-to Code"; "Ship-to Code")
+                field("Pay-to Contact"; Rec."Pay-to Contact")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("Ship-to Name"; "Ship-to Name")
+                field("Ship-to Code"; Rec."Ship-to Code")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("Ship-to Post Code"; "Ship-to Post Code")
+                field("Ship-to Name"; Rec."Ship-to Name")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("Ship-to Country/Region Code"; "Ship-to Country/Region Code")
+                field("Ship-to Post Code"; Rec."Ship-to Post Code")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("Ship-to Contact"; "Ship-to Contact")
+                field("Ship-to Country/Region Code"; Rec."Ship-to Country/Region Code")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("Posting Date"; "Posting Date")
+                field("Ship-to Contact"; Rec."Ship-to Contact")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("Shortcut Dimension 1 Code"; "Shortcut Dimension 1 Code")
+                field("Posting Date"; Rec."Posting Date")
+                {
+                    Visible = false;
+                    ApplicationArea = All;
+                }
+                field("Shortcut Dimension 1 Code"; Rec."Shortcut Dimension 1 Code")
                 {
                     Visible = false;
                     ApplicationArea = All;
@@ -119,7 +119,7 @@ page 50553 "Purchase List Foreign"
                         DimMgt.LookupDimValueCodeNoUpdate(1);
                     end;
                 }
-                field("Shortcut Dimension 2 Code"; "Shortcut Dimension 2 Code")
+                field("Shortcut Dimension 2 Code"; Rec."Shortcut Dimension 2 Code")
                 {
                     Visible = false;
                     ApplicationArea = All;
@@ -129,30 +129,30 @@ page 50553 "Purchase List Foreign"
                         DimMgt.LookupDimValueCodeNoUpdate(2);
                     end;
                 }
-                field("Location Code"; "Location Code")
+                field("Location Code"; Rec."Location Code")
                 {
                     Visible = true;
                     ApplicationArea = All;
                 }
-                field("Purchaser Code"; "Purchaser Code")
+                field("Purchaser Code"; Rec."Purchaser Code")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("Assigned User ID"; "Assigned User ID")
+                field("Assigned User ID"; Rec."Assigned User ID")
                 {
                     ApplicationArea = All;
                 }
-                field("Currency Code"; "Currency Code")
+                field("Currency Code"; Rec."Currency Code")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("Completely Received"; "Completely Received")
+                field("Completely Received"; Rec."Completely Received")
                 {
                     ApplicationArea = All;
                 }
-                field("Due Date"; "Due Date")
+                field("Due Date"; Rec."Due Date")
                 {
                     ApplicationArea = All;
                 }

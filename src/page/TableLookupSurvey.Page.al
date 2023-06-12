@@ -13,23 +13,23 @@ page 50012 "Table Lookup Survey."
             repeater(Control1)
             {
                 ShowCaption = false;
-                field(TableId; TableId)
+                field(TableId; Rec.TableId)
                 {
                     ApplicationArea = All;
                 }
-                field(Type; Type)
+                field(Type; Rec.Type)
                 {
                     ApplicationArea = All;
                 }
-                field(Description; Description)
+                field(Description; Rec.Description)
                 {
                     ApplicationArea = All;
                 }
-                field("Max. Extract Amount"; "Max. Extract Amount")
+                field("Max. Extract Amount"; Rec."Max. Extract Amount")
                 {
                     ApplicationArea = All;
                 }
-                field("Min. Extract Amount"; "Min. Extract Amount")
+                field("Min. Extract Amount"; Rec."Min. Extract Amount")
                 {
                     ApplicationArea = All;
                 }

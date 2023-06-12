@@ -14,7 +14,7 @@ tableextension 50276 "tableextension50276" extends "Purchase Line"
         //Unsupported feature: Property Insertion (InitValue) on ""Indirect Cost %"(Field 54)".
 
 
-        
+
         //Unsupported feature: Code Modification on ""Direct Unit Cost"(Field 22).OnValidate".
 
         //trigger OnValidate()
@@ -35,8 +35,8 @@ tableextension 50276 "tableextension50276" extends "Purchase Line"
                 Validate("Line Discount %");
                 //SSNL-Jul2020-Start
                 "QtytoReceiveAmount(LCY)" := "Outstanding Amount (LCY)";
-                if("Qty. to Receive" <> "Outstanding Quantity") then
-                   "QtytoReceiveAmount(LCY)" := Round(("Qty. to Receive" * "Outstanding Amount (LCY)") / "Outstanding Quantity");
+                if ("Qty. to Receive" <> "Outstanding Quantity") then
+                    "QtytoReceiveAmount(LCY)" := Round(("Qty. to Receive" * "Outstanding Amount (LCY)") / "Outstanding Quantity");
             end;
             //SSNL-Jul2020-End
         }
@@ -232,11 +232,11 @@ tableextension 50276 "tableextension50276" extends "Purchase Line"
                 //IF "Reason Code"='USAGE' THEN "Gen. Bus. Posting Group":='LOCAL';
             end;
         }
-        field(50365; "ASL Indirect Cost %";Decimal)
+        field(50365; "ASL Indirect Cost %"; Decimal)
         {
             trigger OnValidate()
             begin
-                Validate("Indirect Cost %","ASL Indirect Cost %")
+                Validate("Indirect Cost %", "ASL Indirect Cost %")
             end;
 
         }

@@ -109,12 +109,12 @@ table 50007 "Payroll-Payslip Header."
         field(19; "Global Dimension 1 Code"; Code[10])
         {
             CaptionClass = '1,1,1';
-            TableRelation = "Dimension Value".Code WHERE ("Global Dimension No." = CONST (1));
+            TableRelation = "Dimension Value".Code WHERE("Global Dimension No." = CONST(1));
         }
         field(20; "Global Dimension 2 Code"; Code[10])
         {
             CaptionClass = '1,1,2';
-            TableRelation = "Dimension Value".Code WHERE ("Global Dimension No." = CONST (2));
+            TableRelation = "Dimension Value".Code WHERE("Global Dimension No." = CONST(2));
         }
         field(21; "Customer Number"; Code[20])
         {
@@ -130,24 +130,24 @@ table 50007 "Payroll-Payslip Header."
         }
         field(24; Edvalue; Decimal)
         {
-            CalcFormula = Sum ("Payroll-Payslip Lines.".Amount WHERE ("Payroll Period" = FIELD ("Payroll Period"),
-                                                                     "Employee No" = FIELD ("Employee No"),
-                                                                     "E/D Code" = FIELD (EDFILTER)));
+            CalcFormula = Sum("Payroll-Payslip Lines.".Amount WHERE("Payroll Period" = FIELD("Payroll Period"),
+                                                                     "Employee No" = FIELD("Employee No"),
+                                                                     "E/D Code" = FIELD(EDFILTER)));
             Editable = false;
             FieldClass = FlowField;
         }
         field(25; "Debit Amount"; Decimal)
         {
-            CalcFormula = Sum ("Payroll-Payslip Lines.".Amount WHERE ("Payroll Period" = FIELD ("Payroll Period"),
-                                                                     "Employee No" = FIELD ("Employee No"),
-                                                                     "Debit Account" = FILTER (<> '')));
+            CalcFormula = Sum("Payroll-Payslip Lines.".Amount WHERE("Payroll Period" = FIELD("Payroll Period"),
+                                                                     "Employee No" = FIELD("Employee No"),
+                                                                     "Debit Account" = FILTER(<> '')));
             FieldClass = FlowField;
         }
         field(26; "Credit Amount"; Decimal)
         {
-            CalcFormula = Sum ("Payroll-Payslip Lines.".Amount WHERE ("Payroll Period" = FIELD ("Payroll Period"),
-                                                                     "Employee No" = FIELD ("Employee No"),
-                                                                     "Credit Account" = FILTER (<> '')));
+            CalcFormula = Sum("Payroll-Payslip Lines.".Amount WHERE("Payroll Period" = FIELD("Payroll Period"),
+                                                                     "Employee No" = FIELD("Employee No"),
+                                                                     "Credit Account" = FILTER(<> '')));
             FieldClass = FlowField;
         }
     }

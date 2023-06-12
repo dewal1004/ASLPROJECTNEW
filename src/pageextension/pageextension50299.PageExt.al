@@ -4,19 +4,19 @@ pageextension 50299 "pageextension50299" extends "Employment Contracts"
     {
         addafter(Description)
         {
-            field("Global Dimension 1 Code"; "Global Dimension 1 Code")
+            field("Global Dimension 1 Code"; Rec."Global Dimension 1 Code")
             {
                 ApplicationArea = All;
             }
-            field(ResCode; ResCode)
+            field(ResCode; Rec.ResCode)
             {
                 ApplicationArea = All;
             }
-            field(Group; Group)
+            field(Group; Rec.Group)
             {
                 ApplicationArea = All;
             }
-            field("Unique Cd No"; "Unique Cd No")
+            field("Unique Cd No"; Rec."Unique Cd No")
             {
                 ApplicationArea = All;
             }

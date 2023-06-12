@@ -72,30 +72,30 @@ pageextension 50291 "pageextension50291" extends "Employee List"
 
         addafter("Last Name")
         {
-            field("NSITF Number"; "NSITF Number")
+            field("NSITF Number"; Rec."NSITF Number")
             {
                 ApplicationArea = All;
             }
         }
         addafter(Initials)
         {
-            field("Employee Group"; "Employee Group")
+            field("Employee Group"; Rec."Employee Group")
             {
                 Editable = false;
                 StyleExpr = StyleText;
                 ApplicationArea = All;
             }
-            field("Bank Account"; "Bank Account")
+            field("Bank Account"; Rec."Bank Account")
             {
                 StyleExpr = StyleText;
                 ApplicationArea = All;
             }
-            field("Employment Date"; "Employment Date")
+            field("Employment Date"; Rec."Employment Date")
             {
                 StyleExpr = StyleText;
                 ApplicationArea = All;
             }
-            field("Birth Date"; "Birth Date")
+            field("Birth Date"; Rec."Birth Date")
             {
                 StyleExpr = StyleText;
                 ApplicationArea = All;
@@ -103,29 +103,29 @@ pageextension 50291 "pageextension50291" extends "Employee List"
         }
         addafter("Job Title")
         {
-            field(Status; Status)
+            field(Status; Rec.Status)
             {
                 Style = Standard;
                 StyleExpr = StyleText;
                 ApplicationArea = All;
             }
-            field(Blocked; Blocked)
+            field(Blocked; Rec.Blocked)
             {
                 ApplicationArea = All;
             }
-            field("Posting Group"; "Posting Group")
+            field("Posting Group"; Rec."Posting Group")
             {
                 StyleExpr = StyleText;
                 ApplicationArea = All;
             }
-            field("Global Dimension 1 Code"; "Global Dimension 1 Code")
+            field("Global Dimension 1 Code"; Rec."Global Dimension 1 Code")
             {
                 ApplicationArea = All;
             }
         }
         addafter("Post Code")
         {
-            field(Suspended; Suspended)
+            field(Suspended; Rec.Suspended)
             {
                 StyleExpr = StyleText;
                 ApplicationArea = All;
@@ -135,12 +135,12 @@ pageextension 50291 "pageextension50291" extends "Employee List"
                 Caption = 'Termination Date';
                 ApplicationArea = All;
             }
-            field(Grade; Grade)
+            field(Grade; Rec.Grade)
             {
                 StyleExpr = StyleText;
                 ApplicationArea = All;
             }
-            field(Step; Step)
+            field(Step; Rec.Step)
             {
                 StyleExpr = StyleText;
                 ApplicationArea = All;
@@ -148,27 +148,27 @@ pageextension 50291 "pageextension50291" extends "Employee List"
         }
         addafter(Comment)
         {
-            field(Basic; GetBasic("No."))
+            field(Basic; Rec.GetBasic(Rec."No."))
             {
                 Caption = 'Basic';
                 ApplicationArea = All;
             }
-            field("Other Allowances"; GetED(EDNO[2]))
+            field("Other Allowances"; Rec.GetED(EDNO[2]))
             {
                 Caption = 'Other Allowances';
                 ApplicationArea = All;
             }
-            field(Housing; GetED(EDNO[3]))
+            field(Housing; Rec.GetED(EDNO[3]))
             {
                 Caption = 'Housing';
                 ApplicationArea = All;
             }
-            field(Transport; GetED(EDNO[4]))
+            field(Transport; Rec.GetED(EDNO[4]))
             {
                 Caption = 'Transport';
                 ApplicationArea = All;
             }
-            field("Balance (LCY)"; "Balance (LCY)")
+            field("Balance (LCY)"; Rec."Balance (LCY)")
             {
                 ApplicationArea = All;
             }
@@ -237,9 +237,9 @@ pageextension 50291 "pageextension50291" extends "Employee List"
     trigger OnAfterGetRecord()
     begin
 
-        SETRANGE("No.");
+        Rec.SETRANGE("No.");
         StyleText := '';
-        if Status = Status::Inactive then begin
+        if Rec.Status = Rec.Status::Inactive then begin
             StyleText := 'Unfavorable';
         end else begin
             StyleText := 'standard'

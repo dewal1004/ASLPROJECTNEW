@@ -18,54 +18,54 @@ page 50118 "Purch. Req. Process List"
             repeater(Group)
             {
                 Editable = false;
-                field("Req No."; "Req No.")
+                field("Req No."; Rec."Req No.")
                 {
                     Editable = false;
                     ApplicationArea = All;
                 }
-                field("Req Department"; "Req Department")
+                field("Req Department"; Rec."Req Department")
                 {
                     Editable = false;
                     ApplicationArea = All;
                 }
-                field("Req Location"; "Req Location")
+                field("Req Location"; Rec."Req Location")
                 {
                     ApplicationArea = All;
                 }
-                field("Item No."; "Item No.")
-                {
-                    Editable = false;
-                    ApplicationArea = All;
-                }
-                field(Description; Description)
-                {
-                    ApplicationArea = All;
-                }
-                field(Quantity; Quantity)
+                field("Item No."; Rec."Item No.")
                 {
                     Editable = false;
                     ApplicationArea = All;
                 }
-                field("Unit Price"; "Unit Price")
+                field(Description; Rec.Description)
                 {
                     ApplicationArea = All;
                 }
-                field("Supply By"; "Supply By")
-                {
-                    Editable = false;
-                    ApplicationArea = All;
-                }
-                field("Supplier Name"; "Supplier Name")
+                field(Quantity; Rec.Quantity)
                 {
                     Editable = false;
                     ApplicationArea = All;
                 }
-                field("Security Check Quantity"; "Security Check Quantity")
+                field("Unit Price"; Rec."Unit Price")
+                {
+                    ApplicationArea = All;
+                }
+                field("Supply By"; Rec."Supply By")
                 {
                     Editable = false;
                     ApplicationArea = All;
                 }
-                field("QCC Check Quantity"; "QCC Check Quantity")
+                field("Supplier Name"; Rec."Supplier Name")
+                {
+                    Editable = false;
+                    ApplicationArea = All;
+                }
+                field("Security Check Quantity"; Rec."Security Check Quantity")
+                {
+                    Editable = false;
+                    ApplicationArea = All;
+                }
+                field("QCC Check Quantity"; Rec."QCC Check Quantity")
                 {
                     Editable = false;
                     ApplicationArea = All;
@@ -74,19 +74,19 @@ page 50118 "Purch. Req. Process List"
             group("Store Action")
             {
                 Editable = false;
-                field(Process; Process)
+                field(Process; Rec.Process)
                 {
                     ApplicationArea = All;
                 }
-                field("Process By"; "Process By")
+                field("Process By"; Rec."Process By")
                 {
                     ApplicationArea = All;
                 }
-                field("Process By Name"; "Process By Name")
+                field("Process By Name"; Rec."Process By Name")
                 {
                     ApplicationArea = All;
                 }
-                field("Invoice No."; "Invoice No.")
+                field("Invoice No."; Rec."Invoice No.")
                 {
                     ApplicationArea = All;
                 }
@@ -106,7 +106,7 @@ page 50118 "Purch. Req. Process List"
 
                 trigger OnAction()
                 begin
-                    CreatePurchInv;
+                    Rec.CreatePurchInv;
                 end;
             }
             action("Print Status List")

@@ -41,7 +41,7 @@ pageextension 50340 "pageextension50340" extends "Sales Return Order Subform"
 
     local procedure OpenItemTrackingLines()
     begin
-        OpenItemTrackingLines;
+        Rec.OpenItemTrackingLines;
     end;
 }
 

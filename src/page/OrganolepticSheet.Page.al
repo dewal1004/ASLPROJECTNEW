@@ -14,141 +14,141 @@ page 50070 "Organoleptic Sheet"
             repeater(Control1)
             {
                 ShowCaption = false;
-                field(Date; Date)
+                field(Date; Rec.Date)
                 {
                     ApplicationArea = All;
                 }
-                field(Vessel; Vessel)
+                field(Vessel; Rec.Vessel)
                 {
                     ApplicationArea = All;
                 }
-                field(Type; Type)
+                field(Type; Rec.Type)
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("Operation No."; "Operation No.")
+                field("Operation No."; Rec."Operation No.")
                 {
                     ApplicationArea = All;
                 }
-                field(Voyage; Voyage)
+                field(Voyage; Rec.Voyage)
                 {
                     ApplicationArea = All;
                 }
-                field(ETA; ETA)
+                field(ETA; Rec.ETA)
                 {
                     Caption = 'ETA';
                     ApplicationArea = All;
                 }
-                field(ETD; ETD)
+                field(ETD; Rec.ETD)
                 {
                     Caption = 'ETD';
                     ApplicationArea = All;
                 }
-                field(Captain; Captain)
+                field(Captain; Rec.Captain)
                 {
                     ApplicationArea = All;
                 }
-                field("Date Code"; "Date Code")
+                field("Date Code"; Rec."Date Code")
                 {
                     ApplicationArea = All;
                 }
-                field("Code"; Code)
+                field("Code"; Rec.Code)
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field(Grade; Grade)
+                field(Grade; Rec.Grade)
                 {
                     ApplicationArea = All;
                 }
-                field("GRADE(Text)"; "GRADE(Text)")
+                field("GRADE(Text)"; Rec."GRADE(Text)")
                 {
                     Caption = 'GRADE (Text)';
                     ApplicationArea = All;
                 }
-                field("Pack Size"; "Pack Size")
+                field("Pack Size"; Rec."Pack Size")
                 {
                     ApplicationArea = All;
                 }
-                field(Brand; Brand)
+                field(Brand; Rec.Brand)
                 {
                     ApplicationArea = All;
                 }
-                field("Frozen Weight W/O I/C"; "Frozen Weight W/O I/C")
+                field("Frozen Weight W/O I/C"; Rec."Frozen Weight W/O I/C")
                 {
                     ApplicationArea = All;
                 }
-                field("Drained Weight (KGS)"; "Drained Weight (KGS)")
+                field("Drained Weight (KGS)"; Rec."Drained Weight (KGS)")
                 {
                     ApplicationArea = All;
                 }
-                field("Count/Kg"; "Count/Kg")
+                field("Count/Kg"; Rec."Count/Kg")
                 {
                     ApplicationArea = All;
                 }
-                field("TTL No. Pcs/Slab"; "TTL No. Pcs/Slab")
+                field("TTL No. Pcs/Slab"; Rec."TTL No. Pcs/Slab")
                 {
                     ApplicationArea = All;
                 }
-                field("Upper Grade Count"; "Upper Grade Count")
+                field("Upper Grade Count"; Rec."Upper Grade Count")
                 {
                     ApplicationArea = All;
                 }
-                field("Lower Grade Count"; "Lower Grade Count")
+                field("Lower Grade Count"; Rec."Lower Grade Count")
                 {
                     ApplicationArea = All;
                 }
-                field("Uniformity Ratio"; "Uniformity Ratio")
+                field("Uniformity Ratio"; Rec."Uniformity Ratio")
                 {
                     ApplicationArea = All;
                 }
-                field("Dehydration%"; "Dehydration%")
+                field("Dehydration%"; Rec."Dehydration%")
                 {
                     ApplicationArea = All;
                 }
-                field("Discolouration%"; "Discolouration%")
+                field("Discolouration%"; Rec."Discolouration%")
                 {
                     ApplicationArea = All;
                 }
-                field("Black Spot%"; "Black Spot%")
+                field("Black Spot%"; Rec."Black Spot%")
                 {
                     ApplicationArea = All;
                 }
-                field("Broken%"; "Broken%")
+                field("Broken%"; Rec."Broken%")
                 {
                     ApplicationArea = All;
                 }
-                field("Mix Up%"; "Mix Up%")
+                field("Mix Up%"; Rec."Mix Up%")
                 {
                     ApplicationArea = All;
                 }
-                field("Loose Shells%"; "Loose Shells%")
+                field("Loose Shells%"; Rec."Loose Shells%")
                 {
                     Caption = 'Soft Shells';
                     ApplicationArea = All;
                 }
-                field("Loose Neck%"; "Loose Neck%")
+                field("Loose Neck%"; Rec."Loose Neck%")
                 {
                     ApplicationArea = All;
                 }
-                field("General Appearance"; "General Appearance")
+                field("General Appearance"; Rec."General Appearance")
                 {
                     ApplicationArea = All;
                 }
-                field("Foreign Matter"; "Foreign Matter")
+                field("Foreign Matter"; Rec."Foreign Matter")
                 {
                     ApplicationArea = All;
                 }
-                field(Odour; Odour)
+                field(Odour; Rec.Odour)
                 {
                     ApplicationArea = All;
                 }
-                field("Overall Remark"; "Overall Remark")
+                field("Overall Remark"; Rec."Overall Remark")
                 {
                     ApplicationArea = All;
                 }
-                field(Comment; Comment)
+                field(Comment; Rec.Comment)
                 {
                     ApplicationArea = All;
                 }
@@ -177,7 +177,7 @@ page 50070 "Organoleptic Sheet"
     trigger OnNewRecord(BelowxRec: Boolean)
     begin
         //*** SetUpNewLine(Rec);
-        Type := Type::Organoleptic;
+        Rec.Type := Rec.Type::Organoleptic;
     end;
 }
 

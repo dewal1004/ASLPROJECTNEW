@@ -14,21 +14,21 @@ page 50028 "Appraisal Entry"
             group(General)
             {
                 Caption = 'General';
-                field("No."; "No.")
+                field("No."; Rec."No.")
                 {
                     ApplicationArea = All;
 
                     trigger OnAssistEdit()
                     begin
-                        if AssistEdit(xRec) then
+                        if Rec.AssistEdit(xRec) then
                             CurrPage.Update;
                     end;
                 }
-                field("Appraisal Selection"; "Appraisal Selection")
+                field("Appraisal Selection"; Rec."Appraisal Selection")
                 {
                     ApplicationArea = All;
                 }
-                field("Sell-to Customer No."; "Sell-to Customer No.")
+                field("Sell-to Customer No."; Rec."Sell-to Customer No.")
                 {
                     Caption = 'Appraisee No.';
                     ApplicationArea = All;
@@ -38,48 +38,48 @@ page 50028 "Appraisal Entry"
                         SelltoCustomerNoOnAfterValidat;
                     end;
                 }
-                field("Sell-to Customer Name"; "Sell-to Customer Name")
+                field("Sell-to Customer Name"; Rec."Sell-to Customer Name")
                 {
                     Caption = 'Name';
                     ApplicationArea = All;
                 }
-                field("Sell-to Address"; "Sell-to Address")
+                field("Sell-to Address"; Rec."Sell-to Address")
                 {
                     Caption = 'Address';
                     ApplicationArea = All;
                 }
-                field("Sell-to Address 2"; "Sell-to Address 2")
+                field("Sell-to Address 2"; Rec."Sell-to Address 2")
                 {
                     Caption = 'Address 2';
                     ApplicationArea = All;
                 }
-                field("Sell-to Post Code"; "Sell-to Post Code")
+                field("Sell-to Post Code"; Rec."Sell-to Post Code")
                 {
                     Caption = 'Post Code/City';
                     ApplicationArea = All;
                 }
-                field("Sell-to City"; "Sell-to City")
+                field("Sell-to City"; Rec."Sell-to City")
                 {
                     ApplicationArea = All;
                 }
-                field("Sell-to Contact"; "Sell-to Contact")
+                field("Sell-to Contact"; Rec."Sell-to Contact")
                 {
                     Caption = 'Contact';
                     ApplicationArea = All;
                 }
-                field("Contr. Code/Postn.  Applied"; "Contr. Code/Postn.  Applied")
+                field("Contr. Code/Postn.  Applied"; Rec."Contr. Code/Postn.  Applied")
                 {
                     ApplicationArea = All;
                 }
-                field("Posting Date"; "Posting Date")
+                field("Posting Date"; Rec."Posting Date")
                 {
                     ApplicationArea = All;
                 }
-                field("Document Date"; "Document Date")
+                field("Document Date"; Rec."Document Date")
                 {
                     ApplicationArea = All;
                 }
-                field("Shortcut Dimension 1 Code"; "Shortcut Dimension 1 Code")
+                field("Shortcut Dimension 1 Code"; Rec."Shortcut Dimension 1 Code")
                 {
                     ApplicationArea = All;
 
@@ -88,7 +88,7 @@ page 50028 "Appraisal Entry"
                         ShortcutDimension1CodeOnAfterV;
                     end;
                 }
-                field("Shortcut Dimension 2 Code"; "Shortcut Dimension 2 Code")
+                field("Shortcut Dimension 2 Code"; Rec."Shortcut Dimension 2 Code")
                 {
                     ApplicationArea = All;
 
@@ -97,11 +97,11 @@ page 50028 "Appraisal Entry"
                         ShortcutDimension2CodeOnAfterV;
                     end;
                 }
-                field(Status; Status)
+                field(Status; Rec.Status)
                 {
                     ApplicationArea = All;
                 }
-                field("Posting No. Series"; "Posting No. Series")
+                field("Posting No. Series"; Rec."Posting No. Series")
                 {
                     ApplicationArea = All;
                 }
@@ -126,15 +126,15 @@ page 50028 "Appraisal Entry"
                     ShowCaption = false;
                     ApplicationArea = All;
                 }
-                field("Skill Score"; "Skill Score")
+                field("Skill Score"; Rec."Skill Score")
                 {
                     ApplicationArea = All;
                 }
-                field("Skill Total"; "Skill Total")
+                field("Skill Total"; Rec."Skill Total")
                 {
                     ApplicationArea = All;
                 }
-                field("Performance Score"; "Performance Score")
+                field("Performance Score"; Rec."Performance Score")
                 {
                     ApplicationArea = All;
                 }
@@ -144,18 +144,18 @@ page 50028 "Appraisal Entry"
                     ShowCaption = false;
                     ApplicationArea = All;
                 }
-                field(Cgrade; Cgrade)
+                field(Cgrade; Rec.Cgrade)
                 {
                     Caption = 'Current';
                     Editable = false;
                     ApplicationArea = All;
                 }
-                field(Rgrade; Rgrade)
+                field(Rgrade; Rec.Rgrade)
                 {
                     Caption = 'Recommended';
                     ApplicationArea = All;
                 }
-                field(Agrade; Agrade)
+                field(Agrade; Rec.Agrade)
                 {
                     Caption = 'Approved';
                     ApplicationArea = All;
@@ -166,21 +166,21 @@ page 50028 "Appraisal Entry"
                     ShowCaption = false;
                     ApplicationArea = All;
                 }
-                field("Skill Percentage"; "Skill Percentage")
+                field("Skill Percentage"; Rec."Skill Percentage")
                 {
                     Editable = false;
                     ApplicationArea = All;
                 }
-                field("Performance Total"; "Performance Total")
+                field("Performance Total"; Rec."Performance Total")
                 {
                     ApplicationArea = All;
                 }
-                field("Performance Percentage"; "Performance Percentage")
+                field("Performance Percentage"; Rec."Performance Percentage")
                 {
                     Editable = false;
                     ApplicationArea = All;
                 }
-                field("Total Percentage"; "Total Percentage")
+                field("Total Percentage"; Rec."Total Percentage")
                 {
                     Editable = false;
                     ApplicationArea = All;
@@ -215,25 +215,25 @@ page 50028 "Appraisal Entry"
                     ShowCaption = false;
                     ApplicationArea = All;
                 }
-                field(Cstep; Cstep)
+                field(Cstep; Rec.Cstep)
                 {
                     Editable = false;
                     ApplicationArea = All;
                 }
-                field(Cedamount; Cedamount)
+                field(Cedamount; Rec.Cedamount)
                 {
                     Editable = false;
                     ApplicationArea = All;
                 }
-                field(Rstep; Rstep)
+                field(Rstep; Rec.Rstep)
                 {
                     ApplicationArea = All;
                 }
-                field(Redamount; Redamount)
+                field(Redamount; Rec.Redamount)
                 {
                     ApplicationArea = All;
                 }
-                field(Astep; Astep)
+                field(Astep; Rec.Astep)
                 {
                     ApplicationArea = All;
                 }
@@ -243,31 +243,31 @@ page 50028 "Appraisal Entry"
                     ShowCaption = false;
                     ApplicationArea = All;
                 }
-                field(Date1; Date1)
+                field(Date1; Rec.Date1)
                 {
                     ApplicationArea = All;
                 }
-                field(Date2; Date2)
+                field(Date2; Rec.Date2)
                 {
                     ApplicationArea = All;
                 }
-                field(Date3; Date3)
+                field(Date3; Rec.Date3)
                 {
                     ApplicationArea = All;
                 }
-                field(Date4; Date4)
+                field(Date4; Rec.Date4)
                 {
                     ApplicationArea = All;
                 }
-                field(Date5; Date5)
+                field(Date5; Rec.Date5)
                 {
                     ApplicationArea = All;
                 }
-                field(Date6; Date6)
+                field(Date6; Rec.Date6)
                 {
                     ApplicationArea = All;
                 }
-                field(Date7; Date7)
+                field(Date7; Rec.Date7)
                 {
                     ApplicationArea = All;
                 }
@@ -277,7 +277,7 @@ page 50028 "Appraisal Entry"
                     ShowCaption = false;
                     ApplicationArea = All;
                 }
-                field(Date8; Date8)
+                field(Date8; Rec.Date8)
                 {
                     ApplicationArea = All;
                 }
@@ -287,7 +287,7 @@ page 50028 "Appraisal Entry"
                     ShowCaption = false;
                     ApplicationArea = All;
                 }
-                field(Aedamount; Aedamount)
+                field(Aedamount; Rec.Aedamount)
                 {
                     ApplicationArea = All;
                 }
@@ -297,15 +297,15 @@ page 50028 "Appraisal Entry"
                     ShowCaption = false;
                     ApplicationArea = All;
                 }
-                field(Skill1; Skill1)
+                field(Skill1; Rec.Skill1)
                 {
                     ApplicationArea = All;
                 }
-                field(Skill2; Skill2)
+                field(Skill2; Rec.Skill2)
                 {
                     ApplicationArea = All;
                 }
-                field(Date9; Date9)
+                field(Date9; Rec.Date9)
                 {
                     ApplicationArea = All;
                 }
@@ -327,103 +327,103 @@ page 50028 "Appraisal Entry"
                     ShowCaption = false;
                     ApplicationArea = All;
                 }
-                field(Performance1; Performance1)
+                field(Performance1; Rec.Performance1)
                 {
                     ApplicationArea = All;
                 }
-                field(Tpercent1; Tpercent1)
+                field(Tpercent1; Rec.Tpercent1)
                 {
                     ApplicationArea = All;
                 }
-                field(Performance2; Performance2)
+                field(Performance2; Rec.Performance2)
                 {
                     ApplicationArea = All;
                 }
-                field(Skill3; Skill3)
+                field(Skill3; Rec.Skill3)
                 {
                     ApplicationArea = All;
                 }
-                field(Performance3; Performance3)
+                field(Performance3; Rec.Performance3)
                 {
                     ApplicationArea = All;
                 }
-                field(Skill4; Skill4)
+                field(Skill4; Rec.Skill4)
                 {
                     ApplicationArea = All;
                 }
-                field(Performance4; Performance4)
+                field(Performance4; Rec.Performance4)
                 {
                     ApplicationArea = All;
                 }
-                field(Skill5; Skill5)
+                field(Skill5; Rec.Skill5)
                 {
                     ApplicationArea = All;
                 }
-                field(Performance5; Performance5)
+                field(Performance5; Rec.Performance5)
                 {
                     ApplicationArea = All;
                 }
-                field(Skill6; Skill6)
+                field(Skill6; Rec.Skill6)
                 {
                     ApplicationArea = All;
                 }
-                field(Performance6; Performance6)
+                field(Performance6; Rec.Performance6)
                 {
                     ApplicationArea = All;
                 }
-                field(Skill7; Skill7)
+                field(Skill7; Rec.Skill7)
                 {
                     ApplicationArea = All;
                 }
-                field(Performance7; Performance7)
+                field(Performance7; Rec.Performance7)
                 {
                     ApplicationArea = All;
                 }
-                field(Skill8; Skill8)
+                field(Skill8; Rec.Skill8)
                 {
                     ApplicationArea = All;
                 }
-                field(Skill9; Skill9)
+                field(Skill9; Rec.Skill9)
                 {
                     ApplicationArea = All;
                 }
-                field(Tpercent2; Tpercent2)
+                field(Tpercent2; Rec.Tpercent2)
                 {
                     ApplicationArea = All;
                 }
-                field(Tpercent3; Tpercent3)
+                field(Tpercent3; Rec.Tpercent3)
                 {
                     ApplicationArea = All;
                 }
-                field(Tpercent4; Tpercent4)
+                field(Tpercent4; Rec.Tpercent4)
                 {
                     ApplicationArea = All;
                 }
-                field(Tpercent5; Tpercent5)
+                field(Tpercent5; Rec.Tpercent5)
                 {
                     ApplicationArea = All;
                 }
-                field(Tpercent6; Tpercent6)
+                field(Tpercent6; Rec.Tpercent6)
                 {
                     ApplicationArea = All;
                 }
-                field(Tpercent7; Tpercent7)
+                field(Tpercent7; Rec.Tpercent7)
                 {
                     ApplicationArea = All;
                 }
-                field(Performance8; Performance8)
+                field(Performance8; Rec.Performance8)
                 {
                     ApplicationArea = All;
                 }
-                field(Tpercent8; Tpercent8)
+                field(Tpercent8; Rec.Tpercent8)
                 {
                     ApplicationArea = All;
                 }
-                field(Performance9; Performance9)
+                field(Performance9; Rec.Performance9)
                 {
                     ApplicationArea = All;
                 }
-                field(Tpercent9; Tpercent9)
+                field(Tpercent9; Rec.Tpercent9)
                 {
                     ApplicationArea = All;
                 }
@@ -732,13 +732,13 @@ page 50028 "Appraisal Entry"
                     trigger OnAction()
                     begin
                         //Univision Start 010202 Yusuf
-                        if "Appraisal Selection" = 1 then begin
-                            if applicant.Get("Sell-to Customer No.") then
+                        if Rec."Appraisal Selection" = 1 then begin
+                            if applicant.Get(Rec."Sell-to Customer No.") then
                             //SETRANGE("No.",applicant."No.");
                             begin
-                                applicant."First Interview Result" := "Skill Score";
-                                applicant."First Interview Maximum" := "Skill Total";
-                                applicant."First Interview Date" := "Posting Date";
+                                applicant."First Interview Result" := Rec."Skill Score";
+                                applicant."First Interview Maximum" := Rec."Skill Total";
+                                applicant."First Interview Date" := Rec."Posting Date";
                                 applicant.Modify;
                             end;
                         end;
@@ -805,23 +805,23 @@ page 50028 "Appraisal Entry"
     trigger OnDeleteRecord(): Boolean
     begin
         CurrPage.SaveRecord;
-        exit(ConfirmDeletion);
+        exit(Rec.ConfirmDeletion);
     end;
 
     trigger OnNewRecord(BelowxRec: Boolean)
     begin
-        "Responsibility Center" := UserMgt.GetSalesFilter();
+        Rec."Responsibility Center" := UserMgt.GetSalesFilter();
     end;
 
     trigger OnOpenPage()
     begin
         if UserMgt.GetSalesFilter() <> '' then begin
-            FilterGroup(2);
-            SetRange("Responsibility Center", UserMgt.GetSalesFilter());
-            FilterGroup(0);
+            Rec.FilterGroup(2);
+            Rec.SetRange("Responsibility Center", UserMgt.GetSalesFilter());
+            Rec.FilterGroup(0);
         end;
 
-        SetRange("Date Filter", 0D, WorkDate - 1);
+        Rec.SetRange("Date Filter", 0D, WorkDate - 1);
         //OnActivatePage;  #1
     end;
 
@@ -880,34 +880,34 @@ page 50028 "Appraisal Entry"
     local procedure OnActivateForm()
     begin
         //Univision Start 31/10/01 Yusuf
-        "Skill Percentage" := 0;
+        Rec."Skill Percentage" := 0;
         Larger := '>';
         Precision := 0.1;
-        if "Skill Total" > 0 then
-            "Skill Percentage" := ("Skill Score" / "Skill Total") * 100
+        if Rec."Skill Total" > 0 then
+            Rec."Skill Percentage" := (Rec."Skill Score" / Rec."Skill Total") * 100
         else
-            "Skill Percentage" := 0;
-        "Skill Percentage" := Round("Skill Percentage", Precision, Larger);
+            Rec."Skill Percentage" := 0;
+        Rec."Skill Percentage" := Round(Rec."Skill Percentage", Precision, Larger);
 
-        "Performance Percentage" := 0;
+        Rec."Performance Percentage" := 0;
         Larger := '>';
         Precision := 0.1;
-        if "Performance Total" > 0 then
-            "Performance Percentage" := ("Performance Score" / "Performance Total") * 100
+        if Rec."Performance Total" > 0 then
+            Rec."Performance Percentage" := (Rec."Performance Score" / Rec."Performance Total") * 100
         else
-            "Performance Percentage" := 0;
-        "Performance Percentage" := Round("Performance Percentage", Precision, Larger);
+            Rec."Performance Percentage" := 0;
+        Rec."Performance Percentage" := Round(Rec."Performance Percentage", Precision, Larger);
 
-        "Total Percentage" := 0;
+        Rec."Total Percentage" := 0;
         Larger := '>';
         Precision := 0.1;
-        ttscore := "Skill Score" + "Performance Score";
-        result := "Skill Total" + "Performance Total";
+        ttscore := Rec."Skill Score" + Rec."Performance Score";
+        result := Rec."Skill Total" + Rec."Performance Total";
         if result > 0 then
-            "Total Percentage" := (ttscore / result) * 100
+            Rec."Total Percentage" := (ttscore / result) * 100
         else
-            "Total Percentage" := 0;
-        "Total Percentage" := Round("Total Percentage", Precision, Larger);
+            Rec."Total Percentage" := 0;
+        Rec."Total Percentage" := Round(Rec."Total Percentage", Precision, Larger);
         // Univision Finish 31/10/01 Yusuf
     end;
 }

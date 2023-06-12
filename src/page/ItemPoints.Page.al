@@ -9,55 +9,55 @@ page 50057 "Item Points"
         {
             repeater(Group)
             {
-                field("Item No."; "Item No.")
+                field("Item No."; Rec."Item No.")
                 {
                     ApplicationArea = All;
                 }
-                field("Price Group Code"; "Price Group Code")
+                field("Price Group Code"; Rec."Price Group Code")
                 {
                     ApplicationArea = All;
                 }
-                field("Currency Code"; "Currency Code")
+                field("Currency Code"; Rec."Currency Code")
                 {
                     ApplicationArea = All;
                 }
-                field("Starting Date"; "Starting Date")
+                field("Starting Date"; Rec."Starting Date")
                 {
                     ApplicationArea = All;
                 }
-                field("Unit Price"; "Unit Price")
+                field("Unit Price"; Rec."Unit Price")
                 {
                     ApplicationArea = All;
                 }
-                field("Price Includes VAT"; "Price Includes VAT")
+                field("Price Includes VAT"; Rec."Price Includes VAT")
                 {
                     ApplicationArea = All;
                 }
-                field("Allow Quantity Disc."; "Allow Quantity Disc.")
+                field("Allow Quantity Disc."; Rec."Allow Quantity Disc.")
                 {
                     ApplicationArea = All;
                 }
-                field("Allow Cust./Item Disc."; "Allow Cust./Item Disc.")
+                field("Allow Cust./Item Disc."; Rec."Allow Cust./Item Disc.")
                 {
                     ApplicationArea = All;
                 }
-                field("Allow Invoice Disc."; "Allow Invoice Disc.")
+                field("Allow Invoice Disc."; Rec."Allow Invoice Disc.")
                 {
                     ApplicationArea = All;
                 }
-                field("VAT Bus. Posting Gr. (Price)"; "VAT Bus. Posting Gr. (Price)")
+                field("VAT Bus. Posting Gr. (Price)"; Rec."VAT Bus. Posting Gr. (Price)")
                 {
                     ApplicationArea = All;
                 }
-                field("Unit of Measure Code"; "Unit of Measure Code")
+                field("Unit of Measure Code"; Rec."Unit of Measure Code")
                 {
                     ApplicationArea = All;
                 }
-                field("Variant Code"; "Variant Code")
+                field("Variant Code"; Rec."Variant Code")
                 {
                     ApplicationArea = All;
                 }
-                field("Responsibility Center"; "Responsibility Center")
+                field("Responsibility Center"; Rec."Responsibility Center")
                 {
                     ApplicationArea = All;
                 }

@@ -15,36 +15,36 @@ page 90096 "Appraisal Entry Subform.-z"
             repeater(Control1)
             {
                 ShowCaption = false;
-                field(Type; Type)
+                field(Type; Rec.Type)
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("No."; "No.")
+                field("No."; Rec."No.")
                 {
                     Visible = false;
                     ApplicationArea = All;
 
                     trigger OnValidate()
                     begin
-                        ShowShortcutDimCode(ShortcutDimCode);
+                        Rec.ShowShortcutDimCode(ShortcutDimCode);
                         NoOnAfterValidate;
                     end;
                 }
-                field("Document Type"; "Document Type")
+                field("Document Type"; Rec."Document Type")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field(Description; Description)
+                field(Description; Rec.Description)
                 {
                     ApplicationArea = All;
                 }
-                field(Grade; Grade)
+                field(Grade; Rec.Grade)
                 {
                     ApplicationArea = All;
                 }
-                field(Quantity; Quantity)
+                field(Quantity; Rec.Quantity)
                 {
                     BlankZero = true;
                     Visible = false;
@@ -55,16 +55,16 @@ page 90096 "Appraisal Entry Subform.-z"
                         QuantityOnAfterValidate;
                     end;
                 }
-                field(Comment; Comment)
+                field(Comment; Rec.Comment)
                 {
                     ApplicationArea = All;
                 }
-                field("Gen. Bus. Posting Group"; "Gen. Bus. Posting Group")
+                field("Gen. Bus. Posting Group"; Rec."Gen. Bus. Posting Group")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("Gen. Prod. Posting Group"; "Gen. Prod. Posting Group")
+                field("Gen. Prod. Posting Group"; Rec."Gen. Prod. Posting Group")
                 {
                     Visible = false;
                     ApplicationArea = All;
@@ -79,12 +79,12 @@ page 90096 "Appraisal Entry Subform.-z"
 
     trigger OnAfterGetRecord()
     begin
-        ShowShortcutDimCode(ShortcutDimCode);
+        Rec.ShowShortcutDimCode(ShortcutDimCode);
     end;
 
     trigger OnNewRecord(BelowxRec: Boolean)
     begin
-        Type := xRec.Type;
+        Rec.Type := xRec.Type;
         Clear(ShortcutDimCode);
     end;
 
@@ -118,7 +118,7 @@ page 90096 "Appraisal Entry Subform.-z"
         PurchHeader: Record "Purchase Header";
         PurchOrder: Page "Purchase Order";
     begin
-        PurchHeader.SetRange("No.", "Purchase Order No.");
+        PurchHeader.SetRange("No.", Rec."Purchase Order No.");
         PurchOrder.SetTableView(PurchHeader);
         PurchOrder.Editable := false;
         PurchOrder.Run;
@@ -138,7 +138,7 @@ page 90096 "Appraisal Entry Subform.-z"
     [Scope('OnPrem')]
     procedure ShowReservation()
     begin
-        Find;
+        Rec.Find;
         Rec.ShowReservation;
     end;
 
@@ -202,7 +202,7 @@ page 90096 "Appraisal Entry Subform.-z"
     local procedure NoOnAfterValidate()
     begin
         InsertExtendedText(false);
-        if (Type = Type::"Charge (Item)") and ("No." <> xRec."No.") and
+        if (Rec.Type = Rec.Type::"Charge (Item)") and (Rec."No." <> xRec."No.") and
            (xRec."No." <> '')
         then
             CurrPage.SaveRecord;
@@ -210,9 +210,9 @@ page 90096 "Appraisal Entry Subform.-z"
 
     local procedure QuantityOnAfterValidate()
     begin
-        if Reserve = Reserve::Always then begin
+        if Rec.Reserve = Rec.Reserve::Always then begin
             CurrPage.SaveRecord;
-            AutoReserve;
+            Rec.AutoReserve;
             CurrPage.Update(false);
         end;
     end;

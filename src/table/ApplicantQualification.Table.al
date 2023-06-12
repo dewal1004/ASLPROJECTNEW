@@ -53,7 +53,7 @@ table 50019 "Applicant Qualification"
         }
         field(12; Comment; Boolean)
         {
-            CalcFormula = Exist("Human Resource Comment Line" 
+            CalcFormula = Exist("Human Resource Comment Line"
                           WHERE("Table Name" = CONST("Employee Qualification"),
                                 "No." = FIELD("Employee No."),
                                 "Table Line No." = FIELD("Line No.")));

@@ -4,32 +4,32 @@ pageextension 50263 "pageextension50263" extends "Item Ledger Entries"
     {
         addafter("Remaining Quantity")
         {
-            field("Applied Qty  Negative"; "Applied Qty  Negative")
+            field("Applied Qty  Negative"; Rec."Applied Qty  Negative")
             {
                 ApplicationArea = All;
             }
-            field("Applied Qty Posistive"; "Applied Qty Posistive")
+            field("Applied Qty Posistive"; Rec."Applied Qty Posistive")
             {
                 ApplicationArea = All;
             }
         }
         addafter("Job Task No.")
         {
-            field("Source Code"; "Source Code")
+            field("Source Code"; Rec."Source Code")
             {
                 ApplicationArea = All;
             }
-            field("Source No."; "Source No.")
-            {
-                Visible = false;
-                ApplicationArea = All;
-            }
-            field("External Document No."; "External Document No.")
+            field("Source No."; Rec."Source No.")
             {
                 Visible = false;
                 ApplicationArea = All;
             }
-            field("Source Type"; "Source Type")
+            field("External Document No."; Rec."External Document No.")
+            {
+                Visible = false;
+                ApplicationArea = All;
+            }
+            field("Source Type"; Rec."Source Type")
             {
                 ApplicationArea = All;
             }

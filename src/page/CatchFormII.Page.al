@@ -13,46 +13,46 @@ page 80088 "Catch Form II"
         {
             group(General)
             {
-                field("Line No"; "Line No")
+                field("Line No"; Rec."Line No")
                 {
                     ApplicationArea = All;
                 }
             }
             group("White Hon/Wild Tiger/Headless")
             {
-                field("Employee No"; "Employee No")
+                field("Employee No"; Rec."Employee No")
                 {
                     ApplicationArea = All;
                 }
-                field("Transaction Date"; "Transaction Date")
+                field("Transaction Date"; Rec."Transaction Date")
                 {
                     ApplicationArea = All;
                 }
-                field("Transaction Type"; "Transaction Type")
+                field("Transaction Type"; Rec."Transaction Type")
                 {
                     ApplicationArea = All;
                 }
-                field("Hospital Code"; "Hospital Code")
+                field("Hospital Code"; Rec."Hospital Code")
                 {
                     ApplicationArea = All;
                 }
-                field(Beneficiary; Beneficiary)
+                field(Beneficiary; Rec.Beneficiary)
                 {
                     ApplicationArea = All;
                 }
-                field("ASL Ref No"; "ASL Ref No")
+                field("ASL Ref No"; Rec."ASL Ref No")
                 {
                     ApplicationArea = All;
                 }
-                field(Amount; Amount)
+                field(Amount; Rec.Amount)
                 {
                     ApplicationArea = All;
                 }
-                field("Region Code"; "Region Code")
+                field("Region Code"; Rec."Region Code")
                 {
                     ApplicationArea = All;
                 }
-                field("Global Dimension 1 Code"; "Global Dimension 1 Code")
+                field("Global Dimension 1 Code"; Rec."Global Dimension 1 Code")
                 {
                     ApplicationArea = All;
                 }

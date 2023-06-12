@@ -11,23 +11,23 @@ page 50084 "Catch Default"
             repeater(Control1)
             {
                 ShowCaption = false;
-                field("No."; "No.")
+                field("No."; Rec."No.")
                 {
                     ApplicationArea = All;
                 }
-                field("Pack Size"; "Pack Size")
+                field("Pack Size"; Rec."Pack Size")
                 {
                     ApplicationArea = All;
                 }
-                field(Brand; Brand)
+                field(Brand; Rec.Brand)
                 {
                     ApplicationArea = All;
                 }
-                field(Description; Description)
+                field(Description; Rec.Description)
                 {
                     ApplicationArea = All;
                 }
-                field("In Use"; "In Use")
+                field("In Use"; Rec."In Use")
                 {
                     ApplicationArea = All;
                 }

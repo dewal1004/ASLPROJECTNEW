@@ -10,71 +10,71 @@ page 50133 "Tel Entering Sheet"
             repeater(Control1)
             {
                 ShowCaption = false;
-                field("No."; "No.")
+                field("No."; Rec."No.")
                 {
                     ApplicationArea = All;
                 }
-                field(Vessel; Vessel)
+                field(Vessel; Rec.Vessel)
                 {
                     ApplicationArea = All;
                 }
-                field(ETD; ETD)
+                field(ETD; Rec.ETD)
                 {
                     ApplicationArea = All;
                 }
-                field(ETA; ETA)
+                field(ETA; Rec.ETA)
                 {
                     ApplicationArea = All;
                 }
-                field("Start ROB"; "Start ROB")
+                field("Start ROB"; Rec."Start ROB")
                 {
                     ApplicationArea = All;
                 }
-                field("Quantity Supplied"; "Quantity Supplied")
+                field("Quantity Supplied"; Rec."Quantity Supplied")
                 {
                     ApplicationArea = All;
                 }
-                field("Quantity Purchased 1"; "Quantity Purchased 1")
+                field("Quantity Purchased 1"; Rec."Quantity Purchased 1")
                 {
                     ApplicationArea = All;
                 }
-                field("Rate 1"; "Rate 1")
+                field("Rate 1"; Rec."Rate 1")
                 {
                     ApplicationArea = All;
                 }
-                field("Quantity Purchased 2"; "Quantity Purchased 2")
+                field("Quantity Purchased 2"; Rec."Quantity Purchased 2")
                 {
                     ApplicationArea = All;
                 }
-                field("Rate 2"; "Rate 2")
+                field("Rate 2"; Rec."Rate 2")
                 {
                     ApplicationArea = All;
                 }
-                field("Transfer 1"; "Transfer 1")
+                field("Transfer 1"; Rec."Transfer 1")
                 {
                     ApplicationArea = All;
                 }
-                field("Transfer 2"; "Transfer 2")
+                field("Transfer 2"; Rec."Transfer 2")
                 {
                     ApplicationArea = All;
                 }
-                field("END ROB"; "END ROB")
+                field("END ROB"; Rec."END ROB")
                 {
                     ApplicationArea = All;
                 }
-                field("Quantity Consumed"; "Quantity Consumed")
+                field("Quantity Consumed"; Rec."Quantity Consumed")
                 {
                     ApplicationArea = All;
                 }
-                field("Drain Qty"; "Drain Qty")
+                field("Drain Qty"; Rec."Drain Qty")
                 {
                     ApplicationArea = All;
                 }
-                field("Sea Days"; "Sea Days")
+                field("Sea Days"; Rec."Sea Days")
                 {
                     ApplicationArea = All;
                 }
-                field("Engr Days"; "Engr Days")
+                field("Engr Days"; Rec."Engr Days")
                 {
                     ApplicationArea = All;
                 }

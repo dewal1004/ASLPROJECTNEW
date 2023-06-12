@@ -85,14 +85,14 @@ tableextension 50255 "tableextension50255" extends Item
         "Item Category No.":=ItCat."No.";
         */
         //end;
-        Field(50003;"ASL Indirect Cost %";integer)
+        Field(50003; "ASL Indirect Cost %"; integer)
         {
             Caption = 'ASL Indirect Cost %';
             MinValue = -100;
-        trigger OnValidate()
-        begin
-            "Indirect Cost %" := "ASL Indirect Cost %";
-        end;
+            trigger OnValidate()
+            begin
+                "Indirect Cost %" := "ASL Indirect Cost %";
+            end;
 
 
         }
@@ -189,7 +189,7 @@ tableextension 50255 "tableextension50255" extends Item
             FieldClass = FlowFilter;
             TableRelation = "Purch. Rcpt. Header"."No.";
         }
- 
+
         field(50322; "Inventory Entry Type Filter"; Option)
         {
             FieldClass = FlowFilter;

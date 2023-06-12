@@ -18,38 +18,38 @@ page 50123 "Purchase Delivery Sec. Return"
             repeater(Group)
             {
                 Editable = false;
-                field("Req No."; "Req No.")
+                field("Req No."; Rec."Req No.")
                 {
                     Editable = false;
                     ApplicationArea = All;
                 }
-                field("Req Location"; "Req Location")
+                field("Req Location"; Rec."Req Location")
                 {
                     Editable = false;
                     ApplicationArea = All;
                 }
-                field("Item No."; "Item No.")
+                field("Item No."; Rec."Item No.")
                 {
                     Editable = false;
                     ApplicationArea = All;
                 }
-                field(Description; Description)
+                field(Description; Rec.Description)
                 {
                     Editable = false;
                     ApplicationArea = All;
                 }
-                field("Supply By"; "Supply By")
+                field("Supply By"; Rec."Supply By")
                 {
                     Editable = false;
                     Importance = Additional;
                     ApplicationArea = All;
                 }
-                field("Supplier Name"; "Supplier Name")
+                field("Supplier Name"; Rec."Supplier Name")
                 {
                     Editable = false;
                     ApplicationArea = All;
                 }
-                field("Sent to Security"; "Sent to Security")
+                field("Sent to Security"; Rec."Sent to Security")
                 {
                     Editable = false;
                     ApplicationArea = All;
@@ -57,11 +57,11 @@ page 50123 "Purchase Delivery Sec. Return"
             }
             group("Security Action")
             {
-                field("Security Return Quantity"; "Security Return Quantity")
+                field("Security Return Quantity"; Rec."Security Return Quantity")
                 {
                     ApplicationArea = All;
                 }
-                field("Security Returned"; "Security Returned")
+                field("Security Returned"; Rec."Security Returned")
                 {
                     ApplicationArea = All;
                 }

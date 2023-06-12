@@ -5,7 +5,7 @@ page 50271 "Inventory Posting Group Page"
     SourceTable = "Inventory Posting Group";
     UsageCategory = Administration;
     ApplicationArea = all;
-    
+
     layout
     {
         area(content)

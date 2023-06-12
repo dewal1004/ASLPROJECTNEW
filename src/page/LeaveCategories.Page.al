@@ -10,23 +10,23 @@ page 60018 "Leave Categories"
             repeater(Control1)
             {
                 ShowCaption = false;
-                field("Code"; Code)
+                field("Code"; Rec.Code)
                 {
                     ApplicationArea = All;
                 }
-                field(Description; Description)
+                field(Description; Rec.Description)
                 {
                     ApplicationArea = All;
                 }
-                field("Category Type"; "Category Type")
+                field("Category Type"; Rec."Category Type")
                 {
                     ApplicationArea = All;
                 }
-                field(Consuming; Consuming)
+                field(Consuming; Rec.Consuming)
                 {
                     ApplicationArea = All;
                 }
-                field("Payment Allowed"; "Payment Allowed")
+                field("Payment Allowed"; Rec."Payment Allowed")
                 {
                     ApplicationArea = All;
                 }

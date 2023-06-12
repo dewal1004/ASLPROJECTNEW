@@ -6,7 +6,7 @@ pageextension 50244 "pageextension50244" extends "Customer Card"
 
         addafter("Bill-to Customer No.")
         {
-            field("ASL VAT Registration No."; "VAT Registration No.")
+            field("ASL VAT Registration No."; Rec."VAT Registration No.")
             {
                 ApplicationArea = Basic, Suite;
                 ToolTip = 'Specifies the customer''s VAT registration number for customers in EU countries/regions.';

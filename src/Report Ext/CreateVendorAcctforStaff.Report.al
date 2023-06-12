@@ -8,7 +8,7 @@ report 60008 "Create Vendor Acct. for Staff"
     {
         dataitem(Employee; Employee)
         {
-            DataItemTableView = SORTING ("No.");
+            DataItemTableView = SORTING("No.");
             RequestFilterFields = "No.", "Region Code", "Global Dimension 1 Code", Class;
 
             trigger OnAfterGetRecord()

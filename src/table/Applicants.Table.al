@@ -133,7 +133,7 @@ table 50018 "Applicants"
 
             trigger OnValidate()
             begin
-                ValidateShortcutDimCode(1,"Global Dimension 1 Code");
+                ValidateShortcutDimCode(1, "Global Dimension 1 Code");
                 MODIFY;
             end;
         }
@@ -145,14 +145,14 @@ table 50018 "Applicants"
 
             trigger OnValidate()
             begin
-                ValidateShortcutDimCode(2,"Global Dimension 2 Code");
+                ValidateShortcutDimCode(2, "Global Dimension 2 Code");
                 MODIFY;
             end;
         }
         field(39; Comment; Boolean)
         {
-            CalcFormula = Exist ("Human Resource Comment Line" WHERE ("Table Name" = CONST (Applicants),
-             "No." = FIELD ("No.")));
+            CalcFormula = Exist("Human Resource Comment Line" WHERE("Table Name" = CONST(Applicants),
+             "No." = FIELD("No.")));
             Editable = false;
             FieldClass = FlowField;
         }
@@ -450,17 +450,15 @@ table 50018 "Applicants"
     [Scope('OnPrem')]
     procedure AssistEdit(OldApplicant: Record Applicants): Boolean
     begin
-        with ApplicantRec do begin
-            ApplicantRec := Rec;
+        ApplicantRec := Rec;
+        HumanResSetup.Get;
+        HumanResSetup.TestField("Application Nos.");
+        if NoSeriesMgt.SelectSeries(HumanResSetup."Application Nos.", OldApplicant."No. Series", ApplicantRec."No. Series") then begin
             HumanResSetup.Get;
             HumanResSetup.TestField("Application Nos.");
-            if NoSeriesMgt.SelectSeries(HumanResSetup."Application Nos.", OldApplicant."No. Series", "No. Series") then begin
-                HumanResSetup.Get;
-                HumanResSetup.TestField("Application Nos.");
-                NoSeriesMgt.SetSeries("No.");
-                Rec := ApplicantRec;
-                exit(true);
-            end;
+            NoSeriesMgt.SetSeries(ApplicantRec."No.");
+            Rec := ApplicantRec;
+            exit(true);
         end;
     end;
 

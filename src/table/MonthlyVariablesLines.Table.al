@@ -608,11 +608,11 @@ table 50014 "Monthly Variables Lines."
                         end;
                     else  /*Lookup table is searched with variables of type code*/
                       begin
-                            LookLinesRec."Lower Amount" := 0;
-                            LookLinesRec."Lower Code" := EDFileRec."E/D Code";
-                            LookLinesRec.SetRange("Upper Amount", 0);
-                            LookLinesRec.SetRange("Lower Amount", 0);
-                        end
+                        LookLinesRec."Lower Amount" := 0;
+                        LookLinesRec."Lower Code" := EDFileRec."E/D Code";
+                        LookLinesRec.SetRange("Upper Amount", 0);
+                        LookLinesRec.SetRange("Lower Amount", 0);
+                    end
                 end; /* Case*/
 
                 case LookHeaderRec.Type of
@@ -965,11 +965,11 @@ table 50014 "Monthly Variables Lines."
                         end;
                     else  /*Lookup table is searched with variables of type code*/
                       begin
-                            LookLinesRec."Lower Amount" := 0;
-                            LookLinesRec."Lower Code" := CurrLineRec."E/D Code";
-                            LookLinesRec.SetRange("Upper Amount", 0);
-                            LookLinesRec.SetRange("Lower Amount", 0);
-                        end
+                        LookLinesRec."Lower Amount" := 0;
+                        LookLinesRec."Lower Code" := CurrLineRec."E/D Code";
+                        LookLinesRec.SetRange("Upper Amount", 0);
+                        LookLinesRec.SetRange("Lower Amount", 0);
+                    end
                 end; /* Case*/
 
                 case LookHeaderRec.Type of

@@ -10,11 +10,11 @@ page 60100 "Date"
             repeater(Control1)
             {
                 ShowCaption = false;
-                field("Period No."; "Period No.")
+                field("Period No."; Rec."Period No.")
                 {
                     ApplicationArea = All;
                 }
-                field("Period Name"; "Period Name")
+                field("Period Name"; Rec."Period Name")
                 {
                     ApplicationArea = All;
                 }

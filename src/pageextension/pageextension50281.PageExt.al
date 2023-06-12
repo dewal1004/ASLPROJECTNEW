@@ -13,7 +13,7 @@ pageextension 50281 "pageextension50281" extends "Purchase Quote"
         }
         addafter("Document Date")
         {
-            field("Order Type"; "Order Type")
+            field("Order Type"; Rec."Order Type")
             {
                 ApplicationArea = All;
             }

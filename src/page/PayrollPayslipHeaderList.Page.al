@@ -12,99 +12,99 @@ page 50068 "Payroll-Payslip Header List"
         {
             repeater(Group)
             {
-                field("Payroll Period"; "Payroll Period")
+                field("Payroll Period"; Rec."Payroll Period")
                 {
                     ApplicationArea = All;
                 }
-                field("Period Start"; "Period Start")
+                field("Period Start"; Rec."Period Start")
                 {
                     ApplicationArea = All;
                 }
-                field("Period End"; "Period End")
+                field("Period End"; Rec."Period End")
                 {
                     ApplicationArea = All;
                 }
-                field("Period Name"; "Period Name")
+                field("Period Name"; Rec."Period Name")
                 {
                     ApplicationArea = All;
                 }
-                field(Company; Company)
+                field(Company; Rec.Company)
                 {
                     ApplicationArea = All;
                 }
-                field(Section; Section)
+                field(Section; Rec.Section)
                 {
                     ApplicationArea = All;
                 }
-                field("Employee No"; "Employee No")
+                field("Employee No"; Rec."Employee No")
                 {
                     ApplicationArea = All;
                 }
-                field("Employee Name"; "Employee Name")
+                field("Employee Name"; Rec."Employee Name")
                 {
                     ApplicationArea = All;
                 }
-                field("Closed?"; "Closed?")
+                field("Closed?"; Rec."Closed?")
                 {
                     ApplicationArea = All;
                 }
-                field("Gross Pay"; "Gross Pay")
+                field("Gross Pay"; Rec."Gross Pay")
                 {
                     ApplicationArea = All;
                 }
-                field("Tax Charged"; "Tax Charged")
+                field("Tax Charged"; Rec."Tax Charged")
                 {
                     ApplicationArea = All;
                 }
-                field("Tax Deducted"; "Tax Deducted")
+                field("Tax Deducted"; Rec."Tax Deducted")
                 {
                     ApplicationArea = All;
                 }
-                field("Taxable Pay"; "Taxable Pay")
+                field("Taxable Pay"; Rec."Taxable Pay")
                 {
                     ApplicationArea = All;
                 }
-                field("Total Deductions"; "Total Deductions")
+                field("Total Deductions"; Rec."Total Deductions")
                 {
                     ApplicationArea = All;
                 }
-                field("Net Pay Due"; "Net Pay Due")
+                field("Net Pay Due"; Rec."Net Pay Due")
                 {
                     ApplicationArea = All;
                 }
-                field("Total Relief"; "Total Relief")
+                field("Total Relief"; Rec."Total Relief")
                 {
                     ApplicationArea = All;
                 }
-                field("Global Dimension 1 Code"; "Global Dimension 1 Code")
+                field("Global Dimension 1 Code"; Rec."Global Dimension 1 Code")
                 {
                     ApplicationArea = All;
                 }
-                field("Global Dimension 2 Code"; "Global Dimension 2 Code")
+                field("Global Dimension 2 Code"; Rec."Global Dimension 2 Code")
                 {
                     ApplicationArea = All;
                 }
-                field("Customer Number"; "Customer Number")
+                field("Customer Number"; Rec."Customer Number")
                 {
                     ApplicationArea = All;
                 }
-                field(Designation; Designation)
+                field(Designation; Rec.Designation)
                 {
                     ApplicationArea = All;
                 }
-                field(EDFILTER; EDFILTER)
+                field(EDFILTER; Rec.EDFILTER)
                 {
                     ApplicationArea = All;
                 }
-                field(Edvalue; Edvalue)
+                field(Edvalue; Rec.Edvalue)
                 {
                     ApplicationArea = All;
                 }
-                field("Debit Amount"; "Debit Amount")
+                field("Debit Amount"; Rec."Debit Amount")
                 {
                     ApplicationArea = All;
                 }
-                field("Credit Amount"; "Credit Amount")
+                field("Credit Amount"; Rec."Credit Amount")
                 {
                     ApplicationArea = All;
                 }

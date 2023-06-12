@@ -35,12 +35,12 @@ pageextension 50344 "pageextension50344" extends "Posted Return Shipment Subform
 
     local procedure ShowItemTrackingLines()
     begin
-        ShowItemTrackingLines;
+        Rec.ShowItemTrackingLines;
     end;
 
     local procedure ShowLineComments()
     begin
-        ShowLineComments;
+        Rec.ShowLineComments;
     end;
 }
 

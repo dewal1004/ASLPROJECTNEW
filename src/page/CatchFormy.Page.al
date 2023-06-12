@@ -416,99 +416,99 @@ page 90087 "Catch Formy"
             group("BRWN HON/CUT. FISH/CRAB/OTHERS")
             {
                 Caption = 'BRWN HON/CUT. FISH/CRAB/OTHERS';
-                field(Blocked; Blocked)
+                field(Blocked; Rec.Blocked)
                 {
                     ApplicationArea = All;
                 }
-                field("Last Date Modified"; "Last Date Modified")
+                field("Last Date Modified"; Rec."Last Date Modified")
                 {
                     ApplicationArea = All;
                 }
-                field("Date Filter"; "Date Filter")
+                field("Date Filter"; Rec."Date Filter")
                 {
                     ApplicationArea = All;
                 }
-                field("Global Dimension 1 Filter"; "Global Dimension 1 Filter")
+                field("Global Dimension 1 Filter"; Rec."Global Dimension 1 Filter")
                 {
                     ApplicationArea = All;
                 }
-                field("Global Dimension 2 Filter"; "Global Dimension 2 Filter")
+                field("Global Dimension 2 Filter"; Rec."Global Dimension 2 Filter")
                 {
                     ApplicationArea = All;
                 }
-                field("Location Filter"; "Location Filter")
+                field("Location Filter"; Rec."Location Filter")
                 {
                     ApplicationArea = All;
                 }
-                field(Inventory; Inventory)
+                field(Inventory; Rec.Inventory)
                 {
                     ApplicationArea = All;
                 }
-                field("Net Invoiced Qty."; "Net Invoiced Qty.")
+                field("Net Invoiced Qty."; Rec."Net Invoiced Qty.")
                 {
                     ApplicationArea = All;
                 }
-                field("Net Change"; "Net Change")
+                field("Net Change"; Rec."Net Change")
                 {
                     ApplicationArea = All;
                 }
-                field("Purchases (Qty.)"; "Purchases (Qty.)")
+                field("Purchases (Qty.)"; Rec."Purchases (Qty.)")
                 {
                     ApplicationArea = All;
                 }
-                field("Sales (Qty.)"; "Sales (Qty.)")
+                field("Sales (Qty.)"; Rec."Sales (Qty.)")
                 {
                     ApplicationArea = All;
                 }
-                field("Positive Adjmt. (Qty.)"; "Positive Adjmt. (Qty.)")
+                field("Positive Adjmt. (Qty.)"; Rec."Positive Adjmt. (Qty.)")
                 {
                     ApplicationArea = All;
                 }
-                field("Negative Adjmt. (Qty.)"; "Negative Adjmt. (Qty.)")
+                field("Negative Adjmt. (Qty.)"; Rec."Negative Adjmt. (Qty.)")
                 {
                     ApplicationArea = All;
                 }
-                field("Purchases (LCY)"; "Purchases (LCY)")
+                field("Purchases (LCY)"; Rec."Purchases (LCY)")
                 {
                     ApplicationArea = All;
                 }
-                field("Sales (LCY)"; "Sales (LCY)")
+                field("Sales (LCY)"; Rec."Sales (LCY)")
                 {
                     ApplicationArea = All;
                 }
-                field("Positive Adjmt. (LCY)"; "Positive Adjmt. (LCY)")
+                field("Positive Adjmt. (LCY)"; Rec."Positive Adjmt. (LCY)")
                 {
                     ApplicationArea = All;
                 }
-                field("Negative Adjmt. (LCY)"; "Negative Adjmt. (LCY)")
+                field("Negative Adjmt. (LCY)"; Rec."Negative Adjmt. (LCY)")
                 {
                     ApplicationArea = All;
                 }
-                field("COGS (LCY)"; "COGS (LCY)")
+                field("COGS (LCY)"; Rec."COGS (LCY)")
                 {
                     ApplicationArea = All;
                 }
-                field("Qty. on Purch. Order"; "Qty. on Purch. Order")
+                field("Qty. on Purch. Order"; Rec."Qty. on Purch. Order")
                 {
                     ApplicationArea = All;
                 }
-                field("Qty. on Sales Order"; "Qty. on Sales Order")
+                field("Qty. on Sales Order"; Rec."Qty. on Sales Order")
                 {
                     ApplicationArea = All;
                 }
-                field("Price Includes VAT"; "Price Includes VAT")
+                field("Price Includes VAT"; Rec."Price Includes VAT")
                 {
                     ApplicationArea = All;
                 }
-                field("Drop Shipment Filter"; "Drop Shipment Filter")
+                field("Drop Shipment Filter"; Rec."Drop Shipment Filter")
                 {
                     ApplicationArea = All;
                 }
-                field("VAT Bus. Posting Gr. (Price)"; "VAT Bus. Posting Gr. (Price)")
+                field("VAT Bus. Posting Gr. (Price)"; Rec."VAT Bus. Posting Gr. (Price)")
                 {
                     ApplicationArea = All;
                 }
-                field("Gen. Prod. Posting Group"; "Gen. Prod. Posting Group")
+                field("Gen. Prod. Posting Group"; Rec."Gen. Prod. Posting Group")
                 {
                     ApplicationArea = All;
                 }
@@ -516,91 +516,91 @@ page 90087 "Catch Formy"
             group("FLW TIGER/SHRIMP IN BAGS")
             {
                 Caption = 'FLW TIGER/SHRIMP IN BAGS';
-                field(Picture; Picture)
+                field(Picture; Rec.Picture)
                 {
                     ApplicationArea = All;
                 }
-                field("Transferred (Qty.)"; "Transferred (Qty.)")
+                field("Transferred (Qty.)"; Rec."Transferred (Qty.)")
                 {
                     ApplicationArea = All;
                 }
-                field("Transferred (LCY)"; "Transferred (LCY)")
+                field("Transferred (LCY)"; Rec."Transferred (LCY)")
                 {
                     ApplicationArea = All;
                 }
-                field("Country/Region of Origin Code"; "Country/Region of Origin Code")
+                field("Country/Region of Origin Code"; Rec."Country/Region of Origin Code")
                 {
                     ApplicationArea = All;
                 }
-                field("Automatic Ext. Texts"; "Automatic Ext. Texts")
+                field("Automatic Ext. Texts"; Rec."Automatic Ext. Texts")
                 {
                     ApplicationArea = All;
                 }
-                field("No. Series"; "No. Series")
+                field("No. Series"; Rec."No. Series")
                 {
                     ApplicationArea = All;
                 }
-                field("Tax Group Code"; "Tax Group Code")
+                field("Tax Group Code"; Rec."Tax Group Code")
                 {
                     ApplicationArea = All;
                 }
-                field("VAT Prod. Posting Group"; "VAT Prod. Posting Group")
+                field("VAT Prod. Posting Group"; Rec."VAT Prod. Posting Group")
                 {
                     ApplicationArea = All;
                 }
-                field(Reserve; Reserve)
+                field(Reserve; Rec.Reserve)
                 {
                     ApplicationArea = All;
                 }
-                field("Reserved Qty. on Inventory"; "Reserved Qty. on Inventory")
+                field("Reserved Qty. on Inventory"; Rec."Reserved Qty. on Inventory")
                 {
                     ApplicationArea = All;
                 }
-                field("Reserved Qty. on Purch. Orders"; "Reserved Qty. on Purch. Orders")
+                field("Reserved Qty. on Purch. Orders"; Rec."Reserved Qty. on Purch. Orders")
                 {
                     ApplicationArea = All;
                 }
-                field("Reserved Qty. on Sales Orders"; "Reserved Qty. on Sales Orders")
+                field("Reserved Qty. on Sales Orders"; Rec."Reserved Qty. on Sales Orders")
                 {
                     ApplicationArea = All;
                 }
-                field("Global Dimension 1 Code"; "Global Dimension 1 Code")
+                field("Global Dimension 1 Code"; Rec."Global Dimension 1 Code")
                 {
                     ApplicationArea = All;
                 }
-                field("Global Dimension 2 Code"; "Global Dimension 2 Code")
+                field("Global Dimension 2 Code"; Rec."Global Dimension 2 Code")
                 {
                     ApplicationArea = All;
                 }
-                field("Res. Qty. on Outbound Transfer"; "Res. Qty. on Outbound Transfer")
+                field("Res. Qty. on Outbound Transfer"; Rec."Res. Qty. on Outbound Transfer")
                 {
                     ApplicationArea = All;
                 }
-                field("Res. Qty. on Inbound Transfer"; "Res. Qty. on Inbound Transfer")
+                field("Res. Qty. on Inbound Transfer"; Rec."Res. Qty. on Inbound Transfer")
                 {
                     ApplicationArea = All;
                 }
-                field("Low-Level Code"; "Low-Level Code")
+                field("Low-Level Code"; Rec."Low-Level Code")
                 {
                     ApplicationArea = All;
                 }
-                field("Lot Size"; "Lot Size")
+                field("Lot Size"; Rec."Lot Size")
                 {
                     ApplicationArea = All;
                 }
-                field("Serial Nos."; "Serial Nos.")
+                field("Serial Nos."; Rec."Serial Nos.")
                 {
                     ApplicationArea = All;
                 }
-                field("Last Unit Cost Calc. Date"; "Last Unit Cost Calc. Date")
+                field("Last Unit Cost Calc. Date"; Rec."Last Unit Cost Calc. Date")
                 {
                     ApplicationArea = All;
                 }
-                field("Rolled-up Material Cost"; "Rolled-up Material Cost")
+                field("Rolled-up Material Cost"; Rec."Rolled-up Material Cost")
                 {
                     ApplicationArea = All;
                 }
-                field("Rolled-up Capacity Cost"; "Rolled-up Capacity Cost")
+                field("Rolled-up Capacity Cost"; Rec."Rolled-up Capacity Cost")
                 {
                     ApplicationArea = All;
                 }

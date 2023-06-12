@@ -1,6 +1,6 @@
 table 60008 "Leave Plan DELETE NU*"
 {
-   // DrillDownPageID = 60007;
+    // DrillDownPageID = 60007;
     //LookupPageID = 60007;
 
     fields
@@ -13,7 +13,7 @@ table 60008 "Leave Plan DELETE NU*"
         field(2; "Entry Type"; Option)
         {
             OptionMembers = " ",Plan,Actual;
-           // TableRelation = Table60015;
+            // TableRelation = Table60015;
         }
         field(3; "Leave Category"; Code[30])
         {
@@ -148,6 +148,6 @@ table 60008 "Leave Plan DELETE NU*"
         LeavPRec: Record "Leave Plan DELETE NU*";
         HumanResSetup: Record "Human Resources Setup";
         NoSeriesMgt: Codeunit NoSeriesManagement;
-        //GenPCode: Codeunit "General Purpose Codeunit";
+    //GenPCode: Codeunit "General Purpose Codeunit";
 }
 

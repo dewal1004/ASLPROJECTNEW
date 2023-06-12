@@ -3,7 +3,7 @@ table 54001 "Document Approval Chain NU*"
     DrillDownPageID = "Purchase Order Foreign";
     LookupPageID = "Purchase Order Foreign";
 
-     fields
+    fields
     {
         field(1; "Code"; Code[10])
         {

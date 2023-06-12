@@ -1303,7 +1303,7 @@
 //         exit(AmountBack);
 //     end;
 
-    
+
 //     procedure CalcGraduated(var WantedLookRec: Record "Payroll-Lookup Lines."; InputToTable: Decimal): Decimal
 //     begin
 //         /*”””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””

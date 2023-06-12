@@ -13,7 +13,7 @@ page 50071 "PaySlip Line Detail"
         {
             repeater(General)
             {
-                field("Employee No"; "Employee No")
+                field("Employee No"; Rec."Employee No")
                 {
                     Visible = true;
                     ApplicationArea = All;
@@ -23,22 +23,22 @@ page 50071 "PaySlip Line Detail"
                     Visible = true;
                     ApplicationArea = All;
                 }
-                field("Payroll Period"; "Payroll Period")
+                field("Payroll Period"; Rec."Payroll Period")
                 {
                     Visible = true;
                     ApplicationArea = All;
                 }
-                field("E/D Code"; "E/D Code")
+                field("E/D Code"; Rec."E/D Code")
                 {
                     Visible = true;
                     ApplicationArea = All;
                 }
-                field("Payslip Text"; "Payslip Text")
+                field("Payslip Text"; Rec."Payslip Text")
                 {
                     Visible = true;
                     ApplicationArea = All;
                 }
-                field(Amount; Amount)
+                field(Amount; Rec.Amount)
                 {
                     Visible = true;
                     ApplicationArea = All;
@@ -48,7 +48,7 @@ page 50071 "PaySlip Line Detail"
     }
     trigger OnAfterGetCurrRecord()
     begin
-        if EmpRec.Get("Employee No") then
+        if EmpRec.Get(Rec."Employee No") then
             EmpNAme := EmpRec.FullName()
     end;
 

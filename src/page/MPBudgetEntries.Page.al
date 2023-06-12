@@ -14,48 +14,48 @@ page 50030 "MP Budget Entries"
             repeater(Control1)
             {
                 ShowCaption = false;
-                field("Budget Name"; "Budget Name")
+                field("Budget Name"; Rec."Budget Name")
                 {
                     Editable = false;
                     ApplicationArea = All;
                 }
-                field(Date; Date)
+                field(Date; Rec.Date)
                 {
                     Editable = false;
                     ApplicationArea = All;
                 }
-                field("Employee Grp"; "Employee Grp")
+                field("Employee Grp"; Rec."Employee Grp")
                 {
                     Editable = false;
                     ApplicationArea = All;
                 }
-                field(Description; Description)
+                field(Description; Rec.Description)
                 {
                     ApplicationArea = All;
                 }
-                field("Global Dimension 1 Code"; "Global Dimension 1 Code")
-                {
-                    Editable = false;
-                    ApplicationArea = All;
-                }
-                field("Global Dimension 2 Code"; "Global Dimension 2 Code")
+                field("Global Dimension 1 Code"; Rec."Global Dimension 1 Code")
                 {
                     Editable = false;
                     ApplicationArea = All;
                 }
-                field("Region Code"; "Region Code")
+                field("Global Dimension 2 Code"; Rec."Global Dimension 2 Code")
+                {
+                    Editable = false;
+                    ApplicationArea = All;
+                }
+                field("Region Code"; Rec."Region Code")
                 {
                     Editable = false;
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("Employee Count"; "Employee Count")
+                field("Employee Count"; Rec."Employee Count")
                 {
                     DecimalPlaces = 0 : 0;
                     Editable = false;
                     ApplicationArea = All;
                 }
-                field("Entry No."; "Entry No.")
+                field("Entry No."; Rec."Entry No.")
                 {
                     Editable = false;
                     ApplicationArea = All;

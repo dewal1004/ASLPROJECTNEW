@@ -127,14 +127,14 @@ pageextension 50280 "pageextension50280" extends "Sales Invoice Subform"
         {
             Visible = false;
         }
-       /* modify(Control39)
-        {
-            Visible = false;
-        }
-        modify(Control33)
-        {
-            Visible = false;
-        }*/
+        /* modify(Control39)
+         {
+             Visible = false;
+         }
+         modify(Control33)
+         {
+             Visible = false;
+         }*/
         modify("Invoice Discount Amount")
         {
             Visible = true;
@@ -255,7 +255,7 @@ pageextension 50280 "pageextension50280" extends "Sales Invoice Subform"
     local procedure RedistributeTotalsOnAfterValidate()
     begin
         CurrPage.SaveRecord;
-        SalesHeader.Get("Document Type", "Document No.");
+        SalesHeader.Get(Rec."Document Type", Rec."Document No.");
         //***P if DocumentTotals.SalesCheckNumberOfLinesLimit(SalesHeader) then
         //     DocumentTotals.SalesRedistributeInvoiceDiscountAmounts(Rec, VATAmount, TotalSalesLine);
         CurrPage.Update;
@@ -263,17 +263,17 @@ pageextension 50280 "pageextension50280" extends "Sales Invoice Subform"
 
     local procedure QuantityOnAfterValidate()
     begin
-        if Reserve = Reserve::Always then begin
+        if Rec.Reserve = Rec.Reserve::Always then begin
             CurrPage.SaveRecord;
-            AutoReserve;
+            Rec.AutoReserve;
         end;
     end;
 
     local procedure UnitofMeasureCodeOnAfterValida()
     begin
-        if Reserve = Reserve::Always then begin
+        if Rec.Reserve = Rec.Reserve::Always then begin
             CurrPage.SaveRecord;
-            AutoReserve;
+            Rec.AutoReserve;
         end;
     end;
 

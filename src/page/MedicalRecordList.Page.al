@@ -10,56 +10,56 @@ page 50041 "Medical Record List"
             repeater(Control1)
             {
                 ShowCaption = false;
-                field("Line No"; "Line No")
+                field("Line No"; Rec."Line No")
                 {
                     ApplicationArea = All;
                 }
-                field("Employee No"; "Employee No")
+                field("Employee No"; Rec."Employee No")
                 {
                     ApplicationArea = All;
                 }
-                field(FullName; FullName)
+                field(FullName; Rec.FullName)
                 {
                     Caption = 'Full Name';
                     ApplicationArea = All;
                 }
-                field("Transaction Date"; "Transaction Date")
+                field("Transaction Date"; Rec."Transaction Date")
                 {
                     ApplicationArea = All;
                 }
-                field("Transaction Type"; "Transaction Type")
+                field("Transaction Type"; Rec."Transaction Type")
                 {
                     ApplicationArea = All;
                 }
-                field("Sickness Description"; "Sickness Description")
+                field("Sickness Description"; Rec."Sickness Description")
                 {
                     ApplicationArea = All;
                 }
-                field("Transaction Description"; "Transaction Description")
+                field("Transaction Description"; Rec."Transaction Description")
                 {
                     ApplicationArea = All;
                 }
-                field("Hospital Code"; "Hospital Code")
+                field("Hospital Code"; Rec."Hospital Code")
                 {
                     ApplicationArea = All;
                 }
-                field(Beneficiary; Beneficiary)
+                field(Beneficiary; Rec.Beneficiary)
                 {
                     ApplicationArea = All;
                 }
-                field("ASL Ref No"; "ASL Ref No")
+                field("ASL Ref No"; Rec."ASL Ref No")
                 {
                     ApplicationArea = All;
                 }
-                field(Amount; Amount)
+                field(Amount; Rec.Amount)
                 {
                     ApplicationArea = All;
                 }
-                field("Region Code"; "Region Code")
+                field("Region Code"; Rec."Region Code")
                 {
                     ApplicationArea = All;
                 }
-                field("Global Dimension 1 Code"; "Global Dimension 1 Code")
+                field("Global Dimension 1 Code"; Rec."Global Dimension 1 Code")
                 {
                     ApplicationArea = All;
                 }

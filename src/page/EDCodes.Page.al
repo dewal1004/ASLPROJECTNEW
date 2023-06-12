@@ -11,149 +11,149 @@ page 50003 "ED Codes."
             repeater(Control1)
             {
                 ShowCaption = false;
-                field("E/D Code"; "E/D Code")
+                field("E/D Code"; Rec."E/D Code")
                 {
                     ApplicationArea = All;
                 }
-                field("Payslip Text"; "Payslip Text")
+                field("Payslip Text"; Rec."Payslip Text")
                 {
                     ApplicationArea = All;
                 }
-                field(Prorate; Prorate)
+                field(Prorate; Rec.Prorate)
                 {
                     ApplicationArea = All;
                 }
-                field("Monthly Variable"; "Monthly Variable")
+                field("Monthly Variable"; Rec."Monthly Variable")
                 {
                     ApplicationArea = All;
                 }
-                field("Taxable Ref"; "Taxable Ref")
+                field("Taxable Ref"; Rec."Taxable Ref")
                 {
                     ApplicationArea = All;
                 }
-                field("Variable Unit"; "Variable Unit")
+                field("Variable Unit"; Rec."Variable Unit")
                 {
                     ApplicationArea = All;
                 }
-                field("OverTime(Y/N)"; "OverTime(Y/N)")
-                {
-                    Visible = false;
-                    ApplicationArea = All;
-                }
-                field("Part of Absent Deduction"; "Part of Absent Deduction")
+                field("OverTime(Y/N)"; Rec."OverTime(Y/N)")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("Absent Deduction"; "Absent Deduction")
+                field("Part of Absent Deduction"; Rec."Part of Absent Deduction")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("Loan (Y/N)"; "Loan (Y/N)")
+                field("Absent Deduction"; Rec."Absent Deduction")
                 {
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field(Units; Units)
+                field("Loan (Y/N)"; Rec."Loan (Y/N)")
+                {
+                    Visible = false;
+                    ApplicationArea = All;
+                }
+                field(Units; Rec.Units)
                 {
                     ApplicationArea = All;
                 }
-                field(Rate; Rate)
+                field(Rate; Rec.Rate)
                 {
                     ApplicationArea = All;
                 }
-                field(Compute; Compute)
+                field(Compute; Rec.Compute)
                 {
                     LookupPageID = "Payroll ED Survey.";
                     ApplicationArea = All;
                 }
-                field("Add/Subtract"; "Add/Subtract")
+                field("Add/Subtract"; Rec."Add/Subtract")
                 {
                     ApplicationArea = All;
                 }
-                field("Factor Of"; "Factor Of")
+                field("Factor Of"; Rec."Factor Of")
                 {
                     LookupPageID = "Payroll ED Survey.";
                     ApplicationArea = All;
                 }
-                field(Percentage; Percentage)
+                field(Percentage; Rec.Percentage)
                 {
                     ApplicationArea = All;
                 }
-                field("Table Look Up"; "Table Look Up")
+                field("Table Look Up"; Rec."Table Look Up")
                 {
                     ApplicationArea = All;
                 }
-                field("Max. Amount"; "Max. Amount")
+                field("Max. Amount"; Rec."Max. Amount")
                 {
                     ApplicationArea = All;
                 }
-                field("Min. Amount"; "Min. Amount")
+                field("Min. Amount"; Rec."Min. Amount")
                 {
                     ApplicationArea = All;
                 }
-                field("Rounding Direction"; "Rounding Direction")
+                field("Rounding Direction"; Rec."Rounding Direction")
                 {
                     ApplicationArea = All;
                 }
-                field("Rounding Precision"; "Rounding Precision")
+                field("Rounding Precision"; Rec."Rounding Precision")
                 {
                     ApplicationArea = All;
                 }
-                field("Edit Amount?"; "Edit Amount?")
+                field("Edit Amount?"; Rec."Edit Amount?")
                 {
                     ApplicationArea = All;
                 }
-                field("Edit Grp. Amount?"; "Edit Grp. Amount?")
+                field("Edit Grp. Amount?"; Rec."Edit Grp. Amount?")
                 {
                     ApplicationArea = All;
                 }
-                field("Yes/No Req.?"; "Yes/No Req.?")
+                field("Yes/No Req.?"; Rec."Yes/No Req.?")
                 {
                     ApplicationArea = All;
                 }
-                field("Reset Next Period?"; "Reset Next Period?")
+                field("Reset Next Period?"; Rec."Reset Next Period?")
                 {
                     ApplicationArea = All;
                 }
-                field("Search Name"; "Search Name")
+                field("Search Name"; Rec."Search Name")
                 {
                     ApplicationArea = All;
                 }
-                field("Payslip appearance"; "Payslip appearance")
+                field("Payslip appearance"; Rec."Payslip appearance")
                 {
                     ApplicationArea = All;
                 }
-                field("Payslip Group ID"; "Payslip Group ID")
+                field("Payslip Group ID"; Rec."Payslip Group ID")
                 {
                     ApplicationArea = All;
                 }
-                field("Pos. In Payslip Grp."; "Pos. In Payslip Grp.")
+                field("Pos. In Payslip Grp."; Rec."Pos. In Payslip Grp.")
                 {
                     ApplicationArea = All;
                 }
-                field("Payslip Column"; "Payslip Column")
+                field("Payslip Column"; Rec."Payslip Column")
                 {
                     ApplicationArea = All;
                 }
-                field("Overline Column"; "Overline Column")
+                field("Overline Column"; Rec."Overline Column")
                 {
                     ApplicationArea = All;
                 }
-                field("Underline Amount"; "Underline Amount")
+                field("Underline Amount"; Rec."Underline Amount")
                 {
                     ApplicationArea = All;
                 }
-                field("Payslip Print Column"; "Payslip Print Column")
+                field("Payslip Print Column"; Rec."Payslip Print Column")
                 {
                     ApplicationArea = All;
                 }
-                field("ED Type"; "ED Type")
+                field("ED Type"; Rec."ED Type")
                 {
                     ApplicationArea = All;
                 }
-                field("Control Type"; "Control Type")
+                field("Control Type"; Rec."Control Type")
                 {
                     ApplicationArea = All;
                 }

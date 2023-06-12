@@ -57,7 +57,7 @@ table 50017 "Skill Appraisal"
                         Points := 3;
                     Performance::Average:
                         Points := 2;
-                  
+
                 end;
             end;
         }
@@ -99,8 +99,8 @@ table 50017 "Skill Appraisal"
         }
         field(59; quantity; Decimal)
         {
-            CalcFormula = Lookup ("Sales Invoice Line".Quantity WHERE ("Document No." = FIELD ("Document Filter"),
-                                                                      "No." = FIELD ("Skill code")));
+            CalcFormula = Lookup("Sales Invoice Line".Quantity WHERE("Document No." = FIELD("Document Filter"),
+                                                                      "No." = FIELD("Skill code")));
             FieldClass = FlowField;
         }
         field(60; "Document Filter"; Code[10])
