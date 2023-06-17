@@ -376,8 +376,7 @@ pageextension 50242 "Job Journal Ext" extends "Job Journal"
         if JBat.Get("Journal Template Name", "Journal Batch Name") then begin
             //Job Journal Line Insertion
             i := 0;
-            //Insert Default Catches for the Job
-            JobcatchDefault.SetCurrentKey(JobcatchDefault."S/No.", JobcatchDefault."Table Name", JobcatchDefault."No.");
+            //Insert Default Catches for the Job JobcatchDefault.SetCurrentKey(JobcatchDefault."S/No.", JobcatchDefault."Table Name", JobcatchDefault."No.");
             JobcatchDefault.SetRange(JobcatchDefault."Table Name", JobcatchDefault."Table Name"::Job);
             JobcatchDefault.SetRange(JobcatchDefault."No.", JBat."Job No.");
             if JobcatchDefault.Find('-') then begin

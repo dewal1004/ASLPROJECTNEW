@@ -194,12 +194,14 @@ tableextension 50332 "Inventory Posting Group Ext" extends "Inventory Posting Gr
         }
         key(Key3; "Statistics Group", Category, "S/No.")
         {
+          Enabled = true;  
         }
         key(Key4; "S/No.")
         {
         }
         key(Key5; "S/No.", "Statistics Group")
         {
+            
         }
     }
 

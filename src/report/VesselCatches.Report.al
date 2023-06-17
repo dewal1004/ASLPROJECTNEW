@@ -441,7 +441,7 @@ report 50085 "Vessel Catches"
                             Vessl := Job.Vessel;
                         if Res.Get(Job."Person Responsible") then RESP := Res.Name else RESP := Job."Person Responsible";
 
-                        Quantity := 199;
+                       // Quantity := 199;
 
                     end;
 

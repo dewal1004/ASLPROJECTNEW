@@ -395,7 +395,7 @@ tableextension 50223 "LocationExt" extends Location
             Enabled = false;
         }
         key(ASLKey14; "Life Rf")
-        {
+            {
             Enabled = false;
         }
         key(ASLKey15; Parchut)
@@ -420,9 +420,11 @@ tableextension 50223 "LocationExt" extends Location
         }
         key(Key20; VSDVal)
         {
+            Enabled = true;
         }
         key(Key21; "Last Reportd Vessel Pts")
         {
+            Enabled = true;
         }
     }
 

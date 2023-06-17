@@ -688,7 +688,7 @@ tableextension 50269 "tableextension50269" extends "Sales Header"
                     SalesRecLine.Type := SalesRecLine.Type::Item;
                     SalesRecLine.Validate(SalesRecLine."No.", FsdailyFilter."Item No.");
                     SalesRecLine."Location Code" := FsdailyFilter.Location;
-                    SalesRecLine.Quantity := FsdailyFilter."Day Sale Qty";
+                    SalesRecLine.Validate(SalesRecLine.Quantity, FsdailyFilter."Day Sale Qty");
                     newprice := FSdailyFilter."Day Sale Value" / FSdailyFilter."Day Sale Qty";
                     if newprice > SalesRecLine."Unit Price" then
                         SalesRecLine.Validate(SalesRecLine."Unit Price", newprice);
@@ -719,6 +719,18 @@ tableextension 50269 "tableextension50269" extends "Sales Header"
         Grp := StaffType + grade + step;
     end;
 
+    procedure ValidateQuantity()
+    var
+        SalesLine: Record "Sales Line";
+    begin
+        SalesLine.SetRange(SalesLine."Document No.", rec."No.");
+        SalesLine.SetRange(SalesLine."Document Type", rec."Document Type");
+        if SalesLine.FindFirst() then
+            repeat
+                SalesLine.validate(SalesLine.Quantity);
+                SalesLine.Modify();
+            until SalesLine.Next = 0;
+    end;
     //Unsupported feature: Deletion (VariableCollection) on "DeferralHeadersExist(PROCEDURE 82).DeferralHeader(Variable 1000)".
 
 
