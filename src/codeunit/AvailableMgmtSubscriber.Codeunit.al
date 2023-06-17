@@ -3,7 +3,6 @@
 /// </summary>
 CodeUnit 50030 "AvailableMgmtSubscriber"
 {
-<<<<<<< HEAD
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Available Management", 'OnAfterCalcAvailableQty', '', true, true)]
     local procedure AvailableMgmtOnAfterCalcAvailableQty(var Item: Record Item; var AvailableQty: Decimal)
     begin

@@ -1,18 +1,6 @@
 /// <summary>
 /// CodeUnit AnalysisViewSubsciber (ID 50014).
 /// </summary>
-CodeUnit 50014 "AnalysisViewSubscriber"
-{
-<<<<<<< HEAD
-    EventSubscriberInstance = StaticAutomatic;
-
-    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Update Analysis View", 'OnFlushAnalysisViewEntryOnBeforeAnalysisViewEntryInsert', '', true, true)]
-    local procedure MyProcedure()
-    begin
-
-    end;
-
-}
 
 
 

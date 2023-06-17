@@ -495,13 +495,9 @@ pageextension 50353 "pageextension50353" extends "Job Card"
 
                     trigger OnAction()
                     begin
-<<<<<<< HEAD
                         Rec.SetFilter("No.", Rec."No.");
                         REPORT.Run(50113, true, true, Rec);
-=======
-                        SetFilter("No.", "No.");
-                        REPORT.Run(50047, true, true, Rec);
->>>>>>> 13b9a2144c4d87258aa8480ba39396a5e7508b67
+                        // REPORT.Run(50047, true, true, Rec);
                     end;
                 }
                 action("Voyage End (Catch)")

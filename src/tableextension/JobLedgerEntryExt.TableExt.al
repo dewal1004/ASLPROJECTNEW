@@ -105,7 +105,6 @@ tableextension 50232 "Job Ledger Entry Ext" extends "Job Ledger Entry"
         key(ASLKey7; "Catch Sea Days") { }
         Key(ASLKey9; GroupSort, "Inventory posting Group") { Enabled = true;}
     
->>>>>>> 13b9a2144c4d87258aa8480ba39396a5e7508b67
         // key(ASLKey1; "Job No.", "Location Code", "Posting Date", "Journal Batch Name", Type, "Gen. Prod. Posting Group", "Task Code");
         //   {SumIndexFields = "Total Price"; }
         // key(ASLKey3; "Job No.", "Location Code", GroupSort) {}
