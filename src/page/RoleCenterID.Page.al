@@ -1,10 +1,15 @@
+/// <summary>
+/// Page Role Center ID (ID 50136).
+/// </summary>
 page 50136 "Role Center ID"
 {
     PageType = RoleCenter;
-
+    Caption = 'ASL General Menu';
+    UsageCategory = Administration;
+    ApplicationArea = All;
     layout
     {
-        area(rolecenter)
+        area(RoleCenter)
         {
             group(Control22)
             {

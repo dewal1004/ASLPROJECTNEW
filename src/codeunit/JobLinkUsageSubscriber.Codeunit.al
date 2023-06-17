@@ -1,7 +1,11 @@
-codeunit 50029 "JobLinkUsageSubscriber"
+/// <summary>
+/// Codeunit JobLinkUsageSubscriber (ID 50029).
+/// </summary>
+CodeUnit 50029 "JobLinkUsageSubscriber"
 {
     EventSubscriberInstance = StaticAutomatic;
 
+<<<<<<< HEAD
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Job Link Usage", 'OnBeforeMatchUsageSpecified', '', true, true)]
     local procedure MyProcedure()
     var

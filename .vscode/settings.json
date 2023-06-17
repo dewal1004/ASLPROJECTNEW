@@ -18,6 +18,12 @@
     "cSpell.enableFiletypes": [
         "al"
     ],
+    "cSpell.words": [
+        "Codeunit",
+        "Ledg",
+        "Mgmt",
+        "RDLC"
+    ],
     // "al.codeAnalyzers": [
     //     "${CodeCop}",
     //     "${AppSourceCop}",

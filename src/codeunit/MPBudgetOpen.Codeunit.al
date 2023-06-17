@@ -1,4 +1,4 @@
-codeunit 52007 "MPBudget-Open"
+CodeUnit 52007 "MPBudget-Open"
 {
     TableNo = "Employment Contract";
 

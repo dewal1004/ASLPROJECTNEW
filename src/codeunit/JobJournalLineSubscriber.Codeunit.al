@@ -1,4 +1,7 @@
-codeunit 50040 "Job Journal Line Subscriber"
+/// <summary>
+/// Codeunit Job Journal Line Subscriber (ID 50040).
+/// </summary>
+CodeUnit 50040 "Job Journal Line Subscriber"
 {
     trigger OnRun()
     begin
@@ -47,11 +50,11 @@ codeunit 50040 "Job Journal Line Subscriber"
         job: Record Job;
         JobTask: record "Job Task";
     begin
-        IF JobTask.FINDFIRST THEN
+        IF JobTask.FindFirst THEN
             JobJournalLine.VALIDATE(JobJournalLine."Job Task No.", JobTask."Job Task No.");
 
         job.Get(JobJournalLine."Job No.");
-        JobJournalLine.Validate("Posting Date", Job."Ending Date");
+        //JobJournalLine.Validate("Posting Date", Job."Ending Date");
         JobJournalLine.Validate("Phase Code", Job.Vessel);
         JobJournalLine."Vessel Type" := Job."Vessel Type";
 
@@ -94,7 +97,7 @@ codeunit 50040 "Job Journal Line Subscriber"
 
         //Location Fixg
         IF (JobJournalLine."Location Code" = '') THEN
-            IF User.GET(USERID) THEN
+           // IF User.GET(USERID) THEN
                 IF true THEN BEGIN //User."Shortcut Dimension 1 Code" = 'MRKT' ///Refactor
 
                     InvtrSetUp.GET;
