@@ -22,7 +22,8 @@
         "Codeunit",
         "Ledg",
         "Mgmt",
-        "RDLC"
+        "RDLC",
+        "reportrdlc"
     ],
     // "al.codeAnalyzers": [
     //     "${CodeCop}",

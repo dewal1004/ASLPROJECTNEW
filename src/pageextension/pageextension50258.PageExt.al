@@ -7,10 +7,10 @@ pageextension 50258 "pageextension50258" extends "Recurring Job Jnl."
         {
             Visible = false;
         }
-        modify("Line Type")
+        /*modify("Line Type")
         {
             Visible = false;
-        }
+        }*/
         modify("Posting Date")
         {
             Editable = true;
@@ -28,10 +28,10 @@ pageextension 50258 "pageextension50258" extends "Recurring Job Jnl."
             Visible = false;
             Editable = false;
         }
-        modify(Type)
+       /* modify(Type)
         {
             Visible = false;
-        }
+        }*/
         modify(Description)
         {
 

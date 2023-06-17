@@ -76,6 +76,18 @@ pageextension 50270 "pageextension50270" extends "Sales Invoice"
                         rec.GenerateFSDailySales();
                     end;
                 }
+                action("Validate Quantity")
+                {
+                    ApplicationArea= Basic,Suite;
+                    Caption = 'Update Quantity';
+                    Promoted = true;
+                    trigger OnAction()
+                    begin
+                        Rec.ValidateQuantity();
+                    end;
+
+
+                }
             }
 
 

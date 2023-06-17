@@ -358,7 +358,8 @@ tableextension 50241 "Job Journal Line Ext" extends "Job Journal Line"
                     if not JJLine.Insert(true) then JJLine.Modify(true);
                 until JCatchDefa.Next() = 0;
                 Window.Close;
-            end;
+            end else
+                Error('No Default Job Line for %1 To Update', JBat."Job No.");
         end;
     end;
 
@@ -388,7 +389,7 @@ tableextension 50241 "Job Journal Line Ext" extends "Job Journal Line"
                     JJLine."Document Date" := JBat."Catch Date";
                     JJLine."Phase Code" := JBat."Fishing Ground";
                     JJLine."Document No." := JBat.Name + Format(JBat."Catch Date");
-
+                    JJLine.Type := JJLine.Type::Item;
                     if Jobs.Get(JBat."Job No.") then begin
                         JJLine."Catch Sea Days" := JBat."Catch Date" - Jobs."Starting Date";
                     end;
@@ -404,9 +405,9 @@ tableextension 50241 "Job Journal Line Ext" extends "Job Journal Line"
                     JJLine.Validate(JJLine."Shortcut Dimension 2 Code", JBat."Global Dimension 2 Code");
                     JJLine."Phase Code" := JBat."Fishing Ground";
                     JJLine."Source Code" := JBat."Fishing Ground";
-                    JJLine."Job No." := "Job No.";
+                    JJLine."Job No." := JBat."Job No.";
                     JJLine."Posting Date" := JBat."Catch Date";
-                    JobTask.SetRange("Job No.", "Job No.");
+                    JobTask.SetRange("Job No.", JBat."Job No.");
                     if JobTask.FindFirst then
                         Jobtask_No := JobTask."Job Task No.";
                     JJLine.Validate("Job Task No.", Jobtask_No);
