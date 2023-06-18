@@ -1,8 +1,8 @@
-page 99990 "xxyz"
+page 99990 "G/L Entry"
 {
     PageType = Card;
     SourceTable = "G/L Entry";
-    Caption = 'xxyz';
+    Caption = 'G/L Entry';
     layout
     {
     }
