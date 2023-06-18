@@ -2,7 +2,7 @@ report 93405 "Jobs Group Sort"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/JobsGroupSort.rdlc';
-
+    Caption = 'Jobs Group Sort';
     dataset
     {
         dataitem("Job catch Default"; "Job catch Default")
@@ -15,7 +15,7 @@ report 93405 "Jobs Group Sort"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -139,10 +139,9 @@ report 93405 "Jobs Group Sort"
 
                 CurrExc.SetRange(CurrExc."Currency Code", 'USD');
                 CurrExc.SetRange(CurrExc."Starting Date", 0D);
-                if CurrExc.Find('+') then begin
-                    CurrRate := CurrExc."Relational Exch. Rate Amount";
-                    //MESSAGE('EXCHANGE VALUE IS %1',CurrExc."Relational Exch. Rate Amount")
-                end
+                if CurrExc.Find('+') then
+                    CurrRate := CurrExc."Relational Exch. Rate Amount"
+                //MESSAGE('EXCHANGE VALUE IS %1',CurrExc."Relational Exch. Rate Amount")
                 else
                     CurrRate := 1;
 
@@ -160,7 +159,6 @@ report 93405 "Jobs Group Sort"
 
     requestpage
     {
-
         layout
         {
         }
@@ -176,9 +174,7 @@ report 93405 "Jobs Group Sort"
 
     var
         LastFieldNo: Integer;
-        FooterPrinted: Boolean;
         TotalFor: Label 'Total for ';
-        "---------------": Integer;
         Itempr: Record "Sales Price";
         UOM: Record "Unit of Measure";
         CurrExc: Record "Currency Exchange Rate";
@@ -189,10 +185,7 @@ report 93405 "Jobs Group Sort"
         NairaVal: Decimal;
         CurrRate: Decimal;
         ItNos: Code[10];
-        UOMCd: Code[10];
-        ItemVar: Code[10];
         Comment_LineCaptionLbl: Label 'Comment Line';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
         Control24CaptionLbl: Label 'Label24';
 }
-

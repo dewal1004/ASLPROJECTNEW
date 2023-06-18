@@ -1,7 +1,7 @@
 xmlport 50010 "Post Imp"
 {
     Format = VariableText;
-
+    Caption = 'Post Imp';
     schema
     {
         textelement(RootNode)
@@ -27,7 +27,6 @@ xmlport 50010 "Post Imp"
 
     requestpage
     {
-
         layout
         {
         }
@@ -37,4 +36,3 @@ xmlport 50010 "Post Imp"
         }
     }
 }
-

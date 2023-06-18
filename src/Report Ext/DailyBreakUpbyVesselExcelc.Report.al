@@ -2,7 +2,7 @@ report 70083 "Daily BreakUp by Vessel Excelc"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/DailyBreakUpbyVesselExcelc.rdlc';
-
+    Caption = 'Daily BreakUp by Vessel Excelc';
     dataset
     {
         dataitem("Inventory Posting Group"; "Inventory Posting Group")
@@ -53,7 +53,6 @@ report 70083 "Daily BreakUp by Vessel Excelc"
             }
             column(SeaRange_1_; SeaRange[1])
             {
-
             }
             column(SeaRange_16_; SeaRange[16])
             {
@@ -72,7 +71,6 @@ report 70083 "Daily BreakUp by Vessel Excelc"
             }
             column(SeaRange_21_; SeaRange[21])
             {
-
             }
             column(SeaRange_22_; SeaRange[22])
             {
@@ -139,7 +137,6 @@ report 70083 "Daily BreakUp by Vessel Excelc"
             }
             column(SeaRange_43_; SeaRange[43])
             {
-
             }
             column(SeaRange_44_; SeaRange[44])
             {
@@ -260,7 +257,6 @@ report 70083 "Daily BreakUp by Vessel Excelc"
             }
             column(SeaRange_83_; SeaRange[83])
             {
-
             }
             column(SeaRange_84_; SeaRange[84])
             {
@@ -315,47 +311,36 @@ report 70083 "Daily BreakUp by Vessel Excelc"
             }
             column(SeaRangeD_1_; SeaRangeD[1])
             {
-
             }
             column(SeaRangeD_2_; SeaRangeD[2])
             {
-
             }
             column(SeaRangeD_3_; SeaRangeD[3])
             {
-
             }
             column(SeaRangeD_4_; SeaRangeD[4])
             {
-
             }
             column(SeaRangeD_5_; SeaRangeD[5])
             {
-
             }
             column(SeaRangeD_6_; SeaRangeD[6])
             {
-
             }
             column(SeaRangeD_7_; SeaRangeD[7])
             {
-
             }
             column(SeaRangeD_8_; SeaRangeD[8])
             {
-
             }
             column(SeaRangeD_9_; SeaRangeD[9])
             {
-
             }
             column(SeaRangeD_10_; SeaRangeD[10])
             {
-
             }
             column(SeaRange_1__Control1000000019; SeaRange[1])
             {
-
             }
             column(SeaRange_2__Control1000000020; SeaRange[2])
             {
@@ -479,11 +464,9 @@ report 70083 "Daily BreakUp by Vessel Excelc"
             }
             column(SeaRange_1__Control1000000159; SeaRange[1])
             {
-
             }
             column(SeaRange_21__Control1000000110; SeaRange[21])
             {
-
             }
             column(SeaRange_22__Control1000000117; SeaRange[22])
             {
@@ -550,7 +533,6 @@ report 70083 "Daily BreakUp by Vessel Excelc"
             }
             column(SeaRange_43__Control1000000187; SeaRange[43])
             {
-
             }
             column(SeaRange_44__Control1000000190; SeaRange[44])
             {
@@ -611,7 +593,6 @@ report 70083 "Daily BreakUp by Vessel Excelc"
             }
             column(SeaRange_83__Control1000000209; SeaRange[83])
             {
-
             }
             column(SeaRange_84__Control1000000212; SeaRange[84])
             {
@@ -789,87 +770,66 @@ report 70083 "Daily BreakUp by Vessel Excelc"
             }
             column(SeaRange_1__Control1000000138; SeaRange[1])
             {
-
             }
             column(SeaRangeC_2_; SeaRangeC[2])
             {
-
             }
             column(SeaRangeC_1_; SeaRangeC[1])
             {
-
             }
             column(SeaRangeC_3_; SeaRangeC[3])
             {
-
             }
             column(SeaRangeC_4_; SeaRangeC[4])
             {
-
             }
             column(SeaRangeC_5_; SeaRangeC[5])
             {
-
             }
             column(SeaRangeC_6_; SeaRangeC[6])
             {
-
             }
             column(SeaRangeC_7_; SeaRangeC[7])
             {
-
             }
             column(SeaRangeC_8_; SeaRangeC[8])
             {
-
             }
             column(SeaRangeC_9_; SeaRangeC[9])
             {
-
             }
             column(SeaRangeC_10_; SeaRangeC[10])
             {
-
             }
             column(SeaRangeC_11_; SeaRangeC[11])
             {
-
             }
             column(SeaRangeC_12_; SeaRangeC[12])
             {
-
             }
             column(SeaRangeC_13_; SeaRangeC[13])
             {
-
             }
             column(SeaRangeC_14_; SeaRangeC[14])
             {
-
             }
             column(SeaRangeC_15_; SeaRangeC[15])
             {
-
             }
             column(SeaRangeC_17_; SeaRangeC[17])
             {
-
             }
             column(SeaRangeC_16_; SeaRangeC[16])
             {
-
             }
             column(SeaRangeC_18_; SeaRangeC[18])
             {
-
             }
             column(SeaRangeC_20_; SeaRangeC[20])
             {
-
             }
             column(SeaRangeC_19_; SeaRangeC[19])
             {
-
             }
             column(T001; T001)
             {
@@ -879,7 +839,6 @@ report 70083 "Daily BreakUp by Vessel Excelc"
             }
             column(SeaRangeC_1__Control1000000115; SeaRangeC[1])
             {
-
             }
             column(SeaRangeC_2__Control1000000166; SeaRangeC[2])
             {
@@ -940,7 +899,6 @@ report 70083 "Daily BreakUp by Vessel Excelc"
             }
             column(SeaRangeC_21_; SeaRangeC[21])
             {
-
             }
             column(SeaRangeC_22_; SeaRangeC[22])
             {
@@ -1007,7 +965,6 @@ report 70083 "Daily BreakUp by Vessel Excelc"
             }
             column(SeaRangeC_43_; SeaRangeC[43])
             {
-
             }
             column(SeaRangeC_44_; SeaRangeC[44])
             {
@@ -1128,7 +1085,6 @@ report 70083 "Daily BreakUp by Vessel Excelc"
             }
             column(SeaRangeC_83_; SeaRangeC[83])
             {
-
             }
             column(SeaRangeC_84_; SeaRangeC[84])
             {
@@ -1189,83 +1145,63 @@ report 70083 "Daily BreakUp by Vessel Excelc"
             }
             column(SeaRangeC_20__Control1000000085; SeaRangeC[20])
             {
-
             }
             column(SeaRangeC_19__Control1000000087; SeaRangeC[19])
             {
-
             }
             column(SeaRangeC_18__Control1000000088; SeaRangeC[18])
             {
-
             }
             column(SeaRangeC_17__Control1000000089; SeaRangeC[17])
             {
-
             }
             column(SeaRangeC_16__Control1000000090; SeaRangeC[16])
             {
-
             }
             column(SeaRangeC_15__Control1000000091; SeaRangeC[15])
             {
-
             }
             column(SeaRangeC_14__Control1000000092; SeaRangeC[14])
             {
-
             }
             column(SeaRangeC_13__Control1000000093; SeaRangeC[13])
             {
-
             }
             column(SeaRangeC_12__Control1000000094; SeaRangeC[12])
             {
-
             }
             column(SeaRangeC_11__Control1000000095; SeaRangeC[11])
             {
-
             }
             column(SeaRangeC_10__Control1000000096; SeaRangeC[10])
             {
-
             }
             column(SeaRangeC_9__Control1000000097; SeaRangeC[9])
             {
-
             }
             column(SeaRangeC_8__Control1000000098; SeaRangeC[8])
             {
-
             }
             column(SeaRangeC_7__Control1000000099; SeaRangeC[7])
             {
-
             }
             column(SeaRangeC_6__Control1000000100; SeaRangeC[6])
             {
-
             }
             column(SeaRangeC_5__Control1000000101; SeaRangeC[5])
             {
-
             }
             column(SeaRangeC_4__Control1000000102; SeaRangeC[4])
             {
-
             }
             column(SeaRangeC_3__Control1000000103; SeaRangeC[3])
             {
-
             }
             column(SeaRangeC_2__Control1000000104; SeaRangeC[2])
             {
-
             }
             column(SeaRangeC_1__Control1000000105; SeaRangeC[1])
             {
-
             }
             column(Inventory_Posting_Group_Inventory_Control1000000106; Inventory)
             {
@@ -1275,11 +1211,9 @@ report 70083 "Daily BreakUp by Vessel Excelc"
             }
             column(SeaRangeC_22__Control1000000108; SeaRangeC[22])
             {
-
             }
             column(SeaRangeC_21__Control1000000109; SeaRangeC[21])
             {
-
             }
             column(TotalFor___FIELDCAPTION_Category_; TotalFor + FieldCaption(Category))
             {
@@ -1345,14 +1279,13 @@ report 70083 "Daily BreakUp by Vessel Excelc"
                   level:=level-1;
                  END;
                  */  //#1
-
             end;
 
             trigger OnPreDataItem()
             begin
                 /*
                 LastFieldNo := FIELDNO(Category);
-                
+
                 //AAA - Aug 2002
                 locate2.SETRANGE(locate2."Location Type",1);
                 locate2.SETRANGE(locate2."date filter",GETRANGEMAX("Date Filter"));
@@ -1362,15 +1295,15 @@ report 70083 "Daily BreakUp by Vessel Excelc"
                   locate2.VSDVal:=locate2."Voyage Sea Days";
                   locate2.MODIFY();
                 UNTIL locate2.NEXT=0;
-                
+
                 //AAA - June 2002
                 locate.SETRANGE(locate."Location Type",1);
                 TotLoc:=locate.COUNT;
-                
+
                 locate.CALCFIELDS(locate."Voyage Sea Days");
                 locate.SETCURRENTKEY(locate.VSDVal);
                 locate.ASCENDING(FALSE);
-                
+
                 Countx:=1;
                 IF locate.FIND('-') THEN REPEAT
                   IF locate.VSDVal<>0 THEN
@@ -1383,14 +1316,12 @@ report 70083 "Daily BreakUp by Vessel Excelc"
                 TotLoc:=Countx-1;
                 //MESSAGE(' %1',TotLoc);
                   */  //#1
-
             end;
         }
     }
 
     requestpage
     {
-
         layout
         {
         }
@@ -1405,24 +1336,12 @@ report 70083 "Daily BreakUp by Vessel Excelc"
     }
 
     var
-        LastFieldNo: Integer;
-        FooterPrinted: Boolean;
         TotalFor: Label 'Total for ';
-        "----------------": Integer;
-        locate: Record Location;
-        locate2: Record Location;
-        Countx: Integer;
-        level: Integer;
-        LocGroup: Integer;
-        TotLoc: Integer;
         SeaRangeC: array[100] of Decimal;
         T001: Text[80];
         SeaRange: array[100] of Text[30];
         SeaRangeD: array[100] of Decimal;
         Cat: Code[15];
-        job1: Record Job;
-        Nocatch: Boolean;
         T001CaptionLbl: Label 'Statistics Group';
         CatCaptionLbl: Label 'Category';
 }
-

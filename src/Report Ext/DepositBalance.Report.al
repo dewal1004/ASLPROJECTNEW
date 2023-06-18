@@ -2,7 +2,7 @@ report 99507 "Deposit Balance"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/DepositBalance.rdlc';
-
+    Caption = 'Deposit Balance';
     dataset
     {
         dataitem(DEPOSIT; DEPOSIT)
@@ -13,7 +13,7 @@ report 99507 "Deposit Balance"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -78,7 +78,6 @@ report 99507 "Deposit Balance"
 
     requestpage
     {
-
         layout
         {
         }
@@ -93,10 +92,7 @@ report 99507 "Deposit Balance"
     }
 
     var
-        LastFieldNo: Integer;
-        FooterPrinted: Boolean;
         TotalFor: Label 'Total for ';
         DEPOSITCaptionLbl: Label 'DEPOSIT';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
 }
-

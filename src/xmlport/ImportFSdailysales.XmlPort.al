@@ -1,7 +1,7 @@
 xmlport 50011 "Import FS daily sales"
 {
     Format = VariableText;
-
+    Caption = 'Import FS daily sales';
     schema
     {
         textelement(Root)
@@ -45,7 +45,6 @@ xmlport 50011 "Import FS daily sales"
 
     requestpage
     {
-
         layout
         {
         }
@@ -55,4 +54,3 @@ xmlport 50011 "Import FS daily sales"
         }
     }
 }
-

@@ -1,5 +1,6 @@
 table 50035 "Lost Days"
 {
+    Caption = 'Lost Days';
     // DrillDownPageID = "Lost day Type"; ****
     // LookupPageID = "Lost day Type";
 
@@ -42,6 +43,8 @@ table 50035 "Lost Days"
 
     fieldgroups
     {
+        fieldgroup(DropDown; Description)
+        {
+        }
     }
 }
-

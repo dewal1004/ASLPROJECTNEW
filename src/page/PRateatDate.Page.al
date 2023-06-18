@@ -4,7 +4,7 @@ page 50056 "P & Rate at Date"
     SourceTable = "P & L Rates";
     UsageCategory = Lists;
     ApplicationArea = Basic, Suite;
-
+    Caption = 'P & Rate at Date';
     layout
     {
         area(content)
@@ -48,4 +48,3 @@ page 50056 "P & Rate at Date"
     {
     }
 }
-

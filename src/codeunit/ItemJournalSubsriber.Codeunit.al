@@ -20,7 +20,6 @@ codeunit 50004 "ItemJournalSubsriber"
 
     // end;
 
-
     local procedure NegCheck(var ItemJnlLine: Record "Item Journal Line")
     var
         Item: Record Item;
@@ -42,13 +41,8 @@ codeunit 50004 "ItemJournalSubsriber"
                        'at Location ' + '"%2."', Item."No.", ItemJnlLine."Location Code");
         end;
 
-        if (ItemJnlLine."Entry Type" = ItemJnlLine."Entry Type"::"Positive Adjmt.") then begin
+        if (ItemJnlLine."Entry Type" = ItemJnlLine."Entry Type"::"Positive Adjmt.") then
             if (ItemJnlLine.Quantity < 0) then
                 Error('Quantity Should not be Negative\' + 'in Line No. %1', ItemJnlLine."Line No.");
-        end;
     end;
 }
-
-
-
-

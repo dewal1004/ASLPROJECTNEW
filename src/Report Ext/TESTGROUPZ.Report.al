@@ -2,7 +2,7 @@ report 50995 "TEST GROUPZ"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/TESTGROUPZ.rdlc';
-
+    Caption = 'TEST GROUPZ';
     dataset
     {
         dataitem("Job Ledger Entry"; "Job Ledger Entry")
@@ -13,7 +13,7 @@ report 50995 "TEST GROUPZ"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -92,7 +92,6 @@ report 50995 "TEST GROUPZ"
 
     requestpage
     {
-
         layout
         {
         }
@@ -108,10 +107,8 @@ report 50995 "TEST GROUPZ"
 
     var
         LastFieldNo: Integer;
-        FooterPrinted: Boolean;
         TotalFor: Label 'Total for ';
         Job_Ledger_EntryCaptionLbl: Label 'Job Ledger Entry';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
         Quantity__1CaptionLbl: Label 'Label21';
 }
-

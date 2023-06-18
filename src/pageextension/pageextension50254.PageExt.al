@@ -21,9 +21,7 @@ pageextension 50254 "pageextension50254" extends "Vendor Card"
 
         //Unsupported feature: Property Modification (Name) on "GLN(Control 25)".
 
-
         //Unsupported feature: Property Modification (SourceExpr) on "GLN(Control 25)".
-
 
         //Unsupported feature: Property Modification (ImplicitType) on "GLN(Control 25)".
 
@@ -38,4 +36,3 @@ pageextension 50254 "pageextension50254" extends "Vendor Card"
         moveafter("Search Name"; GLN)
     }
 }
-

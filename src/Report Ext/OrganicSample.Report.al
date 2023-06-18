@@ -1,14 +1,13 @@
 report 50040 "Organic_Sample"
 {
-    // 
+    //
     // "Comment Line"."Loose Shells%"
     // "Comment Line"."Loose Neck%"
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/OrganicSample.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
-
-
+    Caption = 'Organic_Sample';
     dataset
     {
         dataitem("Comment Line"; "Comment Line")
@@ -114,7 +113,6 @@ report 50040 "Organic_Sample"
 
     requestpage
     {
-
         layout
         {
         }
@@ -129,38 +127,7 @@ report 50040 "Organic_Sample"
     }
 
     var
-        Company_Info: Record "Company Information";
-        Jobs: Record Job;
-        item1: Record Item;
-        JbBudLn: Record "Job Ledger Entry";
         Loc: Record Location;
-        Grade: Code[20];
-        GradeTxt: Text[30];
-        "----": Integer;
-        LastFieldNo: Integer;
-        FooterPrinted: Boolean;
-        Rex: Code[10];
         Batch: Code[20];
         SMSName: Text[30];
-        Quality_Control_Organoleptic_ReportCaptionLbl: Label 'Quality Control Organoleptic Report';
-        CurrReport_PAGENOCaptionLbl: Label 'Page';
-        Comment_Line_VesselCaptionLbl: Label 'VESSEL';
-        Comment_Line__No__CaptionLbl: Label 'JOB';
-        Comment_Line_VoyageCaptionLbl: Label 'VOYAGE';
-        ETACaptionLbl: Label 'ETA';
-        ETDCaptionLbl: Label 'ETD';
-        BatchCaptionLbl: Label 'BATCH';
-        Comment_Line_CaptainCaptionLbl: Label 'CAPTAIN';
-        SMSNameCaptionLbl: Label 'SHRIMP MASTER';
-        Comment_Line_Date_CaptionLbl: Label 'ANALYSIS DATE';
-        Comment_Line__Count_Kg__Control32CaptionLbl: Label 'Count / Kg';
-        ROUND__TTL_No__Pcs_Slab__1_______Control35CaptionLbl: Label '"TTL No. Pcs/Slab"';
-        Unifor_mity_RatioCaptionLbl: Label 'Unifor mity Ratio';
-        Dehyd_ration_CaptionLbl: Label 'Dehyd ration%';
-        Discolour_ation_CaptionLbl: Label 'Discolour ation%';
-        Soft_ShellsCaptionLbl: Label 'Soft Shells';
-        General_Appear_anceCaptionLbl: Label 'General Appear ance';
-        Comment_Line_Comment_Control1000000001CaptionLbl: Label 'Comments';
-        GradeTxt_______Pack_Size_______Brand_Control11CaptionLbl: Label 'Description';
 }
-

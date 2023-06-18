@@ -2,7 +2,7 @@ report 99505 "Edit Voy no on Postd TransOrd"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/EditVoynoonPostdTransOrd.rdlc';
-
+    Caption = 'Edit Voy no on Postd TransOrd';
     dataset
     {
         dataitem("Transfer Receipt Header"; "Transfer Receipt Header")
@@ -15,7 +15,7 @@ report 99505 "Edit Voy no on Postd TransOrd"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -71,7 +71,6 @@ report 99505 "Edit Voy no on Postd TransOrd"
             }
             dataitem("Item Ledger Entry"; "Item Ledger Entry")
             {
-
                 trigger OnAfterGetRecord()
                 begin
                     if locn <> '' then
@@ -80,7 +79,7 @@ report 99505 "Edit Voy no on Postd TransOrd"
                     if (ExDocn <> '') then "External Document No." := ExDocn;
                     "External Document No." := ExDocn;
 
-                    Modify;
+                    Modify();
                 end;
 
                 trigger OnPreDataItem()
@@ -93,7 +92,6 @@ report 99505 "Edit Voy no on Postd TransOrd"
             }
             dataitem("Value Entry"; "Value Entry")
             {
-
                 trigger OnAfterGetRecord()
                 begin
                     if locn <> '' then
@@ -101,7 +99,7 @@ report 99505 "Edit Voy no on Postd TransOrd"
                     if (ExDocn <> '') then "External Document No." := ExDocn;
                     "External Document No." := ExDocn;
 
-                    Modify;
+                    Modify();
                 end;
 
                 trigger OnPreDataItem()
@@ -114,12 +112,11 @@ report 99505 "Edit Voy no on Postd TransOrd"
             }
             dataitem("Job Ledger Entry"; "Job Ledger Entry")
             {
-
                 trigger OnAfterGetRecord()
                 begin
                     if locn <> '' then
                         if "Location Code" = loc then "Location Code" := locn;
-                    Modify;
+                    Modify();
                 end;
 
                 trigger OnPreDataItem()
@@ -132,12 +129,11 @@ report 99505 "Edit Voy no on Postd TransOrd"
             }
             dataitem("G/L Entry"; "G/L Entry")
             {
-
                 trigger OnAfterGetRecord()
                 begin
                     if (ExDocn <> '') then "External Document No." := ExDocn;
                     "External Document No." := ExDocn;
-                    Modify;
+                    Modify();
                 end;
 
                 trigger OnPreDataItem()
@@ -157,7 +153,7 @@ report 99505 "Edit Voy no on Postd TransOrd"
                     "External Document No." := ExDocn;
                     "Transfer To Voy. No." := ExDocn;
                 end;
-                Modify;
+                Modify();
 
                 //Modify Corresponding Shipment
                 TransShipmt.SetCurrentKey("Transfer Order No.");
@@ -168,7 +164,7 @@ report 99505 "Edit Voy no on Postd TransOrd"
                         TransShipmt."External Document No." := ExDocn;
                         TransShipmt."Transfer To Voy. No." := ExDocn;
                     end;
-                    TransShipmt.Modify;
+                    TransShipmt.Modify();
                 end;
 
                 //Modify Corresponding Order
@@ -180,7 +176,7 @@ report 99505 "Edit Voy no on Postd TransOrd"
                         TransOrder."External Document No." := ExDocn;
                         TransOrder."Transfer To Voy. No." := ExDocn;
                     end;
-                    TransOrder.Modify;
+                    TransOrder.Modify();
                 end;
             end;
         }
@@ -188,7 +184,6 @@ report 99505 "Edit Voy no on Postd TransOrd"
 
     requestpage
     {
-
         layout
         {
         }
@@ -205,21 +200,14 @@ report 99505 "Edit Voy no on Postd TransOrd"
     var
         TransShipmt: Record "Transfer Shipment Header";
         TransOrder: Record "Transfer Header";
-        LastFieldNo: Integer;
-        FooterPrinted: Boolean;
         loc: Code[120];
         locn: Code[120];
         ItDocFilt: Code[120];
-        VaDocFilt: Code[120];
         JbDocFilt: Code[120];
         GLDocFilt: Code[120];
-        TSDocFilt: Code[120];
-        TRDocFilt: Code[120];
         ExDoc: Code[120];
         ExDocn: Code[120];
         DocNo: Code[120];
-        TotalFor: Label 'Total for ';
         Transfer_Receipt_HeaderCaptionLbl: Label 'Transfer Receipt Header';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
 }
-

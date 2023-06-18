@@ -2,7 +2,7 @@ report 95150 "Consolidated Voyage P&Lt"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/ConsolidatedVoyagePLt.rdlc';
-
+    Caption = 'Consolidated Voyage P&Lt';
     dataset
     {
         dataitem(Jobss; Job)
@@ -14,7 +14,7 @@ report 95150 "Consolidated Voyage P&Lt"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -28,19 +28,15 @@ report 95150 "Consolidated Voyage P&Lt"
             }
             column(Text27; Text27)
             {
-
             }
             column(Text26; Text26)
             {
-
             }
             column(Text25; Text25)
             {
-
             }
             column(Text24; Text24)
             {
-
             }
             column(Text23; Text23)
             {
@@ -78,19 +74,15 @@ report 95150 "Consolidated Voyage P&Lt"
             }
             column(PortDay; PortDay)
             {
-
             }
             column(LostDay; LostDay)
             {
-
             }
             column(FishgDay; FishgDay)
             {
-
             }
             column(CycleDay; CycleDay)
             {
-
             }
             column(Jobss__Ending_Date_; "Ending Date")
             {
@@ -125,19 +117,15 @@ report 95150 "Consolidated Voyage P&Lt"
             }
             column(PortDay_Control1000000239; PortDay)
             {
-
             }
             column(LostDay_Control1000000240; LostDay)
             {
-
             }
             column(FishgDay_Control1000000241; FishgDay)
             {
-
             }
             column(CycleDay_Control1000000242; CycleDay)
             {
-
             }
             column(TotalFor___FIELDCAPTION_Vessel_; TotalFor + FieldCaption(Vessel))
             {
@@ -166,19 +154,15 @@ report 95150 "Consolidated Voyage P&Lt"
             }
             column(PortDay_Control1000000228; PortDay)
             {
-
             }
             column(LostDay_Control1000000229; LostDay)
             {
-
             }
             column(FishgDay_Control1000000230; FishgDay)
             {
-
             }
             column(CycleDay_Control1000000231; CycleDay)
             {
-
             }
             column(Coutry_Name; Coutry.Name)
             {
@@ -212,7 +196,6 @@ report 95150 "Consolidated Voyage P&Lt"
             }
             column(CycleDay_Control1000000202; CycleDay)
             {
-
             }
             column(PntStor_4__Control1000000204; PntStor[4])
             {
@@ -220,11 +203,9 @@ report 95150 "Consolidated Voyage P&Lt"
             }
             column(Text24_Control1000000205; Text24)
             {
-
             }
             column(FishgDay_Control1000000206; FishgDay)
             {
-
             }
             column(PntStor_5__Control1000000208; PntStor[5])
             {
@@ -232,11 +213,9 @@ report 95150 "Consolidated Voyage P&Lt"
             }
             column(Text25_Control1000000209; Text25)
             {
-
             }
             column(LostDay_Control1000000210; LostDay)
             {
-
             }
             column(PntStor_6__Control1000000212; PntStor[6])
             {
@@ -244,7 +223,6 @@ report 95150 "Consolidated Voyage P&Lt"
             }
             column(Text26_Control1000000213; Text26)
             {
-
             }
             column(PntStor_7__Countrs_Control1000000214; PntStor[7] / Countrs)
             {
@@ -252,11 +230,9 @@ report 95150 "Consolidated Voyage P&Lt"
             }
             column(Text27_Control1000000215; Text27)
             {
-
             }
             column(PortDay_Control1000000216; PortDay)
             {
-
             }
             column(ETDCons; ETDCons)
             {
@@ -357,9 +333,8 @@ report 95150 "Consolidated Voyage P&Lt"
                 Job2.SetRange(Job2.Vessel, Vessel);    //Find last voyage
                 if Job2.Next(-1) <> 0 then
                     ETA2 := Job2."Ending Date"
-                else begin
+                else
                     if Loc.Get(Vessel) then ETA2 := Loc."Begining ETA" else ETA2 := 20030101D;
-                end;
 
                 if "Cycle Day (Manual)" <> 0 then
                     CycleDay := "Cycle Day (Manual)"
@@ -403,8 +378,7 @@ report 95150 "Consolidated Voyage P&Lt"
                 Validate("Net Incentive Actual");
                 DataStor[3] := "Net Incentive Actual";
 
-
-                JobSetUp.Get;
+                JobSetUp.Get();
                 a := 100;
 
                 //Calculate the Fixed Salaries
@@ -465,10 +439,9 @@ report 95150 "Consolidated Voyage P&Lt"
 
                 CurrExc.SetRange(CurrExc."Currency Code", 'USD');
                 CurrExc.SetRange(CurrExc."Starting Date", 0D, ETA);
-                if CurrExc.Find('+') then begin
-                    CurrRate := CurrExc."Relational Exch. Rate Amount";
-                    //MESSAGE('EXCHANGE VALUE IS %1',CurrExc."Relational Exch. Rate Amount")
-                end
+                if CurrExc.Find('+') then
+                    CurrRate := CurrExc."Relational Exch. Rate Amount"
+                //MESSAGE('EXCHANGE VALUE IS %1',CurrExc."Relational Exch. Rate Amount")
                 else
                     CurrRate := 1;
                 PntStor[7] := CurrRate;
@@ -491,9 +464,8 @@ report 95150 "Consolidated Voyage P&Lt"
                 Job2.SetRange(Job2.Vessel, Vessel);    //Find last voyage
                 if Job2.Next(-1) <> 0 then
                     ETA2 := Job2."Ending Date"
-                else begin
+                else
                     if Loc.Get(Vessel) then ETA2 := Loc."Begining ETA" else ETA2 := 20030101D;
-                end;
 
                 if "Cycle Day (Manual)" <> 0 then
                     CycleDay := "Cycle Day (Manual)"
@@ -536,8 +508,7 @@ report 95150 "Consolidated Voyage P&Lt"
                 Validate("Net Incentive Actual");
                 DataStor[3] := "Net Incentive Actual";
 
-
-                JobSetUp.Get;
+                JobSetUp.Get();
                 a := 100;
 
                 //Calculate the Fixed Salaries
@@ -598,10 +569,9 @@ report 95150 "Consolidated Voyage P&Lt"
 
                 CurrExc.SetRange(CurrExc."Currency Code", 'USD');
                 CurrExc.SetRange(CurrExc."Starting Date", 0D, ETA);
-                if CurrExc.Find('+') then begin
-                    CurrRate := CurrExc."Relational Exch. Rate Amount";
-                    //MESSAGE('EXCHANGE VALUE IS %1',CurrExc."Relational Exch. Rate Amount")
-                end
+                if CurrExc.Find('+') then
+                    CurrRate := CurrExc."Relational Exch. Rate Amount"
+                //MESSAGE('EXCHANGE VALUE IS %1',CurrExc."Relational Exch. Rate Amount")
                 else
                     CurrRate := 1;
                 PntStor[7] := CurrRate;
@@ -741,7 +711,7 @@ report 95150 "Consolidated Voyage P&Lt"
                 trigger OnAfterGetRecord()
                 begin
                     "Marked Rec" := true;
-                    Modify;
+                    Modify();
                 end;
             }
             dataitem(JbCatchMark; "Job catch Default")
@@ -788,7 +758,7 @@ report 95150 "Consolidated Voyage P&Lt"
                 trigger OnAfterGetRecord()
                 begin
                     "Marked Rec" := true;
-                    Modify;
+                    Modify();
                 end;
             }
             dataitem(ValEntMark; "Value Entry")
@@ -835,7 +805,7 @@ report 95150 "Consolidated Voyage P&Lt"
                 trigger OnAfterGetRecord()
                 begin
                     "Marked Rec" := true;
-                    Modify;
+                    Modify();
                 end;
             }
 
@@ -1049,13 +1019,11 @@ report 95150 "Consolidated Voyage P&Lt"
                     //Rate for line
                     CurrExc.SetRange(CurrExc."Currency Code", 'USD');
                     CurrExc.SetRange(CurrExc."Starting Date", 0D, "Posting Date");
-                    if CurrExc.Find('+') then begin
-                        CurrRate := CurrExc."Relational Exch. Rate Amount";
-                        //MESSAGE('EXCHANGE VALUE IS %1',CurrExc."Relational Exch. Rate Amount")
-                    end
+                    if CurrExc.Find('+') then
+                        CurrRate := CurrExc."Relational Exch. Rate Amount"
+                    //MESSAGE('EXCHANGE VALUE IS %1',CurrExc."Relational Exch. Rate Amount")
                     else
                         CurrRate := 1;
-
 
                     PrdPrc2 := Qty * Prc;
                     if Itempr."Currency Code" <> '' then begin
@@ -1149,7 +1117,7 @@ report 95150 "Consolidated Voyage P&Lt"
                 CurrReport.CreateTotals(PrdPrc2, NairaVal2, Qty);
                 CurrReport.CreateTotals(PrdPrcB, NairaValB, QtyB);
 
-                if CurrReport.TotalsCausedBy = "Sea Food categories".FieldNo("Sea food code") then begin
+                if CurrReport.TotalsCausedBy() = "Sea Food categories".FieldNo("Sea food code") then begin
                     A2[1] := 0;
                     A2[2] := 0;
                     A2[3] := 0;
@@ -1166,10 +1134,9 @@ report 95150 "Consolidated Voyage P&Lt"
                     // IF NOrder<4 THEN
                     if NOrder < 8 then
                         A1[4] := A1[2] / A1[1]
-                    else begin
+                    else
                         A1[4] := A1[3] / A1[1];
-                        //MESSAGE('Value is OF %1 = %2 FOR %3 AND %4',"Sea food code",NOrder,A1[3],A1[1]);
-                    end;
+                //MESSAGE('Value is OF %1 = %2 FOR %3 AND %4',"Sea food code",NOrder,A1[3],A1[1]);
             end;
         }
         dataitem("Value Entry"; "Value Entry")
@@ -1354,7 +1321,6 @@ report 95150 "Consolidated Voyage P&Lt"
 
     requestpage
     {
-
         layout
         {
         }
@@ -1377,10 +1343,9 @@ report 95150 "Consolidated Voyage P&Lt"
         if "Job led".Find('-') then
             repeat
                 "Job led"."Marked Rec" := false;
-                "Job led".Modify;
-            until "Job led".Next = 0;
+                "Job led".Modify();
+            until "Job led".Next() = 0;
         "Job led".SetRange("Job led"."Marked Rec");
-
 
         "job cath".SetCurrentKey("job cath".GroupSort, "job cath"."Marked Rec");
         "job cath".SetRange("job cath"."Marked Rec", true);
@@ -1388,8 +1353,8 @@ report 95150 "Consolidated Voyage P&Lt"
         if "job cath".Find('-') then
             repeat
                 "job cath"."Marked Rec" := false;
-                "job cath".Modify;
-            until "job cath".Next = 0;
+                "job cath".Modify();
+            until "job cath".Next() = 0;
         "job cath".SetRange("job cath"."Marked Rec");
 
         "Val Ent".SetCurrentKey("Val Ent"."Gen. Prod. Posting Group", "Val Ent"."Document No.", "Val Ent"."Marked Rec");
@@ -1398,25 +1363,19 @@ report 95150 "Consolidated Voyage P&Lt"
         if "Val Ent".Find('-') then
             repeat
                 "Val Ent"."Marked Rec" := false;
-                "Val Ent".Modify;
-            until "Val Ent".Next = 0;
+                "Val Ent".Modify();
+            until "Val Ent".Next() = 0;
         "Val Ent".SetRange("Val Ent"."Marked Rec");
     end;
 
     var
         LastFieldNo: Integer;
-        FooterPrinted: Boolean;
         TotalFor: Label 'Total';
-        "---": Integer;
-        Job: Record Job;
         Job2: Record Job;
-        JobRange: Record Job;
         JobETA: Record Job;
         Itempr: Record "Sales Price";
         CurrExc: Record "Currency Exchange Rate";
         ProdPostGrp: Record "Gen. Product Posting Group";
-        InvtPostGrp: Record "Inventory Posting Group";
-        JobLedgerGrpSort: Record "Job Ledger Entry";
         JobSetUp: Record "Jobs Setup";
         JBudLn: Record "Job Planning Line";
         Employee: Record Employee;
@@ -1434,14 +1393,11 @@ report 95150 "Consolidated Voyage P&Lt"
         PrdPrc2: Decimal;
         PrdPrcBX: Decimal;
         PrdPrc2X: Decimal;
-        PrdPrc2B: Decimal;
         CurrRate: Decimal;
-        NairaVal: Decimal;
         NairaValB: Decimal;
         NairaValBX: Decimal;
         NairaVal2: Decimal;
         NairaVal2X: Decimal;
-        NairaVal2B: Decimal;
         Qty: Decimal;
         QtyB: Decimal;
         QtyX: Decimal;
@@ -1509,12 +1465,9 @@ report 95150 "Consolidated Voyage P&Lt"
         GLStr: array[25] of Decimal;
         "GLGPP Caption": array[25] of Code[10];
         CountGPPG: Integer;
-        CountG: Integer;
         Flag: Boolean;
-        "----": Integer;
         "Period Start": Date;
         "Period End": Date;
-        FishingCount: Code[30];
         FC: Code[10];
         VesselSel: Code[25];
         JobsNo: Code[250];
@@ -1640,7 +1593,5 @@ report 95150 "Consolidated Voyage P&Lt"
         SETCURRENTKEY("Gen. Prod. Posting Group","Document No.");
         //SETFILTER("Document No.",VoyageFilter);
         */
-
     end;
 }
-

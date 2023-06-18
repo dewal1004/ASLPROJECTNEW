@@ -9,7 +9,6 @@ reportextension 50001 "InventPostgTest_pte" extends "Inventory Posting - Test"
             column(IssuedBy; IssuedBy) { }
             column(ReceivedBy; ReceivedBy) { }
             column(ApprovedBy; ApprovedBy) { }
-
         }
 
         add("Item Journal Line")

@@ -4,7 +4,7 @@ report 50153 "Inventory Avg. Monthly Demand"
     RDLCLayout = './src/reportrdlc/InventoryAvgMonthlyDemand.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
-
+    Caption = 'Inventory Avg. Monthly Demand';
     dataset
     {
         dataitem("Item Update"; Item)
@@ -41,7 +41,7 @@ report 50153 "Inventory Avg. Monthly Demand"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -158,7 +158,6 @@ report 50153 "Inventory Avg. Monthly Demand"
 
     requestpage
     {
-
         layout
         {
             area(content)
@@ -177,15 +176,9 @@ report 50153 "Inventory Avg. Monthly Demand"
 
     var
         LastFieldNo: Integer;
-        FooterPrinted: Boolean;
         TotalFor: Label 'Total for ';
-        "---": Integer;
         InvtPG: Record "Inventory Posting Group";
-        Item2: Record Item;
-        SkipZero: Boolean;
         StkVal: Decimal;
-        MAD: Decimal;
-        CoverPrd: Decimal;
         BillBoard: Text[30];
         ItemCaptionLbl: Label 'Item';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
@@ -194,4 +187,3 @@ report 50153 "Inventory Avg. Monthly Demand"
         Item__Cover_Period_CaptionLbl: Label 'Cover Period';
         GrandTotalCaptionLbl: Label 'Grand Total';
 }
-

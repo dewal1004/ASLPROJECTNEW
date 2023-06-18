@@ -5,8 +5,7 @@ report 50198 "Export Order Details"
     RDLCLayout = './src/reportrdlc/ExportOrderDetails.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
-
-
+    Caption = 'Export Order Details';
     dataset
     {
         dataitem("Sea Food categories"; "Sea Food categories")
@@ -18,7 +17,7 @@ report 50198 "Export Order Details"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(FORMAT_TODAY_0_4_; Format(Today, 0, 4))
@@ -104,7 +103,7 @@ report 50198 "Export Order Details"
                 begin
                     LastFieldNo := FieldNo("No. 2");
                     if GetFilter("Date Filter") = '' then
-                        SetRange("Date Filter", CalcDate('-1D', WorkDate));
+                        SetRange("Date Filter", CalcDate('-1D', WorkDate()));
                     SetRange("SF Cat", CopyStr("Sea Food categories"."Sea food code", 5));
 
                     RepFilter := GetFilters;
@@ -115,7 +114,6 @@ report 50198 "Export Order Details"
 
     requestpage
     {
-
         layout
         {
         }
@@ -136,7 +134,6 @@ report 50198 "Export Order Details"
 
     var
         LastFieldNo: Integer;
-        FooterPrinted: Boolean;
         TotalFor: Label 'Total for ';
         RepFilter: Text[120];
         TotSales: Decimal;
@@ -145,4 +142,3 @@ report 50198 "Export Order Details"
         COPYSTR__Sea_food_code__5_CaptionLbl: Label 'Label1000000007';
         Total_SalesCaptionLbl: Label 'Total Sales';
 }
-

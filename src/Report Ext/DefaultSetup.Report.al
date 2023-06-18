@@ -2,7 +2,7 @@ report 99105 "Default Setup"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/DefaultSetup.rdlc';
-
+    Caption = 'Default Setup';
     dataset
     {
         dataitem(Item; Item)
@@ -14,7 +14,7 @@ report 99105 "Default Setup"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -59,7 +59,6 @@ report 99105 "Default Setup"
         }
         dataitem(Customer; Customer)
         {
-
             trigger OnAfterGetRecord()
             begin
                 "Location Code" := 'CRM-ASL';
@@ -70,7 +69,6 @@ report 99105 "Default Setup"
 
     requestpage
     {
-
         layout
         {
         }
@@ -88,4 +86,3 @@ report 99105 "Default Setup"
         ItemCaptionLbl: Label 'Item';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
 }
-

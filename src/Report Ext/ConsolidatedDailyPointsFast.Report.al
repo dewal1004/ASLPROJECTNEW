@@ -6,7 +6,6 @@ report 50218 "Consolidated Daily Points Fast"
     RDLCLayout = './src/reportrdlc/ConsolidatedDailyPointsFast.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
-
     Caption = 'New Daily Points Report';
 
     dataset
@@ -36,7 +35,7 @@ report 50218 "Consolidated Daily Points Fast"
                         JobsPointVal."Points Sort Bay" := JobsPointVal.PointZ(JobsPointVal."No.", '',
                            JobsPointVal.GetFilter("Posting Date Filter"), '', '', '', JobsPointVal.Vessel);//JobsPointVal.Points;
                         JobsPointVal.Modify();
-                    until JobsPointVal.Next = 0;
+                    until JobsPointVal.Next() = 0;
             end;
         }
         dataitem(Job; Job)
@@ -48,7 +47,7 @@ report 50218 "Consolidated Daily Points Fast"
             column(Consolidated_Daily_Points_Report_As_On_____FORMAT_Workdat_0_4_; 'Consolidated Daily Points Report As On : ' + Format(Workdat, 0, 4))
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -76,23 +75,18 @@ report 50218 "Consolidated Daily Points Fast"
             }
             column(pts_1_; pts[1])
             {
-
             }
             column(pts_3_; pts[3])
             {
-
             }
             column(pts_2_; pts[2])
             {
-
             }
             column(pts_9_; pts[9])
             {
-
             }
             column(pts_6_; pts[6])
             {
-
             }
             column(SeaDays; SeaDays)
             {
@@ -114,51 +108,39 @@ report 50218 "Consolidated Daily Points Fast"
             }
             column(TotPts_1_; TotPts[1])
             {
-
             }
             column(TotPts_2_; TotPts[2])
             {
-
             }
             column(TotPts_3_; TotPts[3])
             {
-
             }
             column(TotPts_6_; TotPts[6])
             {
-
             }
             column(TotPts_9_; TotPts[9])
             {
-
             }
             column(TotPtsA_1_; TotPtsA[1])
             {
-
             }
             column(TotPtsA_2_; TotPtsA[2])
             {
-
             }
             column(TotPtsA_3_; TotPtsA[3])
             {
-
             }
             column(TotPtsA_6_; TotPtsA[6])
             {
-
             }
             column(TotPtsA_9_; TotPtsA[9])
             {
-
             }
             column(SeaDaysTot; SeaDaysTot)
             {
-
             }
             column(SeaDayA; SeaDayA)
             {
-
             }
             column(ChorCountTot; ChorCountTot)
             {
@@ -312,7 +294,7 @@ report 50218 "Consolidated Daily Points Fast"
                 ActFishDays := 0;
                 AvgFishDays := 0;
 
-                CommentLine.Reset;
+                CommentLine.Reset();
                 CommentLine.SetCurrentKey("No.", "Table Name", Deductible, "Global Dimension 1 Code", "Global Dimension 2 Code",
                  Date, "Day Lost Cause", "Day Lost Location", Vessel);
 
@@ -351,7 +333,7 @@ report 50218 "Consolidated Daily Points Fast"
                     pts[7] := pts[4] / SeaDays
                 end;
                 AvgPtSortBay := pts[9];
-                Modify;
+                Modify();
 
                 ActFishDays := Round(SeaDays - TotalLostDays, 0.01);
                 if ActFishDays <> 0 then
@@ -407,7 +389,7 @@ report 50218 "Consolidated Daily Points Fast"
                     repeat
                         AvgPtSortBay := 0;
                         Modify();
-                    until Next = 0;
+                    until Next() = 0;
                 SetFilter(AvgPtSortBay, '');
                 if Find('-') then;
 
@@ -431,23 +413,18 @@ report 50218 "Consolidated Daily Points Fast"
             }
             column(pts_1__Control1000000064; pts[1])
             {
-
             }
             column(pts_2__Control1000000065; pts[2])
             {
-
             }
             column(pts_3__Control1000000066; pts[3])
             {
-
             }
             column(pts_6__Control1000000069; pts[6])
             {
-
             }
             column(pts_9__Control1000000072; pts[9])
             {
-
             }
             column(Job2__Fishing_Country_Code__Control1000000060; "Fishing Country Code")
             {
@@ -460,7 +437,6 @@ report 50218 "Consolidated Daily Points Fast"
             }
             column(pts_10_; pts[10])
             {
-
             }
             column(ActFishDays_Control1000000117; ActFishDays)
             {
@@ -484,23 +460,18 @@ report 50218 "Consolidated Daily Points Fast"
             }
             column(pts_9__Control1000000059; pts[9])
             {
-
             }
             column(pts_2__Control1000000052; pts[2])
             {
-
             }
             column(pts_1__Control1000000051; pts[1])
             {
-
             }
             column(pts_3__Control1000000053; pts[3])
             {
-
             }
             column(pts_6__Control1000000056; pts[6])
             {
-
             }
             column(AverageCaption_Control1000000075; AverageCaption_Control1000000075Lbl)
             {
@@ -548,7 +519,7 @@ report 50218 "Consolidated Daily Points Fast"
                 ActFishDays := 0;
                 AvgFishDays := 0;
 
-                CommentLine.Reset;
+                CommentLine.Reset();
                 CommentLine.SetCurrentKey("No.", "Table Name", Deductible, "Global Dimension 1 Code", "Global Dimension 2 Code",
                  Date, "Day Lost Cause", "Day Lost Location", Vessel);
 
@@ -570,7 +541,6 @@ report 50218 "Consolidated Daily Points Fast"
                 //job3.CALCFIELDS(job3.Points);
                 pts[6] := job3.PointZ(job3."No.", '', job3.GetFilter("Posting Date Filter"), '', '', '', job3.Vessel);//job3.Points;
 
-
                 //job3.SETFILTER(job3."Task Filter",'SHR');
                 //job3.CALCFIELDS(job3.Points);
                 pts[5] := job3.PointZ(job3."No.", '', job3.GetFilter("Posting Date Filter"), '', 'SHR', '', job3.Vessel);//job3.Points;
@@ -578,7 +548,6 @@ report 50218 "Consolidated Daily Points Fast"
                 //job3.SETFILTER(job3."Task Filter",'FIS');
                 //job3.CALCFIELDS(job3.Points);
                 pts[4] := job3.PointZ(job3."No.", '', job3.GetFilter("Posting Date Filter"), '', 'FIS', '', job3.Vessel);//job3.Points;
-
 
                 //Average
                 //AAA* IF  job3."Starting Date"<>0D THEN SeaDays:=TODAY-job3."Starting Date" ELSE SeaDays:=0;
@@ -609,7 +578,7 @@ report 50218 "Consolidated Daily Points Fast"
                 //job3.CALCFIELDS(job3.Points);
                 pts[1] := job3.PointZ(job3."No.", '', job3.GetFilter("Posting Date Filter"), '', 'FIS', '', job3.Vessel);//job3.Points;
 
-                if pts[3] = 0 then CurrReport.Skip;
+                if pts[3] = 0 then CurrReport.Skip();
 
                 //No Catch Record Exist
                 // job3.SETRANGE(job3."Task Filter");
@@ -641,7 +610,6 @@ report 50218 "Consolidated Daily Points Fast"
             }
             column(pts_9__Control1000000090; pts[9])
             {
-
             }
             column(ChorCount_Control1000000112; ChorCount)
             {
@@ -668,39 +636,30 @@ report 50218 "Consolidated Daily Points Fast"
             }
             column(pts_1__Control1000000082; pts[1])
             {
-
             }
             column(pts_2__Control1000000083; pts[2])
             {
-
             }
             column(pts_3__Control1000000084; pts[3])
             {
-
             }
             column(pts_6__Control1000000087; pts[6])
             {
-
             }
             column(pts_1__Control1000000091; pts[1])
             {
-
             }
             column(pts_2__Control1000000092; pts[2])
             {
-
             }
             column(pts_3__Control1000000093; pts[3])
             {
-
             }
             column(pts_6__Control1000000096; pts[6])
             {
-
             }
             column(pts_9__Control1000000099; pts[9])
             {
-
             }
             column(Median_NigeriaCaption; Median_NigeriaCaptionLbl)
             {
@@ -737,7 +696,7 @@ report 50218 "Consolidated Daily Points Fast"
                 AvgFishDays := 0;
 
                 // Lost Days
-                CommentLine.Reset;
+                CommentLine.Reset();
                 CommentLine.SetCurrentKey("No.", "Table Name", Deductible, "Global Dimension 1 Code", "Global Dimension 2 Code",
                  Date, "Day Lost Cause", "Day Lost Location", Vessel);
 
@@ -752,7 +711,6 @@ report 50218 "Consolidated Daily Points Fast"
                 ChorCount := CommentLine."Days Lost";
 
                 TotalLostDays := Round(ChorCount + OthrCount, 0.01);
-
 
                 // Cumulative
                 //MESSAGE('Date is %1',Workdat);
@@ -811,7 +769,6 @@ report 50218 "Consolidated Daily Points Fast"
 
     requestpage
     {
-
         layout
         {
         }
@@ -838,27 +795,16 @@ report 50218 "Consolidated Daily Points Fast"
     var
         job1: Record Job;
         JobLdgr: Record "Job Ledger Entry";
-        DOTrec: Record "Day of Tide";
         JobsPointVal: Record Job;
-        Resource: Record Resource;
-        Loc: Record Location;
         NoCatch: Boolean;
-        Eval: Boolean;
         SeaDays: Integer;
-        I: Integer;
         j: Integer;
-        k: Integer;
         Countz: Integer;
         pts: array[10] of Decimal;
         TotPts: array[9] of Decimal;
         TotPtsA: array[9] of Decimal;
-        TotPtsAvg: array[9] of Decimal;
         SeaDaysTot: Decimal;
         SeaDayA: Integer;
-        CountCum: array[9] of Decimal;
-        SeaTemp: Decimal;
-        SeaTempA: Decimal;
-        SeTempVal: Decimal;
         Skipper: Text[30];
         Desc: Text[30];
         SeTemp: Code[10];
@@ -866,19 +812,13 @@ report 50218 "Consolidated Daily Points Fast"
         DOT: Code[15];
         Workdat: Date;
         RepDate: Date;
-        "------------": Integer;
-        Country: Record "Country/Region";
         job3: Record Job;
         LastFieldNo: Integer;
-        FooterPrinted: Boolean;
         FishCountry: Text[100];
         Medn: Decimal;
         MednVoy: array[2] of Code[10];
         CountJ: Integer;
-        CountJx: Integer;
-        PntsAvg: Decimal;
         Historical: Boolean;
-        HistoricalData: Record "Entry/Exit Point";
         StmgCount: Decimal;
         ChorCount: Decimal;
         OthrCount: Decimal;
@@ -897,14 +837,7 @@ report 50218 "Consolidated Daily Points Fast"
         TotalLostDaysAvg: Decimal;
         iCount: Integer;
         CommentLine: Record "Comment Line";
-        "----": Integer;
-        // xlApp: Automation BC;
-        // xlBook: Automation BC;
-        // xlSheet: Automation BC;
-        Send2Excel: Boolean;
         TopPage: Boolean;
-        Xr: Integer;
-        Xc: Integer;
         Bold: Boolean;
         UnderLine: Boolean;
         Italic: Boolean;
@@ -976,4 +909,3 @@ report 50218 "Consolidated Daily Points Fast"
          exit(xlColID);
      end;*/
 }
-

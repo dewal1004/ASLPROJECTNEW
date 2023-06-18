@@ -4,7 +4,7 @@ report 50005 "Points Summary VJ"
     RDLCLayout = './src/reportrdlc/PointsSummaryVJ.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
-
+    Caption = 'Points Summary VJ';
     dataset
     {
         dataitem("Job Ledger Entry"; "Job Ledger Entry")
@@ -17,7 +17,7 @@ report 50005 "Points Summary VJ"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(Get_Filter; 'Filters  := ' + GetFilters())
@@ -143,7 +143,7 @@ report 50005 "Points Summary VJ"
                     VesselCount := 1;
                     PrevDate := "Posting Date";
                     PreJob := "Job No.";
-                    TempJob.DeleteAll;
+                    TempJob.DeleteAll();
                 end;
                 if PreJob <> "Job No." then begin
                     PreJob := "Job No.";
@@ -159,7 +159,7 @@ report 50005 "Points Summary VJ"
                 //IF CurrReport.SHOWOUTPUT THEN BEGIN
 
                 if not TempJob.Get("Job No.") then begin
-                    JobLedgerEntry.Reset;
+                    JobLedgerEntry.Reset();
                     JobLedgerEntry.SetCurrentKey("Job No.", "Location Code", "Posting Date", "Work Type Code", Type);
                     JobLedgerEntry.SetFilter(JobLedgerEntry."Job No.", "Job Ledger Entry"."Job No.");
                     JobLedgerEntry.SetFilter(JobLedgerEntry."Location Code", '<>%1', 'CRM-ASL');
@@ -168,12 +168,12 @@ report 50005 "Points Summary VJ"
                     JobLedgerEntry.SetFilter(JobLedgerEntry.Type, '%1', JobLedgerEntry.Type::Item);
                     JobLedgerEntry.SetRange(JobLedgerEntry."Gen. Prod. Posting Group", 'FIS');
                     JobLedgerEntry.SetRange(JobLedgerEntry."Reason Code", 'CATCH');
-                    if JobLedgerEntry.FindFirst then
+                    if JobLedgerEntry.FindFirst() then
                         repeat
                             WHOQty := WHOQty + JobLedgerEntry.Quantity * (-1);
-                        until JobLedgerEntry.Next = 0;
+                        until JobLedgerEntry.Next() = 0;
 
-                    JobLedgerEntry.Reset;
+                    JobLedgerEntry.Reset();
                     JobLedgerEntry.SetCurrentKey("Job No.", "Location Code", "Posting Date", "Work Type Code", Type);
                     JobLedgerEntry.SetFilter(JobLedgerEntry."Job No.", "Job Ledger Entry"."Job No.");
                     JobLedgerEntry.SetFilter(JobLedgerEntry."Location Code", '<>%1', 'CRM-ASL');
@@ -182,12 +182,12 @@ report 50005 "Points Summary VJ"
                     JobLedgerEntry.SetFilter(JobLedgerEntry.Type, '%1', JobLedgerEntry.Type::Item);
                     JobLedgerEntry.SetRange(JobLedgerEntry."Gen. Prod. Posting Group", 'FIS');
                     JobLedgerEntry.SetRange(JobLedgerEntry."Reason Code", 'CATCH');
-                    if JobLedgerEntry.FindFirst then
+                    if JobLedgerEntry.FindFirst() then
                         repeat
                             BHOQty := BHOQty + JobLedgerEntry.Quantity * (-1);
-                        until JobLedgerEntry.Next = 0;
+                        until JobLedgerEntry.Next() = 0;
 
-                    JobLedgerEntry.Reset;
+                    JobLedgerEntry.Reset();
                     JobLedgerEntry.SetCurrentKey("Job No.", "Location Code", "Posting Date", "Work Type Code", Type);
                     JobLedgerEntry.SetFilter(JobLedgerEntry."Job No.", "Job Ledger Entry"."Job No.");
                     JobLedgerEntry.SetFilter(JobLedgerEntry."Location Code", '<>%1', 'CRM-ASL');
@@ -196,20 +196,20 @@ report 50005 "Points Summary VJ"
                     JobLedgerEntry.SetFilter(JobLedgerEntry.Type, '%1', JobLedgerEntry.Type::Item);
                     JobLedgerEntry.SetRange(JobLedgerEntry."Gen. Prod. Posting Group", 'FIS');
                     JobLedgerEntry.SetRange(JobLedgerEntry."Reason Code", 'CATCH');
-                    if JobLedgerEntry.FindFirst then
+                    if JobLedgerEntry.FindFirst() then
                         repeat
                             WTQty := WTQty + JobLedgerEntry.Quantity * (-1);
-                        until JobLedgerEntry.Next = 0;
+                        until JobLedgerEntry.Next() = 0;
 
-                    TempJob.Init;
+                    TempJob.Init();
                     TempJob."No." := "Job No.";
-                    TempJob.Insert;
+                    TempJob.Insert();
                 end;
 
                 if CountDays <> 0 then
                     Average := GrandTot / CountDays;
 
-                if CurrReport.ShowOutput then
+                if CurrReport.ShowOutput() then
                     "Job Ledger Entry"."Total Price" := "Job Ledger Entry"."Total Price" * (-1);
 
                 if VesselCount <> 0 then
@@ -218,14 +218,12 @@ report 50005 "Points Summary VJ"
                 if DayofTide.Get("Posting Date") then;
                 //VesselCount :=  VesselCount+1;
 
-
                 /*IF CurrReport.SHOWOUTPUT THEN
                  CountDays := CountDays + 1;*/
                 if CountDays <> 0 then
                     Average := GrandTot / CountDays;
 
                 iCount := iCount + 1;
-
             end;
 
             trigger OnPreDataItem()
@@ -252,7 +250,6 @@ report 50005 "Points Summary VJ"
 
                 LastFieldNo := FieldNo("Job No.");
 
-
                 JobLedgerEntry.CopyFilters("Job Ledger Entry");
                 JobLedgerEntry.SetCurrentKey("Posting Date", "Job No.");
                 RecCount := JobLedgerEntry.Count;
@@ -263,7 +260,6 @@ report 50005 "Points Summary VJ"
 
     requestpage
     {
-
         layout
         {
             area(content)
@@ -291,34 +287,21 @@ report 50005 "Points Summary VJ"
     end;
 
     var
-        DateFilter: Text[30];
         LastFieldNo: Integer;
-        FooterPrinted: Boolean;
         TotalFor: Label 'Total for ';
-        BodyPrinted: Boolean;
-        GroupHeaderPrinted: Boolean;
         GrandTot: Decimal;
         "Average": Decimal;
         CountDays: Integer;
         VesselCount: Integer;
-        Window: Dialog;
         RecCount: Integer;
         iCount: Integer;
         JobLedgerEntry: Record "Job Ledger Entry";
         DayofTide: Record "Day of Tide";
-        DayofTideDesc: Code[15];
         AvgPt: Decimal;
         WHOQty: Decimal;
         BHOQty: Decimal;
         WTQty: Decimal;
-        "------------------------------": Integer;
-        // xlApp: Automation BC;
-        // xlBook: Automation BC;
-        // //**R  xlSheet: Automation BC;
-        Send2Excel: Boolean;
         TopPage: Boolean;
-        Xr: Integer;
-        Xc: Integer;
         Bold: Boolean;
         UnderLine: Boolean;
         Italic: Boolean;
@@ -336,13 +319,9 @@ report 50005 "Points Summary VJ"
         Grand_TotalCaptionLbl: Label 'Grand Total';
         Average_PointsCaptionLbl: Label 'Average Points';
         CountDaysCaptionLbl: Label 'No. of Days';
-        GrandTotal1: Decimal;
-        Count1: Decimal;
-        total112: Decimal;
         TempJob: Record Job temporary;
         PrevDate: Date;
         PreJob: Code[20];
-        Date: Integer;
 
     [Scope('OnPrem')]
     procedure UpdateCell(Row: Integer; Col: Integer; ValueText: Text[200]; Bold: Boolean; Italic: Boolean; Underline: Boolean; FontSize: Integer)
@@ -355,7 +334,6 @@ report 50005 "Points Summary VJ"
         // if Underline then
         //     //**R  xlSheet.Range(GetCol(Col) + Format(Row)).Font.Underline := Underline;
         // //**R  xlSheet.Range(GetCol(Col) + Format(Row)).Font.Size := FontSize;
-
     end;
 
     [Scope('OnPrem')]
@@ -384,4 +362,3 @@ report 50005 "Points Summary VJ"
         exit(xlColID);
     end;
 }
-

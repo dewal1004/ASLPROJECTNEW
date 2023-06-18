@@ -4,8 +4,7 @@ report 99313 "Banks Summ2"
     // StartBalanceLCY
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/BanksSumm2.rdlc';
-
-
+    Caption = 'Banks Summ2';
     dataset
     {
         dataitem("Bank Account Ledger Entry"; "Bank Account Ledger Entry")
@@ -16,7 +15,7 @@ report 99313 "Banks Summ2"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -127,7 +126,7 @@ report 99313 "Banks Summ2"
             column(IOU_Date; Date)
             {
             }
-            column(EmployeeName; EmployeeName)
+            column(EmployeeName; EmployeeName())
             {
             }
             column(IOU_Amount; Amount)
@@ -182,7 +181,6 @@ report 99313 "Banks Summ2"
 
     requestpage
     {
-
         layout
         {
         }
@@ -197,11 +195,7 @@ report 99313 "Banks Summ2"
     }
 
     var
-        LastFieldNo: Integer;
-        FooterPrinted: Boolean;
         TotalFor: Label 'Total';
-        "------": Integer;
-        Bank: Record "Bank Account";
         Desc: Text[30];
         BankDesc: Text[30];
         CashDay: Text[30];
@@ -217,4 +211,3 @@ report 99313 "Banks Summ2"
         Checked_By_CaptionLbl: Label 'Checked By:';
         Approved_By_CaptionLbl: Label 'Approved By:';
 }
-

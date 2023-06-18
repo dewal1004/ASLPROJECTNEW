@@ -22,7 +22,7 @@ report 50133 "Detail Trial Balance-4"
             column(STRSUBSTNO_Text000_GLDateFilter_; StrSubstNo(Text000, GLDateFilter))
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(COMPANYNAME; CompanyName)
@@ -201,7 +201,6 @@ report 50133 "Detail Trial Balance-4"
                         GLBalance := StartBalance;
                         CurrReport.CreateTotals(Amount, "Debit Amount", "Credit Amount", "VAT Amount");
 
-
                         case "Bal. Account Type" of
                             0:
                                 if GL.Get("Bal. Account No.") then
@@ -248,7 +247,7 @@ report 50133 "Detail Trial Balance-4"
                            ((StartBalance = 0) or
                            not PrintAllHavingBal)
                         then
-                            CurrReport.Skip;
+                            CurrReport.Skip();
                     end;
                 }
 
@@ -273,14 +272,13 @@ report 50133 "Detail Trial Balance-4"
             trigger OnPreDataItem()
             begin
                 CurrReport.NewPagePerRecord := PrintOnlyOnePerPage;
-                if Comp.Get then CompName := Comp."Ship-to Name";
+                if Comp.Get() then CompName := Comp."Ship-to Name";
             end;
         }
     }
 
     requestpage
     {
-
         layout
         {
         }
@@ -309,7 +307,6 @@ report 50133 "Detail Trial Balance-4"
         PrintOnlyOnePerPage: Boolean;
         PrintAllHavingBal: Boolean;
         PrintClosingEntries: Boolean;
-        "--": Integer;
         Comp: Record "Company Information";
         CompName: Text[30];
         Desc: Text[30];
@@ -330,4 +327,3 @@ report 50133 "Detail Trial Balance-4"
         Control24CaptionLbl: Label 'Label24';
         Control37CaptionLbl: Label 'Label37';
 }
-

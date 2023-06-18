@@ -2,7 +2,7 @@ report 50118 "Group Inventory Valuatn By IPG"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/GroupInventoryValuatnByIPG.rdlc';
-
+    Caption = 'Group Inventory Valuatn By IPG';
     dataset
     {
         dataitem(InvtPG; "Inventory Posting Group")
@@ -16,7 +16,7 @@ report 50118 "Group Inventory Valuatn By IPG"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -64,14 +64,13 @@ report 50118 "Group Inventory Valuatn By IPG"
             trigger OnPreDataItem()
             begin
                 CurrReport.CreateTotals(StoresValue);
-                InvtSetup.Get;
+                InvtSetup.Get();
             end;
         }
     }
 
     requestpage
     {
-
         layout
         {
         }
@@ -88,14 +87,10 @@ report 50118 "Group Inventory Valuatn By IPG"
     trigger OnPreReport()
     begin
         PeriodText := InvtPG.GetFilter("Date Filter");
-        if PeriodText = '' then PeriodText := Format(WorkDate);
+        if PeriodText = '' then PeriodText := Format(WorkDate());
     end;
 
     var
-        LastFieldNo: Integer;
-        FooterPrinted: Boolean;
-        TotalFor: Label 'Total for ';
-        "----------------": Integer;
         InvtSetup: Record "Inventory Setup";
         StoresValue: Decimal;
         AsOf: Label 'As Of ';
@@ -104,4 +99,3 @@ report 50118 "Group Inventory Valuatn By IPG"
         CurrReport_PAGENOCaptionLbl: Label 'Page';
         DESCRIPTIONCaptionLbl: Label 'DESCRIPTION';
 }
-

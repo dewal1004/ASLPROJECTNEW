@@ -1,5 +1,6 @@
 table 60011 "Manpower Budget Table NU*"
 {
+    Caption = 'Manpower Budget Table NU*';
     // DrillDownPageID = "Manpower Budget List"; ***
     // LookupPageID = "Manpower Budget List";
 
@@ -29,10 +30,9 @@ table 60011 "Manpower Budget Table NU*"
 
             trigger OnValidate()
             begin
-                if CCRec.Get("Global Dimension 2 Code") then begin
+                if CCRec.Get("Global Dimension 2 Code") then
                     "Global Dimension 1 Code" := CCRec."Dimension Code";
-                    //  "Region Code" := CCRec."Region Code";
-                end;
+                //  "Region Code" := CCRec."Region Code";
             end;
         }
         field(5; "Job Code"; Code[10])
@@ -145,4 +145,3 @@ table 60011 "Manpower Budget Table NU*"
         end;
     end;
 }
-

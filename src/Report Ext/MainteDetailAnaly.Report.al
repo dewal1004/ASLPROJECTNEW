@@ -2,7 +2,7 @@ report 96001 "Mainte Detail Analy"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/MainteDetailAnaly.rdlc';
-
+    Caption = 'Mainte Detail Analy';
     dataset
     {
         dataitem("Maintenance Ledger Entry"; "Maintenance Ledger Entry")
@@ -14,7 +14,7 @@ report 96001 "Mainte Detail Analy"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -70,7 +70,6 @@ report 96001 "Mainte Detail Analy"
 
     requestpage
     {
-
         layout
         {
         }
@@ -88,4 +87,3 @@ report 96001 "Mainte Detail Analy"
         Maintenance_Ledger_EntryCaptionLbl: Label 'Maintenance Ledger Entry';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
 }
-

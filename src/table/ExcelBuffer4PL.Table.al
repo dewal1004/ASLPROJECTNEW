@@ -92,37 +92,6 @@ table 50047 "Excel Buffer 4 P&L"
     fieldgroups
     {
     }
-
-    var
-        Text000: Label 'Excel not found.';
-        Text001: Label 'You must enter a file name.';
-        Text002: Label 'You must enter an Excel worksheet name.';
-        Text003: Label 'The file %1 does not exist.';
-        Text004: Label 'The Excel worksheet %1 does not exist.';
-        Text005: Label 'Creating Excel worksheet...\\';
-        Text006: Label '%1%3%4%3Page %2';
-        Text007: Label 'Reading Excel worksheet...\\';
-        Text008: Label ': Filter ';
-        Text009: Label ' can not be converted into an Excel formula.';
-        Text010: Label ': Operator ';
-        Text011: Label ' is not valid.';
-        Text012: Label ': Filter containing more than 1 comparison operator can not be converted into an Excel formula.';
-        Text013: Label '&B';
-        Text014: Label '&D';
-        Text015: Label '&P';
-        Text016: Label 'A1';
-        Text017: Label 'SUMIF';
-        Text018: Label '#N/A';
-        Text019: Label 'GLAcc';
-        Text020: Label 'Period';
-        Text021: Label 'Budget';
-        //  XlApplication: Automation BC;
-        // XlWorkBook: Automation BC;
-        //XlWorkSheet: Automation BC;
-        //XlWorksheets: Automation BC;
-        //XlRange: Automation BC;
-        FormulaUnitErr: Text[250];
-        ReportedLns: Record "Excel Buffer 4 P&L";
     //[Scope('OnPrem')]
     /*    procedure CreateBook()
         begin
@@ -131,8 +100,6 @@ table 50047 "Excel Buffer 4 P&L"
             XlApplication.Visible(FALSE);
             XlWorkBook := XlApplication.Workbooks.Add;
             XlWorkSheet := XlWorkBook.Worksheets.Add;
-
-
         end;
 
        // [Scope('OnPrem')]
@@ -172,8 +139,6 @@ table 50047 "Excel Buffer 4 P&L"
               CLEAR(XlApplication);
               ERROR(Text004,SheetName);
             END;
-
-
         end;
 
        // [Scope('OnPrem')]
@@ -340,8 +305,6 @@ table 50047 "Excel Buffer 4 P&L"
               EXIT(SELECTSTR(OptionNo,SheetsList))
             ELSE
               EXIT('');
-
-
         end;
 
       //  [Scope('OnPrem')]

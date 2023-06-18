@@ -2,7 +2,7 @@ report 99898 "Consumption Reversal"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/ConsumptionReversal.rdlc';
-
+    Caption = 'Consumption Reversal';
     dataset
     {
         dataitem(Job; Job)
@@ -15,7 +15,7 @@ report 99898 "Consumption Reversal"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -138,13 +138,13 @@ report 99898 "Consumption Reversal"
                     d.Update(4, Round(count_current * 100 / count_record, 0.01));
 
                     Icount[2] := Icount[2] + 10;
-                    JobJL.Init;
+                    JobJL.Init();
                     JobJL."Journal Template Name" := 'JOB';
                     JobJL."Journal Batch Name" := Job."No." + 'REVS';
                     JobJL."Line No." := Icount[2];
                     JobJL."Posting Date" := "Posting Date";
                     JobJL."Document Date" := "Document Date";
-                    JobJLX.Init;
+                    JobJLX.Init();
 
                     //JobJL.SetUpNewLine(JobJL);
                     JobJL."Document No." := Job."No.";
@@ -165,12 +165,12 @@ report 99898 "Consumption Reversal"
                     JobJL.Validate(JobJL."Unit Cost (LCY)", "Unit Cost (LCY)");
                     JobJL.Validate(JobJL."Unit Price (LCY)", "Unit Price (LCY)");
 
-                    if not JobJL.Insert then JobJL.Modify;
+                    if not JobJL.Insert() then JobJL.Modify();
                 end;
 
                 trigger OnPreDataItem()
                 begin
-                    JobJB.Init;
+                    JobJB.Init();
                     JobJB."Journal Template Name" := 'JOB';
                     JobJB.Name := Job."No." + 'REVS';
                     JobJB."Voyage No." := Job."Voyage No.";
@@ -178,7 +178,7 @@ report 99898 "Consumption Reversal"
                     if Loc.Get(Job.Vessel) then JobJB."Vessel Name" := Loc.Name;
                     JobJB."No. Series" := '';
                     JobJB."Batch Type" := 3;
-                    if not JobJB.Insert then JobJB.Modify;
+                    if not JobJB.Insert() then JobJB.Modify();
                     count_record := Count;
                 end;
             }
@@ -189,7 +189,6 @@ report 99898 "Consumption Reversal"
                 MESSAGE('Sea Days is %1 ',Job."Sea Days");
                 IF NOT CONFIRM('has the ending date been Updated',FALSE) THEN CurrReport.QUIT;
                 */
-
             end;
 
             trigger OnPostDataItem()
@@ -210,7 +209,6 @@ report 99898 "Consumption Reversal"
 
     requestpage
     {
-
         layout
         {
         }
@@ -228,22 +226,13 @@ report 99898 "Consumption Reversal"
         d: Dialog;
         JobJB: Record "Job Journal Batch";
         JobJL: Record "Job Journal Line";
-        JobJL2: Record "Job Journal Line";
         JobJLX: Record "Job Journal Line";
         Loc: Record Location;
         Icount: array[2] of Integer;
-        LocCd: Code[10];
-        I: Code[10];
-        RES: Record Resource;
         JNo: Code[10];
-        JobSetup: Record "Jobs Setup";
-        IncentiveLookUp: Record "Payroll-Lookup Lines.";
-        InctvCat: Code[20];
-        Ended: Boolean;
         count_record: Decimal;
         count_current: Decimal;
         JobCaptionLbl: Label 'Job';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
         Voyage_Consumption_ReversalCaptionLbl: Label 'Voyage Consumption Reversal';
 }
-

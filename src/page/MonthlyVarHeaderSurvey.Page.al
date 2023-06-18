@@ -6,7 +6,7 @@ page 50052 "Monthly Var. Header Survey."
     SourceTable = "Monthly Variables Header.";
     UsageCategory = Lists;
     ApplicationArea = All, Basic;
-
+    Caption = 'Monthly Var. Header Survey.';
     layout
     {
         area(content)
@@ -42,4 +42,3 @@ page 50052 "Monthly Var. Header Survey."
     {
     }
 }
-

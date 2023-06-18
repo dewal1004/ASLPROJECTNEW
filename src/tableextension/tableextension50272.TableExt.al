@@ -7,4 +7,3 @@ tableextension 50272 "tableextension50272" extends "Detailed Cust. Ledg. Entry"
         }
     }
 }
-

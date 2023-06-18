@@ -4,7 +4,7 @@ report 50228 "Itemwise Yearly Consumption"
     RDLCLayout = './src/reportrdlc/ItemwiseYearlyConsumption.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
-
+    Caption = 'Itemwise Yearly Consumption';
     dataset
     {
         dataitem(Location; Location)
@@ -18,7 +18,7 @@ report 50228 "Itemwise Yearly Consumption"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -150,18 +150,17 @@ report 50228 "Itemwise Yearly Consumption"
 
             trigger OnAfterGetRecord()
             begin
-                for i := 1 to 10 do begin
+                for i := 1 to 10 do
                     if Item.Get(ItemCode[i]) then begin
                         Item.SetFilter("Location Filter", Location.Code);
                         Item.SetFilter("Date Filter", '%1..%2', StartDate, EndDate);
                         Item.CalcFields("Transferred (Qty.)");
                         Qty[i] := Item."Transferred (Qty.)";
                     end;
-                end;
                 Total := Qty[1] + Qty[2] + Qty[3] + Qty[4] + Qty[5] + Qty[6] + Qty[7] + Qty[8] + Qty[9] + Qty[10];
 
                 if Total = 0 then
-                    CurrReport.Skip;
+                    CurrReport.Skip();
             end;
 
             trigger OnPreDataItem()
@@ -173,7 +172,6 @@ report 50228 "Itemwise Yearly Consumption"
 
     requestpage
     {
-
         layout
         {
             area(content)
@@ -251,12 +249,11 @@ report 50228 "Itemwise Yearly Consumption"
     trigger OnPreReport()
     begin
         k := 0;
-        for i := 1 to 10 do begin
+        for i := 1 to 10 do
             if not Item.Get(ItemCode[i]) then
                 k := k + 1
             else
                 ItemName[i] := Item.Description;
-        end;
 
         if k = 10 then
             Error(Text100);
@@ -281,4 +278,3 @@ report 50228 "Itemwise Yearly Consumption"
         CurrReport_PAGENOCaptionLbl: Label 'Page';
         TotalCaptionLbl: Label 'TOTAL';
 }
-

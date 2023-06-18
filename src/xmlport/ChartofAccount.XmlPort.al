@@ -2,7 +2,7 @@ xmlport 50008 "Chart of Account"
 {
     Direction = Import;
     Format = VariableText;
-
+    Caption = 'Chart of Account';
     schema
     {
         textelement(Root)
@@ -28,7 +28,6 @@ xmlport 50008 "Chart of Account"
 
     requestpage
     {
-
         layout
         {
         }
@@ -38,4 +37,3 @@ xmlport 50008 "Chart of Account"
         }
     }
 }
-

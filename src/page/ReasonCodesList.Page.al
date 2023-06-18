@@ -32,4 +32,3 @@ page 50077 "Reason Codes List"
     {
     }
 }
-

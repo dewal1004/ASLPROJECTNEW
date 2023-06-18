@@ -2,7 +2,7 @@ report 99976 "Variant Remove Value Entries"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/VariantRemoveValueEntries.rdlc';
-
+    Caption = 'Variant Remove Value Entries';
     dataset
     {
         dataitem("Value Entry"; "Value Entry")
@@ -13,7 +13,7 @@ report 99976 "Variant Remove Value Entries"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -54,7 +54,6 @@ report 99976 "Variant Remove Value Entries"
 
     requestpage
     {
-
         layout
         {
         }
@@ -69,8 +68,6 @@ report 99976 "Variant Remove Value Entries"
     }
 
     var
-        item: Record "Value Entry";
         Value_EntryCaptionLbl: Label 'Value Entry';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
 }
-

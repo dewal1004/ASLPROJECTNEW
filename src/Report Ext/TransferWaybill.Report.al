@@ -118,11 +118,11 @@ report 50033 "Transfer Waybill"
                         trigger OnAfterGetRecord()
                         begin
                             if Number = 1 then begin
-                                if not DimSetEntry1.FindSet then
-                                    CurrReport.Break;
+                                if not DimSetEntry1.FindSet() then
+                                    CurrReport.Break();
                             end else
                                 if not Continue then
-                                    CurrReport.Break;
+                                    CurrReport.Break();
 
                             Clear(DimText);
                             Continue := false;
@@ -140,13 +140,13 @@ report 50033 "Transfer Waybill"
                                     Continue := true;
                                     exit;
                                 end;
-                            until DimSetEntry1.Next = 0;
+                            until DimSetEntry1.Next() = 0;
                         end;
 
                         trigger OnPreDataItem()
                         begin
                             if not ShowInternalInfo then
-                                CurrReport.Break;
+                                CurrReport.Break();
                         end;
                     }
                     dataitem("Transfer Line"; "Transfer Line")
@@ -201,11 +201,11 @@ report 50033 "Transfer Waybill"
                             trigger OnAfterGetRecord()
                             begin
                                 if Number = 1 then begin
-                                    if not DimSetEntry2.FindSet then
-                                        CurrReport.Break;
+                                    if not DimSetEntry2.FindSet() then
+                                        CurrReport.Break();
                                 end else
                                     if not Continue then
-                                        CurrReport.Break;
+                                        CurrReport.Break();
 
                                 Clear(DimText);
                                 Continue := false;
@@ -223,13 +223,13 @@ report 50033 "Transfer Waybill"
                                         Continue := true;
                                         exit;
                                     end;
-                                until DimSetEntry2.Next = 0;
+                                until DimSetEntry2.Next() = 0;
                             end;
 
                             trigger OnPreDataItem()
                             begin
                                 if not ShowInternalInfo then
-                                    CurrReport.Break;
+                                    CurrReport.Break();
                             end;
                         }
 
@@ -244,7 +244,7 @@ report 50033 "Transfer Waybill"
                             while MoreLines and (Description = '') and ("Item No." = '') and (Quantity = 0) do
                                 MoreLines := Next(-1) <> 0;
                             if not MoreLines then
-                                CurrReport.Break;
+                                CurrReport.Break();
                             SetRange("Line No.", 0, "Line No.");
                         end;
                     }
@@ -283,7 +283,7 @@ report 50033 "Transfer Waybill"
                 FormatAddr.TransferHeaderTransferFrom(TransferFromAddr, "Transfer Header");
                 FormatAddr.TransferHeaderTransferTo(TransferToAddr, "Transfer Header");
                 if not ShipmentMethod.Get("Shipment Method Code") then
-                    ShipmentMethod.Init;
+                    ShipmentMethod.Init();
             end;
         }
     }
@@ -349,4 +349,3 @@ report 50033 "Transfer Waybill"
         LineDimCaptionLbl: Label 'Line Dimensions';
         DNPrinted: Codeunit "DN-Printed";
 }
-

@@ -2,9 +2,7 @@ tableextension 50212 "tableextension50212" extends "Purch. Inv. Header"
 {
     fields
     {
-
         //Unsupported feature: Property Modification (Data type) on ""Your Reference"(Field 11)".
-
 
         //Unsupported feature: Property Modification (Data type) on ""Ship-to City"(Field 17)".
 
@@ -20,6 +18,7 @@ tableextension 50212 "tableextension50212" extends "Purch. Inv. Header"
                                                         "G/L Account No." = FILTER('2185')));
             Description = 'BPR1.00,LC';
             FieldClass = FlowField;
+            Editable = false;
         }
         field(50002; "Total Amount Item (LCY)"; Decimal)
         {
@@ -41,6 +40,7 @@ tableextension 50212 "tableextension50212" extends "Purch. Inv. Header"
                                                                                "Outstanding Quantity" = FILTER(<> 0)));
             Description = 'BPR1.00,LC';
             FieldClass = FlowField;
+            Editable = false;
         }
         field(50300; "Form M No."; Code[20])
         {
@@ -59,7 +59,6 @@ tableextension 50212 "tableextension50212" extends "Purch. Inv. Header"
         }
         field(50310; "Totat Freight"; Decimal)
         {
-
             trigger OnValidate()
             begin
                 if "Currency Factor" <> 0 then
@@ -71,7 +70,6 @@ tableextension 50212 "tableextension50212" extends "Purch. Inv. Header"
         }
         field(50311; "Total Ancillary Charges"; Decimal)
         {
-
             trigger OnValidate()
             begin
                 if "Currency Factor" <> 0 then
@@ -83,7 +81,6 @@ tableextension 50212 "tableextension50212" extends "Purch. Inv. Header"
         }
         field(50312; "Clearing(LCY)"; Decimal)
         {
-
             trigger OnValidate()
             begin
                 TestField("Currency Code");
@@ -91,7 +88,6 @@ tableextension 50212 "tableextension50212" extends "Purch. Inv. Header"
         }
         field(50313; "Interest Expense(LCY)"; Decimal)
         {
-
             trigger OnValidate()
             begin
                 TestField("Currency Code");
@@ -224,4 +220,3 @@ tableextension 50212 "tableextension50212" extends "Purch. Inv. Header"
         }
     }
 }
-

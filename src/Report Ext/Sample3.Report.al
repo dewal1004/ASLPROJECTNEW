@@ -2,7 +2,7 @@ report 50141 "Sample3"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/Sample3.rdlc';
-
+    Caption = 'Sample3';
     dataset
     {
         dataitem("Job Ledger Entry"; "Job Ledger Entry")
@@ -39,7 +39,6 @@ report 50141 "Sample3"
 
     requestpage
     {
-
         layout
         {
             area(content)
@@ -70,4 +69,3 @@ report 50141 "Sample3"
     var
         CompanyInfo: Record "Company Information";
 }
-

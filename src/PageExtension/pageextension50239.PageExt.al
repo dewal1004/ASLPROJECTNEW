@@ -2,9 +2,7 @@ pageextension 50239 "pageextension50239" extends "Deferral Schedule"
 {
     actions
     {
-
         //Unsupported feature: Property Modification (Name) on "CalculateSchedule(Action 10)".
-
     }
 
     //Unsupported feature: Code Modification on "OnQueryClosePage".
@@ -42,4 +40,3 @@ pageextension 50239 "pageextension50239" extends "Deferral Schedule"
     */
     //end;
 }
-

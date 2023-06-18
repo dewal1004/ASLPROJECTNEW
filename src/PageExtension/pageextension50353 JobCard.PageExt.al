@@ -2,7 +2,6 @@ pageextension 50353 "pageextension50353" extends "Job Card"
 {
     layout
     {
-
         addafter("No.")
         {
             field(Vessel; Rec.Vessel)
@@ -59,7 +58,6 @@ pageextension 50353 "pageextension50353" extends "Job Card"
         }
         moveafter("Starting Date"; "Person Responsible", "Job Posting Group")
         movefirst(Duration; "Creation Date")
-
 
         addfirst(Duration)
         {
@@ -153,7 +151,6 @@ pageextension 50353 "pageextension50353" extends "Job Card"
                 {
                     ApplicationArea = All;
                 }
-
                 group(Control560)
                 {
                     ShowCaption = false;
@@ -344,7 +341,6 @@ pageextension 50353 "pageextension50353" extends "Job Card"
         moveafter("Voyage Ended"; "Ending Date")
         moveafter("Sea Days"; Blocked)
 
-
         modify("Bill-to Customer No.") { Caption = 'Company Name'; }
         modify("Bill-to Name") { Editable = true; }
         modify(Blocked) { Editable = false; }
@@ -417,7 +413,6 @@ pageextension 50353 "pageextension50353" extends "Job Card"
             ToolTip = 'Specifies the person who is assigned to manage the job.';
             // Visible = JobSimplificationAvailable;
         }
-
     }
 
     actions
@@ -432,36 +427,25 @@ pageextension 50353 "pageextension50353" extends "Job Card"
         }
         modify("Resource &Allocated per Job")
         {
-
             //Unsupported feature: Property Modification (RunObject) on ""Resource &Allocated per Job"(Action 65)".
-
 
             //Unsupported feature: Property Modification (Image) on ""Resource &Allocated per Job"(Action 65)".
 
             Promoted = true;
         }
-
         modify("Copy Job Tasks &to...")
         {
             Caption = 'Job - Transaction Detail 2';
             Visible = false;
-
-
         }
         modify(Action26)
         {
-
             Caption = 'Skipper/Vessel Performance';
-
-
-
-
         }
         modify("<Action82>")
         {
             Caption = 'Organoleptic Report';
             visible = True;
-
         }
         modify("W&IP")
         {
@@ -479,8 +463,6 @@ pageextension 50353 "pageextension50353" extends "Job Card"
         {
             Visible = false;
         }
-
-
         addfirst(Navigation)
         {
             group("&Ending")
@@ -555,7 +537,6 @@ pageextension 50353 "pageextension50353" extends "Job Card"
                 Visible = false;
                 ApplicationArea = All;
             }
-
         }
         addfirst(Processing)
         {
@@ -648,16 +629,7 @@ pageextension 50353 "pageextension50353" extends "Job Card"
             }
         }
     }
-
-    var
-        Job: Record Job;
-        JobSetup: Record "Jobs Setup";
-        JobTask: Record "Job Task";
-        IncentiveLookUp: Record "Payroll-Lookup Lines.";
-        "Incentive Days": Decimal;
-        "---": Integer;
 }
-
 
 // modify(ActionContainer1900000004)
 // {
@@ -668,67 +640,49 @@ pageextension 50353 "pageextension50353" extends "Job Card"
 //Unsupported feature: Property Modification (Level) on ""Copy Job Tasks &from..."(Action 31)".
 //Unsupported feature: Property Modification (Level) on ""Copy Job Tasks &to..."(Action 27)".
 
-
 //Unsupported feature: Property Modification (Name) on ""Copy Job Tasks &to..."(Action 27)".
 
-
 //Unsupported feature: Property Modification (Image) on ""Copy Job Tasks &to..."(Action 27)".
-
 
 //Unsupported feature: Property Insertion (RunObject) on ""Copy Job Tasks &to..."(Action 27)".
 
 //Unsupported feature: Property Modification (ActionType) on "Action26(Action 26)".
-
 
 //Unsupported feature: Property Modification (Name) on "Action26(Action 26)".
 //Unsupported feature: Property Modification (Image) on "Action26(Action 26)".
 //Unsupported feature: Property Insertion (RunObject) on "Action26(Action 26)".
 //Unsupported feature: Property Modification (Level) on ""<Action82>"(Action 25)".
 
-
 //Unsupported feature: Property Modification (Name) on ""<Action82>"(Action 25)".
-
 
 //Unsupported feature: Property Modification (Image) on ""<Action82>"(Action 25)".
 
-
 //Unsupported feature: Property Insertion (RunObject) on ""<Action82>"(Action 25)".
-
 
 //Unsupported feature: Property Modification (Level) on ""<Action83>"(Action 24)".
 
-
 //Unsupported feature: Property Modification (Name) on ""<Action83>"(Action 24)".
-
 
 //Unsupported feature: Property Deletion (Level) on "ActionContainer1900000004(Action 1900000004)".
 
-
 //Unsupported feature: Property Deletion (Ellipsis) on ""Copy Job Tasks &to..."(Action 27)".
-
 
 //Unsupported feature: Property Deletion (Promoted) on ""Copy Job Tasks &to..."(Action 27)".
 
-
 //Unsupported feature: Property Deletion (PromotedIsBig) on ""Copy Job Tasks &to..."(Action 27)".
 
-
 //Unsupported feature: Property Deletion (PromotedCategory) on ""Copy Job Tasks &to..."(Action 27)".
-
 
 //Unsupported feature: Property Deletion (Ellipsis) on ""<Action82>"(Action 25)".
 
 //Unsupported feature: Property Deletion (ShortCutKey) on ""<Action83>"(Action 24)".
 
-
 //Unsupported feature: Property Deletion (Ellipsis) on ""<Action83>"(Action 24)".
-
 
 //Unsupported feature: Property Deletion (CaptionML) on ""<Action83>"(Action 24)".
 
-
 //Unsupported feature: Property Deletion (Image) on ""<Action83>"(Action 24)".
-//***R RunObject = Report "Points Summary VJ";   
+//***R RunObject = Report "Points Summary VJ";
 // RunObject = Report "Daily BreakUp by Vessel Rep 1";
 // moveafter("   Operations"; ActionContainer1900000006)
 // moveafter(ActionContainer1900000006; "<Action83>")
@@ -759,7 +713,6 @@ pageextension 50353 "pageextension50353" extends "Job Card"
 //NoFieldVisible : 1101;
 //Variable type has not been exported.
 
-
 //Unsupported feature: Property Modification (Id) on "IsCountyVisible(Variable 1002)".
 
 //var
@@ -769,7 +722,6 @@ pageextension 50353 "pageextension50353" extends "Job Card"
 //>>>> MODIFIED VALUE:
 //IsCountyVisible : 1102;
 //Variable type has not been exported.
-
 
 //Unsupported feature: Code Insertion on "OnAfterGetRecord".
 
@@ -815,20 +767,15 @@ Validate("Net Incentive Actual","Total Incentive Actual"+"Add/Ded. Crew");
 
 //Unsupported feature: Property Modification (Level) on ""Bill-to County"(Control 52)".
 
-
 //Unsupported feature: Property Modification (Name) on ""Person Responsible"(Control 6)".
 
-
 //Unsupported feature: Property Modification (SourceExpr) on ""Person Responsible"(Control 6)".
-
 
 //Unsupported feature: Property Modification (ImplicitType) on ""Person Responsible"(Control 6)".
 
 //Unsupported feature: Property Modification (Name) on ""Bill-to Name"(Control 8)".
 //Unsupported feature: Property Modification (SourceExpr) on ""Bill-to Name"(Control 8)".
 //Unsupported feature: Property Modification (ImplicitType) on ""Bill-to Name"(Control 8)".
-
-
 
 //Unsupported feature: Property Modification (Name) on ""Starting Date"(Control 20)".
 //Unsupported feature: Property Modification (SourceExpr) on ""Starting Date"(Control 20)".
@@ -867,7 +814,6 @@ Validate("Net Incentive Actual","Total Incentive Actual"+"Add/Ded. Crew");
 //     Visible = false;
 // }
 
-
 // modify("Job Posting Group")
 // {
 //     Visible = false;
@@ -883,7 +829,6 @@ Validate("Net Incentive Actual","Total Incentive Actual"+"Add/Ded. Crew");
 //Unsupported feature: Property Modification (Name) on ""Creation Date"(Control 14)".
 //Unsupported feature: Property Modification (SourceExpr) on ""Creation Date"(Control 14)".
 
-
 // modify("Bill-to Address")
 // {
 //     Visible = false;
@@ -895,8 +840,6 @@ Validate("Net Incentive Actual","Total Incentive Actual"+"Add/Ded. Crew");
 
 //Unsupported feature: Property Modification (Name) on "Blocked(Control 12)".
 
-
 //Unsupported feature: Property Modification (SourceExpr) on "Blocked(Control 12)".
-
 
 //Unsupported feature: Property Modification (ImplicitType) on "Blocked(Control 12)".

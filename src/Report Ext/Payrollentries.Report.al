@@ -3,8 +3,7 @@ report 50067 "Payroll entries"
     // This report prints ALL the entries for an employee for the requested periods.
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/Payrollentries.rdlc';
-
-
+    Caption = 'Payroll entries';
     dataset
     {
         dataitem("Payroll-Payslip Header."; "Payroll-Payslip Header.")
@@ -70,7 +69,6 @@ report 50067 "Payroll entries"
                     ””””””””””””””””””””””””””””””””””””””””””””*/
                     if RecOfEDFile.Get("E/D Code") then
                         PayEntryText := RecOfEDFile."Payslip Text";
-
                 end;
             }
 
@@ -78,9 +76,9 @@ report 50067 "Payroll entries"
             var
                 PayEmp: Record Employee;
             begin
-                if not PayEmp.Get("Payroll-Payslip Header."."Employee No") then CurrReport.Skip; //Added by Adam to skip Deleted? Employees//
-                                                                                                 // Not: Employees are normally kept
-                if PayEmp.Blocked then CurrReport.Skip; //Added by Adam to skip Blocked Employees
+                if not PayEmp.Get("Payroll-Payslip Header."."Employee No") then CurrReport.Skip(); //Added by Adam to skip Deleted? Employees//
+                                                                                                   // Not: Employees are normally kept
+                if PayEmp.Blocked then CurrReport.Skip(); //Added by Adam to skip Blocked Employees
 
                 PeriodRec.Get("Payroll Period");
                 PRollRepTitle := 'Payroll entries for ' + DelChr("Payroll Period", '<>');
@@ -93,14 +91,13 @@ report 50067 "Payroll entries"
 
             trigger OnPreDataItem()
             begin
-                CompanyData.Get;
+                CompanyData.Get();
             end;
         }
     }
 
     requestpage
     {
-
         layout
         {
         }
@@ -120,10 +117,8 @@ report 50067 "Payroll entries"
         RecOfEDFile: Record "Payroll-E/D Codes.";
         PeriodRec: Record "Payroll-Periods.";
         PayEntryText: Text[30];
-        AmountToPrint: Text[15];
         Employee_CaptionLbl: Label 'Employee:';
         E_D_CodeCaptionLbl: Label 'E/D Code';
         Payslip_TextCaptionLbl: Label 'Payslip Text';
         AmountCaptionLbl: Label 'Amount';
 }
-

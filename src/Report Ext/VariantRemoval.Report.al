@@ -2,7 +2,7 @@ report 99978 "Variant Removal"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/VariantRemoval.rdlc';
-
+    Caption = 'Variant Removal';
     dataset
     {
         dataitem("Job Ledger Entry"; "Job Ledger Entry")
@@ -21,7 +21,6 @@ report 99978 "Variant Removal"
 
     requestpage
     {
-
         layout
         {
         }
@@ -34,8 +33,4 @@ report 99978 "Variant Removal"
     labels
     {
     }
-
-    var
-        ITEM: Record "Job Ledger Entry";
 }
-

@@ -19,7 +19,7 @@ report 80028 "Vehicle Maintenance - AnalysiZ"
             column(USERID; UserId)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(DeprBookText; DeprBookText)
@@ -156,7 +156,6 @@ report 80028 "Vehicle Maintenance - AnalysiZ"
                 IF (Amounts[1] = 0) AND (Amounts[2] = 0) AND (Amounts[3] = 0) THEN
                   CurrReport.SKIP;
                  */  //#1
-
             end;
 
             trigger OnPreDataItem()
@@ -179,7 +178,6 @@ report 80028 "Vehicle Maintenance - AnalysiZ"
                     SETCURRENTKEY("FA Posting Group");
                 END;
                 */  //#1
-
             end;
         }
         dataitem(fa; "Fixed Asset")
@@ -258,7 +256,6 @@ report 80028 "Vehicle Maintenance - AnalysiZ"
                     /*SETCURRENTKEY("FA No.","Depreciation Book Code","FA Posting Date");
                     SETRANGE("FA Posting Date",StartingDate,EndingDate);
                      */  //#1
-
                 end;
             }
 
@@ -278,14 +275,12 @@ report 80028 "Vehicle Maintenance - AnalysiZ"
                 IF (Amounts[1] = 0) AND (Amounts[2] = 0) AND (Amounts[3] = 0) THEN
                   CurrReport.SKIP;
                   */ //#1
-
             end;
         }
     }
 
     requestpage
     {
-
         layout
         {
         }
@@ -327,62 +322,30 @@ report 80028 "Vehicle Maintenance - AnalysiZ"
           FADescription := "Fixed Asset".FIELDCAPTION(Description);
         END;
         */  //#1
-
     end;
 
     var
         Text000: Label 'Group Total';
-        Text001: Label 'Group Totals';
-        Text002: Label 'You must specify the Starting Date and the Ending Date.';
-        Text003: Label 'The Starting Date is later than the Ending Date.';
-        Text004: Label 'The Starting Date must be specified when you use the option %1.';
-        Text005: Label '%1 has been modified in fixed asset %2';
-        FASetup: Record "FA Setup";
-        DeprBook: Record "Depreciation Book";
-        FADeprBook: Record "FA Depreciation Book";
-        MaintenanceLedgEntry: Record "Maintenance Ledger Entry";
-        FAGenReport: Codeunit "FA General Report";
         FAFilter: Text[250];
         DeprBookText: Text[50];
         GroupCodeName: Text[50];
         GroupHeadLine: Text[50];
-        FANo: Text[50];
         FADescription: Text[50];
-        GroupTotals: Option " ","FA Class","FA SubClass","FA Location","Main Asset","Global Dimension 1","Global Dimension 2","FA Posting Group";
         GroupAmounts: array[3] of Decimal;
         TotalAmounts: array[3] of Decimal;
-        HeadLineText: array[3] of Text[50];
         Amounts: array[3] of Decimal;
-        MaintenanceCode1: Code[10];
-        MaintenanceCode2: Code[10];
-        MaintenanceCode3: Code[10];
-        Period1: Option "before Starting Date","Net Change","at Ending Date";
-        Period2: Option "before Starting Date","Net Change","at Ending Date";
-        Period3: Option "before Starting Date","Net Change","at Ending Date";
-        StartingDate: Date;
-        EndingDate: Date;
-        DeprBookCode: Code[10];
-        PrintDetails: Boolean;
-        DateSelection: Option "FA Posting Date","Posting Date";
-        i: Integer;
-        Text006: Label 'before Starting Date,Net Change,at Ending Date';
-        Text007: Label ' ,FA Class,FA SubClass,FA Location,Main Asset,Global Dimension 1,Global Dimension 2,FA Posting Group';
         T1: Label 'Fuel';
         T2: Label 'Maintenance';
         T3: Label 'Total';
-        "---": Integer;
-        RespEmpl: Record Employee;
         ResEmp: Text[100];
         SNO: Integer;
         T4: Label 'Responsible Person';
         T5: Label 'SNo.';
-        T6: Label 'Registration No.';
         SNO2: Integer;
         FUAmt: Decimal;
         MAAmt: Decimal;
         FUAmtTot: Decimal;
         MAAmtTot: Decimal;
-        PrintDetailsME: Boolean;
         CurrReport_PAGENOCaptionLbl: Label 'Page';
         Fuel___Maintenance___AnalysisCaptionLbl: Label 'Fuel & Maintenance - Analysis';
         DetailsCaptionLbl: Label 'Details';
@@ -413,7 +376,6 @@ report 80028 "Vehicle Maintenance - AnalysiZ"
         IF GroupCodeName <> '' THEN
           GroupCodeName := Text001+ ': ' + GroupCodeName;
           */  //#1
-
     end;
 
     local procedure ValidateDates()
@@ -421,11 +383,10 @@ report 80028 "Vehicle Maintenance - AnalysiZ"
         /*
         IF (EndingDate = 0D) OR (StartingDate = 0D) THEN
           ERROR(Text002);
-        
+
         IF (EndingDate > 0D) AND (StartingDate > EndingDate) THEN
           ERROR(Text003);
         */  //#1
-
     end;
 
     local procedure MakeAmountHeadLine(i: Integer; PostingType: Code[10]; Period: Option "before Starting Date","Net Change","at Ending Date")
@@ -440,7 +401,6 @@ report 80028 "Vehicle Maintenance - AnalysiZ"
         ELSE
           HeadLineText[i] := STRSUBSTNO('%1',SELECTSTR(Period + 1,Text006));
          */  //#1
-
     end;
 
     local procedure MakeGroupHeadLine()
@@ -471,12 +431,9 @@ report 80028 "Vehicle Maintenance - AnalysiZ"
         IF GroupHeadLine = '' THEN
           GroupHeadLine := '*****';
           */ //#1
-
     end;
 
     local procedure CalculateAmount(MaintenanceCode: Code[10]; Period: Option "before Starting Date","Net Change","at Ending Date"): Decimal
-    var
-        EndingDate2: Date;
     begin
         /*
         EndingDate2 := EndingDate;
@@ -508,7 +465,5 @@ report 80028 "Vehicle Maintenance - AnalysiZ"
           EXIT(Amount);
         END;
                 */ //#1
-
     end;
 }
-

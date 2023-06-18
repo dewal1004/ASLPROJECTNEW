@@ -41,7 +41,7 @@ page 50096 "Purchase Order Subform Local"
                     trigger OnValidate()
                     begin
                         Rec.ShowShortcutDimCode(ShortcutDimCode);
-                        NoOnAfterValidate;
+                        NoOnAfterValidate();
                     end;
                 }
                 field("Reason Code"; Rec."Reason Code")
@@ -71,7 +71,7 @@ page 50096 "Purchase Order Subform Local"
                     begin
                         if Rec.Type = Rec.Type::Item then begin
                             PurchHeader.Get(Rec."Document Type", Rec."Document No.");
-                            ItemCrossReference.Reset;
+                            ItemCrossReference.Reset();
                             ItemCrossReference.SetCurrentKey("Cross-Reference Type", "Cross-Reference Type No.");
                             ItemCrossReference.SetRange("Cross-Reference Type", ItemCrossReference."Cross-Reference Type"::Vendor);
                             ItemCrossReference.SetRange("Cross-Reference Type No.", PurchHeader."Buy-from Vendor No.");
@@ -582,7 +582,6 @@ page 50096 "Purchase Order Subform Local"
         ItemCrossReference: Record "Item Cross Reference";
         TransferExtendedText: Codeunit "Transfer Extended Text";
         ShortcutDimCode: array[8] of Code[20];
-        "------": Char;
         InvtSetUp: Record "Inventory Setup";
         [InDataSet]
         "Reason CodeVisible": Boolean;
@@ -628,25 +627,25 @@ page 50096 "Purchase Order Subform Local"
         SalesHeader.SetRange("No.", Rec."Sales Order No.");
         SalesOrder.SetTableView(SalesHeader);
         SalesOrder.Editable := false;
-        SalesOrder.Run;
+        SalesOrder.Run();
     end;
 
     [Scope('Onprem')]
     procedure InsertExtendedText(Unconditionally: Boolean)
     begin
         if TransferExtendedText.PurchCheckIfAnyExtText(Rec, Unconditionally) then begin
-            CurrPage.SaveRecord;
+            CurrPage.SaveRecord();
             TransferExtendedText.InsertPurchExtText(Rec);
         end;
-        if TransferExtendedText.MakeUpdate then
+        if TransferExtendedText.MakeUpdate() then
             UpdateForm(true);
     end;
 
     [Scope('Onprem')]
     procedure ShowReservation()
     begin
-        Rec.Find;
-        Rec.ShowReservation;
+        Rec.Find();
+        Rec.ShowReservation();
     end;
 
     [Scope('Onprem')]
@@ -667,25 +666,25 @@ page 50096 "Purchase Order Subform Local"
         Trackingpage: Page "Order Tracking";
     begin
         Trackingpage.SetPurchLine(Rec);
-        Trackingpage.RunModal;
+        Trackingpage.RunModal();
     end;
 
     [Scope('Onprem')]
     procedure ShowDimensions()
     begin
-        Rec.ShowDimensions;
+        Rec.ShowDimensions();
     end;
 
     [Scope('Onprem')]
     procedure ItemChargeAssgnt()
     begin
-        Rec.ShowItemChargeAssgnt;
+        Rec.ShowItemChargeAssgnt();
     end;
 
     [Scope('Onprem')]
     procedure OpenItemTrackingLines()
     begin
-        Rec.OpenItemTrackingLines;
+        Rec.OpenItemTrackingLines();
     end;
 
     [Scope('Onprem')]
@@ -697,7 +696,7 @@ page 50096 "Purchase Order Subform Local"
         SalesHeader.SetRange("No.", Rec."Special Order Sales No.");
         SalesOrder.SetTableView(SalesHeader);
         SalesOrder.Editable := false;
-        SalesOrder.Run;
+        SalesOrder.Run();
     end;
 
     [Scope('Onprem')]
@@ -770,7 +769,6 @@ page 50096 "Purchase Order Subform Local"
           CurrForm."Original Purc. Order No.".VISIBLE(TRUE);
         END;
         */
-
     end;
 
     [Scope('Onprem')]
@@ -789,7 +787,7 @@ page 50096 "Purchase Order Subform Local"
                 "External Document No.Visible" := false;
             end;
 
-        InvtSetUp.Get;
+        InvtSetUp.Get();
         if PurchHeader."Location Code" = InvtSetUp."Default Cold Room" then begin
             ProdCdVisible := true;
             "Pack SizeVisible" := true;
@@ -810,7 +808,6 @@ page 50096 "Purchase Order Subform Local"
         if (Rec.Type = Rec.Type::"Charge (Item)") and (Rec."No." <> xRec."No.") and
            (xRec."No." <> '')
         then
-            CurrPage.SaveRecord;
+            CurrPage.SaveRecord();
     end;
 }
-

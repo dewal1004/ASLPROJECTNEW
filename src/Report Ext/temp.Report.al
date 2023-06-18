@@ -2,7 +2,7 @@ report 99333 "temp"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/temp.rdlc';
-
+    Caption = 'temp';
     dataset
     {
         dataitem("Transfer Shipment Header"; "Transfer Shipment Header")
@@ -13,7 +13,7 @@ report 99333 "temp"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -78,7 +78,6 @@ report 99333 "temp"
 
     requestpage
     {
-
         layout
         {
         }
@@ -93,8 +92,6 @@ report 99333 "temp"
     }
 
     var
-        TranOrdDat: Date;
         Transfer_Receipt_HeaderCaptionLbl: Label 'Transfer Receipt Header';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
 }
-

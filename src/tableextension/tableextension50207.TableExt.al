@@ -2,12 +2,9 @@ tableextension 50207 "tableextension50207" extends "Sales Invoice Line"
 {
     fields
     {
-
         //Unsupported feature: Property Modification (Data type) on ""Description 2"(Field 12)".
 
-
         //Unsupported feature: Property Insertion (Editable) on ""Unit Price"(Field 22)".
-
 
         //Unsupported feature: Property Insertion (Editable) on ""Unit Cost (LCY)"(Field 23)".
 
@@ -93,7 +90,6 @@ tableextension 50207 "tableextension50207" extends "Sales Invoice Line"
         }
     }
 
-
     //Unsupported feature: Code Modification on "ShowLineComments(PROCEDURE 8)".
 
     //procedure ShowLineComments();
@@ -111,4 +107,3 @@ tableextension 50207 "tableextension50207" extends "Sales Invoice Line"
     */
     //end;
 }
-

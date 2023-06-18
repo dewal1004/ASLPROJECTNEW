@@ -17,4 +17,3 @@ tableextension 50290 "tableextension50290" extends "Employee Statistics Group"
         }
     }
 }
-

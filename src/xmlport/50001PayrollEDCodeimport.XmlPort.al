@@ -1,7 +1,7 @@
 xmlport 90995 "50001 Payroll ED-Code import"
 {
     Format = VariableText;
-
+    Caption = '50001 Payroll ED-Code import';
     schema
     {
         textelement(Rootnode)
@@ -132,7 +132,6 @@ xmlport 90995 "50001 Payroll ED-Code import"
 
     requestpage
     {
-
         layout
         {
         }
@@ -142,4 +141,3 @@ xmlport 90995 "50001 Payroll ED-Code import"
         }
     }
 }
-

@@ -31,6 +31,7 @@ tableextension 50228 "tableextension50228" extends Resource
                                                                    "No." = FIELD("No."),
                                                                    "Ended Voyage" = CONST(false)));
             FieldClass = FlowField;
+            Editable = false;
         }
         field(50320; Points; Decimal)
         {
@@ -79,7 +80,6 @@ tableextension 50228 "tableextension50228" extends Resource
     }
     keys
     {
-
         //Unsupported feature: Deletion (KeyCollection) on "Type(Key)".
 
         key(ASLKey1; Posted)
@@ -93,9 +93,7 @@ tableextension 50228 "tableextension50228" extends Resource
         }
 
         //Unsupported feature: Move on ""Base Unit of Measure"(Key)".
-
     }
-
 
     //Unsupported feature: Code Modification on "OnDelete".
 
@@ -140,7 +138,6 @@ tableextension 50228 "tableextension50228" extends Resource
     */
     //end;
 
-
     //Unsupported feature: Code Modification on "OnInsert".
 
     //trigger OnInsert()
@@ -172,7 +169,6 @@ tableextension 50228 "tableextension50228" extends Resource
     */
     //end;
 
-
     //Unsupported feature: Code Modification on "OnModify".
 
     //trigger OnModify()
@@ -202,59 +198,6 @@ tableextension 50228 "tableextension50228" extends Resource
             exit(employee."No.");
     end;
 
-
-    //Unsupported feature: Property Modification (Id) on "PrivacyBlockedPostErr(Variable 1000)".
-
-    //var
-    //>>>> ORIGINAL VALUE:
-    //PrivacyBlockedPostErr : 1000;
-    //Variable type has not been exported.
-    //>>>> MODIFIED VALUE:
-    //PrivacyBlockedPostErr : 1100;
-    //Variable type has not been exported.
-
-
-    //Unsupported feature: Property Modification (Id) on "PrivacyBlockedErr(Variable 1021)".
-
-    //var
-    //>>>> ORIGINAL VALUE:
-    //PrivacyBlockedErr : 1021;
-    //Variable type has not been exported.
-    //>>>> MODIFIED VALUE:
-    //PrivacyBlockedErr : 1121;
-    //Variable type has not been exported.
-
-
-    //Unsupported feature: Property Modification (Id) on "ConfirmBlockedPrivacyBlockedQst(Variable 1030)".
-
-    //var
-    //>>>> ORIGINAL VALUE:
-    //ConfirmBlockedPrivacyBlockedQst : 1030;
-    //Variable type has not been exported.
-    //>>>> MODIFIED VALUE:
-    //ConfirmBlockedPrivacyBlockedQst : 1130;
-    //Variable type has not been exported.
-
-
-    //Unsupported feature: Property Modification (Id) on "CanNotChangeBlockedDueToPrivacyBlockedErr(Variable 1029)".
-
-    //var
-    //>>>> ORIGINAL VALUE:
-    //CanNotChangeBlockedDueToPrivacyBlockedErr : 1029;
-    //Variable type has not been exported.
-    //>>>> MODIFIED VALUE:
-    //CanNotChangeBlockedDueToPrivacyBlockedErr : 1129;
-    //Variable type has not been exported.
-
     var
-        Text000: Label 'You cannot delete %1 %2 because there are one or more outstanding Sales Orders that include this resource.';
-
-    var
-        Text003: Label 'You cannot delete %1 %2 because there are one or more outstanding Sales Return Orders that include this resource.';
-
-    var
-        "--": Integer;
         employee: Record Employee;
-        userrec: Record "User Setup";
 }
-

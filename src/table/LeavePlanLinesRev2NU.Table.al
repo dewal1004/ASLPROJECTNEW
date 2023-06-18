@@ -1,10 +1,11 @@
 table 60019 "Leave Plan Lines Rev 2 NU*"
 {
-    // 
-    // 
+    Caption = 'Leave Plan Lines Rev 2 NU*';
+    //
+    //
     // OnModify()
     // IF xRec.Exploded THEN ERROR('You cannot MODIFY a Registered Leave Record');
-    // 
+    //
     // OnDelete()
     // LOCKTABLE;
     // PayRec.SETRANGE("Leave Plan No","Serial No");
@@ -37,7 +38,6 @@ table 60019 "Leave Plan Lines Rev 2 NU*"
                     "Amount Due" := (EmpGrpRec."Gross Pay"*12)/10;
                   END;
                 */
-
             end;
         }
         field(2; "Leave Period"; Integer)
@@ -160,7 +160,6 @@ table 60019 "Leave Plan Lines Rev 2 NU*"
         }
         field(32; "Start Date1"; Date)
         {
-
             trigger OnValidate()
             begin
                 //IF xRec.Registered THEN ERROR('You cannot MODIFY a Registered Leave Record');
@@ -181,11 +180,9 @@ table 60019 "Leave Plan Lines Rev 2 NU*"
 
                 CheckTotalDuration(1);
             end;
-
         }
         field(33; "End Date1"; Date)
         {
-
             trigger OnValidate()
             begin
                 //IF xRec.Registered THEN ERROR('You cannot MODIFY a Registered Leave Record');
@@ -206,15 +203,12 @@ table 60019 "Leave Plan Lines Rev 2 NU*"
 
                 CheckTotalDuration(1);
             end;
-
         }
         field(34; "No. Days1"; Integer)
         {
-
             trigger OnValidate()
             begin
                 //IF xRec.Registered THEN ERROR('You cannot MODIFY a Registered Leave Record');
-
 
                 if "No. Days1" = 0 then exit;
 
@@ -245,7 +239,6 @@ table 60019 "Leave Plan Lines Rev 2 NU*"
         }
         field(35; "Start Date2"; Date)
         {
-
             trigger OnValidate()
             begin
                 //IF xRec.Registered THEN ERROR('You cannot MODIFY a Registered Leave Record');
@@ -269,7 +262,6 @@ table 60019 "Leave Plan Lines Rev 2 NU*"
         }
         field(36; "End Date2"; Date)
         {
-
             trigger OnValidate()
             begin
 
@@ -287,13 +279,11 @@ table 60019 "Leave Plan Lines Rev 2 NU*"
                     if "No. Days2" <> 0 then
                         "Start Date2" := GenPCode.GetStartDate("End Date2", "No. Days2");
 
-
                 CheckTotalDuration(1);
             end;
         }
         field(37; "No. Days2"; Integer)
         {
-
             trigger OnValidate()
             begin
                 //error('There');
@@ -324,12 +314,10 @@ table 60019 "Leave Plan Lines Rev 2 NU*"
                                   PayRec.INSERT;
                                 END;
                   */
-
             end;
         }
         field(38; "Start Date3"; Date)
         {
-
             trigger OnValidate()
             begin
 
@@ -352,7 +340,6 @@ table 60019 "Leave Plan Lines Rev 2 NU*"
         }
         field(39; "End Date3"; Date)
         {
-
             trigger OnValidate()
             begin
 
@@ -375,7 +362,6 @@ table 60019 "Leave Plan Lines Rev 2 NU*"
         }
         field(40; "No. Days3"; Integer)
         {
-
             trigger OnValidate()
             begin
                 //IF xRec.Registered THEN ERROR('You cannot MODIFY a Registered Leave Record');
@@ -407,12 +393,10 @@ table 60019 "Leave Plan Lines Rev 2 NU*"
                   PayRec.INSERT;
                 END;
                 */
-
             end;
         }
         field(41; "Start Date4"; Date)
         {
-
             trigger OnValidate()
             begin
                 //IF xRec.Registered THEN ERROR('You cannot MODIFY a Registered Leave Record');
@@ -436,7 +420,6 @@ table 60019 "Leave Plan Lines Rev 2 NU*"
         }
         field(42; "End Date4"; Date)
         {
-
             trigger OnValidate()
             begin
                 //IF xRec.Registered THEN ERROR('You cannot MODIFY a Registered Leave Record');
@@ -460,7 +443,6 @@ table 60019 "Leave Plan Lines Rev 2 NU*"
         }
         field(43; "No. Days4"; Integer)
         {
-
             trigger OnValidate()
             begin
                 //IF xRec.Registered THEN ERROR('You cannot MODIFY a Registered Leave Record');
@@ -492,7 +474,6 @@ table 60019 "Leave Plan Lines Rev 2 NU*"
                   PayRec.INSERT;
                 END;
                 */
-
             end;
         }
         field(44; Registered1; Boolean)
@@ -544,7 +525,6 @@ table 60019 "Leave Plan Lines Rev 2 NU*"
         }
         field(51; "Actual Start Date"; Date)
         {
-
             trigger OnValidate()
             begin
                 if xRec.Registered then Error('You cannot MODIFY a Registered Leave Record');
@@ -568,7 +548,6 @@ table 60019 "Leave Plan Lines Rev 2 NU*"
         }
         field(52; "Actual End Date"; Date)
         {
-
             trigger OnValidate()
             begin
                 if xRec.Registered then Error('You cannot MODIFY a Registered Leave Record');
@@ -592,7 +571,6 @@ table 60019 "Leave Plan Lines Rev 2 NU*"
         }
         field(53; "Actual Duration"; Integer)
         {
-
             trigger OnValidate()
             begin
                 if xRec.Registered then Error('You cannot MODIFY a Registered Leave Record');
@@ -622,7 +600,6 @@ table 60019 "Leave Plan Lines Rev 2 NU*"
                   PayRec.INSERT;
                 END;
                 */
-
             end;
         }
         field(54; "Period Filter"; Integer)
@@ -667,7 +644,7 @@ table 60019 "Leave Plan Lines Rev 2 NU*"
     trigger OnInsert()
     begin
         if "Serial No" = '' then begin
-            HumanResSetup.Get;
+            HumanResSetup.Get();
             HumanResSetup.TestField("Leave Plan No");
             NoSeriesMgt.InitSeries(HumanResSetup."Leave Plan No", xRec."No Series", 0D, "Serial No", "No Series");
         end;
@@ -685,16 +662,11 @@ table 60019 "Leave Plan Lines Rev 2 NU*"
         PayRec: Record "Leave Payment Rev 2 NU*";
         GenPCode: Codeunit "General Purpose Codeunit";
         LRosteRec: Record "Leave Roster NU*";
-        ActualLeaves: Integer;
-        ConSumingLeaves: Integer;
         EmpRec: Record Employee;
-        DtFilter: Text[30];
         RemLeaves: Integer;
         LCategory: Record "Leave Categories NU*";
         CatName: Text[30];
-        EmpBasic: Decimal;
         EmpGrpRec: Record "Payroll-Employee Group Header.";
-        EmpLineRec: Record "Payroll-Employee Group Lines.";
         BasicAmount: Decimal;
         EmpGrpCode: Code[20];
         TakenTotal: Integer;
@@ -712,7 +684,7 @@ table 60019 "Leave Plan Lines Rev 2 NU*"
             RemLeaves := "Total Leaves Due" - "Total Consuming";
 
             if (RemLeaves < "Actual Duration") and (IsConsuming("Leave Category")) then
-                Error('%1 has %2 Consuming Leaves Remaining', EmpRec.FullName, RemLeaves);
+                Error('%1 has %2 Consuming Leaves Remaining', EmpRec.FullName(), RemLeaves);
         end;
 
         if LCategory.Get("Leave Category") then
@@ -731,11 +703,10 @@ table 60019 "Leave Plan Lines Rev 2 NU*"
             if Confirm('Are you sure you want to Register \\' +
                            '%1 day(s) %2 Leave for %3 \\' +
                            'Between %4 and %5', true, "Actual Duration",
-                           CatName, EmpRec.FullName, "Actual Start Date", "Actual End Date")
-                       then begin
+                           CatName, EmpRec.FullName(), "Actual Start Date", "Actual End Date")
+                       then
                 // GenPCode.ExplodeActualLeave(Rec);
                 Validate(Registered, true);
-            end;
     end;
 
     //[Scope('OnPrem')]
@@ -758,12 +729,12 @@ table 60019 "Leave Plan Lines Rev 2 NU*"
     procedure GetAmountDue()
     begin
 
-        if EmpRec.Get("Employee No.") then begin
+        if EmpRec.Get("Employee No.") then
             if ("Entry Type" = "Entry Type"::PLAN) then begin
                 BasicAmount := EmpGrpRec.GetBasic(EmpRec."Employee Group");
                 "Amount Due" := (BasicAmount * 12 * 0.1);
             end
-            else begin
+            else
                 if LCategory.Get("Leave Category") then
                     if LCategory."Payment Allowed" then begin
                         BasicAmount := EmpGrpRec.GetBasic(EmpRec."Employee Group");
@@ -771,8 +742,6 @@ table 60019 "Leave Plan Lines Rev 2 NU*"
                     end
                     else
                         "Amount Due" := 0;
-            end;
-        end;
     end;
 
     //[Scope('OnPrem')]
@@ -807,8 +776,7 @@ table 60019 "Leave Plan Lines Rev 2 NU*"
         else begin
             "Total Leaves Due" := "Annual Duration";
             Registered := true;
-            Modify;
+            Modify();
         end;
     end;
 }
-

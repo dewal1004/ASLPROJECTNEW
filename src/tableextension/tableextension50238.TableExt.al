@@ -15,4 +15,3 @@ tableextension 50238 "tableextension50238" extends "Unit of Measure"
         }
     }
 }
-

@@ -23,4 +23,3 @@ tableextension 50262 "tableextension50262" extends "Sales & Receivables Setup"
         }
     }
 }
-

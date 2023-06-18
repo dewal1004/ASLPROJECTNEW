@@ -1,5 +1,6 @@
 table 60022 "Leave Payment-NEW NU*"
 {
+    Caption = 'Leave Payment-NEW NU*';
     //DrillDownPageID = 60010;
 
     fields
@@ -60,4 +61,3 @@ table 60022 "Leave Payment-NEW NU*"
     var
         LeavePayRec: Record "Leave Payment-NEW NU*";
 }
-

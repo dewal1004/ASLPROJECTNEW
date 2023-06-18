@@ -2,7 +2,7 @@ report 99986 "Inventory No Vat on all"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/InventoryNoVatonall.rdlc';
-
+    Caption = 'Inventory No Vat on all';
     dataset
     {
         dataitem(Item; Item)
@@ -14,7 +14,7 @@ report 99986 "Inventory No Vat on all"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -55,7 +55,6 @@ report 99986 "Inventory No Vat on all"
 
     requestpage
     {
-
         layout
         {
         }
@@ -73,4 +72,3 @@ report 99986 "Inventory No Vat on all"
         ItemCaptionLbl: Label 'Item';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
 }
-

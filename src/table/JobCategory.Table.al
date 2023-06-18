@@ -2,7 +2,7 @@ table 50024 "Job Category"
 {
     DrillDownPageID = "Job Category List";
     LookupPageID = "Job Category List";
-
+    Caption = 'Job Category';
     fields
     {
         field(1; "Code"; Code[10])
@@ -26,6 +26,8 @@ table 50024 "Job Category"
 
     fieldgroups
     {
+        fieldgroup(DropDown; Description)
+        {
+        }
     }
 }
-

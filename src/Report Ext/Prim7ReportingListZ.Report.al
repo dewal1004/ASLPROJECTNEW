@@ -2,7 +2,7 @@ report 90041 "Prim7* Reporting ListZ"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/Prim7ReportingListZ.rdlc';
-
+    Caption = 'Prim7* Reporting ListZ';
     dataset
     {
         dataitem(Item; Item)
@@ -13,7 +13,7 @@ report 90041 "Prim7* Reporting ListZ"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -108,7 +108,6 @@ report 90041 "Prim7* Reporting ListZ"
 
     requestpage
     {
-
         layout
         {
         }
@@ -123,13 +122,7 @@ report 90041 "Prim7* Reporting ListZ"
     }
 
     var
-        LastFieldNo: Integer;
-        FooterPrinted: Boolean;
-        "---": Text[30];
         Colum: array[3] of Decimal;
-        RespCenter: Record "Responsibility Center";
-        CompanyInfo: Record "Company Information";
-        FormatAddr: Codeunit "Format Address";
         TotalFor: Label 'Total for ';
         ItemCaptionLbl: Label 'Item';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
@@ -137,4 +130,3 @@ report 90041 "Prim7* Reporting ListZ"
         V1_KGCaptionLbl: Label '1 KG';
         V0_5_KGCaptionLbl: Label '0.5 KG';
 }
-

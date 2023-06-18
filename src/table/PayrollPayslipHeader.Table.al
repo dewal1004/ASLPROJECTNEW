@@ -13,7 +13,7 @@ table 50007 "Payroll-Payslip Header."
 
     DataCaptionFields = "Payroll Period", "Employee No", "Employee Name";
     LookupPageID = "Payslip Header Survey.";
-
+    Caption = 'Payroll-Payslip Header.';
     fields
     {
         field(1; "Payroll Period"; Code[20])
@@ -59,7 +59,7 @@ table 50007 "Payroll-Payslip Header."
             begin
                 EmployeeRec.Get("Employee No");
                 begin
-                    "Employee Name" := EmployeeRec.FullName;
+                    "Employee Name" := EmployeeRec.FullName();
                     "Global Dimension 1 Code" := EmployeeRec."Global Dimension 1 Code";
                     "Global Dimension 2 Code" := EmployeeRec."Global Dimension 2 Code";
                     ///////////////////  Company := EmployeeRec.Company;
@@ -142,6 +142,7 @@ table 50007 "Payroll-Payslip Header."
                                                                      "Employee No" = FIELD("Employee No"),
                                                                      "Debit Account" = FILTER(<> '')));
             FieldClass = FlowField;
+            Editable = false;
         }
         field(26; "Credit Amount"; Decimal)
         {
@@ -149,6 +150,7 @@ table 50007 "Payroll-Payslip Header."
                                                                      "Employee No" = FIELD("Employee No"),
                                                                      "Credit Account" = FILTER(<> '')));
             FieldClass = FlowField;
+            Editable = false;
         }
     }
 
@@ -190,14 +192,13 @@ table 50007 "Payroll-Payslip Header."
         /* First delete the detail lines */
         PayLinesRec.SetRange("Payroll Period", "Payroll Period");
         PayLinesRec.SetRange("Employee No", "Employee No");
-        PayLinesRec.DeleteAll;
+        PayLinesRec.DeleteAll();
 
         /* Delete the 'parent record'*/
-        Delete;
+        Delete();
 
         /* Disable the locking effect */
-        Commit;
-
+        Commit();
     end;
 
     trigger OnInsert()
@@ -208,12 +209,12 @@ table 50007 "Payroll-Payslip Header."
         EmployeeRec.Get("Employee No");
 
         /* Delimit the Employee group lines appropriately */
-        EmpGrpLinesRec.Init;
+        EmpGrpLinesRec.Init();
         EmpGrpLinesRec."Employee Group" := EmployeeRec."Employee Group";
         EmpGrpLinesRec."E/D Code" := '';
         EmpGrpLinesRec.SetRange("Employee Group", EmployeeRec."Employee Group");
         if EmpGrpLinesRec.Count = 0 then begin
-            EmpGrpLinesRec.Reset;
+            EmpGrpLinesRec.Reset();
             exit
         end;
 
@@ -227,7 +228,7 @@ table 50007 "Payroll-Payslip Header."
             PayLinesRec."Employee No" := "Employee No";
         end;
         while (EmpGrpLinesRec."Employee Group" = EmployeeRec."Employee Group") do begin
-            PayLinesRec.Init;
+            PayLinesRec.Init();
             EDFileRec.Get(EmpGrpLinesRec."E/D Code");
             begin
                 PayLinesRec."Payslip Group ID" := EDFileRec."Payslip Group ID";
@@ -276,26 +277,21 @@ table 50007 "Payroll-Payslip Header."
                     if EmployeeRec."SAM Number" <> '' then
                         PayLinesRec."Credit Account" := EmployeeRec."SAM Number";
             end;
-            PayLinesRec.Insert;
-            if EmpGrpLinesRec.Next = 0 then begin
-                EmpGrpLinesRec.Reset;
-                Commit;
+            PayLinesRec.Insert();
+            if EmpGrpLinesRec.Next() = 0 then begin
+                EmpGrpLinesRec.Reset();
+                Commit();
                 exit
             end;
         end;
-        Commit;
-
+        Commit();
     end;
 
     var
         PayPeriodRec: Record "Payroll-Periods.";
-        CompanyRec: Record "Payroll-Banks.";
-        DepartRec: Record "Dimension Value";
         EmployeeRec: Record Employee;
         PayLinesRec: Record "Payroll-Payslip Lines.";
-        EmpGrpRec: Record "Payroll-Employee Group Header.";
         EmpGrpLinesRec: Record "Payroll-Employee Group Lines.";
         EDFileRec: Record "Payroll-E/D Codes.";
         BookGrLinesRec: Record "Payroll-Posting Group Line.";
 }
-

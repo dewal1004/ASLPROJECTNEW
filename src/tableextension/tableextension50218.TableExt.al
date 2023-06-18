@@ -1,6 +1,5 @@
 tableextension 50218 "tableextension50218" extends "Data Exch. Field Mapping Buf."
 {
-
     //Unsupported feature: Code Modification on "SourceAssistEdit(PROCEDURE 4)".
 
     //procedure SourceAssistEdit();
@@ -22,8 +21,5 @@ tableextension 50218 "tableextension50218" extends "Data Exch. Field Mapping Buf
 
     //Unsupported feature: Property Modification (Name) on "SourceAssistEdit(PROCEDURE 4).XMLBuffer(Parameter 1000)".
 
-
     //Unsupported feature: Property Modification (Subtype) on "SourceAssistEdit(PROCEDURE 4).XMLBuffer(Parameter 1000)".
-
 }
-

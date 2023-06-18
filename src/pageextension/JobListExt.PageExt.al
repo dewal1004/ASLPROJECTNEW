@@ -84,7 +84,6 @@ pageextension 50354 "Job List Ext" extends "Job List"
             StyleExpr = StyleText;
             OptionCaption = 'Budget,Preparation,Voyage Start,Close Job Card';
         }
-
     }
     actions
     {
@@ -97,7 +96,6 @@ pageextension 50354 "Job List Ext" extends "Job List"
 
         modify("Dimensions-&Multiple")
         {
-
             //Unsupported feature: Property Modification (Level) on ""Dimensions-&Multiple"(Action 12)".
 
             Visible = false;
@@ -112,9 +110,7 @@ pageextension 50354 "Job List Ext" extends "Job List"
         }
         modify("<Action9>")
         {
-
             //Unsupported feature: Property Modification (ActionType) on ""<Action9>"(Action 9)".
-
 
             //Unsupported feature: Property Modification (Name) on ""<Action9>"(Action 9)".
 
@@ -122,15 +118,11 @@ pageextension 50354 "Job List Ext" extends "Job List"
 
             //Unsupported feature: Property Modification (Image) on ""<Action9>"(Action 9)".
 
-
             //Unsupported feature: Property Insertion (RunObject) on ""<Action9>"(Action 9)".
-
         }
         modify(CopyJob)
         {
-
             //Unsupported feature: Property Modification (Level) on "CopyJob(Action 16)".
-
 
             //Unsupported feature: Property Modification (Name) on "CopyJob(Action 16)".
 
@@ -138,18 +130,14 @@ pageextension 50354 "Job List Ext" extends "Job List"
 
             //Unsupported feature: Property Modification (Image) on "CopyJob(Action 16)".
 
-
             //Unsupported feature: Property Insertion (RunObject) on "CopyJob(Action 16)".
-
         }
 
         //Unsupported feature: Property Modification (Level) on ""Create Job &Sales Invoice"(Action 1903691404)".
 
         modify(Action7)
         {
-
             //Unsupported feature: Property Modification (ActionType) on "Action7(Action 7)".
-
 
             //Unsupported feature: Property Modification (Name) on "Action7(Action 7)".
 
@@ -157,15 +145,11 @@ pageextension 50354 "Job List Ext" extends "Job List"
 
             //Unsupported feature: Property Modification (Image) on "Action7(Action 7)".
 
-
             //Unsupported feature: Property Insertion (RunObject) on "Action7(Action 7)".
-
         }
         modify("<Action151>")
         {
-
             //Unsupported feature: Property Modification (Level) on ""<Action151>"(Action 5)".
-
 
             //Unsupported feature: Property Modification (Name) on ""<Action151>"(Action 5)".
 
@@ -173,15 +157,11 @@ pageextension 50354 "Job List Ext" extends "Job List"
 
             //Unsupported feature: Property Modification (Image) on ""<Action151>"(Action 5)".
 
-
             //Unsupported feature: Property Insertion (RunObject) on ""<Action151>"(Action 5)".
-
         }
         modify("<Action152>")
         {
-
             //Unsupported feature: Property Modification (Level) on ""<Action152>"(Action 3)".
-
 
             //Unsupported feature: Property Modification (Name) on ""<Action152>"(Action 3)".
 
@@ -189,18 +169,14 @@ pageextension 50354 "Job List Ext" extends "Job List"
 
             //Unsupported feature: Property Modification (Image) on ""<Action152>"(Action 3)".
 
-
             //Unsupported feature: Property Insertion (RunObject) on ""<Action152>"(Action 3)".
-
         }
 
         //Unsupported feature: Property Modification (Level) on ""Job WIP to G/L"(Action 1907574906)".
 
         modify(Action23)
         {
-
             //Unsupported feature: Property Modification (ActionType) on "Action23(Action 23)".
-
 
             //Unsupported feature: Property Modification (Name) on "Action23(Action 23)".
 
@@ -214,7 +190,6 @@ pageextension 50354 "Job List Ext" extends "Job List"
 
         //Unsupported feature: Property Modification (Level) on ""Jobs - Transaction Detail"(Action 1905285006)".
 
-
         //Unsupported feature: Property Modification (Level) on ""Job Register"(Action 1901294206)".
 
         modify("W&IP")
@@ -224,27 +199,19 @@ pageextension 50354 "Job List Ext" extends "Job List"
 
         //Unsupported feature: Property Deletion (ActionContainerType) on ""<Action9>"(Action 9)".
 
-
         //Unsupported feature: Property Deletion (Ellipsis) on "CopyJob(Action 16)".
-
 
         //Unsupported feature: Property Deletion (Promoted) on "CopyJob(Action 16)".
 
-
         //Unsupported feature: Property Deletion (PromotedIsBig) on "CopyJob(Action 16)".
-
 
         //Unsupported feature: Property Deletion (PromotedCategory) on "CopyJob(Action 16)".
 
-
         //Unsupported feature: Property Deletion (Ellipsis) on ""<Action151>"(Action 5)".
-
 
         //Unsupported feature: Property Deletion (PromotedCategory) on ""<Action151>"(Action 5)".
 
-
         //Unsupported feature: Property Deletion (Ellipsis) on ""<Action152>"(Action 3)".
-
 
         //Unsupported feature: Property Deletion (PromotedCategory) on ""<Action152>"(Action 3)".
 
@@ -377,8 +344,6 @@ pageextension 50354 "Job List Ext" extends "Job List"
     end;
 
     trigger OnAfterGetRecord()
-    var
-        myInt: Integer;
     begin
         StyleText := '';
         if Rec.Status = Rec.Status::Completed then

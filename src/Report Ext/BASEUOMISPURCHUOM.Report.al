@@ -2,7 +2,7 @@ report 95001 "BASEUOM IS PURCHUOM"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/BASEUOMISPURCHUOM.rdlc';
-
+    Caption = 'BASEUOM IS PURCHUOM';
     dataset
     {
         dataitem(Item; Item)
@@ -14,7 +14,7 @@ report 95001 "BASEUOM IS PURCHUOM"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -55,7 +55,6 @@ report 95001 "BASEUOM IS PURCHUOM"
 
     requestpage
     {
-
         layout
         {
         }
@@ -73,4 +72,3 @@ report 95001 "BASEUOM IS PURCHUOM"
         ItemCaptionLbl: Label 'Item';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
 }
-

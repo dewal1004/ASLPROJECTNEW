@@ -2,7 +2,7 @@ page 50034 "Class Information List"
 {
     PageType = Card;
     SourceTable = "Class Information";
-
+    Caption = 'Class Information List';
     layout
     {
         area(content)
@@ -26,4 +26,3 @@ page 50034 "Class Information List"
     {
     }
 }
-

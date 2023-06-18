@@ -13,4 +13,3 @@ pageextension 50253 "pageextension50253" extends "Reason Codes"
         }
     }
 }
-

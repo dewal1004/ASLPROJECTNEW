@@ -7,10 +7,8 @@ pageextension 50284 "Purchase Order Ext" extends "Purchase Order"
             Visible = true;
         }
 
-
         modify("Document Date")
         {
-
             Importance = Additional;
         }
 
@@ -21,7 +19,6 @@ pageextension 50284 "Purchase Order Ext" extends "Purchase Order"
         modify("Location Code")
         {
             Visible = true;
-
             Importance = Additional;
         }
         modify("Sell-to Customer No.")
@@ -39,7 +36,6 @@ pageextension 50284 "Purchase Order Ext" extends "Purchase Order"
         }
         modify("Transaction Specification")
         {
-
             Importance = Additional;
             Visible = true;
         }
@@ -123,7 +119,6 @@ pageextension 50284 "Purchase Order Ext" extends "Purchase Order"
         */
         //end;
 
-
         //Unsupported feature: Code Insertion on ""Currency Code"(Control 42)".
 
         //trigger OnAfterValidate()
@@ -135,7 +130,6 @@ pageextension 50284 "Purchase Order Ext" extends "Purchase Order"
         */
         //end;
 
-
         //trigger OnAfterValidate()
         //Parameters and return type have not been exported.
         //begin
@@ -146,10 +140,7 @@ pageextension 50284 "Purchase Order Ext" extends "Purchase Order"
 
         //Unsupported feature: Property Deletion (Importance) on ""Ship-to Post Code"(Control 109)".
 
-
         //Unsupported feature: Property Deletion (Importance) on ""Pay-to Address"(Control 26)".
-
-
 
         //Unsupported feature: Code Insertion on ""Prepayment %"(Control 28)".
 
@@ -162,7 +153,6 @@ pageextension 50284 "Purchase Order Ext" extends "Purchase Order"
         //end;
 
         //Unsupported feature: Property Deletion (SourceExpr) on ""Pay-to City"(Control 30)".
-
 
         //Unsupported feature: Property Deletion (ImplicitType) on ""Pay-to City"(Control 30)".
 
@@ -182,7 +172,6 @@ pageextension 50284 "Purchase Order Ext" extends "Purchase Order"
         {
             Visible = true;
             Caption = 'Foreign Trade';
-
         }
         modify(Prepayment)
         {
@@ -230,7 +219,7 @@ pageextension 50284 "Purchase Order Ext" extends "Purchase Order"
             // field("No. of Archived Versions"; "No. of Archived Versions")
             // {
             //     Importance = Additional;
-            // }         
+            // }
             // field("Vendor Invoice No."; "Vendor Invoice No.")
             // {
             //     ShowMandatory = VendorInvoiceNoMandatory;
@@ -259,7 +248,7 @@ pageextension 50284 "Purchase Order Ext" extends "Purchase Order"
                 ApplicationArea = All;
                 trigger OnValidate()
                 begin
-                    PaytoVendorNoOnAfterValidate;
+                    PaytoVendorNoOnAfterValidate();
                 end;
             }
         }
@@ -374,7 +363,6 @@ pageextension 50284 "Purchase Order Ext" extends "Purchase Order"
 
     actions
     {
-
         //Unsupported feature: Property Modification (Name) on "MoveNegativeLines(Action 142)".
 
         addafter(MoveNegativeLines)
@@ -423,15 +411,10 @@ pageextension 50284 "Purchase Order Ext" extends "Purchase Order"
     }
 
     var
-        CodeForApprovalsetup: Codeunit "Code For Approval setup";
-
-    var
-        PurchLine: Record "Purchase Line";
         UserSetup: Record "User Setup";
 
     local procedure PaytoVendorNoOnAfterValidate()
     begin
-        CurrPage.Update;
+        CurrPage.Update();
     end;
 }
-

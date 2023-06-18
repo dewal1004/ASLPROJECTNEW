@@ -2,7 +2,7 @@ report 99055 "Cust Bal to Excel buffer"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/CustBaltoExcelbuffer.rdlc';
-
+    Caption = 'Cust Bal to Excel buffer';
     dataset
     {
         dataitem(Customer; Customer)
@@ -15,7 +15,7 @@ report 99055 "Cust Bal to Excel buffer"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -54,7 +54,7 @@ report 99055 "Cust Bal to Excel buffer"
 
             trigger OnPreDataItem()
             begin
-                TempExcelBuffer.DeleteAll;
+                TempExcelBuffer.DeleteAll();
                 Clear(TempExcelBuffer);
                 cnt := 5;
             end;
@@ -63,7 +63,6 @@ report 99055 "Cust Bal to Excel buffer"
 
     requestpage
     {
-
         layout
         {
         }
@@ -81,15 +80,12 @@ report 99055 "Cust Bal to Excel buffer"
         TempExcelBuffer: Record "Excel Buffer 4 P&L";
         cnt: Integer;
         RowNo: Integer;
-        ColumnNo: Integer;
-        ColumnValue: Decimal;
-        ColumnText: Text[50];
         CustomerCaptionLbl: Label 'Customer';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
 
     local procedure EnterCell(RowNo: Integer; ColumnNo: Integer; CellValue: Text[50]; Bold: Boolean; Italic: Boolean; UnderLine: Boolean)
     begin
-        TempExcelBuffer.Init;
+        TempExcelBuffer.Init();
         TempExcelBuffer.Validate("Row No.", RowNo);
         TempExcelBuffer.Validate("Column No.", ColumnNo);
         TempExcelBuffer."Cell Value as Text" := CellValue;
@@ -97,7 +93,7 @@ report 99055 "Cust Bal to Excel buffer"
         TempExcelBuffer.Bold := Bold;
         TempExcelBuffer.Italic := Italic;
         TempExcelBuffer.Underline := UnderLine;
-        TempExcelBuffer.Insert;
+        TempExcelBuffer.Insert();
     end;
 
     [Scope('OnPrem')]
@@ -109,4 +105,3 @@ report 99055 "Cust Bal to Excel buffer"
         //MESSAGE(FORMAT(cnt));
     end;
 }
-

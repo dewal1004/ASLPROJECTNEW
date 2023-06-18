@@ -4,7 +4,7 @@ report 50171 "Issued Consumed to Vesse"
     RDLCLayout = './src/reportrdlc/IssuedConsumedtoVesse.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
-
+    Caption = 'Issued Consumed to Vesse';
     dataset
     {
         dataitem("Value Entry"; "Value Entry")
@@ -17,7 +17,7 @@ report 50171 "Issued Consumed to Vesse"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -167,7 +167,6 @@ report 50171 "Issued Consumed to Vesse"
 
     requestpage
     {
-
         layout
         {
         }
@@ -183,7 +182,6 @@ report 50171 "Issued Consumed to Vesse"
 
     var
         LastFieldNo: Integer;
-        FooterPrinted: Boolean;
         TotalFor: Label 'Total for ';
         VQtyCost: array[5] of Decimal;
         VQtyCost2: array[5] of Decimal;
@@ -197,4 +195,3 @@ report 50171 "Issued Consumed to Vesse"
         Var__Cost_CaptionLbl: Label 'Var. Cost.';
         Var__Qty_CaptionLbl: Label 'Var. Qty.';
 }
-

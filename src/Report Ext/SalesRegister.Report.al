@@ -4,7 +4,7 @@ report 50045 "Sales Register"
     RDLCLayout = './src/reportrdlc/SalesRegister.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
-
+    Caption = 'Sales Register';
     dataset
     {
         dataitem("Sales Invoice Header"; "Sales Invoice Header")
@@ -21,7 +21,7 @@ report 50045 "Sales Register"
             column(FORMAT_TODAY_0_4_; Format(Today, 0, 4))
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(Sales_Invoice_Header__GETFILTERS; "Sales Invoice Header".GetFilters)
@@ -276,7 +276,6 @@ report 50045 "Sales Register"
 
     requestpage
     {
-
         layout
         {
         }
@@ -300,19 +299,14 @@ report 50045 "Sales Register"
 
     var
         SalesInvHeader: Record "Sales Invoice Header";
-        UserSetup: Record "User Setup";
-        ItemRec: Record Item;
         Customer: Record Customer;
         CurrencyExchRate: Record "Currency Exchange Rate";
-        totalamount: Decimal;
         DiscAmount: Decimal;
-        InvDisc: Decimal;
         ItemFilter: Code[250];
         TotQty: Decimal;
         UnitPrice: Decimal;
         InvAmount: Decimal;
         VatAmount: Decimal;
-        ShowDetails: Boolean;
         ShowVat: Boolean;
         AmountCaption: Text[30];
         CurrReport_PAGENOCaptionLbl: Label 'Page';
@@ -345,4 +339,3 @@ report 50045 "Sales Register"
         GenPrdtPstngrup: Code[10];
         GenBusPstngrup: Code[10];
 }
-

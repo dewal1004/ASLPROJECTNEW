@@ -10,8 +10,7 @@ report 50030 "Payroll Rprt- WITH DELETED EMP"
     // instead of the ED.Codes.
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/PayrollRprtWITHDELETEDEMP.rdlc';
-
-
+    Caption = 'Payroll Rprt- WITH DELETED EMP';
     dataset
     {
         dataitem("Payroll-Payslip Lines."; "Payroll-Payslip Lines.")
@@ -31,104 +30,80 @@ report 50030 "Payroll Rprt- WITH DELETED EMP"
             column(TODAY; Today)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(EDText_1_1_; EDText[1, 1])
             {
-
             }
             column(EDText_1_2_; EDText[1, 2])
             {
-
             }
             column(EDText_2_1_; EDText[2, 1])
             {
-
             }
             column(EDText_2_2_; EDText[2, 2])
             {
-
             }
             column(EDText_3_1_; EDText[3, 1])
             {
-
             }
             column(EDText_3_2_; EDText[3, 2])
             {
-
             }
             column(EDText_4_1_; EDText[4, 1])
             {
-
             }
             column(EDText_4_2_; EDText[4, 2])
             {
-
             }
             column(EDText_5_1_; EDText[5, 1])
             {
-
             }
             column(EDText_5_2_; EDText[5, 2])
             {
-
             }
             column(EDText_6_1_; EDText[6, 1])
             {
-
             }
             column(EDText_6_2_; EDText[6, 2])
             {
-
             }
             column(EDText_7_1_; EDText[7, 1])
             {
-
             }
             column(EDText_7_2_; EDText[7, 2])
             {
-
             }
             column(EDText_8_1_; EDText[8, 1])
             {
-
             }
             column(EDText_8_2_; EDText[8, 2])
             {
-
             }
             column(EDText_9_1_; EDText[9, 1])
             {
-
             }
             column(EDText_9_2_; EDText[9, 2])
             {
-
             }
             column(EDText_10_1_; EDText[10, 1])
             {
-
             }
             column(EDText_10_2_; EDText[10, 2])
             {
-
             }
             column(EDText_11_1_; EDText[11, 1])
             {
-
             }
             column(EDText_11_2_; EDText[11, 2])
             {
-
             }
             column(EDText_12_1_; EDText[12, 1])
             {
-
             }
             column(EDText_12_2_; EDText[12, 2])
             {
-
             }
             column(DELCHR__EmployeeName_______; DelChr(EmployeeName, '<>'))
             {
@@ -138,105 +113,81 @@ report 50030 "Payroll Rprt- WITH DELETED EMP"
             }
             column(EDAmountsArray_1_; EDAmountsArray[1])
             {
-
             }
             column(EDAmountsArray_2_; EDAmountsArray[2])
             {
-
             }
             column(EDAmountsArray_3_; EDAmountsArray[3])
             {
-
             }
             column(EDAmountsArray_4_; EDAmountsArray[4])
             {
-
             }
             column(EDAmountsArray_5_; EDAmountsArray[5])
             {
-
             }
             column(EDAmountsArray_6_; EDAmountsArray[6])
             {
-
             }
             column(EDAmountsArray_7_; EDAmountsArray[7])
             {
-
             }
             column(EDAmountsArray_8_; EDAmountsArray[8])
             {
-
             }
             column(EDAmountsArray_9_; EDAmountsArray[9])
             {
-
             }
             column(EDAmountsArray_10_; EDAmountsArray[10])
             {
-
             }
             column(EDAmountsArray_12_; EDAmountsArray[12])
             {
-
             }
             column(EDAmountsArray_11_; EDAmountsArray[11])
             {
-
             }
             column(CountZ; CountZ)
             {
             }
             column(EDAmountsArray_1__Control42; EDAmountsArray[1])
             {
-
             }
             column(EDAmountsArray_2__Control43; EDAmountsArray[2])
             {
-
             }
             column(EDAmountsArray_3__Control44; EDAmountsArray[3])
             {
-
             }
             column(EDAmountsArray_4__Control45; EDAmountsArray[4])
             {
-
             }
             column(EDAmountsArray_5__Control46; EDAmountsArray[5])
             {
-
             }
             column(EDAmountsArray_6__Control47; EDAmountsArray[6])
             {
-
             }
             column(EmplCount; EmplCount)
             {
             }
             column(EDAmountsArray_7__Control30; EDAmountsArray[7])
             {
-
             }
             column(EDAmountsArray_8__Control31; EDAmountsArray[8])
             {
-
             }
             column(EDAmountsArray_9__Control32; EDAmountsArray[9])
             {
-
             }
             column(EDAmountsArray_10__Control33; EDAmountsArray[10])
             {
-
             }
             column(Total11; Total11)
             {
-
             }
             column(Total12; Total12)
             {
-
             }
             column(CountZ_Control1000000003; CountZ)
             {
@@ -282,8 +233,6 @@ report 50030 "Payroll Rprt- WITH DELETED EMP"
             }
 
             trigger OnAfterGetRecord()
-            var
-                PayEmp: Record Employee;
             begin
                 //IF NOT PayEmp.GET("Payroll-Payslip Lines."."Employee No") THEN CurrReport.SKIP; //Added by Adam to skip Deleted? Employees//
                 // Not: Employees are normally kept
@@ -320,7 +269,6 @@ report 50030 "Payroll Rprt- WITH DELETED EMP"
                             EDAmountsArray[ArrayTop] := Amount;
                             Total12 := Total12 + Amount;
                         end;
-
                 end;
             end;
 
@@ -331,7 +279,7 @@ report 50030 "Payroll Rprt- WITH DELETED EMP"
                                  EDAmountsArray[7], EDAmountsArray[8], EDAmountsArray[9],
                                  EDAmountsArray[10]);
 
-                CompanyData.Get;
+                CompanyData.Get();
                 if GetFilter("Employee No") <> '' then
                     EmplHeadTxt := 'Employee Filter: ' + GetFilter("Employee No")
                 else
@@ -357,19 +305,17 @@ report 50030 "Payroll Rprt- WITH DELETED EMP"
                     end;
 
                 if EmployeeRec.Get("Employee No") then
-                    EmployeeName := EmployeeRec.FullName;
+                    EmployeeName := EmployeeRec.FullName();
                 ArrayIndex := 1;
                 ArrayTop := 12;
                 for ArrayIndex := 1 to ArrayTop do
                     EDAmountsArray[ArrayIndex] := 0;
-
             end;
         }
     }
 
     requestpage
     {
-
         layout
         {
         }
@@ -392,7 +338,6 @@ report 50030 "Payroll Rprt- WITH DELETED EMP"
         "Payroll-Payslip Lines.".CopyFilter("Payroll Period", PeriodRec."Period Code");
         if PeriodRec.Count > 1 then
             PeriodTxt := StrSubstNo('(#1 periods)', PeriodRec.Count);
-
     end;
 
     var
@@ -409,8 +354,6 @@ report 50030 "Payroll Rprt- WITH DELETED EMP"
         EmplCount: Integer;
         EmplHeadTxt: Text[60];
         PeriodTxt: Text[15];
-        "BANK/CASH": Text[30];
-        IsDescription: Boolean;
         Total11: Decimal;
         Total12: Decimal;
         i: Integer;
@@ -426,4 +369,3 @@ report 50030 "Payroll Rprt- WITH DELETED EMP"
         No__of_records_Processed_CaptionLbl: Label 'No. of records Processed:';
         No__of_employees_Shown_CaptionLbl: Label 'No. of employees Shown:';
 }
-

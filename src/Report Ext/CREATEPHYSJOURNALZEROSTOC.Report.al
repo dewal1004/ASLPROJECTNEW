@@ -5,7 +5,7 @@ report 50902 "CREATE PHYS. JOURNAL ZERO STOC"
     RDLCLayout = './src/reportrdlc/CREATEPHYSJOURNALZEROSTOC.rdlc';
     UsageCategory = Administration;
     ApplicationArea = All, basic, suite;
-
+    Caption = 'CREATE PHYS. JOURNAL ZERO STOC';
     dataset
     {
         dataitem(Item; Item)
@@ -18,7 +18,7 @@ report 50902 "CREATE PHYS. JOURNAL ZERO STOC"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -54,7 +54,7 @@ report 50902 "CREATE PHYS. JOURNAL ZERO STOC"
                     jourrec."Entry Type" := 2;
                     jourrec."Document No." := '123';
                     jourrec.Validate("Item No.", Item."No.");
-                    jourrec.Insert;
+                    jourrec.Insert();
                 end;
             end;
 
@@ -70,7 +70,6 @@ report 50902 "CREATE PHYS. JOURNAL ZERO STOC"
 
     requestpage
     {
-
         layout
         {
         }
@@ -90,4 +89,3 @@ report 50902 "CREATE PHYS. JOURNAL ZERO STOC"
         ItemCaptionLbl: Label 'Item';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
 }
-

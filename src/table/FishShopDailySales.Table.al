@@ -2,7 +2,7 @@ table 50044 "Fish Shop Daily Sales"
 {
     DrillDownPageID = "Fishshop Daily sales";
     LookupPageID = "Fishshop Daily sales";
-
+    Caption = 'Fish Shop Daily Sales';
     fields
     {
         field(1; "Document No"; Code[10])
@@ -45,6 +45,7 @@ table 50044 "Fish Shop Daily Sales"
                                                                       "Transaction Date" = FIELD("Transaction Date"),
                                                                       "Payment Type" = FIELD("Payment Type")));
             FieldClass = FlowField;
+            Editable = false;
         }
         field(12; "Day Sale Value"; Decimal)
         {
@@ -53,6 +54,7 @@ table 50044 "Fish Shop Daily Sales"
                                                                     "Transaction Date" = FIELD("Transaction Date"),
                                                                     "Payment Type" = FIELD("Payment Type")));
             FieldClass = FlowField;
+            Editable = false;
         }
         field(13; "Cust No"; Code[20])
         {
@@ -74,16 +76,12 @@ table 50044 "Fish Shop Daily Sales"
 
     fieldgroups
     {
+        fieldgroup(DropDown; Location, Description)
+        {
+        }
     }
-
-    var
-        Location: Record Location;
-        SalesHeader: Record "Sales Header";
-        SalesLine: Record "Sales Line";
-        FishshopDay: Record "Fish Shop Daily Sales";
 
     local procedure GenerateDailysale()
     begin
     end;
 }
-

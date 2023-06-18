@@ -4,7 +4,7 @@ report 50211 "Consolidated Voyage P&L2 test"
     RDLCLayout = './src/reportrdlc/ConsolidatedVoyagePL2test.rdlc';
     Permissions = TableData "Job Ledger Entry" = rimd,
                   TableData "Value Entry" = rimd;
-
+    Caption = 'Consolidated Voyage P&L2 test';
     dataset
     {
         dataitem(Jobss; Job)
@@ -17,7 +17,7 @@ report 50211 "Consolidated Voyage P&L2 test"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENOr; CurrReport.PageNo)
+            column(CurrReport_PAGENOr; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -31,19 +31,15 @@ report 50211 "Consolidated Voyage P&L2 test"
             }
             column(Text27; Text27)
             {
-
             }
             column(Text26; Text26)
             {
-
             }
             column(Text25; Text25)
             {
-
             }
             column(Text24; Text24)
             {
-
             }
             column(Text23; Text23)
             {
@@ -81,19 +77,15 @@ report 50211 "Consolidated Voyage P&L2 test"
             }
             column(PortDay; PortDay)
             {
-
             }
             column(LostDay; LostDay)
             {
-
             }
             column(FishgDay; FishgDay)
             {
-
             }
             column(CycleDay; CycleDay)
             {
-
             }
             column(Jobss__Ending_Date_; "Ending Date")
             {
@@ -128,19 +120,15 @@ report 50211 "Consolidated Voyage P&L2 test"
             }
             column(PortDay_Control1000000239; PortDay)
             {
-
             }
             column(LostDay_Control1000000240; LostDay)
             {
-
             }
             column(FishgDay_Control1000000241; FishgDay)
             {
-
             }
             column(CycleDay_Control1000000242; CycleDay)
             {
-
             }
             column(TotalFor___FIELDCAPTION_Vessel_; TotalFor + FieldCaption(Vessel))
             {
@@ -169,19 +157,15 @@ report 50211 "Consolidated Voyage P&L2 test"
             }
             column(PortDay_Control1000000228; PortDay)
             {
-
             }
             column(LostDay_Control1000000229; LostDay)
             {
-
             }
             column(FishgDay_Control1000000230; FishgDay)
             {
-
             }
             column(CycleDay_Control1000000231; CycleDay)
             {
-
             }
             column(Coutry_Name; Coutry.Name)
             {
@@ -215,7 +199,6 @@ report 50211 "Consolidated Voyage P&L2 test"
             }
             column(CycleDay_Control1000000202; CycleDay)
             {
-
             }
             column(PntStor_4__Control1000000204; PntStor[4])
             {
@@ -223,11 +206,9 @@ report 50211 "Consolidated Voyage P&L2 test"
             }
             column(Text24_Control1000000205; Text24)
             {
-
             }
             column(FishgDay_Control1000000206; FishgDay)
             {
-
             }
             column(PntStor_5__Control1000000208; PntStor[5])
             {
@@ -235,11 +216,9 @@ report 50211 "Consolidated Voyage P&L2 test"
             }
             column(Text25_Control1000000209; Text25)
             {
-
             }
             column(LostDay_Control1000000210; LostDay)
             {
-
             }
             column(PntStor_6__Control1000000212; PntStor[6])
             {
@@ -247,7 +226,6 @@ report 50211 "Consolidated Voyage P&L2 test"
             }
             column(Text26_Control1000000213; Text26)
             {
-
             }
             column(PntStor_7__Countrs_Control1000000214; PntStor[7] / Countrs)
             {
@@ -255,11 +233,9 @@ report 50211 "Consolidated Voyage P&L2 test"
             }
             column(Text27_Control1000000215; Text27)
             {
-
             }
             column(PortDay_Control1000000216; PortDay)
             {
-
             }
             column(ETDCons; ETDCons)
             {
@@ -359,7 +335,7 @@ report 50211 "Consolidated Voyage P&L2 test"
                 Job2.SetRange(Job2.Vessel, Vessel);    //Find last voyage
                 if Job2.Next(-1) <> 0 then
                     ETA2 := Job2."Ending Date"
-                else begin
+                else
                     if Loc.Get(Vessel) then begin
                         if Loc."Begining ETA" <> 0D then
                             ETA2 := Loc."Begining ETA"
@@ -367,7 +343,6 @@ report 50211 "Consolidated Voyage P&L2 test"
                             ETA2 := 20030101D;
                     end else
                         ETA2 := 20030101D;
-                end;
 
                 if "Cycle Day (Manual)" <> 0 then
                     CycleDay := "Cycle Day (Manual)"
@@ -419,8 +394,6 @@ report 50211 "Consolidated Voyage P&L2 test"
                 CalcFields("Incentive (Hook Fish)", "Add/Ded. Crew");
                 DataStor[3] := "Net Incentive Actual" + "Incentive (Hook Fish)" + "Add/Ded. Crew";
                 //AAA Jan 2005 stop
-
-
 
                 a := 100;
                 RateSetUp.SetRange(RateSetUp."Starting Date", 0D, Jobss."Ending Date");
@@ -483,10 +456,9 @@ report 50211 "Consolidated Voyage P&L2 test"
 
                 CurrExc.SetRange(CurrExc."Currency Code", 'USD');
                 CurrExc.SetRange(CurrExc."Starting Date", 0D, ETA);
-                if CurrExc.Find('+') then begin
-                    CurrRate := CurrExc."Relational Exch. Rate Amount";
-                    //MESSAGE('EXCHANGE VALUE IS %1',CurrExc."Relational Exch. Rate Amount")
-                end
+                if CurrExc.Find('+') then
+                    CurrRate := CurrExc."Relational Exch. Rate Amount"
+                //MESSAGE('EXCHANGE VALUE IS %1',CurrExc."Relational Exch. Rate Amount")
                 else
                     CurrRate := 1;
                 PntStor[7] := CurrRate;
@@ -602,7 +574,7 @@ report 50211 "Consolidated Voyage P&L2 test"
                 begin
 
                     "Marked Rec" := true;
-                    Modify;
+                    Modify();
                 end;
             }
             dataitem(JbCatchMark; "Job catch Default")
@@ -649,7 +621,7 @@ report 50211 "Consolidated Voyage P&L2 test"
                 trigger OnAfterGetRecord()
                 begin
                     "Marked Rec" := true;
-                    Modify;
+                    Modify();
                 end;
             }
             dataitem(ValEntMark; "Value Entry")
@@ -696,7 +668,7 @@ report 50211 "Consolidated Voyage P&L2 test"
                 trigger OnAfterGetRecord()
                 begin
                     "Marked Rec" := true;
-                    Modify;
+                    Modify();
                 end;
             }
 
@@ -930,23 +902,21 @@ report 50211 "Consolidated Voyage P&L2 test"
                         PrcB := 0;
                     end;
 
-
                     /*
                     IF Itempr."Currency Code"<>'' THEN
                     BEGIN
                       PrdPrcB:=QtyB*PrcB;
                     END
                     ELSE  NairaValB:=PrdPrcB*CurrRate
-                    
+
                     BEGIN
                       NairaValB:=QtyB*PrcB;
                       PrdPrcB:=0;
                     END;
                     XVal[3]:=XVal[3]+NairaValB;
-                    
+
                     NairaValBTot:=NairaValBTot+NairaValB;
                     */  //#1
-
                 end;
 
                 trigger OnPreDataItem()
@@ -1131,7 +1101,6 @@ report 50211 "Consolidated Voyage P&L2 test"
 
     requestpage
     {
-
         layout
         {
             area(content)
@@ -1178,12 +1147,12 @@ report 50211 "Consolidated Voyage P&L2 test"
 
     trigger OnInitReport()
     begin
-        JobSetUp.Get;
+        JobSetUp.Get();
     end;
 
     trigger OnPostReport()
     begin
-        Window.Close;
+        Window.Close();
     end;
 
     trigger OnPreReport()
@@ -1203,18 +1172,11 @@ report 50211 "Consolidated Voyage P&L2 test"
 
     var
         LastFieldNo: Integer;
-        FooterPrinted: Boolean;
         TotalFor: Label 'Total';
-        "---": Integer;
         Job: Record Job;
         Job2: Record Job;
-        JobRange: Record Job;
-        JobETA: Record Job;
-        Itempr: Record "Item Ledger Entry";
         CurrExc: Record "Currency Exchange Rate";
         ProdPostGrp: Record "Gen. Product Posting Group";
-        InvtPostGrp: Record "Inventory Posting Group";
-        JobLedgerGrpSort: Record "Job Ledger Entry";
         JobSetUp: Record "Jobs Setup";
         RateSetUp: Record "P & L Rates";
         JBudLn: Record "Job Task";
@@ -1226,21 +1188,17 @@ report 50211 "Consolidated Voyage P&L2 test"
         "Job led": Record "Job Ledger Entry";
         "job cath": Record "Job catch Default";
         "Val Ent": Record "Value Entry";
-        Prc: Decimal;
         PrcB: Decimal;
         PrdPrc: Decimal;
         PrdPrcB: Decimal;
         PrdPrc2: Decimal;
         PrdPrcBX: Decimal;
         PrdPrc2X: Decimal;
-        PrdPrc2B: Decimal;
         CurrRate: Decimal;
-        NairaVal: Decimal;
         NairaValB: Decimal;
         NairaValBX: Decimal;
         NairaVal2: Decimal;
         NairaVal2X: Decimal;
-        NairaVal2B: Decimal;
         Qty: Decimal;
         QtyB: Decimal;
         QtyX: Decimal;
@@ -1250,8 +1208,6 @@ report 50211 "Consolidated Voyage P&L2 test"
         TotalForX: Label 'Total Exports';
         TotalFory: Label 'Total Local';
         Text03: Label 'Catch Incentive';
-        Text04: Label 'Salaries & Wages';
-        Text05: Label 'Travelling Expenses';
         Text06: Label 'License Fees';
         Text07: Label 'Insurance';
         Text08: Label 'Other Direct Cost';
@@ -1302,15 +1258,11 @@ report 50211 "Consolidated Voyage P&L2 test"
         UOMCd: Code[10];
         ItemVar: Code[10];
         "No.B": Code[10];
-        NOrder: Decimal;
         ValRate: Decimal;
         ValQty: Decimal;
         GLStr: array[25] of Decimal;
         "GLGPP Caption": array[25] of Code[10];
         CountGPPG: Integer;
-        CountG: Integer;
-        Flag: Boolean;
-        "----": Integer;
         "Period Start": Date;
         "Period End": Date;
         FishingCount: Code[30];
@@ -1321,10 +1273,7 @@ report 50211 "Consolidated Voyage P&L2 test"
         VoyageFilter: Code[1024];
         Countrs: Integer;
         TotalPrice: Decimal;
-        "------------------------------": Integer;
         Window: Dialog;
-        RecCount: Integer;
-        iCount: Integer;
         CurrReport_PAGENOCaptionLbl: Label 'Page';
         Control1000000167CaptionLbl: Label 'Label1000000167';
         Control1000000168CaptionLbl: Label 'Label1000000168';
@@ -1360,8 +1309,6 @@ report 50211 "Consolidated Voyage P&L2 test"
 
     [Scope('OnPrem')]
     procedure GetItPrice(JNos: Code[20]; Nos: Code[20]; PDays: Date): Decimal
-    var
-        Job3: Record Job;
     begin
         /*
         IF Job3.GET(JNos) THEN;
@@ -1379,7 +1326,6 @@ report 50211 "Consolidated Voyage P&L2 test"
          END;
         EXIT(Prc)
         */  //#1
-
     end;
 
     [Scope('OnPrem')]
@@ -1395,4 +1341,3 @@ report 50211 "Consolidated Voyage P&L2 test"
     begin
     end;
 }
-

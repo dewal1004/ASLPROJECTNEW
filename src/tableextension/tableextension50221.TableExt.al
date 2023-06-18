@@ -1,6 +1,5 @@
 tableextension 50221 "tableextension50221" extends "Incoming Document Attachment"
 {
-
     //Unsupported feature: Code Modification on "OnDelete".
 
     //trigger OnDelete()
@@ -27,4 +26,3 @@ tableextension 50221 "tableextension50221" extends "Incoming Document Attachment
     */
     //end;
 }
-

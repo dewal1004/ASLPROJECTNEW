@@ -2,7 +2,7 @@ table 60016 "Leave Categories NU*"
 {
     DrillDownPageID = "Leave Categories";
     LookupPageID = "Leave Categories";
-
+    Caption = 'Leave Categories NU*';
     fields
     {
         field(1; "Code"; Code[30])
@@ -39,6 +39,8 @@ table 60016 "Leave Categories NU*"
 
     fieldgroups
     {
+        fieldgroup(DropDown; Description)
+        {
+        }
     }
 }
-

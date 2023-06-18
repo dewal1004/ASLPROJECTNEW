@@ -7,7 +7,6 @@ report 50204 "Old Daily Points by Capt Rep"
     // SeaDaysTot:=0;SeaDayA:=0;
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/OldDailyPointsbyCaptRep.rdlc';
-
     Caption = 'New Daily Points Report';
 
     dataset
@@ -27,7 +26,7 @@ report 50204 "Old Daily Points by Capt Rep"
             column(FORMAT_TODAY_0_4_; Format(Today, 0, 4))
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(CurrReport_PAGENOCaption; CurrReport_PAGENOCaptionLbl)
@@ -47,14 +46,12 @@ report 50204 "Old Daily Points by Capt Rep"
                     JobsPointVal.SetRange(JobsPointVal.Status, 2);
                 end;
 
-                if RepDate <> 0D then begin
-                    JobsPointVal.SetFilter(JobsPointVal."Posting Date Filter", '%1', RepDate);
-                    //ResPointVal.SETFILTER(ResPointVal."Date Filter",'%1',RepDate);
-                end
-                else begin
+                if RepDate <> 0D then
+                    JobsPointVal.SetFilter(JobsPointVal."Posting Date Filter", '%1', RepDate)
+                //ResPointVal.SETFILTER(ResPointVal."Date Filter",'%1',RepDate);
+                else
                     JobsPointVal.SetFilter(JobsPointVal."Posting Date Filter", '%1..%2', 19800101D, Today);
-                    //ResPointVal.SETFILTER(ResPointVal."Date Filter",'%1..%2',010180D,TODAY);
-                end;
+                //ResPointVal.SETFILTER(ResPointVal."Date Filter",'%1..%2',010180D,TODAY);
 
                 //MESSAGE('Report Date is %1',RepDate);
                 CountK := 0;
@@ -64,7 +61,7 @@ report 50204 "Old Daily Points by Capt Rep"
                         if JobsPointVal.Points <> 0 then //MESSAGE('Val is %1',JobsPointVal.Points);
                             JobsPointVal."Points Sort Bay" := JobsPointVal.Points;
                         JobsPointVal.Modify();
-                    until JobsPointVal.Next = 0;
+                    until JobsPointVal.Next() = 0;
                 //COMMIT;
 
                 ResPointVal.SetRange(ResPointVal."Resource Group No.", 'PCAP');
@@ -73,7 +70,7 @@ report 50204 "Old Daily Points by Capt Rep"
                         ResPointVal.CalcFields(ResPointVal."Points Average");
                         ResPointVal."Points Average Sort Bay" := ResPointVal."Points Average";
                         ResPointVal.Modify();
-                    until ResPointVal.Next = 0;
+                    until ResPointVal.Next() = 0;
             end;
 
             trigger OnPreDataItem()
@@ -92,87 +89,66 @@ report 50204 "Old Daily Points by Capt Rep"
             }
             column(SeaDayA; SeaDayA)
             {
-
             }
             column(SeaTempA; SeaTempA)
             {
-
             }
             column(GTotPtsA_1_; GTotPtsA[1])
             {
-
             }
             column(GTotPtsA_2_; GTotPtsA[2])
             {
-
             }
             column(GTotPtsA_3_; GTotPtsA[3])
             {
-
             }
             column(GTotPtsA_4_; GTotPtsA[4])
             {
-
             }
             column(GTotPtsA_5_; GTotPtsA[5])
             {
-
             }
             column(GTotPtsA_6_; GTotPtsA[6])
             {
-
             }
             column(GTotPtsA_7_; GTotPtsA[7])
             {
-
             }
             column(GTotPtsA_8_; GTotPtsA[8])
             {
-
             }
             column(GTotPts_1_; GTotPts[1])
             {
-
             }
             column(GTotPts_2_; GTotPts[2])
             {
-
             }
             column(GTotPts_3_; GTotPts[3])
             {
-
             }
             column(GTotPts_4_; GTotPts[4])
             {
-
             }
             column(GTotPts_5_; GTotPts[5])
             {
-
             }
             column(GTotPts_6_; GTotPts[6])
             {
-
             }
             column(GTotPts_7_; GTotPts[7])
             {
-
             }
             column(GTotPts_8_; GTotPts[8])
             {
-
             }
             column(GSeaDaysTot; GSeaDaysTot)
             {
-
             }
             column(GTotPts_9_; GTotPts[9])
             {
-
             }
             column(GTotPtsA_9_; GTotPtsA[9])
             {
-
             }
             column(Sr__No_Caption; Sr__No_CaptionLbl)
             {
@@ -248,7 +224,7 @@ report 50204 "Old Daily Points by Capt Rep"
                 column(Consolidated_Daily_Points_Report_As_On_____FORMAT_Workdat_0_4__Control3; 'Consolidated Daily Points Report As On : ' + Format(Workdat, 0, 4))
                 {
                 }
-                column(CurrReport_PAGENO_Control4; CurrReport.PageNo)
+                column(CurrReport_PAGENO_Control4; CurrReport.PageNo())
                 {
                 }
                 column(USERID_Control6; UserId)
@@ -277,126 +253,96 @@ report 50204 "Old Daily Points by Capt Rep"
                 }
                 column(pts_1_; pts[1])
                 {
-
                 }
                 column(pts_3_; pts[3])
                 {
-
                 }
                 column(pts_2_; pts[2])
                 {
-
                 }
                 column(pts_7_; pts[7])
                 {
-
                 }
                 column(pts_8_; pts[8])
                 {
-
                 }
                 column(pts_9_; pts[9])
                 {
-
                 }
                 column(pts_4_; pts[4])
                 {
-
                 }
                 column(pts_5_; pts[5])
                 {
-
                 }
                 column(pts_6_; pts[6])
                 {
-
                 }
                 column(SeaDays; SeaDays)
                 {
                 }
                 column(TotPts_1_; TotPts[1])
                 {
-
                 }
                 column(TotPts_2_; TotPts[2])
                 {
-
                 }
                 column(TotPts_3_; TotPts[3])
                 {
-
                 }
                 column(TotPts_4_; TotPts[4])
                 {
-
                 }
                 column(TotPts_5_; TotPts[5])
                 {
-
                 }
                 column(TotPts_6_; TotPts[6])
                 {
-
                 }
                 column(TotPts_7_; TotPts[7])
                 {
-
                 }
                 column(TotPts_8_; TotPts[8])
                 {
-
                 }
                 column(TotPts_9_; TotPts[9])
                 {
-
                 }
                 column(TotPtsA_1_; TotPtsA[1])
                 {
-
                 }
                 column(TotPtsA_2_; TotPtsA[2])
                 {
-
                 }
                 column(TotPtsA_3_; TotPtsA[3])
                 {
-
                 }
                 column(TotPtsA_4_; TotPtsA[4])
                 {
-
                 }
                 column(TotPtsA_5_; TotPtsA[5])
                 {
-
                 }
                 column(TotPtsA_6_; TotPtsA[6])
                 {
-
                 }
                 column(TotPtsA_7_; TotPtsA[7])
                 {
-
                 }
                 column(TotPtsA_8_; TotPtsA[8])
                 {
-
                 }
                 column(TotPtsA_9_; TotPtsA[9])
                 {
-
                 }
                 column(SeaDaysTot; SeaDaysTot)
                 {
-
                 }
                 column(SeaTempA_Control1000000047; SeaTempA)
                 {
-
                 }
                 column(SeaDayA_Control1000000102; SeaDayA)
                 {
-
                 }
                 column(OperationCaption_Control1; OperationCaption_Control1Lbl)
                 {
@@ -504,7 +450,6 @@ report 50204 "Old Daily Points by Capt Rep"
                         SeArea := '';
                     end;
 
-
                     // Cumulative
                     //MESSAGE('Date is %1',Workdat);
                     job1.SetRange(job1."Posting Date Filter", 0D, Workdat);
@@ -528,7 +473,7 @@ report 50204 "Old Daily Points by Capt Rep"
                         pts[7] := pts[4] / SeaDays
                     end;
                     AvgPtSortBay := pts[9];
-                    Modify;
+                    Modify();
 
                     //Daily
                     job1.SetFilter(job1."Posting Date Filter", '=%1', Workdat);
@@ -577,7 +522,6 @@ report 50204 "Old Daily Points by Capt Rep"
                         k := k + 1;
                         if CountCum[k] <> 0 then TotPtsA[k] := TotPtsAvg[k] / CountCum[k] else TotPtsA[k] := 0;
                     until k = 9;
-
                 end;
 
                 trigger OnPreDataItem()
@@ -588,7 +532,7 @@ report 50204 "Old Daily Points by Capt Rep"
                         repeat
                             AvgPtSortBay := 0;
                             Modify();
-                        until Next = 0;
+                        until Next() = 0;
                     SetFilter(AvgPtSortBay, '');
                     if Find('-') then;
 
@@ -598,7 +542,6 @@ report 50204 "Old Daily Points by Capt Rep"
                     repeat I := I + 1; TotPts[I] := 0; CountCum[I] := 0; until I = 9;
                     SeaDaysTot := 0;
                     SeaDayA := 0;
-
 
                     if ((pts[1] = 0) and (pts[2] = 0) and (not NoCatch)) then
                         CurrReport.ShowOutput(false)
@@ -643,7 +586,6 @@ report 50204 "Old Daily Points by Capt Rep"
 
                     //Message('Total Sea Temp is %1, Counter is %2',SeaTemp,Countz);
 
-
                     k := 0;
                     repeat
                         k := k + 1;
@@ -665,7 +607,6 @@ report 50204 "Old Daily Points by Capt Rep"
 
     requestpage
     {
-
         layout
         {
         }
@@ -690,7 +631,6 @@ report 50204 "Old Daily Points by Capt Rep"
     var
         job1: Record Job;
         JobLdgr: Record "Job Ledger Entry";
-        DOTrec: Record "Day of Tide";
         JobsPointVal: Record Job;
         Resource: Record Resource;
         Loc: Record Location;
@@ -722,19 +662,10 @@ report 50204 "Old Daily Points by Capt Rep"
         DOT: Code[15];
         Workdat: Date;
         RepDate: Date;
-        "------------": Integer;
-        Country: Record "Country/Region";
-        job3: Record Job;
-        LastFieldNo: Integer;
-        FooterPrinted: Boolean;
-        FishCountry: Text[100];
         Medn: Decimal;
         MednVoy: array[2] of Code[10];
-        CountJ: Integer;
-        CountJx: Integer;
         CountK: Integer;
         CountL: Integer;
-        PntsAvg: Decimal;
         Historical: Boolean;
         ResPointVal: Record Resource;
         CurrReport_PAGENOCaptionLbl: Label 'Page';
@@ -784,4 +715,3 @@ report 50204 "Old Daily Points by Capt Rep"
         AVERAGECaption_Control1000000043Lbl: Label 'AVERAGE';
         TOTALCaptionLbl: Label 'TOTAL';
 }
-

@@ -300,7 +300,6 @@
 
 //     requestpage
 //     {
-
 //         layout
 //         {
 //             area(content)
@@ -439,7 +438,6 @@
 //             PayLinesRec.Insert;
 //         end;
 
-
 //         /*{Use The Following Lines to send to Employee Group Lines}
 
 //         IF EdgropRec.GET(EmpGrpLinesRec."Employee Group",EDToSend) THEN
@@ -522,7 +520,6 @@
 //                     SendLines(TaxED,NewTax-TaxYTD,0,0);
 //                   END;
 
-
 //         */
 
 //     end;
@@ -573,4 +570,3 @@
 
 //     end;
 // }
-

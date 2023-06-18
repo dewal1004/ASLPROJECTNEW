@@ -3,10 +3,9 @@ report 99123 "Modify Item BUOM"
     // NewBUOM
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/ModifyItemBUOM.rdlc';
-
     Permissions = TableData Item = rimd,
                   TableData "Item Ledger Entry" = rimd;
-
+    Caption = 'Modify Item BUOM';
     dataset
     {
         dataitem(Item; Item)
@@ -19,7 +18,7 @@ report 99123 "Modify Item BUOM"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -96,7 +95,7 @@ report 99123 "Modify Item BUOM"
                 begin
                     "Item Ledger Entry".SetRange("Item Ledger Entry"."Unit of Measure Code", xBUOM);
                     "Item Ledger Entry"."Unit of Measure Code" := NewBUOM;
-                    "Item Ledger Entry".Modify;
+                    "Item Ledger Entry".Modify();
                 end;
             }
 
@@ -107,9 +106,9 @@ report 99123 "Modify Item BUOM"
                 ITUOM."Item No." := Item."No.";
                 ITUOM.Code := NewBUOM;
                 ITUOM."Qty. per Unit of Measure" := 1;
-                if not ITUOM.Insert then ITUOM.Modify;
+                if not ITUOM.Insert() then ITUOM.Modify();
                 Item."Base Unit of Measure" := NewBUOM;
-                Item.Modify;
+                Item.Modify();
             end;
 
             trigger OnPreDataItem()
@@ -123,7 +122,6 @@ report 99123 "Modify Item BUOM"
 
     requestpage
     {
-
         layout
         {
         }
@@ -146,4 +144,3 @@ report 99123 "Modify Item BUOM"
         CurrReport_PAGENOCaptionLbl: Label 'Page';
         ProdOrderExistCaptionLbl: Label 'Label27';
 }
-

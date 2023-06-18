@@ -4,7 +4,7 @@ report 50022 "Periodic Stock Position-CODEWA"
     RDLCLayout = './src/reportrdlc/PeriodicStockPositionCODEWA.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
-
+    Caption = 'Periodic Stock Position-CODEWA';
     dataset
     {
         dataitem(Item; Item)
@@ -17,7 +17,7 @@ report 50022 "Periodic Stock Position-CODEWA"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -272,9 +272,9 @@ report 50022 "Periodic Stock Position-CODEWA"
                 CalcFields(Inventory, "Output Quantity");
 
                 if (Stk[1] = 0) and (Stk[2] = 0) and (Stk[3] = 0) and (Stk[4] = 0) and (Stk[5] = 0) and (Stk[6] = 0) and (Stk[7] = 0) and (Stk[8] = 0) and (Stk[9] = 0) then
-                    CurrReport.Skip;
+                    CurrReport.Skip();
 
-                if DaysOnly then begin
+                if DaysOnly then
                     if
                      (Stk[2] <> 0) or
                      (Stk[3] <> 0) or
@@ -284,7 +284,6 @@ report 50022 "Periodic Stock Position-CODEWA"
                      (Stk[9] <> 0) then
                         PrintLine := true else
                         PrintLine := false;
-                end;
                 DDD := Stk[1] + Stk[2] + Stk[3] - Stk[4] - Stk[5] + Stk[8] + (Stk[9]);
             end;
 
@@ -313,7 +312,6 @@ report 50022 "Periodic Stock Position-CODEWA"
 
     requestpage
     {
-
         layout
         {
             area(content)
@@ -345,7 +343,7 @@ report 50022 "Periodic Stock Position-CODEWA"
         begin
 
             if PeriodStartDate[5] = 0D then
-                PeriodStartDate[5] := CalcDate('<-1D>', WorkDate);
+                PeriodStartDate[5] := CalcDate('<-1D>', WorkDate());
             if PeriodLength = '' then
                 PeriodLength := Text001;
             DaysOnly := false;
@@ -380,25 +378,16 @@ report 50022 "Periodic Stock Position-CODEWA"
 
     var
         LastFieldNo: Integer;
-        FooterPrinted: Boolean;
         TotalFor: Label 'Total for ';
-        "---": Integer;
         ItemFilter: Text[250];
         PeriodStartDate: array[7] of Date;
         PeriodLength: Code[20];
-        i: Integer;
         PrintLine: Boolean;
         Text001: Label '1D';
-        Text002: Label 'Enter the ending date';
-        Text003: Label '0D';
         Stk: array[9] of Decimal;
         Text004: Label 'As at ';
         DaysOnly: Boolean;
-        "----": Integer;
-        Send2Excel: Boolean;
         TopPage: Boolean;
-        Xr: Integer;
-        Xc: Integer;
         Bold: Boolean;
         UnderLine: Boolean;
         Italic: Boolean;
@@ -414,12 +403,10 @@ report 50022 "Periodic Stock Position-CODEWA"
         Stk_1__CaptionLbl: Label 'Opening Stock';
         Stk_7__CaptionLbl: Label 'Inventory';
         Stk_8__CaptionLbl: Label 'Transfer Shipment';
-        EndingDate: Date;
         AAA: Decimal;
         BBB: Decimal;
         CCC: Decimal;
         DDD: Decimal;
-        TSL: Record "Transfer Shipment Line";
         Stk_9__CaptionLbl: Label 'Transfer Receipt';
 
     [Scope('OnPrem')]
@@ -433,7 +420,6 @@ report 50022 "Periodic Stock Position-CODEWA"
         IF Underline THEN
           xlSheet.Range(GetCol(Col)+FORMAT(Row)).Font.Underline := Underline;
         xlSheet.Range(GetCol(Col)+FORMAT(Row)).Font.Size := FontSize;*/
-
     end;
 
     [Scope('OnPrem')]
@@ -462,4 +448,3 @@ report 50022 "Periodic Stock Position-CODEWA"
         exit(xlColID);
     end;
 }
-

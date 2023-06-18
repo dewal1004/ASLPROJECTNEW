@@ -10,7 +10,7 @@ report 50101 "Customer Balance At Dates"
     RDLCLayout = './src/reportrdlc/CustomerBalanceAtDates.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
-
+    Caption = 'Customer Balance At Dates';
     dataset
     {
         dataitem(Customer; Customer)
@@ -27,7 +27,7 @@ report 50101 "Customer Balance At Dates"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -54,7 +54,7 @@ report 50101 "Customer Balance At Dates"
             column(Customer__Debit_Amount__LCY__; "Debit Amount (LCY)")
             {
             }
-            column(CurrReport_PAGENO_Control1000000056; CurrReport.PageNo)
+            column(CurrReport_PAGENO_Control1000000056; CurrReport.PageNo())
             {
             }
             column(USERID_Control1000000058; UserId)
@@ -126,7 +126,7 @@ report 50101 "Customer Balance At Dates"
 
             trigger OnAfterGetRecord()
             begin
-                if (Output = 1) then CurrReport.Break;
+                if (Output = 1) then CurrReport.Break();
 
                 SetRange("Date Filter", 0D, ToDate);
                 CalcFields("Net Change (LCY)");
@@ -139,7 +139,7 @@ report 50101 "Customer Balance At Dates"
                 SetRange("Date Filter", FrDate, ToDate);
                 CurrReport.CreateTotals(BalAtDat, BalB4Per, "Debit Amount (LCY)", "Credit Amount (LCY)");
 
-                if (("Net Change (LCY)" = 0) and (not ShowZero)) then CurrReport.Skip;
+                if (("Net Change (LCY)" = 0) and (not ShowZero)) then CurrReport.Skip();
             end;
 
             trigger OnPreDataItem()
@@ -150,7 +150,7 @@ report 50101 "Customer Balance At Dates"
                     FrDate := GetRangeMin(Customer."Date Filter");
                 end;
                 if ToDate = 0D then ToDate := Today;
-                if Output <> 1 then CurrReport.Skip;
+                if Output <> 1 then CurrReport.Skip();
             end;
         }
         dataitem(Vendor; Vendor)
@@ -159,7 +159,7 @@ report 50101 "Customer Balance At Dates"
             column(FORMAT_TODAY_0_4__Control1000000044; Format(Today, 0, 4))
             {
             }
-            column(CurrReport_PAGENO_Control1000000045; CurrReport.PageNo)
+            column(CurrReport_PAGENO_Control1000000045; CurrReport.PageNo())
             {
             }
             column(USERID_Control1000000047; UserId)
@@ -186,7 +186,7 @@ report 50101 "Customer Balance At Dates"
             column(Vendor__No__; "No.")
             {
             }
-            column(CurrReport_PAGENO_Control1000000060; CurrReport.PageNo)
+            column(CurrReport_PAGENO_Control1000000060; CurrReport.PageNo())
             {
             }
             column(USERID_Control1000000061; UserId)
@@ -255,7 +255,7 @@ report 50101 "Customer Balance At Dates"
 
             trigger OnAfterGetRecord()
             begin
-                if (Output = 0) then CurrReport.Break;
+                if (Output = 0) then CurrReport.Break();
 
                 SetRange("Date Filter", 0D, ToDate);
                 CalcFields("Net Change (LCY)");
@@ -268,7 +268,7 @@ report 50101 "Customer Balance At Dates"
                 SetRange("Date Filter", FrDate, ToDate);
                 CurrReport.CreateTotals(BalAtDat, BalB4Per, "Debit Amount (LCY)", "Credit Amount (LCY)");
 
-                if (("Net Change (LCY)" = 0) and (not ShowZero)) then CurrReport.Skip;
+                if (("Net Change (LCY)" = 0) and (not ShowZero)) then CurrReport.Skip();
             end;
 
             trigger OnPreDataItem()
@@ -285,7 +285,6 @@ report 50101 "Customer Balance At Dates"
 
     requestpage
     {
-
         layout
         {
         }
@@ -301,10 +300,8 @@ report 50101 "Customer Balance At Dates"
 
     var
         LastFieldNo: Integer;
-        FooterPrinted: Boolean;
         ToDate: Date;
         ShowZero: Boolean;
-        "-----------": Integer;
         FrDate: Date;
         BalAtDat: Decimal;
         BalB4Per: Decimal;
@@ -333,4 +330,3 @@ report 50101 "Customer Balance At Dates"
         Opening_Balance_Caption_Control1000000040Lbl: Label 'Opening Balance ';
         CurrReport_PAGENO_Control1000000060CaptionLbl: Label 'Page';
 }
-

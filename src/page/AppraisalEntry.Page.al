@@ -21,7 +21,7 @@ page 50028 "Appraisal Entry"
                     trigger OnAssistEdit()
                     begin
                         if Rec.AssistEdit(xRec) then
-                            CurrPage.Update;
+                            CurrPage.Update();
                     end;
                 }
                 field("Appraisal Selection"; Rec."Appraisal Selection")
@@ -35,7 +35,7 @@ page 50028 "Appraisal Entry"
 
                     trigger OnValidate()
                     begin
-                        SelltoCustomerNoOnAfterValidat;
+                        SelltoCustomerNoOnAfterValidat();
                     end;
                 }
                 field("Sell-to Customer Name"; Rec."Sell-to Customer Name")
@@ -85,7 +85,7 @@ page 50028 "Appraisal Entry"
 
                     trigger OnValidate()
                     begin
-                        ShortcutDimension1CodeOnAfterV;
+                        ShortcutDimension1CodeOnAfterV();
                     end;
                 }
                 field("Shortcut Dimension 2 Code"; Rec."Shortcut Dimension 2 Code")
@@ -94,7 +94,7 @@ page 50028 "Appraisal Entry"
 
                     trigger OnValidate()
                     begin
-                        ShortcutDimension2CodeOnAfterV;
+                        ShortcutDimension2CodeOnAfterV();
                     end;
                 }
                 field(Status; Rec.Status)
@@ -456,10 +456,10 @@ page 50028 "Appraisal Entry"
 
                     trigger OnAction()
                     begin
-                        SalesSetup.Get;
+                        SalesSetup.Get();
                         if SalesSetup."Calc. Inv. Discount" then begin
-                            CurrPage.SalesLines.PAGE.CalcInvDisc;
-                            Commit
+                            CurrPage.SalesLines.PAGE.CalcInvDisc();
+                            Commit()
                         end;
                         PAGE.RunModal(PAGE::"Sales Order Statistics", Rec);
                     end;
@@ -587,7 +587,7 @@ page 50028 "Appraisal Entry"
                     trigger OnAction()
                     begin
                         CopySalesDoc.SetSalesHeader(Rec);
-                        CopySalesDoc.RunModal;
+                        CopySalesDoc.RunModal();
                         Clear(CopySalesDoc);
                     end;
                 }
@@ -625,10 +625,10 @@ page 50028 "Appraisal Entry"
 
                     trigger OnAction()
                     begin
-                        if not UpdateAllowed then
+                        if not UpdateAllowed() then
                             exit;
 
-                        CurrPage.SalesLines.PAGE.ShowNonstockItems;
+                        CurrPage.SalesLines.PAGE.ShowNonstockItems();
                     end;
                 }
                 action("Order &Tracking")
@@ -653,7 +653,7 @@ page 50028 "Appraisal Entry"
                         OrderPromising: Page "Order Promising Lines";
                     begin
                         OrderPromising.SetSalesHeader(Rec);
-                        OrderPromising.RunModal;
+                        OrderPromising.RunModal();
                     end;
                 }
                 group(Action148)
@@ -732,16 +732,15 @@ page 50028 "Appraisal Entry"
                     trigger OnAction()
                     begin
                         //Univision Start 010202 Yusuf
-                        if Rec."Appraisal Selection" = 1 then begin
+                        if Rec."Appraisal Selection" = 1 then
                             if applicant.Get(Rec."Sell-to Customer No.") then
                             //SETRANGE("No.",applicant."No.");
                             begin
                                 applicant."First Interview Result" := Rec."Skill Score";
                                 applicant."First Interview Maximum" := Rec."Skill Total";
                                 applicant."First Interview Date" := Rec."Posting Date";
-                                applicant.Modify;
+                                applicant.Modify();
                             end;
-                        end;
                         //Univision End 010202 Yusuf
                     end;
                 }
@@ -804,8 +803,8 @@ page 50028 "Appraisal Entry"
 
     trigger OnDeleteRecord(): Boolean
     begin
-        CurrPage.SaveRecord;
-        exit(Rec.ConfirmDeletion);
+        CurrPage.SaveRecord();
+        exit(Rec.ConfirmDeletion());
     end;
 
     trigger OnNewRecord(BelowxRec: Boolean)
@@ -821,7 +820,7 @@ page 50028 "Appraisal Entry"
             Rec.FilterGroup(0);
         end;
 
-        Rec.SetRange("Date Filter", 0D, WorkDate - 1);
+        Rec.SetRange("Date Filter", 0D, WorkDate() - 1);
         //OnActivatePage;  #1
     end;
 
@@ -864,7 +863,7 @@ page 50028 "Appraisal Entry"
 
     local procedure SelltoCustomerNoOnAfterValidat()
     begin
-        CurrPage.Update;
+        CurrPage.Update();
     end;
 
     local procedure ShortcutDimension2CodeOnAfterV()
@@ -911,4 +910,3 @@ page 50028 "Appraisal Entry"
         // Univision Finish 31/10/01 Yusuf
     end;
 }
-

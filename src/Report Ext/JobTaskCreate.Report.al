@@ -1,7 +1,7 @@
 report 90051 "JobTask Create"
 {
     ProcessingOnly = true;
-
+    Caption = 'JobTask Create';
     dataset
     {
         dataitem(Job; Job)
@@ -11,9 +11,9 @@ report 90051 "JobTask Create"
             trigger OnAfterGetRecord()
             begin
                 Jobtask.SetRange(Jobtask."Job No.", JobNo);
-                if Jobtask.FindFirst then
+                if Jobtask.FindFirst() then
                     if Jobtask."Job Task No." <> '' then begin
-                        Jobtask.Init;
+                        Jobtask.Init();
                         Jobtask."Job No." := JobNo;
                         Jobtask."Job Task No." := 'TEMP';
                         Jobtask.Description := Job.Description;
@@ -23,14 +23,13 @@ report 90051 "JobTask Create"
                         Jobtask."Job Posting Group" := 'OPERATION';
                         Jobtask.Insert(true);
                     end else
-                        CurrReport.Skip;
+                        CurrReport.Skip();
             end;
         }
     }
 
     requestpage
     {
-
         layout
         {
         }
@@ -54,4 +53,3 @@ report 90051 "JobTask Create"
         JobNo := JobNo1;
     end;
 }
-

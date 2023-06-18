@@ -9,4 +9,3 @@ codeunit 50034 "ItemCostManagementSubscriber"
         Item."Last Direct Cost2" := Item."Last Direct Cost";
     end;
 }
-

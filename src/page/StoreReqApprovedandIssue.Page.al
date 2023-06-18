@@ -13,7 +13,7 @@ page 50065 "Store Req.  Approved and Issue"
                             "Final Approved" = CONST(Approved),
                             "Issued Captured" = CONST(true),
                             Processed = CONST(true));
-
+    Caption = 'Store Req.  Approved and Issue';
     layout
     {
         area(content)
@@ -84,4 +84,3 @@ page 50065 "Store Req.  Approved and Issue"
     {
     }
 }
-

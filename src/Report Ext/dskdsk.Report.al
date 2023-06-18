@@ -2,7 +2,7 @@ report 99125 "dskdsk"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/dskdsk.rdlc';
-
+    Caption = 'dskdsk';
     dataset
     {
         dataitem(Job; Job)
@@ -14,7 +14,7 @@ report 99125 "dskdsk"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -67,7 +67,6 @@ report 99125 "dskdsk"
 
     requestpage
     {
-
         layout
         {
         }
@@ -85,4 +84,3 @@ report 99125 "dskdsk"
         JobCaptionLbl: Label 'Job';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
 }
-

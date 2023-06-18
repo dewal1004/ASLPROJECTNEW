@@ -2,7 +2,7 @@ table 54002 "Approval Tracking NU*"
 {
     DrillDownPageID = "Purchase Order Subform Local";
     LookupPageID = "Purchase Order Subform Local";
-
+    Caption = 'Approval Tracking NU*';
     fields
     {
         field(1; "No."; Integer)
@@ -60,4 +60,3 @@ table 54002 "Approval Tracking NU*"
     {
     }
 }
-

@@ -1,6 +1,5 @@
 pageextension 50312 "pageextension50312" extends "Order Planning"
 {
-
     //Unsupported feature: Code Modification on "ShowDemandOrder(PROCEDURE 15)".
 
     //procedure ShowDemandOrder();
@@ -33,4 +32,3 @@ pageextension 50312 "pageextension50312" extends "Order Planning"
     */
     //end;
 }
-

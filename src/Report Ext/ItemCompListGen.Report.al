@@ -3,8 +3,7 @@ report 90998 "Item Comp List Gen"
     // Caught Item category= C
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/ItemCompListGen.rdlc';
-
-
+    Caption = 'Item Comp List Gen';
     dataset
     {
         dataitem("Unit of Measure"; "Unit of Measure")
@@ -22,7 +21,7 @@ report 90998 "Item Comp List Gen"
                 column(COMPANYNAME; CompanyName)
                 {
                 }
-                column(CurrReport_PAGENO; CurrReport.PageNo)
+                column(CurrReport_PAGENO; CurrReport.PageNo())
                 {
                 }
                 column(USERID; UserId)
@@ -50,7 +49,7 @@ report 90998 "Item Comp List Gen"
                 trigger OnAfterGetRecord()
                 begin
                     //Item.Class:='C';
-                    ItemsList.Init;
+                    ItemsList.Init();
                     ItemsList := Item;
                     ItemsList."No." := Item."No." + "Unit of Measure"."Catch Code" + 'P';
                     if ItemsList.Description = '_' then
@@ -58,14 +57,14 @@ report 90998 "Item Comp List Gen"
                         ItemsList.Description := Item.Description + ' ' + "Unit of Measure".Code + ' ' + 'P';
                     ItemsList."Description 2" := "Unit of Measure".Code + '-' + 'Prim 7 Star';
                     //ItemsList.Class:='S';  //Sea  Catches//@mahendar
-                    if not ItemsList.Insert then ItemsList.Modify;
+                    if not ItemsList.Insert() then ItemsList.Modify();
                     ValidateItemUOM(ItemsList."No.");
                     ItemsList."No." := Item."No." + "Unit of Measure"."Catch Code" + 'K';
                     if ItemsList.Description = '_' then
                         ItemsList.Description := ItemsList.Description else
                         ItemsList.Description := Item.Description + ' ' + "Unit of Measure".Code + ' ' + 'K';
                     ItemsList."Description 2" := "Unit of Measure".Code + '-' + 'Krustasud';
-                    if not ItemsList.Insert then ItemsList.Modify;
+                    if not ItemsList.Insert() then ItemsList.Modify();
                     ValidateItemUOM(ItemsList."No.");
                 end;
             }
@@ -74,7 +73,6 @@ report 90998 "Item Comp List Gen"
 
     requestpage
     {
-
         layout
         {
         }
@@ -97,11 +95,10 @@ report 90998 "Item Comp List Gen"
     [Scope('OnPrem')]
     procedure ValidateItemUOM(Itemsno: Code[10])
     begin
-        ItemUOM.Init;
+        ItemUOM.Init();
         ItemUOM."Item No." := Itemsno;
         ItemUOM.Code := 'KG';
         ItemUOM."Qty. per Unit of Measure" := 1;
-        if not ItemUOM.Insert then ItemUOM.Modify;
+        if not ItemUOM.Insert() then ItemUOM.Modify();
     end;
 }
-

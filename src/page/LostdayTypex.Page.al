@@ -2,7 +2,7 @@ page 50076 "Lost day Typex"
 {
     PageType = Card;
     SourceTable = "Lost Days";
-
+    Caption = 'Lost day Typex';
     layout
     {
         area(content)
@@ -47,4 +47,3 @@ page 50076 "Lost day Typex"
         }
     }
 }
-

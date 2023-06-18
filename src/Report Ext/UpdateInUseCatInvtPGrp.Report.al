@@ -2,7 +2,7 @@ report 90992 "Update InUse/Cat Invt.PGrp"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/UpdateInUseCatInvtPGrp.rdlc';
-
+    Caption = 'Update InUse/Cat Invt.PGrp';
     dataset
     {
         dataitem("Inventory Posting Group"; "Inventory Posting Group")
@@ -14,7 +14,7 @@ report 90992 "Update InUse/Cat Invt.PGrp"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -50,14 +50,13 @@ report 90992 "Update InUse/Cat Invt.PGrp"
                 "Inventory Posting Group"."In Use" := true;
                 if ItCat.Get("Inventory Posting Group".Category) then
                     // "Inventory Posting Group".Category:=ItCat."Sort Code";//@MAHENDAR
-                    "Inventory Posting Group".Modify;
+                    "Inventory Posting Group".Modify();
             end;
         }
     }
 
     requestpage
     {
-
         layout
         {
         }
@@ -76,4 +75,3 @@ report 90992 "Update InUse/Cat Invt.PGrp"
         Inventory_Posting_GroupCaptionLbl: Label 'Inventory Posting Group';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
 }
-

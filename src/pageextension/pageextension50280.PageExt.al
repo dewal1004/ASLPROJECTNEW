@@ -27,18 +27,13 @@ pageextension 50280 "pageextension50280" extends "Sales Invoice Subform"
         }
         modify("Tax Category")
         {
-
             //Unsupported feature: Property Modification (Level) on ""Tax Category"(Control 19)".
-
 
             //Unsupported feature: Property Modification (ControlType) on ""Tax Category"(Control 19)".
 
-
             //Unsupported feature: Property Modification (Name) on ""Tax Category"(Control 19)".
 
-
             //Unsupported feature: Property Insertion (GroupType) on ""Tax Category"(Control 19)".
-
 
             //Unsupported feature: Property Insertion (InstructionalTextML) on ""Tax Category"(Control 19)".
 
@@ -69,29 +64,23 @@ pageextension 50280 "pageextension50280" extends "Sales Invoice Subform"
         }
         modify("Total Amount Excl. VAT")
         {
-
             //Unsupported feature: Property Modification (Name) on ""Total Amount Excl. VAT"(Control 13)".
 
             Caption = 'Total VAT';
 
             //Unsupported feature: Property Modification (SourceExpr) on ""Total Amount Excl. VAT"(Control 13)".
 
-
             //Unsupported feature: Property Insertion (ImplicitType) on ""Total Amount Excl. VAT"(Control 13)".
-
         }
         modify("Total VAT Amount")
         {
-
             //Unsupported feature: Property Modification (Name) on ""Total VAT Amount"(Control 11)".
 
             Caption = 'Total Amount Excl. VAT';
 
             //Unsupported feature: Property Modification (SourceExpr) on ""Total VAT Amount"(Control 11)".
 
-
             //Unsupported feature: Property Insertion (DrillDown) on ""Total VAT Amount"(Control 11)".
-
         }
         modify("Total Amount Incl. VAT")
         {
@@ -149,7 +138,7 @@ pageextension 50280 "pageextension50280" extends "Sales Invoice Subform"
 
             trigger OnafterValidate()
             begin
-                RedistributeTotalsOnAfterValidate;
+                RedistributeTotalsOnAfterValidate();
             end;
         }
         Modify("Return Reason Code")
@@ -163,8 +152,8 @@ pageextension 50280 "pageextension50280" extends "Sales Invoice Subform"
 
             trigger OnafterValidate()
             begin
-                QuantityOnAfterValidate;
-                RedistributeTotalsOnAfterValidate;
+                QuantityOnAfterValidate();
+                RedistributeTotalsOnAfterValidate();
             end;
         }
 
@@ -197,18 +186,10 @@ pageextension 50280 "pageextension50280" extends "Sales Invoice Subform"
         // moveafter(Amount; "Job No.")
     }
 
-
     var
         SalesHeader: Record "Sales Header";
-        customerRec: Record Customer;
-        EditableCon: Boolean;
-        RefreshMessageText: Text;
-        [InDataSet]
-        ItemPanelVisible: Boolean;
-        TotalAmountStyle: Text;
         RefreshMessageEnabled: Boolean;
         TypeChosen: Boolean;
-
 
     //Unsupported feature: Code Modification on "OnAfterGetCurrRecord".
 
@@ -229,7 +210,6 @@ pageextension 50280 "pageextension50280" extends "Sales Invoice Subform"
     #1..4
     */
     //end;
-
 
     //Unsupported feature: Code Modification on "OnInit".
 
@@ -254,29 +234,28 @@ pageextension 50280 "pageextension50280" extends "Sales Invoice Subform"
 
     local procedure RedistributeTotalsOnAfterValidate()
     begin
-        CurrPage.SaveRecord;
+        CurrPage.SaveRecord();
         SalesHeader.Get(Rec."Document Type", Rec."Document No.");
         //***P if DocumentTotals.SalesCheckNumberOfLinesLimit(SalesHeader) then
         //     DocumentTotals.SalesRedistributeInvoiceDiscountAmounts(Rec, VATAmount, TotalSalesLine);
-        CurrPage.Update;
+        CurrPage.Update();
     end;
 
     local procedure QuantityOnAfterValidate()
     begin
         if Rec.Reserve = Rec.Reserve::Always then begin
-            CurrPage.SaveRecord;
-            Rec.AutoReserve;
+            CurrPage.SaveRecord();
+            Rec.AutoReserve();
         end;
     end;
 
     local procedure UnitofMeasureCodeOnAfterValida()
     begin
         if Rec.Reserve = Rec.Reserve::Always then begin
-            CurrPage.SaveRecord;
-            Rec.AutoReserve;
+            CurrPage.SaveRecord();
+            Rec.AutoReserve();
         end;
     end;
-
 }
 
 //Unsupported feature: Property Modification (Name) on ""Line Amount"(Control 64)".
@@ -298,8 +277,6 @@ pageextension 50280 "pageextension50280" extends "Sales Invoice Subform"
 //Unsupported feature: Property Modification (SourceExpr) on ""Line Discount %"(Control 16)".
 //Unsupported feature: Property Insertion (AutoFormatType) on ""Line Discount %"(Control 16)"
 //Unsupported feature: Property Insertion (AutoFormatExpr) on ""Line Discount %"(Control 16)".
-
-
 
 // {
 //     //Unsupported feature: Property Modification (ControlType) on ""VAT Prod. Posting Group"(Control 14)".
@@ -348,38 +325,27 @@ RedistributeTotalsOnAfterValidate;
 */
 //end;
 
-
-
 //Unsupported feature: Property Modification (Name) on ""Job Contract Entry No."(Control 60)".
 //Unsupported feature: Property Modification (SourceExpr) on ""Job Contract Entry No."(Control 60)".
 //Unsupported feature: Property Modification (ImplicitType) on ""Job Contract Entry No."(Control 60)".
 //Unsupported feature: Property Modification (Name) on ""Blanket Order Line No."(Control 56)".
 
-
 //Unsupported feature: Property Modification (SourceExpr) on ""Blanket Order Line No."(Control 56)".
-
 
 //Unsupported feature: Property Modification (ImplicitType) on ""Blanket Order Line No."(Control 56)".
 
-
 //Unsupported feature: Property Modification (Name) on ""Duplicate in Depreciation Book"(Control 66)".
 
-
 //Unsupported feature: Property Modification (SourceExpr) on ""Duplicate in Depreciation Book"(Control 66)".
-
 
 //Unsupported feature: Property Modification (ImplicitType) on ""Duplicate in Depreciation Book"(Control 66)".
 //Unsupported feature: Property Modification (Name) on ""Deferral Code"(Control 21)".
 
-
 //Unsupported feature: Property Modification (SourceExpr) on ""Deferral Code"(Control 21)".
-
 
 //Unsupported feature: Property Modification (ImplicitType) on ""Deferral Code"(Control 21)".
 
-
 //Unsupported feature: Property Modification (Name) on ""Shortcut Dimension 1 Code"(Control 20)".
-
 
 //Unsupported feature: Property Modification (SourceExpr) on ""Shortcut Dimension 1 Code"(Control 20)".
 // modify("IC Partner Ref. Type")
@@ -395,15 +361,11 @@ RedistributeTotalsOnAfterValidate;
 
 //Unsupported feature: Property Deletion (ToolTipML) on ""VAT Prod. Posting Group"(Control 14)".
 
-
 //Unsupported feature: Property Deletion (ApplicationArea) on ""VAT Prod. Posting Group"(Control 14)".
-
 
 //Unsupported feature: Property Deletion (SourceExpr) on ""VAT Prod. Posting Group"(Control 14)".
 
-
 //Unsupported feature: Property Deletion (Visible) on ""VAT Prod. Posting Group"(Control 14)".
-
 
 //Unsupported feature: Property Deletion (ImplicitType) on ""VAT Prod. Posting Group"(Control 14)".
 
@@ -415,9 +377,7 @@ RedistributeTotalsOnAfterValidate;
 //Unsupported feature: Property Deletion (BlankZero) on "Quantity(Control 8)".
 //Unsupported feature: Property Deletion (Visible) on ""Unit of Measure"(Control 10)".
 
-
 //Unsupported feature: Property Deletion (BlankZero) on ""Unit Price"(Control 12)".
-
 
 //Unsupported feature: Code Insertion (VariableCollection) on ""Invoice Discount Amount"(Control 16).OnAfterValidate".
 
@@ -430,17 +390,11 @@ RedistributeTotalsOnAfterValidate;
 
 //Unsupported feature: Property Deletion (BlankZero) on ""Line Discount %"(Control 16)".
 
-
 //Unsupported feature: Property Deletion (ImplicitType) on ""Line Discount %"(Control 16)".
-
 
 //Unsupported feature: Property Deletion (BlankZero) on ""Line Amount"(Control 64)".
 
-
-
-
 //Unsupported feature: Property Deletion (Visible) on ""Appl.-to Item Entry"(Control 48)".
-
 
 //Unsupported feature: Property Deletion (Enabled) on ""Deferral Code"(Control 21)".
 
@@ -459,6 +413,5 @@ CurrPage.Update(false);
 //end;
 
 //Unsupported feature: Property Deletion (CaptionML) on ""Total Amount Incl. VAT"(Control 9)".
-
 
 //Unsupported feature: Property Deletion (AutoFormatType) on ""Total Amount Incl. VAT"(Control 9)".

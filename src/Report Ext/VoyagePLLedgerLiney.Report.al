@@ -3,8 +3,7 @@ report 70151 "Voyage P&L Ledger Liney"
     // "Job Ledger Entry"."Total Price"
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/VoyagePLLedgerLiney.rdlc';
-
-
+    Caption = 'Voyage P&L Ledger Liney';
     dataset
     {
         dataitem("Job Ledger Entry"; "Job Ledger Entry")
@@ -17,7 +16,7 @@ report 70151 "Voyage P&L Ledger Liney"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -165,7 +164,6 @@ report 70151 "Voyage P&L Ledger Liney"
                 IF Itempr.FIND('+') THEN Prc:=Itempr."Unit Price" ELSE Prc:=0;
                 PrdPrc:=Qty*Prc;
                   */  //#1
-
             end;
 
             trigger OnPreDataItem()
@@ -174,7 +172,6 @@ report 70151 "Voyage P&L Ledger Liney"
                 LastFieldNo := FIELDNO("Work Type Code");
                 CurrReport.CREATETOTALS(PrdPrc,NairaVal,Qty);
                 */  //#1
-
             end;
         }
         dataitem("Job Ledger Entry Rep"; "Job Ledger Entry")
@@ -238,7 +235,6 @@ report 70151 "Voyage P&L Ledger Liney"
                 IF Itempr.FIND('+') THEN Prc:=Itempr."Unit Price" ELSE Prc:=0;
                 PrdPrc2:=Qty*Prc;
                   */  //#1
-
             end;
 
             trigger OnPreDataItem()
@@ -248,7 +244,6 @@ report 70151 "Voyage P&L Ledger Liney"
                 LastFieldNo := FIELDNO(GroupSort);
                 CurrReport.CREATETOTALS(PrdPrc2,NairaVal2,Qty);
                    */  //#1
-
             end;
         }
         dataitem("Job Ledger Entry2"; "Job Ledger Entry")
@@ -403,7 +398,6 @@ report 70151 "Voyage P&L Ledger Liney"
 
     requestpage
     {
-
         layout
         {
         }
@@ -418,25 +412,10 @@ report 70151 "Voyage P&L Ledger Liney"
     }
 
     var
-        LastFieldNo: Integer;
-        FooterPrinted: Boolean;
         TotalFor: Label 'Total';
-        "---": Integer;
         Job: Record Job;
-        Job2: Record Job;
-        Itempr: Record "Item Ledger Entry";
-        CurrExc: Record "Currency Exchange Rate";
-        ProdPostGrp: Record "Gen. Product Posting Group";
-        InvtPostGrp: Record "Inventory Posting Group";
-        JobSetUp: Record "Jobs Setup";
-        JBudLn: Record "Job Ledger Entry";
-        Employee: Record Employee;
-        Loc: Record Location;
-        Coutry: Record "Country/Region";
-        Prc: Decimal;
         PrdPrc: Decimal;
         PrdPrc2: Decimal;
-        CurrRate: Decimal;
         NairaVal: Decimal;
         NairaVal2: Decimal;
         GPPGDesc: Text[30];
@@ -450,7 +429,6 @@ report 70151 "Voyage P&L Ledger Liney"
         Text09: Label 'Total Direct Expenses';
         ETD: Date;
         ETA: Date;
-        ETA2: Date;
         CycleDay: Decimal;
         PortDay: Decimal;
         a: Decimal;
@@ -467,8 +445,6 @@ report 70151 "Voyage P&L Ledger Liney"
         TotDirExp: Decimal;
         TotIndirExp: Decimal;
         GrossPerct: Decimal;
-        NetProfPerct: Decimal;
-        TotPrice: Decimal;
         NetProfit: Decimal;
         Qty: Decimal;
         ExpTonnage: Decimal;
@@ -489,4 +465,3 @@ report 70151 "Voyage P&L Ledger Liney"
         EmptyStringCaption_Control1000000083Lbl: Label '$';
         N_Caption_Control1000000084Lbl: Label '=N=';
 }
-

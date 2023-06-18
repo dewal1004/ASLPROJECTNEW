@@ -7,6 +7,7 @@ report 50135 "Points For Period"
     // -> new report
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/PointsForPeriod.rdlc';
+    Caption = 'Points For Period';
     dataset
     {
         dataitem("Job Ledger Entry"; "Job Ledger Entry")
@@ -18,7 +19,7 @@ report 50135 "Points For Period"
             column(COMPANYNAME; Companyinfo.Name)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; "Job Ledger Entry"."User ID")
@@ -119,26 +120,14 @@ report 50135 "Points For Period"
 
     trigger OnPreReport()
     begin
-        Companyinfo.Get;
+        Companyinfo.Get();
     end;
 
     var
         Companyinfo: Record "Company Information";
-        LastFieldNo: Integer;
-        FooterPrinted: Boolean;
-        TotalFor: Label 'Total for ';
-        DaysCount: Integer;
         TotDaysCount: Integer;
-        TotalDaysCount: Integer;
         TotalDaysCount2: Integer;
-        Window: Dialog;
-        // xlApp: Automation BC;  //***Refactor
-        // xlBook: Automation BC;
-        // xlSheet: Automation BC;
-        Send2Excel: Boolean;
         TopPage: Boolean;
-        Xr: Integer;
-        Xc: Integer;
         Bold: Boolean;
         UnderLine: Boolean;
         Italic: Boolean;
@@ -153,4 +142,3 @@ report 50135 "Points For Period"
         Job_No_CaptionLbl: Label 'Job No.';
         Grand_TotalCaptionLbl: Label 'Grand Total';
 }
-

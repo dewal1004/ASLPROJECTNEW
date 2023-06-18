@@ -2,7 +2,7 @@ table 50016 "Class Information"
 {
     DrillDownPageID = "Class Information List";
     LookupPageID = "Class Information List";
-
+    Caption = 'Class Information';
     fields
     {
         field(1; "Code"; Code[10])
@@ -23,6 +23,8 @@ table 50016 "Class Information"
 
     fieldgroups
     {
+        fieldgroup(DropDown; Description)
+        {
+        }
     }
 }
-

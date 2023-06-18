@@ -2,9 +2,7 @@ pageextension 50296 "pageextension50296" extends "Application Worksheet"
 {
     actions
     {
-
         //Unsupported feature: Property Modification (Name) on "UnappliedEntries(Action 16)".
-
     }
 
     //Unsupported feature: Code Insertion on "OnClosePage".
@@ -16,7 +14,6 @@ pageextension 50296 "pageextension50296" extends "Application Worksheet"
     Reapplyall;
     */
     //end;
-
 
     //Unsupported feature: Code Modification on "OnQueryClosePage".
 
@@ -48,7 +45,6 @@ pageextension 50296 "pageextension50296" extends "Application Worksheet"
     */
     //end;
 
-
     //Unsupported feature: Code Modification on "Reapplyall(PROCEDURE 1)".
 
     //procedure Reapplyall();
@@ -69,4 +65,3 @@ pageextension 50296 "pageextension50296" extends "Application Worksheet"
     */
     //end;
 }
-

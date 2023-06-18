@@ -2,7 +2,7 @@ report 50100 "Staff Login Count"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/StaffLoginCount.rdlc';
-
+    Caption = 'Staff Login Count';
     dataset
     {
         dataitem(Employee; Employee)
@@ -14,7 +14,7 @@ report 50100 "Staff Login Count"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -73,7 +73,6 @@ report 50100 "Staff Login Count"
                     /*i:=i+1;
                     AIN[i]:= Rate;
                                   */
-
                 end;
 
                 trigger OnPreDataItem()
@@ -127,7 +126,6 @@ report 50100 "Staff Login Count"
 
     requestpage
     {
-
         layout
         {
         }
@@ -146,8 +144,6 @@ report 50100 "Staff Login Count"
         BOUT: array[10] of Time;
         CTOTAL: Integer;
         i: Integer;
-        j: Integer;
         EmployeeCaptionLbl: Label 'Employee';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
 }
-

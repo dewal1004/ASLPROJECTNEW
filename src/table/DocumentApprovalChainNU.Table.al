@@ -2,7 +2,7 @@ table 54001 "Document Approval Chain NU*"
 {
     DrillDownPageID = "Purchase Order Foreign";
     LookupPageID = "Purchase Order Foreign";
-
+    Caption = 'Document Approval Chain NU*';
     fields
     {
         field(1; "Code"; Code[10])
@@ -40,4 +40,3 @@ table 54001 "Document Approval Chain NU*"
     {
     }
 }
-

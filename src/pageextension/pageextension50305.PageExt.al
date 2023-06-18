@@ -1,6 +1,5 @@
 pageextension 50305 "pageextension50305" extends "CRM Redirect"
 {
-
     //Unsupported feature: Property Modification (TextConstString) on "FilterRegexTok(Variable 1000)".
 
     //var
@@ -10,7 +9,6 @@ pageextension 50305 "pageextension50305" extends "CRM Redirect"
     //>>>> MODIFIED VALUE:
     //FilterRegexTok : @@@={Locked};ENU=\AFilter: @\*(.*)\*\z;
     //Variable type has not been exported.
-
 
     //Unsupported feature: Code Modification on "ExtractCRMInfoFromFilters(PROCEDURE 8)".
 
@@ -38,4 +36,3 @@ pageextension 50305 "pageextension50305" extends "CRM Redirect"
     */
     //end;
 }
-

@@ -3,8 +3,7 @@ report 50992 "Voyage P&L Header"
     // GETFILTER("No.")
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/VoyagePLHeader.rdlc';
-
-
+    Caption = 'Voyage P&L Header';
     dataset
     {
         dataitem(Job; Job)
@@ -15,7 +14,7 @@ report 50992 "Voyage P&L Header"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -35,19 +34,15 @@ report 50992 "Voyage P&L Header"
             }
             column(Text24; Text24)
             {
-
             }
             column(Text25; Text25)
             {
-
             }
             column(Text26; Text26)
             {
-
             }
             column(Text27; Text27)
             {
-
             }
             column(Job_Vessel; Vessel)
             {
@@ -63,19 +58,15 @@ report 50992 "Voyage P&L Header"
             }
             column(CycleDay; CycleDay)
             {
-
             }
             column(FishgDay; FishgDay)
             {
-
             }
             column(LostDay; LostDay)
             {
-
             }
             column(PortDay; PortDay)
             {
-
             }
             column(PntStor_1_; PntStor[1])
             {
@@ -101,19 +92,15 @@ report 50992 "Voyage P&L Header"
             }
             column(CycleDay_Control1000000000; CycleDay)
             {
-
             }
             column(FishgDay_Control1000000062; FishgDay)
             {
-
             }
             column(LostDay_Control1000000063; LostDay)
             {
-
             }
             column(PortDay_Control1000000064; PortDay)
             {
-
             }
             column(PntStor_1__Control1000000065; PntStor[1])
             {
@@ -142,19 +129,15 @@ report 50992 "Voyage P&L Header"
             }
             column(CycleDay_Control1000000001; CycleDay)
             {
-
             }
             column(FishgDay_Control1000000002; FishgDay)
             {
-
             }
             column(LostDay_Control1000000003; LostDay)
             {
-
             }
             column(PortDay_Control1000000004; PortDay)
             {
-
             }
             column(PntStor_7__Countrs_Control1000000005; PntStor[7] / Countrs)
             {
@@ -198,15 +181,12 @@ report 50992 "Voyage P&L Header"
             }
             column(CycleDay_Control1000000036; CycleDay)
             {
-
             }
             column(FishgDay_Control1000000038; FishgDay)
             {
-
             }
             column(LostDay_Control1000000040; LostDay)
             {
-
             }
             column(PntStor_1__Control1000000042; PntStor[1])
             {
@@ -240,15 +220,12 @@ report 50992 "Voyage P&L Header"
             }
             column(Text24_Control1000000051; Text24)
             {
-
             }
             column(Text25_Control1000000052; Text25)
             {
-
             }
             column(Text26_Control1000000053; Text26)
             {
-
             }
             column(PntStor_7__Countrs_Control1000000057; PntStor[7] / Countrs)
             {
@@ -256,11 +233,9 @@ report 50992 "Voyage P&L Header"
             }
             column(Text27_Control1000000058; Text27)
             {
-
             }
             column(PortDay_Control1000000059; PortDay)
             {
-
             }
             column(JobCaption; JobCaptionLbl)
             {
@@ -318,7 +293,6 @@ report 50992 "Voyage P&L Header"
 
     requestpage
     {
-
         layout
         {
         }
@@ -333,97 +307,18 @@ report 50992 "Voyage P&L Header"
     }
 
     var
-        LastFieldNo: Integer;
-        FooterPrinted: Boolean;
-        "----": Integer;
-        Job2: Record Job;
-        Itempr: Record "Item Translation";
-        CurrExc: Record "Currency Exchange Rate";
-        ProdPostGrp: Record "Gen. Product Posting Group";
-        InvtPostGrp: Record "Inventory Posting Group";
-        JobSetUp: Record "Jobs Setup";
-        JBudLn: Record "Job Ledger Entry";
-        Employee: Record Employee;
-        Loc: Record Location;
         Coutry: Record "Country/Region";
-        GLEntry: Record "G/L Entry";
         Res: Record Resource;
-        Prc: Decimal;
-        PrcB: Decimal;
-        PrdPrc: Decimal;
-        PrdPrcB: Decimal;
-        PrdPrc2: Decimal;
-        PrdPrcBX: Decimal;
-        PrdPrc2X: Decimal;
-        PrdPrc2B: Decimal;
-        CurrRate: Decimal;
-        NairaVal: Decimal;
-        NairaValB: Decimal;
-        NairaValBX: Decimal;
-        NairaVal2: Decimal;
-        NairaVal2X: Decimal;
-        NairaVal2B: Decimal;
-        Qty: Decimal;
-        QtyB: Decimal;
-        QtyX: Decimal;
-        QtyBX: Decimal;
-        GPPGDesc: Text[30];
-        DataStor: array[15] of Decimal;
         PntStor: array[8] of Decimal;
         ETD: Date;
         ETA: Date;
-        ETA2: Date;
         CycleDay: Decimal;
         PortDay: Decimal;
         LostDay: Decimal;
-        SeaDay: Decimal;
         FishgDay: Decimal;
-        a: Decimal;
-        expcnt: Integer;
-        PeopleOnVoy: Integer;
-        ResCount: Integer;
-        TotDirExp: Decimal;
-        TotIndirExp: Decimal;
-        GrossMarg: Decimal;
-        GrossPerct: Decimal;
-        NetProfPerct: Decimal;
-        TotPrice: Decimal;
-        NetProfit: Decimal;
-        ExpTonnage: Decimal;
         Vess: Text[30];
-        A1: array[5] of Decimal;
-        A2: array[5] of Decimal;
-        UOM: Record "Unit of Measure";
-        UOMCd: Code[10];
-        ItemVar: Code[10];
-        "No.B": Code[10];
-        NOrder: Decimal;
-        ValRate: Decimal;
-        ValQty: Decimal;
-        GLStr: array[25] of Decimal;
-        "GLGPP Caption": array[25] of Code[10];
-        CountGPPG: Integer;
-        CountG: Integer;
         Countrs: Integer;
-        Flag: Boolean;
         TotalFor: Label 'Total';
-        TotalForX: Label 'Total Exports';
-        TotalFory: Label 'Total Local';
-        Text03: Label 'Catch Incentive';
-        Text04: Label 'Salaries & Wages';
-        Text05: Label 'Travelling Expenses';
-        Text06: Label 'License Fees';
-        Text07: Label 'Insurance';
-        Text08: Label 'Clearing & FWRD. & NPA';
-        Text09: Label 'Total Direct Expenses';
-        Text10: Label 'Gross Margin';
-        Text11: Label '% Of Revenue';
-        Text12: Label 'Shore Overheads';
-        Text13: Label 'Depreciation';
-        Text14: Label 'Interest';
-        Text15: Label 'Net Profit';
-        Text17: Label 'Total Indirect Expenses';
-        Text18: Label 'VOYAGE PROFIT AND LOSS STATEMENT';
         Text21: Label 'Shrimp Points';
         Text22: Label 'Fish Points';
         Text23: Label 'Total Points';
@@ -445,4 +340,3 @@ report 50992 "Voyage P&L Header"
         LostDay_Control1000000040CaptionLbl: Label 'Lost At Sea';
         PortDay_Control1000000059CaptionLbl: Label 'Port Day';
 }
-

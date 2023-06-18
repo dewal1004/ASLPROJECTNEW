@@ -2,7 +2,7 @@ report 50993 "Voyage P&L Ledger LineP"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/VoyagePLLedgerLineP.rdlc';
-
+    Caption = 'Voyage P&L Ledger LineP';
     dataset
     {
         dataitem("Job Ledger Entry"; "Job Ledger Entry")
@@ -13,7 +13,7 @@ report 50993 "Voyage P&L Ledger LineP"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -39,19 +39,15 @@ report 50993 "Voyage P&L Ledger LineP"
             }
             column(CycleDay; CycleDay)
             {
-
             }
             column(FishgDay; FishgDay)
             {
-
             }
             column(LostDay; LostDay)
             {
-
             }
             column(PortDay; PortDay)
             {
-
             }
             column(Vess; Vess)
             {
@@ -67,19 +63,15 @@ report 50993 "Voyage P&L Ledger LineP"
             }
             column(Text24; Text24)
             {
-
             }
             column(Text25; Text25)
             {
-
             }
             column(Text26; Text26)
             {
-
             }
             column(Text27; Text27)
             {
-
             }
             column(PntStor_1_; PntStor[1])
             {
@@ -222,7 +214,6 @@ report 50993 "Voyage P&L Ledger LineP"
 
     requestpage
     {
-
         layout
         {
         }
@@ -237,81 +228,21 @@ report 50993 "Voyage P&L Ledger LineP"
     }
 
     var
-        LastFieldNo: Integer;
-        FooterPrinted: Boolean;
         TotalFor: Label 'Total';
-        "---": Integer;
         Job: Record Job;
-        Job2: Record Job;
-        Itempr: Record Item;
-        CurrExc: Record "Currency Exchange Rate";
-        ProdPostGrp: Record "Gen. Product Posting Group";
-        InvtPostGrp: Record "Inventory Posting Group";
-        JobSetUp: Record "Jobs Setup";
-        JBudLn: Record "Job Ledger Entry";
-        Employee: Record Employee;
-        Loc: Record Location;
         Coutry: Record "Country/Region";
-        GLEntry: Record "G/L Entry";
         Res: Record Resource;
-        Prc: Decimal;
-        PrcB: Decimal;
         PrdPrc: Decimal;
-        PrdPrcB: Decimal;
-        PrdPrc2: Decimal;
-        PrdPrcBX: Decimal;
-        PrdPrc2X: Decimal;
-        PrdPrc2B: Decimal;
-        CurrRate: Decimal;
         NairaVal: Decimal;
-        NairaValB: Decimal;
-        NairaValBX: Decimal;
-        NairaVal2: Decimal;
-        NairaVal2X: Decimal;
-        NairaVal2B: Decimal;
         Qty: Decimal;
-        QtyB: Decimal;
-        QtyX: Decimal;
-        QtyBX: Decimal;
-        GPPGDesc: Text[30];
-        DataStor: array[15] of Decimal;
-        TotalForX: Label 'Total Exports';
-        TotalFory: Label 'Total Local';
-        Text03: Label 'Catch Incentive';
-        Text04: Label 'Salaries & Wages';
-        Text05: Label 'Travelling Expenses';
-        Text06: Label 'License Fees';
-        Text07: Label 'Insurance';
-        Text08: Label 'Clearing & FWRD. & NPA';
-        Text09: Label 'Total Direct Expenses';
         PntStor: array[8] of Decimal;
         ETD: Date;
         ETA: Date;
-        ETA2: Date;
         CycleDay: Decimal;
         PortDay: Decimal;
         LostDay: Decimal;
-        SeaDay: Decimal;
         FishgDay: Decimal;
         a: Decimal;
-        expcnt: Integer;
-        PeopleOnVoy: Integer;
-        ResCount: Integer;
-        Text10: Label 'Gross Margin';
-        Text11: Label '% Of Revenue';
-        Text12: Label 'Shore Overheads';
-        Text13: Label 'Depreciation';
-        Text14: Label 'Interest';
-        Text15: Label 'Net Profit';
-        Text17: Label 'Total Indirect Expenses';
-        TotDirExp: Decimal;
-        TotIndirExp: Decimal;
-        GrossMarg: Decimal;
-        GrossPerct: Decimal;
-        NetProfPerct: Decimal;
-        TotPrice: Decimal;
-        NetProfit: Decimal;
-        ExpTonnage: Decimal;
         Vess: Text[30];
         Text18: Label 'VOYAGE PROFIT AND LOSS STATEMENT';
         Text21: Label 'Shrimp Points';
@@ -321,20 +252,10 @@ report 50993 "Voyage P&L Ledger LineP"
         Text25: Label 'Avg. Fish Points';
         Text26: Label 'Avg. Total Points';
         Text27: Label 'Exchange Rate';
-        A1: array[5] of Decimal;
-        A2: array[5] of Decimal;
         UOM: Record "Unit of Measure";
         UOMCd: Code[10];
         ItemVar: Code[10];
         "No.B": Code[10];
-        NOrder: Decimal;
-        ValRate: Decimal;
-        ValQty: Decimal;
-        GLStr: array[25] of Decimal;
-        "GLGPP Caption": array[25] of Code[10];
-        CountGPPG: Integer;
-        CountG: Integer;
-        Flag: Boolean;
         CurrReport_PAGENOCaptionLbl: Label 'Page';
         QtyCaptionLbl: Label 'Quantity';
         EmptyStringCaptionLbl: Label '$';
@@ -388,7 +309,5 @@ report 50993 "Voyage P&L Ledger LineP"
         ELSE
           ValQty:=0;
         */
-
     end;
 }
-

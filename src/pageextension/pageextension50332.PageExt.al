@@ -2,7 +2,6 @@ pageextension 50332 "pageextension50332" extends "Demand Overview"
 {
     layout
     {
-
         //Unsupported feature: Code Modification on "DemandNoCtrl(Control 45).OnLookup".
 
         //trigger OnLookup(var Text: Text): Boolean
@@ -36,4 +35,3 @@ pageextension 50332 "pageextension50332" extends "Demand Overview"
         //end;
     }
 }
-

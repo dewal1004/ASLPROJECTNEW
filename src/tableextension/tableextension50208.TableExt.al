@@ -17,11 +17,13 @@ tableextension 50208 "tableextension50208" extends "Sales Cr.Memo Header"
                                                            "Document No." = FIELD("No."),
                                                            "Document Type" = CONST(Order)));
             FieldClass = FlowField;
+            Editable = false;
         }
         field(50304; "Skill Total"; Decimal)
         {
             CalcFormula = Sum("Sales Line".Quantity WHERE("Document No." = FIELD("No.")));
             FieldClass = FlowField;
+            Editable = false;
         }
         field(50305; "Skill Percentage"; Decimal)
         {
@@ -32,12 +34,14 @@ tableextension 50208 "tableextension50208" extends "Sales Cr.Memo Header"
                                                            "Document No." = FIELD("No."),
                                                            "Document Type" = CONST(Order)));
             FieldClass = FlowField;
+            Editable = false;
         }
         field(50307; "Performance Total"; Decimal)
         {
             CalcFormula = Sum("Sales Line".quantity1 WHERE(
                                                       "Document No." = FIELD("No.")));
             FieldClass = FlowField;
+            Editable = false;
         }
         field(50308; "Performance Percentage"; Decimal)
         {
@@ -65,8 +69,4 @@ tableextension 50208 "tableextension50208" extends "Sales Cr.Memo Header"
             TableRelation = "Item Category";
         }
     }
-
-    var
-        CannotSendMultipleCrMemosElectronicallyErr: Label 'You can only send one electronic credit memo at a time.';
 }
-

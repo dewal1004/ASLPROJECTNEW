@@ -2,7 +2,7 @@ page 80089 "Catch List"
 {
     PageType = Card;
     SourceTable = "Medical Record";
-
+    Caption = 'Catch List';
     layout
     {
         area(content)
@@ -26,4 +26,3 @@ page 80089 "Catch List"
     {
     }
 }
-

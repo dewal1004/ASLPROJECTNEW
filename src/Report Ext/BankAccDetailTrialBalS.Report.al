@@ -17,7 +17,7 @@ report 51404 "Bank Acc. - Detail Trial Bal.S"
             column(STRSUBSTNO_Text000_BankAccDateFilter_; StrSubstNo(Text000, BankAccDateFilter))
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(COMPANYNAME; CompanyName)
@@ -223,7 +223,7 @@ report 51404 "Bank Acc. - Detail Trial Bal.S"
                 begin
                     if not BankAccLedgEntryExists and ((StartBalance = 0) or not PrintAllHavingBal) then begin
                         StartBalanceLCY := 0;
-                        CurrReport.Skip;
+                        CurrReport.Skip();
                     end;
                 end;
             }
@@ -254,7 +254,6 @@ report 51404 "Bank Acc. - Detail Trial Bal.S"
 
     requestpage
     {
-
         layout
         {
         }
@@ -294,4 +293,3 @@ report 51404 "Bank Acc. - Detail Trial Bal.S"
         ContinuedCaptionLbl: Label 'Continued';
         ContinuedCaption_Control46Lbl: Label 'Continued';
 }
-

@@ -90,7 +90,6 @@ pageextension 50399 "AccountantRoleCenter" extends "Accountant Role Center"
                         //PromotedCategory = Process;
                         RunObject = Page "Monthly Var. Header Survey.";
                         ApplicationArea = All;
-
                     }
                     action("Create G/L Journal")
                     {
@@ -114,7 +113,6 @@ pageextension 50399 "AccountantRoleCenter" extends "Accountant Role Center"
                         ApplicationArea = All;
                         //Promoted = true;
                         //PromotedCategory = Process;
-
                     }
                     action(ReportsPR)
                     {
@@ -127,7 +125,7 @@ pageextension 50399 "AccountantRoleCenter" extends "Accountant Role Center"
                         // var Reportlist: Record "Report Selections";
                         // Begin;
                         //     WITH Reportlist DO;
-                        //         //reportlist.ShowList(FIELDNO("Payroll Reports"));                   
+                        //         //reportlist.ShowList(FIELDNO("Payroll Reports"));
                         // end;
                     }
                     action(Utilities)
@@ -152,7 +150,6 @@ pageextension 50399 "AccountantRoleCenter" extends "Accountant Role Center"
             }
         }
     }
-
 }
 
 // page 50000 "Payroll Menu"
@@ -177,4 +174,3 @@ pageextension 50399 "AccountantRoleCenter" extends "Accountant Role Center"
 //         [InDataSet]
 //         SetupEnable: Boolean;
 // }
-

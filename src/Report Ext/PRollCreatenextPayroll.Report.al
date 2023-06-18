@@ -4,7 +4,7 @@ report 50055 "PRoll; Create next Payroll"
     // employee. Further, it closes the entries of the source period.
 
     ProcessingOnly = true;
-
+    Caption = 'PRoll; Create next Payroll';
     dataset
     {
         dataitem("Payroll-Payslip Header."; "Payroll-Payslip Header.")
@@ -21,7 +21,7 @@ report 50055 "PRoll; Create next Payroll"
 
             trigger OnPreDataItem()
             begin
-                if not Confirm('You are sure you want to create the next payroll', true) then CurrReport.Break;
+                if not Confirm('You are sure you want to create the next payroll', true) then CurrReport.Break();
 
                 if GetFilter("Payroll Period") = '' then
                     Error('One Period must be entered as a parameter');
@@ -36,18 +36,15 @@ report 50055 "PRoll; Create next Payroll"
                     /* More than one period was requested as a delimitation */
                   Error('Transfer for multiple period is not possible');
 
-
                 Window.Open('Total Number of PaySlips Created  #1###');
 
                 Counter := 0;
-
             end;
         }
     }
 
     requestpage
     {
-
         layout
         {
         }
@@ -62,10 +59,7 @@ report 50055 "PRoll; Create next Payroll"
     }
 
     var
-        YesNo: Boolean;
         Comma: Text[1];
-        OrSymbol: Text[1];
         Counter: Integer;
         Window: Dialog;
 }
-

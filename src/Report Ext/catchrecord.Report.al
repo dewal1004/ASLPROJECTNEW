@@ -4,7 +4,7 @@ report 80041 "catch record"
     RDLCLayout = './src/reportrdlc/catchrecord.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
-
+    Caption = 'catch record';
     dataset
     {
         dataitem(Item; Item)
@@ -17,7 +17,7 @@ report 80041 "catch record"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -109,7 +109,7 @@ report 80041 "catch record"
             begin
                 LastFieldNo := FieldNo("Inventory Posting Group");
 
-                CurrReport.ShowOutput(CurrReport.TotalsCausedBy = Item.FieldNo("Inventory Posting Group"));
+                CurrReport.ShowOutput(CurrReport.TotalsCausedBy() = Item.FieldNo("Inventory Posting Group"));
                 CurrReport.ShowOutput(false);
                 for I := 1 to 3 do begin
                     Colum[I] := 0;
@@ -121,7 +121,6 @@ report 80041 "catch record"
 
     requestpage
     {
-
         layout
         {
         }
@@ -137,13 +136,8 @@ report 80041 "catch record"
 
     var
         LastFieldNo: Integer;
-        FooterPrinted: Boolean;
         TotalFor: Label 'Total for ';
-        "---": Text[30];
         Colum: array[3] of Decimal;
-        RespCenter: Record "Responsibility Center";
-        CompanyInfo: Record "Company Information";
-        FormatAddr: Codeunit "Format Address";
         I: Integer;
         ItemCaptionLbl: Label 'Item';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
@@ -151,4 +145,3 @@ report 80041 "catch record"
         V1_KGCaptionLbl: Label '1 KG';
         V2_KGCaptionLbl: Label '2 KG';
 }
-

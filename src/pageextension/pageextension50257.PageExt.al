@@ -1,6 +1,5 @@
 pageextension 50257 "pageextension50257" extends "Job Journal Batches"
 {
-
     //Unsupported feature: Property Insertion (Permissions) on ""Job Journal Batches"(Page 276)".
     //Unsupported feature: Property Insertion (SourceTableView) on ""Job Journal Batches"(Page 276)".
 
@@ -105,4 +104,3 @@ JobJnlMgt.OpenJnlBatch(Rec);
 CurrPage.Editable(true);
 */
 //end;
-

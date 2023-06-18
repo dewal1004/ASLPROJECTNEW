@@ -24,4 +24,3 @@ pageextension 50247 "pageextension50247" extends "Business Unit List"
         }
     }
 }
-

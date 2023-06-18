@@ -5,8 +5,7 @@ report 50089 "Catch Incentive"
     RDLCLayout = './src/reportrdlc/CatchIncentive.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
-
-
+    Caption = 'Catch Incentive';
     dataset
     {
         dataitem(Job; Job)
@@ -24,7 +23,7 @@ report 50089 "Catch Incentive"
                 column(COMPANYNAME; CompanyName)
                 {
                 }
-                column(CurrReport_PAGENO; CurrReport.PageNo)
+                column(CurrReport_PAGENO; CurrReport.PageNo())
                 {
                 }
                 column(USERID; UserId)
@@ -243,7 +242,7 @@ report 50089 "Catch Incentive"
                     "Job Planning Line".Validate("Job Planning Line"."Ending Date");
 
                     //code from 3.0//
-                    Comp.Get;
+                    Comp.Get();
                     if Jobs.Get("Job Planning Line"."Job No.") then begin
                         if Loc.Get(Jobs.Vessel) then VessNam := Loc.Name;
                         Voyage := Jobs."Voyage No.";
@@ -260,18 +259,15 @@ report 50089 "Catch Incentive"
                         Modify(true);
                     end;
 
-
                     if Jobs.Get("Job Planning Line"."Job No.") then
                         if DimVal.Get('BUSINESS UNIT', Jobs."Global Dimension 2 Code") then
                             COMPTitle := DimVal.Name;
 
                     //*** CurrReport.ShowOutput(CrewList);
 
-
                     //*** CurrReport.ShowOutput(not CrewList);
                     if ResG.Get("Resource Group") then Designation := ResG.Name;
                     if Res.Get("Job Planning Line"."No.") then;
-
 
                     countz := countz + 1;
                     if Res.Get("Job Planning Line"."No.") then begin
@@ -307,7 +303,7 @@ report 50089 "Catch Incentive"
                     //*** CurrReport.TotalsCausedBy = LastFieldNo;
 
                     if not FooterPrinted then
-                        LastFieldNo := CurrReport.TotalsCausedBy;
+                        LastFieldNo := CurrReport.TotalsCausedBy();
                     //*** CurrReport.ShowOutput := not FooterPrinted;
                     FooterPrinted := true;
                 end;
@@ -421,18 +417,17 @@ report 50089 "Catch Incentive"
                     IF "Statistics Group"=3 THEN T001:='OTHER';
                     IF "Statistics Group"=4 THEN T001:='LOCAL';
                     *///#1
-
                 end;
 
                 trigger OnPostDataItem()
                 begin
-                    CurrReport.NewPage;
+                    CurrReport.NewPage();
                 end;
 
                 trigger OnPreDataItem()
                 begin
                     LastFieldNo := FieldNo(Category);
-                    CurrReport.NewPage;
+                    CurrReport.NewPage();
                     //SETFILTER("Source No.  Filter","Job Budget Line"."Job No.");
                     //SETFILTER("Source Filter",Job.Vessel);
 
@@ -447,7 +442,7 @@ report 50089 "Catch Incentive"
                     // CurrReport.TotalsCausedBy(LastFieldNo);
 
                     if not FooterPrinted then
-                        LastFieldNo := CurrReport.TotalsCausedBy;
+                        LastFieldNo := CurrReport.TotalsCausedBy();
                     //*** CurrReport.ShowOutput := not FooterPrinted;
                     FooterPrinted := true;
 
@@ -464,7 +459,7 @@ report 50089 "Catch Incentive"
                 //CALCFIELDS(Points);
                 Points := Job.PointZ("No.", '', GetFilter("Date Filter"), '', '', '', Vessel);
                 "Incentive Days" := ("Sea Days" - "Deductible Lost Days (Incentiv");
-                if JobSetup.Get then
+                if JobSetup.Get() then
                     if "Incentive Days" > 0 then
                         "Incentive Points Determinant" := Points * (JobSetup."Standard Sea Days" / "Incentive Days");
 
@@ -480,11 +475,10 @@ report 50089 "Catch Incentive"
                 Validate("Total Incentive", "Incentive (Pt. Based)" + "Incentive (Hook Fish)");
                 Validate("Net Incentive", "Total Incentive" + "Add/Ded. Crew");
 
-
                 //Actual
                 //CALCFIELDS("Points Actual");
                 "Points Actual" := Job.PointsActual("No.", GetFilter("Date Filter"), '', '', '');
-                if JobSetup.Get then
+                if JobSetup.Get() then
                     if "Incentive Days" > 0 then
                         "Incentive Pts Determt Actual" := "Points Actual" * (JobSetup."Standard Sea Days" / "Incentive Days");
 
@@ -499,7 +493,7 @@ report 50089 "Catch Incentive"
                 //MESSAGE('%1 %2 %3', "Incentive (Pt. Based) Actual","Incentive Rate Actual","Points Actual");
                 Validate("Total Incentive Actual", "Incentive (Pt. Based) Actual" + "Incentive (Hook Fish)");
                 Validate("Net Incentive Actual", "Total Incentive Actual" + "Add/Ded. Crew");
-                Modify;
+                Modify();
             end;
 
             trigger OnPreDataItem()
@@ -512,7 +506,6 @@ report 50089 "Catch Incentive"
 
     requestpage
     {
-
         layout
         {
             area(content)
@@ -540,7 +533,6 @@ report 50089 "Catch Incentive"
     var
         LastFieldNo: Integer;
         FooterPrinted: Boolean;
-        "------------------": Integer;
         Res: Record Resource;
         ResG: Record "Resource Group";
         Country: Record "Country/Region";
@@ -567,8 +559,6 @@ report 50089 "Catch Incentive"
         Nam: Code[50];
         Desig: Code[20];
         nation: Code[20];
-        Vessel: Code[20];
-        Dato: Date;
         Cat1: Code[20];
         TotalFor: Label 'Total for ';
         T002: Label 'Over all Total';
@@ -616,4 +606,3 @@ report 50089 "Catch Incentive"
         DayFrac: Decimal;
         Alloted: Decimal;
 }
-

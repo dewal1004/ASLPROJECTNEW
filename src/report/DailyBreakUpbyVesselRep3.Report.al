@@ -2,7 +2,7 @@ report 50009 "Daily BreakUp by Vessel Rep 3"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/DailyBreakUpbyVesselRep3.rdlc';
-
+    Caption = 'Daily BreakUp by Vessel Rep 3';
     dataset
     {
         dataitem("Inventory Posting G Cat Tot"; "Inventory Posting Group")
@@ -72,7 +72,7 @@ report 50009 "Daily BreakUp by Vessel Rep 3"
             column(FORMAT_TODAY_0_4_; Format(Today, 0, 4))
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID________; UserId + ' :  ')
@@ -1353,7 +1353,7 @@ report 50009 "Daily BreakUp by Vessel Rep 3"
             }
             column(SeaRange_18_; SeaRange[1])
             {
-                // DecimalPlaces = 0 : 0;   
+                // DecimalPlaces = 0 : 0;
             }
             column(SeaRange_19_; SeaRange[2])
             {
@@ -2330,7 +2330,6 @@ report 50009 "Daily BreakUp by Vessel Rep 3"
                     end;
                 end;
 
-
                 level := TotLoc;
                 while level > 0 do begin
                     SetFilter("Location Filter", SeaRange[level]);
@@ -2359,25 +2358,23 @@ report 50009 "Daily BreakUp by Vessel Rep 3"
                 CurrReport.CreateTotals(InvtTot);
                 if "Statistics Group" = 4 then
                     T002 := 'LOCAL PRODUCTS';
-
             end;
 
             trigger OnPreDataItem()
             begin
-
 
                 TotLoc := 0;
                 VesselCounter := 0;
                 DateFilter := "Inventory Posting G Cat Tot".GetFilter("Date Filter");
 
                 if DateFilter = '' then begin
-                    SetRange("Date Filter", WorkDate);
+                    SetRange("Date Filter", WorkDate());
                     DateFilter := GetFilter("Date Filter");
                 end;
-                locate2.Reset;
+                locate2.Reset();
                 locate2.SetRange("Location Type", 1);
                 locate2.SetFilter("date filter", '%1', GetRangeMax("Date Filter"));
-                if locate2.FindFirst then
+                if locate2.FindFirst() then
                     repeat
                         locate2."Last Rep Operation No. Val" := locate2.LastRepOpNo(locate2.Code, locate2.GetFilter("date filter"));
                         if locate2."Last Rep Operation No. Val" <> '' then begin
@@ -2392,9 +2389,9 @@ report 50009 "Daily BreakUp by Vessel Rep 3"
                             Operatn.SetRange(Operatn."Task Filter");
                             locate2.Modify();
                         end;
-                    until locate2.Next = 0;
+                    until locate2.Next() = 0;
 
-                locate.Reset;
+                locate.Reset();
                 locate.SetRange("Location Type", 1);
                 TotLoc := locate.Count;
                 if ArrangeBy = 0 then
@@ -2407,7 +2404,7 @@ report 50009 "Daily BreakUp by Vessel Rep 3"
 
                 //locate.SETFILTER(locate."Catch Date",DateFilter);//nitin
                 TotLoc := locate.Count;
-                if locate.FindFirst then
+                if locate.FindFirst() then
                     repeat
                         //IF locate.VSDVal<>0 THEN
                         //BEGIN
@@ -2439,8 +2436,7 @@ report 50009 "Daily BreakUp by Vessel Rep 3"
                             VesselCounter += 1;
                         Countx := Countx + 1;
                     //END;
-                    until locate.Next = 0;
-
+                    until locate.Next() = 0;
             end;
         }
         dataitem("Inventory Posting Group"; "Inventory Posting Group")
@@ -5229,7 +5225,7 @@ report 50009 "Daily BreakUp by Vessel Rep 3"
                           locate2.GetFilter("date filter"), '', 'SHR', '', Operatn.Vessel); //Operatn.Points;
                         Operatn.SetRange(Operatn."Task Filter");
                         locate2.Modify();
-                    until locate2.Next = 0;
+                    until locate2.Next() = 0;
 
                 //AAA - June 2002 Sort Entries accordg to SeaDays
                 locate.SetRange(locate."Location Type", 1);
@@ -5264,7 +5260,7 @@ report 50009 "Daily BreakUp by Vessel Rep 3"
 
                             Countx := Countx + 1;
                         end;
-                    until locate.Next = 0;
+                    until locate.Next() = 0;
                 TotLoc := Countx - 1;
             end;
         }
@@ -5272,7 +5268,6 @@ report 50009 "Daily BreakUp by Vessel Rep 3"
 
     requestpage
     {
-
         layout
         {
             area(content)
@@ -5311,16 +5306,12 @@ report 50009 "Daily BreakUp by Vessel Rep 3"
     end;
 
     var
-        LastFieldNo: Integer;
-        FooterPrinted: Boolean;
         TotalFor: Label ' Total';
-        "----------------": Integer;
         locate: Record Location;
         locate2: Record Location;
         Operatn: Record Job;
         Countx: Integer;
         level: Integer;
-        LocGroup: Integer;
         TotLoc: Integer;
         SeaRangeC: array[100] of Decimal;
         T001: Text[80];
@@ -5331,8 +5322,6 @@ report 50009 "Daily BreakUp by Vessel Rep 3"
         VesselPoint: array[100] of Decimal;
         FishPoint: array[100] of Decimal;
         Cat: Code[15];
-        job1: Record Job;
-        Nocatch: Boolean;
         "Show Category total": Boolean;
         ArrangeBy: Option "Vessel Points","Sea Days";
         ReportBy: Option Catch,Stock;
@@ -5365,19 +5354,8 @@ report 50009 "Daily BreakUp by Vessel Rep 3"
         PntLess: Integer;
         Phase: Record Task;
         VesselCounter: Integer;
-        StartingDate: Date;
-        FishCounter: Integer;
-        Text010: Label 'Fishing Area';
-        VesselsCaption_Control1000000185Lbl: Label 'Vessels';
-        Sea_DaysCaption_Control1000000186Lbl: Label 'Sea Days';
-        Vessel_PointsCaption_Control1000000187Lbl: Label 'Vessel Points';
-        Shrimp_PointsCaption_Control1000000197Lbl: Label 'Shrimp Points';
-        Fishing_AreaCaption_Control1000000212Lbl: Label 'Fishing Area';
-        Inventory_Total_Caption_Control1000000219Lbl: Label 'Inventory Total ';
-        DescriptionCaption_Control1000000220Lbl: Label 'Description';
         LastRepOptNo: Code[10];
         Test: Decimal;
         testing123: Decimal;
         testc: array[100] of Decimal;
 }
-

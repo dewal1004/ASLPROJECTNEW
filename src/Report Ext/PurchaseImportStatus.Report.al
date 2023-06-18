@@ -2,7 +2,7 @@ report 50034 "Purchase Import Status"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/PurchaseImportStatus.rdlc';
-
+    Caption = 'Purchase Import Status';
     dataset
     {
         dataitem("Purchase Header"; "Purchase Header")
@@ -15,7 +15,7 @@ report 50034 "Purchase Import Status"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -30,7 +30,7 @@ report 50034 "Purchase Import Status"
             column(COMPANYNAME_Control1000000011; CompanyName)
             {
             }
-            column(CurrReport_PAGENO_Control1000000014; CurrReport.PageNo)
+            column(CurrReport_PAGENO_Control1000000014; CurrReport.PageNo())
             {
             }
             column(FORMAT_TODAY_0_4__Control1000000015; Format(Today, 0, 4))
@@ -225,7 +225,6 @@ report 50034 "Purchase Import Status"
 
     requestpage
     {
-
         layout
         {
         }
@@ -240,10 +239,7 @@ report 50034 "Purchase Import Status"
     }
 
     var
-        Purcomment: Record "Purch. Comment Line";
-        Email: Boolean;
         Countz: Integer;
-        Desc: Text[120];
         Purchase_Import_StatusCaptionLbl: Label 'Purchase Import Status';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
         Purchase_Import_StatusCaption_Control1000000012Lbl: Label 'Purchase Import Status';
@@ -262,6 +258,4 @@ report 50034 "Purchase Import Status"
         Purchase_Header__Buy_from_Vendor_Name__Control1000000044CaptionLbl: Label 'Supplier';
         Purchase_Header__Your_Reference__Control1000000045CaptionLbl: Label 'File No.';
         Countz_Control1000000046CaptionLbl: Label 'SN';
-        sno: Integer;
 }
-

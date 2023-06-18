@@ -5,11 +5,9 @@ codeunit 50002 "GenJnlPostLineSubscriber"
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Gen. Jnl.-Post Line", 'OnBeforeInitAmounts', '', true, true)]
     local procedure OnBeforeInitAmountGenJnlPostLine(var GenJnlLine: Record "Gen. Journal Line"; var Currency: Record Currency)
     begin
-        if GenJnlLine."Currency Code" = '' then begin
+        if GenJnlLine."Currency Code" = '' then
             if GenJnlLine."Deferral Code" <> '' then
                 GenJnlLine."VAT Base Amount (LCY)" := "xVAT Base Amount (LCY)";   //Revisit
-        end;
-
     end;
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Gen. Jnl.-Post Line", 'OnPostCustOnAfterTempDtldCVLedgEntryBufCopyFromGenJnlLine', '', true, true)]
@@ -50,29 +48,23 @@ codeunit 50002 "GenJnlPostLineSubscriber"
         GLEntry."Gen. Bus. Posting Group" := GenJournalLine."Gen. Bus. Posting Group";
     end;
 
-
-
-
     var
         "xVAT Base Amount (LCY)": Decimal;
-
-
 }
 
 // OBJECT Modification "Gen. Jnl.-Post Line"(Codeunit 12)
 // {
 //   CHANGES
 //   {
-
-//     
+//
 //     { PropertyModification;
 //                          Target=PostApply(PROCEDURE 105).IsHandled(Variable 1014);
 //                          Property=Id;
 //                          OriginalValue=1014;
 //                          ModifiedValue=1114 }
-//     
+//
 //                          Target=ProcessTempVATEntry(PROCEDURE 87) }
-//     
+//
 // { CodeModification  ;OriginalCode=BEGIN
 //                                         if AddCurrencyCode = '' then
 //                                           exit;
@@ -116,12 +108,11 @@ codeunit 50002 "GenJnlPostLineSubscriber"
 //                          OriginalValue=1006;
 //                          ModifiedValue=1005 }
 
-//     
+//
 //                          Target=InsertVATEntriesFromTemp(PROCEDURE 83) }
 //   }
 //   CODE
 //   {
-
 //     BEGIN
 //     END.
 //   }
@@ -152,7 +143,6 @@ codeunit 50002 "GenJnlPostLineSubscriber"
 
 //                          Target=InitAmounts(PROCEDURE 186) }
 
-
 //******
 
 // { Skip: CodeModification  ;OriginalCode=BEGIN
@@ -173,7 +163,6 @@ codeunit 50002 "GenJnlPostLineSubscriber"
 //                                       END;
 
 //                          Target=PostDtldCustLedgEntryUnapply(PROCEDURE 114) }
-
 
 //     { CodeModification  ;OriginalCode=BEGIN
 //                                         if (DtldCVLedgEntryBuf."Amount (LCY)" = 0) and
@@ -225,4 +214,3 @@ codeunit 50002 "GenJnlPostLineSubscriber"
 //                                         #9..49
 //                                         #51..68
 //                                       END;
-

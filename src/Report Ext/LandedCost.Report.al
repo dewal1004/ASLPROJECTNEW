@@ -1,7 +1,7 @@
 report 50003 "Landed Cost"
 {
     ProcessingOnly = true;
-
+    Caption = 'Landed Cost';
     dataset
     {
         dataitem("Purchase Header"; "Purchase Header")
@@ -69,7 +69,7 @@ report 50003 "Landed Cost"
                     if E <> 0 then
                         Z := ((B + C) / E) * 100;
                     //MESSAGE('Value is %1',Z);
-                    PurcSetup.Get;
+                    PurcSetup.Get();
 
                     //Standard Cost total for the lines
                     "Purchase Header".CalcFields("Purchase Header"."Freight(LCY)LT", "Purchase Header"."Ancillary(LCY)LT");
@@ -136,7 +136,6 @@ report 50003 "Landed Cost"
 
     requestpage
     {
-
         layout
         {
         }
@@ -151,15 +150,7 @@ report 50003 "Landed Cost"
     }
 
     var
-        GenLed: Record "G/L Entry";
-        GITRec: Record "Reason Code";
         PurcSetup: Record "Purchases & Payables Setup";
-        TotalCost: Decimal;
-        TotalValue: Decimal;
-        TotalQty: Decimal;
-        TotalWeight: Decimal;
-        LandedAmount: Decimal;
-        xTotalQty: Integer;
         A: Decimal;
         B: Decimal;
         C: Decimal;
@@ -172,8 +163,6 @@ report 50003 "Landed Cost"
         J: Decimal;
         K: array[10] of Decimal;
         L: array[10] of Decimal;
-        X: Decimal;
-        Y: Decimal;
         Z: Decimal;
         FOBx: Decimal;
         LandExtra: Decimal;
@@ -185,4 +174,3 @@ report 50003 "Landed Cost"
     begin
     end;
 }
-

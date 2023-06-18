@@ -2,7 +2,7 @@ report 90011 "CreateJobJnl Daily"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/CreateJobJnlDaily.rdlc';
-
+    Caption = 'CreateJobJnl Daily';
     dataset
     {
         dataitem("Job Ledger Entry"; "Job Ledger Entry")
@@ -39,7 +39,6 @@ report 90011 "CreateJobJnl Daily"
                 JobJnlLine."Reason Code" := "Reason Code";
                 IF NOT JobJnlLine.INSERT THEN JobJnlLine.MODIFY;
                 LineNo := LineNo + 10;*///dik
-
             end;
 
             trigger OnPreDataItem()
@@ -59,7 +58,6 @@ report 90011 "CreateJobJnl Daily"
 
     requestpage
     {
-
         layout
         {
         }
@@ -80,15 +78,13 @@ report 90011 "CreateJobJnl Daily"
 
         JobJnlBatch."Journal Template Name" := 'JOB2';
         JobJnlBatch.Name := 'CATCH';
-        if JobJnlBatch.Insert then;
+        if JobJnlBatch.Insert() then;
     end;
 
     var
-        JobJnlLine: Record "Job Journal Line";
         JobJnlLine2: Record "Job Journal Line";
         JobJnlBatch: Record "Job Journal Batch";
         LineNo: Integer;
         FromDate: Date;
         ToDate: Date;
 }
-

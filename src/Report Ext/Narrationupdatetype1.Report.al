@@ -2,7 +2,7 @@ report 99974 "Narration update type=1"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/Narrationupdatetype1.rdlc';
-
+    Caption = 'Narration update type=1';
     dataset
     {
         dataitem("Comment Line"; "Comment Line")
@@ -13,7 +13,7 @@ report 99974 "Narration update type=1"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -60,7 +60,6 @@ report 99974 "Narration update type=1"
 
     requestpage
     {
-
         layout
         {
         }
@@ -75,9 +74,6 @@ report 99974 "Narration update type=1"
     }
 
     var
-        CmmLn: Record "Comment Line";
-        bla: Text[30];
         Comment_LineCaptionLbl: Label 'Comment Line';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
 }
-

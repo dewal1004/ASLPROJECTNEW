@@ -2,7 +2,7 @@ page 50999 "Fields Overview"
 {
     PageType = Card;
     SourceTable = "Field";
-
+    Caption = 'Fields Overview';
     layout
     {
         area(content)
@@ -70,4 +70,3 @@ page 50999 "Fields Overview"
     {
     }
 }
-

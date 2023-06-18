@@ -2,7 +2,7 @@ report 50901 "Item Columnization"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/ItemColumnization.rdlc';
-
+    Caption = 'Item Columnization';
     dataset
     {
         dataitem(Item; Item)
@@ -13,7 +13,7 @@ report 50901 "Item Columnization"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -45,7 +45,6 @@ report 50901 "Item Columnization"
 
     requestpage
     {
-
         layout
         {
         }
@@ -60,9 +59,7 @@ report 50901 "Item Columnization"
     }
 
     var
-        PG: Integer;
         ItemCaptionLbl: Label 'Item';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
         Control15CaptionLbl: Label 'Label15';
 }
-

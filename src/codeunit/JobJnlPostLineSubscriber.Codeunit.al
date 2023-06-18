@@ -72,11 +72,4 @@ codeunit 50025 "JobJnlPostLineSubscriber"
         end;
         exit(false);
     end;
-
-
-
-
-
-
-
 }

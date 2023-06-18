@@ -2,7 +2,7 @@ report 50244 "Purchase Return Way Bill"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/PurchaseReturnWayBill.rdlc';
-
+    Caption = 'Purchase Return Way Bill';
     dataset
     {
         dataitem("Purchase Requisition1"; "Purchase Requisition1")
@@ -49,7 +49,6 @@ report 50244 "Purchase Return Way Bill"
 
     requestpage
     {
-
         layout
         {
         }
@@ -69,4 +68,3 @@ report 50244 "Purchase Return Way Bill"
         Address: Text[50];
         Vendor: Record Vendor;
 }
-

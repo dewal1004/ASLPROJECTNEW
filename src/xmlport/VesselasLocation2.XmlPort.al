@@ -1,7 +1,7 @@
 xmlport 50013 "Vessel as Location2"
 {
     Format = VariableText;
-
+    Caption = 'Vessel as Location2';
     schema
     {
         textelement(RootNode)
@@ -30,7 +30,6 @@ xmlport 50013 "Vessel as Location2"
 
     requestpage
     {
-
         layout
         {
         }
@@ -40,4 +39,3 @@ xmlport 50013 "Vessel as Location2"
         }
     }
 }
-

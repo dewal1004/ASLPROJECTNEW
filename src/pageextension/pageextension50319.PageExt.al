@@ -19,4 +19,3 @@ pageextension 50319 "pageextension50319" extends Maintenance
         }
     }
 }
-

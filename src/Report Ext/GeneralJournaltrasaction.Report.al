@@ -200,11 +200,11 @@ report 50014 "General Journal - trasaction"
                         trigger OnAfterGetRecord()
                         begin
                             if Number = 1 then begin
-                                if not DimSetEntry.FindSet then
-                                    CurrReport.Break;
+                                if not DimSetEntry.FindSet() then
+                                    CurrReport.Break();
                             end else
                                 if not Continue then
-                                    CurrReport.Break;
+                                    CurrReport.Break();
 
                             DimText := GetDimensionText(DimSetEntry);
                         end;
@@ -212,8 +212,8 @@ report 50014 "General Journal - trasaction"
                         trigger OnPreDataItem()
                         begin
                             if not ShowDim then
-                                CurrReport.Break;
-                            DimSetEntry.Reset;
+                                CurrReport.Break();
+                            DimSetEntry.Reset();
                             DimSetEntry.SetRange("Dimension Set ID", "Gen. Journal Line"."Dimension Set ID")
                         end;
                     }
@@ -279,11 +279,11 @@ report 50014 "General Journal - trasaction"
                             trigger OnAfterGetRecord()
                             begin
                                 if Number = 1 then begin
-                                    if not DimSetEntry.FindFirst then
-                                        CurrReport.Break;
+                                    if not DimSetEntry.FindFirst() then
+                                        CurrReport.Break();
                                 end else
                                     if not Continue then
-                                        CurrReport.Break;
+                                        CurrReport.Break();
 
                                 AllocationDimText := GetDimensionText(DimSetEntry);
                             end;
@@ -291,8 +291,8 @@ report 50014 "General Journal - trasaction"
                             trigger OnPreDataItem()
                             begin
                                 if not ShowDim then
-                                    CurrReport.Break;
-                                DimSetEntry.Reset;
+                                    CurrReport.Break();
+                                DimSetEntry.Reset();
                                 DimSetEntry.SetRange("Dimension Set ID", "Gen. Jnl. Allocation"."Dimension Set ID")
                             end;
                         }
@@ -328,12 +328,12 @@ report 50014 "General Journal - trasaction"
                         if "Currency Code" = '' then
                             "Amount (LCY)" := Amount;
 
-                        UpdateLineBalance;
+                        UpdateLineBalance();
 
                         AccName := '';
                         BalAccName := '';
 
-                        if not EmptyLine then begin
+                        if not EmptyLine() then begin
                             MakeRecurringTexts("Gen. Journal Line");
 
                             AmountError := false;
@@ -345,17 +345,16 @@ report 50014 "General Journal - trasaction"
                                    ("Bal. Account Type" <> "Bal. Account Type"::"Fixed Asset")
                                 then
                                     TestFixedAssetFields("Gen. Journal Line");
-                            CheckICDocument;
+                            CheckICDocument();
                             if "Account No." <> '' then
                                 case "Account Type" of
                                     "Account Type"::"G/L Account":
                                         begin
                                             if ("Gen. Bus. Posting Group" <> '') or ("Gen. Prod. Posting Group" <> '') or
                                                ("VAT Bus. Posting Group" <> '') or ("VAT Prod. Posting Group" <> '')
-                                            then begin
+                                            then
                                                 if "Gen. Posting Type" = 0 then
                                                     AddError(StrSubstNo(Text002, FieldCaption("Gen. Posting Type")));
-                                            end;
                                             if ("Gen. Posting Type" <> "Gen. Posting Type"::" ") and
                                                ("VAT Posting" = "VAT Posting"::"Automatic VAT Entry")
                                             then begin
@@ -390,7 +389,7 @@ report 50014 "General Journal - trasaction"
                                                     FieldCaption("VAT Bus. Posting Group"), FieldCaption("VAT Prod. Posting Group"),
                                                     FieldCaption("Account Type"), "Account Type"));
 
-                                            if "Document Type" <> 0 then begin
+                                            if "Document Type" <> 0 then
                                                 if "Account Type" = "Account Type"::Customer then
                                                     case "Document Type" of
                                                         "Document Type"::"Credit Memo":
@@ -422,8 +421,7 @@ report 50014 "General Journal - trasaction"
                                                             WarningIfPositiveAmt("Gen. Journal Line");
                                                         else
                                                             WarningIfPositiveAmt("Gen. Journal Line");
-                                                    end
-                                            end;
+                                                    end;
 
                                             if Amount * "Sales/Purch. (LCY)" < 0 then
                                                 AddError(
@@ -466,10 +464,9 @@ report 50014 "General Journal - trasaction"
                                         begin
                                             if ("Bal. Gen. Bus. Posting Group" <> '') or ("Bal. Gen. Prod. Posting Group" <> '') or
                                                ("Bal. VAT Bus. Posting Group" <> '') or ("Bal. VAT Prod. Posting Group" <> '')
-                                            then begin
+                                            then
                                                 if "Bal. Gen. Posting Type" = 0 then
                                                     AddError(StrSubstNo(Text002, FieldCaption("Bal. Gen. Posting Type")));
-                                            end;
                                             if ("Bal. Gen. Posting Type" <> "Bal. Gen. Posting Type"::" ") and
                                                ("VAT Posting" = "VAT Posting"::"Automatic VAT Entry")
                                             then begin
@@ -503,14 +500,13 @@ report 50014 "General Journal - trasaction"
                                                     FieldCaption("Bal. VAT Bus. Posting Group"), FieldCaption("Bal. VAT Prod. Posting Group"),
                                                     FieldCaption("Bal. Account Type"), "Bal. Account Type"));
 
-                                            if "Document Type" <> 0 then begin
+                                            if "Document Type" <> 0 then
                                                 if ("Bal. Account Type" = "Bal. Account Type"::Customer) =
                                                    ("Document Type" in ["Document Type"::Payment, "Document Type"::"Credit Memo"])
                                                 then
                                                     WarningIfNegativeAmt("Gen. Journal Line")
                                                 else
-                                                    WarningIfPositiveAmt("Gen. Journal Line")
-                                            end;
+                                                    WarningIfPositiveAmt("Gen. Journal Line");
                                             if Amount * "Sales/Purch. (LCY)" > 0 then
                                                 AddError(
                                                   StrSubstNo(
@@ -706,7 +702,7 @@ report 50014 "General Journal - trasaction"
                             end;
 
                             if not DimMgt.CheckDimIDComb("Dimension Set ID") then
-                                AddError(DimMgt.GetDimCombErr);
+                                AddError(DimMgt.GetDimCombErr());
 
                             TableID[1] := DimMgt.TypeToTableID1("Account Type");
                             No[1] := "Account No.";
@@ -719,13 +715,12 @@ report 50014 "General Journal - trasaction"
                             TableID[5] := DATABASE::Campaign;
                             No[5] := "Campaign No.";
                             if not DimMgt.CheckDimValuePosting(TableID, No, "Dimension Set ID") then
-                                AddError(DimMgt.GetDimValuePostingErr);
+                                AddError(DimMgt.GetDimValuePostingErr());
                         end;
 
-                        CheckBalance;
+                        CheckBalance();
                         AmountLCY += "Amount (LCY)";
                         BalanceLCY += "Balance (LCY)";
-
 
                         /*
                         xx:=1;
@@ -742,7 +737,6 @@ report 50014 "General Journal - trasaction"
                          IF BankAccPostingGroup.GET(BankAcc."Bank Acc. Posting Group") THEN "Bal. Account No.":=BankAccPostingGroup."G/L Bank Account No.";
                         END;
                         */
-
                     end;
 
                     trigger OnPreDataItem()
@@ -754,13 +748,13 @@ report 50014 "General Journal - trasaction"
                                   StrSubstNo(
                                     Text000,
                                     FieldCaption("Posting Date")));
-                            SetRange("Posting Date", 0D, WorkDate);
+                            SetRange("Posting Date", 0D, WorkDate());
                             if GetFilter("Expiration Date") <> '' then
                                 AddError(
                                   StrSubstNo(
                                     Text000,
                                     FieldCaption("Expiration Date")));
-                            SetFilter("Expiration Date", '%1 | %2..', 0D, WorkDate);
+                            SetFilter("Expiration Date", '%1 | %2..', 0D, WorkDate());
                         end;
 
                         if "Gen. Journal Batch"."No. Series" <> '' then begin
@@ -772,10 +766,10 @@ report 50014 "General Journal - trasaction"
                         CurrentCustomerVendors := 0;
                         VATEntryCreated := false;
 
-                        GenJnlLine2.Reset;
+                        GenJnlLine2.Reset();
                         GenJnlLine2.CopyFilters("Gen. Journal Line");
 
-                        GLAccNetChange.DeleteAll;
+                        GLAccNetChange.DeleteAll();
                         CurrReport.CreateTotals("Amount (LCY)", "Balance (LCY)");
                     end;
                 }
@@ -815,12 +809,12 @@ report 50014 "General Journal - trasaction"
                         if Number = 1 then
                             GLAccNetChange.Find('-')
                         else
-                            GLAccNetChange.Next;
+                            GLAccNetChange.Next();
                     end;
 
                     trigger OnPostDataItem()
                     begin
-                        GLAccNetChange.DeleteAll;
+                        GLAccNetChange.DeleteAll();
                     end;
 
                     trigger OnPreDataItem()
@@ -851,9 +845,9 @@ report 50014 "General Journal - trasaction"
 
             trigger OnPreDataItem()
             begin
-                GLSetup.Get;
-                SalesSetup.Get;
-                PurchSetup.Get;
+                GLSetup.Get();
+                SalesSetup.Get();
+                PurchSetup.Get();
                 AmountLCY := 0;
                 BalanceLCY := 0;
             end;
@@ -1059,8 +1053,6 @@ report 50014 "General Journal - trasaction"
         Text074: Label 'Payment Voucher';
         Text075: Label 'Receipt Voucher';
         Text076: Label 'Journal Voucher';
-        xx: Integer;
-        BankAccPostingGroup: Record "Bank Account Posting Group";
         ShowReconciliation: Boolean;
 
     local procedure CheckRecurringLine(GenJnlLine2: Record "Gen. Journal Line")
@@ -1110,25 +1102,25 @@ report 50014 "General Journal - trasaction"
    [GenJnlLine2."Recurring Method"::"B  Balance",
     GenJnlLine2."Recurring Method"::"RB Reversing Balance"]
 then begin
-            GenJnlAlloc.Reset;
+            GenJnlAlloc.Reset();
             GenJnlAlloc.SetRange("Journal Template Name", GenJnlLine2."Journal Template Name");
             GenJnlAlloc.SetRange("Journal Batch Name", GenJnlLine2."Journal Batch Name");
             GenJnlAlloc.SetRange("Journal Line No.", GenJnlLine2."Line No.");
-            if not GenJnlAlloc.FindFirst then
+            if not GenJnlAlloc.FindFirst() then
                 AddError(Text061);
         end;
 
-        GenJnlAlloc.Reset;
+        GenJnlAlloc.Reset();
         GenJnlAlloc.SetRange("Journal Template Name", GenJnlLine2."Journal Template Name");
         GenJnlAlloc.SetRange("Journal Batch Name", GenJnlLine2."Journal Batch Name");
         GenJnlAlloc.SetRange("Journal Line No.", GenJnlLine2."Line No.");
         GenJnlAlloc.SetFilter(Amount, '<>0');
-        if GenJnlAlloc.FindFirst then
+        if GenJnlAlloc.FindFirst() then
             if not GenJnlTemplate.Recurring then
                 AddError(Text021)
             else begin
                 GenJnlAlloc.SetRange("Account No.", '');
-                if GenJnlAlloc.FindFirst then
+                if GenJnlAlloc.FindFirst() then
                     AddError(
                       StrSubstNo(
                         Text022,
@@ -1145,7 +1137,7 @@ then begin
             Month := Date2DMY(GenJnlLine2."Posting Date", 2);
             MonthText := Format(GenJnlLine2."Posting Date", 0, Text023);
             AccountingPeriod.SetRange("Starting Date", 0D, GenJnlLine2."Posting Date");
-            if not AccountingPeriod.FindLast then
+            if not AccountingPeriod.FindLast() then
                 AccountingPeriod.Name := '';
             GenJnlLine2."Document No." :=
               DelChr(
@@ -1170,9 +1162,9 @@ then begin
         GenJnlLine := "Gen. Journal Line";
         LastLineNo := "Gen. Journal Line"."Line No.";
         NextGenJnlLine := "Gen. Journal Line";
-        if NextGenJnlLine.Next = 0 then;
+        if NextGenJnlLine.Next() = 0 then;
         MakeRecurringTexts(NextGenJnlLine);
-        if not GenJnlLine.EmptyLine then begin
+        if not GenJnlLine.EmptyLine() then begin
             DocBalance := DocBalance + GenJnlLine."Balance (LCY)";
             DateBalance := DateBalance + GenJnlLine."Balance (LCY)";
             TotalBalance := TotalBalance + GenJnlLine."Balance (LCY)";
@@ -1298,15 +1290,15 @@ then begin
         if not GLAccNetChange.Get(GLAccNo) then begin
             GLAcc.Get(GLAccNo);
             GLAcc.CalcFields("Balance at Date");
-            GLAccNetChange.Init;
+            GLAccNetChange.Init();
             GLAccNetChange."No." := GLAcc."No.";
             GLAccNetChange.Name := GLAcc.Name;
             GLAccNetChange."Balance after Posting" := GLAcc."Balance at Date";
-            GLAccNetChange.Insert;
+            GLAccNetChange.Insert();
         end;
         GLAccNetChange."Net Change in Jnl." := GLAccNetChange."Net Change in Jnl." + ReconcileAmount;
         GLAccNetChange."Balance after Posting" := GLAccNetChange."Balance after Posting" + ReconcileAmount;
-        GLAccNetChange.Modify;
+        GLAccNetChange.Modify();
     end;
 
     local procedure CheckGLAcc(var GenJnlLine: Record "Gen. Journal Line"; var AccName: Text[50])
@@ -1346,7 +1338,7 @@ then begin
                     GenJnlLine."Gen. Posting Type"::Purchase:
                         PurchPostingType := true;
                 end;
-                TestPostingType;
+                TestPostingType();
 
                 if not VATPostingSetup.Get(GenJnlLine."VAT Bus. Posting Group", GenJnlLine."VAT Prod. Posting Group") then
                     AddError(
@@ -1413,18 +1405,18 @@ then begin
                           Text031,
                           ICPartner.TableCaption, Cust."IC Partner Code")));
             CustPosting := true;
-            TestPostingType;
+            TestPostingType();
 
             if GenJnlLine."Recurring Method" = 0 then
                 if GenJnlLine."Document Type" in
                    [GenJnlLine."Document Type"::Invoice, GenJnlLine."Document Type"::"Credit Memo",
                     GenJnlLine."Document Type"::"Finance Charge Memo", GenJnlLine."Document Type"::Reminder]
                 then begin
-                    OldCustLedgEntry.Reset;
+                    OldCustLedgEntry.Reset();
                     OldCustLedgEntry.SetCurrentKey("Document No.");
                     OldCustLedgEntry.SetRange("Document Type", GenJnlLine."Document Type");
                     OldCustLedgEntry.SetRange("Document No.", GenJnlLine."Document No.");
-                    if OldCustLedgEntry.FindFirst then
+                    if OldCustLedgEntry.FindFirst() then
                         AddError(
                           StrSubstNo(
                             Text039, GenJnlLine."Document Type", GenJnlLine."Document No."));
@@ -1437,12 +1429,12 @@ then begin
                               StrSubstNo(
                                 Text041, GenJnlLine.FieldCaption("External Document No.")));
 
-                        OldCustLedgEntry.Reset;
+                        OldCustLedgEntry.Reset();
                         OldCustLedgEntry.SetCurrentKey("External Document No.");
                         OldCustLedgEntry.SetRange("Document Type", GenJnlLine."Document Type");
                         OldCustLedgEntry.SetRange("Customer No.", GenJnlLine."Account No.");
                         OldCustLedgEntry.SetRange("External Document No.", GenJnlLine."External Document No.");
-                        if OldCustLedgEntry.FindFirst then
+                        if OldCustLedgEntry.FindFirst() then
                             AddError(
                               StrSubstNo(
                                 Text039,
@@ -1501,18 +1493,18 @@ then begin
                           Text031,
                           ICPartner.TableCaption, Vend."IC Partner Code")));
             VendPosting := true;
-            TestPostingType;
+            TestPostingType();
 
             if GenJnlLine."Recurring Method" = 0 then
                 if GenJnlLine."Document Type" in
                    [GenJnlLine."Document Type"::Invoice, GenJnlLine."Document Type"::"Credit Memo",
                     GenJnlLine."Document Type"::"Finance Charge Memo", GenJnlLine."Document Type"::Reminder]
                 then begin
-                    OldVendLedgEntry.Reset;
+                    OldVendLedgEntry.Reset();
                     OldVendLedgEntry.SetCurrentKey("Document No.");
                     OldVendLedgEntry.SetRange("Document Type", GenJnlLine."Document Type");
                     OldVendLedgEntry.SetRange("Document No.", GenJnlLine."Document No.");
-                    if OldVendLedgEntry.FindFirst then
+                    if OldVendLedgEntry.FindFirst() then
                         AddError(
                           StrSubstNo(
                             Text040,
@@ -1526,12 +1518,12 @@ then begin
                               StrSubstNo(
                                 Text041, GenJnlLine.FieldCaption("External Document No.")));
 
-                        OldVendLedgEntry.Reset;
+                        OldVendLedgEntry.Reset();
                         OldVendLedgEntry.SetCurrentKey("External Document No.");
                         OldVendLedgEntry.SetRange("Document Type", GenJnlLine."Document Type");
                         OldVendLedgEntry.SetRange("Vendor No.", GenJnlLine."Account No.");
                         OldVendLedgEntry.SetRange("External Document No.", GenJnlLine."External Document No.");
-                        if OldVendLedgEntry.FindFirst then
+                        if OldVendLedgEntry.FindFirst() then
                             AddError(
                               StrSubstNo(
                                 Text040,
@@ -1775,7 +1767,7 @@ then begin
                         AllowFAPostingTo := UserSetup."Allow FA Posting To";
                     end;
                 if (AllowFAPostingFrom = 0D) and (AllowFAPostingTo = 0D) then begin
-                    FASetup.Get;
+                    FASetup.Get();
                     AllowFAPostingFrom := FASetup."Allow FA Posting From";
                     AllowFAPostingTo := FASetup."Allow FA Posting To";
                 end;
@@ -1790,7 +1782,7 @@ then begin
                     Text053,
                     GenJnlLine.FieldCaption("FA Posting Date")));
         end;
-        FASetup.Get;
+        FASetup.Get();
         if (GenJnlLine."FA Posting Type" = GenJnlLine."FA Posting Type"::"Acquisition Cost") and
            (GenJnlLine."Insurance No." <> '') and (GenJnlLine."Depreciation Book Code" <> FASetup."Insurance Depr. Book")
         then
@@ -1944,7 +1936,7 @@ then begin
             AccNo := GenJnlLine."Bal. Account No.";
         end;
 
-        TempGenJnlLine.Reset;
+        TempGenJnlLine.Reset();
         TempGenJnlLine.SetRange("External Document No.", GenJnlLine."External Document No.");
 
         while (i < 2) and not ErrorFound do begin
@@ -1960,7 +1952,7 @@ then begin
                 TempGenJnlLine.SetRange("Bal. Account Type", AccType);
                 TempGenJnlLine.SetRange("Bal. Account No.", AccNo);
             end;
-            if TempGenJnlLine.FindFirst then begin
+            if TempGenJnlLine.FindFirst() then begin
                 ErrorFound := true;
                 AddError(
                   StrSubstNo(
@@ -1969,9 +1961,9 @@ then begin
             end;
         end;
 
-        TempGenJnlLine.Reset;
+        TempGenJnlLine.Reset();
         TempGenJnlLine := GenJnlLine;
-        TempGenJnlLine.Insert;
+        TempGenJnlLine.Insert();
     end;
 
     local procedure CheckICDocument()
@@ -1987,7 +1979,7 @@ then begin
                 GenJnlLine4.SetRange("Posting Date", "Gen. Journal Line"."Posting Date");
                 GenJnlLine4.SetRange("Document No.", "Gen. Journal Line"."Document No.");
                 GenJnlLine4.SetFilter("IC Partner Code", '<>%1', '');
-                if GenJnlLine4.FindFirst then
+                if GenJnlLine4.FindFirst() then
                     CurrentICPartner := GenJnlLine4."IC Partner Code"
                 else
                     CurrentICPartner := '';
@@ -1997,11 +1989,11 @@ then begin
                    ("Gen. Journal Line"."Bal. Account Type" in ["Gen. Journal Line"."Bal. Account Type"::"G/L Account", "Gen. Journal Line"."Account Type"::"Bank Account"]) and
                    ("Gen. Journal Line"."Account No." <> '') and
                    ("Gen. Journal Line"."Bal. Account No." <> '')
-                then begin
+                then
                     AddError(
                       StrSubstNo(
-                        Text066, "Gen. Journal Line".FieldCaption("Account No."), "Gen. Journal Line".FieldCaption("Bal. Account No.")));
-                end else begin
+                        Text066, "Gen. Journal Line".FieldCaption("Account No."), "Gen. Journal Line".FieldCaption("Bal. Account No.")))
+                else
                     if (("Gen. Journal Line"."Account Type" in ["Gen. Journal Line"."Account Type"::"G/L Account", "Gen. Journal Line"."Account Type"::"Bank Account"]) and ("Gen. Journal Line"."Account No." <> '')) xor
                        (("Gen. Journal Line"."Bal. Account Type" in ["Gen. Journal Line"."Bal. Account Type"::"G/L Account", "Gen. Journal Line"."Account Type"::"Bank Account"]) and
                         ("Gen. Journal Line"."Bal. Account No." <> ''))
@@ -2010,7 +2002,7 @@ then begin
                             AddError(
                               StrSubstNo(
                                 Text002, "Gen. Journal Line".FieldCaption("IC Partner G/L Acc. No.")))
-                        else begin
+                        else
                             if "IC G/L Account".Get("Gen. Journal Line"."IC Partner G/L Acc. No.") then
                                 if "IC G/L Account".Blocked then
                                     AddError(
@@ -2019,13 +2011,11 @@ then begin
                                         "IC G/L Account".FieldCaption(Blocked), false, "Gen. Journal Line".FieldCaption("IC Partner G/L Acc. No."),
                                         "Gen. Journal Line"."IC Partner G/L Acc. No."
                                         ));
-                        end;
                     end else
                         if "Gen. Journal Line"."IC Partner G/L Acc. No." <> '' then
                             AddError(
                               StrSubstNo(
                                 Text009, "Gen. Journal Line".FieldCaption("IC Partner G/L Acc. No.")));
-                end;
             end else
                 if "Gen. Journal Line"."IC Partner G/L Acc. No." <> '' then begin
                     if "Gen. Journal Line"."IC Direction" = "Gen. Journal Line"."IC Direction"::Incoming then
@@ -2094,7 +2084,7 @@ then begin
             OldFALedgEntry.SetRange("FA Posting Category", OldFALedgEntry."FA Posting Category"::" ");
             OldFALedgEntry.SetRange("FA Posting Type", FAJnlLine.ConvertToLedgEntry(FAJnlLine));
             OldFALedgEntry.SetRange("Document No.", GenJnlLine."Document No.");
-            if OldFALedgEntry.FindFirst then
+            if OldFALedgEntry.FindFirst() then
                 AddError(
                   StrSubstNo(
                     Text073,
@@ -2105,7 +2095,7 @@ then begin
             OldMaintenanceLedgEntry.SetRange("FA No.", FANo);
             OldMaintenanceLedgEntry.SetRange("Depreciation Book Code", GenJnlLine."Depreciation Book Code");
             OldMaintenanceLedgEntry.SetRange("Document No.", GenJnlLine."Document No.");
-            if OldMaintenanceLedgEntry.FindFirst then
+            if OldMaintenanceLedgEntry.FindFirst() then
                 AddError(
                   StrSubstNo(
                     Text073,
@@ -2137,8 +2127,7 @@ then begin
             end;
             DimensionText := DimensionText + Separator + DimValue;
             Separator := '; ';
-        until DimSetEntry.Next = 0;
+        until DimSetEntry.Next() = 0;
         exit(DimensionText);
     end;
 }
-

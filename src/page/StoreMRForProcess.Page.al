@@ -13,7 +13,7 @@ page 50073 "Store MR For Process"
                             "Final Approved" = CONST(Approved),
                             "Issued Captured" = CONST(true),
                             Processed = CONST(false));
-
+    Caption = 'Store MR For Process';
     layout
     {
         area(content)
@@ -84,4 +84,3 @@ page 50073 "Store MR For Process"
     {
     }
 }
-

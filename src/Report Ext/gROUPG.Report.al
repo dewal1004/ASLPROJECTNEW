@@ -2,7 +2,7 @@ report 99991 "gROUPG"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/gROUPG.rdlc';
-
+    Caption = 'gROUPG';
     dataset
     {
         dataitem("Job Journal Line"; "Job Journal Line")
@@ -15,7 +15,7 @@ report 99991 "gROUPG"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -124,7 +124,6 @@ report 99991 "gROUPG"
 
     requestpage
     {
-
         layout
         {
         }
@@ -140,9 +139,7 @@ report 99991 "gROUPG"
 
     var
         LastFieldNo: Integer;
-        FooterPrinted: Boolean;
         TotalFor: Label 'Total for ';
         Job_Journal_LineCaptionLbl: Label 'Job Journal Line';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
 }
-

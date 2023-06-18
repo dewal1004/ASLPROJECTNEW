@@ -1,5 +1,6 @@
 table 50029 "Medical Record"
 {
+    Caption = 'Medical Record';
     // DrillDownPageID = "Medical Record List"; ****
     // LookupPageID = "Medical Record List";
 
@@ -93,6 +94,7 @@ table 50029 "Medical Record"
                                                              "Hospital Code" = FIELD("Hospital Filter")));
             DecimalPlaces = 2 : 2;
             FieldClass = FlowField;
+            Editable = false;
         }
         field(14; "Employee Filter"; Code[10])
         {
@@ -142,6 +144,7 @@ table 50029 "Medical Record"
                                                              "Hospital Code" = FIELD("Hospital Filter")));
             DecimalPlaces = 2 : 2;
             FieldClass = FlowField;
+            Editable = false;
         }
         field(22; "Reimbursed Cost"; Decimal)
         {
@@ -155,6 +158,7 @@ table 50029 "Medical Record"
                                                              "Hospital Code" = FIELD("Hospital Filter")));
             DecimalPlaces = 2 : 2;
             FieldClass = FlowField;
+            Editable = false;
         }
         field(23; "Hospital Cost"; Decimal)
         {
@@ -167,6 +171,7 @@ table 50029 "Medical Record"
                                                              "Transaction Date" = FIELD("Date Filter")));
             DecimalPlaces = 2 : 2;
             FieldClass = FlowField;
+            Editable = false;
         }
         field(24; "Hospital Filter"; Code[10])
         {
@@ -186,6 +191,7 @@ table 50029 "Medical Record"
                                                         "Transaction Date" = FIELD("Date Filter"),
                                                         "Hospital Code" = FIELD("Hospital Filter")));
             FieldClass = FlowField;
+            Editable = false;
         }
         field(27; "Sickness Description"; Text[30])
         {
@@ -245,8 +251,6 @@ table 50029 "Medical Record"
         MedRec: Record "Medical Record";
         EmpRec: Record Employee;
         EmpRec1: Record Employee;
-        TText: Text[50];
-        YTD: Text[30];
 
     // [Scope('OnPrem')]
     procedure "Per Hospital Cost"(HospNo: Code[10]; PerStr: Text[30]): Decimal
@@ -273,8 +277,7 @@ table 50029 "Medical Record"
     begin
         //Univision Start 20/01/03
         if EmpRec1.Get("Employee No") then
-            exit(EmpRec1.FullName);
+            exit(EmpRec1.FullName());
         //Univision Finish 20/01/03
     end;
 }
-

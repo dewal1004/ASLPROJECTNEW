@@ -68,7 +68,7 @@ page 50105 "Dry Docking/Job  list"
                 {
                     ApplicationArea = All;
                 }
-                field("% of Overdue Planning Lines"; Rec.PercentOverdue)
+                field("% of Overdue Planning Lines"; Rec.PercentOverdue())
                 {
                     Caption = '% of Overdue Planning Lines';
                     Editable = false;
@@ -79,14 +79,14 @@ page 50105 "Dry Docking/Job  list"
                 {
                     ApplicationArea = All;
                 }
-                field("% Completed"; Rec.PercentCompleted)
+                field("% Completed"; Rec.PercentCompleted())
                 {
                     Caption = '% Completed';
                     Editable = false;
                     Visible = false;
                     ApplicationArea = All;
                 }
-                field("% Invoiced"; Rec.PercentInvoiced)
+                field("% Invoiced"; Rec.PercentInvoiced())
                 {
                     Caption = '% Invoiced';
                     Editable = false;
@@ -175,11 +175,10 @@ page 50105 "Dry Docking/Job  list"
     trigger OnAfterGetRecord()
     begin
         StyleText := '';
-        if Rec.Status = Rec.Status::Completed then begin
-            StyleText := 'Unfavorable';
-        end else begin
-            StyleText := 'standard'
-        end;
+        if Rec.Status = Rec.Status::Completed then
+            StyleText := 'Unfavorable'
+        else
+            StyleText := 'standard';
 
         if Rec."Voyage Ended" = true then
             StyleText := 'Unfavorable'
@@ -187,6 +186,4 @@ page 50105 "Dry Docking/Job  list"
 
     var
         StyleText: Text[20];
-
 }
-

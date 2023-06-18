@@ -2,7 +2,6 @@ pageextension 50373 "pageextension50373" extends "Customer Report Selections"
 {
     layout
     {
-
         //Unsupported feature: Code Modification on "Usage2(Control 3).OnAfterValidate".
 
         //trigger OnAfterValidate()
@@ -28,10 +27,6 @@ pageextension 50373 "pageextension50373" extends "Customer Report Selections"
         //end;
     }
 
-    var
-        CustomReportSelection: Record "Custom Report Selection";
-
-
     //Unsupported feature: Code Insertion (VariableCollection) on "OnAfterGetRecord".
 
     //trigger (Variable: CustomReportSelection)()
@@ -40,7 +35,6 @@ pageextension 50373 "pageextension50373" extends "Customer Report Selections"
     /*
     */
     //end;
-
 
     //Unsupported feature: Code Modification on "OnAfterGetRecord".
 
@@ -74,6 +68,4 @@ pageextension 50373 "pageextension50373" extends "Customer Report Selections"
     //end;
 
     //Unsupported feature: Property Deletion (DelayedInsert).
-
 }
-

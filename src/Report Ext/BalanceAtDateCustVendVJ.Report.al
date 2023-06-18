@@ -8,8 +8,7 @@ report 50056 "Balance At Date (Cust/Vend)VJ"
     // Customer."Date Filter":=0D;
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/BalanceAtDateCustVendVJ.rdlc';
-
-
+    Caption = 'Balance At Date (Cust/Vend)VJ';
     dataset
     {
         dataitem(Customer; Customer)
@@ -23,7 +22,7 @@ report 50056 "Balance At Date (Cust/Vend)VJ"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -50,7 +49,7 @@ report 50056 "Balance At Date (Cust/Vend)VJ"
             column(Customer__Debit_Amount__LCY__; "Debit Amount (LCY)")
             {
             }
-            column(CurrReport_PAGENO_Control1000000056; CurrReport.PageNo)
+            column(CurrReport_PAGENO_Control1000000056; CurrReport.PageNo())
             {
             }
             column(USERID_Control1000000058; UserId)
@@ -123,7 +122,7 @@ report 50056 "Balance At Date (Cust/Vend)VJ"
             trigger OnAfterGetRecord()
             begin
 
-                if (Output = 1) then CurrReport.Break;
+                if (Output = 1) then CurrReport.Break();
                 SetFilter("Entry Type Filter", '<>2');
 
                 SetRange("Date Filter", 0D, ToDate);
@@ -150,7 +149,7 @@ report 50056 "Balance At Date (Cust/Vend)VJ"
                     FrDate := GetRangeMin(Customer."Date Filter");
                 end;
                 if ToDate = 0D then ToDate := Today;
-                if Output <> 1 then CurrReport.Skip;
+                if Output <> 1 then CurrReport.Skip();
             end;
         }
         dataitem(Vendor; Vendor)
@@ -159,7 +158,7 @@ report 50056 "Balance At Date (Cust/Vend)VJ"
             column(FORMAT_TODAY_0_4__Control1000000044; Format(Today, 0, 4))
             {
             }
-            column(CurrReport_PAGENO_Control1000000045; CurrReport.PageNo)
+            column(CurrReport_PAGENO_Control1000000045; CurrReport.PageNo())
             {
             }
             column(USERID_Control1000000047; UserId)
@@ -177,7 +176,7 @@ report 50056 "Balance At Date (Cust/Vend)VJ"
             column(Vendor__No__; "No.")
             {
             }
-            column(CurrReport_PAGENO_Control1000000060; CurrReport.PageNo)
+            column(CurrReport_PAGENO_Control1000000060; CurrReport.PageNo())
             {
             }
             column(USERID_Control1000000061; UserId)
@@ -220,7 +219,7 @@ report 50056 "Balance At Date (Cust/Vend)VJ"
             trigger OnAfterGetRecord()
             begin
 
-                if (Output = 0) then CurrReport.Break;
+                if (Output = 0) then CurrReport.Break();
                 SetFilter("Entry Type Filter", '<>2');
 
                 SetRange("Date Filter", 0D, ToDate);
@@ -252,7 +251,6 @@ report 50056 "Balance At Date (Cust/Vend)VJ"
 
     requestpage
     {
-
         layout
         {
         }
@@ -268,10 +266,7 @@ report 50056 "Balance At Date (Cust/Vend)VJ"
 
     var
         LastFieldNo: Integer;
-        FooterPrinted: Boolean;
         ToDate: Date;
-        ShowZero: Boolean;
-        "-----------": Integer;
         FrDate: Date;
         BalAtDat: Decimal;
         BalB4Per: Decimal;
@@ -294,4 +289,3 @@ report 50056 "Balance At Date (Cust/Vend)VJ"
         Balance_At_DateCaption_Control1000000037Lbl: Label 'Balance At Date';
         CurrReport_PAGENO_Control1000000060CaptionLbl: Label 'Page';
 }
-

@@ -2,7 +2,7 @@ report 99516 "Edit PDate>Trans Ord Dat PurCr"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/EditPDateTransOrdDatPurCr.rdlc';
-
+    Caption = 'Edit PDate>Trans Ord Dat PurCr';
     dataset
     {
         dataitem("Purch. Cr. Memo Hdr."; "Purch. Cr. Memo Hdr.")
@@ -42,7 +42,6 @@ report 99516 "Edit PDate>Trans Ord Dat PurCr"
 
     requestpage
     {
-
         layout
         {
         }
@@ -55,8 +54,4 @@ report 99516 "Edit PDate>Trans Ord Dat PurCr"
     labels
     {
     }
-
-    var
-        TranOrdDat: Date;
 }
-

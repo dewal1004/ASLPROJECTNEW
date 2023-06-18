@@ -2,7 +2,7 @@ report 99983 "Update Fis Sale & Purch UOM"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/UpdateFisSalePurchUOM.rdlc';
-
+    Caption = 'Update Fis Sale & Purch UOM';
     dataset
     {
         dataitem(Item; Item)
@@ -14,7 +14,7 @@ report 99983 "Update Fis Sale & Purch UOM"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -61,7 +61,7 @@ report 99983 "Update Fis Sale & Purch UOM"
             begin
                 Item."Purch. Unit of Measure" := 'KG';
                 Item."Sales Unit of Measure" := 'KG';
-                Modify;
+                Modify();
             end;
 
             trigger OnPreDataItem()
@@ -73,7 +73,6 @@ report 99983 "Update Fis Sale & Purch UOM"
 
     requestpage
     {
-
         layout
         {
         }
@@ -89,8 +88,6 @@ report 99983 "Update Fis Sale & Purch UOM"
 
     var
         LastFieldNo: Integer;
-        FooterPrinted: Boolean;
         ItemCaptionLbl: Label 'Item';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
 }
-

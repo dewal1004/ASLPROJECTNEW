@@ -4,7 +4,7 @@ page 50013 "Posting Group Header."
     SourceTable = "Payroll-Posting Group Header.";
     UsageCategory = Lists;
     ApplicationArea = All, Basic;
-
+    Caption = 'Posting Group Header.';
     layout
     {
         area(content)
@@ -41,4 +41,3 @@ page 50013 "Posting Group Header."
     {
     }
 }
-

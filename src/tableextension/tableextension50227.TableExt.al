@@ -14,14 +14,11 @@ tableextension 50227 "tableextension50227" extends "Resource Group"
         modify("Global Dimension 2 Code")
         {
             trigger OnAfterValidate()
-            var
-                myInt: Integer;
             begin
                 "Global Dimension 2 Code" := 'ATLANTIC';
             end;
         }
     }
-
 
     //Unsupported feature: Code Modification on "OnInsert".
 
@@ -42,4 +39,3 @@ tableextension 50227 "tableextension50227" extends "Resource Group"
     */
     //end;
 }
-

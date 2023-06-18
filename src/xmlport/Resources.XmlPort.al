@@ -2,7 +2,7 @@ xmlport 50026 "Resources"
 {
     Direction = Export;
     Format = VariableText;
-
+    Caption = 'Resources';
     schema
     {
         textelement(Rootnode)
@@ -61,7 +61,6 @@ xmlport 50026 "Resources"
 
     requestpage
     {
-
         layout
         {
         }
@@ -71,4 +70,3 @@ xmlport 50026 "Resources"
         }
     }
 }
-

@@ -2,7 +2,7 @@ report 99989 "Customer Gen Postg GroupX"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/CustomerGenPostgGroupX.rdlc';
-
+    Caption = 'Customer Gen Postg GroupX';
     dataset
     {
         dataitem(Customer; Customer)
@@ -15,7 +15,7 @@ report 99989 "Customer Gen Postg GroupX"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -71,7 +71,6 @@ report 99989 "Customer Gen Postg GroupX"
 
     requestpage
     {
-
         layout
         {
         }
@@ -89,4 +88,3 @@ report 99989 "Customer Gen Postg GroupX"
         CustomerCaptionLbl: Label 'Customer';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
 }
-

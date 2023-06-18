@@ -3,8 +3,7 @@ report 60154 "Voyage P&L Ledger LineS"
     // "Job Ledger Entry"."Total Price"
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/VoyagePLLedgerLineS.rdlc';
-
-
+    Caption = 'Voyage P&L Ledger LineS';
     dataset
     {
         dataitem("Job Ledger Entry"; "Job Ledger Entry")
@@ -17,7 +16,7 @@ report 60154 "Voyage P&L Ledger LineS"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -43,19 +42,15 @@ report 60154 "Voyage P&L Ledger LineS"
             }
             column(CycleDay; CycleDay)
             {
-
             }
             column(FishgDay; FishgDay)
             {
-
             }
             column(LostDay; LostDay)
             {
-
             }
             column(PortDay; PortDay)
             {
-
             }
             column(Vess; Vess)
             {
@@ -71,19 +66,15 @@ report 60154 "Voyage P&L Ledger LineS"
             }
             column(Text24; Text24)
             {
-
             }
             column(Text25; Text25)
             {
-
             }
             column(Text26; Text26)
             {
-
             }
             column(Text27; Text27)
             {
-
             }
             column(PntStor_1_; PntStor[1])
             {
@@ -439,7 +430,6 @@ report 60154 "Voyage P&L Ledger LineS"
 
     requestpage
     {
-
         layout
         {
         }
@@ -455,25 +445,12 @@ report 60154 "Voyage P&L Ledger LineS"
 
     var
         LastFieldNo: Integer;
-        FooterPrinted: Boolean;
         TotalFor: Label 'Total';
-        "---": Integer;
         Job: Record Job;
-        Job2: Record Job;
         Itempr1: Record Item;
-        CurrExc: Record "Currency Exchange Rate";
-        ProdPostGrp: Record "Gen. Product Posting Group";
-        InvtPostGrp: Record "Inventory Posting Group";
-        JobSetUp: Record "Jobs Setup";
-        JBudLn: Record "Job Ledger Entry";
-        Employee: Record Employee;
-        Loc: Record Location;
-        Coutry: Record "Country/Region";
-        GLEntry: Record "G/L Entry";
         Prc: Decimal;
         PrdPrc: Decimal;
         PrdPrc2: Decimal;
-        CurrRate: Decimal;
         NairaVal: Decimal;
         NairaVal2: Decimal;
         GPPGDesc: Text[30];
@@ -488,11 +465,9 @@ report 60154 "Voyage P&L Ledger LineS"
         PntStor: array[8] of Decimal;
         ETD: Date;
         ETA: Date;
-        ETA2: Date;
         CycleDay: Decimal;
         PortDay: Decimal;
         LostDay: Decimal;
-        SeaDay: Decimal;
         FishgDay: Decimal;
         a: Decimal;
         expcnt: Integer;
@@ -509,8 +484,6 @@ report 60154 "Voyage P&L Ledger LineS"
         TotIndirExp: Decimal;
         GrossMarg: Decimal;
         GrossPerct: Decimal;
-        NetProfPerct: Decimal;
-        TotPrice: Decimal;
         NetProfit: Decimal;
         Qty: Decimal;
         ExpTonnage: Decimal;
@@ -539,4 +512,3 @@ report 60154 "Voyage P&L Ledger LineS"
         N_Caption_Control1000000084Lbl: Label '=N=';
         Itempr: Record "Item Ledger Entry";
 }
-

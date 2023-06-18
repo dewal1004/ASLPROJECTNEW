@@ -4,7 +4,7 @@ report 50201 "Vessel Performance Comparison"
     RDLCLayout = './src/reportrdlc/VesselPerformanceComparison.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
-
+    Caption = 'Vessel Performance Comparison';
     dataset
     {
         dataitem("Inventory Posting Group"; "Inventory Posting Group")
@@ -17,7 +17,7 @@ report 50201 "Vessel Performance Comparison"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -97,7 +97,6 @@ report 50201 "Vessel Performance Comparison"
 
     requestpage
     {
-
         layout
         {
         }
@@ -113,10 +112,7 @@ report 50201 "Vessel Performance Comparison"
 
     var
         LastFieldNo: Integer;
-        FooterPrinted: Boolean;
-        TotalFor: Label 'Total for ';
         Inventory_Posting_GroupCaptionLbl: Label 'Inventory Posting Group';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
         Inventory4__Catch_Budget__Control1000000022CaptionLbl: Label 'Variance';
 }
-

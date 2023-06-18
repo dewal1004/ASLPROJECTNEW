@@ -15,12 +15,12 @@ table 50008 "Payroll-Employee Group Lines."
     //                      file should be used in a window that is called from
     //                      another in which the Employee Group is entered/displayed.
     //                   : Window
-    // 
+    //
     // BDC 25/09/97       : Do not modify the line to be deleted
 
     DrillDownPageID = "Employee Group Lines.";
     LookupPageID = "Employee Group Lines.";
-
+    Caption = 'Payroll-Employee Group Lines.';
     fields
     {
         field(1; "Employee Group"; Code[20])
@@ -62,7 +62,6 @@ table 50008 "Payroll-Employee Group Lines."
 
                         /* Set the 'Change' flags to false in all the lines */
                         ResetChangeFlags(Rec);
-
                     end;
                 end;
 
@@ -75,7 +74,6 @@ table 50008 "Payroll-Employee Group Lines."
                     "ED Category" := "ED Category"::"Net Pay";
 
                 "Payslip Group ID" := "E/DFileRec"."Payslip Group ID";
-
             end;
         }
         field(3; Units; Text[10])
@@ -97,9 +95,7 @@ table 50008 "Payroll-Employee Group Lines."
                     /* Check for rounding and Maximum/Minimum */
                     "E/DFileRec".Get("E/D Code");
                     "Default Amount" := ChkRoundMaxMin("E/DFileRec", "Default Amount");
-
                 end
-
             end;
         }
         field(5; Quantity; Decimal)
@@ -117,23 +113,19 @@ table 50008 "Payroll-Employee Group Lines."
                     /* Check for rounding and Maximum/Minimum */
                     "E/DFileRec".Get("E/D Code");
                     "Default Amount" := ChkRoundMaxMin("E/DFileRec", "Default Amount");
-
                 end
-
             end;
         }
         field(6; Flag; Boolean)
         {
-
             trigger OnValidate()
             begin
                 "E/DFileRec".Get("E/D Code");
                 if not ("E/DFileRec"."Yes/No Req.?") then
                     Flag := false
-                else begin
+                else
                     "Default Amount" := CalcAmount("E/DFileRec", Rec,
                                                      "Default Amount");
-                end
             end;
         }
         field(7; "Default Amount"; Decimal)
@@ -155,7 +147,6 @@ table 50008 "Payroll-Employee Group Lines."
                     /* Check for rounding and Maximum/Minimum */
                   "Default Amount" := ChkRoundMaxMin("E/DFileRec", "Default Amount");
                 Message('No Enter');
-
             end;
         }
         field(8; ChangeOthers; Boolean)
@@ -230,7 +221,6 @@ table 50008 "Payroll-Employee Group Lines."
 
         /* Set the 'Change' flags to false in all the lines */
         ResetChangeFlags(Rec);
-
     end;
 
     trigger OnInsert()
@@ -269,7 +259,6 @@ table 50008 "Payroll-Employee Group Lines."
 
             Mark(false)
         end;
-
     end;
 
     var
@@ -305,7 +294,6 @@ table 50008 "Payroll-Employee Group Lines."
         /* Force NO-EDIT of field already has a value*/
         if "E/D Code" <> '' then
             exit;
-
     end;
 
     ////[Scope('OnPrem')]
@@ -343,7 +331,7 @@ table 50008 "Payroll-Employee Group Lines."
             /* If this 'Factor of' entry record is marked then this trigger was called
               from the 'Factor of' entry line, therefore ensure the amount to be used
               is the updated amount*/
-            if LineFactorRec.Mark then
+            if LineFactorRec.Mark() then
                 FactorRecAmount := EntryLineAmount
             else
                 FactorRecAmount := LineFactorRec."Default Amount";
@@ -370,17 +358,16 @@ table 50008 "Payroll-Employee Group Lines."
                 /*IF LookHeaderRec.Type = 0 THEN BEGIN*/
                 case LookHeaderRec.Type of
                     0, 2:
-                        begin
-                            /* Lookup table is searched with numeric variables */
-                            if FactorRecAmount > -1 then begin
-                                LookLinesRec."Lower Code" := '';
-                                InputAmount := FactorRecAmount * LookHeaderRec."Input Factor";
-                                LookLinesRec."Lower Amount" := InputAmount;
-                                LookLinesRec.SetRange("Lower Code", '');
-                            end
-                            else
-                                exit(LookHeaderRec."Min. Extract Amount")
-                        end;
+
+                        /* Lookup table is searched with numeric variables */
+                        if FactorRecAmount > -1 then begin
+                            LookLinesRec."Lower Code" := '';
+                            InputAmount := FactorRecAmount * LookHeaderRec."Input Factor";
+                            LookLinesRec."Lower Amount" := InputAmount;
+                            LookLinesRec.SetRange("Lower Code", '');
+                        end
+                        else
+                            exit(LookHeaderRec."Min. Extract Amount");
                     else  /*Lookup table is searched with variables of type code*/
                       begin
                         LookLinesRec."Lower Amount" := 0;
@@ -392,27 +379,26 @@ table 50008 "Payroll-Employee Group Lines."
 
                 case LookHeaderRec.Type of
                     0, 1:
-                        begin
-                            /* Extract amount as follows; First find line where Lower Amount or
-                              lower code is just greater than the Factor Amount then move one
-                              line back.*/
 
-                            if LookLinesRec.Find('=') then
-                                ReturnAmount := LookLinesRec."Extract Amount"
+                        /* Extract amount as follows; First find line where Lower Amount or
+                          lower code is just greater than the Factor Amount then move one
+                          line back.*/
+
+                        if LookLinesRec.Find('=') then
+                            ReturnAmount := LookLinesRec."Extract Amount"
+                        else
+                            if LookLinesRec.Find('>') then begin
+                                BackOneRec := LookLinesRec.Next(-1);
+                                ReturnAmount := LookLinesRec."Extract Amount";
+                            end
                             else
-                                if LookLinesRec.Find('>') then begin
-                                    BackOneRec := LookLinesRec.Next(-1);
-                                    ReturnAmount := LookLinesRec."Extract Amount";
+                                if LookHeaderRec.Type = 0 then begin
+                                    /*'Factor' Amount is > than the table's greatest "Lower amount"*/
+                                    if LookLinesRec.Find('+') then
+                                        ReturnAmount := LookLinesRec."Extract Amount";
                                 end
                                 else
-                                    if LookHeaderRec.Type = 0 then begin
-                                        /*'Factor' Amount is > than the table's greatest "Lower amount"*/
-                                        if LookLinesRec.Find('+') then
-                                            ReturnAmount := LookLinesRec."Extract Amount";
-                                    end
-                                    else
-                                        exit(EntryLineRec."Default Amount");
-                        end;
+                                    exit(EntryLineRec."Default Amount");
 
                     2: /*  Extract amount from tax table*/
                         ReturnAmount := (CalcTaxAmt(LookLinesRec, InputAmount)) *
@@ -442,14 +428,13 @@ table 50008 "Payroll-Employee Group Lines."
                 end;
                 ReturnAmount := Round(ReturnAmount, RoundPrec, RoundDir);
 
-                LookLinesRec.Reset
+                LookLinesRec.Reset()
             end;
 
         /* Check for rounding and Maximum/Minimum */
         ReturnAmount := ChkRoundMaxMin(EDFileRec, ReturnAmount);
 
         exit(ReturnAmount);
-
     end;
 
     ////[Scope('OnPrem')]
@@ -470,7 +455,7 @@ table 50008 "Payroll-Employee Group Lines."
         if "E/DFileRec".Compute = '' then
             exit;
 
-        EmpGrpLinesRec.Init;
+        EmpGrpLinesRec.Init();
         EmpGrpLinesRec.SetRange("Employee Group", EntryRecParam."Employee Group");
 
         /* If the entry line to be computed does not exist then EXIT */
@@ -524,13 +509,12 @@ table 50008 "Payroll-Employee Group Lines."
                 else
                     /* Add */
               ComputedTotal := ComputedTotal + AmountToAdd;
-
         end
         until (EmpGrpLinesRec.Next(1) = 0);
 
         /* Move the computed amount to the line whose E/D Code is the one that has
           just been calculated.*/
-        EmpGrpLinesRec.Init;
+        EmpGrpLinesRec.Init();
         EmpGrpLinesRec."E/D Code" := ConstEdFileRec.Compute;
         "E/DFileRec".Get(ConstEdFileRec.Compute);
 
@@ -554,14 +538,13 @@ table 50008 "Payroll-Employee Group Lines."
              also entries where it is a Factor, therefore set ChangeOthers to True*/
             if FactorRecAmount <> EmpGrpLinesRec."Default Amount" then begin
                 EmpGrpLinesRec.ChangeOthers := true;
-                EmpGrpLinesRec.Modify
+                EmpGrpLinesRec.Modify()
             end
         end;
-        Commit;
+        Commit();
 
         EmpGrpLinesRec.SetRange("Employee Group");
         EmpLinesRecStore.SetRange("Employee Group");
-
     end;
 
     ////[Scope('OnPrem')]
@@ -576,7 +559,7 @@ table 50008 "Payroll-Employee Group Lines."
 
         /*Get first record in Employee Group Lines file for this Employee group*/
         EmpGrpLinesRec := CurrentEntryLine;
-        EmpGrpLinesRec.Init;
+        EmpGrpLinesRec.Init();
         EmpGrpLinesRec.SetRange("Employee Group", EmpGrpLinesRec."Employee Group");
         EmpGrpLinesRec."E/D Code" := '';
         EmpGrpLinesRec.Find('>');
@@ -597,13 +580,11 @@ table 50008 "Payroll-Employee Group Lines."
                  also entries where it is a Factor, therefore set ChangeOthers to True*/
                 if FactorRecAmount <> EmpGrpLinesRec."Default Amount" then begin
                     EmpGrpLinesRec.ChangeOthers := true;
-                    EmpGrpLinesRec.Modify;
+                    EmpGrpLinesRec.Modify();
                 end;
             end;
-
         until (EmpGrpLinesRec.Next(1) = 0);
-        Commit;
-
+        Commit();
     end;
 
     ////[Scope('OnPrem')]
@@ -643,17 +624,16 @@ table 50008 "Payroll-Employee Group Lines."
                   dbFINDREC */
                 case LookHeaderRec.Type of
                     0, 2:
-                        begin
-                            /* Lookup table is searched with numeric variables */
-                            if CurrLineRec."Default Amount" > -1 then begin
-                                LookLinesRec."Lower Code" := '';
-                                LookLinesRec."Lower Amount" := CurrLineRec."Default Amount" *
-                                                               LookHeaderRec."Input Factor";
-                                LookLinesRec.SetRange("Lower Code", '');
-                            end
-                            else
-                                exit(LookHeaderRec."Min. Extract Amount")
-                        end;
+
+                        /* Lookup table is searched with numeric variables */
+                        if CurrLineRec."Default Amount" > -1 then begin
+                            LookLinesRec."Lower Code" := '';
+                            LookLinesRec."Lower Amount" := CurrLineRec."Default Amount" *
+                                                           LookHeaderRec."Input Factor";
+                            LookLinesRec.SetRange("Lower Code", '');
+                        end
+                        else
+                            exit(LookHeaderRec."Min. Extract Amount");
                     else  /*Lookup table is searched with variables of type code*/
                       begin
                         LookLinesRec."Lower Amount" := 0;
@@ -665,30 +645,29 @@ table 50008 "Payroll-Employee Group Lines."
 
                 case LookHeaderRec.Type of
                     0, 1:
-                        begin
-                            /* Extract amount as follows; First find line where Lower Amount or
-                              Lower Code is just greater than the CurrLineRec then move one line
-                              back.*/
 
-                            if LookLinesRec.Find('=') then
-                                ReturnAmount := LookLinesRec."Extract Amount"
+                        /* Extract amount as follows; First find line where Lower Amount or
+                          Lower Code is just greater than the CurrLineRec then move one line
+                          back.*/
+
+                        if LookLinesRec.Find('=') then
+                            ReturnAmount := LookLinesRec."Extract Amount"
+                        else
+                            if LookLinesRec.Find('>') then begin
+                                BackOneRec := LookLinesRec.Next(-1);
+                                ReturnAmount := LookLinesRec."Extract Amount";
+                            end
                             else
-                                if LookLinesRec.Find('>') then begin
-                                    BackOneRec := LookLinesRec.Next(-1);
-                                    ReturnAmount := LookLinesRec."Extract Amount";
+                                if LookHeaderRec.Type = 0 then begin
+                                    /*CurrLineRec.Amount is > than the table's greatest "Lower amount"*/
+                                    if LookLinesRec.Find('+') then
+                                        ReturnAmount := LookLinesRec."Extract Amount"
+                                    else
+                                        exit(LineToChangeRec."Default Amount")
                                 end
                                 else
-                                    if LookHeaderRec.Type = 0 then begin
-                                        /*CurrLineRec.Amount is > than the table's greatest "Lower amount"*/
-                                        if LookLinesRec.Find('+') then
-                                            ReturnAmount := LookLinesRec."Extract Amount"
-                                        else
-                                            exit(LineToChangeRec."Default Amount")
-                                    end
-                                    else
-                                        /*CurrLineRec.EDCode is > than the table's greatest "Lower code"*/
+                                    /*CurrLineRec.EDCode is > than the table's greatest "Lower code"*/
                   exit(LineToChangeRec."Default Amount");
-                        end;
 
                     2: /*  Extract amount from tax table*/
                         ReturnAmount := (CalcTaxAmt(LookLinesRec,
@@ -720,14 +699,13 @@ table 50008 "Payroll-Employee Group Lines."
                 end;
                 ReturnAmount := Round(ReturnAmount, RoundPrec, RoundDir);
 
-                LookLinesRec.Reset
+                LookLinesRec.Reset()
             end;
 
         /* Check for rounding and Maximum/Minimum */
         ReturnAmount := ChkRoundMaxMin(EDFileRec, ReturnAmount);
 
         exit(ReturnAmount);
-
     end;
 
     ////[Scope('OnPrem')]
@@ -763,12 +741,12 @@ table 50008 "Payroll-Employee Group Lines."
             end;
             ChangeOthersRec.ChangeCounter := ChangeOthersRec.ChangeCounter + 1;
             ChangeOthersRec.ChangeOthers := false;
-            ChangeOthersRec.Modify;
+            ChangeOthersRec.Modify();
             EmpLinesRecStore := ChangeOthersRec;
             ChangeOthersRec."E/D Code" := '';
         until ((EmpLinesRecStore.ChangeCounter > MaxChangeCount) or
                (ChangeOthersRec.Next(1) = 0));
-        Commit;
+        Commit();
         ChangeOthersRec.SetRange("Employee Group");
         ChangeOthersRec.SetRange(ChangeOthers);
         if (EmpLinesRecStore.ChangeCounter > MaxChangeCount) then
@@ -776,7 +754,6 @@ table 50008 "Payroll-Employee Group Lines."
                      ' characteristics', EmpLinesRecStore."E/D Code");
 
         exit;
-
     end;
 
     ////[Scope('OnPrem')]
@@ -796,7 +773,7 @@ table 50008 "Payroll-Employee Group Lines."
         if "E/DFileRec".Compute = '' then
             exit;
 
-        EmpGrpLinesRec.Init;
+        EmpGrpLinesRec.Init();
         EmpGrpLinesRec.SetRange("Employee Group", ParamLine."Employee Group");
 
         /* If the entry line to be computed does not exist then EXIT */
@@ -851,13 +828,12 @@ table 50008 "Payroll-Employee Group Lines."
                     else
                         /* Add */
                 ComputedTotal := ComputedTotal + EmpGrpLinesRec."Default Amount"
-
             end
         until (EmpGrpLinesRec.Next(1) = 0);
 
         /* Move the computed amount to the line whose E/D Code is the one that has
           just been calculated.*/
-        EmpGrpLinesRec.Init;
+        EmpGrpLinesRec.Init();
         EmpGrpLinesRec."E/D Code" := ConstEdFileRec.Compute;
         "E/DFileRec".Get(ConstEdFileRec.Compute);
         begin
@@ -880,14 +856,13 @@ table 50008 "Payroll-Employee Group Lines."
              also entries where it is a Factor, therefore set ChangeOthers to True*/
             if FactorRecAmount <> EmpGrpLinesRec."Default Amount" then begin
                 EmpGrpLinesRec.ChangeOthers := true;
-                EmpGrpLinesRec.Modify
+                EmpGrpLinesRec.Modify()
             end
         end;
-        Commit;
+        Commit();
 
         EmpGrpLinesRec.SetRange("Employee Group");
         EmpLinesRecStore.SetRange("Employee Group");
-
     end;
 
     ////[Scope('OnPrem')]
@@ -905,7 +880,7 @@ table 50008 "Payroll-Employee Group Lines."
 
         /*Get first record in Employee Group Lines file for this Employee group*/
         EmpGrpLinesRec := ParamLine;
-        EmpGrpLinesRec.Init;
+        EmpGrpLinesRec.Init();
         EmpGrpLinesRec.SetRange("Employee Group", ParamLine."Employee Group");
         EmpGrpLinesRec."E/D Code" := '';
         if not EmpGrpLinesRec.Find('>') then
@@ -932,14 +907,13 @@ table 50008 "Payroll-Employee Group Lines."
                      also entries where it is a Factor, therefore set ChangeOthers to True*/
                     if FactorRecAmount <> EmpGrpLinesRec."Default Amount" then begin
                         EmpGrpLinesRec.ChangeOthers := true;
-                        EmpGrpLinesRec.Modify
+                        EmpGrpLinesRec.Modify()
                     end
                 end
             end;
         until (EmpGrpLinesRec.Next(1) = 0);
-        Commit;
+        Commit();
         EmpGrpLinesRec.SetRange("Employee Group");
-
     end;
 
     ////[Scope('OnPrem')]
@@ -952,7 +926,7 @@ table 50008 "Payroll-Employee Group Lines."
         ””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””*/
         /*Get first record in Employee Group Lines file for this Employee group*/
         EmpGrpLinesRec := CurrentRec;
-        EmpGrpLinesRec.Init;
+        EmpGrpLinesRec.Init();
         EmpGrpLinesRec.SetRange("Employee Group", EmpGrpLinesRec."Employee Group");
         EmpGrpLinesRec."E/D Code" := '';
         EmpGrpLinesRec.Find('>');
@@ -965,11 +939,9 @@ table 50008 "Payroll-Employee Group Lines."
             /*BDC - Do not modify the one to be deleted*/
             /*  IF EmpGrpLinesRec."Employee Group" <> CurrentRec."Employee Group" THEN*/
             if EmpGrpLinesRec."E/D Code" <> CurrentRec."E/D Code" then
-                EmpGrpLinesRec.Modify;
-
+                EmpGrpLinesRec.Modify();
         until (EmpGrpLinesRec.Next(1) = 0);
-        Commit;
-
+        Commit();
     end;
 
     //[Scope('OnPrem')]
@@ -1025,7 +997,6 @@ table 50008 "Payroll-Employee Group Lines."
                     ReturnAmount := (TaxTableInput * LDetailsRec."Tax Rate %") / 100;
 
         exit(ReturnAmount);
-
     end;
 
     //[Scope('OnPrem')]
@@ -1058,7 +1029,6 @@ table 50008 "Payroll-Employee Group Lines."
             ReturnAmount := ReturnAmount + PrevLookRec."Cum. Tax Payable";
         end;
         exit(ReturnAmount);
-
     end;
 
     //[Scope('OnPrem')]
@@ -1095,7 +1065,7 @@ table 50008 "Payroll-Employee Group Lines."
             "E/DFileRec".Get(EmpLinesRecStore."E/D Code");
             if "E/DFileRec".Compute = EntryRecParam."E/D Code" then begin
 
-                if EmpLinesRecStore.Mark then
+                if EmpLinesRecStore.Mark() then
                     AmtToAdd := NewAmount
                 else
                     AmtToAdd := EmpLinesRecStore."Default Amount";
@@ -1113,7 +1083,6 @@ table 50008 "Payroll-Employee Group Lines."
         EmpLinesRecStore.SetRange("Employee Group");
 
         exit(IsComputed);
-
     end;
 
     //[Scope('OnPrem')]
@@ -1127,7 +1096,7 @@ table 50008 "Payroll-Employee Group Lines."
         ”””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””*/
         /*Get first record in Employee Group Lines file for this Employee group*/
         EmpGrpLinesRec := DeletedRec;
-        EmpGrpLinesRec.Init;
+        EmpGrpLinesRec.Init();
         EmpGrpLinesRec.SetRange("Employee Group", DeletedRec."Employee Group");
 
         /* If the deleted record was 'COMPUTING" another then make changes */
@@ -1139,7 +1108,6 @@ table 50008 "Payroll-Employee Group Lines."
         CalcFactorAgain(DeletedRec, DeletedRec, true);
         ChangeAllOver(DeletedRec, true);
         exit;
-
     end;
 
     //[Scope('OnPrem')]
@@ -1176,7 +1144,6 @@ table 50008 "Payroll-Employee Group Lines."
         TheAmount := Round(TheAmount, RoundPrec, RoundDir);
 
         exit(TheAmount);
-
     end;
 
     //[Scope('OnPrem')]
@@ -1216,10 +1183,8 @@ table 50008 "Payroll-Employee Group Lines."
           IF  PrevLookRec.NEXT(-1) = 0 THEN
             ReturnAmount := (TaxTableInput * LDetailsRec."Tax Rate %")/100
           ELSE  ReturnAmount := CalcGraduated (LDetailsRec, TaxTableInput);
-        
+
         EXIT (ReturnAmount);
         */
-
     end;
 }
-

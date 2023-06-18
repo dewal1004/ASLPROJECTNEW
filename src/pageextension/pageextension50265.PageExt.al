@@ -7,12 +7,9 @@ pageextension 50265 "pageextension50265" extends "General Journal"
     // #1..7
     layout
     {
-
         modify("External Document No.")
         {
             trigger OnAfterValidate()
-            var
-                myInt: Integer;
             begin
                 if (Rec."Reason Code" = 'EMPLOYEE') and (Rec."External Document No." <> '') then begin
                     Employee.Get(Rec."External Document No.");
@@ -26,7 +23,6 @@ pageextension 50265 "pageextension50265" extends "General Journal"
                             Employee.TestField(Blocked, false);
                     end;
                 end;
-
             end;
         }
         //Unsupported feature: Code Insertion on ""External Document No."(Control 81)".
@@ -109,7 +105,6 @@ pageextension 50265 "pageextension50265" extends "General Journal"
         }
     }
 
-
     //Unsupported feature: Property Modification (Id) on "OpenApprovalEntriesOnBatchOrAnyJnlLineExist(Variable 1022)".
 
     //var
@@ -119,7 +114,6 @@ pageextension 50265 "pageextension50265" extends "General Journal"
     //>>>> MODIFIED VALUE:
     //OpenApprovalEntriesOnBatchOrAnyJnlLineExist : 1122;
     //Variable type has not been exported.
-
 
     //Unsupported feature: Property Modification (Id) on "ShowWorkflowStatusOnBatch(Variable 1016)".
 
@@ -131,7 +125,6 @@ pageextension 50265 "pageextension50265" extends "General Journal"
     //ShowWorkflowStatusOnBatch : 1116;
     //Variable type has not been exported.
 
-
     //Unsupported feature: Property Modification (Id) on "ShowWorkflowStatusOnLine(Variable 1023)".
 
     //var
@@ -141,7 +134,6 @@ pageextension 50265 "pageextension50265" extends "General Journal"
     //>>>> MODIFIED VALUE:
     //ShowWorkflowStatusOnLine : 1123;
     //Variable type has not been exported.
-
 
     //Unsupported feature: Property Modification (Id) on "ImportPayrollTransactionsAvailable(Variable 1028)".
 
@@ -153,7 +145,6 @@ pageextension 50265 "pageextension50265" extends "General Journal"
     //ImportPayrollTransactionsAvailable : 1128;
     //Variable type has not been exported.
 
-
     //Unsupported feature: Property Modification (Id) on "IsSaasExcelAddinEnabled(Variable 1029)".
 
     //var
@@ -163,7 +154,6 @@ pageextension 50265 "pageextension50265" extends "General Journal"
     //>>>> MODIFIED VALUE:
     //IsSaasExcelAddinEnabled : 1129;
     //Variable type has not been exported.
-
 
     //Unsupported feature: Property Modification (Id) on "CanRequestFlowApprovalForBatch(Variable 1030)".
 
@@ -175,7 +165,6 @@ pageextension 50265 "pageextension50265" extends "General Journal"
     //CanRequestFlowApprovalForBatch : 1130;
     //Variable type has not been exported.
 
-
     //Unsupported feature: Property Modification (Id) on "CanRequestFlowApprovalForBatchAndAllLines(Variable 1031)".
 
     //var
@@ -185,7 +174,6 @@ pageextension 50265 "pageextension50265" extends "General Journal"
     //>>>> MODIFIED VALUE:
     //CanRequestFlowApprovalForBatchAndAllLines : 1131;
     //Variable type has not been exported.
-
 
     //Unsupported feature: Property Modification (Id) on "CanRequestFlowApprovalForBatchAndCurrentLine(Variable 1032)".
 
@@ -197,7 +185,6 @@ pageextension 50265 "pageextension50265" extends "General Journal"
     //CanRequestFlowApprovalForBatchAndCurrentLine : 1132;
     //Variable type has not been exported.
 
-
     //Unsupported feature: Property Modification (Id) on "CanCancelFlowApprovalForBatch(Variable 1033)".
 
     //var
@@ -207,7 +194,6 @@ pageextension 50265 "pageextension50265" extends "General Journal"
     //>>>> MODIFIED VALUE:
     //CanCancelFlowApprovalForBatch : 1133;
     //Variable type has not been exported.
-
 
     //Unsupported feature: Property Modification (Id) on "CanCancelFlowApprovalForLine(Variable 1034)".
 
@@ -219,7 +205,6 @@ pageextension 50265 "pageextension50265" extends "General Journal"
     //CanCancelFlowApprovalForLine : 1134;
     //Variable type has not been exported.
 
-
     //Unsupported feature: Property Modification (Id) on "AmountVisible(Variable 1035)".
 
     //var
@@ -229,7 +214,6 @@ pageextension 50265 "pageextension50265" extends "General Journal"
     //>>>> MODIFIED VALUE:
     //AmountVisible : 1135;
     //Variable type has not been exported.
-
 
     //Unsupported feature: Property Modification (Id) on "DebitCreditVisible(Variable 1036)".
 
@@ -241,7 +225,6 @@ pageextension 50265 "pageextension50265" extends "General Journal"
     //DebitCreditVisible : 1136;
     //Variable type has not been exported.
 
-
     //Unsupported feature: Property Modification (Id) on "IsSaaS(Variable 1037)".
 
     //var
@@ -251,7 +234,6 @@ pageextension 50265 "pageextension50265" extends "General Journal"
     //>>>> MODIFIED VALUE:
     //IsSaaS : 1137;
     //Variable type has not been exported.
-
 
     //Unsupported feature: Property Modification (Id) on "MissingExchangeRatesQst(Variable 1017)".
 
@@ -266,9 +248,6 @@ pageextension 50265 "pageextension50265" extends "General Journal"
     var
         Employee: Record Employee;
         UserSetup: Record "User Setup";
-        GenJnlLine: Record "Gen. Journal Line";
-        GenJnlTemplate: Record "Gen. Journal Template";
-
 
     //Unsupported feature: Code Modification on "OnAfterGetRecord".
 
@@ -301,8 +280,8 @@ pageextension 50265 "pageextension50265" extends "General Journal"
               Modify("Reason Code")
           {
               Visible(false);
-          }     
-                  modify("External Document No.") 
+          }
+                  modify("External Document No.")
             {
                 VISIBLE(False);
             }
@@ -320,4 +299,3 @@ pageextension 50265 "pageextension50265" extends "General Journal"
           END;*/
     end;
 }
-

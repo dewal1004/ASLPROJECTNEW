@@ -13,8 +13,6 @@ pageextension 50242 "Job Journal Ext" extends "Job Journal"
         modify("Unit Price") { Visible = false; }
         modify("Work Type Code") { Visible = false; }
 
-
-
         addafter(CurrentJnlBatchName)
         {
             field("Copy From Vessel"; "Copy From  Vesel")
@@ -58,7 +56,6 @@ pageextension 50242 "Job Journal Ext" extends "Job Journal"
             {
                 ApplicationArea = All;
                 Editable = True;
-
             }
         }
         addafter("Shortcut Dimension 2 Code")
@@ -118,7 +115,7 @@ pageextension 50242 "Job Journal Ext" extends "Job Journal"
             trigger OnAfterAction()
             begin
                 Rec.SetRange(Quantity);
-                Catigo;
+                Catigo();
                 if (User."Global Dimension 2 Code" <> 'MRKT') then
                     Rec.SetRange("Location Code", 'CRM-ASL');
             end;
@@ -134,7 +131,7 @@ pageextension 50242 "Job Journal Ext" extends "Job Journal"
             trigger OnAfterAction()
             begin
                 Rec.SetRange(Quantity);
-                Catigo;
+                Catigo();
                 if (User."Global Dimension 2 Code" <> 'MRKT') then
                     Rec.SetRange("Location Code", 'CRM-ASL');
             end;
@@ -181,7 +178,6 @@ pageextension 50242 "Job Journal Ext" extends "Job Journal"
                 begin
                     GenPurpose.PrintVesselCatches(Rec);
                     // GenPurpose.PrintJobJnlLine(Rec);
-
                 end;
             }
             action("Initialize Vessel from A Copy")
@@ -192,7 +188,7 @@ pageextension 50242 "Job Journal Ext" extends "Job Journal"
 
                 trigger OnAction()
                 begin
-                    CopyVessel;
+                    CopyVessel();
                 end;
             }
             action("------------------------")
@@ -202,7 +198,6 @@ pageextension 50242 "Job Journal Ext" extends "Job Journal"
             }
         }
     }
-
 
     //Unsupported feature: Property Modification (Length) on "CurrentJnlBatchName(Variable 1005)".
 
@@ -214,7 +209,6 @@ pageextension 50242 "Job Journal Ext" extends "Job Journal"
     //CurrentJnlBatchName : 20;
     //Variable type has not been exported.
 
-
     //Unsupported feature: Property Modification (Id) on "DimVisible1(Variable 1016)".
 
     //var
@@ -224,7 +218,6 @@ pageextension 50242 "Job Journal Ext" extends "Job Journal"
     //>>>> MODIFIED VALUE:
     //DimVisible1 : 1116;
     //Variable type has not been exported.
-
 
     //Unsupported feature: Property Modification (Id) on "DimVisible2(Variable 1015)".//
 
@@ -236,7 +229,6 @@ pageextension 50242 "Job Journal Ext" extends "Job Journal"
     //DimVisible2 : 1115;
     //Variable type has not been exported.
 
-
     //Unsupported feature: Property Modification (Id) on "DimVisible3(Variable 1014)".
 
     //var
@@ -247,7 +239,6 @@ pageextension 50242 "Job Journal Ext" extends "Job Journal"
     //DimVisible3 : 1114;
     //Variable type has not been exported.
 
-
     //Unsupported feature: Property Modification (Id) on "DimVisible4(Variable 1013)".
 
     //var
@@ -257,7 +248,6 @@ pageextension 50242 "Job Journal Ext" extends "Job Journal"
     //>>>> MODIFIED VALUE:
     //DimVisible4 : 1113;
     //Variable type has not been exported.
-
 
     //Unsupported feature: Property Modification (Id) on "DimVisible5(Variable 1012)".
 
@@ -270,11 +260,8 @@ pageextension 50242 "Job Journal Ext" extends "Job Journal"
     //Variable type has not been exported.
 
     var
-        "---": Integer;
         User: Record "User Setup";
-        Inventr: Record "Inventory Setup";
         Category: Option " ",HON,HDLS,OTHER,"LOCAL";
-        Isactive: Boolean;
         JBat: Record "Job Journal Batch";
         i: Integer;
         JobcatchDefault: Record "Job catch Default";
@@ -284,9 +271,7 @@ pageextension 50242 "Job Journal Ext" extends "Job Journal"
         ITVars: Code[10];
         Jobs: Record Job;
         Items: Record Item;
-        Flt: Code[10];
         "Copy From  Vesel": Code[20];
-
 
     //Unsupported feature: Code Modification on "OnAfterGetRecord".
 
@@ -304,7 +289,6 @@ pageextension 50242 "Job Journal Ext" extends "Job Journal"
     if (Catch=0) and ("Location Code"='CRM-ASL') then Validate(Catch);
     */
     //end;
-
 
     //Unsupported feature: Code Modification on "OnOpenPage".
 
@@ -338,32 +322,29 @@ pageextension 50242 "Job Journal Ext" extends "Job Journal"
     begin
         Rec.SetRange("Statistics Group", Category);
         CurrPage.Update(false);
-        if (User."Global Dimension 2 Code" <> 'MRKT') then begin
+        if (User."Global Dimension 2 Code" <> 'MRKT') then
             case User.Category of
                 1:
-                    begin
-                        case Category of
-                            0, 4:
-                                Rec.SetRange("Statistics Group", 1, 3);
-                            1:
-                                Rec.SetRange("Statistics Group", 1);
-                            2:
-                                Rec.SetRange("Statistics Group", 2);
-                            3:
-                                Rec.SetRange("Statistics Group", 3);
-                        end;
+
+                    case Category of
+                        0, 4:
+                            Rec.SetRange("Statistics Group", 1, 3);
+                        1:
+                            Rec.SetRange("Statistics Group", 1);
+                        2:
+                            Rec.SetRange("Statistics Group", 2);
+                        3:
+                            Rec.SetRange("Statistics Group", 3);
                     end;
                 2:
-                    begin
-                        case Category of
-                            0, 1, 2, 3:
-                                Rec.SetRange("Statistics Group", 4);
-                            4:
-                                Rec.SetRange("Statistics Group", 4);
-                        end;
+
+                    case Category of
+                        0, 1, 2, 3:
+                            Rec.SetRange("Statistics Group", 4);
+                        4:
+                            Rec.SetRange("Statistics Group", 4);
                     end;
             end;
-        end;
     end;
 
     local procedure ClearCatch()
@@ -389,7 +370,7 @@ pageextension 50242 "Job Journal Ext" extends "Job Journal"
                 repeat
                     i := i + 1;
                     window.Update(2, i);
-                    JobJournalLine.Init;
+                    JobJournalLine.Init();
                     JobJournalLine."Journal Template Name" := Rec."Journal Template Name";
                     if Rec."Journal Template Name" = 'RECURRING' then begin
                         JobJournalLine."Recurring Method" := 2;
@@ -413,9 +394,8 @@ pageextension 50242 "Job Journal Ext" extends "Job Journal"
                     JobJournalLine.Validate(JobJournalLine."Location Code", JBat.Name);
                     //JobJournalLine."Phase Code":=JBat."Fishing Ground";
                     JobJournalLine."Source Code" := JBat."Fishing Ground";
-                    if Jobs.Get(JBat."Job No.") then begin
+                    if Jobs.Get(JBat."Job No.") then
                         JobJournalLine."Catch Sea Days" := JBat."Catch Date" - Jobs."Starting Date";
-                    end;
 
                     //JobJournalLine."Step Code":=FORMAT(JBat."Sea Temperature");
                     if Items.Get(ITVars) then
@@ -425,9 +405,9 @@ pageextension 50242 "Job Journal Ext" extends "Job Journal"
                             JobJournalLine.Validate(JobJournalLine."Unit Cost", Items.Points);
                     JobJournalLine.Validate(JobJournalLine."Unit Cost", 0); //AAA-Sept 30, 2002 Unit cost must be zero
                     JobJournalLine.Validate(JobJournalLine."Shortcut Dimension 2 Code", JBat."Global Dimension 2 Code");
-                    if not JobJournalLine.Insert then JobJournalLine.Modify;
+                    if not JobJournalLine.Insert() then JobJournalLine.Modify();
                 until JobcatchDefault.Next() = 0;
-                window.Close;
+                window.Close();
             end;
         end;
         CurrPage.Update(false);
@@ -439,22 +419,21 @@ pageextension 50242 "Job Journal Ext" extends "Job Journal"
     begin
         if "Copy From  Vesel" <> '' then
             JobJournalLine.SetRange(JobJournalLine."Journal Batch Name", "Copy From  Vesel");
-        if JobJournalLine.FindFirst then
+        if JobJournalLine.FindFirst() then
             repeat
-                JobJnlLineCopy.Init;
+                JobJnlLineCopy.Init();
                 JobJnlLineCopy.TransferFields(JobJournalLine);
                 ///***P JobJnlLineCopy."Journal Batch Name" := CurrentJnlBatchName;
-                if not JobJnlLineCopy.Insert then JobJnlLineCopy.Modify;
-            until JobJournalLine.Next = 0;
+                if not JobJnlLineCopy.Insert() then JobJnlLineCopy.Modify();
+            until JobJournalLine.Next() = 0;
         Message('Line Coppied from Vessel %1', "Copy From  Vesel");
     end;
 
     trigger OnModifyRecord(): Boolean
     begin
-        if Rec."Lock Qty" then begin
+        if Rec."Lock Qty" then
             if (Rec."No." <> xRec."No.") or (Rec.Quantity <> xRec.Quantity) or (Rec.Description <> xRec.Description) then
                 Error('You Can Not Modify Line Generated from Requisition');
-        end;
     end;
 
     trigger OnDeleteRecord(): Boolean
@@ -471,5 +450,3 @@ pageextension 50242 "Job Journal Ext" extends "Job Journal"
 ///***p Visible = false;
 //***P}
 //Unsupported feature: Property Modification (ImplicitType) on "CurrentJnlBatchName(Control 78)".
-
-

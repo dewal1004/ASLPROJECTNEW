@@ -4,7 +4,7 @@ report 50057 "MR Reconciliation Report"
     RDLCLayout = './src/reportrdlc/MRReconciliationReport.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
-
+    Caption = 'MR Reconciliation Report';
     dataset
     {
         dataitem("Store Requisition Line New"; "Store Requisition Line New")
@@ -59,7 +59,6 @@ report 50057 "MR Reconciliation Report"
 
     requestpage
     {
-
         layout
         {
         }
@@ -76,4 +75,3 @@ report 50057 "MR Reconciliation Report"
     var
         Differential: Integer;
 }
-

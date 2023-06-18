@@ -3,8 +3,7 @@ report 99042 "Daily BreakUp by VesselZ1"
     // //
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/DailyBreakUpbyVesselZ1.rdlc';
-
-
+    Caption = 'Daily BreakUp by VesselZ1';
     dataset
     {
         dataitem("Inventory Posting Group"; "Inventory Posting Group")
@@ -15,7 +14,7 @@ report 99042 "Daily BreakUp by VesselZ1"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -152,7 +151,7 @@ report 99042 "Daily BreakUp by VesselZ1"
             column(FORMAT_TODAY_0_4__Control1000000099; Format(Today, 0, 4))
             {
             }
-            column(CurrReport_PAGENO_Control1000000101; CurrReport.PageNo)
+            column(CurrReport_PAGENO_Control1000000101; CurrReport.PageNo())
             {
             }
             column(LocGroup_Control1000000102; LocGroup)
@@ -385,7 +384,6 @@ report 99042 "Daily BreakUp by VesselZ1"
 
     requestpage
     {
-
         layout
         {
         }
@@ -400,21 +398,9 @@ report 99042 "Daily BreakUp by VesselZ1"
     }
 
     var
-        LastFieldNo: Integer;
-        FooterPrinted: Boolean;
         TotalFor: Label 'Total for ';
-        "-------": Integer;
-        Colum001: array[3] of Decimal;
-        RespCenter: Record "Responsibility Center";
-        CompanyInfo: Record "Company Information";
-        FormatAddr: Codeunit "Format Address";
-        I: Integer;
-        locate: Record Location;
         SeaRange: array[100] of Text[30];
         SeaRangeC: array[100] of Decimal;
-        Countx: Integer;
-        TotLoc: Integer;
-        level: Integer;
         T001: Text[50];
         LocGroup: Integer;
         Inventory_Posting_GroupCaptionLbl: Label 'Inventory Posting Group';
@@ -423,4 +409,3 @@ report 99042 "Daily BreakUp by VesselZ1"
         CurrReport_PAGENO_Control1000000101CaptionLbl: Label 'Page';
         SheetCaption_Control1000000103Lbl: Label 'Sheet';
 }
-

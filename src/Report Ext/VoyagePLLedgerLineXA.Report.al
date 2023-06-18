@@ -2,7 +2,7 @@ report 50998 "Voyage P&L Ledger LineXA"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/VoyagePLLedgerLineXA.rdlc';
-
+    Caption = 'Voyage P&L Ledger LineXA';
     dataset
     {
         dataitem("Job Ledger Entry"; "Job Ledger Entry")
@@ -15,7 +15,7 @@ report 50998 "Voyage P&L Ledger LineXA"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -41,19 +41,15 @@ report 50998 "Voyage P&L Ledger LineXA"
             }
             column(CycleDay; CycleDay)
             {
-
             }
             column(FishgDay; FishgDay)
             {
-
             }
             column(LostDay; LostDay)
             {
-
             }
             column(PortDay; PortDay)
             {
-
             }
             column(Vess; Vess)
             {
@@ -69,19 +65,15 @@ report 50998 "Voyage P&L Ledger LineXA"
             }
             column(Text24; Text24)
             {
-
             }
             column(Text25; Text25)
             {
-
             }
             column(Text26; Text26)
             {
-
             }
             column(Text27; Text27)
             {
-
             }
             column(PntStor_1_; PntStor[1])
             {
@@ -237,8 +229,8 @@ report 50998 "Voyage P&L Ledger LineXA"
                 LastFieldNo := FieldNo("Work Type Code");
                 CurrReport.CreateTotals(PrdPrc, NairaVal, Qty);
 
-                CurrReport.ShowOutput(CurrReport.TotalsCausedBy = "Job Ledger Entry".FieldNo("Job No."));
-                if (CurrReport.TotalsCausedBy = "Job Ledger Entry".FieldNo("Job No.")) then begin
+                CurrReport.ShowOutput(CurrReport.TotalsCausedBy() = "Job Ledger Entry".FieldNo("Job No."));
+                if (CurrReport.TotalsCausedBy() = "Job Ledger Entry".FieldNo("Job No.")) then begin
                     if Job.Get("Job No.") then;
                     ETD := Job."Starting Date";
                     ETA := Job."Ending Date";
@@ -290,8 +282,7 @@ report 50998 "Voyage P&L Ledger LineXA"
                     Job.Validate(Job."Net Incentive Actual");
                     DataStor[3] := Job."Net Incentive Actual";
 
-
-                    JobSetUp.Get;
+                    JobSetUp.Get();
                     a := 100;
 
                     //Calculate the Fixed Salaries
@@ -333,7 +324,6 @@ report 50998 "Voyage P&L Ledger LineXA"
                     DataStor[8] := JobSetUp.Clearing_Fwrd_NPA * ExpTonnage;
                     DataStor[12] := JobSetUp."Shore Overheads" * CycleDay;
 
-
                     //Credit from G/L Entry
                     //CountGPPG:=0;
                     if ProdPostGrp.Find('-') then
@@ -352,10 +342,9 @@ report 50998 "Voyage P&L Ledger LineXA"
 
                     CurrExc.SetRange(CurrExc."Currency Code", 'USD');
                     CurrExc.SetRange(CurrExc."Starting Date", 0D, ETA);
-                    if CurrExc.Find('+') then begin
-                        CurrRate := CurrExc."Relational Exch. Rate Amount";
-                        //MESSAGE('EXCHANGE VALUE IS %1',CurrExc."Relational Exch. Rate Amount")
-                    end
+                    if CurrExc.Find('+') then
+                        CurrRate := CurrExc."Relational Exch. Rate Amount"
+                    //MESSAGE('EXCHANGE VALUE IS %1',CurrExc."Relational Exch. Rate Amount")
                     else
                         CurrRate := 1;
                     PntStor[7] := CurrRate;
@@ -761,7 +750,6 @@ report 50998 "Voyage P&L Ledger LineXA"
 
     requestpage
     {
-
         layout
         {
         }
@@ -777,15 +765,12 @@ report 50998 "Voyage P&L Ledger LineXA"
 
     var
         LastFieldNo: Integer;
-        FooterPrinted: Boolean;
         TotalFor: Label 'Total';
-        "---": Integer;
         Job: Record Job;
         Job2: Record Job;
         Itempr: Record "Sales Price";
         CurrExc: Record "Currency Exchange Rate";
         ProdPostGrp: Record "Gen. Product Posting Group";
-        InvtPostGrp: Record "Inventory Posting Group";
         JobSetUp: Record "Jobs Setup";
         JBudLn: Record "Job Ledger Entry";
         Employee: Record Employee;
@@ -800,14 +785,12 @@ report 50998 "Voyage P&L Ledger LineXA"
         PrdPrc2: Decimal;
         PrdPrcBX: Decimal;
         PrdPrc2X: Decimal;
-        PrdPrc2B: Decimal;
         CurrRate: Decimal;
         NairaVal: Decimal;
         NairaValB: Decimal;
         NairaValBX: Decimal;
         NairaVal2: Decimal;
         NairaVal2X: Decimal;
-        NairaVal2B: Decimal;
         Qty: Decimal;
         QtyB: Decimal;
         QtyX: Decimal;
@@ -848,7 +831,6 @@ report 50998 "Voyage P&L Ledger LineXA"
         GrossMarg: Decimal;
         GrossPerct: Decimal;
         NetProfPerct: Decimal;
-        TotPrice: Decimal;
         NetProfit: Decimal;
         ExpTonnage: Decimal;
         Vess: Text[30];
@@ -866,7 +848,6 @@ report 50998 "Voyage P&L Ledger LineXA"
         UOMCd: Code[10];
         ItemVar: Code[10];
         "No.B": Code[10];
-        NOrder: Decimal;
         ValRate: Decimal;
         ValQty: Decimal;
         CurrReport_PAGENOCaptionLbl: Label 'Page';
@@ -904,4 +885,3 @@ report 50998 "Voyage P&L Ledger LineXA"
     begin
     end;
 }
-

@@ -1,7 +1,7 @@
 table 50032 "Store Requisition Line New"
 {
     DrillDownPageID = "Store Requisition Subform";
-
+    Caption = 'Store Requisition Line New';
     fields
     {
         field(1; "Req. No."; Code[10])
@@ -63,7 +63,6 @@ table 50032 "Store Requisition Line New"
         }
         field(5; "Requested Quantity"; Decimal)
         {
-
             trigger OnValidate()
             begin
                 TestField("1st Approval", 0);
@@ -72,12 +71,12 @@ table 50032 "Store Requisition Line New"
                 if "Claim by Employee" <> '' then begin
                     NicsArt.SetRange(NicsArt."Employee No.", "Claim by Employee");
                     NicsArt.SetRange(NicsArt."Item No.", "Item No.");
-                    if NicsArt.FindFirst then
+                    if NicsArt.FindFirst() then
                         if "Requested Quantity" > NicsArt."Default Quantity" then
                             Error('You can Not Give more than Authorised Quantity');
                 end;
                 StoreLine.SetRange(StoreLine."Item No.", "Item No.");
-                if StoreLine.FindFirst then begin
+                if StoreLine.FindFirst() then begin
                     ItemRec.Get(StoreLine."Item No.");
                     ItemRec.SetFilter(ItemRec."Location Filter", '%1', StoreLine."Store Location");
                     ItemRec.CalcFields(ItemRec.Inventory, ItemRec."MR Approved Qty", ItemRec."MR Pending  Qty");
@@ -100,7 +99,6 @@ table 50032 "Store Requisition Line New"
         }
         field(6; "Approved Quantity"; Decimal)
         {
-
             trigger OnValidate()
             begin
                 if StoreHead.Get("Req. No.") then
@@ -108,7 +106,7 @@ table 50032 "Store Requisition Line New"
                 else
                     Error('Requisition Does Not Exist');
                 StoreHead.SetFilter(StoreHead."Req. No", '%1', "Req. No.");
-                if StoreHead.FindFirst then
+                if StoreHead.FindFirst() then
                     if StoreHead."Final Approved" <> 0 then Error('You can Not Change Approved Quantity After Approval');
                 TestField("Requested Quantity");
                 case "Req. Type" of
@@ -116,7 +114,7 @@ table 50032 "Store Requisition Line New"
                         begin
                             if "Approved Quantity" > "Requested Quantity" then Error('Approved Quantity Can not be more than Requested Quantity');
                             StoreLine.SetRange(StoreLine."Item No.", "Item No.");
-                            if StoreLine.FindFirst then begin
+                            if StoreLine.FindFirst() then begin
                                 ItemRec.Get(StoreLine."Item No.");
                                 ItemRec.SetFilter(ItemRec."Location Filter", '%1', StoreLine."Store Location");
                                 ItemRec.CalcFields(ItemRec.Inventory);
@@ -131,7 +129,6 @@ table 50032 "Store Requisition Line New"
         }
         field(7; "Issued Quantity"; Decimal)
         {
-
             trigger OnValidate()
             begin
                 TestField("Approved Quantity");
@@ -166,19 +163,19 @@ table 50032 "Store Requisition Line New"
                 StoreLine.SetFilter(StoreLine.Processed, '%1', false);
                 StoreLine.SetFilter(StoreLine."Approved Quantity", '>%1', 0);
                 if StoreLine.Count > 0 then Error('Item already selected under process for this Employee');
-                StoreLine.Reset;
+                StoreLine.Reset();
                 NicsArt.SetRange(NicsArt."Employee No.", "Claim by Employee");
                 NicsArt.SetRange(NicsArt."Item No.", "Item No.");
-                if NicsArt.FindFirst then begin
+                if NicsArt.FindFirst() then begin
                     OldStLine.SetFilter(OldStLine."Claim by Employee", '%1', NicsArt."Employee No.");
                     OldStLine.SetFilter(OldStLine."Item No.", '%1', "Item No.");
                     OldStLine.SetFilter(OldStLine.Processed, '%1', true);
                     // OldStLine.SETFILTER(OldStLine."Approved Quantity",'>%1',0);
-                    if OldStLine.FindLast then begin
+                    if OldStLine.FindLast() then begin
                         NicsArt."From Date" := OldStLine."Issues Captured Date";
                         NicsArt."To Date" := CalcDate(NicsArt."Replacement Interval", OldStLine."Req Date");
                         NicsArt."Last Date Collected" := OldStLine."Req Date";
-                        NicsArt.Modify;
+                        NicsArt.Modify();
                     end;
                     if NicsArt."To Date" <= Today then begin
                         Validate("Requested Quantity", NicsArt."Default Quantity");
@@ -192,7 +189,7 @@ table 50032 "Store Requisition Line New"
                     Error('Employee is Not %1 Allowed to Collect these Item %2', StoreLine."Claim by Employee", "Item No.");
                 "Last Replacement Date" := NicsArt."From Date";
                 "Expected Replacement Date" := NicsArt."To Date";
-                StoreLine.Reset;
+                StoreLine.Reset();
             end;
         }
         field(10; "Claim by Resources"; Code[20])
@@ -279,7 +276,6 @@ table 50032 "Store Requisition Line New"
         }
         field(30; Replaced; Boolean)
         {
-
             trigger OnValidate()
             begin
                 if StoreHead.Get("Req. No.") then
@@ -287,7 +283,7 @@ table 50032 "Store Requisition Line New"
                 if Replaced then begin
                     NicsArt.SetRange(NicsArt."Employee No.", "Claim by Employee");
                     NicsArt.SetRange(NicsArt."Item No.", "Item No.");
-                    if NicsArt.FindFirst then
+                    if NicsArt.FindFirst() then
                         Validate("Requested Quantity", NicsArt."Default Quantity");
                 end else
                     Validate("Approved Quantity", 0);
@@ -363,6 +359,7 @@ table 50032 "Store Requisition Line New"
                                                                                   "Req. Line No." = FIELD("Line No."),
                                                                                   "QCC Check" = CONST(true)));
             FieldClass = FlowField;
+            Editable = false;
         }
         Field(49; "Doc Line Qty"; Decimal)
         {
@@ -387,21 +384,21 @@ table 50032 "Store Requisition Line New"
     trigger OnDelete()
     begin
         StoreHead.SetFilter(StoreHead."Req. No", '%1', "Req. No.");
-        if StoreHead.FindFirst then
+        if StoreHead.FindFirst() then
             if StoreHead."Final Approved" = 2 then Error('You Can Not Delete an Approved Requisition');
     end;
 
     trigger OnInsert()
     begin
         StoreHead.SetFilter(StoreHead."Req. No", '%1', "Req. No.");
-        if StoreHead.FindFirst then
+        if StoreHead.FindFirst() then
             StoreHead.TestField(StoreHead."1st Approved", 0);
         if xRec."Line No." <> 0 then
             "Line No." := xRec."Line No." + 1000
         else
             "Line No." := 1000;
         StoreHead.SetFilter(StoreHead."Req. No", '%1', "Req. No.");
-        if StoreHead.FindFirst then begin
+        if StoreHead.FindFirst() then begin
             "Req. Type" := StoreHead."Req. Type";
             "Req Date" := StoreHead."Req Date";
             if StoreHead."Req. Type" = StoreHead."Req. Type"::Purchase then begin
@@ -414,7 +411,7 @@ table 50032 "Store Requisition Line New"
     trigger OnModify()
     begin
         StoreHead.SetFilter(StoreHead."Req. No", '%1', "Req. No.");
-        if StoreHead.FindFirst then
+        if StoreHead.FindFirst() then
             if StoreHead."Document No." <> '' then Error('You Can Not Modify Processed Requisition');
         if StoreHead."Final Approved" <> StoreHead."Final Approved"::" " then
             Error('ÝOu Can Not Modify The Line After Final Approval');
@@ -424,11 +421,9 @@ table 50032 "Store Requisition Line New"
         ItemRec: Record Item;
         StoreHead: Record "Store Requisition Header New";
         StoreLine: Record "Store Requisition Line New";
-        misArtic: Record "Misc. Article Information";
         NicsArt: Record "Misc. Article Information";
         OldStLine: Record "Store Requisition Line New";
         ItemLedg: Record "Item Ledger Entry";
         Transline: Record "Transfer Line";
         Tranlineqty: Decimal;
 }
-

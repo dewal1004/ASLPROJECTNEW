@@ -5,7 +5,7 @@ report 50130 "Consolidatdd Daily Points Rep!"
     RDLCLayout = './src/reportrdlc/ConsolidatddDailyPointsRep.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
-
+    Caption = 'Consolidatdd Daily Points Rep!';
     dataset
     {
         dataitem("Integer"; "Integer")
@@ -30,7 +30,7 @@ report 50130 "Consolidatdd Daily Points Rep!"
                         JobsPointVal."Points Sort Bay" := JobsPointVal.PointZ(JobsPointVal."No.", '',
                            JobsPointVal.GetFilter("Date Filter"), '', '', '', JobsPointVal.Vessel);//JobsPointVal.Points;
                         JobsPointVal.Modify();
-                    until JobsPointVal.Next = 0;
+                    until JobsPointVal.Next() = 0;
             end;
         }
         dataitem(Job; Job)
@@ -42,7 +42,7 @@ report 50130 "Consolidatdd Daily Points Rep!"
             column(Consolidated_Daily_Points_Report_As_On_____FORMAT_Workdat_0_4_; 'Consolidated Daily Points Report As On : ' + Format(Workdat, 0, 4))
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -283,15 +283,13 @@ report 50130 "Consolidatdd Daily Points Rep!"
                 JobLdgr.SETFILTER(JobLdgr."Job No.", job1."No.");
                 JobLdgr.SETRANGE(JobLdgr."Posting Date", 0D, Workdat);
                 JobLdgr.SETRANGE(JobLdgr.Type, 0, 1);
-                IF JobLdgr.FIND('+') THEN BEGIN
+                IF JobLdgr.FIND('+') THEN
                     //SeTemp:= JobLdgr."Step Code";
-                    SeArea := JobLdgr."Phase Code";
-                END
+                    SeArea := JobLdgr."Phase Code"
                 ELSE BEGIN
                     SeTemp := '';
                     SeArea := '';
                 END;
-
 
                 // Cumulative
                 //MESSAGE('Date is %1',Workdat);
@@ -338,14 +336,12 @@ report 50130 "Consolidatdd Daily Points Rep!"
 
                 //SeaDaysTot:=SeaDaysTot+SeaDays;
                 //#1
-
             end;
         }
     }
 
     requestpage
     {
-
         layout
         {
         }
@@ -362,26 +358,16 @@ report 50130 "Consolidatdd Daily Points Rep!"
     var
         job1: Record Job;
         JobLdgr: Record "Job Ledger Entry";
-        DOTrec: Record "Day of Tide";
         JobsPointVal: Record Job;
-        Resource: Record Resource;
-        Loc: Record Location;
         NoCatch: Boolean;
-        Eval: Boolean;
         SeaDays: Integer;
-        I: Integer;
         j: Integer;
-        k: Integer;
         Countz: Integer;
         pts: array[9] of Decimal;
         TotPts: array[9] of Decimal;
         TotPtsA: array[9] of Decimal;
-        TotPtsAvg: array[9] of Decimal;
         SeaDaysTot: Decimal;
-        CountCum: array[9] of Decimal;
-        SeaTemp: Decimal;
         SeaTempA: Decimal;
-        SeTempVal: Decimal;
         Skipper: Text[30];
         Desc: Text[30];
         SeTemp: Code[10];
@@ -413,4 +399,3 @@ report 50130 "Consolidatdd Daily Points Rep!"
         AVERAGECaption_Control1000000043Lbl: Label 'AVERAGE';
         TOTALCaptionLbl: Label 'TOTAL';
 }
-

@@ -2,7 +2,7 @@ page 50167 "Payrolls-Reports"
 {
     UsageCategory = Administration;
     ApplicationArea = all;
-
+    Caption = 'Payrolls-Reports';
     layout
     {
     }
@@ -60,4 +60,3 @@ page 50167 "Payrolls-Reports"
         }
     }
 }
-

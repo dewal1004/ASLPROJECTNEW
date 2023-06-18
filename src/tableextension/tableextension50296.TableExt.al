@@ -32,4 +32,3 @@ tableextension 50296 "tableextension50296" extends "Prod. Order Component"
     */
     //end;
 }
-

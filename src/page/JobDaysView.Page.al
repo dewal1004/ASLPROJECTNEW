@@ -2,7 +2,7 @@ page 99190 "Job Days View"
 {
     PageType = Card;
     SourceTable = Job;
-
+    Caption = 'Job Days View';
     layout
     {
         area(content)
@@ -38,4 +38,3 @@ page 99190 "Job Days View"
     {
     }
 }
-

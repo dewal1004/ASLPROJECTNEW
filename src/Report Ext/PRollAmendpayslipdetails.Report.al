@@ -5,7 +5,7 @@ report 50559 "PRoll; Amend payslip details"
     // Payslip file.
 
     ProcessingOnly = true;
-
+    Caption = 'PRoll; Amend payslip details';
     dataset
     {
         dataitem("Payroll-E/D Codes."; "Payroll-E/D Codes.")
@@ -23,7 +23,7 @@ report 50559 "PRoll; Amend payslip details"
                     Window.Update(3, "Employee No");
                     InfoCounter := InfoCounter + 1;
                     Window.Update(4, InfoCounter);
-                    EntryFile.Reset;
+                    EntryFile.Reset();
                     EntryFile.SetRange("Payroll Period", "Payroll Period");
                     EntryFile.SetRange("Employee No", "Employee No");
                     EntryFile.SetRange("E/D Code", "Payroll-E/D Codes."."E/D Code");
@@ -66,7 +66,6 @@ report 50559 "PRoll; Amend payslip details"
 
     requestpage
     {
-
         layout
         {
         }
@@ -85,4 +84,3 @@ report 50559 "PRoll; Amend payslip details"
         InfoCounter: Integer;
         Window: Dialog;
 }
-

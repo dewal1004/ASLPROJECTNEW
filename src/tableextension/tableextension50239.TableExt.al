@@ -32,7 +32,6 @@ tableextension 50239 "tableextension50239" extends "Res. Journal Line"
         }
     }
 
-
     //Unsupported feature: Code Modification on "OnInsert".
 
     //trigger OnInsert()
@@ -56,4 +55,3 @@ tableextension 50239 "tableextension50239" extends "Res. Journal Line"
     */
     //end;
 }
-

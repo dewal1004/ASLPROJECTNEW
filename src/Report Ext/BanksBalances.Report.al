@@ -4,6 +4,7 @@ report 50011 "Banks Balances"
     RDLCLayout = './src/reportrdlc/BanksBalances.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
+    Caption = 'Banks Balances';
     dataset
     {
         dataitem("Bank Account"; "Bank Account")
@@ -16,7 +17,7 @@ report 50011 "Banks Balances"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -31,7 +32,7 @@ report 50011 "Banks Balances"
             column(USERID_Control1000000029; UserId)
             {
             }
-            column(CurrReport_PAGENO_Control1000000043; CurrReport.PageNo)
+            column(CurrReport_PAGENO_Control1000000043; CurrReport.PageNo())
             {
             }
             column(FORMAT_TODAY_0_4__Control1000000055; Format(Today, 0, 4))
@@ -193,7 +194,7 @@ report 50011 "Banks Balances"
                 TOT_DEBIT_PERIOD := TOT_DEBIT_PERIOD + DEBIT_PERIOD;
                 TOT_CREDIT_PERIOD := TOT_CREDIT_PERIOD + CREDIT_PERIOD;
                 if printtoexcel then
-                    Body;
+                    Body();
             end;
 
             trigger OnPostDataItem()
@@ -205,13 +206,13 @@ report 50011 "Banks Balances"
             trigger OnPreDataItem()
             begin
                 if "Bank Account".GetFilter("Bank Account"."Date Filter") = '' then
-                    "Bank Account".SetRange("Bank Account"."Date Filter", CalcDate('-1D', WorkDate));
+                    "Bank Account".SetRange("Bank Account"."Date Filter", CalcDate('-1D', WorkDate()));
                 MIN_DATE := "Bank Account".GetRangeMin("Bank Account"."Date Filter");
                 MAX_DATE := "Bank Account".GetRangeMax("Bank Account"."Date Filter");
                 DATE_TXT := "Bank Account".GetFilter("Bank Account"."Date Filter");
 
                 if printtoexcel then
-                    Header;
+                    Header();
             end;
         }
         dataitem(Bank2; "Bank Account")
@@ -380,23 +381,22 @@ report 50011 "Banks Balances"
             begin
 
                 DEPOSIT.CalcFields(DEPOSIT."Deposit Balance");
-                if DEPOSIT."Deposit Balance" = 0 then CurrReport.Skip;
+                if DEPOSIT."Deposit Balance" = 0 then CurrReport.Skip();
 
                 if printtoexcel then
-                    Body
+                    Body()
             end;
 
             trigger OnPreDataItem()
             begin
                 if printtoexcel then
-                    Footer;
+                    Footer();
             end;
         }
     }
 
     requestpage
     {
-
         layout
         {
             area(content)
@@ -463,7 +463,6 @@ report 50011 "Banks Balances"
     trigger OnPostReport()
     begin
 
-
         ExcelBuf.CreateBookAndOpenExcel('', 'Balance Report', 'Balance Report', CompanyName, UserId);
     end;
 
@@ -479,17 +478,8 @@ report 50011 "Banks Balances"
         TOT_CL_BAL: Decimal;
         TOT_DEBIT_PERIOD: Decimal;
         TOT_CREDIT_PERIOD: Decimal;
-        BANK_REC: Record "Bank Account";
-        GLSetup: Record "General Ledger Setup";
-        "--------------": Integer;
         Email: Boolean;
         Send2Excel: Boolean;
-        TopPage: Boolean;
-        Xr: Integer;
-        Xc: Integer;
-        Bold: Boolean;
-        UnderLine: Boolean;
-        Italic: Boolean;
         FontSize: Integer;
         PageOrientation: Option "Excel Default",Portrait,Landscape;
         //*** text000: ;
@@ -528,22 +518,11 @@ report 50011 "Banks Balances"
         TOTALCaption_Control1000000023Lbl: Label 'TOTAL';
         TOTALCaption_Control1000000094Lbl: Label 'TOTAL';
         printtoexcel: Boolean;
-        excelbuff: Record "Excel Buffer" temporary;
         blnExportToExcel: Boolean;
         Option: Option "Create Workbook","Update Workbook";
-        cuExportToExcel: Codeunit "Export to Excel";
         FileName: Text;
         SheetName: Text;
-        RequestFormFileNameENABLED: Boolean;
-        RequestFormSheetNameENABLED: Boolean;
-        txtData: array[255] of Text[250];
-        intRowNo: Integer;
-        FirstRecord: Boolean;
-        CommonDialogMgt: Codeunit "File Management";
         ExcelBuf: Record "Excel Buffer";
-        intRowID: Integer;
-        Window: Dialog;
-        intExportStatus: Integer;
 
     [Scope('OnPrem')]
     procedure CreateSheet()
@@ -555,7 +534,7 @@ report 50011 "Banks Balances"
     procedure Header()
     begin
 
-        ExcelBuf.NewRow;
+        ExcelBuf.NewRow();
         ExcelBuf.AddColumn('No', false, '', true, false, false, '', 0);
         ExcelBuf.AddColumn('Name', false, '', true, false, false, '', 0);
         ExcelBuf.AddColumn('Currency Code', false, '', true, false, false, '', 0);
@@ -569,7 +548,7 @@ report 50011 "Banks Balances"
     [Scope('OnPrem')]
     procedure Body()
     begin
-        ExcelBuf.NewRow;
+        ExcelBuf.NewRow();
         ExcelBuf.AddColumn("Bank Account"."No.", false, '', false, false, false, '', 0);
         ExcelBuf.AddColumn("Bank Account".Name, false, '', false, false, false, '', 0);
         ExcelBuf.AddColumn("Bank Account"."Currency Code", false, '', false, false, false, '', 0);
@@ -581,4 +560,3 @@ report 50011 "Banks Balances"
     begin
     end;
 }
-

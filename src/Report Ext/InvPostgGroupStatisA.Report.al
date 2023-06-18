@@ -2,7 +2,7 @@ report 99019 "Inv Postg Group StatisA"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/InvPostgGroupStatisA.rdlc';
-
+    Caption = 'Inv Postg Group StatisA';
     dataset
     {
         dataitem("Inventory Posting Group"; "Inventory Posting Group")
@@ -13,7 +13,7 @@ report 99019 "Inv Postg Group StatisA"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -24,7 +24,6 @@ report 99019 "Inv Postg Group StatisA"
             }
             column(SeaRange_1_; SeaRange[1])
             {
-
             }
             column(SeaRange_2_; SeaRange[2])
             {
@@ -85,7 +84,6 @@ report 99019 "Inv Postg Group StatisA"
             }
             column(SeaRange_1__Control1000000019; SeaRange[1])
             {
-
             }
             column(SeaRange_2__Control1000000020; SeaRange[2])
             {
@@ -209,7 +207,6 @@ report 99019 "Inv Postg Group StatisA"
             }
             column(SeaRange_1__Control1000000159; SeaRange[1])
             {
-
             }
             column(SeaRange_22__Control1000000116; SeaRange[22])
             {
@@ -276,87 +273,66 @@ report 99019 "Inv Postg Group StatisA"
             }
             column(SeaRange_1__Control1000000138; SeaRange[1])
             {
-
             }
             column(SeaRangeC_2_; SeaRangeC[2])
             {
-
             }
             column(SeaRangeC_1_; SeaRangeC[1])
             {
-
             }
             column(SeaRangeC_3_; SeaRangeC[3])
             {
-
             }
             column(SeaRangeC_4_; SeaRangeC[4])
             {
-
             }
             column(SeaRangeC_5_; SeaRangeC[5])
             {
-
             }
             column(SeaRangeC_6_; SeaRangeC[6])
             {
-
             }
             column(SeaRangeC_7_; SeaRangeC[7])
             {
-
             }
             column(SeaRangeC_8_; SeaRangeC[8])
             {
-
             }
             column(SeaRangeC_9_; SeaRangeC[9])
             {
-
             }
             column(SeaRangeC_10_; SeaRangeC[10])
             {
-
             }
             column(SeaRangeC_11_; SeaRangeC[11])
             {
-
             }
             column(SeaRangeC_12_; SeaRangeC[12])
             {
-
             }
             column(SeaRangeC_13_; SeaRangeC[13])
             {
-
             }
             column(SeaRangeC_14_; SeaRangeC[14])
             {
-
             }
             column(SeaRangeC_15_; SeaRangeC[15])
             {
-
             }
             column(SeaRangeC_17_; SeaRangeC[17])
             {
-
             }
             column(SeaRangeC_16_; SeaRangeC[16])
             {
-
             }
             column(SeaRangeC_18_; SeaRangeC[18])
             {
-
             }
             column(SeaRangeC_20_; SeaRangeC[20])
             {
-
             }
             column(SeaRangeC_19_; SeaRangeC[19])
             {
-
             }
             column(T001; T001)
             {
@@ -372,163 +348,123 @@ report 99019 "Inv Postg Group StatisA"
             }
             column(SeaRangeC_1__Control1000000065; SeaRangeC[1])
             {
-
             }
             column(SeaRangeC_2__Control1000000066; SeaRangeC[2])
             {
-
             }
             column(SeaRangeC_3__Control1000000067; SeaRangeC[3])
             {
-
             }
             column(SeaRangeC_4__Control1000000068; SeaRangeC[4])
             {
-
             }
             column(SeaRangeC_5__Control1000000069; SeaRangeC[5])
             {
-
             }
             column(SeaRangeC_6__Control1000000070; SeaRangeC[6])
             {
-
             }
             column(SeaRangeC_7__Control1000000071; SeaRangeC[7])
             {
-
             }
             column(SeaRangeC_8__Control1000000072; SeaRangeC[8])
             {
-
             }
             column(SeaRangeC_9__Control1000000073; SeaRangeC[9])
             {
-
             }
             column(SeaRangeC_10__Control1000000074; SeaRangeC[10])
             {
-
             }
             column(SeaRangeC_11__Control1000000075; SeaRangeC[11])
             {
-
             }
             column(SeaRangeC_12__Control1000000076; SeaRangeC[12])
             {
-
             }
             column(SeaRangeC_13__Control1000000077; SeaRangeC[13])
             {
-
             }
             column(SeaRangeC_14__Control1000000078; SeaRangeC[14])
             {
-
             }
             column(SeaRangeC_15__Control1000000079; SeaRangeC[15])
             {
-
             }
             column(SeaRangeC_16__Control1000000080; SeaRangeC[16])
             {
-
             }
             column(SeaRangeC_17__Control1000000081; SeaRangeC[17])
             {
-
             }
             column(SeaRangeC_18__Control1000000082; SeaRangeC[18])
             {
-
             }
             column(SeaRangeC_19__Control1000000083; SeaRangeC[19])
             {
-
             }
             column(SeaRangeC_20__Control1000000084; SeaRangeC[20])
             {
-
             }
             column(SeaRangeC_20__Control1000000085; SeaRangeC[20])
             {
-
             }
             column(SeaRangeC_19__Control1000000087; SeaRangeC[19])
             {
-
             }
             column(SeaRangeC_18__Control1000000088; SeaRangeC[18])
             {
-
             }
             column(SeaRangeC_17__Control1000000089; SeaRangeC[17])
             {
-
             }
             column(SeaRangeC_16__Control1000000090; SeaRangeC[16])
             {
-
             }
             column(SeaRangeC_15__Control1000000091; SeaRangeC[15])
             {
-
             }
             column(SeaRangeC_14__Control1000000092; SeaRangeC[14])
             {
-
             }
             column(SeaRangeC_13__Control1000000093; SeaRangeC[13])
             {
-
             }
             column(SeaRangeC_12__Control1000000094; SeaRangeC[12])
             {
-
             }
             column(SeaRangeC_11__Control1000000095; SeaRangeC[11])
             {
-
             }
             column(SeaRangeC_10__Control1000000096; SeaRangeC[10])
             {
-
             }
             column(SeaRangeC_9__Control1000000097; SeaRangeC[9])
             {
-
             }
             column(SeaRangeC_8__Control1000000098; SeaRangeC[8])
             {
-
             }
             column(SeaRangeC_7__Control1000000099; SeaRangeC[7])
             {
-
             }
             column(SeaRangeC_6__Control1000000100; SeaRangeC[6])
             {
-
             }
             column(SeaRangeC_5__Control1000000101; SeaRangeC[5])
             {
-
             }
             column(SeaRangeC_4__Control1000000102; SeaRangeC[4])
             {
-
             }
             column(SeaRangeC_3__Control1000000103; SeaRangeC[3])
             {
-
             }
             column(SeaRangeC_2__Control1000000104; SeaRangeC[2])
             {
-
             }
             column(SeaRangeC_1__Control1000000105; SeaRangeC[1])
             {
-
             }
             column(Inventory_Posting_Group_Inventory_Control1000000106; Inventory)
             {
@@ -538,11 +474,9 @@ report 99019 "Inv Postg Group StatisA"
             }
             column(SeaRangeC_22_; SeaRangeC[22])
             {
-
             }
             column(SeaRangeC_21_; SeaRangeC[21])
             {
-
             }
             column(TotalFor___FIELDCAPTION_Category_; TotalFor + FieldCaption(Category))
             {
@@ -609,7 +543,6 @@ report 99019 "Inv Postg Group StatisA"
 
     requestpage
     {
-
         layout
         {
         }
@@ -624,15 +557,8 @@ report 99019 "Inv Postg Group StatisA"
     }
 
     var
-        LastFieldNo: Integer;
-        FooterPrinted: Boolean;
         TotalFor: Label 'Total for ';
-        "----------------": Integer;
-        locate: Record Location;
-        Countx: Integer;
-        level: Integer;
         LocGroup: Integer;
-        TotLoc: Integer;
         SeaRangeC: array[100] of Decimal;
         T001: Text[80];
         SeaRange: array[100] of Text[30];
@@ -643,4 +569,3 @@ report 99019 "Inv Postg Group StatisA"
         T001CaptionLbl: Label 'Statistics Group';
         CatCaptionLbl: Label 'Category';
 }
-

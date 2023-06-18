@@ -2,7 +2,6 @@ pageextension 50273 "pageextension50273" extends "Issued Reminder List"
 {
     actions
     {
-
         //Unsupported feature: Code Modification on ""Send by &Email"(Action 5).OnAction".
 
         //trigger OnAction()
@@ -33,4 +32,3 @@ pageextension 50273 "pageextension50273" extends "Issued Reminder List"
         //end;
     }
 }
-

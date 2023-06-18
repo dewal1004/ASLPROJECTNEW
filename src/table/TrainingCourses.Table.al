@@ -2,7 +2,7 @@ table 50027 "Training Courses"
 {
     DrillDownPageID = "Training Courses List";
     LookupPageID = "Training Courses List";
-
+    Caption = 'Training Courses';
     fields
     {
         field(1; "Courses Code"; Code[10])
@@ -67,7 +67,7 @@ table 50027 "Training Courses"
             BlankZero = true;
             CalcFormula = Average("Course Attendance".Cost WHERE("Training Course Code" = FIELD("Courses Code")));
             FieldClass = FlowField;
-
+            Editable = false;
             trigger OnValidate()
             begin
                 Validate("Total Vendor Cost", "Unit Cost");
@@ -130,16 +130,16 @@ table 50027 "Training Courses"
 
     trigger OnDelete()
     begin
-        LockTable;
+        LockTable();
         CattRec.SetRange("Training Course Code", "Courses Code");
-        CattRec.DeleteAll;
+        CattRec.DeleteAll();
     end;
 
     trigger OnInsert()
     begin
 
         if "Courses Code" = '' then begin
-            HumanResSetup.Get;
+            HumanResSetup.Get();
             HumanResSetup.TestField("Course Attendance No");
             NoSeriesMgt.InitSeries(HumanResSetup."Course Attendance No", xRec."No Series", 0D, "Courses Code", "No Series");
         end;
@@ -148,7 +148,6 @@ table 50027 "Training Courses"
     end;
 
     var
-        TCourseRec: Record "Training Courses";
         HumanResSetup: Record "Human Resources Setup";
         NoSeriesMgt: Codeunit NoSeriesManagement;
         VendRec: Record Vendor;
@@ -156,4 +155,3 @@ table 50027 "Training Courses"
         CTypeRec: Record "Course Types";
         CCount: Integer;
 }
-

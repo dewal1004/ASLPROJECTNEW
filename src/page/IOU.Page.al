@@ -4,7 +4,7 @@ page 50091 "IOU"
     SourceTable = IOU;
     UsageCategory = Lists;
     ApplicationArea = All, Basic;
-
+    Caption = 'IOU';
     layout
     {
         area(content)
@@ -24,7 +24,7 @@ page 50091 "IOU"
                 {
                     ApplicationArea = All;
                 }
-                field(EmployeeName; Rec.EmployeeName)
+                field(EmployeeName; Rec.EmployeeName())
                 {
                     Caption = 'Full Name';
                     ApplicationArea = All;
@@ -59,7 +59,6 @@ page 50091 "IOU"
 
     local procedure EmployeeNameOnInputChange(var Text: Text[1024])
     begin
-        Rec.EmployeeName
+        Rec.EmployeeName()
     end;
 }
-

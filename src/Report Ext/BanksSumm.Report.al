@@ -2,7 +2,7 @@ report 99712 "Banks Summ"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/BanksSumm.rdlc';
-
+    Caption = 'Banks Summ';
     dataset
     {
         dataitem("Bank Account Ledger Entry"; "Bank Account Ledger Entry")
@@ -15,7 +15,7 @@ report 99712 "Banks Summ"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -69,7 +69,7 @@ report 99712 "Banks Summ"
                 LastFieldNo := FieldNo("Bank Account No.");
 
                 if not FooterPrinted then
-                    LastFieldNo := CurrReport.TotalsCausedBy;
+                    LastFieldNo := CurrReport.TotalsCausedBy();
                 //*** CurrReport.ShowOutput := not FooterPrinted;
                 FooterPrinted := true;
             end;
@@ -78,7 +78,6 @@ report 99712 "Banks Summ"
 
     requestpage
     {
-
         layout
         {
         }
@@ -99,4 +98,3 @@ report 99712 "Banks Summ"
         Bank_Account_Ledger_EntryCaptionLbl: Label 'Bank Account Ledger Entry';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
 }
-

@@ -2,7 +2,7 @@ report 98157 "Short Supply thru Posted TranZ"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/ShortSupplythruPostedTranZ.rdlc';
-
+    Caption = 'Short Supply thru Posted TranZ';
     dataset
     {
         dataitem("Transfer Shipment Line"; "Transfer Shipment Line")
@@ -15,7 +15,7 @@ report 98157 "Short Supply thru Posted TranZ"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -148,7 +148,6 @@ report 98157 "Short Supply thru Posted TranZ"
 
     requestpage
     {
-
         layout
         {
         }
@@ -164,7 +163,6 @@ report 98157 "Short Supply thru Posted TranZ"
 
     var
         LastFieldNo: Integer;
-        FooterPrinted: Boolean;
         TotalFor: Label 'Total for ';
         TrShipLn: Record "Transfer Shipment Line";
         TrShipHd: Record "Transfer Shipment Header";
@@ -177,4 +175,3 @@ report 98157 "Short Supply thru Posted TranZ"
         Transfer_Shipment_Line__Quantity_Shipped_CaptionLbl: Label 'Quantity Supplied';
         Transfer_Shipment_Line__Qty__Reqd__CaptionLbl: Label 'Short Supply';
 }
-

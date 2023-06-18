@@ -2,7 +2,7 @@ report 60042 "Daily Break Up By Vesselz"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/DailyBreakUpByVesselz.rdlc';
-
+    Caption = 'Daily Break Up By Vesselz';
     dataset
     {
         dataitem(Item; Item)
@@ -15,7 +15,7 @@ report 60042 "Daily Break Up By Vesselz"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -364,7 +364,7 @@ report 60042 "Daily Break Up By Vesselz"
                 repeat
                     SeaRange[Countx] := locate.Code;
                     Countx := Countx + 1;
-                until locate.Next = 0;
+                until locate.Next() = 0;
 
                 for I := 1 to 3 do begin
                     Colum[I] := 0;
@@ -376,7 +376,6 @@ report 60042 "Daily Break Up By Vesselz"
 
     requestpage
     {
-
         layout
         {
         }
@@ -392,13 +391,8 @@ report 60042 "Daily Break Up By Vesselz"
 
     var
         LastFieldNo: Integer;
-        FooterPrinted: Boolean;
         TotalFor: Label 'Total for ';
-        "---": Text[30];
         Colum: array[3] of Decimal;
-        RespCenter: Record "Responsibility Center";
-        CompanyInfo: Record "Company Information";
-        FormatAddr: Codeunit "Format Address";
         I: Integer;
         locate: Record Location;
         SeaRange: array[100] of Text[30];
@@ -409,4 +403,3 @@ report 60042 "Daily Break Up By Vesselz"
         ItemCaptionLbl: Label 'Item';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
 }
-

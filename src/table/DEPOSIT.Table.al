@@ -1,7 +1,7 @@
 table 50041 "DEPOSIT"
 {
     LookupPageID = deposits;
-
+    Caption = 'DEPOSIT';
     fields
     {
         field(1; "Deposit ID"; Code[10])
@@ -15,9 +15,8 @@ table 50041 "DEPOSIT"
             trigger OnValidate()
             begin
                 if "Bank Acc. No." <> '' then begin
-                    if bankrec.Get("Bank Acc. No.") then begin
+                    if bankrec.Get("Bank Acc. No.") then
                         "Bank Name" := bankrec.Name;
-                    end;
                 end else
                     "Bank Name" := '';
             end;
@@ -45,6 +44,7 @@ table 50041 "DEPOSIT"
             CalcFormula = Sum("Bank Account Ledger Entry".Amount WHERE("Bank Account No." = FIELD("Bank Acc. No."),
                                                                         "DEPOSIT ID" = FIELD("Deposit ID")));
             FieldClass = FlowField;
+            Editable = false;
         }
     }
 
@@ -66,7 +66,7 @@ table 50041 "DEPOSIT"
     trigger OnInsert()
     begin
         if "Deposit ID" = '' then begin
-            accsetuprec.Get;
+            accsetuprec.Get();
             accsetuprec.Find('-');
             accsetuprec.TestField(accsetuprec."Deposit Number Series");
             NoSeriesMgt.InitSeries(accsetuprec."Deposit Number Series", accsetuprec."Deposit Number Series", 0D, "Deposit ID",
@@ -79,4 +79,3 @@ table 50041 "DEPOSIT"
         bankrec: Record "Bank Account";
         accsetuprec: Record "General Ledger Setup";
 }
-

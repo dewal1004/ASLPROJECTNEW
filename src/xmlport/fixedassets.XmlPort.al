@@ -1,6 +1,6 @@
 xmlport 50051 "fixed assets"
 {
-
+    Caption = 'fixed assets';
     schema
     {
         textelement(Rootnode)
@@ -26,7 +26,6 @@ xmlport 50051 "fixed assets"
 
     requestpage
     {
-
         layout
         {
         }
@@ -36,4 +35,3 @@ xmlport 50051 "fixed assets"
         }
     }
 }
-

@@ -2,9 +2,7 @@ tableextension 50302 "tableextension50302" extends "Transfer Line"
 {
     fields
     {
-
         //Unsupported feature: Property Modification (Editable) on ""Quantity Shipped"(Field 8)".
-
 
         //Unsupported feature: Code Modification on ""Item No."(Field 3).OnValidate".
 
@@ -55,7 +53,6 @@ tableextension 50302 "tableextension50302" extends "Transfer Line"
         */
         //end;
 
-
         //Unsupported feature: Code Modification on "Quantity(Field 4).OnValidate".
 
         //trigger OnValidate()
@@ -89,7 +86,6 @@ tableextension 50302 "tableextension50302" extends "Transfer Line"
             end;
         */
         //end;
-
 
         //Unsupported feature: Code Modification on ""Qty. to Receive"(Field 7).OnValidate".
 
@@ -145,7 +141,6 @@ tableextension 50302 "tableextension50302" extends "Transfer Line"
                 /*IF ROB > "Qty. Reqd." THEN ERROR('ROB can not be greater that Quantity Required');
                 VALIDATE(Quantity,"Qty. Reqd."-ROB);
                 */
-
             end;
         }
         field(50302; "Last Issued Qty."; Decimal)
@@ -157,103 +152,4 @@ tableextension 50302 "tableextension50302" extends "Transfer Line"
             Editable = false;
         }
     }
-
-
-    //Unsupported feature: Code Modification on "OnDelete".
-
-    //trigger OnDelete()
-    //>>>> ORIGINAL CODE:
-    //begin
-    /*
-    TestStatusOpen;
-
-    TestField("Quantity Shipped","Quantity Received");
-    #4..14
-    ItemChargeAssgntPurch.SetRange("Applies-to Doc. No.","Document No.");
-    ItemChargeAssgntPurch.SetRange("Applies-to Doc. Line No.","Line No.");
-    ItemChargeAssgntPurch.DeleteAll(true);
-    */
-    //end;
-    //>>>> MODIFIED CODE:
-    //begin
-    /*
-    #1..17
-
-    if TransHeader."Lock Header" then Error('You Can NOT Delete an Item from this Order');
-    */
-    //end;
-
-
-    //Unsupported feature: Code Modification on "OnInsert".
-
-    //trigger OnInsert()
-    //>>>> ORIGINAL CODE:
-    //begin
-    /*
-    TestStatusOpen;
-    TransLine2.Reset;
-    TransLine2.SetFilter("Document No.",TransHeader."No.");
-    if TransLine2.FindLast then
-      "Line No." := TransLine2."Line No." + 10000;
-    ReserveTransferLine.VerifyQuantity(Rec,xRec);
-    */
-    //end;
-    //>>>> MODIFIED CODE:
-    //begin
-    /*
-    #1..6
-    if TransHeader."Lock Header" then Error('You Can NOT INSERT a new Item');
-    */
-    //end;
-
-
-    //Unsupported feature: Code Modification on "OnModify".
-
-    //trigger OnModify()
-    //>>>> ORIGINAL CODE:
-    //begin
-    /*
-    if ItemExists(xRec."Item No.") then
-      ReserveTransferLine.VerifyChange(Rec,xRec);
-    */
-    //end;
-    //>>>> MODIFIED CODE:
-    //begin
-    /*
-    //IF xRec."Lock Line" THEN ERROR('You can Not Modify Transfer line from Approved Requisition');
-    if ItemExists(xRec."Item No.") then
-      ReserveTransferLine.VerifyChange(Rec,xRec);
-    */
-    //end;
-
-
-    //Unsupported feature: Property Modification (Id) on "Location(Variable 1016)".
-
-    //var
-    //>>>> ORIGINAL VALUE:
-    //Location : 1016;
-    //Variable type has not been exported.
-    //>>>> MODIFIED VALUE:
-    //Location : 1116;
-    //Variable type has not been exported.
-
-
-    //Unsupported feature: Property Modification (Id) on "ShippingMoreUnitsThanReceivedErr(Variable 1010)".
-
-    //var
-    //>>>> ORIGINAL VALUE:
-    //ShippingMoreUnitsThanReceivedErr : 1010;
-    //Variable type has not been exported.
-    //>>>> MODIFIED VALUE:
-    //ShippingMoreUnitsThanReceivedErr : 1110;
-    //Variable type has not been exported.
-
-    var
-        ItemRec: Record Item;
-        ItemLedgLn: Record "Item Ledger Entry";
-        ItemTrackingLinesInbound: Page "Posted Item Tracking Lines";
-        ItemTrackingLinesOutbound: Page "Serial No. Information List";
-        ItemTrackingMgt: Codeunit "Item Tracking Management";
-        "-------": Text[30];
 }
-

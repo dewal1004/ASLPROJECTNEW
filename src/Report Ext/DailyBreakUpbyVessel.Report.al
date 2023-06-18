@@ -4,7 +4,7 @@ report 50106 "Daily Break Up By Vessel"
     RDLCLayout = './src/reportrdlc/DailyBreakUpByVessel.50106.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
-
+    Caption = 'Daily Break Up By Vessel';
     dataset
     {
         dataitem("Integer"; "Integer")
@@ -30,7 +30,6 @@ report 50106 "Daily Break Up By Vessel"
 
     requestpage
     {
-
         layout
         {
         }
@@ -48,4 +47,3 @@ report 50106 "Daily Break Up By Vessel"
         Locate: Record "Inventory Posting Group";
         dato: Date;
 }
-

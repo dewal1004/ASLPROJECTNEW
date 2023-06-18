@@ -2,7 +2,7 @@ report 99002 "Location BU Update"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/LocationBUUpdate.rdlc';
-
+    Caption = 'Location BU Update';
     dataset
     {
         dataitem(Location; Location)
@@ -14,7 +14,7 @@ report 99002 "Location BU Update"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -69,19 +69,18 @@ report 99002 "Location BU Update"
                 if Location."Name 2" = 'SSC' then Location."Shortcut Dimension 2 Code" := 'SAVANNAH';
                 if Location."Name 2" = 'ICF' then Location."Shortcut Dimension 2 Code" := 'ICF';
                 if Location."Name 2" = 'COS' then Location."Shortcut Dimension 2 Code" := 'COSMOS';
-                Location.Modify;
+                Location.Modify();
             end;
 
             trigger OnPreDataItem()
             begin
-                COY.Get;
+                COY.Get();
             end;
         }
     }
 
     requestpage
     {
-
         layout
         {
         }
@@ -100,4 +99,3 @@ report 99002 "Location BU Update"
         LocationCaptionLbl: Label 'Location';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
 }
-

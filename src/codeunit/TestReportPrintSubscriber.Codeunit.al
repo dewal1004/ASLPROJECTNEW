@@ -16,15 +16,10 @@ codeunit 50009 "TestReportPrintSubscriber"
         JobJnlLine.SetRange("Job No.", JobJnlLine."Job No.");  //AAA Oct 2002
         JobJnlTemplate.Get(JobJnlLine."Journal Template Name");
         JobJnlTemplate.TestField("Test Report ID");
-        if User.Get(UserId) then begin
+        if User.Get(UserId) then
             if User."Shortcut Dimension 1 Code" = 'MRKT' then
                 REPORT.Run(50082, true, false, JobJnlLine)
             else
                 REPORT.Run(50085, true, false, JobJnlLine);
-        end;
     end;
-
 }
-
-
-

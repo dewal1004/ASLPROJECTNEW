@@ -1,6 +1,6 @@
 report 70041 "Prim7* Reporting Listxx"
 {
-    // 
+    //
     // Colum[1]
     // IF RespCenter.GET("Responsibility Center") THEN BEGIN
     //   FormatAddr.RespCenter(CompanyAddr,RespCenter);
@@ -11,8 +11,7 @@ report 70041 "Prim7* Reporting Listxx"
     // END;
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/Prim7ReportingListxx.rdlc';
-
-
+    Caption = 'Prim7* Reporting Listxx';
     dataset
     {
         dataitem(Item; Item)
@@ -25,7 +24,7 @@ report 70041 "Prim7* Reporting Listxx"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -131,7 +130,6 @@ report 70041 "Prim7* Reporting Listxx"
 
     requestpage
     {
-
         layout
         {
         }
@@ -147,17 +145,11 @@ report 70041 "Prim7* Reporting Listxx"
 
     var
         LastFieldNo: Integer;
-        FooterPrinted: Boolean;
         TotalFor: Label 'Total for ';
-        "---": Text[30];
         Colum: array[3] of Decimal;
-        RespCenter: Record "Responsibility Center";
-        CompanyInfo: Record "Company Information";
-        FormatAddr: Codeunit "Format Address";
         ItemCaptionLbl: Label 'Item';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
         V2_KGCaptionLbl: Label '2 KG';
         V1_KGCaptionLbl: Label '1 KG';
         V0_5_KGCaptionLbl: Label '0.5 KG';
 }
-

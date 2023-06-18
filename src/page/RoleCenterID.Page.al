@@ -22,7 +22,6 @@ page 50136 "Role Center ID"
                 part(Control20; "Account Manager Activities")
                 {
                     ApplicationArea = All;
-
                 }
                 part(Control19; "My Customers")
                 {
@@ -146,4 +145,3 @@ page 50136 "Role Center ID"
         }
     }
 }
-

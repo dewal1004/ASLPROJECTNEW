@@ -35,4 +35,3 @@
 //         moveafter(Description; "Unit of Measure", Quantity) {}
 //     }
 //   }
-

@@ -4,6 +4,7 @@ page 50026 "Applicants List"
     SourceTable = Applicants;
     UsageCategory = Lists;
     ApplicationArea = All, Basic, Suites;
+    Caption = 'Applicants List';
     layout
     {
         area(content)
@@ -92,4 +93,3 @@ page 50026 "Applicants List"
         CurrPage.LookupMode := true;
     end;
 }
-

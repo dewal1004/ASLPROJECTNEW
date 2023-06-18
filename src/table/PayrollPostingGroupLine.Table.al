@@ -1,5 +1,6 @@
 table 50010 "Payroll-Posting Group Line."
 {
+    Caption = 'Payroll-Posting Group Line.';
     // Created           : FTN, 14/3/93
     // File name         : KI03 P.BookGrps Line
     // Comments          : The Header card that is to be used to enter the detail
@@ -9,7 +10,6 @@ table 50010 "Payroll-Posting Group Line."
     //                   : Relations;
     //                      To E/D File
     //                      To Finance Account
-
 
     fields
     {
@@ -107,4 +107,3 @@ table 50010 "Payroll-Posting Group Line."
         CustomerAccRec: Record Customer;
         FinanceAccRec: Record "G/L Account";
 }
-

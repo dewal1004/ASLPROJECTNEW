@@ -2,7 +2,7 @@ page 50081 "Lost day Type"
 {
     PageType = Card;
     SourceTable = "Lost Days";
-
+    Caption = 'Lost day Type';
     layout
     {
         area(content)
@@ -48,4 +48,3 @@ page 50081 "Lost day Type"
         }
     }
 }
-

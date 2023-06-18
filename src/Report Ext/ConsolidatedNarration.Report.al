@@ -4,7 +4,7 @@ report 50004 "Consolidated Narration"
     RDLCLayout = './src/reportrdlc/ConsolidatedNarration.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
-
+    Caption = 'Consolidated Narration';
     dataset
     {
         dataitem("Comment Line"; "Comment Line")
@@ -26,7 +26,7 @@ report 50004 "Consolidated Narration"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -155,7 +155,7 @@ report 50004 "Consolidated Narration"
                     CommentLine.SetRange(Date, Job."Starting Date", EndDate);
                     if CommentLine.Find('-') then
                         repeat
-                            if LostDays.Get(CommentLine."Day Lost Cause") then begin
+                            if LostDays.Get(CommentLine."Day Lost Cause") then
                                 case LostDays.Category of
                                     LostDays.Category::OPS:
                                         OPSx := OPSx + CommentLine."Hours Lost";
@@ -164,15 +164,14 @@ report 50004 "Consolidated Narration"
                                     LostDays.Category::CHOR:
                                         CHORx := CHORx + CommentLine."Hours Lost";
                                 end;
-                            end;
                         //TotHrsLost := TotHrsLost + CommentLine."Hours Lost";
-                        until CommentLine.Next = 0;
+                        until CommentLine.Next() = 0;
 
                     for i := 1 to 3 do begin
                         CommentLine2.SetRange("No.", "Comment Line"."No.");
                         CommentLine2.SetFilter("Day Lost Cause", '<>%1', 'STMG');
                         CommentLine2.SetRange(Date, ComplaintDate[i]);
-                        if CommentLine2.Find('-') then begin
+                        if CommentLine2.Find('-') then
                             case i of
                                 1:
                                     Day1 := true;
@@ -181,7 +180,6 @@ report 50004 "Consolidated Narration"
                                 3:
                                     Day3 := true;
                             end;
-                        end;
                     end;
                 end;
                 if "Comment Line".Comment = '' then CurrReport.ShowOutput(false);
@@ -192,18 +190,16 @@ report 50004 "Consolidated Narration"
 
                 NarratnFilter := "Comment Line".GetFilter("Comment Line".Date);
                 "Comment Line".SetRange("Comment Line".Date, StartDate, EndDate);
-                if NarratnFilter = '' then begin
+                if NarratnFilter = '' then
                     if StartDate = EndDate then
                         NarratnFilter := Format(StartDate) else
                         NarratnFilter := Format(StartDate) + ' To ' + Format(EndDate);
-                end;
             end;
         }
     }
 
     requestpage
     {
-
         layout
         {
             area(content)
@@ -283,4 +279,3 @@ report 50004 "Consolidated Narration"
         Dayprev2: Date;
         Dayprev3: Date;
 }
-

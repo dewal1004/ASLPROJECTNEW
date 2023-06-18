@@ -4,8 +4,7 @@ report 50166 "Appraisal Order"
     // "Sales Header"."Shortcut Dimension 1 Code"
     DefaultLayout = RDLC;
     RDLCLayout = './AppraisalOrder.rdlc';
-
-
+    Caption = 'Appraisal Order';
     dataset
     {
         dataitem("Sales Header"; "Sales Header")
@@ -14,7 +13,7 @@ report 50166 "Appraisal Order"
             column(USERID; UserId)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(FORMAT_TODAY_0_4_; Format(Today, 0, 4))
@@ -225,7 +224,6 @@ report 50166 "Appraisal Order"
 
     requestpage
     {
-
         layout
         {
         }
@@ -241,17 +239,12 @@ report 50166 "Appraisal Order"
 
     var
         LastFieldNo: Integer;
-        FooterPrinted: Boolean;
         TotalFor: Label 'Total for ';
         CommentCapt: Text[30];
-        EmplRec: Record Employee;
-        AppRec: Record Applicants;
-        AAN: Record Employee;
         Name: Text[30];
         MidName: Text[30];
         Department: Code[20];
         BusiUnit: Code[20];
-        "No.": Code[20];
         Header: Text[30];
         Jobt: Text[30];
         Nmber: Code[10];
@@ -278,4 +271,3 @@ report 50166 "Appraisal Order"
         Score__4_CaptionLbl: Label 'Score (4)';
         TypeCaptionLbl: Label 'Type';
 }
-

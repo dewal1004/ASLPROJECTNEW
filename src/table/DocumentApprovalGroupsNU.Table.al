@@ -2,7 +2,7 @@ table 54000 "Document Approval Groups NU*"
 {
     DrillDownPageID = "MR Reconciliation";
     LookupPageID = "MR Reconciliation";
-
+    Caption = 'Document Approval Groups NU*';
     fields
     {
         field(1; "Code"; Code[10])
@@ -33,6 +33,8 @@ table 54000 "Document Approval Groups NU*"
 
     fieldgroups
     {
+        fieldgroup(DropDown; Description)
+        {
+        }
     }
 }
-

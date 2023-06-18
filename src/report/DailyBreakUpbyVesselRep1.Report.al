@@ -2,7 +2,7 @@ report 50007 "Daily BreakUp by Vessel Rep 1"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/DailyBreakUpbyVesselRep1.rdlc';
-
+    Caption = 'Daily BreakUp by Vessel Rep 1';
     dataset
     {
         dataitem("Inventory Posting G Cat Tot"; "Inventory Posting Group")
@@ -73,7 +73,7 @@ report 50007 "Daily BreakUp by Vessel Rep 1"
             column(FORMAT_TODAY_0_4_; Format(Today, 0, 4))
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID________; UserId + ' :  ')
@@ -1364,7 +1364,7 @@ report 50007 "Daily BreakUp by Vessel Rep 1"
             }
             column(SeaRange_21_; SeaRange[4])
             {
-                //DecimalPlaces = 0 : 0; 
+                //DecimalPlaces = 0 : 0;
             }
             column(SeaRange_22_; SeaRange[5])
             {
@@ -2301,7 +2301,6 @@ report 50007 "Daily BreakUp by Vessel Rep 1"
                     end;
                 end;
 
-
                 level := TotLoc;
                 while level > 0 do begin
                     SetFilter("Location Filter", SeaRange[level]);
@@ -2336,14 +2335,14 @@ report 50007 "Daily BreakUp by Vessel Rep 1"
                 DateFilter := "Inventory Posting G Cat Tot".GetFilter("Date Filter");
 
                 if DateFilter = '' then begin
-                    SetRange("Date Filter", WorkDate);
+                    SetRange("Date Filter", WorkDate());
                     DateFilter := GetFilter("Date Filter");
                 end;
-                locate2.Reset;
+                locate2.Reset();
                 locate2.SetRange("Location Type", 1);
 
                 locate2.SetFilter("date filter", '%1', GetRangeMax("Date Filter"));//CH1
-                if locate2.FindFirst then
+                if locate2.FindFirst() then
                     repeat
                         locate2."Last Rep Operation No. Val" := locate2.LastRepOpNo(locate2.Code, locate2.GetFilter("date filter"));
                         if locate2."Last Rep Operation No. Val" <> '' then begin
@@ -2358,9 +2357,9 @@ report 50007 "Daily BreakUp by Vessel Rep 1"
                             Operatn.SetRange(Operatn."Task Filter");
                             locate2.Modify();
                         end;
-                    until locate2.Next = 0;
+                    until locate2.Next() = 0;
 
-                locate.Reset;
+                locate.Reset();
                 locate.SetRange("Location Type", 1);
                 TotLoc := locate.Count;
                 if ArrangeBy = 0 then
@@ -2372,7 +2371,7 @@ report 50007 "Daily BreakUp by Vessel Rep 1"
                 Countx := 1;
 
                 TotLoc := locate.Count;
-                if locate.FindFirst then
+                if locate.FindFirst() then
                     repeat
                         SeaRange[Countx] := locate.Code;
                         SeaRangeD[Countx] := locate.VSDVal;
@@ -2390,7 +2389,7 @@ report 50007 "Daily BreakUp by Vessel Rep 1"
                         else
                             VesselCounter += 1;
                         Countx := Countx + 1;
-                    until locate.Next = 0;
+                    until locate.Next() = 0;
             end;
         }
         dataitem("Inventory Posting Group"; "Inventory Posting Group")
@@ -5182,7 +5181,7 @@ report 50007 "Daily BreakUp by Vessel Rep 1"
                             Operatn.SetRange(Operatn."Task Filter");
                             locate2.Modify();
                         end;
-                    until locate2.Next = 0;
+                    until locate2.Next() = 0;
 
                 //AAA - June 2002 Sort Entries accordg to SeaDays
                 locate.SetRange(locate."Location Type", 1);
@@ -5217,7 +5216,7 @@ report 50007 "Daily BreakUp by Vessel Rep 1"
 
                             Countx := Countx + 1;
                         end;
-                    until locate.Next = 0;
+                    until locate.Next() = 0;
                 TotLoc := Countx - 1;
             end;
         }
@@ -5225,7 +5224,6 @@ report 50007 "Daily BreakUp by Vessel Rep 1"
 
     requestpage
     {
-
         layout
         {
             area(content)
@@ -5270,16 +5268,12 @@ report 50007 "Daily BreakUp by Vessel Rep 1"
     end;
 
     var
-        LastFieldNo: Integer;
-        FooterPrinted: Boolean;
         TotalFor: Label ' Total';
-        "----------------": Integer;
         locate: Record Location;
         locate2: Record Location;
         Operatn: Record Job;
         Countx: Integer;
         level: Integer;
-        LocGroup: Integer;
         TotLoc: Integer;
         SeaRangeC: array[100] of Decimal;
         T001: Text[80];
@@ -5290,8 +5284,6 @@ report 50007 "Daily BreakUp by Vessel Rep 1"
         VesselPoint: array[100] of Decimal;
         FishPoint: array[100] of Decimal;
         Cat: Code[15];
-        job1: Record Job;
-        Nocatch: Boolean;
         "Show Category total": Boolean;
         ArrangeBy: Option "Vessel Points","Sea Days";
         ReportBy: Option Catch,Stock;
@@ -5324,16 +5316,6 @@ report 50007 "Daily BreakUp by Vessel Rep 1"
         PntLess: Integer;
         Phase: Record Task;
         VesselCounter: Integer;
-        StartingDate: Date;
-        FishCounter: Integer;
-        Text010: Label 'Fishing Area';
-        VesselsCaption_Control1000000185Lbl: Label 'Vessels';
-        Sea_DaysCaption_Control1000000186Lbl: Label 'Sea Days';
-        Vessel_PointsCaption_Control1000000187Lbl: Label 'Vessel Points';
-        Shrimp_PointsCaption_Control1000000197Lbl: Label 'Shrimp Points';
-        Fishing_AreaCaption_Control1000000212Lbl: Label 'Fishing Area';
-        Inventory_Total_Caption_Control1000000219Lbl: Label 'Inventory Total ';
-        DescriptionCaption_Control1000000220Lbl: Label 'Description';
         LastRepOptNo: Code[10];
         Test: Decimal;
         testing123: Decimal;

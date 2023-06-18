@@ -2,7 +2,7 @@ table 50045 "Purchase Requisition1"
 {
     DrillDownPageID = "Purchase Requist List";
     LookupPageID = "Purchase Requist List";
-
+    Caption = 'Purchase Requisition1';
     fields
     {
         field(1; "Req No."; Code[20])
@@ -27,7 +27,7 @@ table 50045 "Purchase Requisition1"
                     Description := itemrec.Description;
                 PPI.SetCurrentKey(PPI."Posting Date");
                 PPI.SetFilter(PPI."No.", '%1', "Item No.");
-                if PPI.FindLast then begin
+                if PPI.FindLast() then begin
                     "Last Price1" := PPI."Unit Cost (LCY)";
                     "LPrice1 Date" := PPI."Posting Date";
                     "LPrice1 InvoiceNo" := PPI."Document No.";
@@ -92,24 +92,21 @@ table 50045 "Purchase Requisition1"
         }
         field(18; "Security Check Quantity"; Decimal)
         {
-
             trigger OnValidate()
             begin
-                if "Security Check Quantity" > Quantity then begin
-                    Error('Excess Supply');
-                end
+                if "Security Check Quantity" > Quantity then
+                    Error('Excess Supply')
                 else
                     "Shortage Supplied  Quantity" := Quantity - "Security Check Quantity";
             end;
         }
         field(19; "QCC Check"; Boolean)
         {
-
             trigger OnValidate()
             begin
                 UserRec.SetCurrentKey("User Name");
                 UserRec.SetRange("User Name", "QCC Check  By");
-                if UserRec.FindSet then
+                if UserRec.FindSet() then
                     "QCC Check  Name" := UserRec."Full Name";
                 "QCC Check Time" := CurrentDateTime;
             end;
@@ -123,12 +120,10 @@ table 50045 "Purchase Requisition1"
         }
         field(22; "QCC Check Quantity"; Decimal)
         {
-
             trigger OnValidate()
             begin
-                if "QCC Check Quantity" > "Security Check Quantity" then begin
-                    Error('Quantity More than  Decleared Quantity');
-                end
+                if "QCC Check Quantity" > "Security Check Quantity" then
+                    Error('Quantity More than  Decleared Quantity')
                 else
                     "QCC Rejected Quantity" := "Security Check Quantity" - "QCC Check Quantity";
             end;
@@ -138,12 +133,11 @@ table 50045 "Purchase Requisition1"
         }
         field(24; Process; Boolean)
         {
-
             trigger OnValidate()
             begin
                 "Process By" := UserId;
                 UserRec.SetRange("User Name", "Process By");
-                if UserRec.FindSet then
+                if UserRec.FindSet() then
                     "Process By Name" := UserRec."Full Name";
                 "Process Time" := CurrentDateTime;
             end;
@@ -190,12 +184,11 @@ table 50045 "Purchase Requisition1"
         }
         field(37; "Security checked"; Boolean)
         {
-
             trigger OnValidate()
             begin
                 UserRec.SetCurrentKey("User Name");
                 UserRec.SetRange("User Name", "Security Check By");
-                if UserRec.FindSet then
+                if UserRec.FindSet() then
                     "Security Checked By Name" := UserRec."Full Name";
                 "Security Check Time" := CurrentDateTime;
             end;
@@ -211,7 +204,6 @@ table 50045 "Purchase Requisition1"
         }
         field(41; "Sent For QCC"; Boolean)
         {
-
             trigger OnValidate()
             begin
                 TestField("Security checked");
@@ -236,7 +228,6 @@ table 50045 "Purchase Requisition1"
         }
         field(44; "Quantity To Return"; Decimal)
         {
-
             trigger OnValidate()
             begin
                 if "Quantity To Return" < "QCC Rejected Quantity" then begin
@@ -254,20 +245,18 @@ table 50045 "Purchase Requisition1"
         }
         field(47; "Security Returned"; Boolean)
         {
-
             trigger OnValidate()
             begin
                 if not Confirm('Hope You have Printed the Waybill', false) then
                     Error('Please make sure you Update Quantity to return for all line then Print Waybill');
                 "Retuned Date" := CurrentDateTime;
                 UserRec.SetRange("User Name", UserId);
-                if UserRec.FindSet then
+                if UserRec.FindSet() then
                     "Security Return Name" := UserRec."Full Name";
             end;
         }
         field(48; "Security Return Quantity"; Decimal)
         {
-
             trigger OnValidate()
             begin
                 if "Security Return Quantity" <> "Quantity To Return" then
@@ -292,13 +281,10 @@ table 50045 "Purchase Requisition1"
         }
         field(54; "Awaiting Supply"; Boolean)
         {
-
             trigger OnValidate()
             begin
-                if "Awaiting Supply" then begin
+                if "Awaiting Supply" then
                     TestField("Fully Supply", false);
-
-                end;
             end;
         }
         field(55; "Puch.Req Line No."; Integer)
@@ -319,53 +305,44 @@ table 50045 "Purchase Requisition1"
 
     fieldgroups
     {
+        fieldgroup(DropDown; Description)
+        {
+        }
     }
 
     var
         PPI: Record "Purch. Inv. Line";
-        J: Integer;
-        Lprice: Decimal;
         itemrec: Record Item;
         UserRec: Record User;
-        Reqhead: Record "Store Requisition Header New";
         Text0001: Label 'Purchase Invoice No %1 has been Raised for %2';
         VendRec: Record Vendor;
-        purreq: Record "Purchase Requisition1";
 
     [Scope('OnPrem')]
     procedure CreatePurchInv()
     var
-        Purchheader: Record "Purchase Header";
-        PurchLine: Record "Purchase Line";
         LineNo: Integer;
         noseriesmgt: Codeunit NoSeriesManagement;
         DocNo: Code[20];
         PurchSetup: Record "Purchases & Payables Setup";
         PurchInv: Record "Purchase Header";
         PurchInvline: Record "Purchase Line";
-        CustRec: Record Vendor;
-        TotalVend: Integer;
-        CheckPurchInv: Record "Purchase Header";
-        CheckpostedPurchCmemo: Record "Purch. Cr. Memo Hdr.";
-        Purchorder: Record "Purchase Header";
-        Purchorderline: Record "Purchase Line";
         ReqLines: Record "Purchase Requisition1";
         UserRec: Record User;
     begin
         //TESTFIELD("Req. Type",6);
         UserRec.SetRange("User Name", UserId);
-        if UserRec.FindFirst then;
+        if UserRec.FindFirst() then;
 
         ReqLines.SetRange(ReqLines."Supply By", "Supply By");
         ReqLines.SetFilter(ReqLines."QCC Check Quantity", '<>%1', 0);
         ReqLines.SetFilter(ReqLines."QCC Check", '%1', true);
         ReqLines.SetFilter(ReqLines.Process, '%1', false);
-        if not ReqLines.FindSet then
+        if not ReqLines.FindSet() then
             Error('Notting To Process. No Line(s) is Ready for Process')
         else begin
-            PurchSetup.Get;
+            PurchSetup.Get();
             DocNo := noseriesmgt.GetNextNo(PurchSetup."Order Nos.", Today, true);
-            PurchInv.Init;
+            PurchInv.Init();
             PurchInv."Document Type" := PurchInv."Document Type"::Order;
             PurchInv.Validate(PurchInv."No.", DocNo);
             PurchInv.Insert(true);
@@ -374,10 +351,10 @@ table 50045 "Purchase Requisition1"
             PurchInv."Posting Description" := Description;
             PurchInv."Your Reference" := "Req No.";
 
-            PurchInv.Modify;
+            PurchInv.Modify();
 
             LineNo := 0;
-            if ReqLines.FindSet then
+            if ReqLines.FindSet() then
                 repeat
                     LineNo += 10000;
                     PurchInvline."Document Type" := PurchInvline."Document Type"::Order;
@@ -390,15 +367,15 @@ table 50045 "Purchase Requisition1"
                     PurchInvline.Validate(Quantity, ReqLines."QCC Check Quantity");
                     PurchInvline.Validate(PurchInvline."Direct Unit Cost", ReqLines."Unit Price");
                     //PurchInvline.VALIDATE(PurchInvline."Expected Receipt Date",TODAY);
-                    PurchInvline.Modify;
+                    PurchInvline.Modify();
                     ReqLines.Process := true;
                     UserRec.SetRange("User Name", UserId);
-                    if UserRec.FindSet then
+                    if UserRec.FindSet() then
                         ReqLines."Process By Name" := UserRec."Full Name";
                     ReqLines."Process Time" := CurrentDateTime;
                     ReqLines."Invoice No." := DocNo;
-                    ReqLines.Modify;
-                until ReqLines.Next = 0;
+                    ReqLines.Modify();
+                until ReqLines.Next() = 0;
             "Invoice No." := DocNo;
             Message(Text0001, DocNo, "Supplier Name");
         end;
@@ -406,7 +383,5 @@ table 50045 "Purchase Requisition1"
         "Process By" := UserRec."Full Name";
         MODIFY;
         */
-
     end;
 }
-

@@ -6,7 +6,7 @@ page 50070 "Organoleptic Sheet"
     MultipleNewLines = true;
     PageType = Card;
     SourceTable = "Comment Line";
-
+    Caption = 'Organoleptic Sheet';
     layout
     {
         area(content)
@@ -35,12 +35,12 @@ page 50070 "Organoleptic Sheet"
                 {
                     ApplicationArea = All;
                 }
-                field(ETA; Rec.ETA)
+                field(ETA; Rec.ETA())
                 {
                     Caption = 'ETA';
                     ApplicationArea = All;
                 }
-                field(ETD; Rec.ETD)
+                field(ETD; Rec.ETD())
                 {
                     Caption = 'ETD';
                     ApplicationArea = All;
@@ -62,7 +62,7 @@ page 50070 "Organoleptic Sheet"
                 {
                     ApplicationArea = All;
                 }
-                field("GRADE(Text)"; Rec."GRADE(Text)")
+                field("GRADE(Text)"; Rec."GRADE(Text)"())
                 {
                     Caption = 'GRADE (Text)';
                     ApplicationArea = All;
@@ -180,4 +180,3 @@ page 50070 "Organoleptic Sheet"
         Rec.Type := Rec.Type::Organoleptic;
     end;
 }
-

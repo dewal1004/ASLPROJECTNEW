@@ -32,7 +32,7 @@ report 50105 "ASL Adjust Exchenge Rate"
                         GroupTotal: Boolean;
                     begin
                         BankAccount.Copy("Bank Account");
-                        if BankAccount.Next = 1 then begin
+                        if BankAccount.Next() = 1 then begin
                             if BankAccount."Bank Acc. Posting Group" <> "Bank Account"."Bank Acc. Posting Group" then
                                 GroupTotal := true;
                         end else
@@ -90,12 +90,12 @@ report 50105 "ASL Adjust Exchenge Rate"
                         GetJnlLineDefDim(GenJnlLine, TempDimSetEntry);
                         CopyDimSetEntryToDimBuf(TempDimSetEntry, TempDimBuf);
                         PostGenJnlLine(GenJnlLine, TempDimSetEntry);
-                        TempEntryNoAmountBuf.Init;
+                        TempEntryNoAmountBuf.Init();
                         TempEntryNoAmountBuf."Business Unit Code" := '';
                         TempEntryNoAmountBuf."Entry No." := TempEntryNoAmountBuf."Entry No." + 1;
                         TempEntryNoAmountBuf.Amount := AdjAmount;
                         TempEntryNoAmountBuf.Amount2 := AdjBase;
-                        TempEntryNoAmountBuf.Insert;
+                        TempEntryNoAmountBuf.Insert();
                         TempDimBuf2.Init();
                         TempDimBuf2."Table ID" := TempEntryNoAmountBuf."Entry No.";
                         TempDimBuf2."Entry No." := GetDimCombID(TempDimBuf);
@@ -111,16 +111,16 @@ report 50105 "ASL Adjust Exchenge Rate"
                             TempDimBuf.Reset();
                             TempDimBuf.DeleteAll();
                             TempDimBuf2.SetRange("Table ID", TempEntryNoAmountBuf."Entry No.");
-                            if TempDimBuf2.FindFirst then
+                            if TempDimBuf2.FindFirst() then
                                 DimBufMgt.GetDimensions(TempDimBuf2."Entry No.", TempDimBuf);
                             DimMgt.CopyDimBufToDimSetEntry(TempDimBuf, TempDimSetEntry);
                             if TempEntryNoAmountBuf.Amount > 0 then
                                 PostAdjmt(
-                                  Currency.GetRealizedGainsAccount, -TempEntryNoAmountBuf.Amount, TempEntryNoAmountBuf.Amount2,
+                                  Currency.GetRealizedGainsAccount(), -TempEntryNoAmountBuf.Amount, TempEntryNoAmountBuf.Amount2,
                                   "Currency Code", TempDimSetEntry, PostingDate, '')
                             else
                                 PostAdjmt(
-                                  Currency.GetRealizedLossesAccount, -TempEntryNoAmountBuf.Amount, TempEntryNoAmountBuf.Amount2,
+                                  Currency.GetRealizedLossesAccount(), -TempEntryNoAmountBuf.Amount, TempEntryNoAmountBuf.Amount2,
                                   "Currency Code", TempDimSetEntry, PostingDate, '');
                         end;
                     end;
@@ -137,7 +137,7 @@ report 50105 "ASL Adjust Exchenge Rate"
             trigger OnAfterGetRecord()
             begin
                 "Last Date Adjusted" := PostingDate;
-                Modify;
+                Modify();
 
                 "Currency Factor" :=
                   CurrExchRate.ExchangeRateAdjmt(PostingDate, Code);
@@ -154,7 +154,7 @@ report 50105 "ASL Adjust Exchenge Rate"
 
             trigger OnPreDataItem()
             begin
-                CheckPostingDate;
+                CheckPostingDate();
                 if not AdjCustVendBank then
                     CurrReport.Break();
 
@@ -472,7 +472,7 @@ report 50105 "ASL Adjust Exchenge Rate"
                             AdjustVATEntries(VATEntry.Type::Purchase, true);
                             AdjustPurchTax(true);
                             AdjustVATEntries(VATEntry.Type::Sale, false);
-                            AdjustSalesTax;
+                            AdjustSalesTax();
                         until TaxJurisdiction.Next() = 0;
                     VATEntry.SetRange("Tax Jurisdiction Code");
                 end;
@@ -550,9 +550,9 @@ report 50105 "ASL Adjust Exchenge Rate"
 
                     if GLAmtTotal <> 0 then begin
                         if GLAmtTotal < 0 then
-                            GenJnlLine."Account No." := Currency3.GetRealizedGLLossesAccount
+                            GenJnlLine."Account No." := Currency3.GetRealizedGLLossesAccount()
                         else
-                            GenJnlLine."Account No." := Currency3.GetRealizedGLGainsAccount;
+                            GenJnlLine."Account No." := Currency3.GetRealizedGLGainsAccount();
                         GenJnlLine.Description :=
                           StrSubstNo(
                             PostingDescription,
@@ -567,9 +567,9 @@ report 50105 "ASL Adjust Exchenge Rate"
                     end;
                     if GLAddCurrAmtTotal <> 0 then begin
                         if GLAddCurrAmtTotal < 0 then
-                            GenJnlLine."Account No." := Currency3.GetRealizedGLLossesAccount
+                            GenJnlLine."Account No." := Currency3.GetRealizedGLLossesAccount()
                         else
-                            GenJnlLine."Account No." := Currency3.GetRealizedGLGainsAccount;
+                            GenJnlLine."Account No." := Currency3.GetRealizedGLGainsAccount();
                         GenJnlLine.Description :=
                           StrSubstNo(
                             PostingDescription, '',
@@ -593,7 +593,7 @@ report 50105 "ASL Adjust Exchenge Rate"
                     ExchRateAdjReg."Adjusted Amt. (LCY)" := GLAmtTotal;
                     ExchRateAdjReg."Adjusted Base (Add.-Curr.)" := GLAddCurrNetChangeBase;
                     ExchRateAdjReg."Adjusted Amt. (Add.-Curr.)" := GLAddCurrAmtTotal;
-                    ExchRateAdjReg.Insert;
+                    ExchRateAdjReg.Insert();
 
                     TotalGLAccountsAdjusted += 1;
                 end;
@@ -660,7 +660,7 @@ report 50105 "ASL Adjust Exchenge Rate"
 
                         trigger OnValidate()
                         begin
-                            CheckPostingDate;
+                            CheckPostingDate();
                         end;
                     }
                     field(DocumentNo; PostingDocNo)
@@ -756,7 +756,7 @@ report 50105 "ASL Adjust Exchenge Rate"
 
         SourceCodeSetup.Get();
 
-        if ExchRateAdjReg.FindLast then
+        if ExchRateAdjReg.FindLast() then
             ExchRateAdjReg.Init();
 
         GLSetup.Get();
@@ -765,10 +765,10 @@ report 50105 "ASL Adjust Exchenge Rate"
             GLSetup.TestField("Additional Reporting Currency");
 
             Currency3.Get(GLSetup."Additional Reporting Currency");
-            "G/L Account".Get(Currency3.GetRealizedGLGainsAccount);
+            "G/L Account".Get(Currency3.GetRealizedGLGainsAccount());
             "G/L Account".TestField("Exchange Rate Adjustment", "G/L Account"."Exchange Rate Adjustment"::"No Adjustment");
 
-            "G/L Account".Get(Currency3.GetRealizedGLLossesAccount);
+            "G/L Account".Get(Currency3.GetRealizedGLLossesAccount());
             "G/L Account".TestField("Exchange Rate Adjustment", "G/L Account"."Exchange Rate Adjustment"::"No Adjustment");
 
             if VATPostingSetup2.Find('-') then
@@ -916,7 +916,7 @@ report 50105 "ASL Adjust Exchenge Rate"
     local procedure PostAdjmt(GLAccNo: Code[20]; PostingAmount: Decimal; AdjBase2: Decimal; CurrencyCode2: Code[10]; var DimSetEntry: Record "Dimension Set Entry"; PostingDate2: Date; ICCode: Code[20]) TransactionNo: Integer
     begin
         if PostingAmount <> 0 then begin
-            GenJnlLine.Init;
+            GenJnlLine.Init();
             GenJnlLine.Validate("Posting Date", PostingDate2);
             GenJnlLine."Document No." := PostingDocNo;
             GenJnlLine."Account Type" := GenJnlLine."Account Type"::"G/L Account";
@@ -947,7 +947,7 @@ report 50105 "ASL Adjust Exchenge Rate"
         ExchRateAdjReg."Adjusted Base" := AdjExchRateBuffer.AdjBase;
         ExchRateAdjReg."Adjusted Base (LCY)" := AdjExchRateBuffer.AdjBaseLCY;
         ExchRateAdjReg."Adjusted Amt. (LCY)" := AdjExchRateBuffer.AdjAmount;
-        ExchRateAdjReg.Insert;
+        ExchRateAdjReg.Insert();
     end;
 
     procedure InitializeRequest(NewStartDate: Date; NewEndDate: Date; NewPostingDescription: Text[100]; NewPostingDate: Date)
@@ -1051,7 +1051,7 @@ report 50105 "ASL Adjust Exchenge Rate"
                                         CustPostingGr.Get(AdjExchRateBuffer."Posting Group");
                                         TempDtldCVLedgEntryBuf."Transaction No." :=
                                           PostAdjmt(
-                                            CustPostingGr.GetReceivablesAccount, AdjExchRateBuffer.AdjAmount, AdjExchRateBuffer.AdjBase, AdjExchRateBuffer."Currency Code", TempDimSetEntry,
+                                            CustPostingGr.GetReceivablesAccount(), AdjExchRateBuffer.AdjAmount, AdjExchRateBuffer.AdjBase, AdjExchRateBuffer."Currency Code", TempDimSetEntry,
                                             AdjExchRateBuffer2."Posting Date", AdjExchRateBuffer."IC Partner Code");
                                         if TempDtldCVLedgEntryBuf.Insert() then;
                                         InsertExchRateAdjmtReg(1, AdjExchRateBuffer."Posting Group", AdjExchRateBuffer."Currency Code");
@@ -1062,7 +1062,7 @@ report 50105 "ASL Adjust Exchenge Rate"
                                         VendPostingGr.Get(AdjExchRateBuffer."Posting Group");
                                         TempDtldCVLedgEntryBuf."Transaction No." :=
                                           PostAdjmt(
-                                            VendPostingGr.GetPayablesAccount, AdjExchRateBuffer.AdjAmount, AdjExchRateBuffer.AdjBase, AdjExchRateBuffer."Currency Code", TempDimSetEntry,
+                                            VendPostingGr.GetPayablesAccount(), AdjExchRateBuffer.AdjAmount, AdjExchRateBuffer.AdjBase, AdjExchRateBuffer."Currency Code", TempDimSetEntry,
                                             AdjExchRateBuffer2."Posting Date", AdjExchRateBuffer."IC Partner Code");
                                         if TempDtldCVLedgEntryBuf.Insert() then;
                                         InsertExchRateAdjmtReg(2, AdjExchRateBuffer."Posting Group", AdjExchRateBuffer."Currency Code");
@@ -1074,11 +1074,11 @@ report 50105 "ASL Adjust Exchenge Rate"
                     Currency2.Get(AdjExchRateBuffer2."Currency Code");
                     if AdjExchRateBuffer2.TotalGainsAmount <> 0 then
                         PostAdjmt(
-                          Currency2.GetUnrealizedGainsAccount, -AdjExchRateBuffer2.TotalGainsAmount, AdjExchRateBuffer2.AdjBase, AdjExchRateBuffer2."Currency Code", TempDimSetEntry,
+                          Currency2.GetUnrealizedGainsAccount(), -AdjExchRateBuffer2.TotalGainsAmount, AdjExchRateBuffer2.AdjBase, AdjExchRateBuffer2."Currency Code", TempDimSetEntry,
                           AdjExchRateBuffer2."Posting Date", AdjExchRateBuffer2."IC Partner Code");
                     if AdjExchRateBuffer2.TotalLossesAmount <> 0 then
                         PostAdjmt(
-                          Currency2.GetUnrealizedLossesAccount, -AdjExchRateBuffer2.TotalLossesAmount, AdjExchRateBuffer2.AdjBase, AdjExchRateBuffer2."Currency Code", TempDimSetEntry,
+                          Currency2.GetUnrealizedLossesAccount(), -AdjExchRateBuffer2.TotalLossesAmount, AdjExchRateBuffer2.AdjBase, AdjExchRateBuffer2."Currency Code", TempDimSetEntry,
                           AdjExchRateBuffer2."Posting Date", AdjExchRateBuffer2."IC Partner Code");
                 until AdjExchRateBuffer2.Next() = 0;
 
@@ -1157,7 +1157,7 @@ report 50105 "ASL Adjust Exchenge Rate"
                 AdjustVATAmount(VATEntry."Unrealized Base", VATEntry."Add.-Currency Unrealized Base");
                 AdjustVATAmount(VATEntry."Remaining Unrealized Amount", VATEntry."Add.-Curr. Rem. Unreal. Amount");
                 AdjustVATAmount(VATEntry."Remaining Unrealized Base", VATEntry."Add.-Curr. Rem. Unreal. Base");
-                VATEntry.Modify;
+                VATEntry.Modify();
 
                 Accumulate(VATEntry2.Base, -VATEntry.Base);
                 Accumulate(VATEntry2.Amount, -VATEntry.Amount);
@@ -1416,7 +1416,7 @@ report 50105 "ASL Adjust Exchenge Rate"
         GenJnlLine."Dimension Set ID" := DimMgt.GetDimensionSetID(TempDimSetEntry);
         OnPostGenJnlLineOnBeforeGenJnlPostLineRun(GenJnlLine);
         GenJnlPostLine.Run(GenJnlLine);
-        exit(GenJnlPostLine.GetNextTransactionNo);
+        exit(GenJnlPostLine.GetNextTransactionNo());
     end;
 
     local procedure GetGlobalDimVal(GlobalDimCode: Code[20]; var DimSetEntry: Record "Dimension Set Entry"): Code[20]
@@ -1486,7 +1486,7 @@ report 50105 "ASL Adjust Exchenge Rate"
         // Modify Currency factor on Customer Ledger Entry
         if CusLedgerEntry."Adjusted Currency Factor" <> Currency2."Currency Factor" then begin
             CusLedgerEntry."Adjusted Currency Factor" := Currency2."Currency Factor";
-            CusLedgerEntry.Modify;
+            CusLedgerEntry.Modify();
         end;
 
         // Calculate New Unrealized Gains and Losses
@@ -1516,7 +1516,7 @@ report 50105 "ASL Adjust Exchenge Rate"
                             TempDtldCustLedgEntry."Amount (LCY)" := AdjAmount;
                             TempDtldCustLedgEntry."Entry Type" := TempDtldCustLedgEntry."Entry Type"::"Unrealized Gain";
                             HandleCustDebitCredit(Correction, TempDtldCustLedgEntry."Amount (LCY)");
-                            InsertTempDtldCustomerLedgerEntry;
+                            InsertTempDtldCustomerLedgerEntry();
                             NewEntryNo := NewEntryNo + 1;
                             GainsAmount := AdjAmount;
                             Adjust := true;
@@ -1526,7 +1526,7 @@ report 50105 "ASL Adjust Exchenge Rate"
                             TempDtldCustLedgEntry."Amount (LCY)" := AdjAmount;
                             TempDtldCustLedgEntry."Entry Type" := TempDtldCustLedgEntry."Entry Type"::"Unrealized Loss";
                             HandleCustDebitCredit(Correction, TempDtldCustLedgEntry."Amount (LCY)");
-                            InsertTempDtldCustomerLedgerEntry;
+                            InsertTempDtldCustomerLedgerEntry();
                             NewEntryNo := NewEntryNo + 1;
                             LossesAmount := AdjAmount;
                             Adjust := true;
@@ -1535,14 +1535,14 @@ report 50105 "ASL Adjust Exchenge Rate"
                             TempDtldCustLedgEntry."Amount (LCY)" := -OldAdjAmount;
                             TempDtldCustLedgEntry."Entry Type" := TempDtldCustLedgEntry."Entry Type"::"Unrealized Loss";
                             HandleCustDebitCredit(Correction, TempDtldCustLedgEntry."Amount (LCY)");
-                            InsertTempDtldCustomerLedgerEntry;
+                            InsertTempDtldCustomerLedgerEntry();
                             NewEntryNo := NewEntryNo + 1;
                             AdjExchRateBufIndex :=
                               AdjExchRateBufferUpdate(
                                 CusLedgerEntry."Currency Code", Customer."Customer Posting Group",
                                 0, 0, -OldAdjAmount, 0, -OldAdjAmount, DimEntryNo, PostingDate2, Customer."IC Partner Code");
                             TempDtldCustLedgEntry."Transaction No." := AdjExchRateBufIndex;
-                            ModifyTempDtldCustomerLedgerEntry;
+                            ModifyTempDtldCustomerLedgerEntry();
                             Adjust := false;
                         end;
                 end;
@@ -1553,7 +1553,7 @@ report 50105 "ASL Adjust Exchenge Rate"
                             TempDtldCustLedgEntry."Amount (LCY)" := AdjAmount;
                             TempDtldCustLedgEntry."Entry Type" := TempDtldCustLedgEntry."Entry Type"::"Unrealized Loss";
                             HandleCustDebitCredit(Correction, TempDtldCustLedgEntry."Amount (LCY)");
-                            InsertTempDtldCustomerLedgerEntry;
+                            InsertTempDtldCustomerLedgerEntry();
                             NewEntryNo := NewEntryNo + 1;
                             LossesAmount := AdjAmount;
                             Adjust := true;
@@ -1563,7 +1563,7 @@ report 50105 "ASL Adjust Exchenge Rate"
                             TempDtldCustLedgEntry."Amount (LCY)" := AdjAmount;
                             TempDtldCustLedgEntry."Entry Type" := TempDtldCustLedgEntry."Entry Type"::"Unrealized Gain";
                             HandleCustDebitCredit(Correction, TempDtldCustLedgEntry."Amount (LCY)");
-                            InsertTempDtldCustomerLedgerEntry;
+                            InsertTempDtldCustomerLedgerEntry();
                             NewEntryNo := NewEntryNo + 1;
                             GainsAmount := AdjAmount;
                             Adjust := true;
@@ -1572,14 +1572,14 @@ report 50105 "ASL Adjust Exchenge Rate"
                             TempDtldCustLedgEntry."Amount (LCY)" := -OldAdjAmount;
                             TempDtldCustLedgEntry."Entry Type" := TempDtldCustLedgEntry."Entry Type"::"Unrealized Gain";
                             HandleCustDebitCredit(Correction, TempDtldCustLedgEntry."Amount (LCY)");
-                            InsertTempDtldCustomerLedgerEntry;
+                            InsertTempDtldCustomerLedgerEntry();
                             NewEntryNo := NewEntryNo + 1;
                             AdjExchRateBufIndex :=
                               AdjExchRateBufferUpdate(
                                 CusLedgerEntry."Currency Code", Customer."Customer Posting Group",
                                 0, 0, -OldAdjAmount, -OldAdjAmount, 0, DimEntryNo, PostingDate2, Customer."IC Partner Code");
                             TempDtldCustLedgEntry."Transaction No." := AdjExchRateBufIndex;
-                            ModifyTempDtldCustomerLedgerEntry;
+                            ModifyTempDtldCustomerLedgerEntry();
                             Adjust := false;
                         end;
                 end;
@@ -1597,7 +1597,7 @@ report 50105 "ASL Adjust Exchenge Rate"
                         GainsAmount := AdjAmount;
                         LossesAmount := 0;
                     end;
-                InsertTempDtldCustomerLedgerEntry;
+                InsertTempDtldCustomerLedgerEntry();
                 NewEntryNo := NewEntryNo + 1;
             end;
 
@@ -1610,7 +1610,7 @@ report 50105 "ASL Adjust Exchenge Rate"
                 CusLedgerEntry."Remaining Amount", CusLedgerEntry."Remaining Amt. (LCY)", TempDtldCustLedgEntry."Amount (LCY)",
                 GainsAmount, LossesAmount, DimEntryNo, PostingDate2, Customer."IC Partner Code");
             TempDtldCustLedgEntry."Transaction No." := AdjExchRateBufIndex;
-            ModifyTempDtldCustomerLedgerEntry;
+            ModifyTempDtldCustomerLedgerEntry();
         end;
     end;
 
@@ -1654,7 +1654,7 @@ report 50105 "ASL Adjust Exchenge Rate"
         // Modify Currency factor on Vendor Ledger Entry
         if VendLedgerEntry."Adjusted Currency Factor" <> Currency2."Currency Factor" then begin
             VendLedgerEntry."Adjusted Currency Factor" := Currency2."Currency Factor";
-            VendLedgerEntry.Modify;
+            VendLedgerEntry.Modify();
         end;
 
         // Calculate New Unrealized Gains and Losses
@@ -1684,7 +1684,7 @@ report 50105 "ASL Adjust Exchenge Rate"
                             TempDtldVendLedgEntry."Amount (LCY)" := AdjAmount;
                             TempDtldVendLedgEntry."Entry Type" := TempDtldVendLedgEntry."Entry Type"::"Unrealized Gain";
                             HandleVendDebitCredit(Correction, TempDtldVendLedgEntry."Amount (LCY)");
-                            InsertTempDtldVendorLedgerEntry;
+                            InsertTempDtldVendorLedgerEntry();
                             NewEntryNo := NewEntryNo + 1;
                             GainsAmount := AdjAmount;
                             Adjust := true;
@@ -1694,7 +1694,7 @@ report 50105 "ASL Adjust Exchenge Rate"
                             TempDtldVendLedgEntry."Amount (LCY)" := AdjAmount;
                             TempDtldVendLedgEntry."Entry Type" := TempDtldVendLedgEntry."Entry Type"::"Unrealized Loss";
                             HandleVendDebitCredit(Correction, TempDtldVendLedgEntry."Amount (LCY)");
-                            InsertTempDtldVendorLedgerEntry;
+                            InsertTempDtldVendorLedgerEntry();
                             NewEntryNo := NewEntryNo + 1;
                             LossesAmount := AdjAmount;
                             Adjust := true;
@@ -1703,14 +1703,14 @@ report 50105 "ASL Adjust Exchenge Rate"
                             TempDtldVendLedgEntry."Amount (LCY)" := -OldAdjAmount;
                             TempDtldVendLedgEntry."Entry Type" := TempDtldVendLedgEntry."Entry Type"::"Unrealized Loss";
                             HandleVendDebitCredit(Correction, TempDtldVendLedgEntry."Amount (LCY)");
-                            InsertTempDtldVendorLedgerEntry;
+                            InsertTempDtldVendorLedgerEntry();
                             NewEntryNo := NewEntryNo + 1;
                             AdjExchRateBufIndex :=
                               AdjExchRateBufferUpdate(
                                 VendLedgerEntry."Currency Code", Vendor."Vendor Posting Group",
                                 0, 0, -OldAdjAmount, 0, -OldAdjAmount, DimEntryNo, PostingDate2, Vendor."IC Partner Code");
                             TempDtldVendLedgEntry."Transaction No." := AdjExchRateBufIndex;
-                            ModifyTempDtldVendorLedgerEntry;
+                            ModifyTempDtldVendorLedgerEntry();
                             Adjust := false;
                         end;
                 end;
@@ -1721,7 +1721,7 @@ report 50105 "ASL Adjust Exchenge Rate"
                             TempDtldVendLedgEntry."Amount (LCY)" := AdjAmount;
                             TempDtldVendLedgEntry."Entry Type" := TempDtldVendLedgEntry."Entry Type"::"Unrealized Loss";
                             HandleVendDebitCredit(Correction, TempDtldVendLedgEntry."Amount (LCY)");
-                            InsertTempDtldVendorLedgerEntry;
+                            InsertTempDtldVendorLedgerEntry();
                             NewEntryNo := NewEntryNo + 1;
                             LossesAmount := AdjAmount;
                             Adjust := true;
@@ -1731,7 +1731,7 @@ report 50105 "ASL Adjust Exchenge Rate"
                             TempDtldVendLedgEntry."Amount (LCY)" := AdjAmount;
                             TempDtldVendLedgEntry."Entry Type" := TempDtldVendLedgEntry."Entry Type"::"Unrealized Gain";
                             HandleVendDebitCredit(Correction, TempDtldVendLedgEntry."Amount (LCY)");
-                            InsertTempDtldVendorLedgerEntry;
+                            InsertTempDtldVendorLedgerEntry();
                             NewEntryNo := NewEntryNo + 1;
                             GainsAmount := AdjAmount;
                             Adjust := true;
@@ -1740,14 +1740,14 @@ report 50105 "ASL Adjust Exchenge Rate"
                             TempDtldVendLedgEntry."Amount (LCY)" := -OldAdjAmount;
                             TempDtldVendLedgEntry."Entry Type" := TempDtldVendLedgEntry."Entry Type"::"Unrealized Gain";
                             HandleVendDebitCredit(Correction, TempDtldVendLedgEntry."Amount (LCY)");
-                            InsertTempDtldVendorLedgerEntry;
+                            InsertTempDtldVendorLedgerEntry();
                             NewEntryNo := NewEntryNo + 1;
                             AdjExchRateBufIndex :=
                               AdjExchRateBufferUpdate(
                                 VendLedgerEntry."Currency Code", Vendor."Vendor Posting Group",
                                 0, 0, -OldAdjAmount, -OldAdjAmount, 0, DimEntryNo, PostingDate2, Vendor."IC Partner Code");
                             TempDtldVendLedgEntry."Transaction No." := AdjExchRateBufIndex;
-                            ModifyTempDtldVendorLedgerEntry;
+                            ModifyTempDtldVendorLedgerEntry();
                             Adjust := false;
                         end;
                 end;
@@ -1766,7 +1766,7 @@ report 50105 "ASL Adjust Exchenge Rate"
                         GainsAmount := AdjAmount;
                         LossesAmount := 0;
                     end;
-                InsertTempDtldVendorLedgerEntry;
+                InsertTempDtldVendorLedgerEntry();
                 NewEntryNo := NewEntryNo + 1;
             end;
 
@@ -1779,7 +1779,7 @@ report 50105 "ASL Adjust Exchenge Rate"
                 VendLedgerEntry."Remaining Amount", VendLedgerEntry."Remaining Amt. (LCY)",
                 TempDtldVendLedgEntry."Amount (LCY)", GainsAmount, LossesAmount, DimEntryNo, PostingDate2, Vendor."IC Partner Code");
             TempDtldVendLedgEntry."Transaction No." := AdjExchRateBufIndex;
-            ModifyTempDtldVendorLedgerEntry;
+            ModifyTempDtldVendorLedgerEntry();
         end;
     end;
 
@@ -1791,7 +1791,7 @@ report 50105 "ASL Adjust Exchenge Rate"
         PostingDate2: Date;
     begin
         PostingDate2 := GenJournalLine."Posting Date";
-        if TempCustLedgerEntry.FindSet then
+        if TempCustLedgerEntry.FindSet() then
             repeat
                 CustLedgerEntry.Get(TempCustLedgerEntry."Entry No.");
                 CustLedgerEntry.SetRange("Date Filter", 0D, PostingDate2);
@@ -1806,7 +1806,7 @@ report 50105 "ASL Adjust Exchenge Rate"
                     DetailedCustLedgEntry.SetCurrentKey("Cust. Ledger Entry No.");
                     DetailedCustLedgEntry.SetRange("Cust. Ledger Entry No.", CustLedgerEntry."Entry No.");
                     DetailedCustLedgEntry.SetFilter("Posting Date", '%1..', CalcDate('<+1D>', PostingDate2));
-                    if DetailedCustLedgEntry.FindSet then
+                    if DetailedCustLedgEntry.FindSet() then
                         repeat
                             AdjustCustomerLedgerEntry(CustLedgerEntry, DetailedCustLedgEntry."Posting Date");
                         until DetailedCustLedgEntry.Next() = 0;
@@ -1823,7 +1823,7 @@ report 50105 "ASL Adjust Exchenge Rate"
         PostingDate2: Date;
     begin
         PostingDate2 := GenJournalLine."Posting Date";
-        if TempVendLedgerEntry.FindSet then
+        if TempVendLedgerEntry.FindSet() then
             repeat
                 VendLedgerEntry.Get(TempVendLedgerEntry."Entry No.");
                 VendLedgerEntry.SetRange("Date Filter", 0D, PostingDate2);
@@ -1838,7 +1838,7 @@ report 50105 "ASL Adjust Exchenge Rate"
                     DetailedVendLedgEntry.SetCurrentKey("Vendor Ledger Entry No.");
                     DetailedVendLedgEntry.SetRange("Vendor Ledger Entry No.", VendLedgerEntry."Entry No.");
                     DetailedVendLedgEntry.SetFilter("Posting Date", '%1..', CalcDate('<+1D>', PostingDate2));
-                    if DetailedVendLedgEntry.FindSet then
+                    if DetailedVendLedgEntry.FindSet() then
                         repeat
                             AdjustVendorLedgerEntry(VendLedgerEntry, DetailedVendLedgEntry."Posting Date");
                         until DetailedVendLedgEntry.Next() = 0;
@@ -1877,7 +1877,7 @@ report 50105 "ASL Adjust Exchenge Rate"
         HideUI := true;
         GLSetup.Get();
         SourceCodeSetup.Get();
-        if ExchRateAdjReg.FindLast then
+        if ExchRateAdjReg.FindLast() then
             ExchRateAdjReg.Init();
     end;
 
@@ -1936,7 +1936,7 @@ report 50105 "ASL Adjust Exchenge Rate"
 
     local procedure SetUnrealizedGainLossFilterCust(var DtldCustLedgEntry: Record "Detailed Cust. Ledg. Entry"; EntryNo: Integer)
     begin
-        DtldCustLedgEntry.Reset;
+        DtldCustLedgEntry.Reset();
         DtldCustLedgEntry.SetCurrentKey("Cust. Ledger Entry No.", "Entry Type");
         DtldCustLedgEntry.SetRange("Cust. Ledger Entry No.", EntryNo);
         DtldCustLedgEntry.SetRange("Entry Type", DtldCustLedgEntry."Entry Type"::"Unrealized Loss", DtldCustLedgEntry."Entry Type"::"Unrealized Gain");
@@ -1944,7 +1944,7 @@ report 50105 "ASL Adjust Exchenge Rate"
 
     local procedure SetUnrealizedGainLossFilterVend(var DtldVendLedgEntry: Record "Detailed Vendor Ledg. Entry"; EntryNo: Integer)
     begin
-        DtldVendLedgEntry.Reset;
+        DtldVendLedgEntry.Reset();
         DtldVendLedgEntry.SetCurrentKey("Vendor Ledger Entry No.", "Entry Type");
         DtldVendLedgEntry.SetRange("Vendor Ledger Entry No.", EntryNo);
         DtldVendLedgEntry.SetRange("Entry Type", DtldVendLedgEntry."Entry Type"::"Unrealized Loss", DtldVendLedgEntry."Entry Type"::"Unrealized Gain");
@@ -2028,8 +2028,6 @@ report 50105 "ASL Adjust Exchenge Rate"
     begin
     end;
 }
-
-
 
 /* ApplicationArea = All;
  Caption = 'ASL Adjust Exchenge Rate';

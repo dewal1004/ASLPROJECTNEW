@@ -1,6 +1,5 @@
 tableextension 50294 "tableextension50294" extends "Item Unit of Measure"
 {
-
     //Unsupported feature: Code Modification on "OnDelete".
 
     //trigger OnDelete()
@@ -17,7 +16,6 @@ tableextension 50294 "tableextension50294" extends "Item Unit of Measure"
     TestItemUOM;
     */
     //end;
-
 
     //Unsupported feature: Code Modification on "CheckNoRemQtyProdOrderLine(PROCEDURE 12)".
 
@@ -44,7 +42,6 @@ tableextension 50294 "tableextension50294" extends "Item Unit of Measure"
     */
     //end;
 
-
     //Unsupported feature: Code Modification on "CheckNoRemQtyProdOrderComponent(PROCEDURE 13)".
 
     //procedure CheckNoRemQtyProdOrderComponent();
@@ -70,4 +67,3 @@ tableextension 50294 "tableextension50294" extends "Item Unit of Measure"
     */
     //end;
 }
-

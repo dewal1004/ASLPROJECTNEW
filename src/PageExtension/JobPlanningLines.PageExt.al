@@ -2,7 +2,6 @@ pageextension 50204 "pageextension50204" extends "Job Planning Lines"
 {
     layout
     {
-
         modify("Planning Date")
         {
             //Caption = 'Starting Date';
@@ -113,13 +112,10 @@ pageextension 50204 "pageextension50204" extends "Job Planning Lines"
                 RunPageOnRec = true;
             }
 
-
             //Unsupported feature: Property Modification (RunObject) on ""Job Actual to Budget"(Action 1903776506)".
-
         }
         // modify("Job Analysis")
         // {
-
         //     //Unsupported feature: Property Modification (Name) on ""Job Analysis"(Action 1901542506)".
 
         //     Caption = 'Catch Incentive';
@@ -128,7 +124,6 @@ pageextension 50204 "pageextension50204" extends "Job Planning Lines"
 
         // }
     }
-
 
     //Unsupported feature: Property Modification (Id) on "CanSendToCalendar(Variable 1004)".
 
@@ -142,8 +137,6 @@ pageextension 50204 "pageextension50204" extends "Job Planning Lines"
 
     var
         EndingDateEditable: Boolean;
-        Res: Record Resource;
-
 
     //Unsupported feature: Code Modification on "OnInit".
 
@@ -174,4 +167,3 @@ pageextension 50204 "pageextension50204" extends "Job Planning Lines"
     */
     //end;
 }
-

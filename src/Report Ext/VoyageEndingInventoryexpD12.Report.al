@@ -2,7 +2,7 @@ report 55558 "Voyage Ending Inventory expD12"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/VoyageEndingInventoryexpD12.rdlc';
-
+    Caption = 'Voyage Ending Inventory expD12';
     dataset
     {
         dataitem(Job; Job)
@@ -14,7 +14,7 @@ report 55558 "Voyage Ending Inventory expD12"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -169,20 +169,20 @@ report 55558 "Voyage Ending Inventory expD12"
                     if Selection = 2 then begin
                         if RES.Get("No.") then begin
                             RES.Posted := false;
-                            RES.Modify;
+                            RES.Modify();
                             "Ended Voyage" := true;
                             Validate("Ending Date", Job."Ending Date");
-                            Modify;
+                            Modify();
                         end;
-                        if JobJB.Get('RECURRING', Job.Vessel) then JobJB.Delete;
+                        if JobJB.Get('RECURRING', Job.Vessel) then JobJB.Delete();
                     end
                     else
-                        CurrReport.Break;
+                        CurrReport.Break();
                 end;
 
                 trigger OnPreDataItem()
                 begin
-                    CurrReport.NewPage;
+                    CurrReport.NewPage();
                 end;
             }
 
@@ -190,7 +190,7 @@ report 55558 "Voyage Ending Inventory expD12"
             begin
                 Job.TestField(Job.Status, 2);
                 Message('Sea Days is %1 ', Job."Sea Days");
-                if not Confirm('has the ending date been Updated', false) then CurrReport.Quit;
+                if not Confirm('has the ending date been Updated', false) then CurrReport.Quit();
             end;
 
             trigger OnPreDataItem()
@@ -199,14 +199,13 @@ report 55558 "Voyage Ending Inventory expD12"
                 Icount[2] := 10000;
                 JNo := Job.GetFilter(Job."No.");
                 if JNo = '' then Error('Please, remember to enter the Job No.');
-                PickRunType;
+                PickRunType();
             end;
         }
     }
 
     requestpage
     {
-
         layout
         {
         }
@@ -225,27 +224,19 @@ report 55558 "Voyage Ending Inventory expD12"
         JobJL: Record "Job Journal Line";
         JobJL2: Record "Job Journal Line";
         JobJLX: Record "Job Journal Line";
-        JobSetup: Record "Jobs Setup";
-        IncentiveLookUp: Record "Payroll-Lookup Lines.";
         items: Record Item;
         InvPostGrp: Record "Inventory Posting Group";
         RES: Record Resource;
-        Ended: Boolean;
         Icount: array[2] of Integer;
         LocCd: Code[10];
-        I: Code[10];
         JNo: Code[10];
-        InctvCat: Code[20];
         Loc: Record Location;
         Selection: Integer;
-        Text000: Label 'Break Voyage, End Voyage';
-        Text001: Label 'Do you want to Report Catch %1?';
         Text002: Label '&Export,&Marketing,Export &and Marketing';
         JobCaptionLbl: Label 'Job';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
         Calculated_Inventory_on_BoardCaptionLbl: Label 'Calculated Inventory on Board';
         Resource_on_BoardCaptionLbl: Label 'Resource on Board';
-        Ile: Record "Item Ledger Entry";
         JobTask: Record "Job Task";
         Jobtask_No: Code[20];
 
@@ -267,7 +258,7 @@ report 55558 "Voyage Ending Inventory expD12"
     [Scope('OnPrem')]
     procedure MakeBatch(CatchType: Integer)
     begin
-        JobJB.Init;
+        JobJB.Init();
         JobJB."Journal Template Name" := 'JOB';
 
         JobJB."Voyage No." := Job."Voyage No.";
@@ -286,7 +277,7 @@ report 55558 "Voyage Ending Inventory expD12"
                     JobJB."Batch Type" := 2;
                 end;
         end;
-        if not JobJB.Insert then JobJB.Modify;
+        if not JobJB.Insert() then JobJB.Modify();
     end;
 
     [Scope('OnPrem')]
@@ -295,12 +286,12 @@ report 55558 "Voyage Ending Inventory expD12"
         Items.CalcFields(Items.Inventory);
         if Items.Inventory <> 0 then begin
             Icount[CatchType] := Icount[CatchType] + 10000;
-            JobJL.Init;
+            JobJL.Init();
             JobJL."Journal Template Name" := 'JOB';
             JobJL."Journal Batch Name" := JobJB.Name;
             JobJL."Line No." := Icount[CatchType];
             JobJL."Document Date" := Today;
-            JobJLX.Init;
+            JobJLX.Init();
 
             //Remove Catch from Vessel
             JobJL."Document No." := Job."No.";
@@ -322,15 +313,15 @@ report 55558 "Voyage Ending Inventory expD12"
             JobJL."Task Code" := Items."Item Category Code";// &u
                                                             //  JobJL."Step Code":='0';// & u
             JobTask.SetRange("Job No.", JobJL."Job No.");
-            if JobTask.FindFirst then
+            if JobTask.FindFirst() then
                 Jobtask_No := JobTask."Job Task No.";
             JobJL.Validate("Job Task No.", Jobtask_No);
             JobJL."Work Type Code" := Items."Item Category Code";
             JobJL."Source Code" := Job.Vessel;
-            if not JobJL.Insert then JobJL.Modify;
+            if not JobJL.Insert() then JobJL.Modify();
 
             //Take Catches to Store (ColdRoom)
-            JobJL2.Init;
+            JobJL2.Init();
             JobJL2 := JobJL;
             JobJL2."Line No." := JobJL2."Line No." - 5000;
 
@@ -340,8 +331,7 @@ report 55558 "Voyage Ending Inventory expD12"
             JobJL2.Validate(JobJL2.Quantity, 0);
             JobJL2."Shortcut Dimension 2 Code" := 'ATLANTIC';
             JobJL2."Variant Code" := '';
-            if not JobJL2.Insert then JobJL2.Modify;
+            if not JobJL2.Insert() then JobJL2.Modify();
         end;
     end;
 }
-

@@ -13,10 +13,10 @@ CodeUnit 52007 "MPBudget-Open"
         end;
         if SearchForName then begin
             if not MPBudget.Find('-') then begin
-                MPBudget.Init;
+                MPBudget.Init();
                 MPBudget.Name := 'DEFAULT';
                 MPBudget.Description := 'Default Budget';
-                MPBudget.Insert;
+                MPBudget.Insert();
             end;
             SetFilter("Budget Filter", MPBudget.Name);
         end;
@@ -26,4 +26,3 @@ CodeUnit 52007 "MPBudget-Open"
         MPBudget: Record "MP Budget Name";
         SearchForName: Boolean;
 }
-

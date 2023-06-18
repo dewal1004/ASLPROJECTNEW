@@ -146,12 +146,12 @@ pageextension 50290 "pageextension50290" extends "Employee Card"
                 trigger OnAction()
                 begin
                     I := 1;
-                    Res.Init;
+                    Res.Init();
                     /*IF ("Global Dimension 1 Code"<>'FLST') THEN
                        ERROR('The Department must be FLST');*/
                     Res."No." := 'R' + Rec."No.";
                     Res.Type := 0;
-                    Res.Validate(Res.Name, Rec.FullName);
+                    Res.Validate(Res.Name, Rec.FullName());
                     Res."Name 2" := Rec."First Name";
                     Res.Address := Rec.Address;
                     Res."Address 2" := Rec."Address 2";
@@ -172,20 +172,18 @@ pageextension 50290 "pageextension50290" extends "Employee Card"
                     Res."Post Code" := Rec."Post Code";
                     Res.County := Rec.County;
                     Res."Country/Region Code" := Rec."Country Code";
-                    ResExist;
-                    if not Res.Insert then begin
+                    ResExist();
+                    if not Res.Insert() then begin
                         Answ := Confirm('Resource already Exist,Change a EmpContra code', true);
-                        if Answ then begin
-                            ResExist;
-
-                            /* REPEAT
-                               I:=I+1;
-                               Res."No.":="First Name"+COPYSTR("Last Name",1,I);
-                             UNTIL Res.INSERT
-                           END
-                           ELSE*/
-                        end;
-                        Res.Modify;
+                        if Answ then
+                            ResExist();
+                        /* REPEAT
+                           I:=I+1;
+                           Res."No.":="First Name"+COPYSTR("Last Name",1,I);
+                         UNTIL Res.INSERT
+                       END
+                       ELSE*/
+                        Res.Modify();
                     end;
                     /*
                     I:=1;
@@ -204,10 +202,10 @@ pageextension 50290 "pageextension50290" extends "Employee Card"
                     Res.Education:="Emplymt. Contract Code";
                     Eval:=EVALUATE("MP Status",Res."Contract Class");
                     Res."Employment Date":="Employment Date";
-                    
+
                     IF EmpContra.GET("Empl Contr Uni Code")THEN
                        Res."Resource Group No.":=EmpContra.ResCode;
-                    
+
                     Res."Global Dimension 1 Code":="Global Dimension 1 Code";
                     Res."Global Dimension 2 Code":="Global Dimension 2 Code";
                     Res."Base Unit of Measure":='Hours';
@@ -223,7 +221,7 @@ pageextension 50290 "pageextension50290" extends "Employee Card"
                     BEGIN
                      MESSAGE('Resource already Exist');
                     END;
-                    
+
                        Answ:=CONFIRM('Resource already Exist,Create a new Res. No.',TRUE);
                       IF Answ THEN
                       BEGIN
@@ -235,12 +233,11 @@ pageextension 50290 "pageextension50290" extends "Employee Card"
                       END
                       ELSE Res.MODIFY;
                     END;
-                    
+
                     "Resource No.":=Res."No.";
                     MODIFY;
                     }
                     */
-
                 end;
             }
         }
@@ -307,10 +304,9 @@ pageextension 50290 "pageextension50290" extends "Employee Card"
                 Answ2 := Confirm('Employee has a resource no already\'
                               + 'delete old resource No.', true);
                 if Answ2 then
-                    Res2.Delete
+                    Res2.Delete()
                 else
                     Error('Resource May not be duplicated');
-            until Res2.Next = 0;
+            until Res2.Next() = 0;
     end;
 }
-

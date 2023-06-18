@@ -27,4 +27,3 @@ tableextension 50291 "tableextension50291" extends "Misc. Article"
     var
         itemrec: Record Item;
 }
-

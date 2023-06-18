@@ -14,4 +14,3 @@ CodeUnit 50029 "JobLinkUsageSubscriber"
     //     //JobPlanningLine.SetBypassQtyPostedValidation(true);
     // end;
 }
-

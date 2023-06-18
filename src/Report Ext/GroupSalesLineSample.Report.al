@@ -2,7 +2,7 @@ report 90902 "Group Sales Line Sample"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/GroupSalesLineSample.rdlc';
-
+    Caption = 'Group Sales Line Sample';
     dataset
     {
         dataitem("Sales Line"; "Sales Line")
@@ -15,7 +15,7 @@ report 90902 "Group Sales Line Sample"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -124,7 +124,6 @@ report 90902 "Group Sales Line Sample"
 
     requestpage
     {
-
         layout
         {
         }
@@ -140,9 +139,7 @@ report 90902 "Group Sales Line Sample"
 
     var
         LastFieldNo: Integer;
-        FooterPrinted: Boolean;
         TotalFor: Label 'Total for ';
         Sales_LineCaptionLbl: Label 'Sales Line';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
 }
-

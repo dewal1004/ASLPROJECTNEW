@@ -2,13 +2,11 @@ codeunit 50003 "Library"
 {
     // //
 
-
     trigger OnRun()
     begin
     end;
 
     var
-        "------------------------------": Text[30];
         Words: Text[250];
         Ands: Text[10];
 
@@ -50,29 +48,28 @@ codeunit 50003 "Library"
     //[Scope('OnPrem')]
     procedure C0_9(digit: Integer): Text[20]
     begin
-        begin
-            case digit of
-                0:
-                    exit('');
-                1:
-                    exit(SelectStr(1, Words));
-                2:
-                    exit(SelectStr(2, Words));
-                3:
-                    exit(SelectStr(3, Words));
-                4:
-                    exit(SelectStr(4, Words));
-                5:
-                    exit(SelectStr(5, Words));
-                6:
-                    exit(SelectStr(6, Words));
-                7:
-                    exit(SelectStr(7, Words));
-                8:
-                    exit(SelectStr(8, Words));
-                9:
-                    exit(SelectStr(9, Words));
-            end;
+
+        case digit of
+            0:
+                exit('');
+            1:
+                exit(SelectStr(1, Words));
+            2:
+                exit(SelectStr(2, Words));
+            3:
+                exit(SelectStr(3, Words));
+            4:
+                exit(SelectStr(4, Words));
+            5:
+                exit(SelectStr(5, Words));
+            6:
+                exit(SelectStr(6, Words));
+            7:
+                exit(SelectStr(7, Words));
+            8:
+                exit(SelectStr(8, Words));
+            9:
+                exit(SelectStr(9, Words));
         end;
     end;
 
@@ -98,31 +95,30 @@ codeunit 50003 "Library"
 
             case Round(TwoDigit / 10, 1, '<') of
                 0, 1:
-                    begin
-                        case TwoDigit of
-                            0, 1, 2, 3, 4, 5, 6, 7, 8, 9:
-                                exit(Hundreds + C0_9(TwoDigit));
-                            10:
-                                exit(Hundreds + SelectStr(10, Words));
-                            11:
-                                exit(Hundreds + SelectStr(11, Words));
-                            12:
-                                exit(Hundreds + SelectStr(12, Words));
-                            13:
-                                exit(Hundreds + SelectStr(13, Words));
-                            14:
-                                exit(Hundreds + SelectStr(14, Words));
-                            15:
-                                exit(Hundreds + SelectStr(15, Words));
-                            16:
-                                exit(Hundreds + SelectStr(16, Words));
-                            17:
-                                exit(Hundreds + SelectStr(17, Words));
-                            18:
-                                exit(Hundreds + SelectStr(18, Words));
-                            19:
-                                exit(Hundreds + SelectStr(19, Words));
-                        end;
+
+                    case TwoDigit of
+                        0, 1, 2, 3, 4, 5, 6, 7, 8, 9:
+                            exit(Hundreds + C0_9(TwoDigit));
+                        10:
+                            exit(Hundreds + SelectStr(10, Words));
+                        11:
+                            exit(Hundreds + SelectStr(11, Words));
+                        12:
+                            exit(Hundreds + SelectStr(12, Words));
+                        13:
+                            exit(Hundreds + SelectStr(13, Words));
+                        14:
+                            exit(Hundreds + SelectStr(14, Words));
+                        15:
+                            exit(Hundreds + SelectStr(15, Words));
+                        16:
+                            exit(Hundreds + SelectStr(16, Words));
+                        17:
+                            exit(Hundreds + SelectStr(17, Words));
+                        18:
+                            exit(Hundreds + SelectStr(18, Words));
+                        19:
+                            exit(Hundreds + SelectStr(19, Words));
                     end;
                 2:
                     exit(Hundreds + SelectStr(20, Words) + text1);
@@ -188,4 +184,3 @@ codeunit 50003 "Library"
         end;
     end;
 }
-

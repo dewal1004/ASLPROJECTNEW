@@ -2,7 +2,7 @@ report 61156 "Voyage P&L Ledger Line Batchx1"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/VoyagePLLedgerLineBatchx1.rdlc';
-
+    Caption = 'Voyage P&L Ledger Line Batchx1';
     dataset
     {
         dataitem("Main Job"; Job)
@@ -22,7 +22,7 @@ report 61156 "Voyage P&L Ledger Line Batchx1"
                 column(COMPANYNAME; CompanyName)
                 {
                 }
-                column(CurrReport_PAGENO; CurrReport.PageNo)
+                column(CurrReport_PAGENO; CurrReport.PageNo())
                 {
                 }
                 column(USERID; UserId)
@@ -48,19 +48,15 @@ report 61156 "Voyage P&L Ledger Line Batchx1"
                 }
                 column(CycleDay; CycleDay)
                 {
-
                 }
                 column(FishgDay; FishgDay)
                 {
-
                 }
                 column(LostDay; LostDay)
                 {
-
                 }
                 column(PortDay; PortDay)
                 {
-
                 }
                 column(Vess; Vess)
                 {
@@ -76,19 +72,15 @@ report 61156 "Voyage P&L Ledger Line Batchx1"
                 }
                 column(Text24; Text24)
                 {
-
                 }
                 column(Text25; Text25)
                 {
-
                 }
                 column(Text26; Text26)
                 {
-
                 }
                 column(Text27; Text27)
                 {
-
                 }
                 column(PntStor_1_; PntStor[1])
                 {
@@ -123,7 +115,6 @@ report 61156 "Voyage P&L Ledger Line Batchx1"
                 }
                 column(Loc__Vessel_Endurance_; Loc."Vessel Endurance")
                 {
-
                 }
                 column(Job_Ledger_Entry__Work_Type_Code_; "Work Type Code")
                 {
@@ -245,7 +236,6 @@ report 61156 "Voyage P&L Ledger Line Batchx1"
                       IF Flag THEN MESSAGE('Price Missing for Item %1',"No.");
                     END;
                     PrdPrc:=Qty*Prc;*///#dik
-
                 end;
 
                 trigger OnPreDataItem()
@@ -421,7 +411,6 @@ report 61156 "Voyage P&L Ledger Line Batchx1"
                         Itempr.SETRANGE(Itempr."Item No.","No.");
                         Itempr.SETRANGE(Itempr."Starting Date",0D,"Posting Date");
                         IF Itempr.FIND('+') THEN Prc:=Itempr."Unit Price" ELSE Prc:=0;*///#dik
-
                     end;
 
                     trigger OnPreDataItem()
@@ -472,7 +461,6 @@ report 61156 "Voyage P&L Ledger Line Batchx1"
                         Itempr.SETRANGE(Itempr."Starting Date",0D,ETA);
                         IF Itempr.FIND('+') THEN PrcB:=Itempr."Unit Price" ELSE PrcB:=0;
                         PrdPrcB:=QtyB*PrcB;*///#dik
-
                     end;
 
                     trigger OnPreDataItem()
@@ -670,7 +658,6 @@ report 61156 "Voyage P&L Ledger Line Batchx1"
 
     requestpage
     {
-
         layout
         {
         }
@@ -686,42 +673,27 @@ report 61156 "Voyage P&L Ledger Line Batchx1"
 
     trigger OnInitReport()
     begin
-        JobSetUp.Get;
+        JobSetUp.Get();
     end;
 
     var
         LastFieldNo: Integer;
-        FooterPrinted: Boolean;
         TotalFor: Label 'Total';
-        "---": Integer;
         Job: Record Job;
-        Job2: Record Job;
-        Itempr: Record "Item Ledger Entry";
-        CurrExc: Record "Currency Exchange Rate";
-        ProdPostGrp: Record "Gen. Product Posting Group";
-        InvtPostGrp: Record "Inventory Posting Group";
         JobSetUp: Record "Jobs Setup";
-        JBudLn: Record "Job Ledger Entry";
-        Employee: Record Employee;
         Loc: Record Location;
         Coutry: Record "Country/Region";
-        GLEntry: Record "G/L Entry";
         Res: Record Resource;
-        Prc: Decimal;
-        PrcB: Decimal;
         PrdPrc: Decimal;
         PrdPrcB: Decimal;
         PrdPrc2: Decimal;
         PrdPrcBX: Decimal;
         PrdPrc2X: Decimal;
-        PrdPrc2B: Decimal;
-        CurrRate: Decimal;
         NairaVal: Decimal;
         NairaValB: Decimal;
         NairaValBX: Decimal;
         NairaVal2: Decimal;
         NairaVal2X: Decimal;
-        NairaVal2B: Decimal;
         Qty: Decimal;
         QtyB: Decimal;
         QtyX: Decimal;
@@ -740,11 +712,9 @@ report 61156 "Voyage P&L Ledger Line Batchx1"
         PntStor: array[8] of Decimal;
         ETD: Date;
         ETA: Date;
-        ETA2: Date;
         CycleDay: Decimal;
         PortDay: Decimal;
         LostDay: Decimal;
-        SeaDay: Decimal;
         FishgDay: Decimal;
         a: Decimal;
         expcnt: Integer;
@@ -776,19 +746,10 @@ report 61156 "Voyage P&L Ledger Line Batchx1"
         Text27: Label 'Exchange Rate';
         A1: array[5] of Decimal;
         A2: array[5] of Decimal;
-        UOM: Record "Unit of Measure";
-        UOMCd: Code[10];
-        ItemVar: Code[10];
         "No.B": Code[10];
         JB: Code[10];
-        NOrder: Decimal;
         ValRate: Decimal;
         ValQty: Decimal;
-        GLStr: array[25] of Decimal;
-        "GLGPP Caption": array[25] of Code[10];
-        CountGPPG: Integer;
-        CountG: Integer;
-        Flag: Boolean;
         CurrReport_PAGENOCaptionLbl: Label 'Page';
         QtyCaptionLbl: Label 'Quantity';
         EmptyStringCaptionLbl: Label '$';
@@ -816,7 +777,6 @@ report 61156 "Voyage P&L Ledger Line Batchx1"
         IF UOM.GET(Pk) THEN UOMCd:=UOM."Catch Code";  //Get Unit of measure Code
         ItemVar:=FORMAT(Cd)+UOMCd+COPYSTR(Br,1,1);    //Requip Code Name
         "No.B":=ItemVar;*///#dik
-
     end;
 
     [Scope('OnPrem')]
@@ -824,4 +784,3 @@ report 61156 "Voyage P&L Ledger Line Batchx1"
     begin
     end;
 }
-

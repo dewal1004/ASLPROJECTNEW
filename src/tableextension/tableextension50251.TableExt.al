@@ -2,7 +2,6 @@ tableextension 50251 "tableextension50251" extends "Vendor Ledger Entry"
 {
     fields
     {
-
         //Unsupported feature: Property Modification (Editable) on ""Remaining Amount"(Field 14)".
 
         field(50301; "Loan ID"; Code[10])
@@ -21,12 +20,8 @@ tableextension 50251 "tableextension50251" extends "Vendor Ledger Entry"
     }
     keys
     {
-
         //Unsupported feature: Property Insertion (SumIndexFields) on ""Vendor No.",Open,"Global Dimension 1 Code","Global Dimension 2 Code",Positive,"Due Date","Currency Code"(Key)".
 
-
         //Unsupported feature: Property Insertion (SumIndexFields) on ""Document Type","Vendor No.","Global Dimension 1 Code","Global Dimension 2 Code","Posting Date","Currency Code"(Key)".
-
     }
 }
-

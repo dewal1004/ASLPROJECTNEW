@@ -18,8 +18,8 @@ report 50017 "Local Sales Report1"
                 Window.Update(1, "No.");
                 CalcFields("Sales (LCY)", Inventory);
                 if ("Sales (LCY)" = 0) and (Inventory = 0) and not PrintAlsoIfZero then
-                    CurrReport.Skip;
-                ItemAmount.Init;
+                    CurrReport.Skip();
+                ItemAmount.Init();
                 ItemAmount."Item No." := "No.";
                 if ShowType = ShowType::"Sales (LCY)" then begin
                     ItemAmount.Amount := "Sales (LCY)";
@@ -32,12 +32,12 @@ report 50017 "Local Sales Report1"
                     ItemAmount.Amount := -ItemAmount.Amount;
                     ItemAmount."Amount 2" := -ItemAmount."Amount 2";
                 end;
-                ItemAmount.Insert;
+                ItemAmount.Insert();
                 if (NoOfRecordsToPrint = 0) or (i < NoOfRecordsToPrint) then
                     i := i + 1
                 else begin
                     ItemAmount.Find('+');
-                    ItemAmount.Delete;
+                    ItemAmount.Delete();
                 end;
 
                 TotalItemSales += "Sales (LCY)";
@@ -47,13 +47,12 @@ report 50017 "Local Sales Report1"
             trigger OnPreDataItem()
             begin
                 Window.Open(Text000);
-                ItemAmount.DeleteAll;
+                ItemAmount.DeleteAll();
                 i := 0;
                 CurrReport.CreateTotals("Sales (LCY)", Inventory);
 
-
                 if Item.GetFilter(Item."Date Filter") = '' then
-                    SetRange("Date Filter", CalcDate('-1D', WorkDate));
+                    SetRange("Date Filter", CalcDate('-1D', WorkDate()));
             end;
         }
         dataitem("Integer"; "Integer")
@@ -65,7 +64,7 @@ report 50017 "Local Sales Report1"
             column(STRSUBSTNO_Text006_ItemDateFilter_; StrSubstNo(Text006, ItemDateFilter))
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(COMPANYNAME; CompanyName)
@@ -177,7 +176,7 @@ report 50017 "Local Sales Report1"
             begin
                 if Number = 1 then begin
                     if not ItemAmount.Find('-') then
-                        CurrReport.Break;
+                        CurrReport.Break();
                     if ShowSorting = ShowSorting::Largest then
                         MaxAmount := -ItemAmount.Amount
                     else begin
@@ -187,8 +186,8 @@ report 50017 "Local Sales Report1"
                         ItemAmount := ItemAmount2;
                     end;
                 end else
-                    if ItemAmount.Next = 0 then
-                        CurrReport.Break;
+                    if ItemAmount.Next() = 0 then
+                        CurrReport.Break();
                 Item.Get(ItemAmount."Item No.");
                 Item.CalcFields("Sales (LCY)", Inventory);
                 if ShowSorting = ShowSorting::Largest then begin
@@ -204,7 +203,6 @@ report 50017 "Local Sales Report1"
                     ItemAmount."Amount 2" := -ItemAmount."Amount 2";
                 end;
                 Item.CalcFields("Sales (Qty.)");
-
 
                 if Item."Sales (Qty.)" <> 0 then
                     Item."Unit Price" := Round(Item."Sales (LCY)" / Item."Sales (Qty.)", 0.01)
@@ -226,7 +224,7 @@ report 50017 "Local Sales Report1"
 
             trigger OnPreDataItem()
             begin
-                Window.Close;
+                Window.Close();
                 ItemSales := Item."Sales (LCY)";
                 QtyOnHand := Item.Inventory;
                 CurrReport.CreateTotals(Item."Sales (LCY)", Item.Inventory);
@@ -331,14 +329,12 @@ report 50017 "Local Sales Report1"
         Item__Sales__LCY___Control24CaptionLbl: Label 'Total';
         ItemSalesCaptionLbl: Label 'Total Sales';
         SalesAmountPctCaptionLbl: Label '% of Total Sales';
-        ItemSalesKg: Decimal;
         Item2: Record Item;
         Predate: Date;
         Recpt: Decimal;
         TStk: Decimal;
         OpStk: Decimal;
         ClsStk: Decimal;
-        DatFilt: Date;
 
     [Scope('OnPrem')]
     procedure InitializeRequest(NewShowSorting: Option; NewShowType: Option; NewNoOfRecordsToPrint: Integer; NewPrintAlsoIfZero: Boolean)
@@ -356,4 +352,3 @@ report 50017 "Local Sales Report1"
         exit(Round(Numeral1 / Numeral2 * 100, 0.1));
     end;
 }
-

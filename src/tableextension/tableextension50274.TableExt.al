@@ -7,4 +7,3 @@ tableextension 50274 "tableextension50274" extends "Detailed Vendor Ledg. Entry"
         }
     }
 }
-

@@ -6,7 +6,7 @@ page 80088 "Catch Form II"
 
     PageType = Card;
     SourceTable = "Medical Record";
-
+    Caption = 'Catch Form II';
     layout
     {
         area(content)
@@ -87,32 +87,7 @@ page 80088 "Catch Form II"
     var
         Packg: array[150] of Code[10];
         Bran: array[150] of Code[10];
-        Voy: Record Job;
-        JobRec: Record Job;
-        ItemRec: Record Item;
-        JJTemp: Record "Job Journal Template";
-        JJBatc: Record "Job Journal Batch";
-        JJLine: Record "Job Journal Line";
-        CachDim: Record "Course Types";
-        UOM: Record "Unit of Measure";
-        B: Record "Job Category";
-        CTH: array[86, 3] of Integer;
         I: Integer;
-        J: Integer;
-        K: Integer;
-        FldNo: array[3] of Integer;
-        Qtys: Integer;
-        "Business Units Code": Integer;
-        "Sea Temperature": Decimal;
-        "Fishing Ground": Text[30];
-        FldCont: array[3] of Code[10];
-        D: Code[10];
-        ItVar: Code[10];
-        "Voyage No.": Code[10];
-        Vessel: Code[10];
-        UOMCd: Code[10];
-        ItemVar: Code[10];
-        "Catch Date": Date;
 
     local procedure InitAll()
     begin
@@ -122,4 +97,3 @@ page 80088 "Catch Form II"
         end;
     end;
 }
-

@@ -4,6 +4,7 @@ page 50120 "Dynamics Procurement System"
     SourceTable = "Dynamics Procurement Header";
     UsageCategory = Administration;
     ApplicationArea = All, Basic;
+    Caption = 'Dynamics Procurement System';
     layout
     {
         area(content)
@@ -17,7 +18,7 @@ page 50120 "Dynamics Procurement System"
                     trigger OnAssistEdit()
                     begin
                         if Rec.AssistEdit(xRec) then
-                            CurrPage.Update;
+                            CurrPage.Update();
                     end;
                 }
                 field("Base Date"; Rec."Base Date")
@@ -182,10 +183,9 @@ page 50120 "Dynamics Procurement System"
 
                 trigger OnAction()
                 begin
-                    Rec.CreatePurchInv;
+                    Rec.CreatePurchInv();
                 end;
             }
         }
     }
 }
-

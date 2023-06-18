@@ -5,7 +5,7 @@ report 50213 "Stock On Board"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/StockOnBoard.rdlc';
-
+    Caption = 'Stock On Board';
     dataset
     {
         dataitem(Item; Item)
@@ -94,7 +94,6 @@ report 50213 "Stock On Board"
 
     requestpage
     {
-
         layout
         {
         }
@@ -120,35 +119,18 @@ report 50213 "Stock On Board"
 
     var
         LastFieldNo: Integer;
-        FooterPrinted: Boolean;
         TotalFor: Label 'Total for ';
-        "---": Integer;
         ItemFilter: Text[250];
         PeriodStartDate: array[7] of Date;
-        PeriodLength: Code[20];
-        i: Integer;
-        PrintLine: Boolean;
-        Text001: Label '1D';
-        Text002: Label 'Enter the ending date';
-        Text003: Label '0D';
         Stk: array[8] of Decimal;
         Text004: Label 'As at ';
-        DaysOnly: Boolean;
         ItemCategory: Record "Item Category";
-        "------------------------------": Integer;
-        // xlApp: Automation BC;
-        // xlBook: Automation BC;
-        // xlSheet: Automation BC;
-        Send2Excel: Boolean;
         TopPage: Boolean;
-        Xr: Integer;
-        Xc: Integer;
         Bold: Boolean;
         UnderLine: Boolean;
         Italic: Boolean;
         FontSize: Integer;
         PageOrientation: Option "Excel Default",Portrait,Landscape;
-        Window: Dialog;
         Stock_On_BoardCaptionLbl: Label 'Stock On Board';
         Item__No__CaptionLbl: Label 'Code';
         Stk_6__CaptionLbl: Label 'Closing Stock';
@@ -192,4 +174,3 @@ report 50213 "Stock On Board"
         exit(xlColID);
     end;
 }
-

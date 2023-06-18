@@ -2,7 +2,7 @@ report 99971 "Value Entry InvtPostgGrp corr"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/ValueEntryInvtPostgGrpcorr.rdlc';
-
+    Caption = 'Value Entry InvtPostgGrp corr';
     dataset
     {
         dataitem("Value Entry"; "Value Entry")
@@ -13,7 +13,7 @@ report 99971 "Value Entry InvtPostgGrp corr"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -84,7 +84,6 @@ report 99971 "Value Entry InvtPostgGrp corr"
 
     requestpage
     {
-
         layout
         {
         }
@@ -99,13 +98,6 @@ report 99971 "Value Entry InvtPostgGrp corr"
     }
 
     var
-        LastFieldNo: Integer;
-        FooterPrinted: Boolean;
-        "----": Integer;
-        ItemLedEntry: Record "Item Ledger Entry";
-        ValEntry: Record "Value Entry";
-        Item: Record Item;
         Value_EntryCaptionLbl: Label 'Value Entry';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
 }
-

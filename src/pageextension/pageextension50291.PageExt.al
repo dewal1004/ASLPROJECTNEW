@@ -64,9 +64,7 @@ pageextension 50291 "pageextension50291" extends "Employee List"
 
         //Unsupported feature: Property Modification (Name) on "Comment(Control 16)".
 
-
         //Unsupported feature: Property Modification (SourceExpr) on "Comment(Control 16)".
-
 
         //Unsupported feature: Property Modification (ImplicitType) on "Comment(Control 16)".
 
@@ -231,7 +229,6 @@ pageextension 50291 "pageextension50291" extends "Employee List"
         EDNO: array[20] of Code[20];
         StyleText: Text[20];
 
-
     //Unsupported feature: Code Insertion on "OnAfterGetRecord".
 
     trigger OnAfterGetRecord()
@@ -239,17 +236,14 @@ pageextension 50291 "pageextension50291" extends "Employee List"
 
         Rec.SETRANGE("No.");
         StyleText := '';
-        if Rec.Status = Rec.Status::Inactive then begin
-            StyleText := 'Unfavorable';
-        end else begin
-            StyleText := 'standard'
-        end;
+        if Rec.Status = Rec.Status::Inactive then
+            StyleText := 'Unfavorable'
+        else
+            StyleText := 'standard';
 
         if Rec.Blocked = true then
             StyleText := 'Unfavorable'
-
     end;
-
 
     //Unsupported feature: Code Insertion on "OnInit".
 
@@ -260,7 +254,6 @@ pageextension 50291 "pageextension50291" extends "Employee List"
         EDNO[2] := '4000';//Basic+Hous+Transp
         EDNO[3] := '2600';//Housing
         EDNO[4] := '2700';//Transport
-
     end;
 
     local procedure AssistEdit(OldEmployee: Record Employee): Boolean
@@ -282,7 +275,5 @@ pageextension 50291 "pageextension50291" extends "Employee List"
         //Univision Finish 6/11/01
         )
         */
-
     end;
 }
-

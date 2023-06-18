@@ -10,7 +10,6 @@ tableextension 50241 "Job Journal Line Ext" extends "Job Journal Line"
             TableRelation = IF ("External Document No." = FILTER(<> '')) Location WHERE("Location Type" = CONST(Vessel))
             else
             "Source Code";
-
         }
         modify("Work Type Code")
         {
@@ -18,7 +17,6 @@ tableextension 50241 "Job Journal Line Ext" extends "Job Journal Line"
             else
             "Work Type";
         }
-
         field(50299; "ASL Source Code"; Code[20])
         {
             TableRelation = Location WHERE("Location Type" = CONST(Vessel));
@@ -27,7 +25,6 @@ tableextension 50241 "Job Journal Line Ext" extends "Job Journal Line"
                 "Source Code" := "ASL Source Code";
             end;
         }
-
         field(50300; Catch; Decimal)
         {
             DecimalPlaces = 0 : 5;
@@ -107,7 +104,6 @@ tableextension 50241 "Job Journal Line Ext" extends "Job Journal Line"
         }
         field(50321; ROB; Decimal)
         {
-
             trigger OnValidate()
             begin
                 //CALCFIELDS("Stock Position Calc.");
@@ -162,14 +158,13 @@ tableextension 50241 "Job Journal Line Ext" extends "Job Journal Line"
 
             trigger OnValidate()
             begin
-                if (Type = Type::Resource) and ("No." <> '') then begin
+                if (Type = Type::Resource) and ("No." <> '') then
                     if WorkType.Get("Work Type Code") then
                         "Unit of Measure Code" := WorkType."Unit of Measure Code"
                     else begin
                         Res.Get("No.");
                         "Unit of Measure Code" := Res."Base Unit of Measure";
                     end; //FindResUnitCost; //FindResPrice;
-                end;
             end;
         }
         field(50338; "Shrimp Points"; Decimal)
@@ -212,14 +207,10 @@ tableextension 50241 "Job Journal Line Ext" extends "Job Journal Line"
         {
             OptionMembers = " ","Short Voyage ";
         }
-
-
-
     }
     keys
     {
         key(ASLKey1; "Statistics Group") { }
-
         key(ASLKey1A; "Work Type Code")
         {
             SumIndexFields = Quantity;
@@ -234,8 +225,7 @@ tableextension 50241 "Job Journal Line Ext" extends "Job Journal Line"
         }
 
         //Unsupported feature: Property Insertion (SumIndexFields) on ""Journal Template Name","Journal Batch Name","Line No."(ASLKey)".
-        //Unsupported feature: Property Insertion (SumIndexFields) on ""Journal Template Name","Journal Batch Name",Type,"No.","Unit of Measure Code","Work Type Code"(ASLKey)".		
-
+        //Unsupported feature: Property Insertion (SumIndexFields) on ""Journal Template Name","Journal Batch Name",Type,"No.","Unit of Measure Code","Work Type Code"(ASLKey)".
     }
 
     trigger OnAfterInsert()
@@ -246,16 +236,12 @@ tableextension 50241 "Job Journal Line Ext" extends "Job Journal Line"
         end;
     end;
 
-
     var
         Item: Record Item;
         WorkType: Record "Work Type";
         Res: Record Resource;
-        "---": Integer;
         UOM: Record "Unit of Measure";
-        User: Record "User Setup";
         items: Record Item;
-        InvtrSetUp: Record "Inventory Setup";
         InvPostGrp: Record "Inventory Posting Group";
         InvtPostGrp: Record "Inventory Posting Group";
         UOMCd: Code[10];
@@ -263,7 +249,6 @@ tableextension 50241 "Job Journal Line Ext" extends "Job Journal Line"
         ItemPoints: Record "Item Points";
         ItemFindPoints: Codeunit "Item-Find Point";
         Points: Decimal;
-        JobTask: Record "Job Task";
         JCatchDefa: Record "Job catch Default";
         JBat: Record "Job Journal Batch";
         i: Integer;
@@ -271,9 +256,6 @@ tableextension 50241 "Job Journal Line Ext" extends "Job Journal Line"
         ITVars: Code[10];
         Jobs: Record Job;
         Jobtask_No: Code[20];
-        FindSalesLinePrice: Record "Sales Price";
-        PriceCalcMgt: Codeunit "Sales Price Calc. Mgt.";
-        Loc: Record Location;
         GLSetup: Record "General Ledger Setup";
         ItemCat: Record "Item Category";
 
@@ -303,7 +285,7 @@ tableextension 50241 "Job Journal Line Ext" extends "Job Journal Line"
                 repeat
                     i := i + 1;
                     Window.Update(2, i);
-                    JJLine.Init;
+                    JJLine.Init();
                     JJLine."Journal Template Name" := "Journal Template Name";
                     if "Journal Template Name" = 'RECURRING' then begin
                         JJLine."Recurring Method" := 2;
@@ -335,12 +317,11 @@ tableextension 50241 "Job Journal Line Ext" extends "Job Journal Line"
                     JJLine.Validate("Unit Price", itemC.Points);
                     JJLine.Validate(JJLine."Location Code", JBat.Name);
                     JJLine."Statistics Group" := ItemC."Statistics Group";
-                    if JobTask.FindFirst then
+                    if JobTask.FindFirst() then
                         Jobtask_No := JobTask."Job Task No.";
                     JJLine.Validate("Job Task No.", Jobtask_No);
-                    if Jobs.Get(JBat."Job No.") then begin
+                    if Jobs.Get(JBat."Job No.") then
                         JJLine."Catch Sea Days" := JBat."Catch Date" - Jobs."Starting Date";
-                    end;
                     //JJLine."Step Code":=FORMAT(JBat."Sea Temperature"); //AA
                     if items.Get(ITVars) then
                         if items."Unit Cost" <> 0 then
@@ -352,12 +333,12 @@ tableextension 50241 "Job Journal Line Ext" extends "Job Journal Line"
                     JJLine."Phase Code" := JBat."Fishing Ground"; //AA
                     JJLine."Source Code" := JBat."Fishing Ground";
                     JobTask.SetRange("Job No.", "Job No.");
-                    if JobTask.FindFirst then
+                    if JobTask.FindFirst() then
                         Jobtask_No := JobTask."Job Task No.";
                     JJLine.Validate("Job Task No.", Jobtask_No);
                     if not JJLine.Insert(true) then JJLine.Modify(true);
                 until JCatchDefa.Next() = 0;
-                Window.Close;
+                Window.Close();
             end else
                 Error('No Default Job Line for %1 To Update', JBat."Job No.");
         end;
@@ -390,9 +371,8 @@ tableextension 50241 "Job Journal Line Ext" extends "Job Journal Line"
                     JJLine."Phase Code" := JBat."Fishing Ground";
                     JJLine."Document No." := JBat.Name + Format(JBat."Catch Date");
                     JJLine.Type := JJLine.Type::Item;
-                    if Jobs.Get(JBat."Job No.") then begin
+                    if Jobs.Get(JBat."Job No.") then
                         JJLine."Catch Sea Days" := JBat."Catch Date" - Jobs."Starting Date";
-                    end;
                     JJLine.Validate(JJLine.Catch, 0);
                     if items.Get(JJLine."No.") then begin
                         JJLine."Statistics Group" := items."Statistics Group";
@@ -408,19 +388,19 @@ tableextension 50241 "Job Journal Line Ext" extends "Job Journal Line"
                     JJLine."Job No." := JBat."Job No.";
                     JJLine."Posting Date" := JBat."Catch Date";
                     JobTask.SetRange("Job No.", JBat."Job No.");
-                    if JobTask.FindFirst then
+                    if JobTask.FindFirst() then
                         Jobtask_No := JobTask."Job Task No.";
                     JJLine.Validate("Job Task No.", Jobtask_No);
                     JJLine.Modify(true);
                 until JJLine.Next() = 0;
-                Window.Close;
+                Window.Close();
             end;
         end;
     end;
 
     procedure FindItemPoints()
     begin
-        ItemPoints.Init;
+        ItemPoints.Init();
         ItemPoints."Item No." := "No.";
         ItemPoints."Price Group Code" := "Customer Price Group";
         ItemPoints."Unit of Measure Code" := "Unit of Measure Code";
@@ -458,7 +438,6 @@ tableextension 50241 "Job Journal Line Ext" extends "Job Journal Line"
 			  GLSetup."Unit-Amount Rounding Precision");
 		VALIDATE("Unit Price");
 		*/
-
     end;
 
     procedure StockTillDate(JJLn: Record "Job Journal Line"): Decimal

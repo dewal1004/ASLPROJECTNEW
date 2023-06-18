@@ -1,7 +1,7 @@
 xmlport 90301 "Import product - Invt Postg Gr"
 {
     Format = VariableText;
-
+    Caption = 'Import product - Invt Postg Gr';
     schema
     {
         textelement(Rootnode)
@@ -36,7 +36,6 @@ xmlport 90301 "Import product - Invt Postg Gr"
 
     requestpage
     {
-
         layout
         {
         }
@@ -46,4 +45,3 @@ xmlport 90301 "Import product - Invt Postg Gr"
         }
     }
 }
-

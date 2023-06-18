@@ -2,7 +2,7 @@ page 50021 "Banks."
 {
     PageType = Card;
     SourceTable = "Payroll-Banks.";
-
+    Caption = 'Banks.';
     layout
     {
         area(content)
@@ -34,4 +34,3 @@ page 50021 "Banks."
     {
     }
 }
-

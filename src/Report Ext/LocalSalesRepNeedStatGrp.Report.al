@@ -16,9 +16,9 @@ report 50235 "Local Sales Rep-Need Stat Grp"
                 Window.Update(1, "No.");
                 CalcFields("Sales (LCY)", Inventory);
                 if ("Sales (LCY)" = 0) and (Inventory = 0) and not PrintAlsoIfZero then
-                    CurrReport.Skip;
+                    CurrReport.Skip();
 
-                ItemAmount.Init;
+                ItemAmount.Init();
                 ItemAmount."Item No." := "No.";
                 if ShowType = ShowType::"Sales (LCY)" then begin
                     ItemAmount.Amount := "Sales (LCY)";
@@ -31,24 +31,24 @@ report 50235 "Local Sales Rep-Need Stat Grp"
                     ItemAmount.Amount := -ItemAmount.Amount;
                     ItemAmount."Amount 2" := -ItemAmount."Amount 2";
                 end;
-                ItemAmount.Insert;
+                ItemAmount.Insert();
                 if (NoOfRecordsToPrint = 0) or (i < NoOfRecordsToPrint) then
                     i := i + 1
                 else begin
                     ItemAmount.Find('+');
-                    ItemAmount.Delete;
+                    ItemAmount.Delete();
                 end;
             end;
 
             trigger OnPreDataItem()
             begin
                 Window.Open(Text000);
-                ItemAmount.DeleteAll;
+                ItemAmount.DeleteAll();
                 i := 0;
                 CurrReport.CreateTotals("Sales (LCY)", Inventory);
 
                 if Item.GetFilter(Item."Date Filter") = '' then
-                    SetRange("Date Filter", CalcDate('-1D', WorkDate));
+                    SetRange("Date Filter", CalcDate('-1D', WorkDate()));
             end;
         }
         dataitem("Integer"; "Integer")
@@ -60,7 +60,7 @@ report 50235 "Local Sales Rep-Need Stat Grp"
             column(STRSUBSTNO_Text001_ItemDateFilter_; StrSubstNo(Text001, ItemDateFilter))
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(COMPANYNAME; CompanyName)
@@ -166,7 +166,7 @@ report 50235 "Local Sales Rep-Need Stat Grp"
             begin
                 if Number = 1 then begin
                     if not ItemAmount.Find('-') then
-                        CurrReport.Break;
+                        CurrReport.Break();
                     if ShowSorting = ShowSorting::Largest then
                         MaxAmount := -ItemAmount.Amount
                     else begin
@@ -176,8 +176,8 @@ report 50235 "Local Sales Rep-Need Stat Grp"
                         ItemAmount := ItemAmount2;
                     end;
                 end else
-                    if ItemAmount.Next = 0 then
-                        CurrReport.Break;
+                    if ItemAmount.Next() = 0 then
+                        CurrReport.Break();
                 Item.Get(ItemAmount."Item No.");
                 Item.CalcFields("Sales (LCY)", Inventory);
                 Item.CalcFields(Item."Sales (Qty.)", Item."Purchases (Qty.)");
@@ -200,12 +200,11 @@ report 50235 "Local Sales Rep-Need Stat Grp"
             trigger OnPreDataItem()
             begin
 
-                Window.Close;
+                Window.Close();
                 ItemSales := Item."Sales (LCY)";
                 QtyOnHand := Item.Inventory;
                 CurrReport.CreateTotals(Item."Sales (LCY)", Item.Inventory);
                 CurrReport.CreateTotals(Recpt, TStk, OpStk, ClsStk, Item."Sales (Qty.)");
-
 
                 if Item."Sales (Qty.)" <> 0 then
                     Item."Unit Price" := Round(Item."Sales (LCY)" / Item."Sales (Qty.)", 0.01)
@@ -231,7 +230,6 @@ report 50235 "Local Sales Rep-Need Stat Grp"
 
     requestpage
     {
-
         layout
         {
         }
@@ -248,7 +246,7 @@ report 50235 "Local Sales Rep-Need Stat Grp"
     trigger OnPreReport()
     begin
         if Item.GetFilter(Item."Date Filter") = '' then
-            Item.SetRange(Item."Date Filter", CalcDate('-1D', WorkDate));
+            Item.SetRange(Item."Date Filter", CalcDate('-1D', WorkDate()));
 
         ItemFilter := Item.GetFilters;
         ItemDateFilter := Item.GetFilter("Date Filter");
@@ -262,7 +260,6 @@ report 50235 "Local Sales Rep-Need Stat Grp"
         Text000: Label 'Sorting items    #1##########';
         Text001: Label 'Period: %1';
         Text002: Label 'Ranked according to %1 %2';
-        Text003: Label 'Portion of %1';
         Window: Dialog;
         ItemAmount: Record "Item Amount" temporary;
         ItemAmount2: Record "Item Amount";
@@ -289,7 +286,6 @@ report 50235 "Local Sales Rep-Need Stat Grp"
         TStk: Decimal;
         OpStk: Decimal;
         ClsStk: Decimal;
-        DatFilt: Date;
         Local_Sales_ReportCaptionLbl: Label 'Local Sales Report';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
         This_report_also_includes_items_not_on_inventory_or_that_are_not_sold_CaptionLbl: Label 'This report also includes items not on inventory or that are not sold.';
@@ -306,4 +302,3 @@ report 50235 "Local Sales Rep-Need Stat Grp"
         exit(Round(Numeral1 / Numeral2 * 100, 0.1));
     end;
 }
-

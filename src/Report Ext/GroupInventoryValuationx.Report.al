@@ -2,7 +2,7 @@ report 59018 "Group Inventory Valuationx"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/GroupInventoryValuationx.rdlc';
-
+    Caption = 'Group Inventory Valuationx';
     dataset
     {
         dataitem("Gen. Product Posting Group"; "Gen. Product Posting Group")
@@ -16,7 +16,7 @@ report 59018 "Group Inventory Valuationx"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -85,8 +85,7 @@ report 59018 "Group Inventory Valuationx"
                     if MinDate <> 0D then
                         ReportDate := MinDate
                     else
-                        ReportDate := WorkDate;
-
+                        ReportDate := WorkDate();
 
                 StoresValue := GetValue(LocationType::Store);
                 VesselValue := GetValue(LocationType::Vessel);
@@ -103,7 +102,6 @@ report 59018 "Group Inventory Valuationx"
 
     requestpage
     {
-
         layout
         {
         }
@@ -118,11 +116,7 @@ report 59018 "Group Inventory Valuationx"
     }
 
     var
-        LastFieldNo: Integer;
-        FooterPrinted: Boolean;
-        TotalFor: Label 'Total for ';
         LocationRec: Record Location;
-        ValueRec: Record "Value Entry";
         StoresValue: Decimal;
         VesselValue: Decimal;
         ReportDate: Date;
@@ -143,7 +137,7 @@ report 59018 "Group Inventory Valuationx"
     begin
         InvValue := 0;
 
-        LocationRec.Reset;
+        LocationRec.Reset();
         if Loc = Loc::Store then begin
             LocationRec.SetRange(LocationRec."Location Type", LocationRec."Location Type"::Store);
             LocationRec.Find('-');
@@ -152,7 +146,7 @@ report 59018 "Group Inventory Valuationx"
                 "Gen. Product Posting Group".SetFilter("Gen. Product Posting Group"."Date Filter", '%1..%2', 0D, ReportDate);
                 "Gen. Product Posting Group".CalcFields("Gen. Product Posting Group"."Inventory Value");
                 InvValue := InvValue + "Gen. Product Posting Group"."Inventory Value";
-            until (LocationRec.Next = 0);
+            until (LocationRec.Next() = 0);
         end
         else begin
             LocationRec.SetRange(LocationRec."Location Type", LocationRec."Location Type"::Vessel);
@@ -162,11 +156,9 @@ report 59018 "Group Inventory Valuationx"
                 "Gen. Product Posting Group".SetFilter("Gen. Product Posting Group"."Date Filter", '%1..%2', 0D, ReportDate);
                 "Gen. Product Posting Group".CalcFields("Gen. Product Posting Group"."Inventory Value");
                 InvValue := InvValue + "Gen. Product Posting Group"."Inventory Value";
-            until (LocationRec.Next = 0);
+            until (LocationRec.Next() = 0);
         end;
-
 
         exit(InvValue);
     end;
 }
-

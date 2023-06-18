@@ -28,7 +28,7 @@ page 90096 "Appraisal Entry Subform.-z"
                     trigger OnValidate()
                     begin
                         Rec.ShowShortcutDimCode(ShortcutDimCode);
-                        NoOnAfterValidate;
+                        NoOnAfterValidate();
                     end;
                 }
                 field("Document Type"; Rec."Document Type")
@@ -52,7 +52,7 @@ page 90096 "Appraisal Entry Subform.-z"
 
                     trigger OnValidate()
                     begin
-                        QuantityOnAfterValidate;
+                        QuantityOnAfterValidate();
                     end;
                 }
                 field(Comment; Rec.Comment)
@@ -89,8 +89,6 @@ page 90096 "Appraisal Entry Subform.-z"
     end;
 
     var
-        SalesHeader: Record "Sales Header";
-        ItemCrossReference: Record "Item Cross Reference";
         TransferExtendedText: Codeunit "Transfer Extended Text";
         ShortcutDimCode: array[8] of Code[20];
 
@@ -121,25 +119,25 @@ page 90096 "Appraisal Entry Subform.-z"
         PurchHeader.SetRange("No.", Rec."Purchase Order No.");
         PurchOrder.SetTableView(PurchHeader);
         PurchOrder.Editable := false;
-        PurchOrder.Run;
+        PurchOrder.Run();
     end;
 
     [Scope('OnPrem')]
     procedure InsertExtendedText(Unconditionally: Boolean)
     begin
         if TransferExtendedText.SalesCheckIfAnyExtText(Rec, Unconditionally) then begin
-            CurrPage.SaveRecord;
+            CurrPage.SaveRecord();
             TransferExtendedText.InsertSalesExtText(Rec);
         end;
-        if TransferExtendedText.MakeUpdate then
+        if TransferExtendedText.MakeUpdate() then
             UpdateForm(true);
     end;
 
     [Scope('OnPrem')]
     procedure ShowReservation()
     begin
-        Rec.Find;
-        Rec.ShowReservation;
+        Rec.Find();
+        Rec.ShowReservation();
     end;
 
     [Scope('OnPrem')]
@@ -157,25 +155,25 @@ page 90096 "Appraisal Entry Subform.-z"
     [Scope('OnPrem')]
     procedure ShowDimensions()
     begin
-        Rec.ShowDimensions;
+        Rec.ShowDimensions();
     end;
 
     [Scope('OnPrem')]
     procedure ShowItemSub()
     begin
-        Rec.ShowItemSub;
+        Rec.ShowItemSub();
     end;
 
     [Scope('OnPrem')]
     procedure ShowNonstockItems()
     begin
-        Rec.ShowNonstock;
+        Rec.ShowNonstock();
     end;
 
     [Scope('OnPrem')]
     procedure OpenItemTrackingLines()
     begin
-        Rec.OpenItemTrackingLines;
+        Rec.OpenItemTrackingLines();
     end;
 
     [Scope('OnPrem')]
@@ -184,13 +182,13 @@ page 90096 "Appraisal Entry Subform.-z"
         TrackingForm: Page "Order Tracking";
     begin
         TrackingForm.SetSalesLine(Rec);
-        TrackingForm.RunModal;
+        TrackingForm.RunModal();
     end;
 
     [Scope('OnPrem')]
     procedure ItemChargeAssgnt()
     begin
-        Rec.ShowItemChargeAssgnt;
+        Rec.ShowItemChargeAssgnt();
     end;
 
     [Scope('OnPrem')]
@@ -205,16 +203,15 @@ page 90096 "Appraisal Entry Subform.-z"
         if (Rec.Type = Rec.Type::"Charge (Item)") and (Rec."No." <> xRec."No.") and
            (xRec."No." <> '')
         then
-            CurrPage.SaveRecord;
+            CurrPage.SaveRecord();
     end;
 
     local procedure QuantityOnAfterValidate()
     begin
         if Rec.Reserve = Rec.Reserve::Always then begin
-            CurrPage.SaveRecord;
-            Rec.AutoReserve;
+            CurrPage.SaveRecord();
+            Rec.AutoReserve();
             CurrPage.Update(false);
         end;
     end;
 }
-

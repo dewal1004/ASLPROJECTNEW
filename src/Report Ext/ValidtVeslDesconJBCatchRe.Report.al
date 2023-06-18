@@ -2,7 +2,7 @@ report 99994 "Validt Vesl Desc on JBCatch Re"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/ValidtVeslDesconJBCatchRe.rdlc';
-
+    Caption = 'Validt Vesl Desc on JBCatch Re';
     dataset
     {
         dataitem("Job Journal Batch"; "Job Journal Batch")
@@ -14,7 +14,7 @@ report 99994 "Validt Vesl Desc on JBCatch Re"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -60,14 +60,13 @@ report 99994 "Validt Vesl Desc on JBCatch Re"
             trigger OnAfterGetRecord()
             begin
                 Validate(Name);
-                Modify;
+                Modify();
             end;
         }
     }
 
     requestpage
     {
-
         layout
         {
         }
@@ -85,4 +84,3 @@ report 99994 "Validt Vesl Desc on JBCatch Re"
         Job_Journal_BatchCaptionLbl: Label 'Job Journal Batch';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
 }
-

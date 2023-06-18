@@ -66,4 +66,3 @@ tableextension 50264 "Inventory Setup Ext" extends "Inventory Setup"
         }
     }
 }
-

@@ -2,7 +2,7 @@ page 50164 "Inventory-Report"
 {
     UsageCategory = Administration;
     ApplicationArea = all;
-
+    Caption = 'Inventory-Report';
     layout
     {
     }
@@ -166,4 +166,3 @@ page 50164 "Inventory-Report"
         }
     }
 }
-

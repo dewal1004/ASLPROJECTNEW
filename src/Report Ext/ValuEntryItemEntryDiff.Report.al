@@ -2,7 +2,7 @@ report 70002 "ValuEntry-ItemEntry Diff"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/ValuEntryItemEntryDiff.rdlc';
-
+    Caption = 'ValuEntry-ItemEntry Diff';
     dataset
     {
         dataitem("Value Entry"; "Value Entry")
@@ -15,7 +15,7 @@ report 70002 "ValuEntry-ItemEntry Diff"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -89,14 +89,12 @@ report 70002 "ValuEntry-ItemEntry Diff"
                   IF "Value Entry"."Cost Amount (Actual)" = "Value Entry"."Cost Posted to G/L" THEN
                     CurrReport.SKIP;
                       */  //#1
-
             end;
         }
     }
 
     requestpage
     {
-
         layout
         {
         }
@@ -111,9 +109,7 @@ report 70002 "ValuEntry-ItemEntry Diff"
     }
 
     var
-        SkipMatched: Boolean;
         Value_EntryCaptionLbl: Label 'Value Entry';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
         DiffCaptionLbl: Label 'Diff';
 }
-

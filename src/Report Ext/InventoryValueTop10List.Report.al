@@ -18,9 +18,9 @@ report 50230 "Inventory(Value) - Top 10 List"
                 Window.Update(1, "No.");
                 CalcFields("Sales (LCY)", Inventory);
                 if ("Sales (LCY)" = 0) and (Inventory = 0) and not PrintAlsoIfZero then
-                    CurrReport.Skip;
+                    CurrReport.Skip();
 
-                ItemAmount.Init;
+                ItemAmount.Init();
                 ItemAmount."Item No." := "No.";
                 if ShowType = ShowType::"Sales (LCY)" then begin
                     ItemAmount.Amount := "Sales (LCY)";
@@ -33,19 +33,19 @@ report 50230 "Inventory(Value) - Top 10 List"
                     ItemAmount.Amount := -ItemAmount.Amount;
                     ItemAmount."Amount 2" := -ItemAmount."Amount 2";
                 end;
-                ItemAmount.Insert;
+                ItemAmount.Insert();
                 if (NoOfRecordsToPrint = 0) or (i < NoOfRecordsToPrint) then
                     i := i + 1
                 else begin
                     ItemAmount.Find('+');
-                    ItemAmount.Delete;
+                    ItemAmount.Delete();
                 end;
             end;
 
             trigger OnPreDataItem()
             begin
                 Window.Open(Text000);
-                ItemAmount.DeleteAll;
+                ItemAmount.DeleteAll();
                 i := 0;
                 CurrReport.CreateTotals("Sales (LCY)", Inventory);
             end;
@@ -59,7 +59,7 @@ report 50230 "Inventory(Value) - Top 10 List"
             column(STRSUBSTNO_Text001_ItemDateFilter_; StrSubstNo(Text001, ItemDateFilter))
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(COMPANYNAME; CompanyName)
@@ -160,7 +160,7 @@ report 50230 "Inventory(Value) - Top 10 List"
             begin
                 if Number = 1 then begin
                     if not ItemAmount.Find('-') then
-                        CurrReport.Break;
+                        CurrReport.Break();
                     if ShowSorting = ShowSorting::Largest then
                         MaxAmount := -ItemAmount.Amount
                     else begin
@@ -170,8 +170,8 @@ report 50230 "Inventory(Value) - Top 10 List"
                         ItemAmount := ItemAmount2;
                     end;
                 end else
-                    if ItemAmount.Next = 0 then
-                        CurrReport.Break;
+                    if ItemAmount.Next() = 0 then
+                        CurrReport.Break();
                 Item.Get(ItemAmount."Item No.");
                 Item.CalcFields("Sales (LCY)", Inventory);
                 if ShowSorting = ShowSorting::Largest then begin
@@ -190,7 +190,7 @@ report 50230 "Inventory(Value) - Top 10 List"
 
             trigger OnPreDataItem()
             begin
-                Window.Close;
+                Window.Close();
                 ItemSales := Item."Sales (LCY)";
                 QtyOnHand := Item.Inventory;
                 CurrReport.CreateTotals(Item."Sales (LCY)", Item.Inventory);
@@ -200,7 +200,6 @@ report 50230 "Inventory(Value) - Top 10 List"
 
     requestpage
     {
-
         layout
         {
         }
@@ -263,4 +262,3 @@ report 50230 "Inventory(Value) - Top 10 List"
         exit(Round(Numeral1 / Numeral2 * 100, 0.1));
     end;
 }
-

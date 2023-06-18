@@ -5,7 +5,7 @@ codeunit 50017 "ItemJnlPostBatchSubscriber"
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Item Jnl.-Post Batch", 'OnBeforeCheckLines', '', true, true)]
     local procedure ItemJnlLnPostBatcOnBeforeCheckLines(var ItemJnlLine: Record "Item Journal Line")
     begin
-        InventSU.Get;
+        InventSU.Get();
         if (ItemJnlLine."Reason Code" = InventSU."FA Acquisition") and (ItemJnlLine."External Document No." <> '') then begin
             FAUseReaCd := InventSU."FA Acquisition";
             FAJourlTemp := InventSU."FA Acquisition Template";
@@ -26,10 +26,9 @@ codeunit 50017 "ItemJnlPostBatchSubscriber"
             //Posting of Acquisition Cost for FA GL
             if REC.Get(FAJourlTemp, ItemJournalLine."Journal Batch Name", ItemJournalLine."Line No.") then begin
                 REC."Ready to Post" := true;
-                REC.Modify;
+                REC.Modify();
             end;
     end;
-
 
     Var
         REC: Record "Gen. Journal Line";
@@ -37,34 +36,32 @@ codeunit 50017 "ItemJnlPostBatchSubscriber"
         FAUseReaCd: Code[10];
         FAJourlTemp: Code[20];
 
-
     procedure IJL(VAR ItemJL: Record "Item Journal Line");
     Var
-        FAJL: Record "FA Journal Line";
         FAJnlTemplate: Record "Gen. Journal Template";
         FAJnlLine: Record "Gen. Journal Line";
         FAJnlBatch: Record "Gen. Journal Batch";
         GenPostgSetup: Record "General Posting Setup";
     BEGIN
-        InventSU.Get;
+        InventSU.Get();
         if not FAJnlTemplate.Get(InventSU."FA Acquisition Template") then begin
-            FAJnlTemplate.Init;
+            FAJnlTemplate.Init();
             FAJnlTemplate.Name := InventSU."FA Acquisition Template";
-            FAJnlTemplate.Insert;
+            FAJnlTemplate.Insert();
         end;
 
         if not FAJnlBatch.Get(InventSU."FA Acquisition Template", ItemJL."Journal Batch Name") then begin
-            FAJnlBatch.Init;
+            FAJnlBatch.Init();
             FAJnlBatch."Journal Template Name" := InventSU."FA Acquisition Template";
             FAJnlBatch.Name := ItemJL."Journal Batch Name";
             FAJnlBatch.Description := 'Inventory Tranfer to Fixed Asset';
-            FAJnlBatch.Insert;
+            FAJnlBatch.Insert();
         end;
 
         FAJnlLine.SetRange("Journal Template Name", InventSU."FA Acquisition Template");
         FAJnlLine.SetRange("Journal Batch Name", ItemJL."Journal Batch Name");
 
-        FAJnlLine.Init;
+        FAJnlLine.Init();
         FAJnlLine."Journal Template Name" := InventSU."FA Acquisition Template";
         FAJnlLine."Journal Batch Name" := ItemJL."Journal Batch Name";
         FAJnlLine."Line No." := ItemJL."Line No.";
@@ -92,36 +89,35 @@ codeunit 50017 "ItemJnlPostBatchSubscriber"
             Error('The Posting Group Combination thus not EXIST');
         if FAJnlLine."Bal. Account No." = '' then
             Error('The Posting Group Combination thus not have purchase account no');
-        FAJnlLine.Insert;
+        FAJnlLine.Insert();
     END;
 
     Procedure IJLM(VAR ItemJL: Record "Item Journal Line");
     VAR
-        FAJL: Record "FA Journal Line";
         FAJnlTemplate: Record "Gen. Journal Template";
         FAJnlLine: Record "Gen. Journal Line";
         FAJnlBatch: Record "Gen. Journal Batch";
         GenPostgSetup: Record "General Posting Setup";
     BEGIN
         //AAA
-        InventSU.Get;
+        InventSU.Get();
         if not FAJnlTemplate.Get(InventSU."FA Maintenance Template") then begin
-            FAJnlTemplate.Init;
+            FAJnlTemplate.Init();
             FAJnlTemplate.Name := InventSU."FA Maintenance Template";
-            FAJnlTemplate.Insert;
+            FAJnlTemplate.Insert();
         end;
 
         if not FAJnlBatch.Get(InventSU."FA Maintenance Template", ItemJL."Journal Batch Name") then begin
-            FAJnlBatch.Init;
+            FAJnlBatch.Init();
             FAJnlBatch."Journal Template Name" := InventSU."FA Maintenance Template";
             FAJnlBatch.Name := ItemJL."Journal Batch Name";
             FAJnlBatch.Description := 'Inventory Tranfer to Fixed Asset';
-            FAJnlBatch.Insert;
+            FAJnlBatch.Insert();
         end;
 
         FAJnlLine.SetRange("Journal Template Name", InventSU."FA Maintenance Template");
         FAJnlLine.SetRange("Journal Batch Name", ItemJL."Journal Batch Name");
-        FAJnlLine.Init;
+        FAJnlLine.Init();
         FAJnlLine."Journal Template Name" := InventSU."FA Maintenance Template";
         FAJnlLine."Journal Batch Name" := ItemJL."Journal Batch Name";
         FAJnlLine."Line No." := ItemJL."Line No.";
@@ -150,10 +146,6 @@ codeunit 50017 "ItemJnlPostBatchSubscriber"
             Error('The Posting Group Combination thus not EXIST');
         if FAJnlLine."Bal. Account No." = '' then
             Error('The Posting Group Combination thus not have purchase account no');
-        if not FAJnlLine.Insert then FAJnlLine.Modify;
+        if not FAJnlLine.Insert() then FAJnlLine.Modify();
     END;
-
-
-
-
 }

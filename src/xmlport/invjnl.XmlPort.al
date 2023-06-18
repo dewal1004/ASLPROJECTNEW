@@ -1,6 +1,6 @@
 xmlport 50052 "inv jnl"
 {
-
+    Caption = 'inv jnl';
     schema
     {
         textelement(Rootnode)
@@ -26,7 +26,6 @@ xmlport 50052 "inv jnl"
 
     requestpage
     {
-
         layout
         {
         }
@@ -36,4 +35,3 @@ xmlport 50052 "inv jnl"
         }
     }
 }
-

@@ -4,7 +4,7 @@ report 50110 "Foreign Banks Report"
     RDLCLayout = './src/reportrdlc/ForeignBanksReport.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
-
+    Caption = 'Foreign Banks Report';
     dataset
     {
         dataitem("Bank Account"; "Bank Account")
@@ -17,7 +17,7 @@ report 50110 "Foreign Banks Report"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -96,7 +96,6 @@ report 50110 "Foreign Banks Report"
             trigger OnAfterGetRecord()
             begin
 
-
                 "Bank Account".SetRange("Bank Account"."Date Filter", MIN_DATE, MAX_DATE);
                 "Bank Account".CalcFields("Bank Account"."Debit Amount", "Bank Account"."Credit Amount");
                 DEBIT_PERIOD := "Bank Account"."Debit Amount";
@@ -110,7 +109,6 @@ report 50110 "Foreign Banks Report"
                 "Bank Account".CalcFields("Bank Account"."Net Change");
                 CL_BAL := "Bank Account"."Net Change";
 
-
                 TOT_OP_BAL := TOT_OP_BAL + OP_BAL;
                 TOT_CL_BAL := TOT_CL_BAL + CL_BAL;
                 TOT_DEBIT_PERIOD := TOT_DEBIT_PERIOD + DEBIT_PERIOD;
@@ -121,8 +119,7 @@ report 50110 "Foreign Banks Report"
             begin
 
                 if "Bank Account".GetFilter("Bank Account"."Date Filter") = '' then
-                    "Bank Account".SetRange("Bank Account"."Date Filter", CalcDate('-1D', WorkDate));
-
+                    "Bank Account".SetRange("Bank Account"."Date Filter", CalcDate('-1D', WorkDate()));
 
                 MIN_DATE := "Bank Account".GetRangeMin("Bank Account"."Date Filter");
                 MAX_DATE := "Bank Account".GetRangeMax("Bank Account"."Date Filter");
@@ -222,7 +219,6 @@ report 50110 "Foreign Banks Report"
 
     requestpage
     {
-
         layout
         {
         }
@@ -248,8 +244,6 @@ report 50110 "Foreign Banks Report"
         TOT_CL_BAL: Decimal;
         TOT_DEBIT_PERIOD: Decimal;
         TOT_CREDIT_PERIOD: Decimal;
-        BANK_REC: Record "Bank Account";
-        GLSetup: Record "General Ledger Setup";
         Foreign_Banks_ReportCaptionLbl: Label 'Foreign Banks Report';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
         Date_CaptionLbl: Label 'Date:';
@@ -269,4 +263,3 @@ report 50110 "Foreign Banks Report"
         GRAND_TOTALCaptionLbl: Label 'GRAND TOTAL';
         TOTALCaption_Control1000000023Lbl: Label 'TOTAL';
 }
-

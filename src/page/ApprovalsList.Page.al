@@ -4,7 +4,7 @@ page 51115 "Approvals List"
     SourceTable = "User Setup";
     UsageCategory = Lists;
     ApplicationArea = All, Basic, Suites;
-
+    Caption = 'Approvals List';
     layout
     {
         area(content)
@@ -40,7 +40,6 @@ page 51115 "Approvals List"
                       //CodeForApprovalsetup.SendApprovaltoUser(PurchaseHeader,"User ID");
                     MESSAGE('DONE')
                     */
-
                 end;
             }
             action(SendApprovalRequest)
@@ -52,8 +51,6 @@ page 51115 "Approvals List"
                 ApplicationArea = All;
 
                 trigger OnAction()
-                var
-                    ApprovalsMgmt: Codeunit "Approvals Mgmt.";
                 begin
 
                     //IF ApprovalsMgmt.CheckPurchaseApprovalsWorkflowEnabled(PurchaseHeader) THEN
@@ -63,9 +60,4 @@ page 51115 "Approvals List"
             }
         }
     }
-
-    var
-        CodeForApprovalsetup: Codeunit "Code For Approval setup";
-        PurchaseHeader: Record "Purchase Header";
 }
-

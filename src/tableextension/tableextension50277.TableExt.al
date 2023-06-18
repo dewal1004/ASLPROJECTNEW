@@ -13,4 +13,3 @@ tableextension 50277 "tableextension50277" extends Currency
         }
     }
 }
-

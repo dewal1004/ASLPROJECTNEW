@@ -2,7 +2,7 @@ report 90101 "LOCATE SEADAYS 45"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/LOCATESEADAYS45.rdlc';
-
+    Caption = 'LOCATE SEADAYS 45';
     dataset
     {
         dataitem(Location; Location)
@@ -14,7 +14,7 @@ report 90101 "LOCATE SEADAYS 45"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -52,29 +52,27 @@ report 90101 "LOCATE SEADAYS 45"
             }
             dataitem("Inventory Posting Group"; "Inventory Posting Group")
             {
-
                 trigger OnAfterGetRecord()
                 begin
-                    InvtPostSetup.Init;
+                    InvtPostSetup.Init();
                     InvtPostSetup."Location Code" := Location.Code;
                     InvtPostSetup."Invt. Posting Group Code" := "Inventory Posting Group".Code;
                     InvtPostSetup."Inventory Account" := '12090010';
                     InvtPostSetup."Inventory Account (Interim)" := '12090010';
-                    if not InvtPostSetup.Insert then InvtPostSetup.Modify;
+                    if not InvtPostSetup.Insert() then InvtPostSetup.Modify();
                 end;
             }
 
             trigger OnAfterGetRecord()
             begin
                 if Location."Location Type" = 1 then Location."Sea Days" := 1;
-                Location.Modify;
+                Location.Modify();
             end;
         }
     }
 
     requestpage
     {
-
         layout
         {
         }
@@ -93,4 +91,3 @@ report 90101 "LOCATE SEADAYS 45"
         LocationCaptionLbl: Label 'Location';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
 }
-

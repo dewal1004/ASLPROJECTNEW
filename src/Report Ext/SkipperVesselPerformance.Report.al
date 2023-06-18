@@ -7,8 +7,7 @@ report 50049 "Skipper/Vessel Performance"
     RDLCLayout = './src/reportrdlc/SkipperVesselPerformance.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
-
-
+    Caption = 'Skipper/Vessel Performance';
     dataset
     {
         dataitem("Jobs Point Validate"; Job)
@@ -50,7 +49,7 @@ report 50049 "Skipper/Vessel Performance"
                 column(FORMAT_TODAY_0_4_; Format(Today, 0, 4))
                 {
                 }
-                column(CurrReport_PAGENO; CurrReport.PageNo)
+                column(CurrReport_PAGENO; CurrReport.PageNo())
                 {
                 }
                 column(USERID; UserId)
@@ -299,7 +298,6 @@ report 50049 "Skipper/Vessel Performance"
                     else
                         NetSeaDay := "Sea Days";
 
-
                     SetRange("Task Filter", 'SHR'); ///AAA
                     //CALCFIELDS("Points Actual");
                     Points := Job.PointZ(Job."No.", '', Job.GetFilter("Posting Date Filter"), '', 'SHR', '', Job.Vessel);
@@ -336,15 +334,13 @@ report 50049 "Skipper/Vessel Performance"
                     //CurrReport.CREATETOTALS(NetSeaDay,Shrimp[2],Fish[2],Points,"Points Actual");
                     //CurrReport.CREATETOTALS("Fuel Consumed",AvgFuel);
 
-
                     /*CurrReport.SHOWOUTPUT := FooterPrinted;
                     FooterPrinted := FALSE;*/
-
 
                     /*CurrReport.SHOWOUTPUT :=
                       CurrReport.TOTALSCAUSEDBY = Job.FIELDNO("Fishing Country Code");*/
                     if country.Get("Fishing Country Code") then FCountry := country.Name else FCountry := 'Nigerian';
-                    if (CurrReport.TotalsCausedBy = Job.FieldNo("Fishing Country Code")) then Counting := 1;
+                    if (CurrReport.TotalsCausedBy() = Job.FieldNo("Fishing Country Code")) then Counting := 1;
 
                     /*CurrReport.SHOWOUTPUT :=
                       CurrReport.TOTALSCAUSEDBY = LastFieldNo;*/
@@ -352,7 +348,6 @@ report 50049 "Skipper/Vessel Performance"
                     CurrReport.ShowOutput((StrLen(Rems) > 73) and (StrLen(Rems) <= 145));
                     CurrReport.ShowOutput(StrLen(Rems) <= 73);
                     if AvgFuel <> 0 then AvgFuel := AvgFuel / Counting;
-
                 end;
 
                 trigger OnPreDataItem()
@@ -364,7 +359,6 @@ report 50049 "Skipper/Vessel Performance"
                         FCountry := 'Nigerian';
                     /*IF (CurrReport.TOTALSCAUSEDBY = Job.FIELDNO("Fishing Country Code")) THEN Counting:=1;*/
 
-
                     /*CurrReport.SHOWOUTPUT :=
                       CurrReport.TOTALSCAUSEDBY = LastFieldNo;*/
 
@@ -373,7 +367,6 @@ report 50049 "Skipper/Vessel Performance"
 
                     CurrReport.ShowOutput(StrLen(Rems) <= 73);
                     if AvgFuel <> 0 then AvgFuel := AvgFuel / Counting;
-
                 end;
             }
 
@@ -387,14 +380,13 @@ report 50049 "Skipper/Vessel Performance"
                     NetSeaDay := "Sea Days";
                 if NetSeaDay <> 0 then
                     AvgPtSortBay := "Points Actual" / NetSeaDay;
-                Modify;
+                Modify();
             end;
         }
     }
 
     requestpage
     {
-
         layout
         {
         }
@@ -410,11 +402,10 @@ report 50049 "Skipper/Vessel Performance"
 
     trigger OnPreReport()
     begin
-        CompanyInformation.Get;
+        CompanyInformation.Get();
     end;
 
     var
-        Jobs: Record Job;
         Remark: Record "Comment Line";
         country: Record "Country/Region";
         Resource: Record Resource;
@@ -430,8 +421,6 @@ report 50049 "Skipper/Vessel Performance"
         Rems: Text[225];
         FCountry: Text[30];
         PResp: Text[30];
-        FooterPrinted: Boolean;
-        LastFieldNo: Integer;
         OperationCaptionLbl: Label 'Operation';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
         Countz_Control8CaptionLbl: Label 'S/No.';
@@ -452,4 +441,3 @@ report 50049 "Skipper/Vessel Performance"
         FCountryCaptionLbl: Label 'Vessel :';
         CompanyInformation: Record "Company Information";
 }
-

@@ -6,8 +6,7 @@ report 50240 "Vessel Daily Log-old"
     RDLCLayout = './src/reportrdlc/VesselDailyLogold.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
-
-
+    Caption = 'Vessel Daily Log-old';
     dataset
     {
         dataitem("Operation Daily Radio"; "Operation Daily Radio")
@@ -20,7 +19,7 @@ report 50240 "Vessel Daily Log-old"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -207,7 +206,6 @@ report 50240 "Vessel Daily Log-old"
 
     requestpage
     {
-
         layout
         {
         }
@@ -222,12 +220,8 @@ report 50240 "Vessel Daily Log-old"
     }
 
     var
-        LastFieldNo: Integer;
-        FooterPrinted: Boolean;
         TotalFor: Label 'Total for ';
-        "----": Integer;
         Jobs: Record Job;
-        DisplayOptions: Option "By Date","By Job";
         Operation_Daily_RadioCaptionLbl: Label 'Operation Daily Radio';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
         Jobs_Vessel_Control1000000028CaptionLbl: Label 'Vessel';
@@ -239,4 +233,3 @@ report 50240 "Vessel Daily Log-old"
         Jobs__Ending_Date_CaptionLbl: Label 'ETA';
         Jobs__Voyage_No__CaptionLbl: Label 'Voyage No.';
 }
-

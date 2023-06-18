@@ -2,7 +2,7 @@ report 50152 "Employeee Absence Total"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/EmployeeeAbsenceTotal.rdlc';
-
+    Caption = 'Employeee Absence Total';
     dataset
     {
         dataitem("Employee Absence"; "Employee Absence")
@@ -15,7 +15,7 @@ report 50152 "Employeee Absence Total"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -38,11 +38,9 @@ report 50152 "Employeee Absence Total"
             }
             column(AbsenceLessByForDate; AbsenceLessByForDate)
             {
-
             }
             column(Quantity_DayDiff; Quantity - DayDiff)
             {
-
             }
             column(TotalFor___FIELDCAPTION__Cause_of_Absence_Code__; TotalFor + FieldCaption("Cause of Absence Code"))
             {
@@ -55,11 +53,9 @@ report 50152 "Employeee Absence Total"
             }
             column(DayDiff; DayDiff)
             {
-
             }
             column(Quantity_DayDiff_Control1000000028; Quantity - DayDiff)
             {
-
             }
             column(TotalFor___FIELDCAPTION__Employee_No___; TotalFor + FieldCaption("Employee No."))
             {
@@ -70,20 +66,17 @@ report 50152 "Employeee Absence Total"
             column(Employee_Absence__Employee_No___Control1000000007; "Employee No.")
             {
             }
-            column(Emp_FullName; Emp.FullName)
+            column(Emp_FullName; Emp.FullName())
             {
             }
             column(DayDiff_Control1000000019; DayDiff)
             {
-
             }
             column(Quantity_DayDiff_Control1000000026; Quantity - DayDiff)
             {
-
             }
             column(Quantity_DayDiff_Control1000000030; Quantity - DayDiff)
             {
-
             }
             column(Employee_Absence_Quantity_Control1000000031; Quantity)
             {
@@ -129,7 +122,6 @@ report 50152 "Employeee Absence Total"
 
     requestpage
     {
-
         layout
         {
         }
@@ -145,12 +137,9 @@ report 50152 "Employeee Absence Total"
 
     var
         LastFieldNo: Integer;
-        FooterPrinted: Boolean;
         TotalFor: Label 'Total for ';
-        "--------------": Integer;
         Emp: Record Employee;
         DayDiff: Decimal;
-        "Show Details": Boolean;
         AbsenceLessByForDate: Code[10];
         Employee_AbsenceCaptionLbl: Label 'Employee Absence';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
@@ -159,4 +148,3 @@ report 50152 "Employeee Absence Total"
         Quantity_DayDiff_Control1000000026CaptionLbl: Label 'Days Absent';
         TotalCaptionLbl: Label 'Total';
 }
-

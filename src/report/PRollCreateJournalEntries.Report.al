@@ -21,7 +21,7 @@ report 50061 "PRoll; Create Journal Entries"
     //    Booking date   - one
 
     ProcessingOnly = true;
-
+    Caption = 'PRoll; Create Journal Entries';
     dataset
     {
         dataitem("Payroll-Payslip Lines."; "Payroll-Payslip Lines.")
@@ -33,7 +33,7 @@ report 50061 "PRoll; Create Journal Entries"
             begin
                 Payrec.Get("Payroll-Payslip Lines."."Employee No");    // Adam
                 if Payrec.Blocked then
-                    CurrReport.Skip;  // To enable the payroll to skip the blocked employees
+                    CurrReport.Skip();  // To enable the payroll to skip the blocked employees
 
                 //ERROR(Payrec.Name+'('+Payrec."No."+') was blocked!!!'); //Added by Adam to skip Blocked Employees
 
@@ -60,7 +60,7 @@ report 50061 "PRoll; Create Journal Entries"
                             GLHeader.Name := 'GENERAL';
 
                             if not GLHeader.Get(GLedgerReq.Name) then begin
-                                GLHeader.Init;
+                                GLHeader.Init();
                                 GLHeader.Name := 'GENERAL';
                                 if GLHeader.Name = '' then
                                     GLHeader.Description := 'Standard ledger'
@@ -99,7 +99,6 @@ report 50061 "PRoll; Create Journal Entries"
                         CurrCreditAcc := "Credit Account";
                         CurLoanid := "Loan ID";
                         AmtToBook := Amount
-
                     end
                     else
                         AmtToBook := AmtToBook + Amount;
@@ -119,7 +118,6 @@ report 50061 "PRoll; Create Journal Entries"
                                               VoucherNo, CurrDebAccType, CurrCredAccType, 'SALARY', CurLoanid);
                     Mark(false)
                 end;
-
             end;
 
             trigger OnPreDataItem()
@@ -128,7 +126,7 @@ report 50061 "PRoll; Create Journal Entries"
                 PRollPeriodRec.Get(PRP);
                 if PRollPeriodRec.Closed = true then
                     if not Confirm('The period is closed, do you really want to create the Payroll Journal again', true) then
-                        CurrReport.Break;
+                        CurrReport.Break();
 
                 SetFilter(Amount, '<>0');
                 if Count = 0 then
@@ -158,7 +156,6 @@ report 50061 "PRoll; Create Journal Entries"
 
                 Window.Update(1, Count);
                 InfoCounter := 0;
-
             end;
         }
     }
@@ -204,7 +201,7 @@ report 50061 "PRoll; Create Journal Entries"
     trigger OnPostReport()
     begin
         PRollPeriodRec.Closed := true;
-        PRollPeriodRec.Modify;
+        PRollPeriodRec.Modify();
     end;
 
     trigger OnPreReport()
@@ -221,11 +218,10 @@ report 50061 "PRoll; Create Journal Entries"
         /*
         IF CompName = '' THEN
           ERROR ('Company Name must be specified for the function');
-        
+
         IF (GLedgerLine.CHANGECOMPANY(CompName) = FALSE) THEN
           ERROR ('Company Name specified is not correct');
          */
-
     end;
 
     var
@@ -249,22 +245,18 @@ report 50061 "PRoll; Create Journal Entries"
         AmtToBook: Decimal;
         LastPRollEntryRec: Record "Payroll-Payslip Lines.";
         VoucherNo: Code[30];
-        DebugCode: Code[30];
         InfoCounter: Integer;
         Window: Dialog;
-        CompName: Code[30];
         PRP: Text[30];
         Payrec: Record Employee;
         CustLed: Record "Cust. Ledger Entry";
-        "The Transactions are Transferred to:": Text[150];
-        "General Journal with Batch Name Salary": Text;
 
     [Scope('OnPrem')]
     procedure SEndToGL(GLLName: Text[30]; DebitAccNo: Code[20]; CreditAccNo: Code[20]; BookDate: Date; VouchNo: Text[30]; GLLtext: Text[30]; GLLAmount: Decimal; DeptCode: Code[10]; ProjCode: Code[10]; ConsNum: Integer; VoucherNum: Code[10]; DebAccType: Integer; CredAccType: Integer; BatchName: Code[10]; LoanIDEX: Code[10]): Integer
     begin
 
         if (DebitAccNo <> '') and (GLLAmount <> 0) then begin
-            GLedgerLine.Init;
+            GLedgerLine.Init();
             GLedgerLine."Journal Template Name" := GLLName;
             /*BDC*/
             GLedgerLine."Journal Batch Name" := BatchName;
@@ -282,12 +274,12 @@ report 50061 "PRoll; Create Journal Entries"
             GLedgerLine."Line No." := ConsNum;
 
             GLedgerLine.Description := GLLtext;
-            if not GLedgerLine.Insert then if Confirm('Do You want to Over Write') then GLedgerLine.Modify;
+            if not GLedgerLine.Insert() then if Confirm('Do You want to Over Write') then GLedgerLine.Modify();
 
             ConsNum := ConsNum + "PC&CConstant";
         end;
         if (CreditAccNo <> '') and (GLLAmount <> 0) then begin
-            GLedgerLine.Init;
+            GLedgerLine.Init();
             GLedgerLine."Journal Template Name" := GLLName;
             /*BDC*/
             GLedgerLine."Journal Batch Name" := BatchName;
@@ -307,11 +299,10 @@ report 50061 "PRoll; Create Journal Entries"
             GLedgerLine."Loan ID" := LoanIDEX;
             if GLedgerLine."Loan ID" <> '' then GLedgerLine."Applies-to Doc. No." := ApplytoLoan(GLedgerLine."Loan ID");
 
-            if not GLedgerLine.Insert then if Confirm('Do You want to Over Write existing created G/L Lines') then GLedgerLine.Modify;//Insert;
+            if not GLedgerLine.Insert() then if Confirm('Do You want to Over Write existing created G/L Lines') then GLedgerLine.Modify();//Insert;
             ConsNum := ConsNum + "PC&CConstant";
         end;
         exit(ConsNum);
-
     end;
 
     [Scope('OnPrem')]
@@ -327,4 +318,3 @@ report 50061 "PRoll; Create Journal Entries"
         if CustLed.Find('-') then exit(CustLed."Document No.");
     end;
 }
-

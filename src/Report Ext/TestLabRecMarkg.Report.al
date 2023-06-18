@@ -2,7 +2,7 @@ report 99124 "Test Lab Rec Markg"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/TestLabRecMarkg.rdlc';
-
+    Caption = 'Test Lab Rec Markg';
     dataset
     {
         dataitem(Customer; Customer)
@@ -14,7 +14,7 @@ report 99124 "Test Lab Rec Markg"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -47,7 +47,7 @@ report 99124 "Test Lab Rec Markg"
 
             trigger OnAfterGetRecord()
             begin
-                marked := Customer.Mark; // Test if marked
+                marked := Customer.Mark(); // Test if marked
                 if marked then Message(Text000, Customer."No.", marked);
             end;
 
@@ -69,14 +69,12 @@ report 99124 "Test Lab Rec Markg"
                 Customer.MarkedOnly(true);
                 No2 := Count();
                 Message(Text001 + Text002, No1, No2);
-
             end;
         }
     }
 
     requestpage
     {
-
         layout
         {
         }
@@ -100,4 +98,3 @@ report 99124 "Test Lab Rec Markg"
         CustomerCaptionLbl: Label 'Customer';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
 }
-

@@ -2,7 +2,7 @@ report 50158 "Gen Employee Lost Day Monthly"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/GenEmployeeLostDayMonthly.rdlc';
-
+    Caption = 'Gen Employee Lost Day Monthly';
     dataset
     {
         dataitem(Employee; Employee)
@@ -14,7 +14,7 @@ report 50158 "Gen Employee Lost Day Monthly"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -23,7 +23,7 @@ report 50158 "Gen Employee Lost Day Monthly"
             column(Employee__No__; "No.")
             {
             }
-            column(FullName; FullName)
+            column(FullName; FullName())
             {
             }
             column(Employee__Deductible_Absence_; "Deductible Absence")
@@ -67,7 +67,6 @@ report 50158 "Gen Employee Lost Day Monthly"
 
     requestpage
     {
-
         layout
         {
             area(content)
@@ -97,18 +96,10 @@ report 50158 "Gen Employee Lost Day Monthly"
 
     var
         TobeDed: Decimal;
-        DueDed: Decimal;
-        DaysInMnt: Integer;
         PeriodTab: Record "Payroll-Periods.";
-        PayMnthlyVar: Record "Monthly Variables Lines.";
-        PayMnthlyVarHd: Record "Monthly Variables Header.";
-        PrdCd: Code[10];
-        DatFiltr: Date;
         UpMntVar: Boolean;
         Employee_Lost_DaysCaptionLbl: Label 'Employee Lost Days';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
         FullNameCaptionLbl: Label 'Name';
         TobeDedCaptionLbl: Label 'To be deducted';
-        "Pay Period": Integer;
 }
-

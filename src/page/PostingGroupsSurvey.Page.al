@@ -3,7 +3,7 @@ page 50018 "Posting Groups Survey."
     Editable = false;
     PageType = Card;
     SourceTable = "Payroll-Posting Group Header.";
-
+    Caption = 'Posting Groups Survey.';
     layout
     {
         area(content)
@@ -51,4 +51,3 @@ page 50018 "Posting Groups Survey."
         }
     }
 }
-

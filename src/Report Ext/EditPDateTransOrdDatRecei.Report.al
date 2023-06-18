@@ -2,7 +2,7 @@ report 99503 "Edit PDate>Trans Ord Dat Recei"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/EditPDateTransOrdDatRecei.rdlc';
-
+    Caption = 'Edit PDate>Trans Ord Dat Recei';
     dataset
     {
         dataitem("Transfer Receipt Header"; "Transfer Receipt Header")
@@ -14,7 +14,7 @@ report 99503 "Edit PDate>Trans Ord Dat Recei"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -83,7 +83,7 @@ report 99503 "Edit PDate>Trans Ord Dat Recei"
                 begin
                     "Posting Date" := TranOrdDat;
                     "Document Date" := TranOrdDat;
-                    Modify;
+                    Modify();
                 end;
             }
             dataitem("Item Ledger Entry"; "Item Ledger Entry")
@@ -96,7 +96,7 @@ report 99503 "Edit PDate>Trans Ord Dat Recei"
                     "Posting Date" := TranOrdDat;
                     "Document Date" := TranOrdDat;
                     if "Last Invoice Date" = "Posting Date" then "Last Invoice Date" := TranOrdDat;
-                    Modify;
+                    Modify();
                 end;
             }
             dataitem("Value Entry"; "Value Entry")
@@ -109,7 +109,7 @@ report 99503 "Edit PDate>Trans Ord Dat Recei"
                     "Posting Date" := TranOrdDat;
                     "Document Date" := TranOrdDat;
                     if "Valuation Date" = "Posting Date" then "Valuation Date" := TranOrdDat;
-                    Modify;
+                    Modify();
                 end;
             }
 
@@ -118,14 +118,13 @@ report 99503 "Edit PDate>Trans Ord Dat Recei"
                 TranOrdDat := "Transfer Order Date";
                 "Posting Date Old" := "Posting Date";
                 "Posting Date" := TranOrdDat;
-                Modify;
+                Modify();
             end;
         }
     }
 
     requestpage
     {
-
         layout
         {
         }
@@ -144,4 +143,3 @@ report 99503 "Edit PDate>Trans Ord Dat Recei"
         Transfer_Receipt_HeaderCaptionLbl: Label 'Transfer Receipt Header';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
 }
-

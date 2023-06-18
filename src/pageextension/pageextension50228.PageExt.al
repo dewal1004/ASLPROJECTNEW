@@ -11,4 +11,3 @@ pageextension 50228 "pageextension50228" extends "Posted Purchase Receipts"
         }
     }
 }
-

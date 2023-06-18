@@ -19,4 +19,3 @@ tableextension 50257 "tableextension50257" extends "Bank Account Ledger Entry"
         // }
     }
 }
-

@@ -2,9 +2,7 @@ tableextension 50340 "tableextension50340" extends "Routing Version"
 {
     fields
     {
-
         //Unsupported feature: Property Modification (Data type) on ""Version Code"(Field 2)".
-
     }
 
     //Unsupported feature: Property Modification (Length) on "VersionCode(Variable 1005)".
@@ -17,4 +15,3 @@ tableextension 50340 "tableextension50340" extends "Routing Version"
     //VersionCode : 10;
     //Variable type has not been exported.
 }
-

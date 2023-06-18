@@ -2,36 +2,25 @@ tableextension 50255 "tableextension50255" extends Item
 {
     fields
     {
-
         //Unsupported feature: Property Insertion (InitValue) on ""Costing Method"(Field 21)".
-
 
         //Unsupported feature: Property Modification (MinValue) on ""Indirect Cost %"(Field 28)".
 
-
         //Unsupported feature: Property Modification (CalcFormula) on ""Transferred (Qty.)"(Field 93)".
-
 
         //Unsupported feature: Property Modification (Editable) on ""Transferred (Qty.)"(Field 93)".
 
-
         //Unsupported feature: Property Insertion (ValidateTableRelation) on ""Product Group Code"(Field 5704)".
-
 
         //Unsupported feature: Property Insertion (Enabled) on ""Substitutes Exist"(Field 5706)".
 
-
         //Unsupported feature: Property Insertion (Enabled) on ""Service Item Group"(Field 5900)".
-
 
         //Unsupported feature: Property Insertion (Enabled) on ""Qty. on Service Order"(Field 5901)".
 
-
         //Unsupported feature: Property Insertion (Enabled) on ""Planning Issues (Qty.)"(Field 99000761)".
 
-
         //Unsupported feature: Property Insertion (Enabled) on ""Prod. Forecast Quantity (Base)"(Field 99000774)".
-
 
         //Unsupported feature: Code Insertion on ""Reorder Quantity"(Field 36)".
 
@@ -48,8 +37,6 @@ tableextension 50255 "tableextension50255" extends Item
 
         //Unsupported feature: Property Deletion (CaptionML) on "Inventory(Field 68)".
 
-
-
         //Unsupported feature: Code Insertion on ""Order Multiple"(Field 5414)".
 
         //trigger OnValidate()
@@ -62,7 +49,6 @@ tableextension 50255 "tableextension50255" extends Item
         Message('The entry in not a factor of reorder quatity');
         */
         //end;
-
 
         //Unsupported feature: Code Modification on ""Item Category Code"(Field 5702).OnValidate".
 
@@ -93,8 +79,6 @@ tableextension 50255 "tableextension50255" extends Item
             begin
                 "Indirect Cost %" := "ASL Indirect Cost %";
             end;
-
-
         }
         field(50000; "Responsibility Center"; Text[30])
         {
@@ -167,9 +151,6 @@ tableextension 50255 "tableextension50255" extends Item
             FieldClass = Normal;
 
             trigger OnValidate()
-            var
-                ItemLedgerEntry: Record "Item Ledger Entry";
-                Lastpurchasecost: Decimal;
             begin
                 /*
                 Lastpurchasecost := ROUND(
@@ -180,7 +161,6 @@ tableextension 50255 "tableextension50255" extends Item
                         MODIFY;
                 END
                 */ //Sa
-
             end;
         }
         field(50321; "Order Fillter"; Code[20])
@@ -189,7 +169,6 @@ tableextension 50255 "tableextension50255" extends Item
             FieldClass = FlowFilter;
             TableRelation = "Purch. Rcpt. Header"."No.";
         }
-
         field(50322; "Inventory Entry Type Filter"; Option)
         {
             FieldClass = FlowFilter;
@@ -332,6 +311,7 @@ tableextension 50255 "tableextension50255" extends Item
                                                                   "Drop Shipment" = FIELD("Drop Shipment Filter")));
             Description = 'Quantity received from Production Output.';
             FieldClass = FlowField;
+            Editable = false;
         }
         field(55427; "S/No."; Integer)
         {
@@ -376,6 +356,7 @@ tableextension 50255 "tableextension50255" extends Item
                                                                    "Posting Date" = FIELD("Date Filter")));
             DecimalPlaces = 0 : 5;
             FieldClass = FlowField;
+            Editable = false;
         }
         field(55567; "Production Consumed (Qty.)"; Decimal)
         {
@@ -389,6 +370,7 @@ tableextension 50255 "tableextension50255" extends Item
                                                                    "Posting Date" = FIELD("Date Filter")));
             DecimalPlaces = 0 : 5;
             FieldClass = FlowField;
+            Editable = false;
         }
         field(55568; "Transfered Receipt (Qty.)"; Decimal)
         {
@@ -403,6 +385,7 @@ tableextension 50255 "tableextension50255" extends Item
                                                                              "Document Type" = FILTER("Transfer Receipt")));
             DecimalPlaces = 0 : 5;
             FieldClass = FlowField;
+            Editable = false;
         }
         field(55569; "Transfered Shipment (Qty.)"; Decimal)
         {
@@ -496,7 +479,6 @@ tableextension 50255 "tableextension50255" extends Item
     }
     keys
     {
-
         //Unsupported feature: Deletion (KeyCollection) on ""Service Item Group"(Key)".
 
         key(ASLKey1; "Item Category Code", "No. 2")
@@ -525,7 +507,6 @@ tableextension 50255 "tableextension50255" extends Item
         }
         */
     }
-
 
     //Unsupported feature: Code Modification on "OnInsert".
 
@@ -559,7 +540,6 @@ tableextension 50255 "tableextension50255" extends Item
     #7..13
     */
     //end;
-
 
     //Unsupported feature: Code Modification on "OnModify".
 
@@ -604,7 +584,7 @@ tableextension 50255 "tableextension50255" extends Item
         if ItemLedgEntry.Find('-') then begin
             repeat
                 Qty := Qty + ItemLedgEntry.Quantity;
-            until ItemLedgEntry.Next = 0;
+            until ItemLedgEntry.Next() = 0;
             exit(Qty);
         end else
             exit(0);
@@ -629,7 +609,7 @@ tableextension 50255 "tableextension50255" extends Item
         if ItemLedgEntry.Find('-') then begin
             repeat
                 Qty := Qty + ItemLedgEntry."Invoiced Quantity";
-            until ItemLedgEntry.Next = 0;
+            until ItemLedgEntry.Next() = 0;
             exit(Qty);
         end else
             exit(0);
@@ -654,16 +634,9 @@ tableextension 50255 "tableextension50255" extends Item
         if ItemLedgEntry.Find('-') then begin
             repeat
                 Qty := Qty + ItemLedgEntry."Invoiced Quantity";
-            until ItemLedgEntry.Next = 0;
+            until ItemLedgEntry.Next() = 0;
             exit(-Qty);
         end else
             exit(0);
     end;
-
-    var
-        "----": Text[30];
-        Modus: Decimal;
-        ItCat: Record "Item Category";
-        UserRec: Record "User Setup";
 }
-

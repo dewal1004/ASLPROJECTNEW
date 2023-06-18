@@ -109,4 +109,3 @@ tableextension 50214 "tableextension50214" extends "Purch. Inv. Line"
         }
     }
 }
-

@@ -38,10 +38,8 @@ pageextension 50325 "pageextension50325" extends "Posted Transfer Shipment"
                     /*
                     CurrPage.TransferShipmentLines.page.ShowItemTrackingLines;
                     */
-
                 end;
             }
         }
     }
 }
-

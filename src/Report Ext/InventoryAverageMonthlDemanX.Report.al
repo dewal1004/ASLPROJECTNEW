@@ -2,7 +2,7 @@ report 55999 "Inventory Average MonthlDemanX"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/InventoryAverageMonthlDemanX.rdlc';
-
+    Caption = 'Inventory Average MonthlDemanX';
     dataset
     {
         dataitem(Item; Item)
@@ -15,7 +15,7 @@ report 55999 "Inventory Average MonthlDemanX"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -116,7 +116,7 @@ report 55999 "Inventory Average MonthlDemanX"
 
                 StkVal := "CRM / STR" * "Unit Cost";
                 if Item2.Get("No.") then;
-                Item2.SetFilter(Item2."Date Filter", '%1..%2', CalcDate('-6M', WorkDate), WorkDate);
+                Item2.SetFilter(Item2."Date Filter", '%1..%2', CalcDate('-6M', WorkDate()), WorkDate());
                 Item2.CalcFields(Item2."Monthly Ave. Dem");
                 MAD := -Item2."Monthly Ave. Dem" / 6;
                 if MAD <> 0 then CoverPrd := "CRM / STR" / MAD else CoverPrd := 0;
@@ -126,7 +126,6 @@ report 55999 "Inventory Average MonthlDemanX"
 
     requestpage
     {
-
         layout
         {
         }
@@ -142,10 +141,7 @@ report 55999 "Inventory Average MonthlDemanX"
 
     var
         LastFieldNo: Integer;
-        FooterPrinted: Boolean;
         TotalFor: Label 'Total for ';
-        "---": Integer;
-        InvtPG: Record "Inventory Posting Group";
         Item2: Record Item;
         StkVal: Decimal;
         MAD: Decimal;
@@ -157,4 +153,3 @@ report 55999 "Inventory Average MonthlDemanX"
         MADCaptionLbl: Label 'Avg. Monthly Consumption';
         CoverPrdCaptionLbl: Label 'Cover Period';
 }
-

@@ -9,7 +9,7 @@ page 50098 "MR Reconciliation"
     SourceTable = "Store Requisition Line New";
     SourceTableView = WHERE("Final Approval" = CONST(Approved),
                             "Issues Captured Date" = FILTER(<> 0D));
-
+    Caption = 'MR Reconciliation';
     layout
     {
         area(content)
@@ -76,4 +76,3 @@ page 50098 "MR Reconciliation"
         }
     }
 }
-

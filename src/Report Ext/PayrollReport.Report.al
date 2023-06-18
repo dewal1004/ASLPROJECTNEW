@@ -38,7 +38,7 @@ report 50062 "Payroll Report"
             column(Amount; "Payroll-Payslip Lines.".Amount)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(EDText_1_1_; EDText[1, 1]) { }
@@ -176,9 +176,9 @@ report 50062 "Payroll Report"
                     Clear(EDAmountsArray);
                     g_EmpNo := "Payroll-Payslip Lines."."Employee No";
                 end;
-                if not PayEmp.Get("Payroll-Payslip Lines."."Employee No") then CurrReport.Skip; //Added by Adam to skip Deleted? Employees//
+                if not PayEmp.Get("Payroll-Payslip Lines."."Employee No") then CurrReport.Skip(); //Added by Adam to skip Deleted? Employees//
                 EmployeeName := PayEmp."First Name" + ' ' + PayEmp."Last Name";                                                                               // Not: Employees are normally kept
-                if PayEmp.Blocked then CurrReport.Skip; //Added by Adam to skip Blocked Employees
+                if PayEmp.Blocked then CurrReport.Skip(); //Added by Adam to skip Blocked Employees
 
                 case "E/D Code" of
                     RequestEDsArray[1]."E/D Code":
@@ -250,7 +250,7 @@ report 50062 "Payroll Report"
 
             trigger OnPreDataItem()
             begin
-                CompanyData.Get;
+                CompanyData.Get();
                 if GetFilter("Employee No") <> '' then
                     EmplHeadTxt := 'Employee Filter: ' + GetFilter("Employee No")
                 else
@@ -391,7 +391,6 @@ report 50062 "Payroll Report"
         trigger OnOpenPage()
 
         begin
-
         end;
     }
 
@@ -413,12 +412,10 @@ report 50062 "Payroll Report"
         "Payroll-Payslip Lines.".CopyFilter("Payroll Period", PeriodRec."Period Code");
         if PeriodRec.Count > 1 then
             PeriodTxt := StrSubstNo('(#1 periods)', PeriodRec.Count);
-
     end;
 
     var
         CompanyData: Record "Company Information";
-        EmployeeRec: Record Employee;
         PeriodRec: Record "Payroll-Periods.";
         EmployeeName: Text[40];
         RequestEDsArray: array[12] of Record "Payroll-E/D Codes.";
@@ -430,8 +427,6 @@ report 50062 "Payroll Report"
         EmplCount: Integer;
         EmplHeadTxt: Text[60];
         PeriodTxt: Text[15];
-        "BANK/CASH": Text[30];
-        IsDescription: Boolean;
         Total11: Decimal;
         Total12: Decimal;
         i: Integer;
@@ -449,7 +444,6 @@ report 50062 "Payroll Report"
         S_no: Integer;
         PayEmp: Record Employee;
         SNo: Integer;
-        Amount1: Decimal;
         GrandTotals: array[12] of Decimal;
         g_EmpNo: Code[20];
         RecCount: Integer;

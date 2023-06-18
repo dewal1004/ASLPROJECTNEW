@@ -2,7 +2,7 @@ report 50122 "Itemledger Update Voyage No."
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/ItemledgerUpdateVoyageNo.rdlc';
-
+    Caption = 'Itemledger Update Voyage No.';
     dataset
     {
         dataitem("Item Ledger Entry"; "Item Ledger Entry")
@@ -25,7 +25,6 @@ report 50122 "Itemledger Update Voyage No."
 
     requestpage
     {
-
         layout
         {
         }
@@ -38,9 +37,4 @@ report 50122 "Itemledger Update Voyage No."
     labels
     {
     }
-
-    var
-        LOCREC: Record Location;
-        TRF_HEAD_REC: Record "Transfer Receipt Header";
 }
-

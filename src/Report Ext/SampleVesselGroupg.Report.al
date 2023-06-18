@@ -16,7 +16,7 @@ report 90192 "Sample Vessel Groupg"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -122,7 +122,6 @@ report 90192 "Sample Vessel Groupg"
 
     requestpage
     {
-
         layout
         {
         }
@@ -138,9 +137,7 @@ report 90192 "Sample Vessel Groupg"
 
     var
         LastFieldNo: Integer;
-        FooterPrinted: Boolean;
         TotalFor: Label 'Total for ';
         JobCaptionLbl: Label 'Job';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
 }
-

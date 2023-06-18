@@ -2,7 +2,7 @@ report 98015 "Job Lines Group by Posting"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/JobLinesGroupbyPosting.rdlc';
-
+    Caption = 'Job Lines Group by Posting';
     dataset
     {
         dataitem("Job Journal Line"; "Job Journal Line")
@@ -15,7 +15,7 @@ report 98015 "Job Lines Group by Posting"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -127,7 +127,6 @@ report 98015 "Job Lines Group by Posting"
 
     requestpage
     {
-
         layout
         {
         }
@@ -143,9 +142,7 @@ report 98015 "Job Lines Group by Posting"
 
     var
         LastFieldNo: Integer;
-        FooterPrinted: Boolean;
         TotalFor: Label 'Total for ';
         Job_Journal_LineCaptionLbl: Label 'Job Journal Line';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
 }
-

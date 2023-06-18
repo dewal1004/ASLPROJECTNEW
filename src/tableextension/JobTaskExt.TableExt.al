@@ -2,14 +2,12 @@ tableextension 50201 "Job Task Ext" extends "Job Task"
 {
     fields
     {
-
         field(50500; DescriptionASL; Text[200])
         {
             DataClassification = ToBeClassified;
         }
         field(50300; Incentive; Decimal)
         {
-
             trigger OnValidate()
             begin
                 "Net Inc" := Incentive + "Hook Inc" + "Add/Ded";
@@ -17,7 +15,6 @@ tableextension 50201 "Job Task Ext" extends "Job Task"
         }
         field(50301; "Hook Inc"; Decimal)
         {
-
             trigger OnValidate()
             begin
                 "Net Inc" := Incentive + "Hook Inc" + "Add/Ded";
@@ -25,7 +22,6 @@ tableextension 50201 "Job Task Ext" extends "Job Task"
         }
         field(50302; "Add/Ded"; Decimal)
         {
-
             trigger OnValidate()
             begin
                 "Net Inc" := Incentive + "Hook Inc" + "Add/Ded";
@@ -52,7 +48,6 @@ tableextension 50201 "Job Task Ext" extends "Job Task"
                 END;
                 UpdateAllocations(GenJnlLine);
                 */
-
             end;
         }
         field(50309; "Allocation %"; Decimal)
@@ -68,7 +63,6 @@ tableextension 50201 "Job Task Ext" extends "Job Task"
                   Amount := 0;
                 UpdateAllocations(GenJnlLine);
                 */
-
             end;
         }
         field(50310; Amount; Decimal)
@@ -88,7 +82,6 @@ tableextension 50201 "Job Task Ext" extends "Job Task"
                   UpdateJnlBalance(GenJnlLine);
                 END;
                 */
-
             end;
         }
         field(50315; "Resource Group"; Code[20])
@@ -113,14 +106,12 @@ tableextension 50201 "Job Task Ext" extends "Job Task"
     }
     keys
     {
-
         //Unsupported feature: Deletion (KeyCollection) on ""Job Task No."(Key)".
 
         key(ASLKey1; Description, "Job Task No.")
         {
         }
     }
-
 
     //Unsupported feature: Code Modification on "OnInsert".
 
@@ -153,11 +144,4 @@ tableextension 50201 "Job Task Ext" extends "Job Task"
     procedure "------------------"()
     begin
     end;
-
-    //Unsupported feature: Insertion (FieldGroupCollection) on "(FieldGroup: Brick)".
-
-
-    var
-        Res: Record Resource;
 }
-

@@ -2,7 +2,7 @@ report 99213 "Modify Export Order No2"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/ModifyExportOrderNo2.rdlc';
-
+    Caption = 'Modify Export Order No2';
     dataset
     {
         dataitem("Sales Invoice Header"; "Sales Invoice Header")
@@ -13,7 +13,7 @@ report 99213 "Modify Export Order No2"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -68,7 +68,6 @@ report 99213 "Modify Export Order No2"
 
     requestpage
     {
-
         layout
         {
         }
@@ -87,4 +86,3 @@ report 99213 "Modify Export Order No2"
         Sales_Invoice_HeaderCaptionLbl: Label 'Sales Invoice Header';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
 }
-

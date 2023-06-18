@@ -4,7 +4,7 @@ report 50080 "Voyage Consumption"
     RDLCLayout = './src/reportrdlc/VoyageConsumption.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
-
+    Caption = 'Voyage Consumption';
     dataset
     {
         dataitem("Job Ledger Entry"; "Job Ledger Entry")
@@ -62,7 +62,7 @@ report 50080 "Voyage Consumption"
             begin
 
                 Operatn.Get("Job No.");
-                CurrReport.ShowOutput(CurrReport.TotalsCausedBy = "Job Ledger Entry".FieldNo("Job No."));
+                CurrReport.ShowOutput(CurrReport.TotalsCausedBy() = "Job Ledger Entry".FieldNo("Job No."));
                 if Locatn.Get(Operatn.Vessel) then;
                 if Resour.Get(Operatn."Person Responsible") then;
             end;
@@ -76,7 +76,6 @@ report 50080 "Voyage Consumption"
 
     requestpage
     {
-
         layout
         {
         }
@@ -94,18 +93,6 @@ report 50080 "Voyage Consumption"
         Operatn: Record Job;
         Locatn: Record Location;
         Resour: Record Resource;
-        InventPG: Record "Inventory Posting Group";
         LastFieldNo: Integer;
-        FooterPrinted: Boolean;
-        TotalFor: Label 'Total for ';
         Desc: Text[30];
-        Voyage_Consumption_ReportCaptionLbl: Label 'Voyage Consumption Report';
-        CurrReport_PAGENOCaptionLbl: Label 'Page';
-        Captain_CaptionLbl: Label 'Captain:';
-        ETD_CaptionLbl: Label 'ETD:';
-        ETA_CaptionLbl: Label 'ETA:';
-        Voyage_No__CaptionLbl: Label 'Voyage No.:';
-        Vessel_Name_CaptionLbl: Label 'Vessel Name:';
-        Category_CaptionLbl: Label 'Category:';
 }
-

@@ -80,18 +80,21 @@ tableextension 50265 "tableextension50265" extends "Jobs Setup"
             CalcFormula = Sum(Job."Fishing Day (Manual)" WHERE("Ending Date" = FIELD("Date Filter")));
             DecimalPlaces = 0 : 2;
             FieldClass = FlowField;
+            Editable = false;
         }
         field(50533; "Lost At Sea (Manual)"; Decimal)
         {
             CalcFormula = Sum(Job."Lost At Sea (Manual)" WHERE("Ending Date" = FIELD("Date Filter")));
             DecimalPlaces = 0 : 2;
             FieldClass = FlowField;
+            Editable = false;
         }
         field(50534; "Port Day (Manual)"; Decimal)
         {
             CalcFormula = Sum(Job."Port Day (Manual)" WHERE("Ending Date" = FIELD("Date Filter")));
             DecimalPlaces = 0 : 2;
             FieldClass = FlowField;
+            Editable = false;
         }
         field(50910; "Date Filter"; Date)
         {
@@ -99,4 +102,3 @@ tableextension 50265 "tableextension50265" extends "Jobs Setup"
         }
     }
 }
-

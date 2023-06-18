@@ -2,7 +2,7 @@ table 50021 "Designation"
 {
     DrillDownPageID = "Course Attendance List";
     LookupPageID = "Course Attendance List";
-
+    Caption = 'Designation';
     fields
     {
         field(1; "Code"; Code[10])
@@ -48,9 +48,11 @@ table 50021 "Designation"
 
     fieldgroups
     {
+        fieldgroup(DropDown; Description)
+        {
+        }
     }
 
     var
         EmpGrp: Record "Payroll-Employee Group Header.";
 }
-

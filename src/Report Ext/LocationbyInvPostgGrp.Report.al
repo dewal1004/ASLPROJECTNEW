@@ -2,7 +2,7 @@ report 90501 "Location by Inv. Postg Grp"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/LocationbyInvPostgGrp.rdlc';
-
+    Caption = 'Location by Inv. Postg Grp';
     dataset
     {
         dataitem(Location; Location)
@@ -14,7 +14,7 @@ report 90501 "Location by Inv. Postg Grp"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -50,12 +50,12 @@ report 90501 "Location by Inv. Postg Grp"
                         val := '12090050'
                     else
                         if ("Inventory Posting Group".Code <= '175') and ("Inventory Posting Group".Code > '133') then val := '12090060';
-                    InvSetUp.Init;
+                    InvSetUp.Init();
                     InvSetUp."Location Code" := Location.Code;
                     InvSetUp."Invt. Posting Group Code" := "Inventory Posting Group".Code;
                     InvSetUp."Inventory Account" := val;
                     InvSetUp."Inventory Account (Interim)" := val;
-                    if not InvSetUp.Insert then InvSetUp.Modify;
+                    if not InvSetUp.Insert() then InvSetUp.Modify();
                 end;
             }
         }
@@ -63,7 +63,6 @@ report 90501 "Location by Inv. Postg Grp"
 
     requestpage
     {
-
         layout
         {
         }
@@ -83,4 +82,3 @@ report 90501 "Location by Inv. Postg Grp"
         LocationCaptionLbl: Label 'Location';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
 }
-

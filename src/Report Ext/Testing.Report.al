@@ -2,7 +2,7 @@ report 80225 "Testing"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/Testing.rdlc';
-
+    Caption = 'Testing';
     dataset
     {
         dataitem("Sea Food categories"; "Sea Food categories")
@@ -15,7 +15,7 @@ report 80225 "Testing"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(FORMAT_TODAY_0_4_; Format(Today, 0, 4))
@@ -105,7 +105,6 @@ report 80225 "Testing"
                     RepFilter:=GETFILTERS;
                     TotSales:=TotSales+"Sales (LCY)";
                     */  //
-
                 end;
             }
         }
@@ -113,7 +112,6 @@ report 80225 "Testing"
 
     requestpage
     {
-
         layout
         {
         }
@@ -128,9 +126,6 @@ report 80225 "Testing"
     }
 
     var
-        LastFieldNo: Integer;
-        FooterPrinted: Boolean;
         RepFilter: Text[120];
         TotSales: Decimal;
 }
-

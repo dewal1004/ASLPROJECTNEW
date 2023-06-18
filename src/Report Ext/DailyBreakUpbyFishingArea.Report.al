@@ -5,8 +5,7 @@ report 50044 "Daily BreakUp by Fishing Area"
     RDLCLayout = './src/reportrdlc/DailyBreakUpbyFishingArea.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
-
-
+    Caption = 'Daily BreakUp by Fishing Area';
     dataset
     {
         dataitem("Inventory Posting Group"; "Inventory Posting Group")
@@ -19,7 +18,7 @@ report 50044 "Daily BreakUp by Fishing Area"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -96,7 +95,6 @@ report 50044 "Daily BreakUp by Fishing Area"
             }
             column(SeaRange_1_; SeaRange[1])
             {
-
             }
             column(Inventory_Posting_Group__Statistics_Group__; "Statistics Group")
             {
@@ -112,103 +110,78 @@ report 50044 "Daily BreakUp by Fishing Area"
             }
             column(SeaRangeC_6_; SeaRangeC[6])
             {
-
             }
             column(SeaRangeC_5_; SeaRangeC[5])
             {
-
             }
             column(SeaRangeC_4_; SeaRangeC[4])
             {
-
             }
             column(SeaRangeC_3_; SeaRangeC[3])
             {
-
             }
             column(SeaRangeC_2_; SeaRangeC[2])
             {
-
             }
             column(SeaRangeC_1_; SeaRangeC[1])
             {
-
             }
             column(SeaRangeC_7_; SeaRangeC[7])
             {
-
             }
             column(SeaRangeC_8_; SeaRangeC[8])
             {
-
             }
             column(SeaRangeC_9_; SeaRangeC[9])
             {
-
             }
             column(SeaRangeC_10_; SeaRangeC[10])
             {
-
             }
             column(SeaRangeC_11_; SeaRangeC[11])
             {
-
             }
             column(SeaRangeC_12_; SeaRangeC[12])
             {
-
             }
             column(SeaRangeC_13_; SeaRangeC[13])
             {
-
             }
             column(SeaRangeC_14_; SeaRangeC[14])
             {
-
             }
             column(SeaRangeC_15_; SeaRangeC[15])
             {
-
             }
             column(SeaRangeC_16_; SeaRangeC[16])
             {
-
             }
             column(SeaRangeC_17_; SeaRangeC[17])
             {
-
             }
             column(SeaRangeC_18_; SeaRangeC[18])
             {
-
             }
             column(SeaRangeC_19_; SeaRangeC[19])
             {
-
             }
             column(SeaRangeC_20_; SeaRangeC[20])
             {
-
             }
             column(SeaRangeC_21_; SeaRangeC[21])
             {
-
             }
             column(SeaRangeC_22_; SeaRangeC[22])
             {
-
             }
             column(SeaRangeC_23_; SeaRangeC[23])
             {
-
             }
             column(SeaRangeC_24_; SeaRangeC[24])
             {
-
             }
             column(Inventory_Posting_Group_Inventory; Inventory)
             {
-
             }
             column(Inventory_Posting_Group_Inventory_Control1000000058; Inventory)
             {
@@ -280,8 +253,7 @@ report 50044 "Daily BreakUp by Fishing Area"
                 repeat
                     SeaRange[Countx] := locate.Code;
                     Countx := Countx + 1;
-                until locate.Next = 0;
-
+                until locate.Next() = 0;
 
                 //AAA-Aug 2002
                 //locate2.SETFILTER(locate2."date filter",'%1',GETRANGEMAX("Date Filter"));
@@ -290,7 +262,7 @@ report 50044 "Daily BreakUp by Fishing Area"
                         locate2.CalcFields(locate2."Voyage Sea Days");
                         locate2.VSDVal := locate2."Voyage Sea Days";
                         locate2.Modify();
-                    until locate2.Next = 0;
+                    until locate2.Next() = 0;
 
                 //AAA-April 2002
                 TotLoc := locate.Count;
@@ -302,7 +274,7 @@ report 50044 "Daily BreakUp by Fishing Area"
                             //MESSAGE('Reported %1 of Sea Days %2',locate.Code,locate.VSDVal);
                             Countx := Countx + 1;
                         end;
-                    until locate.Next = 0;
+                    until locate.Next() = 0;
                 TotLoc := Countx - 1;
             end;
         }
@@ -310,7 +282,6 @@ report 50044 "Daily BreakUp by Fishing Area"
 
     requestpage
     {
-
         layout
         {
         }
@@ -326,19 +297,13 @@ report 50044 "Daily BreakUp by Fishing Area"
 
     trigger OnInitReport()
     begin
-        CompanyInfo.Get
+        CompanyInfo.Get()
     end;
 
     var
         LastFieldNo: Integer;
-        FooterPrinted: Boolean;
         TotalFor: Label 'Total for ';
-        "-------": Integer;
-        Colum001: array[3] of Decimal;
-        RespCenter: Record "Responsibility Center";
         CompanyInfo: Record "Company Information";
-        FormatAddr: Codeunit "Format Address";
-        I: Integer;
         locate: Record "Fishing Area +";
         locate2: Record "Fishing Area +";
         SeaRange: array[100] of Text[30];
@@ -348,10 +313,8 @@ report 50044 "Daily BreakUp by Fishing Area"
         level: Integer;
         T001: Text[50];
         Cat: Code[15];
-        NotZr: Boolean;
         Daily_Break_Up_By_Fising_AreaCaptionLbl: Label 'Daily Break Up By Fising Area';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
         Inventory_Posting_Group__Statistics_Group__CaptionLbl: Label 'Label9';
         CatCaptionLbl: Label 'Category';
 }
-

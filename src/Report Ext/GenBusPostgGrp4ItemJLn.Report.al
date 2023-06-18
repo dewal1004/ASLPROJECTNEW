@@ -3,8 +3,7 @@ report 99975 "Gen. Bus Postg Grp 4 Item JLn"
     // NewGenBPostG
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/GenBusPostgGrp4ItemJLn.rdlc';
-
-
+    Caption = 'Gen. Bus Postg Grp 4 Item JLn';
     dataset
     {
         dataitem("Item Journal Line"; "Item Journal Line")
@@ -16,7 +15,7 @@ report 99975 "Gen. Bus Postg Grp 4 Item JLn"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -113,7 +112,6 @@ report 99975 "Gen. Bus Postg Grp 4 Item JLn"
 
     requestpage
     {
-
         layout
         {
         }
@@ -132,4 +130,3 @@ report 99975 "Gen. Bus Postg Grp 4 Item JLn"
         Item_Journal_LineCaptionLbl: Label 'Item Journal Line';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
 }
-

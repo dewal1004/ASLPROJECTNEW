@@ -55,5 +55,4 @@ page 50071 "PaySlip Line Detail"
     var
         EmpRec: Record Employee;
         EmpNAme: Text[100];
-
 }

@@ -1,6 +1,5 @@
 pageextension 50207 "Inventory Posting Groups Ext" extends "Inventory Posting Groups"
 {
-
     //Unsupported feature: Property Insertion (SourceTableView) on ""Inventory Posting Groups"(Page 112)".
 
     layout
@@ -113,7 +112,7 @@ pageextension 50207 "Inventory Posting Groups Ext" extends "Inventory Posting Gr
         // }
     }
     // area(factboxes)
-    //  {                
+    //  {
     //  }
     // systempart(Control29;Links)
     // {
@@ -122,7 +121,7 @@ pageextension 50207 "Inventory Posting Groups Ext" extends "Inventory Posting Gr
     // systempart(Control28;Notes)
     // {
     //     Visible = false;
-    // }        
+    // }
 
     actions
     {
@@ -134,10 +133,7 @@ pageextension 50207 "Inventory Posting Groups Ext" extends "Inventory Posting Gr
                 ApplicationArea = All;
                 RunObject = page "Inventory Posting Group Page";
                 RunPageOnRec = true;
-
             }
         }
     }
-
 }
-

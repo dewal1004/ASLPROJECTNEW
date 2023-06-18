@@ -56,8 +56,6 @@ tableextension 50303 "tableextension50303" extends "Transfer Shipment Header"
             TableRelation = "Gen. Product Posting Group";
 
             trigger OnValidate()
-            var
-                GenProdPostingGrp: Record "Gen. Product Posting Group";
             begin
             end;
         }
@@ -75,4 +73,3 @@ tableextension 50303 "tableextension50303" extends "Transfer Shipment Header"
         }
     }
 }
-

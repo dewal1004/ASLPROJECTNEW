@@ -6,8 +6,7 @@ report 58015 "Daily Cash Summaryd"
     RDLCLayout = './src/reportrdlc/DailyCashSummaryd.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
-
-
+    Caption = 'Daily Cash Summaryd';
     dataset
     {
         dataitem("Bank Account Ledger Entry"; "Bank Account Ledger Entry")
@@ -20,7 +19,7 @@ report 58015 "Daily Cash Summaryd"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -139,7 +138,7 @@ report 58015 "Daily Cash Summaryd"
             column(IOU_Date; Date)
             {
             }
-            column(EmployeeName; EmployeeName)
+            column(EmployeeName; EmployeeName())
             {
             }
             column(IOU_Amount; Amount)
@@ -241,7 +240,6 @@ report 58015 "Daily Cash Summaryd"
 
     requestpage
     {
-
         layout
         {
         }
@@ -257,10 +255,7 @@ report 58015 "Daily Cash Summaryd"
 
     var
         LastFieldNo: Integer;
-        FooterPrinted: Boolean;
         TotalFor: Label 'Total';
-        "------": Integer;
-        Bank: Record "Bank Account";
         Cust: Record Customer;
         Desc: Text[30];
         BankDesc: Text[30];
@@ -279,4 +274,3 @@ report 58015 "Daily Cash Summaryd"
         Checked_By_CaptionLbl: Label 'Checked By:';
         Approved_By_CaptionLbl: Label 'Approved By:';
 }
-

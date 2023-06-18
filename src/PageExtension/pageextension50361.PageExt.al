@@ -26,4 +26,3 @@ pageextension 50361 "pageextension50361" extends "Item Invoicing FactBox"
         }
     }
 }
-

@@ -14,13 +14,13 @@ tableextension 50202 "tableextension50202" extends "Job Planning Line"
                         Error('Resource is Already Posted')
                     else
                         Res.Posted := TRUE;
-                    Res.MODIFY;
+                    Res.MODIFY();
                     "Unit Cost" := Res."Unit Cost";
                     "Unit Price" := Res."Unit Price";
                     "Gen. Prod. Posting Group" := Res."Gen. Prod. Posting Group";
                     "Resource Group" := Res."Resource Group No.";
-                    ResourceExist;
-                    FindIncPerct;
+                    ResourceExist();
+                    FindIncPerct();
                     Validate("Unit of Measure Code", Res."Base Unit of Measure");
                     if Type <> Type::Text then
                         Validate(Quantity);
@@ -32,7 +32,7 @@ tableextension 50202 "tableextension50202" extends "Job Planning Line"
             trigger OnBeforeValidate()
             var
             begin
-                Invsetup.Get;
+                Invsetup.Get();
                 if Job.Get("Job No.") then begin
                     if Job."Sea Days" <> 0 then
                         DayFrac := Quantity / Job."Sea Days";
@@ -43,11 +43,9 @@ tableextension 50202 "tableextension50202" extends "Job Planning Line"
                     //MODIFY(TRUE);
                     "Alloted %" := "Allocation %" * DayFrac;
                 end;
-
             end;
         }
         //Unsupported feature: Property Insertion (ValidateTableRelation) on ""No."(Field 7)".
-
 
         //Unsupported feature: Code Modification on ""No."(Field 7).OnValidate".
 
@@ -102,7 +100,6 @@ tableextension 50202 "tableextension50202" extends "Job Planning Line"
           Validate(Quantity);
         */
         //end;
-
 
         //Unsupported feature: Code Modification on "Quantity(Field 9).OnValidate".
 
@@ -159,7 +156,6 @@ tableextension 50202 "tableextension50202" extends "Job Planning Line"
         //end;
         field(50300; Incentive; Decimal)
         {
-
             trigger OnValidate()
             begin
                 "Net Inc" := Incentive + "Hook Inc" + "Add/Ded";
@@ -167,7 +163,6 @@ tableextension 50202 "tableextension50202" extends "Job Planning Line"
         }
         field(50301; "Hook Inc"; Decimal)
         {
-
             trigger OnValidate()
             begin
                 "Net Inc" := Incentive + "Hook Inc" + "Add/Ded";
@@ -175,7 +170,6 @@ tableextension 50202 "tableextension50202" extends "Job Planning Line"
         }
         field(50302; "Add/Ded"; Decimal)
         {
-
             trigger OnValidate()
             begin
                 "Net Inc" := Incentive + "Hook Inc" + "Add/Ded";
@@ -205,9 +199,8 @@ tableextension 50202 "tableextension50202" extends "Job Planning Line"
 
                 case Type of
                     Type::Resource:
-                        begin
-                            Validate(Quantity, ("Ending Date" - "Starting Date"));
-                        end;
+
+                        Validate(Quantity, ("Ending Date" - "Starting Date"));
                 end;
             end;
         }
@@ -226,14 +219,12 @@ tableextension 50202 "tableextension50202" extends "Job Planning Line"
         }
         field(50319; "Starting Date"; Date)
         {
-
             trigger OnValidate()
             begin
                 case Type of
                     Type::Resource:
-                        begin
-                            Validate(Quantity, ("Ending Date" - "Starting Date"));
-                        end;
+
+                        Validate(Quantity, ("Ending Date" - "Starting Date"));
                 end;
             end;
         }
@@ -247,11 +238,9 @@ tableextension 50202 "tableextension50202" extends "Job Planning Line"
                   Phase.GET("Phase Code");
                   Description := Phase.Description;
                 END;*/ //dik
-
             end;
         }
     }
-
 
     //Unsupported feature: Code Modification on "OnDelete".
 
@@ -279,13 +268,12 @@ tableextension 50202 "tableextension50202" extends "Job Planning Line"
     begin
         if Res.Get("No.") then begin
             Res.Posted := false;
-            Res.Modify;
+            Res.Modify();
         end;
 
         if "Schedule Line" then
             Job.UpdateOverBudgetValue("Job No.", false, "Total Cost (LCY)");
     end;
-
 
     //Unsupported feature: Code Modification on "OnInsert".
 
@@ -318,11 +306,9 @@ tableextension 50202 "tableextension50202" extends "Job Planning Line"
 
         if Res.Get("No.") then begin
             Res.Posted := true;
-            Res.Modify;
+            Res.Modify();
         end;
-
     end;
-
 
     //Unsupported feature: Code Modification on "OnRename".
 
@@ -339,22 +325,18 @@ tableextension 50202 "tableextension50202" extends "Job Planning Line"
     begin
         case Type of
             Type::Resource:
-                begin
-                    if Res.Get("No.") then begin
-                        Res.Posted := false;
-                        Res.Modify;
-                        Commit;
-                    end;
-                end
+
+                if Res.Get("No.") then begin
+                    Res.Posted := false;
+                    Res.Modify();
+                    Commit();
+                end;
         end;
 
         Error(RecordRenameErr, FieldCaption("Job No."), FieldCaption("Job Task No."), TableCaption);
-
     end;
 
     //Unsupported feature: Property Modification (Name) on "SetBypassQtyValidation(PROCEDURE 32)".
-
-
 
     //Unsupported feature: Code Modification on "SetBypassQtyValidation(PROCEDURE 32)".
 
@@ -381,7 +363,7 @@ tableextension 50202 "tableextension50202" extends "Job Planning Line"
                     "Allocation %" := ResGr.IncentivePect
                 else begin
                     Job.Get("Job No.");
-                    OperatnSetup.Get;
+                    OperatnSetup.Get();
                     if Job."No. of Deck Hands" <> 0 then
                         "Allocation %" := OperatnSetup."Crew Share Percentage" / Job."No. of Deck Hands";
                 end;
@@ -392,11 +374,9 @@ tableextension 50202 "tableextension50202" extends "Job Planning Line"
     begin
         JobPlanLine.SetFilter("No.", Res."No.");
         JobPlanLine.SetRange("Job No.", "Job No.");
-        if JobPlanLine.FindFirst then begin
+        if JobPlanLine.FindFirst() then
             Error('Resource Already Exist', FieldCaption("Line No."), "No.");
-        end;
     end;
-
 
     //Unsupported feature: Property Modification (Id) on "BypassQtyValidation(Variable 1035)".
 
@@ -407,7 +387,6 @@ tableextension 50202 "tableextension50202" extends "Job Planning Line"
     //>>>> MODIFIED VALUE:
     //BypassQtyValidation : 1043;
     //Variable type has not been exported.
-
 
     //Unsupported feature: Property Modification (Id) on "NotPossibleJobPlanningLineErr(Variable 1000)".
 
@@ -427,17 +406,12 @@ tableextension 50202 "tableextension50202" extends "Job Planning Line"
         Invsetup: Record "Inventory Setup";
 
     var
-        "---": Integer;
-        Incent: Decimal;
         //"Starting Date": Date;
         JobPlanLine: Record "Job Planning Line";
         DayFrac: Decimal;
-        Resouce: Text;
         Res: Record Resource;
         Job: Record Job;
 
     var
-        BypassQtyPostedValidation: Boolean;
         RecordRenameErr: Text;
 }
-

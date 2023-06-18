@@ -2,7 +2,7 @@ page 50060 "Store Requisition Subform"
 {
     PageType = ListPart;
     SourceTable = "Store Requisition Line New";
-
+    Caption = 'Store Requisition Subform';
     layout
     {
         area(content)
@@ -132,7 +132,7 @@ page 50060 "Store Requisition Subform"
                 begin
                     ReqRec.SetRange(ReqRec."No.", Rec."Item No.");
                     ReqRec.SetFilter(ReqRec."Location Filter", Rec."Store Location");
-                    if ReqRec.FindFirst then
+                    if ReqRec.FindFirst() then
                         REPORT.RunModal(704, true, false, ReqRec);
                 end;
             }
@@ -145,7 +145,7 @@ page 50060 "Store Requisition Subform"
                     StoreHead.Get(Rec."Req. No.");
                     ReqRec.SetRange(ReqRec."No.", Rec."Item No.");
                     ReqRec.SetFilter(ReqRec."Location Filter", StoreHead."Transfer To.");
-                    if ReqRec.FindFirst then
+                    if ReqRec.FindFirst() then
                         REPORT.RunModal(704, true, false, ReqRec);
                 end;
             }
@@ -153,9 +153,6 @@ page 50060 "Store Requisition Subform"
     }
 
     var
-        Storeline: Record "Store Requisition Line New";
-        ItemRec: Record Item;
         ReqRec: Record Item;
         StoreHead: Record "Store Requisition Header New";
 }
-

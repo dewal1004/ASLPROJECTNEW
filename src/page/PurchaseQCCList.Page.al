@@ -8,7 +8,7 @@ page 50117 "Purchase QCC List"
                             "QCC Check" = CONST(false),
                             "Sent For QCC" = CONST(true),
                             Process = CONST(false));
-
+    Caption = 'Purchase QCC List';
     layout
     {
         area(content)
@@ -80,4 +80,3 @@ page 50117 "Purchase QCC List"
     {
     }
 }
-

@@ -1,6 +1,6 @@
 // table 50006 "Payroll-Payslip Lines."
 // {
-//     // This code requires refactoring 
+//     // This code requires refactoring
 //     DrillDownPageID = "Payslip Lines.";
 
 //     fields
@@ -192,7 +192,6 @@
 //         }
 //         field(7; Flag; Boolean)
 //         {
-
 //             trigger OnValidate()
 //             begin
 //                 /* If Period+Employee has already been closed then stop edit */
@@ -210,7 +209,6 @@
 //         }
 //         field(8; Amount; Decimal)
 //         {
-
 //             trigger OnValidate()
 //             begin
 //                 /* If Period+Employee has already been closed then stop edit */
@@ -520,8 +518,6 @@
 //         if ("Employee No" <> '') then BasicPay := EmployeeRec.GetBasic("Employee No");
 //     end;
 
-
-
 //     //[Scope('OnPrem')]
 //     procedure SpecialRelation("FieldNo.": Integer)
 //     var
@@ -538,7 +534,7 @@
 //             exit;
 
 //         /* If Period+Employee has already been closed then stop edit */
-//         if Checkclosed1 then  //from fn call  
+//         if Checkclosed1 then  //from fn call
 //             Error('Entries for Employee %1 for period %2 ' +
 //                    'have already been closed.', "Employee No", "Payroll Period");
 
@@ -678,9 +674,8 @@
 
 //             END;
 //     END;
-// } 
+// }
 //  //***Case
-
 
 //         //MESSAGE('TaxYTD: ' + FORMAT(TaxYTD) + '  ReturnAmount_before : ' +FORMAT(ReturnAmount));
 
@@ -796,7 +791,7 @@
 //     end;
 
 //     //[Scope('OnPrem')]
-//     local var 
+//     local var
 //     procedure CheckClosed(): Boolean
 //     begin
 //         /*””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””
@@ -1171,7 +1166,6 @@
 
 //              LookLinesRec.Reset
 //           end;
-
 
 //         /* Adjust amount as per maximum/minimum set in the E/D file. This will overide
 //           any max/min. values set in the Table Lookup Header file*/
@@ -1645,4 +1639,3 @@
 //         /////////** End  Cummulative Tax Calculation **/////////
 //     end;
 // }
-

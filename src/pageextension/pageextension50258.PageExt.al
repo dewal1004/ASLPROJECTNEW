@@ -2,7 +2,6 @@ pageextension 50258 "pageextension50258" extends "Recurring Job Jnl."
 {
     layout
     {
-
         modify("Recurring Frequency")
         {
             Visible = false;
@@ -28,18 +27,15 @@ pageextension 50258 "pageextension50258" extends "Recurring Job Jnl."
             Visible = false;
             Editable = false;
         }
-       /* modify(Type)
-        {
-            Visible = false;
-        }*/
+        /* modify(Type)
+         {
+             Visible = false;
+         }*/
         modify(Description)
         {
-
             //Unsupported feature: Property Modification (Name) on "Description(Control 12)".
 
-
             //Unsupported feature: Property Modification (SourceExpr) on "Description(Control 12)".
-
 
             //Unsupported feature: Property Modification (ImplicitType) on "Description(Control 12)".
 
@@ -49,7 +45,6 @@ pageextension 50258 "pageextension50258" extends "Recurring Job Jnl."
         {
             Editable = false;
         }
-
 
         modify("Total Cost")
         {
@@ -178,7 +173,6 @@ pageextension 50258 "pageextension50258" extends "Recurring Job Jnl."
             trigger OnAfterAction()
             begin
                 Rec.SetRange(Quantity);
-
             end;
         }
         modify("Post and &Print")
@@ -192,7 +186,6 @@ pageextension 50258 "pageextension50258" extends "Recurring Job Jnl."
             trigger OnAfterAction()
             begin
                 Rec.SetRange(Quantity);
-
             end;
         }
 
@@ -216,7 +209,6 @@ pageextension 50258 "pageextension50258" extends "Recurring Job Jnl."
         #1..3
         */
         //end;
-
 
         //Unsupported feature: Code Modification on ""Post and &Print"(Action 57).OnAction".
 
@@ -251,7 +243,7 @@ pageextension 50258 "pageextension50258" extends "Recurring Job Jnl."
                 trigger OnAction()
                 begin
                     //ClearCatch;
-                    Rec.ClearCatch;
+                    Rec.ClearCatch();
                 end;
             }
             action("Update Catch")
@@ -264,7 +256,7 @@ pageextension 50258 "pageextension50258" extends "Recurring Job Jnl."
 
                 trigger OnAction()
                 begin
-                    Rec.ClearCatchUpdate;
+                    Rec.ClearCatchUpdate();
                 end;
             }
             action("Initialize Vessel")
@@ -274,7 +266,7 @@ pageextension 50258 "pageextension50258" extends "Recurring Job Jnl."
 
                 trigger OnAction()
                 begin
-                    CopyVessel;
+                    CopyVessel();
                 end;
             }
         }
@@ -295,13 +287,9 @@ pageextension 50258 "pageextension50258" extends "Recurring Job Jnl."
     }
 
     var
-        ".................................": Integer;
         Items: Record Item;
-        Location: Record Location;
-        Job: Record Job;
         JobJournalLine: Record "Job Journal Line";
         "Copy From Vesel": Code[20];
-
 
     //Unsupported feature: Code Modification on "OnAfterGetCurrRecord".
 
@@ -331,14 +319,14 @@ pageextension 50258 "pageextension50258" extends "Recurring Job Jnl."
     begin
         if "Copy From Vesel" <> '' then
             JobJournalLine.SetRange(JobJournalLine."Journal Batch Name", "Copy From Vesel");
-        if JobJournalLine.FindFirst then
+        if JobJournalLine.FindFirst() then
             repeat
-                JobJnlLineCopy.Init;
+                JobJnlLineCopy.Init();
                 JobJnlLineCopy.TransferFields(JobJournalLine);
                 JobJnlLineCopy."Journal Batch Name" := rec."Journal Batch Name"; //CurrentJnlBatchName; //Revisit code
                 JobJnlLineCopy."Task Code" := JobJournalLine."Task Code";
-                JobJnlLineCopy.Insert;
-            until JobJournalLine.Next = 0;
+                JobJnlLineCopy.Insert();
+            until JobJournalLine.Next() = 0;
         Message('Line Coppied from Vessel %1', "Copy From Vesel");
     end;
 }
@@ -348,9 +336,7 @@ pageextension 50258 "pageextension50258" extends "Recurring Job Jnl."
 
 //Unsupported feature: Property Modification (Name) on ""Recurring Method"(Control 30)".
 
-
 //Unsupported feature: Property Modification (SourceExpr) on ""Recurring Method"(Control 30)".
-
 
 //Unsupported feature: Property Modification (ImplicitType) on ""Recurring Method"(Control 30)".
 

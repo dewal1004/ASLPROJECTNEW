@@ -1,6 +1,6 @@
 table 50017 "Skill Appraisal"
 {
-
+    Caption = 'Skill Appraisal';
     fields
     {
         field(1; "Skill code"; Code[10])
@@ -57,7 +57,6 @@ table 50017 "Skill Appraisal"
                         Points := 3;
                     Performance::Average:
                         Points := 2;
-
                 end;
             end;
         }
@@ -89,7 +88,6 @@ table 50017 "Skill Appraisal"
                   IF GenProdPostingGrp.ValidateVatProdPostingGroup(GenProdPostingGrp,"Gen. Prod. Posting Group") THEN
                     VALIDATE("VAT Prod. Posting Group",GenProdPostingGrp."Def. VAT Prod. Posting Group");
                 */
-
             end;
         }
         field(58; "VAT Prod. Posting Group"; Code[10])
@@ -102,6 +100,7 @@ table 50017 "Skill Appraisal"
             CalcFormula = Lookup("Sales Invoice Line".Quantity WHERE("Document No." = FIELD("Document Filter"),
                                                                       "No." = FIELD("Skill code")));
             FieldClass = FlowField;
+            Editable = false;
         }
         field(60; "Document Filter"; Code[10])
         {
@@ -124,4 +123,3 @@ table 50017 "Skill Appraisal"
     {
     }
 }
-

@@ -3,8 +3,7 @@ report 55807 "Sales Line Print Sam"
     // "Sales Line".
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/SalesLinePrintSam.rdlc';
-
-
+    Caption = 'Sales Line Print Sam';
     dataset
     {
         dataitem("Sales Line"; "Sales Line")
@@ -17,7 +16,7 @@ report 55807 "Sales Line Print Sam"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -144,7 +143,6 @@ report 55807 "Sales Line Print Sam"
 
     requestpage
     {
-
         layout
         {
         }
@@ -160,11 +158,9 @@ report 55807 "Sales Line Print Sam"
 
     var
         LastFieldNo: Integer;
-        FooterPrinted: Boolean;
         TotalFor: Label 'Total:';
         Sales_LineCaptionLbl: Label 'Sales Line';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
         Item_Category_Code_Sort_______Brand______Pack_Size_CaptionLbl: Label 'Label18';
         Control21CaptionLbl: Label 'Label21';
 }
-

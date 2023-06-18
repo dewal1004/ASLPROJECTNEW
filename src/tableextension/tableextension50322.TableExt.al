@@ -7,7 +7,6 @@ tableextension 50322 "tableextension50322" extends "Company Information"
         }
     }
 
-
     //Unsupported feature: Code Modification on "GetRegistrationNumber(PROCEDURE 14)".
 
     //procedure GetRegistrationNumber();
@@ -24,7 +23,6 @@ tableextension 50322 "tableextension50322" extends "Company Information"
     exit("VAT Registration No.");
     */
     //end;
-
 
     //Unsupported feature: Code Modification on "GetRegistrationNumberLbl(PROCEDURE 15)".
 
@@ -43,4 +41,3 @@ tableextension 50322 "tableextension50322" extends "Company Information"
     */
     //end;
 }
-

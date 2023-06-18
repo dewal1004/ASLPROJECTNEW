@@ -67,7 +67,6 @@ tableextension 50260 "tableextension50260" extends "Entry/Exit Point"
     }
     keys
     {
-
         //Unsupported feature: Property Deletion (Clustered) on "Code(Key)".
 
         // key(ASLKey1; "Entry No.")
@@ -78,22 +77,4 @@ tableextension 50260 "tableextension50260" extends "Entry/Exit Point"
         // {
         // }
     }
-
-
-    //Unsupported feature: Code Insertion on "OnInsert".
-
-    //trigger OnInsert()
-    //begin
-    /*
-    HistoricalPtsData.SetRange(HistoricalPtsData."Entry No.");
-    if HistoricalPtsData.Find('+') then
-      "Entry No." := HistoricalPtsData."Entry No." + 1
-    else
-      "Entry No." := 1;
-    */
-    //end;
-
-    var
-        HistoricalPtsData: Record "Entry/Exit Point";
 }
-

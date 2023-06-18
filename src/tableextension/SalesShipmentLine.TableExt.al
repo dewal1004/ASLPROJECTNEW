@@ -2,7 +2,6 @@ tableextension 50205 "tableextension50205" extends "Sales Shipment Line"
 {
     fields
     {
-
         //Unsupported feature: Property Modification (Data type) on ""Description 2"(Field 12)".
 
         field(50350; Numbers; Decimal)
@@ -21,7 +20,6 @@ tableextension 50205 "tableextension50205" extends "Sales Shipment Line"
             SumIndexFields = Quantity;
         }
     }
-
 
     //Unsupported feature: Code Modification on "InsertInvLineFromShptLine(PROCEDURE 2)".
 
@@ -58,8 +56,6 @@ tableextension 50205 "tableextension50205" extends "Sales Shipment Line"
 
     //Unsupported feature: Property Insertion (Local) on "ShowItemSalesInvLines(PROCEDURE 8)".
 
-
-
     //Unsupported feature: Code Modification on "ShowLineComments(PROCEDURE 10)".
 
     //procedure ShowLineComments();
@@ -77,4 +73,3 @@ tableextension 50205 "tableextension50205" extends "Sales Shipment Line"
     */
     //end;
 }
-

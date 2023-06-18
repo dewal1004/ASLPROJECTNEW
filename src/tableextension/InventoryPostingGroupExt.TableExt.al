@@ -176,6 +176,7 @@ tableextension 50332 "Inventory Posting Group Ext" extends "Inventory Posting Gr
             CalcFormula = Sum("Job catch Default"."Budget Quantity" WHERE(Code = FIELD(Code),
                                                                            "Budget Quantity" = FILTER(<> 0)));
             FieldClass = FlowField;
+            Editable = false;
         }
         field(55466; "Category 2"; Code[15])
         {
@@ -194,14 +195,13 @@ tableextension 50332 "Inventory Posting Group Ext" extends "Inventory Posting Gr
         }
         key(Key3; "Statistics Group", Category, "S/No.")
         {
-          Enabled = true;  
+            Enabled = true;
         }
         key(Key4; "S/No.")
         {
         }
         key(Key5; "S/No.", "Statistics Group")
         {
-            
         }
     }
 
@@ -218,12 +218,11 @@ tableextension 50332 "Inventory Posting Group Ext" extends "Inventory Posting Gr
         if DateFilter <> '' then
             ValuEntry.SetFilter(ValuEntry."Posting Date", DateFilter);
         ValuEntry.SetFilter(ValuEntry."External Document No.", '%1', '');
-        if ValuEntry.FindSet then begin
+        if ValuEntry.FindSet() then begin
             ValuEntry.CalcSums(Quantity);
             exit(ValuEntry.Quantity);
         end else
             exit(0);
-
     end;
 
     procedure InventoryTotal2(InvtCode: Code[10]; DateFilter: Text[100]): Decimal
@@ -238,12 +237,11 @@ tableextension 50332 "Inventory Posting Group Ext" extends "Inventory Posting Gr
         if DateFilter <> '' then
             ValuEntry.SetFilter(ValuEntry."Posting Date", DateFilter);
         ValuEntry.SetFilter(ValuEntry."External Document No.", '%1', '');
-        if ValuEntry.FindSet then begin
+        if ValuEntry.FindSet() then begin
             ValuEntry.CalcSums(Quantity);
             exit(ValuEntry.Quantity);
         end else
             exit(0);
-
     end;
 
     procedure InventoryThree(InvtCode: Code[10]; DateFilter: Text[100]): Decimal
@@ -257,12 +255,11 @@ tableextension 50332 "Inventory Posting Group Ext" extends "Inventory Posting Gr
         ValuEntry.SetFilter(ValuEntry."Location Code", 'CRM-ASL');
         if DateFilter <> '' then
             ValuEntry.SetFilter(ValuEntry."Posting Date", DateFilter);
-        if ValuEntry.FindSet then begin
+        if ValuEntry.FindSet() then begin
             ValuEntry.CalcSums(Quantity);
             exit(ValuEntry.Quantity);
         end else
             exit(0);
-
     end;
 
     procedure InventoryTotal3(InvtCode: Code[10]; DateFilter: Text[100]): Decimal
@@ -276,12 +273,11 @@ tableextension 50332 "Inventory Posting Group Ext" extends "Inventory Posting Gr
         ValuEntry.SetFilter(ValuEntry."Location Code", '<>%1', 'CRM-ASL');
         if DateFilter <> '' then
             ValuEntry.SetFilter(ValuEntry."Posting Date", DateFilter);
-        if ValuEntry.FindSet then begin
+        if ValuEntry.FindSet() then begin
             ValuEntry.CalcSums(Quantity);
             exit(ValuEntry.Quantity);
         end else
             exit(0);
-
     end;
 
     procedure InventoryFour(InvtCode: Code[10]; DateFilter: Text[100]; SourceCodeFilter: Text[100]): Decimal
@@ -297,7 +293,7 @@ tableextension 50332 "Inventory Posting Group Ext" extends "Inventory Posting Gr
             ValuEntry.SetFilter(ValuEntry."Posting Date", DateFilter);
         if SourceCodeFilter <> '' then
             ValuEntry.SetFilter(ValuEntry."Source Code", SourceCodeFilter);
-        if ValuEntry.FindSet then begin
+        if ValuEntry.FindSet() then begin
             ValuEntry.CalcSums(Quantity);
             exit(ValuEntry.Quantity);
         end else
@@ -318,12 +314,11 @@ tableextension 50332 "Inventory Posting Group Ext" extends "Inventory Posting Gr
             ValuEntry.SetFilter(ValuEntry."Posting Date", DateFilter);
         SourceCodeFilter := '<>PHYSINVJNL&<>TRANSFER&<>ITEMJNL&<>SALES&<>PURCHASES&<>PURCHJNL&<>SALESJNL&<>JOBJNL';
         ValuEntry.SetFilter(ValuEntry."Source Code", SourceCodeFilter);
-        if ValuEntry.FindSet then begin
+        if ValuEntry.FindSet() then begin
             ValuEntry.CalcSums(Quantity);
             exit(ValuEntry.Quantity);
         end else
             exit(0);
-
     end;
 
     procedure InvtIncentive(InvtCode: Code[10]; DateFilter: Text[100]; SourceCodeFilter: Text[100]; LocFilter: Text[100]; ReasonCodeFilter: Text[100]; SourceNoFilter: Text[100]): Decimal
@@ -342,12 +337,10 @@ tableextension 50332 "Inventory Posting Group Ext" extends "Inventory Posting Gr
             ValuEntry.SetFilter(ValuEntry."Source Code", SourceCodeFilter);
         if ReasonCodeFilter <> '' then
             ValuEntry.SetFilter(ValuEntry."Reason Code", ReasonCodeFilter);
-        if ValuEntry.FindSet then begin
+        if ValuEntry.FindSet() then begin
             ValuEntry.CalcSums(Quantity);
             exit(ValuEntry.Quantity);
         end else
             exit(0);
-
     end;
 }
-

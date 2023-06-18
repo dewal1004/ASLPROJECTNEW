@@ -26,20 +26,10 @@ pageextension 50311 "pageextension50311" extends "Production Journal"
                 Visible = true;
                 ApplicationArea = All;
             }
-
         }
-
     }
 
-
-
-    var
-        ConsumedQuantityEditable: Boolean;
-
-
-
     //Unsupported feature: Property Deletion (CaptionML) on "Quantity(Control 23)".
-
 
     //Unsupported feature: Code Insertion on ""Scrap Quantity"(Control 128)".
 
@@ -94,14 +84,12 @@ pageextension 50311 "pageextension50311" extends "Production Journal"
     //ScrapQuantityEditable := "Entry Type" = "Entry Type"::Output;
     OutputQuantityEditable := "Entry Type" = "Entry Type"::Output;
 
-
     ConsumedQuantityEditable := "Entry Type" = "Entry Type"::Consumption; //CODEWARE
     //QuantityEditable := "Entry Type" = "Entry Type"::Consumption;
     AppliesFromEntryEditable := "Entry Type" = "Entry Type"::Consumption;
     {<<<<<<<}
     */
     //end;
-
 
     //Unsupported feature: Code Modification on "ScrapQuantityOnFormat(PROCEDURE 19017313)".
 
@@ -121,4 +109,3 @@ pageextension 50311 "pageextension50311" extends "Production Journal"
     */
     //end;
 }
-

@@ -32,7 +32,6 @@ tableextension 50230 "tableextension50230" extends Job
         {
             OptionCaption = 'Budget,Preparation,Voyage Start,Close Job Card';
         }
-
         field(50137; "Task Filter"; Code[10])
         {
             Caption = 'Task Filter';
@@ -45,7 +44,7 @@ tableextension 50230 "tableextension50230" extends Job
 
             trigger OnValidate()
             begin
-                CheckStatus;
+                CheckStatus();
 
                 if FA.Get(Vessel) then
                     "Global Dimension 2 Code" := FA."Global Dimension 2 Code"
@@ -93,7 +92,7 @@ tableextension 50230 "tableextension50230" extends Job
                     //Update Location Code
                     Loc."Current Operation" := "No.";
                     Loc."Current Voyage" := "Voyage No.";
-                    Loc.Modify;
+                    Loc.Modify();
                 end;
                 Validate(Description, Vessel + ' ' + "Voyage No.");
 
@@ -108,14 +107,13 @@ tableextension 50230 "tableextension50230" extends Job
                 //BIN03
 
                 //Create Job Journal batch;
-                JJourBat.Init;
+                JJourBat.Init();
                 JJourBat."Journal Template Name" := 'RECURRING';
                 JJourBat.Name := Vessel;
                 if not JJourBat.Insert() then JJourBat.Modify();
 
                 if Vessel <> '' then
                     Status := Status::Quote;
-
             end;
         }
         field(50301; "Fishing Country Code"; Code[10])
@@ -210,15 +208,15 @@ tableextension 50230 "tableextension50230" extends Job
                 Validate(Description, Vessel + ' ' + "Voyage No.");
                 if JJourBat.Get('RECURRING', Vessel) then begin
                     JJourBat."Voyage No." := "Voyage No.";
-                    JJourBat.Modify;
+                    JJourBat.Modify();
                 end;
 
                 if Loc.Get(Vessel) then begin
                     Loc."Current Voyage" := "Voyage No.";
-                    Loc.Modify;
+                    Loc.Modify();
                 end;
 
-                GenSetup.Get;
+                GenSetup.Get();
                 if UserId <> GenSetup.Administrator then
                     if ("Voyage No." <> xRec."Voyage No.") and (xRec."Voyage No." <> '') then begin
                         JLedEnt.SetRange(JLedEnt."Job No.", "No.");
@@ -279,6 +277,7 @@ tableextension 50230 "tableextension50230" extends Job
         {
             CalcFormula = Sum("Job Planning Line"."Hook Inc" WHERE("Job No." = FIELD("No.")));
             FieldClass = FlowField;
+            Editable = false;
         }
         field(50344; "Total Incentive"; Decimal)
         {
@@ -287,6 +286,7 @@ tableextension 50230 "tableextension50230" extends Job
         {
             CalcFormula = Sum("Job Planning Line"."Add/Ded" WHERE("Job No." = FIELD("No.")));
             FieldClass = FlowField;
+            Editable = false;
         }
         field(50346; "Net Incentive"; Decimal)
         {
@@ -443,6 +443,7 @@ tableextension 50230 "tableextension50230" extends Job
                                                           "Posting Date" = FIELD("Date Filter"),
                                                           Type = CONST(Resource)));
             FieldClass = FlowField;
+            Editable = false;
         }
         field(50460; "Gen. Product PG Filter"; Code[10])
         {
@@ -546,7 +547,6 @@ tableextension 50230 "tableextension50230" extends Job
 
     keys
     {
-
         //Unsupported feature: Property Insertion (SumIndexFields) on ""No."(Key)".
 
         // key(Key1; Vessel, "Starting Date")
@@ -599,9 +599,6 @@ tableextension 50230 "tableextension50230" extends Job
         // }  ***
     }
 
-
-
-
     //Unsupported feature: Code Modification on "UpdateCust(PROCEDURE 4)".
 
     //procedure UpdateCust();
@@ -634,7 +631,6 @@ tableextension 50230 "tableextension50230" extends Job
     */
     //end;
 
-
     //Unsupported feature: Code Modification on "CheckReservationEntries(PROCEDURE 45)".
 
     //procedure CheckReservationEntries();
@@ -663,7 +659,6 @@ tableextension 50230 "tableextension50230" extends Job
     #4..12
     */
     //end;
-
 
     //Unsupported feature: Code Modification on "AddToMyJobs(PROCEDURE 25)".
 
@@ -739,14 +734,13 @@ tableextension 50230 "tableextension50230" extends Job
           REPEAT
             TotalPrice := TotalPrice + JobLedgEntry."Total Price";
           UNTIL JobLedgEntry.NEXT = 0;*/
-        if JobLedgEntry.FindSet then begin
+        if JobLedgEntry.FindSet() then begin
             JobLedgEntry.CalcSums("Total Price");
             //EXIT(-TotalPrice);
             exit(JobLedgEntry."Total Price" * -1);
             //<<KSD
         end else
             exit(0);
-
     end;
 
     procedure PointsActual(JobNo: Code[10]; DateFilter: Text[100]; PhaseFilter: Text[100]; TaskFilter: Text[100]; StepFilter: Text[100]): Decimal
@@ -769,16 +763,13 @@ tableextension 50230 "tableextension50230" extends Job
         if JobLedgEntry.Find('-') then begin
             repeat
                 TotalPrice := TotalPrice + JobLedgEntry."Total Price";
-            until JobLedgEntry.Next = 0;
+            until JobLedgEntry.Next() = 0;
             exit(-TotalPrice);
         end else
             exit(0);
     end;
 
     procedure LostDaysz(JobNo: Code[10]; DateFilter: Text[100]; DayLostCauseFilter: Text[100]; DayLostLocFilter: Text[100]): Decimal
-    var
-        CommentLine: Record "Comment Line";
-        DaysLost: Decimal;
     begin
         /*DaysLost := 0;
         CommentLine.SETCURRENTKEY("Global Dimension 1 Code","Global Dimension 2 Code",Date,
@@ -799,7 +790,6 @@ tableextension 50230 "tableextension50230" extends Job
         END ELSE
           EXIT(0);
         */
-
     end;
 
     procedure ConsumedValue(JobNo: Code[10]; LocFilter: Text[100]; DateFilter: Text[100]): Decimal
@@ -818,7 +808,7 @@ tableextension 50230 "tableextension50230" extends Job
         if ValuEntry.Find('-') then begin
             repeat
                 CostPostedGL := CostPostedGL + ValuEntry."Cost Posted to G/L";
-            until ValuEntry.Next = 0;
+            until ValuEntry.Next() = 0;
             exit(-CostPostedGL);
         end else
             exit(0);
@@ -839,7 +829,7 @@ tableextension 50230 "tableextension50230" extends Job
         if JobLedgEntry.Find('-') then begin
             repeat
                 Qty := Qty + JobLedgEntry.Quantity;
-            until JobLedgEntry.Next = 0;
+            until JobLedgEntry.Next() = 0;
             exit(-Qty);
         end else
             exit(0);
@@ -863,7 +853,7 @@ tableextension 50230 "tableextension50230" extends Job
         if JobLedgEntry.Find('-') then begin
             repeat
                 Qty := Qty + JobLedgEntry.Quantity;
-            until JobLedgEntry.Next = 0;
+            until JobLedgEntry.Next() = 0;
             exit(-Qty);
         end else
             exit(0);
@@ -872,7 +862,6 @@ tableextension 50230 "tableextension50230" extends Job
     procedure FishArea(JobNo: Code[10]; GlobalDim1: Text[100]; GlobalDim2: Text[100]; LocFilter: Text[100]; VarFilter: Text[100]; BinFilter: Text[100]; DateFilter: Text[100]; PhaseFilter: Text[100]; TaskFilter: Text[100]; StepFilter: Text[100]): Code[10]
     var
         JobLedgEntry: Record "Job Ledger Entry";
-        Qty: Decimal;
     begin
         JobLedgEntry.SetCurrentKey("Job No.", "Location Code", "Posting Date",
           "Global Dimension 1 Code", "Global Dimension 2 Code", "Variant Code", "Bin Code");
@@ -903,9 +892,9 @@ tableextension 50230 "tableextension50230" extends Job
         else begin
             JobplanLine.SetRange(JobplanLine."Job No.", "No.");
             JobplanLine.SetRange(JobplanLine."Job Task No.", 'temp');
-            if JobplanLine.FindLast then
+            if JobplanLine.FindLast() then
                 LineNo := JobplanLine."Line No.";
-            JobplanLine.Init;
+            JobplanLine.Init();
             JobplanLine."Line No." := LineNo + 1000;
             JobplanLine."Job No." := "No.";
             JobplanLine."Job Task No." := JobTask."Job Task No.";
@@ -914,11 +903,9 @@ tableextension 50230 "tableextension50230" extends Job
             JobplanLine.Validate(JobplanLine."Document No.", 'TEST123');
             JobplanLine."Starting Date" := "Starting Date";
             JobplanLine."Ending Date" := "Ending Date";
-            JobplanLine.Insert;
+            JobplanLine.Insert();
         end;
-        if "Person Responsible" = '' then begin
-
-        end;
+        if "Person Responsible" = '' then;
 
         //A Skipper could be replace otherwise we would have said there should only be on skipper on a vessel
     end;
@@ -946,7 +933,7 @@ tableextension 50230 "tableextension50230" extends Job
           REPEAT
             FishArea1 := JobLedgEntry."Phase Code";
           UNTIL JobLedgEntry.NEXT = 0;*/
-        if JobLedgEntry.FindLast then
+        if JobLedgEntry.FindLast() then
             exit(JobLedgEntry."Phase Code")
         else
             exit('');
@@ -955,7 +942,6 @@ tableextension 50230 "tableextension50230" extends Job
         END ELSE
           EXIT('');*/
         //<<KSD
-
     end;
 
     procedure SeaTemperature(JobNo: Code[10]; GlobalDim1: Text[100]; GlobalDim2: Text[100]; LocFilter: Text[100]; VarFilter: Text[100]; BinFilter: Text[100]; DateFilter: Text[100]; PhaseFilter: Text[100]; TaskFilter: Text[100]; StepFilter: Text[100]): Code[10]
@@ -982,13 +968,6 @@ tableextension 50230 "tableextension50230" extends Job
             exit('');
     end;
 
-    //Unsupported feature: Property Modification (Fields) on "DropDown(FieldGroup 1)".
-
-
-    var
-        Resource: Record Resource;
-
-
     //Unsupported feature: Property Modification (Id) on "RunWIPFunctionsQst(Variable 1028)".
 
     //var
@@ -999,7 +978,6 @@ tableextension 50230 "tableextension50230" extends Job
     //RunWIPFunctionsQst : 1128;
     //Variable type has not been exported.
 
-
     //Unsupported feature: Property Modification (Id) on "ReservationEntriesExistErr(Variable 1027)".
 
     //var
@@ -1009,7 +987,6 @@ tableextension 50230 "tableextension50230" extends Job
     //>>>> MODIFIED VALUE:
     //ReservationEntriesExistErr : 1127;
     //Variable type has not been exported.
-
 
     //Unsupported feature: Property Modification (Id) on "AutoReserveNotPossibleMsg(Variable 1029)".
 
@@ -1027,27 +1004,19 @@ tableextension 50230 "tableextension50230" extends Job
         JobSetup: Record "Jobs Setup";
         JJourBat: Record "Job Journal Batch";
         Jobs: Record Job;
-        "------AAA-Nov2001": Text[30];
-        JobsRec: Record Job;
         Res: Record Resource;
         GenSetup: Record "General Ledger Setup";
         JLedEnt: Record "Job Ledger Entry";
-        Days: Date;
-        ResPrice: Record "Resource Price";
-        CommentLine: Record "Comment Line";
-        ChangeJobStatus: Boolean;
         Text300: Label 'You cannot modify a voyage that has been posted to';
         JobplanLine: Record "Job Planning Line";
         JobTask: Record "Job Task";
         LineNo: Integer;
-        Text001: Label 'You cannot change a job to its previous status.';
-        Text002: Label 'Please note that you cannot change a job to its previous';
 }
 
 //No. of Deck Hands"o."
 
 // field(50001; "0"; Decimal) {}
-//         field(50002; "1"; Decimal) 
+//         field(50002; "1"; Decimal)
 //         {
 //             TableRelation = "Job Ledger Entry" WHERE("Job No." = field("No."));
 //         }

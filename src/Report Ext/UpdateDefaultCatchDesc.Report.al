@@ -2,7 +2,7 @@ report 90993 "Update Default Catch Desc."
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/UpdateDefaultCatchDesc.rdlc';
-
+    Caption = 'Update Default Catch Desc.';
     dataset
     {
         dataitem("Course Attendance"; "Course Attendance")
@@ -14,7 +14,7 @@ report 90993 "Update Default Catch Desc."
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -64,24 +64,22 @@ report 90993 "Update Default Catch Desc."
             begin
                 if items.Get("Course Attendance"."Rec No.") then
                     "Course Attendance"."Region Code" := items.Description;
-                "Course Attendance".Modify;
+                "Course Attendance".Modify();
             end;
         }
         dataitem("Training Courses"; "Training Courses")
         {
-
             trigger OnAfterGetRecord()
             begin
                 if items.Get("Training Courses"."Vendor name") then
                     //"Training Courses".Time:=items.Description;//@MA
-                    "Training Courses".Modify;
+                    "Training Courses".Modify();
             end;
         }
     }
 
     requestpage
     {
-
         layout
         {
         }
@@ -101,4 +99,3 @@ report 90993 "Update Default Catch Desc."
         CurrReport_PAGENOCaptionLbl: Label 'Page';
         items__Statistics_Group_CaptionLbl: Label 'Label21';
 }
-

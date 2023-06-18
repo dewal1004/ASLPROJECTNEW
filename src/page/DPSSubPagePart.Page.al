@@ -3,7 +3,7 @@ page 50124 "DPS SubPage Part"
     PageType = CardPart;
     RefreshOnActivate = true;
     SourceTable = "Dynamics Procurement Register";
-
+    Caption = 'DPS SubPage Part';
     layout
     {
         area(content)
@@ -101,4 +101,3 @@ page 50124 "DPS SubPage Part"
     {
     }
 }
-

@@ -2,7 +2,7 @@ report 99001 "Daily break up by vessels"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/Dailybreakupbyvessels.rdlc';
-
+    Caption = 'Daily break up by vessels';
     dataset
     {
         dataitem(Item; Item)
@@ -15,7 +15,7 @@ report 99001 "Daily break up by vessels"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -67,7 +67,6 @@ report 99001 "Daily break up by vessels"
 
     requestpage
     {
-
         layout
         {
         }
@@ -83,9 +82,7 @@ report 99001 "Daily break up by vessels"
 
     var
         LastFieldNo: Integer;
-        FooterPrinted: Boolean;
         TotalFor: Label 'Total for ';
         ItemCaptionLbl: Label 'Item';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
 }
-

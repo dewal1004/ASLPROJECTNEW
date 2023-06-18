@@ -19,7 +19,7 @@ page 60076 "Resource CardX"
                     trigger OnAssistEdit()
                     begin
                         if Rec.AssistEdit(xRec) then
-                            CurrPage.Update;
+                            CurrPage.Update();
                     end;
                 }
                 field(Name; Rec.Name)
@@ -319,4 +319,3 @@ page 60076 "Resource CardX"
         }
     }
 }
-

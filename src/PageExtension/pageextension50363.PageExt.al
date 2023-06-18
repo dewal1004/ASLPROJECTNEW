@@ -46,4 +46,3 @@ pageextension 50363 "pageextension50363" extends "Job Ledger Entries"
         }
     }
 }
-

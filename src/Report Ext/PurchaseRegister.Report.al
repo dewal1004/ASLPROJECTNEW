@@ -2,7 +2,7 @@ report 50168 "Purchase Register"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/PurchaseRegister.rdlc';
-
+    Caption = 'Purchase Register';
     dataset
     {
         dataitem("Purch. Inv. Header"; "Purch. Inv. Header")
@@ -19,7 +19,7 @@ report 50168 "Purchase Register"
             column(FORMAT_TODAY_0_4_; Format(Today, 0, 4))
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(Purch__Inv__Header__GETFILTERS; "Purch. Inv. Header".GetFilters)
@@ -222,7 +222,6 @@ report 50168 "Purchase Register"
 
     requestpage
     {
-
         layout
         {
         }
@@ -247,19 +246,12 @@ report 50168 "Purchase Register"
 
     var
         PurchInvHeader: Record "Purch. Inv. Header";
-        UserSetup: Record "User Setup";
-        ItemRec: Record Item;
         Vendor: Record Vendor;
-        CurrencyExchRate: Record "Currency Exchange Rate";
-        totalamount: Decimal;
-        DiscAmount: Decimal;
-        InvDisc: Decimal;
         ItemFilter: Code[250];
         TotQty: Decimal;
         UnitCost: Decimal;
         InvAmount: Decimal;
         VatAmount: Decimal;
-        ShowDetails: Boolean;
         ShowVat: Boolean;
         AmountCaption: Text[30];
         CurrReport_PAGENOCaptionLbl: Label 'Page';
@@ -286,4 +278,3 @@ report 50168 "Purchase Register"
         Grand_TotalCaptionLbl: Label 'Grand Total';
         Total_for_Vendor_CaptionLbl: Label 'Total for Vendor:';
 }
-

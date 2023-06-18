@@ -2,7 +2,7 @@ report 90007 "LOCATION SEA DAY"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/LOCATIONSEADAY.rdlc';
-
+    Caption = 'LOCATION SEA DAY';
     dataset
     {
         dataitem(Location; Location)
@@ -14,7 +14,7 @@ report 90007 "LOCATION SEA DAY"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -58,14 +58,13 @@ report 90007 "LOCATION SEA DAY"
                 else
                     Location."Sea Days" := 0;
 
-                Location.Modify;
+                Location.Modify();
             end;
         }
     }
 
     requestpage
     {
-
         layout
         {
         }
@@ -83,4 +82,3 @@ report 90007 "LOCATION SEA DAY"
         LocationCaptionLbl: Label 'Location';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
 }
-

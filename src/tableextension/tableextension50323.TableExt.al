@@ -2,7 +2,6 @@ tableextension 50323 "tableextension50323" extends "Gen. Journal Template"
 {
     fields
     {
-
         //Unsupported feature: Code Modification on "Type(Field 9).OnValidate".
 
         //trigger OnValidate()
@@ -29,4 +28,3 @@ tableextension 50323 "tableextension50323" extends "Gen. Journal Template"
         //end;
     }
 }
-

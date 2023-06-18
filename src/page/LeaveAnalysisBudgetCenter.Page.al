@@ -4,7 +4,7 @@ page 60023 "Leave Analysis/Budget Center"
     PageType = Card;
     SaveValues = true;
     SourceTable = Employee;
-
+    Caption = 'Leave Analysis/Budget Center';
     layout
     {
         area(content)
@@ -20,7 +20,7 @@ page 60023 "Leave Analysis/Budget Center"
 
                     trigger OnValidate()
                     begin
-                        PasteFilter;
+                        PasteFilter();
                     end;
                 }
                 field(PeriodType; PeriodType)
@@ -32,7 +32,7 @@ page 60023 "Leave Analysis/Budget Center"
 
                     trigger OnValidate()
                     begin
-                        PasteFilter;
+                        PasteFilter();
                     end;
                 }
             }
@@ -47,7 +47,7 @@ page 60023 "Leave Analysis/Budget Center"
 
                 trigger OnValidate()
                 begin
-                    PasteFilter;
+                    PasteFilter();
                 end;
             }
         }
@@ -59,12 +59,12 @@ page 60023 "Leave Analysis/Budget Center"
 
     trigger OnAfterGetRecord()
     begin
-        PasteFilter;
+        PasteFilter();
     end;
 
     trigger OnOpenPage()
     begin
-        PasteFilter;
+        PasteFilter();
     end;
 
     var
@@ -89,92 +89,90 @@ page 60023 "Leave Analysis/Budget Center"
           DeptFilter,ProjFilter,
           EmployeeNoFilter,LeaveCatFilter,LeaveFilter);
           */
-
     end;
 
     local procedure LeaveCatFilterOnAfterInput(var Text: Text[1024])
     begin
-        PasteFilter;
+        PasteFilter();
     end;
 
     local procedure AccountingPerioPeriodTypOnPush()
     begin
-        PasteFilter;
+        PasteFilter();
     end;
 
     local procedure YearPeriodTypeOnPush()
     begin
-        PasteFilter;
+        PasteFilter();
     end;
 
     local procedure QuarterPeriodTypeOnPush()
     begin
-        PasteFilter;
+        PasteFilter();
     end;
 
     local procedure MonthPeriodTypeOnPush()
     begin
-        PasteFilter;
+        PasteFilter();
     end;
 
     local procedure WeekPeriodTypeOnPush()
     begin
-        PasteFilter;
+        PasteFilter();
     end;
 
     local procedure DayPeriodTypeOnPush()
     begin
-        PasteFilter;
+        PasteFilter();
     end;
 
     local procedure NetChangeLeaveAmountTypeOnPush()
     begin
-        PasteFilter;
+        PasteFilter();
     end;
 
     local procedure BalanceatDateLeaveAmountOnPush()
     begin
-        PasteFilter;
+        PasteFilter();
     end;
 
     local procedure DayPeriodTypeOnValidate()
     begin
-        DayPeriodTypeOnPush;
+        DayPeriodTypeOnPush();
     end;
 
     local procedure WeekPeriodTypeOnValidate()
     begin
-        WeekPeriodTypeOnPush;
+        WeekPeriodTypeOnPush();
     end;
 
     local procedure MonthPeriodTypeOnValidate()
     begin
-        MonthPeriodTypeOnPush;
+        MonthPeriodTypeOnPush();
     end;
 
     local procedure QuarterPeriodTypeOnValidate()
     begin
-        QuarterPeriodTypeOnPush;
+        QuarterPeriodTypeOnPush();
     end;
 
     local procedure YearPeriodTypeOnValidate()
     begin
-        YearPeriodTypeOnPush;
+        YearPeriodTypeOnPush();
     end;
 
     local procedure AccountingPerioPeriodTypeOnVal()
     begin
-        AccountingPerioPeriodTypOnPush;
+        AccountingPerioPeriodTypOnPush();
     end;
 
     local procedure NetChangeLeaveAmountTypeOnVali()
     begin
-        NetChangeLeaveAmountTypeOnPush;
+        NetChangeLeaveAmountTypeOnPush();
     end;
 
     local procedure BalanceatDateLeaveAmountTypeOn()
     begin
-        BalanceatDateLeaveAmountOnPush;
+        BalanceatDateLeaveAmountOnPush();
     end;
 }
-

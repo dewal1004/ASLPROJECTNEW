@@ -10,7 +10,7 @@ report 50086 "Balance At Date (Cust/Vend)"
     RDLCLayout = './src/reportrdlc/BalanceAtDateCustVend.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
-
+    Caption = 'Balance At Date (Cust/Vend)';
     dataset
     {
         dataitem(Customer; Customer)
@@ -27,7 +27,7 @@ report 50086 "Balance At Date (Cust/Vend)"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -60,7 +60,7 @@ report 50086 "Balance At Date (Cust/Vend)"
             column(Customer__Debit_Amount__LCY__; "Debit Amount (LCY)")
             {
             }
-            column(CurrReport_PAGENO_Control1000000056; CurrReport.PageNo)
+            column(CurrReport_PAGENO_Control1000000056; CurrReport.PageNo())
             {
             }
             column(USERID_Control1000000058; UserId)
@@ -156,14 +156,13 @@ report 50086 "Balance At Date (Cust/Vend)"
             begin
                 if ShowZero = true then
                     Test := 'Yes';
-                if Output = Output::Vendor then CurrReport.Break;
+                if Output = Output::Vendor then CurrReport.Break();
 
                 LastFieldNo := FieldNo("No.");
                 if (Output = Output::Customer) or (Output = Output::Both) then begin
                     ToDate := GetRangeMax(Customer."Date Filter");
                     FrDate := GetRangeMin(Customer."Date Filter");
                 end;
-
 
                 //IF Output<>Output::Both THEN CurrReport.SKIP;
             end;
@@ -174,7 +173,7 @@ report 50086 "Balance At Date (Cust/Vend)"
             column(FORMAT_TODAY_0_4__Control1000000044; Format(Today, 0, 4))
             {
             }
-            column(CurrReport_PAGENO_Control1000000045; CurrReport.PageNo)
+            column(CurrReport_PAGENO_Control1000000045; CurrReport.PageNo())
             {
             }
             column(USERID_Control1000000047; UserId)
@@ -201,7 +200,7 @@ report 50086 "Balance At Date (Cust/Vend)"
             column(Vendor__No__; "No.")
             {
             }
-            column(CurrReport_PAGENO_Control1000000060; CurrReport.PageNo)
+            column(CurrReport_PAGENO_Control1000000060; CurrReport.PageNo())
             {
             }
             column(USERID_Control1000000061; UserId)
@@ -290,7 +289,7 @@ report 50086 "Balance At Date (Cust/Vend)"
 
             trigger OnPreDataItem()
             begin
-                if Output = Output::Customer then CurrReport.Break;
+                if Output = Output::Customer then CurrReport.Break();
                 LastFieldNo := FieldNo("No.");
                 if (Output = Output::Vendor) or (Output = Output::Both) then begin
                     ToDate := GetRangeMax(Vendor."Date Filter");
@@ -325,7 +324,6 @@ report 50086 "Balance At Date (Cust/Vend)"
 
     requestpage
     {
-
         layout
         {
             area(content)
@@ -358,15 +356,13 @@ report 50086 "Balance At Date (Cust/Vend)"
 
     trigger OnPreReport()
     begin
-        Company_Info.Get;
+        Company_Info.Get();
     end;
 
     var
         LastFieldNo: Integer;
-        FooterPrinted: Boolean;
         ToDate: Date;
         ShowZero: Boolean;
-        "-----------": Integer;
         FrDate: Date;
         BalAtDat: Decimal;
         BalB4Per: Decimal;
@@ -398,4 +394,3 @@ report 50086 "Balance At Date (Cust/Vend)"
         Data: Text[1];
         Test: Text;
 }
-

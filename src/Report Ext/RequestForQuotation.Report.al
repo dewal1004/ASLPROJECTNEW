@@ -2,7 +2,7 @@ report 50217 "Request For Quotation"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/RequestForQuotation.rdlc';
-
+    Caption = 'Request For Quotation';
     dataset
     {
         dataitem(Vendor; Vendor)
@@ -121,7 +121,6 @@ report 50217 "Request For Quotation"
                              THEN "Requisition Line"."No.":=VendItem."Vendor Item No.";*/
 
                         Countz := Countz + 1;
-
                     end;
                 }
 
@@ -151,9 +150,8 @@ report 50217 "Request For Quotation"
                     FormatAddr.RespCenter(CompanyAddr, RespCenter);
                     CompanyInfo."Phone No." := RespCenter."Phone No.";
                     CompanyInfo."Fax No." := RespCenter."Fax No.";
-                end else begin
+                end else
                     FormatAddr.Company(CompanyAddr, CompanyInfo);
-                end;
 
                 FormatAddr.Vendor(BuyFromAddr, Vendor);
             end;
@@ -161,7 +159,7 @@ report 50217 "Request For Quotation"
             trigger OnPreDataItem()
             begin
 
-                CompanyInfo.Get;
+                CompanyInfo.Get();
                 Faxnumber := CompanyInfo."Fax No.";
                 phonenumber := CompanyInfo."Phone No.";
             end;
@@ -170,7 +168,6 @@ report 50217 "Request For Quotation"
 
     requestpage
     {
-
         layout
         {
         }
@@ -186,26 +183,20 @@ report 50217 "Request For Quotation"
 
     trigger OnInitReport()
     begin
-        CompanyInfo.Get;
+        CompanyInfo.Get();
         CompanyInfo.CalcFields(CompanyInfo.Picture);
     end;
 
     var
-        LineRec: Record "Requisition Line";
-        templatex1: Code[10];
-        batchx2: Code[10];
         CompanyInfo: Record "Company Information";
         RespCenter: Record "Responsibility Center";
-        Language: Record Language;
         FormatAddr: Codeunit "Format Address";
         CompanyAddr: array[8] of Text[50];
         BuyFromAddr: array[8] of Text[50];
         ReqNo: Text[30];
         dato: Text[30];
         CopyText: Text[30];
-        "-------": Integer;
         VendItem: Record "Item Vendor";
-        LetterHd: Boolean;
         ReqStrId: Code[50];
         RC: Code[10];
         ReqBy: Code[50];
@@ -213,8 +204,6 @@ report 50217 "Request For Quotation"
         Countz: Integer;
         Faxnumber: Code[20];
         phonenumber: Code[20];
-        Owa: Boolean;
         Text004: Label 'REQUEST FOR QUOTATION';
         Usersrec: Record User;
 }
-

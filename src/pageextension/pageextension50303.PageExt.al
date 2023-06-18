@@ -11,4 +11,3 @@ pageextension 50303 "pageextension50303" extends "Human Resources Setup"
         }
     }
 }
-

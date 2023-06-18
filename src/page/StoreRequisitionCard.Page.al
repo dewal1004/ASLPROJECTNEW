@@ -2,7 +2,7 @@ page 50059 "Store Requisition Card"
 {
     PageType = Card;
     SourceTable = "Store Requisition Header New";
-
+    Caption = 'Store Requisition Card';
     layout
     {
         area(content)
@@ -16,7 +16,7 @@ page 50059 "Store Requisition Card"
                     trigger OnAssistEdit()
                     begin
                         if Rec.AssistEdit(xRec) then
-                            CurrPage.Update;
+                            CurrPage.Update();
                     end;
                 }
                 field("Req. Type"; Rec."Req. Type")
@@ -126,7 +126,6 @@ page 50059 "Store Requisition Card"
                     DrillDownPageID = "Dry Docking/Job  list";
                     LookupPageID = "Dry Docking/Job  list";
                     ApplicationArea = All;
-
                 }
                 field("External Document No"; Rec."External Document No")
                 {
@@ -228,7 +227,7 @@ page 50059 "Store Requisition Card"
                 ApplicationArea = All;
                 trigger OnAction()
                 begin
-                    Rec.TransferOrder
+                    Rec.TransferOrder()
                 end;
             }
             action("Create Adjustments")
@@ -237,7 +236,7 @@ page 50059 "Store Requisition Card"
 
                 trigger OnAction()
                 begin
-                    Rec.CreateAdjSmt
+                    Rec.CreateAdjSmt()
                 end;
             }
             action("Create Sales Invoice")
@@ -246,7 +245,7 @@ page 50059 "Store Requisition Card"
 
                 trigger OnAction()
                 begin
-                    Rec.CreatesalesInv;
+                    Rec.CreatesalesInv();
                 end;
             }
             action("Create Purchase Invoice")
@@ -255,7 +254,7 @@ page 50059 "Store Requisition Card"
 
                 trigger OnAction()
                 begin
-                    Rec.CreatePurchInv;
+                    Rec.CreatePurchInv();
                 end;
             }
             action("Print Material Requisition")
@@ -270,7 +269,7 @@ page 50059 "Store Requisition Card"
                     Userrec.Get(UserId);
                     if not Userrec."Print MR" then Error('Sorry you are not allowed to Print Store Material Requisition.');
                     REQREC.SetRange(REQREC."Req. No", Rec."Req. No");
-                    if REQREC.FindFirst then
+                    if REQREC.FindFirst() then
                         REPORT.RunModal(50094, true, false, REQREC);
                 end;
             }
@@ -284,7 +283,7 @@ page 50059 "Store Requisition Card"
 
                 trigger OnAction()
                 begin
-                    Rec.LoadTemplate;
+                    Rec.LoadTemplate();
                 end;
             }
             action("Check Staff Replacement")
@@ -293,7 +292,7 @@ page 50059 "Store Requisition Card"
 
                 trigger OnAction()
                 begin
-                    Rec.CheckReplacement;
+                    Rec.CheckReplacement();
                 end;
             }
             action("Revalidate Approved Quantity")
@@ -304,7 +303,7 @@ page 50059 "Store Requisition Card"
                 begin
                     if Rec."Final Approved" <> Rec."Final Approved"::Approved then
                         Recline.SetRange(Recline."Req. No.", Rec."Req. No");
-                    if Recline.FindFirst then
+                    if Recline.FindFirst() then
                         repeat
                         begin
                             ItemRec.Get(Recline."Item No.");
@@ -320,8 +319,8 @@ page 50059 "Store Requisition Card"
                         else
                             Recline."Approved Quantity" := Recline."Requested Quantity";
                         Recline."Issued Quantity" := Recline."Approved Quantity";
-                        Recline.Modify;
-                        until Recline.Next = 0;
+                        Recline.Modify();
+                        until Recline.Next() = 0;
                 end;
             }
             action("Materia Reconciliation ")
@@ -339,4 +338,3 @@ page 50059 "Store Requisition Card"
         Recline: Record "Store Requisition Line New";
         ItemRec: Record Item;
 }
-

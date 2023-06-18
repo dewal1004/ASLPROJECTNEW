@@ -6,8 +6,7 @@ report 59181 "Packing By Export Variance1"
     // "Inventory Posting Group".Inventory
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/PackingByExportVariance1.rdlc';
-
-
+    Caption = 'Packing By Export Variance1';
     dataset
     {
         dataitem(Location; Location)
@@ -22,7 +21,7 @@ report 59181 "Packing By Export Variance1"
             column(USERID; UserId)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(Location_Code; Code)
@@ -179,7 +178,6 @@ report 59181 "Packing By Export Variance1"
 
     requestpage
     {
-
         layout
         {
         }
@@ -195,10 +193,8 @@ report 59181 "Packing By Export Variance1"
 
     var
         LastFieldNo: Integer;
-        FooterPrinted: Boolean;
         TotalFor: Label 'Total for ';
         Stor: array[10] of Decimal;
-        StatG: Integer;
         I: Integer;
         Inventory_Posting_GroupCaptionLbl: Label 'Inventory Posting Group';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
@@ -209,4 +205,3 @@ report 59181 "Packing By Export Variance1"
         Total_LandingCaptionLbl: Label 'Total Landing';
         TotalCaptionLbl: Label 'Total';
 }
-

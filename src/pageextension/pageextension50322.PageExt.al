@@ -13,7 +13,6 @@ pageextension 50322 "pageextension50322" extends "Transfer Order"
                 ApplicationArea = All;
             }
         }
-
     }
     actions
     {
@@ -38,7 +37,6 @@ pageextension 50322 "pageextension50322" extends "Transfer Order"
                 end;
             }
         }
-
     }
 
     //         moveafter("Transfer-to Code"; "Direct Transfer")
@@ -165,5 +163,4 @@ pageextension 50322 "pageextension50322" extends "Transfer Order"
     // //     //"Requested By" := UserSetup.
     // // */
     // // //end;
-
 }

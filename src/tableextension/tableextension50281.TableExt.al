@@ -9,7 +9,6 @@ tableextension 50281 "tableextension50281" extends Employee
 
         //Unsupported feature: Property Modification (Data type) on ""Emplymt. Contract Code"(Field 27)".
 
-
         //Unsupported feature: Code Insertion on ""First Name"(Field 2)".
 
         //trigger OnValidate()
@@ -20,7 +19,6 @@ tableextension 50281 "tableextension50281" extends Employee
           "Search Name" := "First Name";
         */
         //end;
-
 
         //Unsupported feature: Code Modification on ""Post Code"(Field 11).OnValidate".
 
@@ -92,10 +90,8 @@ tableextension 50281 "tableextension50281" extends Employee
                     Step := EmpGrpRec.Step;
                     EmpGrpRec.CALCFIELDS(EmpGrpRec."Gross Pay");
                     EDAmount := EmpGrpRec."Gross Pay";
-
                 END;
-                CheckMod;
-
+                CheckMod();
             end;
         }
         field(50020; "SAM Number"; Code[20])
@@ -124,6 +120,7 @@ tableextension 50281 "tableextension50281" extends Employee
                                                                      "E/D Code" = FIELD("ED Filter")));
             DecimalPlaces = 0 : 5;
             FieldClass = FlowField;
+            Editable = false;
         }
         field(50026; "ED Filter"; Code[20])
         {
@@ -164,7 +161,6 @@ tableextension 50281 "tableextension50281" extends Employee
         }
         field(50037; "No of Days"; Integer)
         {
-
             trigger OnValidate()
             begin
                 //Univision Start 6/11/01
@@ -187,7 +183,6 @@ tableextension 50281 "tableextension50281" extends Employee
         }
         field(50071; Blocked; Boolean)
         {
-
             trigger OnValidate()
             begin
                 userrec.Get(UserId);
@@ -278,6 +273,7 @@ tableextension 50281 "tableextension50281" extends Employee
                                                           "Region Code" = FIELD("Region Filter")));
             Enabled = false;
             FieldClass = FlowField;
+            Editable = false;
         }
         field(50103; "Leave Category Filter"; Code[50])
         {
@@ -292,6 +288,7 @@ tableextension 50281 "tableextension50281" extends Employee
                                                           "Entry Type" = FIELD("Leave Type Filter"),
                                                           "Region Code" = FIELD("Region Code")));
             FieldClass = FlowField;
+            Editable = false;
         }
         field(50105; "Region Filter"; Code[10])
         {
@@ -313,6 +310,7 @@ tableextension 50281 "tableextension50281" extends Employee
             BlankZero = true;
             CalcFormula = Sum("Scholarship Payment NU*".Amount WHERE("Employee No" = FIELD("No.")));
             FieldClass = FlowField;
+            Editable = false;
         }
         field(50109; "Hospital Filter"; Code[10])
         {
@@ -326,27 +324,26 @@ tableextension 50281 "tableextension50281" extends Employee
         }
         field(50111; Sam; Boolean)
         {
-
             trigger OnValidate()
             begin
                 //Univision Start 6/11/01
                 if not (Sam) and (xRec.Sam) then
-                    if Confirm('Do you want to Remove Sam Account for %1', true, FullName) then begin
+                    if Confirm('Do you want to Remove Sam Account for %1', true, FullName()) then begin
                         if CustRec.Get("No.") then begin
                             CustRec.CalcFields(CustRec.Balance);
                             SamBalance := CustRec.Balance;
                             if (SamBalance = 0) then begin
                                 "SAM Number" := '';
-                                Modify;
-                                CustRec.Delete;
+                                Modify();
+                                CustRec.Delete();
                                 CustLdgRec.SetRange(CustLdgRec."Customer No.", "No.");
-                                CustLdgRec.DeleteAll;
-                                Message('Sam Account for %1 has been Deleted', FullName);
+                                CustLdgRec.DeleteAll();
+                                Message('Sam Account for %1 has been Deleted', FullName());
                             end
                             else
                                 Error('%1 has a Balance of %2 in his account\\' +
                                       'This Balance MUST be ZERO before\' +
-                                      'you can delete his Sam Account', FullName, Format(SamBalance));
+                                      'you can delete his Sam Account', FullName(), Format(SamBalance));
                         end;
                     end
                     else
@@ -410,7 +407,6 @@ tableextension 50281 "tableextension50281" extends Employee
                   MakeRes(Rec)
                 ELSE RemovRes(Rec);
                 */
-
             end;
         }
         field(50310; Checked; Boolean)
@@ -446,12 +442,14 @@ tableextension 50281 "tableextension50281" extends Employee
                                                                  "Deduct from Payroll" = CONST(true),
                                                                  "From Date" = FIELD("Date Filter")));
             FieldClass = FlowField;
+            Editable = false;
         }
         field(50366; "Deducted Absence"; Decimal)
         {
             CalcFormula = Sum("Monthly Variables Lines.".Quantity WHERE("Employee No" = FIELD("No."),
                                                                          "E/D Code" = CONST('6150')));
             FieldClass = FlowField;
+            Editable = false;
         }
         field(50369; "IOU Balance"; Decimal)
         {
@@ -484,7 +482,6 @@ tableextension 50281 "tableextension50281" extends Employee
         }
         field(50406; Suspended; Boolean)
         {
-
             trigger OnValidate()
             begin
                 "Suspension Modified By" := UserId;
@@ -526,7 +523,6 @@ tableextension 50281 "tableextension50281" extends Employee
     {
     }
 
-
     //Unsupported feature: Code Modification on "OnInsert".
 
     //trigger OnInsert()
@@ -553,7 +549,6 @@ tableextension 50281 "tableextension50281" extends Employee
     */
     //end;
 
-
     //Unsupported feature: Code Modification on "OnRename".
 
     //trigger OnRename()
@@ -574,7 +569,6 @@ tableextension 50281 "tableextension50281" extends Employee
     UpdateSearchName;
     */
     //end;
-
 
     //Unsupported feature: Code Modification on "FullName(PROCEDURE 1)".
 
@@ -604,10 +598,6 @@ tableextension 50281 "tableextension50281" extends Employee
     //end;
 
     procedure "---------"()
-    var
-        GenSetUp: Record "General Ledger Setup";
-        Text001: Label 'You are not permitted to modify this field';
-        Text002: Label 'You can only edit Record on %1';
     begin
     end;
 
@@ -676,7 +666,7 @@ tableextension 50281 "tableextension50281" extends Employee
 
     procedure GetBasic(EmpNo: Code[10]): Decimal
     begin
-        Employee.Reset;
+        Employee.Reset();
         EDRec.SetRange(EDRec."Control Type", EDRec."Control Type"::Basic);
         EDRec.Find('-');
         BasicEDCode := EDRec."E/D Code";
@@ -701,7 +691,7 @@ tableextension 50281 "tableextension50281" extends Employee
              then
                 if not Res.Rename("First Name" + CopyStr("Last Name", 1, 2))
                   then begin
-                    Res2.Init;
+                    Res2.Init();
                     Res2."No." := "First Name" + CopyStr("Last Name", 1, 2) + '1';
                     if not Res2.Insert() then Res2.Modify();
                     exit("First Name" + CopyStr("Last Name", 1, 2) + '1')
@@ -721,13 +711,13 @@ tableextension 50281 "tableextension50281" extends Employee
         Res: Record Resource;
     begin
         if Res.Get("Resource No.") then begin
-            Res.Delete;
+            Res.Delete();
             Message('Employee no longer a resource');
         end
         else
             Message('Resource does not Exist');
         "Resource No." := '';
-        Modify;
+        Modify();
     end;
 
     procedure TagName(): Text[100]
@@ -753,7 +743,7 @@ tableextension 50281 "tableextension50281" extends Employee
         Text001: Label 'You are not permitted to modify this field';
         Text002: Label 'You can only edit Record on %1';
     begin
-        GenSetUp.Get;
+        GenSetUp.Get();
         payrsetup.Get('LOAN');
         if xRec."Employee Group" <> "Employment Group" then begin
             if (UserId <> GenSetUp.Administrator) and (UserId <> payrsetup."HR Officer") then Error(Text001);
@@ -770,19 +760,10 @@ tableextension 50281 "tableextension50281" extends Employee
         //approv: Record "Object";
         EmpGrpRec: Record "Payroll-Employee Group Header.";
         GrpLinesRec: Record "Payroll-Employee Group Lines.";
-        RegRec: Record "Business Unit";
         CustRec: Record Customer;
-        VendRec: Record Vendor;
         CustLdgRec: Record "Cust. Ledger Entry";
         DesigRec: Record Designation;
         EDRec: Record "Payroll-E/D Codes.";
-        DepartRec: Record Dimension;
-        BCRec: Record Dimension;
-        CCRec: Record Dimension;
-        DepartRec1: Record "Dimension Value";
-        BCRec1: Record "Dimension Value";
-        CCRec1: Record "Dimension Value";
-        approved: Boolean;
         "day Employeed": Integer;
         SamBalance: Decimal;
         EmpDesignation: Code[10];
@@ -791,18 +772,6 @@ tableextension 50281 "tableextension50281" extends Employee
         BasicEDCode: Code[10];
         payrsetup: Record "ASL Payroll Setup";
         employcontr: Record "Employment Contract";
-        ECont: Record "Employment Contract";
         Res2: Record Resource;
-        "--------------------": Integer;
-        I: Integer;
-        Eval: Boolean;
-        Answ: Boolean;
-        EmpContra: Record "Employment Contract";
-        ResGroup: Record "Resource Group";
-        ResCopy: Record Resource;
-        StaffNo: Code[10];
         userrec: Record "User Setup";
-        "----------------------": Integer;
-        Answ2: Boolean;
 }
-

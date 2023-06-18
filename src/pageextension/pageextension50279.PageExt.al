@@ -42,4 +42,3 @@ pageextension 50279 "pageextension50279" extends "Inventory Setup"
         }
     }
 }
-

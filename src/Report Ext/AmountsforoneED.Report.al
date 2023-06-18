@@ -5,8 +5,7 @@ report 50065 "Amounts for one E/D"
     // selected period will not be listed in the report
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/AmountsforoneED.rdlc';
-
-
+    Caption = 'Amounts for one E/D';
     dataset
     {
         dataitem(Employee; Employee)
@@ -17,7 +16,7 @@ report 50065 "Amounts for one E/D"
             column(CompanyData_Name; CompanyData.Name)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(DELCHR___GETFILTER__ED_Filter________________in_Period_______GETFILTER__Period_Filter__; DelChr(GetFilter("ED Filter"), '<>') + '   in Period: ' + GetFilter("Period Filter"))
@@ -26,7 +25,7 @@ report 50065 "Amounts for one E/D"
             column(TODAY; Today)
             {
             }
-            column(DELCHR__FullName_______; DelChr(FullName, '<>'))
+            column(DELCHR__FullName_______; DelChr(FullName(), '<>'))
             {
             }
             column(Employee__No__; "No.")
@@ -73,7 +72,7 @@ report 50065 "Amounts for one E/D"
             begin
                 CalcFields(EDAmount);
                 if EDAmount = 0 then
-                    CurrReport.Skip
+                    CurrReport.Skip()
                 else
                     EmpCount := EmpCount + 1;
             end;
@@ -91,14 +90,13 @@ report 50065 "Amounts for one E/D"
 
                 CurrReport.CreateTotals(EDAmount);
 
-                CompanyData.Get;
+                CompanyData.Get();
             end;
         }
     }
 
     requestpage
     {
-
         layout
         {
         }
@@ -130,4 +128,3 @@ report 50065 "Amounts for one E/D"
         TOTALCaptionLbl: Label 'TOTAL';
         AMOUNTCaption_Control20Lbl: Label 'AMOUNT';
 }
-

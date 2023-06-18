@@ -2,7 +2,7 @@ report 50206 "Job Ledger Inv Post Group Upda"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/JobLedgerInvPostGroupUpda.rdlc';
-
+    Caption = 'Job Ledger Inv Post Group Upda';
     dataset
     {
         dataitem(Item; Item)
@@ -34,7 +34,7 @@ report 50206 "Job Ledger Inv Post Group Upda"
                 trigger OnAfterGetRecord()
                 begin
                     "Job Ledger Entry"."Inventory Posting Group" := Item."Inventory Posting Group";
-                    "Job Ledger Entry".Modify;
+                    "Job Ledger Entry".Modify();
                 end;
             }
         }
@@ -42,7 +42,6 @@ report 50206 "Job Ledger Inv Post Group Upda"
 
     requestpage
     {
-
         layout
         {
         }
@@ -56,4 +55,3 @@ report 50206 "Job Ledger Inv Post Group Upda"
     {
     }
 }
-

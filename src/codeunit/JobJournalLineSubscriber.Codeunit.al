@@ -50,7 +50,7 @@ CodeUnit 50040 "Job Journal Line Subscriber"
         job: Record Job;
         JobTask: record "Job Task";
     begin
-        IF JobTask.FindFirst THEN
+        IF JobTask.FindFirst() THEN
             JobJournalLine.VALIDATE(JobJournalLine."Job Task No.", JobTask."Job Task No.");
 
         job.Get(JobJournalLine."Job No.");
@@ -77,34 +77,32 @@ CodeUnit 50040 "Job Journal Line Subscriber"
     var
         Item: Record Item;
         ItemCategory: Record "Item Category";
-        User: Record User;
         Job: Record Job;
         InvtrSetUp: Record "Inventory Setup";
     begin
         if JobJournalLine.type = JobJournalLine.type::item then begin
             Item.Get(JobJournalLine."No.");
             JobJournalLine."Work Type Code" := Item."Item Category Code";
-            if ItemCategory.Get(JobJournalLine."Work Type Code") and ItemCategory.HasChildren() then begin
+            if ItemCategory.Get(JobJournalLine."Work Type Code") and ItemCategory.HasChildren() then
                 // JobJournalLine."Task Code" := ItemCategory.;  assign the first child  //Revisit
                 ;
-            end;
 
             IF Item."Gen. Prod. Posting Group" = 'FIS' THEN
-                JobJournalLine.FindItemPoints;
+                JobJournalLine.FindItemPoints();
             JobJournalLine."Statistics Group" := Item."Statistics Group";
             JobJournalLine.WorkTypeCode(JobJournalLine."No.");
         end;
 
         //Location Fixg
         IF (JobJournalLine."Location Code" = '') THEN
-           // IF User.GET(USERID) THEN
-                IF true THEN BEGIN //User."Shortcut Dimension 1 Code" = 'MRKT' ///Refactor
+            // IF User.GET(USERID) THEN
+            IF true THEN BEGIN //User."Shortcut Dimension 1 Code" = 'MRKT' ///Refactor
 
-                    InvtrSetUp.GET;
-                    JobJournalLine."Location Code" := InvtrSetUp."Default Cold Room";
-                END ELSE
-                    IF (Job.GET(JobJournalLine."Job No.")) AND (Job.Vessel <> '') THEN
-                        JobJournalLine."Location Code" := Job.Vessel;
+                InvtrSetUp.GET();
+                JobJournalLine."Location Code" := InvtrSetUp."Default Cold Room";
+            END ELSE
+                IF (Job.GET(JobJournalLine."Job No.")) AND (Job.Vessel <> '') THEN
+                    JobJournalLine."Location Code" := Job.Vessel;
 
         IF JobJournalLine.Catch <> 0 THEN
             JobJournalLine.Quantity := JobJournalLine.Catch * -1;

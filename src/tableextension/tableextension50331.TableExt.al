@@ -1,6 +1,6 @@
 tableextension 50331 "tableextension50331" extends "User Setup"
 {
-    // 
+    //
     // UNL-ASL3.60.01.009 (Santus) June 14, 2005
     // -> added new field "Pick Blocked Empl in Journal";
     fields
@@ -96,4 +96,3 @@ tableextension 50331 "tableextension50331" extends "User Setup"
         }
     }
 }
-

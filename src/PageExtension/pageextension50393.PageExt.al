@@ -1,6 +1,5 @@
 pageextension 50393 "pageextension50393" extends "Order Promising Lines"
 {
-
     //Unsupported feature: Code Modification on "OnOpenPage".
 
     //trigger OnOpenPage()
@@ -33,4 +32,3 @@ pageextension 50393 "pageextension50393" extends "Order Promising Lines"
     */
     //end;
 }
-

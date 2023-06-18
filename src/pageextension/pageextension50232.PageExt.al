@@ -1,6 +1,5 @@
 pageextension 50232 "pageextension50232" extends "Workflow Response Options"
 {
-
     //Unsupported feature: Code Modification on "OnAfterGetCurrRecord".
 
     //trigger OnAfterGetCurrRecord()
@@ -23,8 +22,6 @@ pageextension 50232 "pageextension50232" extends "Workflow Response Options"
     //end;
 
     //Unsupported feature: Variable Insertion (Variable: WorkflowStep) (VariableCollection) on "LookupFieldCaptionForApplyNewValues(PROCEDURE 17)".
-
-
 
     //Unsupported feature: Code Modification on "LookupFieldCaptionForApplyNewValues(PROCEDURE 17)".
 
@@ -74,8 +71,5 @@ pageextension 50232 "pageextension50232" extends "Workflow Response Options"
 
     //Unsupported feature: Deletion (VariableCollection) on "LookupFieldCaptionForApplyNewValues(PROCEDURE 17).WorkflowStepApply(Variable 1001)".
 
-
     //Unsupported feature: Deletion (VariableCollection) on "LookupFieldCaptionForApplyNewValues(PROCEDURE 17).WorkflowStepRevert(Variable 1000)".
-
 }
-

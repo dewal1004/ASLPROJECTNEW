@@ -2,7 +2,7 @@ report 81083 "Daily BreakUp by Vessel Excelg"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/DailyBreakUpbyVesselExcelg.rdlc';
-
+    Caption = 'Daily BreakUp by Vessel Excelg';
     dataset
     {
         dataitem("Inventory Posting Group"; "Inventory Posting Group")
@@ -53,7 +53,6 @@ report 81083 "Daily BreakUp by Vessel Excelg"
             }
             column(SeaRange_1_; SeaRange[1])
             {
-
             }
             column(SeaRange_16_; SeaRange[16])
             {
@@ -72,7 +71,6 @@ report 81083 "Daily BreakUp by Vessel Excelg"
             }
             column(SeaRange_21_; SeaRange[21])
             {
-
             }
             column(SeaRange_22_; SeaRange[22])
             {
@@ -139,7 +137,6 @@ report 81083 "Daily BreakUp by Vessel Excelg"
             }
             column(SeaRange_43_; SeaRange[43])
             {
-
             }
             column(SeaRange_44_; SeaRange[44])
             {
@@ -260,7 +257,6 @@ report 81083 "Daily BreakUp by Vessel Excelg"
             }
             column(SeaRange_83_; SeaRange[83])
             {
-
             }
             column(SeaRange_84_; SeaRange[84])
             {
@@ -315,407 +311,306 @@ report 81083 "Daily BreakUp by Vessel Excelg"
             }
             column(SeaRangeD_1_; SeaRangeD[1])
             {
-
             }
             column(SeaRangeD_2_; SeaRangeD[2])
             {
-
             }
             column(SeaRangeD_3_; SeaRangeD[3])
             {
-
             }
             column(SeaRangeD_4_; SeaRangeD[4])
             {
-
             }
             column(SeaRangeD_5_; SeaRangeD[5])
             {
-
             }
             column(SeaRangeD_6_; SeaRangeD[6])
             {
-
             }
             column(SeaRangeD_7_; SeaRangeD[7])
             {
-
             }
             column(SeaRangeD_8_; SeaRangeD[8])
             {
-
             }
             column(SeaRangeD_9_; SeaRangeD[9])
             {
-
             }
             column(SeaRangeD_10_; SeaRangeD[10])
             {
-
             }
             column(SeaRangeD_20_; SeaRangeD[20])
             {
-
             }
             column(SeaRangeD_19_; SeaRangeD[19])
             {
-
             }
             column(SeaRangeD_18_; SeaRangeD[18])
             {
-
             }
             column(SeaRangeD_17_; SeaRangeD[17])
             {
-
             }
             column(SeaRangeD_16_; SeaRangeD[16])
             {
-
             }
             column(SeaRangeD_15_; SeaRangeD[15])
             {
-
             }
             column(SeaRangeD_14_; SeaRangeD[14])
             {
-
             }
             column(SeaRangeD_13_; SeaRangeD[13])
             {
-
             }
             column(SeaRangeD_12_; SeaRangeD[12])
             {
-
             }
             column(SeaRangeD_11_; SeaRangeD[11])
             {
-
             }
             column(SeaRangeD_30_; SeaRangeD[30])
             {
-
             }
             column(SeaRangeD_29_; SeaRangeD[29])
             {
-
             }
             column(SeaRangeD_28_; SeaRangeD[28])
             {
-
             }
             column(SeaRangeD_27_; SeaRangeD[27])
             {
-
             }
             column(SeaRangeD_26_; SeaRangeD[26])
             {
-
             }
             column(SeaRangeD_25_; SeaRangeD[25])
             {
-
             }
             column(SeaRangeD_24_; SeaRangeD[24])
             {
-
             }
             column(SeaRangeD_23_; SeaRangeD[23])
             {
-
             }
             column(SeaRangeD_22_; SeaRangeD[22])
             {
-
             }
             column(SeaRangeD_11__Control1000000425; SeaRangeD[11])
             {
-
             }
             column(SeaRangeD_40_; SeaRangeD[40])
             {
-
             }
             column(SeaRangeD_39_; SeaRangeD[39])
             {
-
             }
             column(SeaRangeD_38_; SeaRangeD[38])
             {
-
             }
             column(SeaRangeD_37_; SeaRangeD[37])
             {
-
             }
             column(SeaRangeD_36_; SeaRangeD[36])
             {
-
             }
             column(SeaRangeD_35_; SeaRangeD[35])
             {
-
             }
             column(SeaRangeD_34_; SeaRangeD[34])
             {
-
             }
             column(SeaRangeD_33_; SeaRangeD[33])
             {
-
             }
             column(SeaRangeD_32_; SeaRangeD[32])
             {
-
             }
             column(SeaRangeD_31_; SeaRangeD[31])
             {
-
             }
             column(SeaRangeD_50_; SeaRangeD[50])
             {
-
             }
             column(SeaRangeD_49_; SeaRangeD[49])
             {
-
             }
             column(SeaRangeD_48_; SeaRangeD[48])
             {
-
             }
             column(SeaRangeD_47_; SeaRangeD[47])
             {
-
             }
             column(SeaRangeD_46_; SeaRangeD[46])
             {
-
             }
             column(SeaRangeD_45_; SeaRangeD[45])
             {
-
             }
             column(SeaRangeD_44_; SeaRangeD[44])
             {
-
             }
             column(SeaRangeD_43_; SeaRangeD[43])
             {
-
             }
             column(SeaRangeD_42_; SeaRangeD[42])
             {
-
             }
             column(SeaRangeD_41_; SeaRangeD[41])
             {
-
             }
             column(SeaRangeD_60_; SeaRangeD[60])
             {
-
             }
             column(SeaRangeD_59_; SeaRangeD[59])
             {
-
             }
             column(SeaRangeD_58_; SeaRangeD[58])
             {
-
             }
             column(SeaRangeD_57_; SeaRangeD[57])
             {
-
             }
             column(SeaRangeD_56_; SeaRangeD[56])
             {
-
             }
             column(SeaRangeD_55_; SeaRangeD[55])
             {
-
             }
             column(SeaRangeD_54_; SeaRangeD[54])
             {
-
             }
             column(SeaRangeD_53_; SeaRangeD[53])
             {
-
             }
             column(SeaRangeD_52_; SeaRangeD[52])
             {
-
             }
             column(SeaRangeD_51_; SeaRangeD[51])
             {
-
             }
             column(SeaRangeD_70_; SeaRangeD[70])
             {
-
             }
             column(SeaRangeD_69_; SeaRangeD[69])
             {
-
             }
             column(SeaRangeD_68_; SeaRangeD[68])
             {
-
             }
             column(SeaRangeD_67_; SeaRangeD[67])
             {
-
             }
             column(SeaRangeD_66_; SeaRangeD[66])
             {
-
             }
             column(SeaRangeD_65_; SeaRangeD[65])
             {
-
             }
             column(SeaRangeD_64_; SeaRangeD[64])
             {
-
             }
             column(SeaRangeD_63_; SeaRangeD[63])
             {
-
             }
             column(SeaRangeD_62_; SeaRangeD[62])
             {
-
             }
             column(SeaRangeD_61_; SeaRangeD[61])
             {
-
             }
             column(SeaRangeD_80_; SeaRangeD[80])
             {
-
             }
             column(SeaRangeD_79_; SeaRangeD[79])
             {
-
             }
             column(SeaRangeD_78_; SeaRangeD[78])
             {
-
             }
             column(SeaRangeD_77_; SeaRangeD[77])
             {
-
             }
             column(SeaRangeD_76_; SeaRangeD[76])
             {
-
             }
             column(SeaRangeD_75_; SeaRangeD[75])
             {
-
             }
             column(SeaRangeD_74_; SeaRangeD[74])
             {
-
             }
             column(SeaRangeD_73_; SeaRangeD[73])
             {
-
             }
             column(SeaRangeD_72_; SeaRangeD[72])
             {
-
             }
             column(SeaRangeD_71_; SeaRangeD[71])
             {
-
             }
             column(SeaRangeD_90_; SeaRangeD[90])
             {
-
             }
             column(SeaRangeD_89_; SeaRangeD[89])
             {
-
             }
             column(SeaRangeD_88_; SeaRangeD[88])
             {
-
             }
             column(SeaRangeD_87_; SeaRangeD[87])
             {
-
             }
             column(SeaRangeD_86_; SeaRangeD[86])
             {
-
             }
             column(SeaRangeD_85_; SeaRangeD[85])
             {
-
             }
             column(SeaRangeD_84_; SeaRangeD[84])
             {
-
             }
             column(SeaRangeD_83_; SeaRangeD[83])
             {
-
             }
             column(SeaRangeD_82_; SeaRangeD[82])
             {
-
             }
             column(SeaRangeD_81_; SeaRangeD[81])
             {
-
             }
             column(SeaRangeD_100_; SeaRangeD[100])
             {
-
             }
             column(SeaRangeD_99_; SeaRangeD[99])
             {
-
             }
             column(SeaRangeD_98_; SeaRangeD[98])
             {
-
             }
             column(SeaRangeD_97_; SeaRangeD[97])
             {
-
             }
             column(SeaRangeD_96_; SeaRangeD[96])
             {
-
             }
             column(SeaRangeD_95_; SeaRangeD[95])
             {
-
             }
             column(SeaRangeD_94_; SeaRangeD[94])
             {
-
             }
             column(SeaRangeD_93_; SeaRangeD[93])
             {
-
             }
             column(SeaRangeD_92_; SeaRangeD[92])
             {
-
             }
             column(SeaRangeD_91_; SeaRangeD[91])
             {
-
             }
             column(SeaRange_1__Control1000000019; SeaRange[1])
             {
-
             }
             column(SeaRange_2__Control1000000020; SeaRange[2])
             {
@@ -839,11 +734,9 @@ report 81083 "Daily BreakUp by Vessel Excelg"
             }
             column(SeaRange_1__Control1000000159; SeaRange[1])
             {
-
             }
             column(SeaRange_21__Control1000000110; SeaRange[21])
             {
-
             }
             column(SeaRange_22__Control1000000117; SeaRange[22])
             {
@@ -910,7 +803,6 @@ report 81083 "Daily BreakUp by Vessel Excelg"
             }
             column(SeaRange_43__Control1000000187; SeaRange[43])
             {
-
             }
             column(SeaRange_44__Control1000000190; SeaRange[44])
             {
@@ -971,7 +863,6 @@ report 81083 "Daily BreakUp by Vessel Excelg"
             }
             column(SeaRange_83__Control1000000209; SeaRange[83])
             {
-
             }
             column(SeaRange_84__Control1000000212; SeaRange[84])
             {
@@ -1149,87 +1040,66 @@ report 81083 "Daily BreakUp by Vessel Excelg"
             }
             column(SeaRange_1__Control1000000138; SeaRange[1])
             {
-
             }
             column(SeaRangeC_2_; SeaRangeC[2])
             {
-
             }
             column(SeaRangeC_1_; SeaRangeC[1])
             {
-
             }
             column(SeaRangeC_3_; SeaRangeC[3])
             {
-
             }
             column(SeaRangeC_4_; SeaRangeC[4])
             {
-
             }
             column(SeaRangeC_5_; SeaRangeC[5])
             {
-
             }
             column(SeaRangeC_6_; SeaRangeC[6])
             {
-
             }
             column(SeaRangeC_7_; SeaRangeC[7])
             {
-
             }
             column(SeaRangeC_8_; SeaRangeC[8])
             {
-
             }
             column(SeaRangeC_9_; SeaRangeC[9])
             {
-
             }
             column(SeaRangeC_10_; SeaRangeC[10])
             {
-
             }
             column(SeaRangeC_11_; SeaRangeC[11])
             {
-
             }
             column(SeaRangeC_12_; SeaRangeC[12])
             {
-
             }
             column(SeaRangeC_13_; SeaRangeC[13])
             {
-
             }
             column(SeaRangeC_14_; SeaRangeC[14])
             {
-
             }
             column(SeaRangeC_15_; SeaRangeC[15])
             {
-
             }
             column(SeaRangeC_17_; SeaRangeC[17])
             {
-
             }
             column(SeaRangeC_16_; SeaRangeC[16])
             {
-
             }
             column(SeaRangeC_18_; SeaRangeC[18])
             {
-
             }
             column(SeaRangeC_20_; SeaRangeC[20])
             {
-
             }
             column(SeaRangeC_19_; SeaRangeC[19])
             {
-
             }
             column(T001; T001)
             {
@@ -1239,7 +1109,6 @@ report 81083 "Daily BreakUp by Vessel Excelg"
             }
             column(SeaRangeC_1__Control1000000115; SeaRangeC[1])
             {
-
             }
             column(SeaRangeC_2__Control1000000166; SeaRangeC[2])
             {
@@ -1300,7 +1169,6 @@ report 81083 "Daily BreakUp by Vessel Excelg"
             }
             column(SeaRangeC_21_; SeaRangeC[21])
             {
-
             }
             column(SeaRangeC_22_; SeaRangeC[22])
             {
@@ -1367,7 +1235,6 @@ report 81083 "Daily BreakUp by Vessel Excelg"
             }
             column(SeaRangeC_43_; SeaRangeC[43])
             {
-
             }
             column(SeaRangeC_44_; SeaRangeC[44])
             {
@@ -1488,7 +1355,6 @@ report 81083 "Daily BreakUp by Vessel Excelg"
             }
             column(SeaRangeC_83_; SeaRangeC[83])
             {
-
             }
             column(SeaRangeC_84_; SeaRangeC[84])
             {
@@ -1549,83 +1415,63 @@ report 81083 "Daily BreakUp by Vessel Excelg"
             }
             column(SeaRangeC_20__Control1000000085; SeaRangeC[20])
             {
-
             }
             column(SeaRangeC_19__Control1000000087; SeaRangeC[19])
             {
-
             }
             column(SeaRangeC_18__Control1000000088; SeaRangeC[18])
             {
-
             }
             column(SeaRangeC_17__Control1000000089; SeaRangeC[17])
             {
-
             }
             column(SeaRangeC_16__Control1000000090; SeaRangeC[16])
             {
-
             }
             column(SeaRangeC_15__Control1000000091; SeaRangeC[15])
             {
-
             }
             column(SeaRangeC_14__Control1000000092; SeaRangeC[14])
             {
-
             }
             column(SeaRangeC_13__Control1000000093; SeaRangeC[13])
             {
-
             }
             column(SeaRangeC_12__Control1000000094; SeaRangeC[12])
             {
-
             }
             column(SeaRangeC_11__Control1000000095; SeaRangeC[11])
             {
-
             }
             column(SeaRangeC_10__Control1000000096; SeaRangeC[10])
             {
-
             }
             column(SeaRangeC_9__Control1000000097; SeaRangeC[9])
             {
-
             }
             column(SeaRangeC_8__Control1000000098; SeaRangeC[8])
             {
-
             }
             column(SeaRangeC_7__Control1000000099; SeaRangeC[7])
             {
-
             }
             column(SeaRangeC_6__Control1000000100; SeaRangeC[6])
             {
-
             }
             column(SeaRangeC_5__Control1000000101; SeaRangeC[5])
             {
-
             }
             column(SeaRangeC_4__Control1000000102; SeaRangeC[4])
             {
-
             }
             column(SeaRangeC_3__Control1000000103; SeaRangeC[3])
             {
-
             }
             column(SeaRangeC_2__Control1000000104; SeaRangeC[2])
             {
-
             }
             column(SeaRangeC_1__Control1000000105; SeaRangeC[1])
             {
-
             }
             column(Inventory_Posting_Group_Inventory; Inventory)
             {
@@ -1635,11 +1481,9 @@ report 81083 "Daily BreakUp by Vessel Excelg"
             }
             column(SeaRangeC_22__Control1000000108; SeaRangeC[22])
             {
-
             }
             column(SeaRangeC_21__Control1000000109; SeaRangeC[21])
             {
-
             }
             column(TotalFor___FIELDCAPTION_Category_; TotalFor + FieldCaption(Category))
             {
@@ -1649,403 +1493,303 @@ report 81083 "Daily BreakUp by Vessel Excelg"
             }
             column(SeaRangeC_100__Control1000000496; SeaRangeC[100])
             {
-
             }
             column(SeaRangeC_99__Control1000000497; SeaRangeC[99])
             {
-
             }
             column(SeaRangeC_98__Control1000000498; SeaRangeC[98])
             {
-
             }
             column(SeaRangeC_97__Control1000000499; SeaRangeC[97])
             {
-
             }
             column(SeaRangeC_96__Control1000000500; SeaRangeC[96])
             {
-
             }
             column(SeaRangeC_95__Control1000000501; SeaRangeC[95])
             {
-
             }
             column(SeaRangeC_94__Control1000000502; SeaRangeC[94])
             {
-
             }
             column(SeaRangeC_93__Control1000000503; SeaRangeC[93])
             {
-
             }
             column(SeaRangeC_92__Control1000000504; SeaRangeC[92])
             {
-
             }
             column(SeaRangeC_91__Control1000000505; SeaRangeC[91])
             {
-
             }
             column(SeaRangeC_90__Control1000000506; SeaRangeC[90])
             {
-
             }
             column(SeaRangeC_89__Control1000000507; SeaRangeC[89])
             {
-
             }
             column(SeaRangeC_88__Control1000000508; SeaRangeC[88])
             {
-
             }
             column(SeaRangeC_87__Control1000000509; SeaRangeC[87])
             {
-
             }
             column(SeaRangeC_86__Control1000000510; SeaRangeC[86])
             {
-
             }
             column(SeaRangeC_85__Control1000000511; SeaRangeC[85])
             {
-
             }
             column(SeaRangeC_84__Control1000000512; SeaRangeC[84])
             {
-
             }
             column(SeaRangeC_83__Control1000000513; SeaRangeC[83])
             {
-
             }
             column(SeaRangeC_82__Control1000000514; SeaRangeC[82])
             {
-
             }
             column(SeaRangeC_81__Control1000000515; SeaRangeC[81])
             {
-
             }
             column(SeaRangeC_80__Control1000000516; SeaRangeC[80])
             {
-
             }
             column(SeaRangeC_79__Control1000000517; SeaRangeC[79])
             {
-
             }
             column(SeaRangeC_78__Control1000000518; SeaRangeC[78])
             {
-
             }
             column(SeaRangeC_77__Control1000000519; SeaRangeC[77])
             {
-
             }
             column(SeaRangeC_76__Control1000000520; SeaRangeC[76])
             {
-
             }
             column(SeaRangeC_75__Control1000000521; SeaRangeC[75])
             {
-
             }
             column(SeaRangeC_74__Control1000000522; SeaRangeC[74])
             {
-
             }
             column(SeaRangeC_73__Control1000000523; SeaRangeC[73])
             {
-
             }
             column(SeaRangeC_72__Control1000000524; SeaRangeC[72])
             {
-
             }
             column(SeaRangeC_71__Control1000000525; SeaRangeC[71])
             {
-
             }
             column(SeaRangeC_70__Control1000000526; SeaRangeC[70])
             {
-
             }
             column(SeaRangeC_69__Control1000000527; SeaRangeC[69])
             {
-
             }
             column(SeaRangeC_68__Control1000000528; SeaRangeC[68])
             {
-
             }
             column(SeaRangeC_67__Control1000000529; SeaRangeC[67])
             {
-
             }
             column(SeaRangeC_66__Control1000000530; SeaRangeC[66])
             {
-
             }
             column(SeaRangeC_65__Control1000000531; SeaRangeC[65])
             {
-
             }
             column(SeaRangeC_64__Control1000000532; SeaRangeC[64])
             {
-
             }
             column(SeaRangeC_63__Control1000000533; SeaRangeC[63])
             {
-
             }
             column(SeaRangeC_62__Control1000000534; SeaRangeC[62])
             {
-
             }
             column(SeaRangeC_61__Control1000000535; SeaRangeC[61])
             {
-
             }
             column(SeaRangeC_60__Control1000000536; SeaRangeC[60])
             {
-
             }
             column(SeaRangeC_59__Control1000000537; SeaRangeC[59])
             {
-
             }
             column(SeaRangeC_58__Control1000000538; SeaRangeC[58])
             {
-
             }
             column(SeaRangeC_57__Control1000000539; SeaRangeC[57])
             {
-
             }
             column(SeaRangeC_56__Control1000000540; SeaRangeC[56])
             {
-
             }
             column(SeaRangeC_55__Control1000000541; SeaRangeC[55])
             {
-
             }
             column(SeaRangeC_54__Control1000000542; SeaRangeC[54])
             {
-
             }
             column(SeaRangeC_53__Control1000000543; SeaRangeC[53])
             {
-
             }
             column(SeaRangeC_52__Control1000000544; SeaRangeC[52])
             {
-
             }
             column(SeaRangeC_51__Control1000000545; SeaRangeC[51])
             {
-
             }
             column(SeaRangeC_50__Control1000000546; SeaRangeC[50])
             {
-
             }
             column(SeaRangeC_49__Control1000000547; SeaRangeC[49])
             {
-
             }
             column(SeaRangeC_48__Control1000000548; SeaRangeC[48])
             {
-
             }
             column(SeaRangeC_47__Control1000000549; SeaRangeC[47])
             {
-
             }
             column(SeaRangeC_46__Control1000000550; SeaRangeC[46])
             {
-
             }
             column(SeaRangeC_45__Control1000000551; SeaRangeC[45])
             {
-
             }
             column(SeaRangeC_44__Control1000000552; SeaRangeC[44])
             {
-
             }
             column(SeaRangeC_43__Control1000000553; SeaRangeC[43])
             {
-
             }
             column(SeaRangeC_42__Control1000000554; SeaRangeC[42])
             {
-
             }
             column(SeaRangeC_41__Control1000000555; SeaRangeC[41])
             {
-
             }
             column(SeaRangeC_40__Control1000000556; SeaRangeC[40])
             {
-
             }
             column(SeaRangeC_39__Control1000000557; SeaRangeC[39])
             {
-
             }
             column(SeaRangeC_38__Control1000000558; SeaRangeC[38])
             {
-
             }
             column(SeaRangeC_37__Control1000000559; SeaRangeC[37])
             {
-
             }
             column(SeaRangeC_36__Control1000000560; SeaRangeC[36])
             {
-
             }
             column(SeaRangeC_35__Control1000000561; SeaRangeC[35])
             {
-
             }
             column(SeaRangeC_34__Control1000000562; SeaRangeC[34])
             {
-
             }
             column(SeaRangeC_33__Control1000000563; SeaRangeC[33])
             {
-
             }
             column(SeaRangeC_32__Control1000000564; SeaRangeC[32])
             {
-
             }
             column(SeaRangeC_31__Control1000000565; SeaRangeC[31])
             {
-
             }
             column(SeaRangeC_30__Control1000000566; SeaRangeC[30])
             {
-
             }
             column(SeaRangeC_29__Control1000000567; SeaRangeC[29])
             {
-
             }
             column(SeaRangeC_28__Control1000000568; SeaRangeC[28])
             {
-
             }
             column(SeaRangeC_27__Control1000000569; SeaRangeC[27])
             {
-
             }
             column(SeaRangeC_26__Control1000000570; SeaRangeC[26])
             {
-
             }
             column(SeaRangeC_25__Control1000000571; SeaRangeC[25])
             {
-
             }
             column(SeaRangeC_24__Control1000000572; SeaRangeC[24])
             {
-
             }
             column(SeaRangeC_23__Control1000000573; SeaRangeC[23])
             {
-
             }
             column(SeaRangeC_22__Control1000000574; SeaRangeC[22])
             {
-
             }
             column(SeaRangeC_11__Control1000000575; SeaRangeC[11])
             {
-
             }
             column(SeaRangeC_20__Control1000000576; SeaRangeC[20])
             {
-
             }
             column(SeaRangeC_19__Control1000000577; SeaRangeC[19])
             {
-
             }
             column(SeaRangeC_18__Control1000000578; SeaRangeC[18])
             {
-
             }
             column(SeaRangeC_17__Control1000000579; SeaRangeC[17])
             {
-
             }
             column(SeaRangeC_16__Control1000000580; SeaRangeC[16])
             {
-
             }
             column(SeaRangeC_15__Control1000000581; SeaRangeC[15])
             {
-
             }
             column(SeaRangeC_14__Control1000000582; SeaRangeC[14])
             {
-
             }
             column(SeaRangeC_13__Control1000000583; SeaRangeC[13])
             {
-
             }
             column(SeaRangeC_12__Control1000000584; SeaRangeC[12])
             {
-
             }
             column(SeaRangeC_11__Control1000000585; SeaRangeC[11])
             {
-
             }
             column(SeaRangeC_10__Control1000000586; SeaRangeC[10])
             {
-
             }
             column(SeaRangeC_9__Control1000000587; SeaRangeC[9])
             {
-
             }
             column(SeaRangeC_8__Control1000000588; SeaRangeC[8])
             {
-
             }
             column(SeaRangeC_7__Control1000000589; SeaRangeC[7])
             {
-
             }
             column(SeaRangeC_6__Control1000000590; SeaRangeC[6])
             {
-
             }
             column(SeaRangeC_5__Control1000000591; SeaRangeC[5])
             {
-
             }
             column(SeaRangeC_4__Control1000000592; SeaRangeC[4])
             {
-
             }
             column(SeaRangeC_3__Control1000000593; SeaRangeC[3])
             {
-
             }
             column(SeaRangeC_2__Control1000000594; SeaRangeC[2])
             {
-
             }
             column(SeaRangeC_1__Control1000000595; SeaRangeC[1])
             {
-
             }
             column(TotalFor___FIELDCAPTION__Statistics_Group__; TotalFor + FieldCaption("Statistics Group"))
             {
@@ -2055,403 +1799,303 @@ report 81083 "Daily BreakUp by Vessel Excelg"
             }
             column(SeaRangeC_1__Control1000000596; SeaRangeC[1])
             {
-
             }
             column(SeaRangeC_2__Control1000000597; SeaRangeC[2])
             {
-
             }
             column(SeaRangeC_3__Control1000000598; SeaRangeC[3])
             {
-
             }
             column(SeaRangeC_4__Control1000000599; SeaRangeC[4])
             {
-
             }
             column(SeaRangeC_5__Control1000000600; SeaRangeC[5])
             {
-
             }
             column(SeaRangeC_6__Control1000000601; SeaRangeC[6])
             {
-
             }
             column(SeaRangeC_7__Control1000000602; SeaRangeC[7])
             {
-
             }
             column(SeaRangeC_8__Control1000000603; SeaRangeC[8])
             {
-
             }
             column(SeaRangeC_9__Control1000000604; SeaRangeC[9])
             {
-
             }
             column(SeaRangeC_10__Control1000000605; SeaRangeC[10])
             {
-
             }
             column(SeaRangeC_11__Control1000000606; SeaRangeC[11])
             {
-
             }
             column(SeaRangeC_12__Control1000000607; SeaRangeC[12])
             {
-
             }
             column(SeaRangeC_13__Control1000000608; SeaRangeC[13])
             {
-
             }
             column(SeaRangeC_14__Control1000000609; SeaRangeC[14])
             {
-
             }
             column(SeaRangeC_15__Control1000000610; SeaRangeC[15])
             {
-
             }
             column(SeaRangeC_16__Control1000000611; SeaRangeC[16])
             {
-
             }
             column(SeaRangeC_17__Control1000000612; SeaRangeC[17])
             {
-
             }
             column(SeaRangeC_18__Control1000000613; SeaRangeC[18])
             {
-
             }
             column(SeaRangeC_19__Control1000000614; SeaRangeC[19])
             {
-
             }
             column(SeaRangeC_20__Control1000000615; SeaRangeC[20])
             {
-
             }
             column(SeaRangeC_11__Control1000000616; SeaRangeC[11])
             {
-
             }
             column(SeaRangeC_22__Control1000000617; SeaRangeC[22])
             {
-
             }
             column(SeaRangeC_23__Control1000000618; SeaRangeC[23])
             {
-
             }
             column(SeaRangeC_24__Control1000000619; SeaRangeC[24])
             {
-
             }
             column(SeaRangeC_25__Control1000000620; SeaRangeC[25])
             {
-
             }
             column(SeaRangeC_26__Control1000000621; SeaRangeC[26])
             {
-
             }
             column(SeaRangeC_27__Control1000000622; SeaRangeC[27])
             {
-
             }
             column(SeaRangeC_28__Control1000000623; SeaRangeC[28])
             {
-
             }
             column(SeaRangeC_29__Control1000000624; SeaRangeC[29])
             {
-
             }
             column(SeaRangeC_30__Control1000000625; SeaRangeC[30])
             {
-
             }
             column(SeaRangeC_31__Control1000000626; SeaRangeC[31])
             {
-
             }
             column(SeaRangeC_32__Control1000000627; SeaRangeC[32])
             {
-
             }
             column(SeaRangeC_33__Control1000000628; SeaRangeC[33])
             {
-
             }
             column(SeaRangeC_34__Control1000000629; SeaRangeC[34])
             {
-
             }
             column(SeaRangeC_35__Control1000000630; SeaRangeC[35])
             {
-
             }
             column(SeaRangeC_36__Control1000000631; SeaRangeC[36])
             {
-
             }
             column(SeaRangeC_37__Control1000000632; SeaRangeC[37])
             {
-
             }
             column(SeaRangeC_38__Control1000000633; SeaRangeC[38])
             {
-
             }
             column(SeaRangeC_39__Control1000000634; SeaRangeC[39])
             {
-
             }
             column(SeaRangeC_40__Control1000000635; SeaRangeC[40])
             {
-
             }
             column(SeaRangeC_41__Control1000000636; SeaRangeC[41])
             {
-
             }
             column(SeaRangeC_42__Control1000000637; SeaRangeC[42])
             {
-
             }
             column(SeaRangeC_43__Control1000000638; SeaRangeC[43])
             {
-
             }
             column(SeaRangeC_44__Control1000000639; SeaRangeC[44])
             {
-
             }
             column(SeaRangeC_45__Control1000000640; SeaRangeC[45])
             {
-
             }
             column(SeaRangeC_46__Control1000000641; SeaRangeC[46])
             {
-
             }
             column(SeaRangeC_47__Control1000000642; SeaRangeC[47])
             {
-
             }
             column(SeaRangeC_48__Control1000000643; SeaRangeC[48])
             {
-
             }
             column(SeaRangeC_49__Control1000000644; SeaRangeC[49])
             {
-
             }
             column(SeaRangeC_50__Control1000000645; SeaRangeC[50])
             {
-
             }
             column(SeaRangeC_51__Control1000000646; SeaRangeC[51])
             {
-
             }
             column(SeaRangeC_52__Control1000000647; SeaRangeC[52])
             {
-
             }
             column(SeaRangeC_53__Control1000000648; SeaRangeC[53])
             {
-
             }
             column(SeaRangeC_54__Control1000000649; SeaRangeC[54])
             {
-
             }
             column(SeaRangeC_55__Control1000000650; SeaRangeC[55])
             {
-
             }
             column(SeaRangeC_56__Control1000000651; SeaRangeC[56])
             {
-
             }
             column(SeaRangeC_57__Control1000000652; SeaRangeC[57])
             {
-
             }
             column(SeaRangeC_58__Control1000000653; SeaRangeC[58])
             {
-
             }
             column(SeaRangeC_59__Control1000000654; SeaRangeC[59])
             {
-
             }
             column(SeaRangeC_60__Control1000000655; SeaRangeC[60])
             {
-
             }
             column(SeaRangeC_61__Control1000000656; SeaRangeC[61])
             {
-
             }
             column(SeaRangeC_62__Control1000000657; SeaRangeC[62])
             {
-
             }
             column(SeaRangeC_63__Control1000000658; SeaRangeC[63])
             {
-
             }
             column(SeaRangeC_64__Control1000000659; SeaRangeC[64])
             {
-
             }
             column(SeaRangeC_65__Control1000000660; SeaRangeC[65])
             {
-
             }
             column(SeaRangeC_66__Control1000000661; SeaRangeC[66])
             {
-
             }
             column(SeaRangeC_67__Control1000000662; SeaRangeC[67])
             {
-
             }
             column(SeaRangeC_68__Control1000000663; SeaRangeC[68])
             {
-
             }
             column(SeaRangeC_69__Control1000000664; SeaRangeC[69])
             {
-
             }
             column(SeaRangeC_70__Control1000000665; SeaRangeC[70])
             {
-
             }
             column(SeaRangeC_71__Control1000000666; SeaRangeC[71])
             {
-
             }
             column(SeaRangeC_72__Control1000000667; SeaRangeC[72])
             {
-
             }
             column(SeaRangeC_73__Control1000000668; SeaRangeC[73])
             {
-
             }
             column(SeaRangeC_74__Control1000000669; SeaRangeC[74])
             {
-
             }
             column(SeaRangeC_75__Control1000000670; SeaRangeC[75])
             {
-
             }
             column(SeaRangeC_76__Control1000000671; SeaRangeC[76])
             {
-
             }
             column(SeaRangeC_77__Control1000000672; SeaRangeC[77])
             {
-
             }
             column(SeaRangeC_78__Control1000000673; SeaRangeC[78])
             {
-
             }
             column(SeaRangeC_79__Control1000000674; SeaRangeC[79])
             {
-
             }
             column(SeaRangeC_80__Control1000000675; SeaRangeC[80])
             {
-
             }
             column(SeaRangeC_81__Control1000000676; SeaRangeC[81])
             {
-
             }
             column(SeaRangeC_82__Control1000000677; SeaRangeC[82])
             {
-
             }
             column(SeaRangeC_83__Control1000000678; SeaRangeC[83])
             {
-
             }
             column(SeaRangeC_84__Control1000000679; SeaRangeC[84])
             {
-
             }
             column(SeaRangeC_85__Control1000000680; SeaRangeC[85])
             {
-
             }
             column(SeaRangeC_86__Control1000000681; SeaRangeC[86])
             {
-
             }
             column(SeaRangeC_87__Control1000000682; SeaRangeC[87])
             {
-
             }
             column(SeaRangeC_88__Control1000000683; SeaRangeC[88])
             {
-
             }
             column(SeaRangeC_89__Control1000000684; SeaRangeC[89])
             {
-
             }
             column(SeaRangeC_90__Control1000000685; SeaRangeC[90])
             {
-
             }
             column(SeaRangeC_91__Control1000000686; SeaRangeC[91])
             {
-
             }
             column(SeaRangeC_92__Control1000000687; SeaRangeC[92])
             {
-
             }
             column(SeaRangeC_93__Control1000000688; SeaRangeC[93])
             {
-
             }
             column(SeaRangeC_94__Control1000000689; SeaRangeC[94])
             {
-
             }
             column(SeaRangeC_95__Control1000000690; SeaRangeC[95])
             {
-
             }
             column(SeaRangeC_96__Control1000000691; SeaRangeC[96])
             {
-
             }
             column(SeaRangeC_97__Control1000000692; SeaRangeC[97])
             {
-
             }
             column(SeaRangeC_98__Control1000000693; SeaRangeC[98])
             {
-
             }
             column(SeaRangeC_99__Control1000000694; SeaRangeC[99])
             {
-
             }
             column(SeaRangeC_100__Control1000000695; SeaRangeC[100])
             {
-
             }
             column(Inventory_Posting_Group__Inventory_total1_Caption; FieldCaption("Inventory total1"))
             {
@@ -2523,7 +2167,7 @@ report 81083 "Daily BreakUp by Vessel Excelg"
                         locate2.CalcFields(locate2."Voyage Sea Days");
                         locate2.VSDVal := locate2."Voyage Sea Days";
                         locate2.Modify();
-                    until locate2.Next = 0;
+                    until locate2.Next() = 0;
 
                 //AAA - June 2002
                 locate.SetRange(locate."Location Type", 1);
@@ -2541,7 +2185,7 @@ report 81083 "Daily BreakUp by Vessel Excelg"
                             SeaRangeD[Countx] := locate.VSDVal;     //Sea Day Assigned
                             Countx := Countx + 1;
                         end;
-                    until locate.Next = 0;
+                    until locate.Next() = 0;
                 TotLoc := Countx - 1;
                 //MESSAGE(' %1',TotLoc);
             end;
@@ -2550,7 +2194,6 @@ report 81083 "Daily BreakUp by Vessel Excelg"
 
     requestpage
     {
-
         layout
         {
         }
@@ -2566,23 +2209,17 @@ report 81083 "Daily BreakUp by Vessel Excelg"
 
     var
         LastFieldNo: Integer;
-        FooterPrinted: Boolean;
         TotalFor: Label 'Total for ';
-        "----------------": Integer;
         locate: Record Location;
         locate2: Record Location;
         Countx: Integer;
         level: Integer;
-        LocGroup: Integer;
         TotLoc: Integer;
         SeaRangeC: array[100] of Decimal;
         T001: Text[80];
         SeaRange: array[100] of Text[30];
         SeaRangeD: array[100] of Decimal;
         Cat: Code[15];
-        job1: Record Job;
-        Nocatch: Boolean;
         T001CaptionLbl: Label 'Statistics Group';
         CatCaptionLbl: Label 'Category';
 }
-

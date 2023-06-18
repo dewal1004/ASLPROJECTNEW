@@ -2,7 +2,7 @@ table 50022 "MP Budget Name"
 {
     DrillDownPageID = "MP Budget Names";
     LookupPageID = "MP Budget Names";
-
+    Caption = 'MP Budget Name';
     fields
     {
         field(1; Name; Code[10])
@@ -24,16 +24,18 @@ table 50022 "MP Budget Name"
 
     fieldgroups
     {
+        fieldgroup(DropDown; Name, Description)
+        {
+        }
     }
 
     trigger OnDelete()
     begin
         MPBudgetEntry.SetCurrentKey("Budget Name");
         MPBudgetEntry.SetRange("Budget Name", Name);
-        MPBudgetEntry.DeleteAll;
+        MPBudgetEntry.DeleteAll();
     end;
 
     var
         MPBudgetEntry: Record "MP Budget Entry";
 }
-

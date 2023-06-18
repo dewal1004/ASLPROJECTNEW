@@ -6,8 +6,7 @@ report 50087 "Container By Month Shipment"
     RDLCLayout = './src/reportrdlc/ContainerByMonthShipment.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
-
-
+    Caption = 'Container By Month Shipment';
     dataset
     {
         dataitem("Sales Shipment Header"; "Sales Shipment Header")
@@ -32,7 +31,7 @@ report 50087 "Container By Month Shipment"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -313,7 +312,7 @@ report 50087 "Container By Month Shipment"
                 repeat
                     CatRange[Countx] := ItCat.Code;
                     Countx := Countx + 1;
-                until ItCat.Next = 0;
+                until ItCat.Next() = 0;
                 Countx := 1;//coment removed//
                 repeat
                     CurrReport.CreateTotals(CatRangeQ[Countx]);
@@ -325,7 +324,6 @@ report 50087 "Container By Month Shipment"
 
     requestpage
     {
-
         layout
         {
         }
@@ -341,7 +339,6 @@ report 50087 "Container By Month Shipment"
 
     var
         LastFieldNo: Integer;
-        FooterPrinted: Boolean;
         ItCat: Record "Item Category";
         CatRange: array[25] of Code[20];
         CatRangeQ: array[25] of Decimal;
@@ -354,4 +351,3 @@ report 50087 "Container By Month Shipment"
         CurrReport_PAGENOCaptionLbl: Label 'Page';
         SCMhead: Record "Sales Cr.Memo Header";
 }
-

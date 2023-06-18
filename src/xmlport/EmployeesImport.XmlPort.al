@@ -1,7 +1,7 @@
 xmlport 90993 "Employees Import"
 {
     Format = VariableText;
-
+    Caption = 'Employees Import';
     schema
     {
         textelement(Rootnode)
@@ -62,7 +62,6 @@ xmlport 90993 "Employees Import"
 
     requestpage
     {
-
         layout
         {
         }
@@ -72,4 +71,3 @@ xmlport 90993 "Employees Import"
         }
     }
 }
-

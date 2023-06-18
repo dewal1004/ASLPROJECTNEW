@@ -4,8 +4,7 @@ report 50209 "Organoleptic1"
     // "Comment Line"."Loose Neck%"
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/Organoleptic1.rdlc';
-
-
+    Caption = 'Organoleptic1';
     dataset
     {
         dataitem("Comment Line"; "Comment Line")
@@ -18,7 +17,7 @@ report 50209 "Organoleptic1"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -359,7 +358,6 @@ report 50209 "Organoleptic1"
 
     requestpage
     {
-
         layout
         {
         }
@@ -378,11 +376,7 @@ report 50209 "Organoleptic1"
         item: Record Item;
         JbBudLn: Record "Job Ledger Entry";
         Loc: Record Location;
-        Grade: Code[20];
         GradeTxt: Text[30];
-        "----": Integer;
-        LastFieldNo: Integer;
-        FooterPrinted: Boolean;
         Rex: Code[10];
         Batch: Code[20];
         SMSName: Text[30];
@@ -407,4 +401,3 @@ report 50209 "Organoleptic1"
         Comment_Line_Comment_Control1000000001CaptionLbl: Label 'Comments';
         GradeTxt_______Pack_Size_______Brand_Control11CaptionLbl: Label 'Description';
 }
-

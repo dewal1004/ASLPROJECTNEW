@@ -1,6 +1,6 @@
 table 50100 "Purchase Variance (Item) XAC"
 {
-
+    Caption = 'Purchase Variance (Item) XAC';
     fields
     {
         field(1; OrderNo; Code[20])
@@ -24,6 +24,8 @@ table 50100 "Purchase Variance (Item) XAC"
 
     fieldgroups
     {
+        fieldgroup(DropDown; OrderNo, ItemNo)
+        {
+        }
     }
 }
-

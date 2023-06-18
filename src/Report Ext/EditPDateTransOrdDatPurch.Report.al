@@ -2,7 +2,7 @@ report 99515 "Edit PDate>Trans Ord Dat Purch"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/EditPDateTransOrdDatPurch.rdlc';
-
+    Caption = 'Edit PDate>Trans Ord Dat Purch';
     dataset
     {
         dataitem("Purch. Inv. Header"; "Purch. Inv. Header")
@@ -45,7 +45,7 @@ report 99515 "Edit PDate>Trans Ord Dat Purch"
                 begin
                     "Posting Date" := TranOrdDat;
                     "Document Date" := TranOrdDat;
-                    Modify;
+                    Modify();
                 end;
             }
 
@@ -58,7 +58,6 @@ report 99515 "Edit PDate>Trans Ord Dat Purch"
 
     requestpage
     {
-
         layout
         {
         }
@@ -75,4 +74,3 @@ report 99515 "Edit PDate>Trans Ord Dat Purch"
     var
         TranOrdDat: Date;
 }
-

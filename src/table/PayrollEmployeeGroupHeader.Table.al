@@ -11,7 +11,7 @@ table 50009 "Payroll-Employee Group Header."
     //                      None
 
     LookupPageID = "Employee Groups Survey.";
-
+    Caption = 'Payroll-Employee Group Header.';
     fields
     {
         field(1; "Code"; Code[10])
@@ -139,43 +139,36 @@ table 50009 "Payroll-Employee Group Header."
 
         /* First delete the detail lines */
         GrpLinesRec.SetRange("Employee Group", Code);
-        GrpLinesRec.DeleteAll;
+        GrpLinesRec.DeleteAll();
 
         /* Delete the 'parent record'*/
-        Delete;
+        Delete();
 
         /* Disable the locking effect */
-        Commit;
-
+        Commit();
     end;
 
     trigger OnModify()
     begin
         if (GrpCodeRec.Code <> Code) and
-             (GrpCodeRec.Code <> '') then begin
+             (GrpCodeRec.Code <> '') then
             if Confirm(StrSubstNo('Do you want to change %1?', FieldName(Code)), false) then begin
                 GrpCodeRec.SetRange(Code, GrpCodeRec.Code);
                 "Search Name" := GrpCodeRec."Search Name";
             end;
-        end;
     end;
 
     var
         GrpCodeRec: Record "Payroll-Employee Group Header.";
         GrpLinesRec: Record "Payroll-Employee Group Lines.";
         CursorPos: Integer;
-        Ok: Boolean;
-        PostGrpRec: Record "Payroll-Posting Group Header.";
-        PGrpCode: Code[10];
         EDRec: Record "Payroll-E/D Codes.";
         GrossEDCode: Code[20];
         GenPCode: Codeunit "General Purpose Codeunit";
         EDType: Option " ","NSITF Employee","NSITF Employer","Gross Salary","Pension Employee","Pension Employer";
         EmpContRec: Record "Employment Contract";
         EmpGrp: Code[10];
-        gg: Decimal;
         GrossFilter: Text[30];
-        EmpGrpStep: Code[10];
         BasicEDCode: Code[10];
 
     //[Scope('OnPrem')]
@@ -193,12 +186,11 @@ table 50009 "Payroll-Employee Group Header."
         else
             exit(0);
 
-
         /*
         IF EmpContRec.GET(EmpGrpCode) THEN
           BEGIN
             EmpGrp := EmpContRec.Category;
-        
+
             GrpLinesRec.SETRANGE(GrpLinesRec."Employee Group",EmpGrpCode);
             IF GrpLinesRec.FIND('-') THEN
               BEGIN
@@ -211,7 +203,6 @@ table 50009 "Payroll-Employee Group Header."
         ELSE
           EXIT(0);
         */
-
     end;
 
     //[Scope('OnPrem')]
@@ -254,7 +245,7 @@ table 50009 "Payroll-Employee Group Header."
                 GrossFilter := '<>' + Format(GrossAmount);
         end;
 
-        GrpLinesRec.Reset;
+        GrpLinesRec.Reset();
         GrpLinesRec.SetRange(GrpLinesRec."E/D Code", GrossEDCode);
         GrpLinesRec.SetCurrentKey(GrpLinesRec."Default Amount");
         GrpLinesRec.SetFilter(GrpLinesRec."Default Amount", GrossFilter);
@@ -281,4 +272,3 @@ table 50009 "Payroll-Employee Group Header."
             exit(0);
     end;
 }
-

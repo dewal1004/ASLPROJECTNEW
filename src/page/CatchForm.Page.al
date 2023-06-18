@@ -5,7 +5,7 @@ page 80087 "Catch Form"
 
     PageType = Card;
     SourceTable = Item;
-
+    Caption = 'Catch Form';
     layout
     {
         area(content)
@@ -22,7 +22,7 @@ page 80087 "Catch Form"
                     begin
                         if JobRec.Get("Voyage No.") then
                             Vessel := JobRec.Vessel;
-                        "Catch Date" := WorkDate;
+                        "Catch Date" := WorkDate();
                     end;
                 }
                 field(Vessel; Vessel)
@@ -1141,17 +1141,17 @@ page 80087 "Catch Form"
                 trigger OnAction()
                 begin
                     //Job Journal Batch Initialization
-                    JJBatc.Init;
+                    JJBatc.Init();
                     JJBatc."Journal Template Name" := 'JOB';
                     JJBatc.Name := Vessel;
                     JJBatc."Reason Code" := 'CATCH';
                     JJBatc."No. Series" := 'JJNL-GEN';
-                    if not JJBatc.Insert then JJBatc.Modify;
+                    if not JJBatc.Insert() then JJBatc.Modify();
 
                     //Job Journal Line Insertion
-                    for I := 1 to 68 do begin
+                    for I := 1 to 68 do
                         for J := 1 to 3 do begin
-                            JJLine.Init;
+                            JJLine.Init();
                             JJLine."Journal Template Name" := JJBatc."Journal Template Name";
                             JJLine."Journal Batch Name" := JJBatc.Name;
                             JJLine."Line No." := I * 10000 + J * 100;
@@ -1170,10 +1170,9 @@ page 80087 "Catch Form"
                                 JJLine.Validate(JJLine.Catch, CTH[I, J]);
                                 JJLine.Validate(JJLine."Location Code", Vessel);
                                 JJLine.Validate(JJLine."Unit Price (LCY)", ItemRec.Points);
-                                if not JJLine.Insert then JJLine.Modify;
+                                if not JJLine.Insert() then JJLine.Modify();
                             end;
                         end;
-                    end;
                 end;
             }
         }
@@ -1182,7 +1181,6 @@ page 80087 "Catch Form"
     var
         JobRec: Record Job;
         ItemRec: Record Item;
-        JJTemp: Record "Job Journal Template";
         JJBatc: Record "Job Journal Batch";
         JJLine: Record "Job Journal Line";
         CTH: array[86, 3] of Integer;
@@ -1192,7 +1190,6 @@ page 80087 "Catch Form"
         "Voyage No.": Code[10];
         Vessel: Code[10];
         "Catch Date": Date;
-        "Business Units Code": Integer;
         "Fishing Ground": Text[30];
         "Sea Temperature": Decimal;
         Text19015995: Label 'White HOn';
@@ -1235,4 +1232,3 @@ page 80087 "Catch Form"
         Text19080023: Label '_';
         Text19080024: Label '0.5 - Kgs';
 }
-

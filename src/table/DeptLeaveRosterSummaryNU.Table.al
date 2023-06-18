@@ -2,7 +2,7 @@ table 60023 "Dept Leave Roster Summary NU*"
 {
     DrillDownPageID = "Utilities.";
     LookupPageID = "Utilities.";
-
+    Caption = 'Dept Leave Roster Summary NU*';
     fields
     {
         field(1; "Global Dimension 1 Code"; Code[10])
@@ -31,6 +31,7 @@ table 60023 "Dept Leave Roster Summary NU*"
                                                                  LeaveDate = FIELD("Date Filter")));
             DecimalPlaces = 0 : 0;
             FieldClass = FlowField;
+            Editable = false;
         }
         field(5; "Region Filter"; Code[10])
         {
@@ -75,10 +76,11 @@ table 60023 "Dept Leave Roster Summary NU*"
 
     fieldgroups
     {
+        fieldgroup(DropDown; Description)
+        {
+        }
     }
 
     var
-        LeaveRosRec: Record "Leave Roster NU*";
         BCRec: Record "Dimension Value";
 }
-

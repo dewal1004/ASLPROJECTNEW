@@ -3,7 +3,7 @@ table 50026 "Course Types"
     DataCaptionFields = "Course Type Code", Description;
     DrillDownPageID = "Course Type List";
     LookupPageID = "Course Type List";
-
+    Caption = 'Course Types';
     fields
     {
         field(1; "Course Type Code"; Code[10])
@@ -24,6 +24,8 @@ table 50026 "Course Types"
 
     fieldgroups
     {
+        fieldgroup(DropDown; Description)
+        {
+        }
     }
 }
-

@@ -2,7 +2,7 @@ report 50071 "BANK LIST local currency"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/BANKLISTlocalcurrency.rdlc';
-
+    Caption = 'BANK LIST local currency';
     dataset
     {
         dataitem("Bank Account"; "Bank Account")
@@ -15,7 +15,7 @@ report 50071 "BANK LIST local currency"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -85,13 +85,10 @@ report 50071 "BANK LIST local currency"
             trigger OnAfterGetRecord()
             begin
 
-
                 "Bank Account".SetRange("Bank Account"."Date Filter", 0D, CalcDate('-1D', MINDATE));
                 "Bank Account".CalcFields("Bank Account"."Net Change (LCY)");
                 OPENBAL := "Bank Account"."Net Change (LCY)";
                 OPENBALTOT := OPENBALTOT + OPENBAL;
-
-
 
                 "Bank Account".SetRange("Bank Account"."Date Filter", 0D, MAXDATE);
                 "Bank Account".CalcFields("Bank Account"."Net Change (LCY)");
@@ -113,7 +110,6 @@ report 50071 "BANK LIST local currency"
 
     requestpage
     {
-
         layout
         {
         }
@@ -141,4 +137,3 @@ report 50071 "BANK LIST local currency"
         OPENINGCaptionLbl: Label 'OPENING';
         CLOSINGCaptionLbl: Label 'CLOSING';
 }
-

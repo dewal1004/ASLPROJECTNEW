@@ -2,7 +2,7 @@ report 50142 "Revenue Summary VJ"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/RevenueSummaryVJ.rdlc';
-
+    Caption = 'Revenue Summary VJ';
     dataset
     {
         dataitem("Revenue Table VJ"; "Revenue Table VJ")
@@ -15,7 +15,7 @@ report 50142 "Revenue Summary VJ"
             column(COMPANYNAME; CompanyInfo.Name)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(Revenue_Table_VJ__Job_No__; "Job No.")
@@ -71,7 +71,6 @@ report 50142 "Revenue Summary VJ"
 
     requestpage
     {
-
         layout
         {
         }
@@ -90,4 +89,3 @@ report 50142 "Revenue Summary VJ"
         CurrReport_PAGENOCaptionLbl: Label 'Page';
         CompanyInfo: Record "Company Information";
 }
-

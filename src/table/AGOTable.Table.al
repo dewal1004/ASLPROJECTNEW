@@ -1,5 +1,6 @@
 table 50106 "AGO Table"
 {
+    Caption = 'AGO Table';
     // UNL-ASL3.60.01.009 (Santus) June 14, 2005
 
     fields
@@ -131,13 +132,5 @@ table 50106 "AGO Table"
 
     var
         AGORec: Record "AGO Table";
-        Deptrec: Record "Dimension Value";
-        EmployeeAbsence: Record "Employee Absence";
         Job: Record Job;
-        approved: Boolean;
-        DatDif: array[2] of Decimal;
-        DayCount: Decimal;
-        //?? approv: Record "Object"; //is this tab existing on Vrs  14?
-        fieldval: Text[30];
 }
-

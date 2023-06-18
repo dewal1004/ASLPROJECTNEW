@@ -1,6 +1,5 @@
 tableextension 50222 "tableextension50222" extends "Acc. Sched. KPI Web Srv. Setup"
 {
-
     //Unsupported feature: Code Modification on "GetPeriodLength(PROCEDURE 7)".
 
     //procedure GetPeriodLength();
@@ -33,7 +32,6 @@ tableextension 50222 "tableextension50222" extends "Acc. Sched. KPI Web Srv. Set
     */
     //end;
 
-
     //Unsupported feature: Code Modification on "GetFiscalYear(PROCEDURE 13)".
 
     //procedure GetFiscalYear();
@@ -65,4 +63,3 @@ tableextension 50222 "tableextension50222" extends "Acc. Sched. KPI Web Srv. Set
     */
     //end;
 }
-

@@ -3,7 +3,6 @@ report 50187 "Sales Packing List"
     // SalesHeader."Ship-to City"
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/SalesPackingList.rdlc';
-
     Caption = 'Sales Document - Test';
 
     dataset
@@ -267,10 +266,10 @@ report 50187 "Sales Packing List"
                     begin
                         if Number = 1 then begin
                             if not DocDim1.Find('-') then
-                                CurrReport.Break;
+                                CurrReport.Break();
                         end else
                             if not Continue then
-                                CurrReport.Break;
+                                CurrReport.Break();
 
                         Clear(DimText);
                         Continue := false;
@@ -287,13 +286,13 @@ report 50187 "Sales Packing List"
                                 Continue := true;
                                 exit;
                             end;
-                        until (DocDim1.Next = 0);
+                        until (DocDim1.Next() = 0);
                     end;
 
                     trigger OnPreDataItem()
                     begin
                         if not ShowDim then
-                            CurrReport.Break;
+                            CurrReport.Break();
                     end;
                 }
                 dataitem(HeaderErrorCounter; "Integer")
@@ -352,10 +351,10 @@ report 50187 "Sales Packing List"
                         begin
                             if Number = 1 then begin
                                 if not DocDim2.Find('-') then
-                                    CurrReport.Break;
+                                    CurrReport.Break();
                             end else
                                 if not Continue then
-                                    CurrReport.Break;
+                                    CurrReport.Break();
 
                             Clear(DimText);
                             Continue := false;
@@ -372,13 +371,13 @@ report 50187 "Sales Packing List"
                                     Continue := true;
                                     exit;
                                 end;
-                            until (DocDim2.Next = 0);
+                            until (DocDim2.Next() = 0);
                         end;
 
                         trigger OnPreDataItem()
                         begin
                             if not ShowDim then
-                                CurrReport.Break;
+                                CurrReport.Break();
                         end;
                     }
                     dataitem(LineErrorCounter; "Integer")
@@ -553,8 +552,7 @@ report 50187 "Sales Packing List"
                                                   StrSubstNo(
                                                     Text007,
                                                     Item.FieldCaption(Blocked), false, Item.TableCaption, "No."));
-                                            if Item."Costing Method" = Item."Costing Method"::Specific then begin
-                                            end;
+                                            if Item."Costing Method" = Item."Costing Method"::Specific then;
                                             if Item.Reserve = Item.Reserve::Always then begin
                                                 CalcFields("Reserved Quantity");
                                                 if "Document Type" = "Document Type"::"Credit Memo" then begin
@@ -628,27 +626,27 @@ report 50187 "Sales Packing List"
                         end;
 
                         //IF NOT DimMgt.CheckDocDimComb(DocDim2) THEN
-                        AddError(DimMgt.GetDimCombErr);
+                        AddError(DimMgt.GetDimCombErr());
 
                         TableID[1] := DimMgt.TypeToTableID3(Type);
                         No[1] := "No.";
                         TableID[2] := DATABASE::Job;
                         No[2] := "Job No.";
                         // IF NOT DimMgt.CheckDocDimValuePosting(DocDim2,TableID,No) THEN
-                        AddError(DimMgt.GetDimValuePostingErr);
+                        AddError(DimMgt.GetDimValuePostingErr());
                     end;
 
                     trigger OnPreDataItem()
                     var
                         SalesLine: Record "Sales Line";
                     begin
-                        VATAmountLine.DeleteAll;
+                        VATAmountLine.DeleteAll();
                         SalesLine.CalcVATAmountLines(0, "Sales Header", SalesLine, VATAmountLine);
-                        VATAmount := VATAmountLine.GetTotalVATAmount;
-                        VATBaseAmount := VATAmountLine.GetTotalVATBase;
+                        VATAmount := VATAmountLine.GetTotalVATAmount();
+                        VATBaseAmount := VATAmountLine.GetTotalVATBase();
                         VATDiscountAmount :=
                           VATAmountLine.GetTotalVATDiscount("Sales Header"."Currency Code", SalesHeader."Prices Including VAT");
-                        TotalAmountInclVAT := VATAmountLine.GetTotalAmountInclVAT;
+                        TotalAmountInclVAT := VATAmountLine.GetTotalAmountInclVAT();
                         VATNoError := false;
                         ApplNoError := false;
                         CurrReport.CreateTotals("Line Amount", "Inv. Discount Amount");
@@ -666,7 +664,7 @@ report 50187 "Sales Packing List"
                     trigger OnPreDataItem()
                     begin
                         if VATAmount = 0 then
-                            CurrReport.Break;
+                            CurrReport.Break();
                         SetRange(Number, 1, VATAmountLine.Count);
                         CurrReport.CreateTotals(
                           VATAmountLine."VAT Base", VATAmountLine."VAT Amount", VATAmountLine."Amount Including VAT",
@@ -691,7 +689,6 @@ report 50187 "Sales Packing List"
                           CurrReport.BREAK;
                         CurrReport.CREATETOTALS("Assigned Amount","Qty. to Assign");
                                                                                      */
-
                     end;
                 }
 
@@ -721,7 +718,6 @@ report 50187 "Sales Packing List"
 
                     if SalesPurchPerson.Get("Sales Header"."Salesperson Code") then;
                     CurrReport.ShowOutput(not PrePrinted);
-
 
                     if ShippgAgent.Get(SalesHeader."Shipping Agent Code") then
                         Agent := ShippgAgent.Name;
@@ -760,38 +756,36 @@ report 50187 "Sales Packing List"
 
                 if "Sell-to Customer No." = '' then
                     AddError(StrSubstNo(Text006, FieldCaption("Sell-to Customer No.")))
-                else begin
-                    if Cust.Get("Sell-to Customer No.") then begin
+                else
+                    if Cust.Get("Sell-to Customer No.") then
                         //   IF Cust.Blocked THEN
                         AddError(
                           StrSubstNo(
                             Text007,
-                            Cust.FieldCaption(Blocked), false, Cust.TableCaption, "Sell-to Customer No."));
-                    end else
+                            Cust.FieldCaption(Blocked), false, Cust.TableCaption, "Sell-to Customer No."))
+                    else
                         AddError(
                           StrSubstNo(
                             Text008,
                             Cust.TableCaption, "Sell-to Customer No."));
-                end;
 
                 if "Bill-to Customer No." = '' then
                     AddError(StrSubstNo(Text006, FieldCaption("Bill-to Customer No.")))
-                else begin
-                    if Cust.Get("Bill-to Customer No.") then begin
+                else
+                    if Cust.Get("Bill-to Customer No.") then
                         //   IF Cust.Blocked THEN
                         AddError(
                           StrSubstNo(
                             Text007,
-                            Cust.FieldCaption(Blocked), false, Cust.TableCaption, "Bill-to Customer No."));
-                    end else
+                            Cust.FieldCaption(Blocked), false, Cust.TableCaption, "Bill-to Customer No."))
+                    else
                         AddError(
                           StrSubstNo(
                             Text008,
                             Cust.TableCaption, "Bill-to Customer No."));
-                end;
 
-                GLSetup.Get;
-                SalesSetup.Get;
+                GLSetup.Get();
+                SalesSetup.Get();
 
                 if "Posting Date" = 0D then
                     AddError(StrSubstNo(Text006, FieldCaption("Posting Date")))
@@ -841,7 +835,7 @@ report 50187 "Sales Packing List"
                         FieldCaption(Ship), FieldCaption(Invoice), FieldCaption(Receive)));
 
                 if Invoice then begin
-                    SalesLine.Reset;
+                    SalesLine.Reset();
                     SalesLine.SetRange("Document Type", "Document Type");
                     SalesLine.SetRange("Document No.", "No.");
                     SalesLine.SetFilter(Quantity, '<>0');
@@ -852,18 +846,18 @@ report 50187 "Sales Packing List"
                         Invoice := false;
                         repeat
                             Invoice := (SalesLine."Quantity Shipped" - SalesLine."Quantity Invoiced") <> 0;
-                        until Invoice or (SalesLine.Next = 0);
+                        until Invoice or (SalesLine.Next() = 0);
                     end else
                         if Invoice and (not Receive) and ("Document Type" = "Document Type"::"Credit Memo") then begin
                             Invoice := false;
                             repeat
                                 Invoice := (SalesLine."Return Qty. Received" - SalesLine."Quantity Invoiced") <> 0;
-                            until Invoice or (SalesLine.Next = 0);
+                            until Invoice or (SalesLine.Next() = 0);
                         end;
                 end;
 
                 if Ship then begin
-                    SalesLine.Reset;
+                    SalesLine.Reset();
                     SalesLine.SetRange("Document Type", "Document Type");
                     SalesLine.SetRange("Document No.", "No.");
                     SalesLine.SetFilter(Quantity, '<>0');
@@ -873,7 +867,7 @@ report 50187 "Sales Packing List"
                     Ship := SalesLine.Find('-');
                 end;
                 if Receive then begin
-                    SalesLine.Reset;
+                    SalesLine.Reset();
                     SalesLine.SetRange("Document Type", "Document Type");
                     SalesLine.SetRange("Document No.", "No.");
                     SalesLine.SetFilter(Quantity, '<>0');
@@ -914,7 +908,7 @@ report 50187 "Sales Packing List"
                                 Text006,
                                 FieldCaption("Posting No. Series")));
 
-                SalesLine.Reset;
+                SalesLine.Reset();
                 SalesLine.SetRange("Document Type", "Document Type");
                 SalesLine.SetRange("Document No.", "No.");
                 SalesLine.SetFilter("Purch. Order Line No.", '<>0');
@@ -936,7 +930,7 @@ report 50187 "Sales Packing List"
                                             Text013,
                                             PurchOrderHeader.FieldCaption("Receiving No. Series")));
                             end;
-                        until SalesLine.Next = 0;
+                        until SalesLine.Next() = 0;
                 end;
 
                 if "Document Type" in ["Document Type"::Order, "Document Type"::Invoice] then
@@ -944,7 +938,7 @@ report 50187 "Sales Packing List"
                         AddError(StrSubstNo(Text006, FieldCaption("External Document No.")));
 
                 // IF NOT DimMgt.CheckDocDimComb(DocDim1) THEN
-                AddError(DimMgt.GetDimCombErr);
+                AddError(DimMgt.GetDimCombErr());
 
                 TableID[1] := DATABASE::Customer;
                 No[1] := "Bill-to Customer No.";
@@ -957,7 +951,7 @@ report 50187 "Sales Packing List"
                 TableID[5] := DATABASE::"Responsibility Center";
                 No[5] := "Responsibility Center";
                 // IF NOT DimMgt.CheckDocDimValuePosting(DocDim1,TableID,No) THEN
-                AddError(DimMgt.GetDimValuePostingErr);
+                AddError(DimMgt.GetDimValuePostingErr());
 
                 if "Salesperson Code" = '' then begin
                     Clear(SalesPurchPerson);
@@ -978,7 +972,7 @@ report 50187 "Sales Packing List"
 
             trigger OnPreDataItem()
             begin
-                CompanyInfo.Get;
+                CompanyInfo.Get();
                 FormatAddr.Company(CompanyAddr, CompanyInfo);
                 FormatAddr.SalesHeaderBillTo(CustAddr, "Sales Header");
 
@@ -1014,7 +1008,6 @@ report 50187 "Sales Packing List"
 
     requestpage
     {
-
         layout
         {
         }
@@ -1030,7 +1023,7 @@ report 50187 "Sales Packing List"
 
     trigger OnInitReport()
     begin
-        GLSetup.Get;
+        GLSetup.Get();
     end;
 
     trigger OnPreReport()
@@ -1052,7 +1045,6 @@ report 50187 "Sales Packing List"
         Text010: Label '%1 is not within your allowed range of posting dates.';
         Text012: Label 'There is nothing to post.';
         Text013: Label '%1 must be entered on the purchase order header.';
-        Text014: Label 'Sales Document: %1';
         Text015: Label '%1 must be %2.';
         Text016: Label '%1 %2 does not exist on customer entries.';
         Text017: Label '%1 %2 %3 does not exist.';
@@ -1062,20 +1054,11 @@ report 50187 "Sales Packing List"
         Text021: Label 'Drop shipments are only possible for items.';
         Text022: Label 'You cannot ship sales order line %1 because the line is marked';
         Text023: Label 'as a drop shipment and is not yet associated with a purchase order.';
-        Text024: Label 'The %1 on the shipment is not the same as the %1 on the sales header.';
-        Text025: Label '%1 must have the same sign as the shipment.';
-        Text026: Label 'Shipment %1 was invoiced after you opened it.';
-        Text027: Label 'The shipment lines have been deleted.';
         Text031: Label 'Receive';
         Text032: Label 'Credit Memo Posting: %1';
         Text033: Label 'Total %1 Excl. VAT';
         Text034: Label 'Enter "Yes" in %1 and/or %2 and/or %3.';
         Text035: Label 'You must enter the customer''s %1.';
-        Text036: Label 'The quantity you are attempting to invoice ';
-        Text037: Label 'is greater than the quantity in shipment %1.';
-        Text038: Label 'The %1 on the return receipt is not the same as the %1 on the sales header.';
-        Text039: Label '%1 must have the same sign as the return receipt.';
-        Text040: Label 'The return receipt lines have been deleted.';
         SalesSetup: Record "Sales & Receivables Setup";
         UserSetup: Record "User Setup";
         Cust: Record Customer;
@@ -1084,13 +1067,10 @@ report 50187 "Sales Packing List"
         GLAcc: Record "G/L Account";
         Item: Record Item;
         Res: Record Resource;
-        SaleShptLine: Record "Sales Shipment Line";
-        ReturnRcptLine: Record "Post Value Entry to G/L";
         PurchOrderHeader: Record "Purchase Header";
         GenPostingSetup: Record "General Posting Setup";
         VATPostingSetup: Record "VAT Posting Setup";
         CustLedgEntry: Record "Cust. Ledger Entry";
-        TempDocDim: Record "Dimension Set Entry" temporary;
         FA: Record "Fixed Asset";
         FADeprBook: Record "FA Depreciation Book";
         DimMgt: Codeunit DimensionManagement;
@@ -1102,18 +1082,15 @@ report 50187 "Sales Packing List"
         ShipInvText: Text[50];
         ReceiveInvText: Text[50];
         ErrorText: array[99] of Text[250];
-        QtyToHandleCaption: Text[30];
         AllowPostingFrom: Date;
         AllowPostingTo: Date;
         VATDate: Date;
         MaxQtyToBeInvoiced: Decimal;
         RemQtyToBeInvoiced: Decimal;
-        QtyToBeInvoiced: Decimal;
         VATAmount: Decimal;
         VATBaseAmount: Decimal;
         VATDiscountAmount: Decimal;
         TotalAmountInclVAT: Decimal;
-        QtyToHandle: Decimal;
         ErrorCounter: Integer;
         DropShipOrder: Boolean;
         InvOnNextPostReq: Boolean;
@@ -1122,45 +1099,29 @@ report 50187 "Sales Packing List"
         ApplNoError: Boolean;
         ShowDim: Boolean;
         Continue: Boolean;
-        ShowCostAssignment: Boolean;
         Text041: Label 'Packing List';
         VATNoText: Text[30];
         SalesPersonText: Text[30];
         GLSetup: Record "General Ledger Setup";
-        ShipmentMethod: Record "Shipment Method";
-        PaymentTerms: Record "Payment Terms";
         SalesPurchPerson: Record "Salesperson/Purchaser";
         VATAmountLine: Record "VAT Amount Line" temporary;
         SalesLine: Record "Sales Line" temporary;
         DocDim1: Record "Dimension Set Entry";
         DocDim2: Record "Dimension Set Entry";
-        RespCenter: Record "Responsibility Center";
-        Language: Record Language;
-        SalesCountPrinted: Codeunit "Sales-Printed";
         FormatAddr: Codeunit "Format Address";
-        SegManagement: Codeunit SegManagement;
         CompanyInfo: Record "Company Information";
         CustAddr: array[8] of Text[50];
-        ShipToAddr: array[8] of Text[50];
         CompanyAddr: array[8] of Text[50];
         ReferenceText: Text[30];
-        MoreLines: Boolean;
-        NoOfCopies: Integer;
-        NoOfLoops: Integer;
         CopyText: Text[30];
-        ShowShippingAddr: Boolean;
         i: Integer;
         DimText: Text[120];
         OldDimText: Text[75];
-        ShowInternalInfo: Boolean;
         TotalText: Text[50];
-        "---------------": Text[30];
         SalesComm: Record "Sales Comment Line";
-        SalesPers: Record "Salesperson/Purchaser";
         ShippgAgent: Record "Shipping Agent";
         Text042: Label 'Salesperson';
         PrePrinted: Boolean;
-        TotWeight: Decimal;
         Agent: Text[30];
         Commt: array[15, 2] of Text[250];
         ORIGIN: Text[250];
@@ -1188,9 +1149,6 @@ report 50187 "Sales Packing List"
     end;
 
     local procedure CheckShptLines(SalesLine: Record "Sales Line"; SalesLine2: Record "Sales Line")
-    var
-        PostedDocDim: Record "Dimension Set Entry";
-        TempPostedDocDim: Record "Dimension Set Entry" temporary;
     begin
         /*WITH SalesLine2 DO BEGIN
           SaleShptLine.RESET;
@@ -1207,7 +1165,7 @@ report 50187 "Sales Packing List"
                 SaleShptLine.SETRANGE("Line No.","Shipment Line No.");
               END;
           END;
-        
+
           SaleShptLine.SETFILTER("Qty. Shipped Not Invoiced",'<>0');
           IF SaleShptLine.FIND('-') THEN
             REPEAT
@@ -1264,7 +1222,7 @@ report 50187 "Sales Packing List"
               RemQtyToBeInvoiced := RemQtyToBeInvoiced - QtyToBeInvoiced;
               SaleShptLine."Quantity Invoiced" := SaleShptLine."Quantity Invoiced" + (-QtyToBeInvoiced);
             UNTIL (SaleShptLine.NEXT = 0) OR (ABS(RemQtyToBeInvoiced) <= ABS("Qty. to Ship"));
-        
+
           IF ABS(RemQtyToBeInvoiced) > ABS("Qty. to Ship") THEN
             IF "Document Type" = "Document Type"::Invoice THEN
               IF SaleShptLine."Qty. Shipped Not Invoiced" <> 0 THEN
@@ -1276,13 +1234,9 @@ report 50187 "Sales Packing List"
           ELSE
             AddError(Text027);
         END;   */// & u
-
     end;
 
     local procedure CheckRcptLines(SalesLine: Record "Sales Line"; SalesLine2: Record "Sales Line")
-    var
-        PostedDocDim: Record "Dimension Set Entry";
-        TempPostedDocDim: Record "Dimension Set Entry" temporary;
     begin
         /*
         WITH SalesLine2 DO BEGIN
@@ -1336,12 +1290,12 @@ report 50187 "Sales Packing List"
                     STRSUBSTNO(
                       Text038,
                       FIELDCAPTION("Job No.")));
-        
+
                 IF (-SalesLine."Qty. to Invoice") * ReturnRcptLine.Quantity < 0 THEN
                   AddError(
                     STRSUBSTNO(
                       Text039,FIELDCAPTION("Qty. to Invoice")));
-        
+
                 QtyToBeInvoiced := RemQtyToBeInvoiced - SalesLine."Return Qty. to Receive";
                 IF ABS(QtyToBeInvoiced) > ABS(ReturnRcptLine.Quantity - ReturnRcptLine."Quantity Invoiced") THEN
                   QtyToBeInvoiced := -(ReturnRcptLine.Quantity - ReturnRcptLine."Quantity Invoiced");
@@ -1349,12 +1303,10 @@ report 50187 "Sales Packing List"
                 ReturnRcptLine."Quantity Invoiced" := ReturnRcptLine."Quantity Invoiced" + (-QtyToBeInvoiced);
               END;
             UNTIL (ReturnRcptLine.NEXT = 0) OR (ABS(RemQtyToBeInvoiced) <= ABS("Return Qty. to Receive"));
-        
+
           IF ABS(RemQtyToBeInvoiced) > ABS("Return Qty. to Receive") THEN
             AddError(Text040);
         END;
          */
-
     end;
 }
-

@@ -3,8 +3,7 @@ report 99020 "Organolepticx"
     // //"Comment Line"."Pack Size"
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/Organolepticx.rdlc';
-
-
+    Caption = 'Organolepticx';
     dataset
     {
         dataitem("Comment Line"; "Comment Line")
@@ -15,7 +14,7 @@ report 99020 "Organolepticx"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -170,7 +169,6 @@ report 99020 "Organolepticx"
 
     requestpage
     {
-
         layout
         {
         }
@@ -185,12 +183,8 @@ report 99020 "Organolepticx"
     }
 
     var
-        Jobs: Record Job;
-        item: Record Item;
-        Grade: Code[20];
         GradeTxt: Text[30];
         Quality_Control_CaptionLbl: Label 'Quality Control ';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
         GradeTxt_______Pack_Size_______BrandCaptionLbl: Label 'Description';
 }
-

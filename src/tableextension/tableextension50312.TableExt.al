@@ -2,7 +2,6 @@ tableextension 50312 "tableextension50312" extends "Service Contract Line"
 {
     fields
     {
-
         //Unsupported feature: Code Modification on ""Line Value"(Field 22).OnValidate".
 
         //trigger OnValidate()
@@ -24,4 +23,3 @@ tableextension 50312 "tableextension50312" extends "Service Contract Line"
         //end;
     }
 }
-

@@ -15,7 +15,7 @@ report 50013 "Job - Transaction Detail 2"
             column(FORMAT_TODAY_0_4_; Format(Today, 0, 4))
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(COMPANYNAME; CompanyName)
@@ -86,7 +86,7 @@ report 50013 "Job - Transaction Detail 2"
                 column(Valued_Quantity_; -"Valued Quantity")
                 {
                 }
-                column(ItemName; ItemName)
+                column(ItemName; ItemName())
                 {
                 }
                 column(LocationCode_ValueEntry; "Value Entry"."Location Code")
@@ -168,7 +168,6 @@ report 50013 "Job - Transaction Detail 2"
 
                     T[2] := "Total Cost";
                     T[3] := T[1] + T[2];
-
                 end;
 
                 trigger OnPreDataItem()
@@ -188,7 +187,6 @@ report 50013 "Job - Transaction Detail 2"
 
     requestpage
     {
-
         layout
         {
             area(content)
@@ -212,14 +210,8 @@ report 50013 "Job - Transaction Detail 2"
     end;
 
     var
-        TotalCostTotal: array[2] of Decimal;
-        TotalPriceTotal: array[2] of Decimal;
-        TotalAmtPostedToGL: array[2] of Decimal;
-        TotalAmtRecognized: array[2] of Decimal;
-        i: Integer;
         JobFilter: Text;
         JobLedgEntryFilter: Text[250];
-        Gen_Pro_pst_group_rec: Record "Gen. Product Posting Group";
         GrpTot: Label 'Group Total for  ';
         OTot: Label 'Overall Total';
         GTot: Label 'Grand Total';
@@ -231,4 +223,3 @@ report 50013 "Job - Transaction Detail 2"
         Cost_Posted_to_G_L_CaptionLbl: Label 'Amount Posted to G/L';
         Purchases_to_JobCaptionLbl: Label 'Purchases to Job';
 }
-

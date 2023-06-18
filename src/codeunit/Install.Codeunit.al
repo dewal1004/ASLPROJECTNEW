@@ -10,7 +10,7 @@ codeunit 70001 "Install"
     var
     begin
 
-        UpdateRoutingQualityMeasure
+        UpdateRoutingQualityMeasure()
     end;
 
     local procedure UpdateRoutingQualityMeasure()
@@ -26,17 +26,14 @@ codeunit 70001 "Install"
                 end;
             until RoutingQualityMeasure.Next() = 0;
     end;
-
-
-
 }
 
 // codeunit 50105 RewardsInstallCode
 // {
-//     // Set the codeunit to be an install codeunit. 
+//     // Set the codeunit to be an install codeunit.
 //     Subtype = Install;
 
-//     // This trigger includes code for company-related operations. 
+//     // This trigger includes code for company-related operations.
 //     trigger OnInstallAppPerCompany();
 //     var
 //         Reward : Record Reward;

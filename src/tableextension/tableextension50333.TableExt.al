@@ -33,7 +33,6 @@ tableextension 50333 "tableextension50333" extends "Comment Line"
         }
         field(50002; "Days Lost"; Decimal)
         {
-
             trigger OnValidate()
             begin
                 "Hours Lost" := "Days Lost" * 24;
@@ -55,7 +54,6 @@ tableextension 50333 "tableextension50333" extends "Comment Line"
         }
         field(50006; "Hours Lost"; Decimal)
         {
-
             trigger OnValidate()
             begin
                 "Days Lost" := "Hours Lost" / 24;
@@ -81,7 +79,6 @@ tableextension 50333 "tableextension50333" extends "Comment Line"
         }
         field(50021; Voyage; Code[10])
         {
-
             trigger OnValidate()
             begin
                 "Date Code" := Date;
@@ -221,7 +218,6 @@ tableextension 50333 "tableextension50333" extends "Comment Line"
                 Description:=Product.Description;
                 fine:=EVALUATE("S/No.","No.");
                 */
-
             end;
         }
         field(50042; "Pack Size"; Code[10])
@@ -268,14 +264,12 @@ tableextension 50333 "tableextension50333" extends "Comment Line"
         }
         field(50463; "Fuel Consumed"; Decimal)
         {
-
             trigger OnValidate()
             begin
                 /*
                 IF Jobss.GET("No.") THEN Jobss.VALIDATE(Jobss."Fuel Consumed","Fuel Consumed");
                 Jobss.MODIFY;
                 */
-
             end;
         }
         field(50464; "Fuel Days"; Decimal)
@@ -288,7 +282,6 @@ tableextension 50333 "tableextension50333" extends "Comment Line"
                 IF Jobss.GET("No.") THEN  Jobss.VALIDATE(Jobss."Fuel Days","Fuel Days");
                 Jobss.MODIFY;
                 *///nitin
-
             end;
         }
         field(50466; "Fuel Average"; Decimal)
@@ -298,7 +291,6 @@ tableextension 50333 "tableextension50333" extends "Comment Line"
                 /*IF "Fuel Average"<>0 THEN "Fuel Days":="Fuel Consumed"/"Fuel Average";
                 IF Jobss.GET("No.") THEN Jobss.VALIDATE(Jobss."Fuel Average", "Fuel Average");
                 Jobss.MODIFY;*///nitin
-
             end;
         }
         field(70000; "Comment Temp"; Text[250])
@@ -321,7 +313,6 @@ tableextension 50333 "tableextension50333" extends "Comment Line"
         // } ***
     }
 
-
     //Unsupported feature: Code Insertion on "OnInsert".
 
     //trigger OnInsert()
@@ -332,8 +323,6 @@ tableextension 50333 "tableextension50333" extends "Comment Line"
     //end;
 
     //Unsupported feature: Parameter Insertion (Parameter: RECS) (ParameterCollection) on "SetUpNewLine(PROCEDURE 1)".
-
-
 
     //Unsupported feature: Code Modification on "SetUpNewLine(PROCEDURE 1)".
 
@@ -393,7 +382,6 @@ tableextension 50333 "tableextension50333" extends "Comment Line"
           -> modified key (No.,Table Name,Deductible) to
             (No.,Table Name,Deductible,Date,Day Lost Cause,Day Lost Location,Vessel)
         */
-
     end;
 
     var
@@ -401,7 +389,5 @@ tableextension 50333 "tableextension50333" extends "Comment Line"
         Operation: Record Job;
         Jobss: Record Job;
         Jobss1: Record Job;
-        UOM: Record "Unit of Measure";
         Item: Record Item;
 }
-

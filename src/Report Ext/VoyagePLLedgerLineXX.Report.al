@@ -2,7 +2,7 @@ report 58151 "Voyage P&L Ledger LineXX"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/VoyagePLLedgerLineXX.rdlc';
-
+    Caption = 'Voyage P&L Ledger LineXX';
     dataset
     {
         dataitem("Job Ledger Entry"; "Job Ledger Entry")
@@ -15,7 +15,7 @@ report 58151 "Voyage P&L Ledger LineXX"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -41,19 +41,15 @@ report 58151 "Voyage P&L Ledger LineXX"
             }
             column(CycleDay; CycleDay)
             {
-
             }
             column(FishgDay; FishgDay)
             {
-
             }
             column(LostDay; LostDay)
             {
-
             }
             column(PortDay; PortDay)
             {
-
             }
             column(Vess; Vess)
             {
@@ -69,19 +65,15 @@ report 58151 "Voyage P&L Ledger LineXX"
             }
             column(Text24; Text24)
             {
-
             }
             column(Text25; Text25)
             {
-
             }
             column(Text26; Text26)
             {
-
             }
             column(Text27; Text27)
             {
-
             }
             column(PntStor_1_; PntStor[1])
             {
@@ -116,7 +108,6 @@ report 58151 "Voyage P&L Ledger LineXX"
             }
             column(Loc__Vessel_Endurance_; Loc."Vessel Endurance")
             {
-
             }
             column(Job_Ledger_Entry__Work_Type_Code_; "Work Type Code")
             {
@@ -237,7 +228,6 @@ report 58151 "Voyage P&L Ledger LineXX"
                 END;
                 PrdPrc:=Qty*Prc;
                 */  //#1
-
             end;
 
             trigger OnPreDataItem()
@@ -412,7 +402,6 @@ report 58151 "Voyage P&L Ledger LineXX"
                     Itempr.SETRANGE(Itempr."Starting Date",0D,ETA);
                     IF Itempr.FIND('+') THEN Prc:=Itempr."Unit Price" ELSE Prc:=0;
                     */  //#1
-
                 end;
 
                 trigger OnPreDataItem()
@@ -464,7 +453,6 @@ report 58151 "Voyage P&L Ledger LineXX"
                     IF Itempr.FIND('+') THEN PrcB:=Itempr."Unit Price" ELSE PrcB:=0;
                     PrdPrcB:=QtyB*PrcB;
                      */  //#1
-
                 end;
 
                 trigger OnPreDataItem()
@@ -648,7 +636,6 @@ report 58151 "Voyage P&L Ledger LineXX"
 
     requestpage
     {
-
         layout
         {
         }
@@ -664,37 +651,21 @@ report 58151 "Voyage P&L Ledger LineXX"
 
     var
         LastFieldNo: Integer;
-        FooterPrinted: Boolean;
         TotalFor: Label 'Total';
-        "---": Integer;
         Job: Record Job;
-        Job2: Record Job;
-        Itempr: Record "Item Ledger Entry";
-        CurrExc: Record "Currency Exchange Rate";
-        ProdPostGrp: Record "Gen. Product Posting Group";
-        InvtPostGrp: Record "Inventory Posting Group";
-        JobSetUp: Record "Jobs Setup";
-        JBudLn: Record "Job Ledger Entry";
-        Employee: Record Employee;
         Loc: Record Location;
         Coutry: Record "Country/Region";
-        GLEntry: Record "G/L Entry";
         Res: Record Resource;
-        Prc: Decimal;
-        PrcB: Decimal;
         PrdPrc: Decimal;
         PrdPrcB: Decimal;
         PrdPrc2: Decimal;
         PrdPrcBX: Decimal;
         PrdPrc2X: Decimal;
-        PrdPrc2B: Decimal;
-        CurrRate: Decimal;
         NairaVal: Decimal;
         NairaValB: Decimal;
         NairaValBX: Decimal;
         NairaVal2: Decimal;
         NairaVal2X: Decimal;
-        NairaVal2B: Decimal;
         Qty: Decimal;
         QtyB: Decimal;
         QtyX: Decimal;
@@ -713,11 +684,9 @@ report 58151 "Voyage P&L Ledger LineXX"
         PntStor: array[8] of Decimal;
         ETD: Date;
         ETA: Date;
-        ETA2: Date;
         CycleDay: Decimal;
         PortDay: Decimal;
         LostDay: Decimal;
-        SeaDay: Decimal;
         FishgDay: Decimal;
         a: Decimal;
         expcnt: Integer;
@@ -735,7 +704,6 @@ report 58151 "Voyage P&L Ledger LineXX"
         GrossMarg: Decimal;
         GrossPerct: Decimal;
         NetProfPerct: Decimal;
-        TotPrice: Decimal;
         NetProfit: Decimal;
         ExpTonnage: Decimal;
         Vess: Text[30];
@@ -753,14 +721,8 @@ report 58151 "Voyage P&L Ledger LineXX"
         UOMCd: Code[10];
         ItemVar: Code[10];
         "No.B": Code[10];
-        NOrder: Decimal;
         ValRate: Decimal;
         ValQty: Decimal;
-        GLStr: array[25] of Decimal;
-        "GLGPP Caption": array[25] of Code[10];
-        CountGPPG: Integer;
-        CountG: Integer;
-        Flag: Boolean;
         CurrReport_PAGENOCaptionLbl: Label 'Page';
         QtyCaptionLbl: Label 'Quantity';
         EmptyStringCaptionLbl: Label '$';
@@ -795,4 +757,3 @@ report 58151 "Voyage P&L Ledger LineXX"
     begin
     end;
 }
-

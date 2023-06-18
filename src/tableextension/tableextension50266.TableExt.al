@@ -22,6 +22,7 @@ tableextension 50266 "tableextension50266" extends "Item Ledger Entry"
                                                                         "Inbound Item Entry No." = FILTER(<> 0),
                                                                         Quantity = FILTER(< 0)));
             FieldClass = FlowField;
+            Editable = false;
         }
         field(50030; "Applied Qty Posistive"; Decimal)
         {
@@ -29,6 +30,7 @@ tableextension 50266 "tableextension50266" extends "Item Ledger Entry"
                                                                        "Outbound Item Entry No." = FILTER(<> 0),
                                                                        Quantity = FILTER(< 0)));
             FieldClass = FlowField;
+            Editable = false;
         }
         field(50355; "Vessel Type"; Option)
         {
@@ -57,4 +59,3 @@ tableextension 50266 "tableextension50266" extends "Item Ledger Entry"
         Key(ASLKey6; "Source Code") { }
     }
 }
-

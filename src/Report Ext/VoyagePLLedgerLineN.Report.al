@@ -2,7 +2,7 @@ report 50990 "Voyage P&L Ledger LineN"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/VoyagePLLedgerLineN.rdlc';
-
+    Caption = 'Voyage P&L Ledger LineN';
     dataset
     {
         dataitem(Jobss; Job)
@@ -14,7 +14,7 @@ report 50990 "Voyage P&L Ledger LineN"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -25,19 +25,15 @@ report 50990 "Voyage P&L Ledger LineN"
             }
             column(Text27; Text27)
             {
-
             }
             column(Text26; Text26)
             {
-
             }
             column(Text25; Text25)
             {
-
             }
             column(Text24; Text24)
             {
-
             }
             column(Text23; Text23)
             {
@@ -75,19 +71,15 @@ report 50990 "Voyage P&L Ledger LineN"
             }
             column(PortDay; PortDay)
             {
-
             }
             column(LostDay; LostDay)
             {
-
             }
             column(FishgDay; FishgDay)
             {
-
             }
             column(CycleDay; CycleDay)
             {
-
             }
             column(Jobss__Ending_Date_; "Ending Date")
             {
@@ -122,19 +114,15 @@ report 50990 "Voyage P&L Ledger LineN"
             }
             column(PortDay_Control1000000239; PortDay)
             {
-
             }
             column(LostDay_Control1000000240; LostDay)
             {
-
             }
             column(FishgDay_Control1000000241; FishgDay)
             {
-
             }
             column(CycleDay_Control1000000242; CycleDay)
             {
-
             }
             column(TotalFor___FIELDCAPTION_Vessel_; TotalFor + FieldCaption(Vessel))
             {
@@ -163,19 +151,15 @@ report 50990 "Voyage P&L Ledger LineN"
             }
             column(PortDay_Control1000000228; PortDay)
             {
-
             }
             column(LostDay_Control1000000229; LostDay)
             {
-
             }
             column(FishgDay_Control1000000230; FishgDay)
             {
-
             }
             column(CycleDay_Control1000000231; CycleDay)
             {
-
             }
             column(Coutry_Name; Coutry.Name)
             {
@@ -215,7 +199,6 @@ report 50990 "Voyage P&L Ledger LineN"
             }
             column(CycleDay_Control1000000202; CycleDay)
             {
-
             }
             column(PntStor_4__Control1000000204; PntStor[4])
             {
@@ -223,11 +206,9 @@ report 50990 "Voyage P&L Ledger LineN"
             }
             column(Text24_Control1000000205; Text24)
             {
-
             }
             column(FishgDay_Control1000000206; FishgDay)
             {
-
             }
             column(PntStor_5__Control1000000208; PntStor[5])
             {
@@ -235,11 +216,9 @@ report 50990 "Voyage P&L Ledger LineN"
             }
             column(Text25_Control1000000209; Text25)
             {
-
             }
             column(LostDay_Control1000000210; LostDay)
             {
-
             }
             column(PntStor_6__Control1000000212; PntStor[6])
             {
@@ -247,7 +226,6 @@ report 50990 "Voyage P&L Ledger LineN"
             }
             column(Text26_Control1000000213; Text26)
             {
-
             }
             column(PntStor_7__Countrs_Control1000000214; PntStor[7] / Countrs)
             {
@@ -255,11 +233,9 @@ report 50990 "Voyage P&L Ledger LineN"
             }
             column(Text27_Control1000000215; Text27)
             {
-
             }
             column(PortDay_Control1000000216; PortDay)
             {
-
             }
             column(JobCaption; JobCaptionLbl)
             {
@@ -396,8 +372,7 @@ report 50990 "Voyage P&L Ledger LineN"
                 Validate("Net Incentive Actual");
                 DataStor[3] := "Net Incentive Actual";
 
-
-                JobSetUp.Get;
+                JobSetUp.Get();
                 a := 100;
 
                 //Calculate the Fixed Salaries
@@ -456,10 +431,9 @@ report 50990 "Voyage P&L Ledger LineN"
 
                 CurrExc.SetRange(CurrExc."Currency Code", 'USD');
                 CurrExc.SetRange(CurrExc."Starting Date", 0D, ETA);
-                if CurrExc.Find('+') then begin
-                    CurrRate := CurrExc."Relational Exch. Rate Amount";
-                    //MESSAGE('EXCHANGE VALUE IS %1',CurrExc."Relational Exch. Rate Amount")
-                end
+                if CurrExc.Find('+') then
+                    CurrRate := CurrExc."Relational Exch. Rate Amount"
+                //MESSAGE('EXCHANGE VALUE IS %1',CurrExc."Relational Exch. Rate Amount")
                 else
                     CurrRate := 1;
                 PntStor[7] := CurrRate;
@@ -888,7 +862,6 @@ report 50990 "Voyage P&L Ledger LineN"
 
     requestpage
     {
-
         layout
         {
         }
@@ -904,18 +877,13 @@ report 50990 "Voyage P&L Ledger LineN"
 
     var
         LastFieldNo: Integer;
-        FooterPrinted: Boolean;
         TotalFor: Label 'Total';
-        "---": Integer;
-        Job: Record Job;
         Job2: Record Job;
-        JobRange: Record Job;
         Itempr: Record "Item Translation";
         Itempr1: Record Item;
         ItemPrice: Record "Sales Price";
         CurrExc: Record "Currency Exchange Rate";
         ProdPostGrp: Record "Gen. Product Posting Group";
-        InvtPostGrp: Record "Inventory Posting Group";
         JobSetUp: Record "Jobs Setup";
         JBudLn: Record "Job Ledger Entry";
         "Country/Region": Record "Country/Region";
@@ -931,14 +899,11 @@ report 50990 "Voyage P&L Ledger LineN"
         PrdPrc2: Decimal;
         PrdPrcBX: Decimal;
         PrdPrc2X: Decimal;
-        PrdPrc2B: Decimal;
         CurrRate: Decimal;
-        NairaVal: Decimal;
         NairaValB: Decimal;
         NairaValBX: Decimal;
         NairaVal2: Decimal;
         NairaVal2X: Decimal;
-        NairaVal2B: Decimal;
         Qty: Decimal;
         QtyB: Decimal;
         QtyX: Decimal;
@@ -979,11 +944,9 @@ report 50990 "Voyage P&L Ledger LineN"
         GrossMarg: Decimal;
         GrossPerct: Decimal;
         NetProfPerct: Decimal;
-        TotPrice: Decimal;
         NetProfit: Decimal;
         ExpTonnage: Decimal;
         Vess: Text[30];
-        Text18: Label 'VOYAGE PROFIT AND LOSS STATEMENT';
         Text21: Label 'Shrimp Points';
         Text22: Label 'Fish Points';
         Text23: Label 'Total Points';
@@ -997,20 +960,16 @@ report 50990 "Voyage P&L Ledger LineN"
         UOMCd: Code[10];
         ItemVar: Code[10];
         "No.B": Code[10];
-        NOrder: Decimal;
         ValRate: Decimal;
         ValQty: Decimal;
         GLStr: array[25] of Decimal;
         "GLGPP Caption": array[25] of Code[10];
         CountGPPG: Integer;
-        CountG: Integer;
         Flag: Boolean;
-        "----": Integer;
         "Period Start": Date;
         "Period End": Date;
         FishingCount: Code[10];
         VesselSel: Code[25];
-        JobsNo: Code[250];
         ResourceOn: Code[30];
         VoyageFilter: Code[250];
         Countrs: Integer;
@@ -1099,7 +1058,5 @@ report 50990 "Voyage P&L Ledger LineN"
         UNTIL JobRange.NEXT()=0;
         IF STRLEN(VoyageFilter)>1 THEN VoyageFilter:=COPYSTR(VoyageFilter,1,STRLEN(VoyageFilter)-1);
         */
-
     end;
 }
-

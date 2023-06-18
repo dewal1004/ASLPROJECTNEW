@@ -1,6 +1,6 @@
 table 50046 "Revenue Table VJ"
 {
-
+    Caption = 'Revenue Table VJ';
     fields
     {
         field(1; "Job No."; Code[30])
@@ -44,4 +44,3 @@ table 50046 "Revenue Table VJ"
     {
     }
 }
-

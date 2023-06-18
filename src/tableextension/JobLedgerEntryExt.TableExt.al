@@ -2,7 +2,6 @@ tableextension 50232 "Job Ledger Entry Ext" extends "Job Ledger Entry"
 {
     fields
     {
-
         //Unsupported feature: Code Insertion on ""No."(Field 7)".
 
         //trigger OnValidate()
@@ -39,7 +38,6 @@ tableextension 50232 "Job Ledger Entry Ext" extends "Job Ledger Entry"
                   Amount := 0;
                 UpdateAllocations(GenJnlLine);
                 */
-
             end;
         }
         field(50314; "Ending Date"; Date)
@@ -51,10 +49,9 @@ tableextension 50232 "Job Ledger Entry Ext" extends "Job Ledger Entry"
 
                 case Type of
                     Type::Resource:
-                        begin
-                            Validate(Quantity);
-                            // ("Ending Date" - "Starting Date"));
-                        end;
+
+                        Validate(Quantity);
+                // ("Ending Date" - "Starting Date"));
                 end;
             end;
         }
@@ -95,16 +92,16 @@ tableextension 50232 "Job Ledger Entry Ext" extends "Job Ledger Entry"
 
     keys
     {
-        key(ASLKey2; "Job No.", "Location Code", "Work Type Code") {Enabled = true; }
-        key(ASLKey3; "Job No.", "Location Code") {Enabled = true;}
-        key(ASLKey3a; GroupSort) {enabled = true;}
-        key(ASLKey4;  "Location Code", "Posting Date", "External Document No.")
-        {enabled = true; SumIndexFields = Quantity;}
-        key(ASLKey5; "Inventory Posting Group" ) {}
-        key(ASLKey6; Type, "No.", "Location Code", "Posting Date") {Enabled = true;}
+        key(ASLKey2; "Job No.", "Location Code", "Work Type Code") { Enabled = true; }
+        key(ASLKey3; "Job No.", "Location Code") { Enabled = true; }
+        key(ASLKey3a; GroupSort) { enabled = true; }
+        key(ASLKey4; "Location Code", "Posting Date", "External Document No.")
+        { enabled = true; SumIndexFields = Quantity; }
+        key(ASLKey5; "Inventory Posting Group") { }
+        key(ASLKey6; Type, "No.", "Location Code", "Posting Date") { Enabled = true; }
         key(ASLKey7; "Catch Sea Days") { }
-        Key(ASLKey9; GroupSort, "Inventory posting Group") { Enabled = true;}
-    
+        Key(ASLKey9; GroupSort, "Inventory posting Group") { Enabled = true; }
+
         // key(ASLKey1; "Job No.", "Location Code", "Posting Date", "Journal Batch Name", Type, "Gen. Prod. Posting Group", "Task Code");
         //   {SumIndexFields = "Total Price"; }
         // key(ASLKey3; "Job No.", "Location Code", GroupSort) {}
@@ -113,38 +110,4 @@ tableextension 50232 "Job Ledger Entry Ext" extends "Job Ledger Entry"
         // key(ASLKey5; "Inventory Posting Group", "Location Code", "Posting Date", "External Document No.")
         //   {SumIndexFields = Quantity;}
     }
-
-
-    //Unsupported feature: Code Modification on "ShowDimensions(PROCEDURE 1)".
-
-    //procedure ShowDimensions();
-    //Parameters and return type have not been exported.
-    //>>>> ORIGINAL CODE:
-    //begin
-    /*
-    DimMgt.ShowDimensionSet("Dimension Set ID",StrSubstNo('%1 %2',TableCaption,"Entry No."));
-    */
-    //end;
-    //>>>> MODIFIED CODE:
-    //begin
-    /*
-    //DimMgt.ShowDimensionSet("Dimension Set ID",STRSUBSTNO('%1 %2',TABLECAPTION," No"));
-    */
-    //end;
-
-
-    //Unsupported feature: Property Modification (Id) on "Job(Variable 1001)".
-
-    //var
-    //>>>> ORIGINAL VALUE:
-    //Job : 1001;
-    //Variable type has not been exported.
-    //>>>> MODIFIED VALUE:
-    //Job : 1101;
-    //Variable type has not been exported.
-
-    var
-        "Ending Date": Date;
-        "Starting Date": Date;
-        Res: Record Resource;
 }

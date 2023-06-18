@@ -21,9 +21,7 @@ codeunit 50032 "TransferOrdPostShptSubscriber"
     begin
         ReservedRequirement -= Item."Res. Qty. on Service Orders";
     end;
-
 }
-
 
 // OBJECT Modification "Available to Promise"(Codeunit 5790)
 // {

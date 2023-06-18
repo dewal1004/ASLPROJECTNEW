@@ -4,7 +4,7 @@ report 50006 "Transfer To Vessel"
     RDLCLayout = './src/reportrdlc/TransferToVessel.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
-
+    Caption = 'Transfer To Vessel';
     dataset
     {
         dataitem("Value Entry"; "Value Entry")
@@ -17,7 +17,7 @@ report 50006 "Transfer To Vessel"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -143,7 +143,6 @@ report 50006 "Transfer To Vessel"
 
     requestpage
     {
-
         layout
         {
         }
@@ -173,6 +172,4 @@ report 50006 "Transfer To Vessel"
         VoyageCaptionLbl: Label 'Voyage';
         TotalCaption_Control1000000013Lbl: Label 'Total';
         ValueEntry: Record "Value Entry";
-        DateFilter_ValueEntry: Text[30];
 }
-

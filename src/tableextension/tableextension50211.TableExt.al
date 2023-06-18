@@ -110,6 +110,4 @@ tableextension 50211 "tableextension50211" extends "Purch. Rcpt. Line"
     }
 
     //Unsupported feature: Property Insertion (Local) on "ShowItemPurchInvLines(PROCEDURE 9)".
-
 }
-

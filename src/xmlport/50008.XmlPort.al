@@ -1,7 +1,7 @@
 xmlport 90994 "50008"
 {
     Format = VariableText;
-
+    Caption = '50008';
     schema
     {
         textelement(Rootnode)
@@ -60,7 +60,6 @@ xmlport 90994 "50008"
 
     requestpage
     {
-
         layout
         {
         }
@@ -70,4 +69,3 @@ xmlport 90994 "50008"
         }
     }
 }
-

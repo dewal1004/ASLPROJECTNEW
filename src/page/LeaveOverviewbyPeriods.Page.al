@@ -13,13 +13,7 @@ page 50161 "Leave Overview by Periods"
     {
     }
 
-    var
-        PeriodFormMgt: Codeunit PeriodFormManagement;
-        PeriodType: Option Day,Week,Month,Quarter,Year,"Accounting Period";
-        AbsenceAmountType: Option "Balance at Date","Net Change";
-
     local procedure SetDateFilter()
     begin
     end;
 }
-

@@ -7,4 +7,3 @@ tableextension 50248 "tableextension50248" extends "Req. Wksh. Template"
         }
     }
 }
-

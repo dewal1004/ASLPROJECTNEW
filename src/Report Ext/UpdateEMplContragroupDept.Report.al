@@ -2,7 +2,7 @@ report 99990 "Update EMpl Contra group-Dept"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/UpdateEMplContragroupDept.rdlc';
-
+    Caption = 'Update EMpl Contra group-Dept';
     dataset
     {
         dataitem("Employment Contract"; "Employment Contract")
@@ -14,7 +14,7 @@ report 99990 "Update EMpl Contra group-Dept"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -64,7 +64,6 @@ report 99990 "Update EMpl Contra group-Dept"
 
     requestpage
     {
-
         layout
         {
         }
@@ -82,4 +81,3 @@ report 99990 "Update EMpl Contra group-Dept"
         Employment_ContractCaptionLbl: Label 'Employment Contract';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
 }
-

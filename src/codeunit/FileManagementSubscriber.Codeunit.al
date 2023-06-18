@@ -7,11 +7,8 @@ codeunit 50016 "FileManagementSubscriber"
     var
 
     begin
-
     end;
-
 }
-
 
 // OBJECT Modification "File Management"(Codeunit 419)
 // {
@@ -43,9 +40,7 @@ codeunit 50016 "FileManagementSubscriber"
 //   }
 //   CODE
 //   {
-
 //     BEGIN
 //     END.
 //   }
 // }
-

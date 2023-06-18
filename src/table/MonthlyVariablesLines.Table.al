@@ -1,7 +1,7 @@
 table 50014 "Monthly Variables Lines."
 {
     DrillDownPageID = "Monthly Variables Lines.";
-
+    Caption = 'Monthly Variables Lines.';
     fields
     {
         field(1; "Payroll Period"; Code[10])
@@ -42,7 +42,7 @@ table 50014 "Monthly Variables Lines."
                 EDPage.Editable(false);
                 EDPage.LookupMode(true);
 
-                if EDPage.RunModal = ACTION::LookupOK then
+                if EDPage.RunModal() = ACTION::LookupOK then
                     EDPage.GetRecord(NewEDRec);
 
                 if NewEDRec."E/D Code" <> '' then Validate("E/D Code", NewEDRec."E/D Code");
@@ -53,7 +53,7 @@ table 50014 "Monthly Variables Lines."
                 GetParam();
 
                 /* If Period+Employee has already been closed then stop edit */
-                if CheckClosed then
+                if CheckClosed() then
                     Error('Entries for Employee %1 for period %2 ' +
                            'have already been closed.', "Employee No", "Payroll Period");
 
@@ -136,7 +136,6 @@ table 50014 "Monthly Variables Lines."
                     if BookGrLinesRec."Transfer Business Units" then
                         "Global Dimension 2 Code" := EmployeeRec."Global Dimension 2 Code";
                 end;
-
             end;
         }
         field(4; Units; Text[10])
@@ -153,7 +152,7 @@ table 50014 "Monthly Variables Lines."
                 GetParam();
 
                 /* If Period+Employee has already been closed then stop edit */
-                if CheckClosed then
+                if CheckClosed() then
                     Error('Entries for Employee %1 for period %2 ' +
                            'have already been closed.', "Employee No", "Payroll Period");
 
@@ -166,9 +165,7 @@ table 50014 "Monthly Variables Lines."
                     /*Check for rounding, Maximum and minimum */
                     "E/DFileRec".Get("E/D Code");
                     Amount := ChkRoundMaxMin("E/DFileRec", Amount);
-
                 end
-
             end;
         }
         field(6; Quantity; Decimal)
@@ -180,7 +177,7 @@ table 50014 "Monthly Variables Lines."
                 GetParam();
 
                 /*If Period+Employee has already been closed then stop edit*/
-                if CheckClosed then
+                if CheckClosed() then
                     Error('Entries for Employee %1 for period %2 ' +
                           'have already been closed.', "Employee No", "Payroll Period");
 
@@ -200,16 +197,14 @@ table 50014 "Monthly Variables Lines."
                     "E/DFileRec".Get("E/D Code");
                     Amount := ChkRoundMaxMin("E/DFileRec", Amount);
                 end
-
             end;
         }
         field(7; Flag; Boolean)
         {
-
             trigger OnValidate()
             begin
                 /* If Period+Employee has already been closed then stop edit */
-                if CheckClosed then
+                if CheckClosed() then
                     Error('Entries for Employee %1 for period %2 ' +
                            'have already been closed.', "Employee No", "Payroll Period");
 
@@ -218,7 +213,6 @@ table 50014 "Monthly Variables Lines."
                     Flag := false
                 else
                     Amount := CalcAmount("E/DFileRec", Rec, Amount, "E/D Code");
-
             end;
         }
         field(8; Amount; Decimal)
@@ -228,7 +222,7 @@ table 50014 "Monthly Variables Lines."
             trigger OnValidate()
             begin
                 /* If Period+Employee has already been closed then stop edit */
-                if CheckClosed then
+                if CheckClosed() then
                     Error('Entries for Employee %1 for period %2 ' +
                            'have already been closed.', "Employee No", "Payroll Period");
 
@@ -238,7 +232,6 @@ table 50014 "Monthly Variables Lines."
                 else
                     /*Check for rounding, Maximum and minimum */
                   Amount := ChkRoundMaxMin("E/DFileRec", Amount);
-
             end;
         }
         field(9; "Debit Account"; Code[20])
@@ -423,7 +416,6 @@ table 50014 "Monthly Variables Lines."
 
         /* Set the 'Change' flags to false in all the lines */
         ResetChangeFlags(Rec);
-
     end;
 
     trigger OnInsert()
@@ -461,9 +453,7 @@ table 50014 "Monthly Variables Lines."
 
             /*BDC
                MARK( FALSE);*/
-
         end;
-
     end;
 
     var
@@ -493,14 +483,6 @@ table 50014 "Monthly Variables Lines."
         CustomerAccRec: Record Customer;
         SupplierAccRec: Record Vendor;
         MaxChangeCount: Integer;
-        PayLines2: Record "Monthly Variables Lines.";
-        CurYear: Integer;
-        PeriodRec: Record "Payroll-Periods.";
-        PerStart: Date;
-        Per1: Code[10];
-        YearStart: Date;
-        TaxableED: Code[10];
-        TaxfreeED: Code[10];
         PaySetup: Record "ASL Payroll Setup";
         HrsInDay: Integer;
         DaysInMonth: Integer;
@@ -521,10 +503,9 @@ table 50014 "Monthly Variables Lines."
             exit;
 
         /* If Period+Employee has already been closed then stop edit */
-        if CheckClosed then
+        if CheckClosed() then
             Error('Entries for Employee %1 for period %2 ' +
                    'have already been closed.', "Employee No", "Payroll Period");
-
     end;
 
     //[Scope('OnPrem')]
@@ -595,17 +576,16 @@ table 50014 "Monthly Variables Lines."
                   dbFINDREC */
                 case LookHeaderRec.Type of
                     0, 2:
-                        begin
-                            /* Lookup table is searched with numeric variables */
-                            if ProllFactorRec.Amount > -1 then begin
-                                LookLinesRec."Lower Code" := '';
-                                InputAmount := ProllFactorRec.Amount * LookHeaderRec."Input Factor";
-                                LookLinesRec."Lower Amount" := InputAmount;
-                                LookLinesRec.SetRange("Lower Code", '');
-                            end
-                            else
-                                exit(LookHeaderRec."Min. Extract Amount")
-                        end;
+
+                        /* Lookup table is searched with numeric variables */
+                        if ProllFactorRec.Amount > -1 then begin
+                            LookLinesRec."Lower Code" := '';
+                            InputAmount := ProllFactorRec.Amount * LookHeaderRec."Input Factor";
+                            LookLinesRec."Lower Amount" := InputAmount;
+                            LookLinesRec.SetRange("Lower Code", '');
+                        end
+                        else
+                            exit(LookHeaderRec."Min. Extract Amount");
                     else  /*Lookup table is searched with variables of type code*/
                       begin
                         LookLinesRec."Lower Amount" := 0;
@@ -617,27 +597,26 @@ table 50014 "Monthly Variables Lines."
 
                 case LookHeaderRec.Type of
                     0, 1:
-                        begin
-                            /* Extract amount as follows; First find line where Lower Amount or
-                              lower code is just greater than the Factor Amount then move one
-                              line back.*/
 
-                            if LookLinesRec.Find('=') then
-                                ReturnAmount := LookLinesRec."Extract Amount"
+                        /* Extract amount as follows; First find line where Lower Amount or
+                          lower code is just greater than the Factor Amount then move one
+                          line back.*/
+
+                        if LookLinesRec.Find('=') then
+                            ReturnAmount := LookLinesRec."Extract Amount"
+                        else
+                            if LookLinesRec.Find('>') then begin
+                                BackOneRec := LookLinesRec.Next(-1);
+                                ReturnAmount := LookLinesRec."Extract Amount";
+                            end
                             else
-                                if LookLinesRec.Find('>') then begin
-                                    BackOneRec := LookLinesRec.Next(-1);
-                                    ReturnAmount := LookLinesRec."Extract Amount";
+                                if LookHeaderRec.Type = 0 then begin
+                                    /*'Factor' Amount is > than the table's greatest "Lower amount"*/
+                                    if LookLinesRec.Find('+') then
+                                        ReturnAmount := LookLinesRec."Extract Amount";
                                 end
                                 else
-                                    if LookHeaderRec.Type = 0 then begin
-                                        /*'Factor' Amount is > than the table's greatest "Lower amount"*/
-                                        if LookLinesRec.Find('+') then
-                                            ReturnAmount := LookLinesRec."Extract Amount";
-                                    end
-                                    else
-                                        exit(EntryLineRec.Amount);
-                        end;
+                                    exit(EntryLineRec.Amount);
 
                     2: /*  Extract amount from tax table*/
                         ReturnAmount := (CalcTaxAmt(LookLinesRec, InputAmount)) *
@@ -667,14 +646,13 @@ table 50014 "Monthly Variables Lines."
                 end;
                 ReturnAmount := Round(ReturnAmount, RoundPrec, RoundDir);
 
-                LookLinesRec.Reset
+                LookLinesRec.Reset()
             end;
 
         /*Check for rounding, Maximum and minimum */
         ReturnAmount := ChkRoundMaxMin(EDFileRec, ReturnAmount);
 
         exit(ReturnAmount);
-
     end;
 
     //[Scope('OnPrem')]
@@ -685,7 +663,6 @@ table 50014 "Monthly Variables Lines."
         ””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””*/
         ProllHeader.Get("Payroll Period", "Employee No");
         exit(ProllHeader."Closed?");
-
     end;
 
     //[Scope('OnPrem')]
@@ -732,7 +709,6 @@ table 50014 "Monthly Variables Lines."
             ReturnAmount := CalcGraduated(LDetailsRec, TaxTableInput);
 
         exit(ReturnAmount);
-
     end;
 
     //[Scope('OnPrem')]
@@ -765,7 +741,6 @@ table 50014 "Monthly Variables Lines."
             ReturnAmount := ReturnAmount + PrevLookRec."Cum. Tax Payable";
         end;
         exit(ReturnAmount);
-
     end;
 
     //[Scope('OnPrem')]
@@ -786,7 +761,7 @@ table 50014 "Monthly Variables Lines."
         if "E/DFileRec".Compute = '' then
             exit;
 
-        ProllEntryRec.Init;
+        ProllEntryRec.Init();
         ProllEntryRec.SetRange("Payroll Period", EntryRecParam."Payroll Period");
         ProllEntryRec.SetRange("Employee No", EntryRecParam."Employee No");
 
@@ -844,7 +819,7 @@ table 50014 "Monthly Variables Lines."
 
         /* Move the computed amount to the line whose E/D Code is the one that has
           just been calculated.*/
-        ProllEntryRec.Init;
+        ProllEntryRec.Init();
         ProllEntryRec."E/D Code" := ConstEDFileRec.Compute;
         "E/DFileRec".Get(ConstEDFileRec.Compute);
         /*FTN No Need
@@ -864,13 +839,12 @@ table 50014 "Monthly Variables Lines."
             ProllEntryRec.Amount := ComputedTotal;
             ProllEntryRec.ChangeOthers := true;
             ProllEntryRec.HasBeenChanged := true;
-            ProllEntryRec.Modify;
+            ProllEntryRec.Modify();
         end;
-        Commit;
+        Commit();
 
         ProllEntryRec.SetRange("Payroll Period");
         ProllEntryRec.SetRange("Employee No");
-
     end;
 
     //[Scope('OnPrem')]
@@ -885,7 +859,7 @@ table 50014 "Monthly Variables Lines."
 
         /* Get first record in Entry Lines file for this Employee/Period */
         ProllEntryRec := CurrentEntryLine;
-        ProllEntryRec.Init;
+        ProllEntryRec.Init();
         ProllEntryRec.SetRange("Employee No", ProllEntryRec."Employee No");
         ProllEntryRec.SetRange("Payroll Period", ProllEntryRec."Payroll Period");
         ProllEntryRec."E/D Code" := '';
@@ -906,13 +880,11 @@ table 50014 "Monthly Variables Lines."
                 also entries where it is a Factor, therefore set ChangeOthers to True*/
                 if FactorRecAmount <> ProllEntryRec.Amount then begin
                     ProllEntryRec.ChangeOthers := true;
-                    ProllEntryRec.Modify;
+                    ProllEntryRec.Modify();
                 end
             end;
-
         until (ProllEntryRec.Next(1) = 0);
-        Commit;
-
+        Commit();
     end;
 
     //[Scope('OnPrem')]
@@ -952,17 +924,16 @@ table 50014 "Monthly Variables Lines."
                   dbFINDREC */
                 case LookHeaderRec.Type of
                     0, 2:
-                        begin
-                            /* Lookup table is searched with numeric variables */
-                            if CurrLineRec.Amount > -1 then begin
-                                LookLinesRec."Lower Code" := '';
-                                LookLinesRec."Lower Amount" := CurrLineRec.Amount *
-                                                               LookHeaderRec."Input Factor";
-                                LookLinesRec.SetRange("Lower Code", '');
-                            end
-                            else
-                                exit(LookHeaderRec."Min. Extract Amount")
-                        end;
+
+                        /* Lookup table is searched with numeric variables */
+                        if CurrLineRec.Amount > -1 then begin
+                            LookLinesRec."Lower Code" := '';
+                            LookLinesRec."Lower Amount" := CurrLineRec.Amount *
+                                                           LookHeaderRec."Input Factor";
+                            LookLinesRec.SetRange("Lower Code", '');
+                        end
+                        else
+                            exit(LookHeaderRec."Min. Extract Amount");
                     else  /*Lookup table is searched with variables of type code*/
                       begin
                         LookLinesRec."Lower Amount" := 0;
@@ -974,30 +945,29 @@ table 50014 "Monthly Variables Lines."
 
                 case LookHeaderRec.Type of
                     0, 1:
-                        begin
-                            /* Extract amount as follows; First find line where Lower Amount or
-                              Lower Code is just greater than the CurrLineRec then move one line
-                              back.*/
 
-                            if LookLinesRec.Find('=') then
-                                ReturnAmount := LookLinesRec."Extract Amount"
+                        /* Extract amount as follows; First find line where Lower Amount or
+                          Lower Code is just greater than the CurrLineRec then move one line
+                          back.*/
+
+                        if LookLinesRec.Find('=') then
+                            ReturnAmount := LookLinesRec."Extract Amount"
+                        else
+                            if LookLinesRec.Find('>') then begin
+                                BackOneRec := LookLinesRec.Next(-1);
+                                ReturnAmount := LookLinesRec."Extract Amount";
+                            end
                             else
-                                if LookLinesRec.Find('>') then begin
-                                    BackOneRec := LookLinesRec.Next(-1);
-                                    ReturnAmount := LookLinesRec."Extract Amount";
+                                if LookHeaderRec.Type = 0 then begin
+                                    /*CurrLineRec.Amount is > than the table's greatest "Lower amount"*/
+                                    if LookLinesRec.Find('+') then
+                                        ReturnAmount := LookLinesRec."Extract Amount"
+                                    else
+                                        exit(LineToChangeRec.Amount)
                                 end
                                 else
-                                    if LookHeaderRec.Type = 0 then begin
-                                        /*CurrLineRec.Amount is > than the table's greatest "Lower amount"*/
-                                        if LookLinesRec.Find('+') then
-                                            ReturnAmount := LookLinesRec."Extract Amount"
-                                        else
-                                            exit(LineToChangeRec.Amount)
-                                    end
-                                    else
-                                        /*CurrLineRec.EDCode is > than the table's greatest "Lower code"*/
+                                    /*CurrLineRec.EDCode is > than the table's greatest "Lower code"*/
                   exit(LineToChangeRec.Amount);
-                        end;
 
                     2: /*  Extract amount from tax table*/
                         ReturnAmount := (CalcTaxAmt(LookLinesRec, CurrLineRec.Amount *
@@ -1028,16 +998,14 @@ table 50014 "Monthly Variables Lines."
                 end;
                 ReturnAmount := Round(ReturnAmount, RoundPrec, RoundDir);
 
-                LookLinesRec.Reset
+                LookLinesRec.Reset()
             end;
-
 
         /* Adjust amount as per maximum/minimum set in the E/D file. This will overide
           any max/min. values set in the Table Lookup Header file*/
         ReturnAmount := ChkRoundMaxMin(EDFileRec, ReturnAmount);
 
         exit(ReturnAmount);
-
     end;
 
     //[Scope('OnPrem')]
@@ -1076,12 +1044,12 @@ table 50014 "Monthly Variables Lines."
             end;
             ChangeOthersRec.ChangeOthers := false;
             ChangeOthersRec.ChangeCounter := ChangeOthersRec.ChangeCounter + 1;
-            ChangeOthersRec.Modify;
+            ChangeOthersRec.Modify();
             ProllRecStore := ChangeOthersRec;
             ChangeOthersRec."E/D Code" := '';
         until ((ProllRecStore.ChangeCounter > MaxChangeCount) or
                (ChangeOthersRec.Next(1) = 0));
-        Commit;
+        Commit();
         ChangeOthersRec.SetRange("Payroll Period");
         ChangeOthersRec.SetRange("Employee No");
         ChangeOthersRec.SetRange(ChangeOthers);
@@ -1091,7 +1059,6 @@ table 50014 "Monthly Variables Lines."
                      ' characteristics', ProllRecStore."E/D Code");
 
         exit;
-
     end;
 
     //[Scope('OnPrem')]
@@ -1111,8 +1078,8 @@ table 50014 "Monthly Variables Lines."
         if "E/DFileRec".Compute = '' then
             exit;
 
-        ProllEntryRec.Reset;
-        ProllEntryRec.Init;
+        ProllEntryRec.Reset();
+        ProllEntryRec.Init();
         ProllEntryRec.SetRange("Payroll Period", CurrentRec."Payroll Period");
         ProllEntryRec.SetRange("Employee No", CurrentRec."Employee No");
 
@@ -1168,13 +1135,12 @@ table 50014 "Monthly Variables Lines."
                     else
                         /* Add */
                 ComputedTotal := ComputedTotal + ProllEntryRec.Amount
-
             end
         until (ProllEntryRec.Next(1) = 0);
 
         /* Move the computed amount to the line whose E/D Code is the one that has
           just been calculated.*/
-        ProllEntryRec.Init;
+        ProllEntryRec.Init();
         ProllEntryRec."E/D Code" := ConstEDFileRec.Compute;
         "E/DFileRec".Get(ConstEDFileRec.Compute);
         /*dbTRANSFERFIELDS ("E/DFileRec", ProllEntryRec);*/
@@ -1186,7 +1152,7 @@ table 50014 "Monthly Variables Lines."
         ProllRecStore := ProllEntryRec;*/
 
         ProllEntryRec.LockTable(false);
-        if ProllEntryRec.Find('=') then begin
+        if ProllEntryRec.Find('=') then
             /*FactorRecAmount := ProllEntryRec.Amount;*/
             /*ProllEntryRec := ProllRecStore;*/
 
@@ -1195,13 +1161,11 @@ table 50014 "Monthly Variables Lines."
             if ProllEntryRec.Amount <> ComputedTotal then begin
                 ProllEntryRec.Amount := ComputedTotal;
                 ProllEntryRec.ChangeOthers := true;
-                ProllEntryRec.Modify
-            end
-        end;
-        Commit;
+                ProllEntryRec.Modify()
+            end;
+        Commit();
 
-        ProllEntryRec.Reset;
-
+        ProllEntryRec.Reset();
     end;
 
     //[Scope('OnPrem')]
@@ -1218,8 +1182,8 @@ table 50014 "Monthly Variables Lines."
         ””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””*/
 
         /*Get first record in Employee Group Lines file for this Employee group*/
-        ProllEntryRec.Reset;
-        ProllEntryRec.Init;
+        ProllEntryRec.Reset();
+        ProllEntryRec.Init();
         ProllEntryRec.SetRange("Payroll Period", ParamLine."Payroll Period");
         ProllEntryRec.SetRange("Employee No", ParamLine."Employee No");
         ProllEntryRec := ParamLine;
@@ -1247,15 +1211,13 @@ table 50014 "Monthly Variables Lines."
                  also entries where it is a Factor, therefore set ChangeOthers to True*/
                 if FactorRecAmount <> ProllEntryRec.Amount then begin
                     ProllEntryRec.ChangeOthers := true;
-                    ProllEntryRec.Modify
+                    ProllEntryRec.Modify()
                 end
             end;
-
         until (ProllEntryRec.Next(1) = 0);
-        Commit;
+        Commit();
 
-        ProllEntryRec.Reset;
-
+        ProllEntryRec.Reset();
     end;
 
     //[Scope('OnPrem')]
@@ -1268,7 +1230,7 @@ table 50014 "Monthly Variables Lines."
         ””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””*/
         /*Get first record in Employee Group Lines file for this Employee group*/
         ProllEntryRec := CurrentRec;
-        ProllEntryRec.Init;
+        ProllEntryRec.Init();
         ProllEntryRec.SetRange("Payroll Period", CurrentRec."Payroll Period");
         ProllEntryRec.SetRange("Employee No", CurrentRec."Employee No");
         ProllEntryRec."E/D Code" := '';
@@ -1281,13 +1243,11 @@ table 50014 "Monthly Variables Lines."
             ChangeOthersRec.ChangeCounter := 0;
             /*BDC - Do not modify the one to be deleted*/
             if ProllEntryRec."E/D Code" <> CurrentRec."E/D Code" then
-                ProllEntryRec.Modify;
-
+                ProllEntryRec.Modify();
         until (ProllEntryRec.Next(1) = 0);
-        Commit;
+        Commit();
 
-        ProllEntryRec.Reset;
-
+        ProllEntryRec.Reset();
     end;
 
     //[Scope('OnPrem')]
@@ -1344,7 +1304,6 @@ table 50014 "Monthly Variables Lines."
         until (ProllRecStore.Next(1) = 0);
 
         exit(IsComputed);
-
     end;
 
     //[Scope('OnPrem')]
@@ -1373,7 +1332,6 @@ table 50014 "Monthly Variables Lines."
         /* Due to these changes adjust AMOUNTS in all lines */
         ChangeAllOver(DeletedRec, true);
         exit;
-
     end;
 
     //[Scope('OnPrem')]
@@ -1410,13 +1368,12 @@ table 50014 "Monthly Variables Lines."
         TheAmount := Round(TheAmount, RoundPrec, RoundDir);
 
         exit(TheAmount);
-
     end;
 
     //[Scope('OnPrem')]
     procedure GetParam()
     begin
-        PaySetup.Reset;
+        PaySetup.Reset();
         PaySetup.Find('-');
         DaysInMonth := PaySetup."Monthly Working Days";
         HrsInDay := PaySetup."Daily Working Hours";
@@ -1425,4 +1382,3 @@ table 50014 "Monthly Variables Lines."
         //MESSAGE('Basic Pay is %1',BasicPay);
     end;
 }
-

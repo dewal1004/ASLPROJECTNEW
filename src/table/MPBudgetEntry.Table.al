@@ -2,7 +2,7 @@ table 50023 "MP Budget Entry"
 {
     DrillDownPageID = "MP Budget Entries";
     LookupPageID = "MP Budget Entries";
-
+    Caption = 'MP Budget Entry';
     fields
     {
         field(1; "Entry No."; Integer)
@@ -76,6 +76,9 @@ table 50023 "MP Budget Entry"
 
     fieldgroups
     {
+        fieldgroup(DropDown; Description)
+        {
+        }
     }
 
     trigger OnInsert()
@@ -85,4 +88,3 @@ table 50023 "MP Budget Entry"
         "User ID" := UserId;
     end;
 }
-

@@ -238,4 +238,3 @@ page 50553 "Purchase List Foreign"
     var
         DimMgt: Codeunit DimensionManagement;
 }
-

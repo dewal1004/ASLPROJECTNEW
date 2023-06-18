@@ -5,7 +5,7 @@ report 50214 "Voyage Narration (Points)"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/VoyageNarrationPoints.rdlc';
-
+    Caption = 'Voyage Narration (Points)';
     dataset
     {
         dataitem(Date; Date)
@@ -21,7 +21,7 @@ report 50214 "Voyage Narration (Points)"
             column(USERID; UserId)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(Date_Period_Type; "Period Type")
@@ -111,7 +111,6 @@ report 50214 "Voyage Narration (Points)"
                 {
                 }
 
-
                 trigger OnAfterGetRecord()
                 begin
                     Points := 0;
@@ -137,11 +136,11 @@ report 50214 "Voyage Narration (Points)"
                     JobLedgEntry.SetFilter(JobLedgEntry."Location Code", '<>%1', 'CRM-ASL');
                     JobLedgEntry.SetRange(JobLedgEntry."Gen. Prod. Posting Group", 'FIS');
                     JobLedgEntry.SetRange(JobLedgEntry."Reason Code", 'CATCH');
-                    if JobLedgEntry.Find('-') then begin
+                    if JobLedgEntry.Find('-') then
                         repeat
                             Points := Points + JobLedgEntry."Total Price (LCY)" * (-1)
-                        until JobLedgEntry.Next = 0;
-                    end else
+                        until JobLedgEntry.Next() = 0
+                    else
                         Points := 0;
 
                     // if DayofTide.Get(JobLedgEntry."Posting Date") then;
@@ -246,7 +245,6 @@ report 50214 "Voyage Narration (Points)"
 
     requestpage
     {
-
         layout
         {
             area(content)
@@ -283,7 +281,6 @@ report 50214 "Voyage Narration (Points)"
     {
     }
 
-
     trigger OnInitReport()
     begin
         Bold := true;
@@ -300,8 +297,6 @@ report 50214 "Voyage Narration (Points)"
         //     Clear(xlApp);
     end;
 
-
-
     var
         res: Record Resource;
         Loc: Record Location;
@@ -314,11 +309,9 @@ report 50214 "Voyage Narration (Points)"
         Skipper: Text[30];
         CountryText: Text[30];
         VessNam: Text[30];
-        Points: Decimal;
         HoursLost: Decimal;
         DaysLost: Code[10];
         Comments: Text[250];
-        "-----------------------------": Integer;
         // xlApp: Automation BC;
         // xlBook: Automation BC;
         // xlSheet: Automation BC;
@@ -331,7 +324,6 @@ report 50214 "Voyage Narration (Points)"
         Italic: Boolean;
         FontSize: Integer;
         PageOrientation: Option "Excel Default",Portrait,Landscape;
-        "----------------------------": Integer;
         Voyage_Narration_ReportCaptionLbl: Label 'Voyage Narration Report';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
         Job__Voyage_No__CaptionLbl: Label 'Voyage No.';
@@ -386,4 +378,3 @@ report 50214 "Voyage Narration (Points)"
         exit(xlColID);
     end;
 }
-

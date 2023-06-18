@@ -6,8 +6,7 @@ report 50116 "IOU Status Report"
     RDLCLayout = './src/reportrdlc/IOUStatusReport.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
-
-
+    Caption = 'IOU Status Report';
     dataset
     {
         dataitem("Bank Account Ledger Entry"; "Bank Account Ledger Entry")
@@ -20,7 +19,7 @@ report 50116 "IOU Status Report"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -97,7 +96,7 @@ report 50116 "IOU Status Report"
                     EmployeeName := Description;
 
                 Print_OK := false;
-                if Loan_Rec.Get("Cust. Ledger Entry"."Loan ID") then begin
+                if Loan_Rec.Get("Cust. Ledger Entry"."Loan ID") then
                     if Loan_Rec."Loan Type" = 1 then begin
                         Loan_Rec.CalcFields(Loan_Rec."Remaining Amount");
                         if Loan_Rec."Remaining Amount" > 0 then begin
@@ -105,7 +104,6 @@ report 50116 "IOU Status Report"
                             Total_IOU := Total_IOU + "Cust. Ledger Entry"."Remaining Amt. (LCY)";
                         end;
                     end;
-                end;
             end;
 
             trigger OnPreDataItem()
@@ -123,7 +121,6 @@ report 50116 "IOU Status Report"
 
     requestpage
     {
-
         layout
         {
         }
@@ -139,17 +136,8 @@ report 50116 "IOU Status Report"
 
     var
         LastFieldNo: Integer;
-        FooterPrinted: Boolean;
-        TotalFor: Label 'Total';
-        "------": Integer;
-        Bank: Record "Bank Account";
         Cust: Record Customer;
-        Desc: Text[30];
-        BankDesc: Text[30];
         CashDay: Text[30];
-        StartBalanceLCY: Decimal;
-        T0001: Label 'BALANCE B/F';
-        T0002: Label 'BALANCE C/O';
         EmployeeName: Text[30];
         Loan_Rec: Record "Loan.";
         Print_OK: Boolean;
@@ -161,4 +149,3 @@ report 50116 "IOU Status Report"
         Cust__Ledger_Entry__Document_No__CaptionLbl: Label 'No.';
         Cust__Ledger_Entry__Posting_Date_CaptionLbl: Label 'Date';
 }
-

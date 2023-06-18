@@ -2,7 +2,7 @@ page 50040 "Medical Treatment Costs"
 {
     PageType = Card;
     SourceTable = "Medical Record";
-
+    Caption = 'Medical Treatment Costs';
     layout
     {
         area(content)
@@ -78,9 +78,6 @@ page 50040 "Medical Treatment Costs"
     }
 
     var
-        VendRec: Record Vendor;
-        HospName: Text[60];
-        MediRec: Record "Medical Record";
         BenFilter: Option " ",Self,Dependant;
         TransFilter: Option " ",C,R,H;
 
@@ -94,4 +91,3 @@ page 50040 "Medical Treatment Costs"
         //MESSAGE(FORMAT("Transaction  Filter"));
     end;
 }
-

@@ -2,7 +2,7 @@ page 50051 "Monthly Variables Lines."
 {
     PageType = ListPart;
     SourceTable = "Monthly Variables Lines.";
-
+    Caption = 'Monthly Variables Lines.';
     layout
     {
         area(content)
@@ -43,4 +43,3 @@ page 50051 "Monthly Variables Lines."
     {
     }
 }
-

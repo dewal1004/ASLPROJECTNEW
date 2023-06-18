@@ -41,7 +41,7 @@ page 50155 "PO Subform Local - FIS"
                     trigger OnValidate()
                     begin
                         Rec.ShowShortcutDimCode(ShortcutDimCode);
-                        NoOnAfterValidate;
+                        NoOnAfterValidate();
                     end;
                 }
                 field("Reason Code"; Rec."Reason Code")
@@ -71,7 +71,7 @@ page 50155 "PO Subform Local - FIS"
                     begin
                         if Rec.Type = Rec.Type::Item then begin
                             PurchHeader.Get(Rec."Document Type", Rec."Document No.");
-                            ItemCrossReference.Reset;
+                            ItemCrossReference.Reset();
                             ItemCrossReference.SetCurrentKey("Cross-Reference Type", "Cross-Reference Type No.");
                             ItemCrossReference.SetRange("Cross-Reference Type", ItemCrossReference."Cross-Reference Type"::Vendor);
                             ItemCrossReference.SetRange("Cross-Reference Type No.", PurchHeader."Buy-from Vendor No.");
@@ -573,7 +573,6 @@ page 50155 "PO Subform Local - FIS"
                             //This functionality was copied from page #50154. Unsupported part was commented. Please check it.
                             /*CurrPage.PurchLines.FORM.*/
                             _ItemAvailability(0);
-
                         end;
                     }
                     action(Variant)
@@ -586,7 +585,6 @@ page 50155 "PO Subform Local - FIS"
                             //This functionality was copied from page #50154. Unsupported part was commented. Please check it.
                             /*CurrPage.PurchLines.FORM.*/
                             _ItemAvailability(1);
-
                         end;
                     }
                     action(Location)
@@ -599,7 +597,6 @@ page 50155 "PO Subform Local - FIS"
                             //This functionality was copied from page #50154. Unsupported part was commented. Please check it.
                             /*CurrPage.PurchLines.FORM.*/
                             _ItemAvailability(2);
-
                         end;
                     }
                 }
@@ -613,8 +610,7 @@ page 50155 "PO Subform Local - FIS"
                     begin
                         //This functionality was copied from page #50154. Unsupported part was commented. Please check it.
                         /*CurrPage.PurchLines.FORM.*/
-                        _ShowReservationEntries;
-
+                        _ShowReservationEntries();
                     end;
                 }
                 action(Dimensions)
@@ -628,8 +624,7 @@ page 50155 "PO Subform Local - FIS"
                     begin
                         //This functionality was copied from page #50154. Unsupported part was commented. Please check it.
                         /*CurrPage.PurchLines.FORM.*/
-                        _ShowDimensions;
-
+                        _ShowDimensions();
                     end;
                 }
                 action("Item Charge &Assignment")
@@ -642,8 +637,7 @@ page 50155 "PO Subform Local - FIS"
                     begin
                         //This functionality was copied from page #50154. Unsupported part was commented. Please check it.
                         /*CurrPage.PurchLines.FORM.*/
-                        ItemChargeAssgnt;
-
+                        ItemChargeAssgnt();
                     end;
                 }
                 action("Item &Tracking Lines")
@@ -656,8 +650,7 @@ page 50155 "PO Subform Local - FIS"
                     begin
                         //This functionality was copied from page #50154. Unsupported part was commented. Please check it.
                         /*CurrPage.PurchLines.FORM.*/
-                        _OpenItemTrackingLines;
-
+                        _OpenItemTrackingLines();
                     end;
                 }
             }
@@ -677,8 +670,7 @@ page 50155 "PO Subform Local - FIS"
                     begin
                         //This functionality was copied from page #50154. Unsupported part was commented. Please check it.
                         /*CurrPage.PurchLines.FORM.*/
-                        ApproveCalcInvDisc;
-
+                        ApproveCalcInvDisc();
                     end;
                 }
                 action("E&xplode BOM")
@@ -691,8 +683,7 @@ page 50155 "PO Subform Local - FIS"
                     begin
                         //This functionality was copied from page #50154. Unsupported part was commented. Please check it.
                         /*CurrPage.PurchLines.FORM.*/
-                        ExplodeBOM;
-
+                        ExplodeBOM();
                     end;
                 }
                 action("Insert &Ext. Texts")
@@ -705,7 +696,6 @@ page 50155 "PO Subform Local - FIS"
                         //This functionality was copied from page #50154. Unsupported part was commented. Please check it.
                         /*CurrPage.PurchLines.FORM.*/
                         _InsertExtendedText(true);
-
                     end;
                 }
                 action("Get &Phase/Task/Step")
@@ -718,8 +708,7 @@ page 50155 "PO Subform Local - FIS"
                     begin
                         //This functionality was copied from page #50154. Unsupported part was commented. Please check it.
                         /*CurrPage.PurchLines.FORM.*/
-                        GetPhaseTaskStep;
-
+                        GetPhaseTaskStep();
                     end;
                 }
                 group("Drop Shipment")
@@ -735,8 +724,7 @@ page 50155 "PO Subform Local - FIS"
                         begin
                             //This functionality was copied from page #50154. Unsupported part was commented. Please check it.
                             /*CurrPage.PurchLines.FORM.*/
-                            OpenSalesOrderForm;
-
+                            OpenSalesOrderForm();
                         end;
                     }
                 }
@@ -753,8 +741,7 @@ page 50155 "PO Subform Local - FIS"
                         begin
                             //This functionality was copied from page #50154. Unsupported part was commented. Please check it.
                             /*CurrPage.PurchLines.FORM.*/
-                            OpenSpecOrderSalesOrderForm;
-
+                            OpenSpecOrderSalesOrderForm();
                         end;
                     }
                 }
@@ -768,8 +755,7 @@ page 50155 "PO Subform Local - FIS"
                     begin
                         //This functionality was copied from page #50154. Unsupported part was commented. Please check it.
                         /*CurrPage.PurchLines.FORM.*/
-                        _ShowReservation;
-
+                        _ShowReservation();
                     end;
                 }
                 action("Order &Tracking")
@@ -781,8 +767,7 @@ page 50155 "PO Subform Local - FIS"
                     begin
                         //This functionality was copied from page #50154. Unsupported part was commented. Please check it.
                         /*CurrPage.PurchLines.FORM.*/
-                        ShowTracking;
-
+                        ShowTracking();
                     end;
                 }
             }
@@ -814,7 +799,6 @@ page 50155 "PO Subform Local - FIS"
         ItemCrossReference: Record "Item Cross Reference";
         TransferExtendedText: Codeunit "Transfer Extended Text";
         ShortcutDimCode: array[8] of Code[20];
-        "------": Char;
         InvtSetUp: Record "Inventory Setup";
         [InDataSet]
         "Reason CodeVisible": Boolean;
@@ -860,17 +844,17 @@ page 50155 "PO Subform Local - FIS"
         SalesHeader.SetRange("No.", Rec."Sales Order No.");
         SalesOrder.SetTableView(SalesHeader);
         SalesOrder.Editable := false;
-        SalesOrder.Run;
+        SalesOrder.Run();
     end;
 
     [Scope('Onprem')]
     procedure _InsertExtendedText(Unconditionally: Boolean)
     begin
         if TransferExtendedText.PurchCheckIfAnyExtText(Rec, Unconditionally) then begin
-            CurrPage.SaveRecord;
+            CurrPage.SaveRecord();
             TransferExtendedText.InsertPurchExtText(Rec);
         end;
-        if TransferExtendedText.MakeUpdate then
+        if TransferExtendedText.MakeUpdate() then
             UpdateForm(true);
     end;
 
@@ -878,25 +862,25 @@ page 50155 "PO Subform Local - FIS"
     procedure InsertExtendedText(Unconditionally: Boolean)
     begin
         if TransferExtendedText.PurchCheckIfAnyExtText(Rec, Unconditionally) then begin
-            CurrPage.SaveRecord;
+            CurrPage.SaveRecord();
             TransferExtendedText.InsertPurchExtText(Rec);
         end;
-        if TransferExtendedText.MakeUpdate then
+        if TransferExtendedText.MakeUpdate() then
             UpdateForm(true);
     end;
 
     [Scope('Onprem')]
     procedure _ShowReservation()
     begin
-        Rec.Find;
-        Rec.ShowReservation;
+        Rec.Find();
+        Rec.ShowReservation();
     end;
 
     [Scope('Onprem')]
     procedure ASLShowReservation()
     begin
-        Rec.Find;
-        Rec.ShowReservation;
+        Rec.Find();
+        Rec.ShowReservation();
     end;
 
     [Scope('Onprem')]
@@ -929,37 +913,37 @@ page 50155 "PO Subform Local - FIS"
         TrackingForm: Page "Order Tracking";
     begin
         TrackingForm.SetPurchLine(Rec);
-        TrackingForm.RunModal;
+        TrackingForm.RunModal();
     end;
 
     [Scope('Onprem')]
     procedure _ShowDimensions()
     begin
-        Rec.ShowDimensions;
+        Rec.ShowDimensions();
     end;
 
     [Scope('Onprem')]
     procedure ShowDimensions()
     begin
-        Rec.ShowDimensions;
+        Rec.ShowDimensions();
     end;
 
     [Scope('Onprem')]
     procedure ItemChargeAssgnt()
     begin
-        Rec.ShowItemChargeAssgnt;
+        Rec.ShowItemChargeAssgnt();
     end;
 
     [Scope('Onprem')]
     procedure _OpenItemTrackingLines()
     begin
-        Rec.OpenItemTrackingLines;
+        Rec.OpenItemTrackingLines();
     end;
 
     [Scope('Onprem')]
     procedure OpenItemTrackingLines()
     begin
-        Rec.OpenItemTrackingLines;
+        Rec.OpenItemTrackingLines();
     end;
 
     [Scope('Onprem')]
@@ -971,7 +955,7 @@ page 50155 "PO Subform Local - FIS"
         SalesHeader.SetRange("No.", Rec."Special Order Sales No.");
         SalesOrder.SetTableView(SalesHeader);
         SalesOrder.Editable := false;
-        SalesOrder.Run;
+        SalesOrder.Run();
     end;
 
     [Scope('Onprem')]
@@ -1044,7 +1028,6 @@ page 50155 "PO Subform Local - FIS"
           CurrForm."Original Purc. Order No.".VISIBLE(TRUE);
         END;
         */
-
     end;
 
     [Scope('Onprem')]
@@ -1063,7 +1046,7 @@ page 50155 "PO Subform Local - FIS"
                 "External Document No.Visible" := false;
             end;
 
-        InvtSetUp.Get;
+        InvtSetUp.Get();
         if PurchHeader."Location Code" = InvtSetUp."Default Cold Room" then begin
             ProdCdVisible := true;
             "Pack SizeVisible" := true;
@@ -1084,9 +1067,8 @@ page 50155 "PO Subform Local - FIS"
         if (Rec.Type = Rec.Type::"Charge (Item)") and (Rec."No." <> xRec."No.") and
            (xRec."No." <> '')
         then
-            CurrPage.SaveRecord;
+            CurrPage.SaveRecord();
         if Rec.Type = Rec.Type::Item then
             Rec.Validate("Indirect Cost %", -100);
     end;
 }
-

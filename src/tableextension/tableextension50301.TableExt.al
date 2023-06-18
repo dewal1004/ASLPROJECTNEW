@@ -2,12 +2,9 @@ tableextension 50301 "tableextension50301" extends "Transfer Header"
 {
     fields
     {
-
         //Unsupported feature: Property Insertion (NotBlank) on ""Shortcut Dimension 2 Code"(Field 26)".
 
-
         //Unsupported feature: Property Insertion (Editable) on ""In-Transit Code"(Field 27)".
-
 
         //Unsupported feature: Code Modification on ""Transfer-from Code"(Field 2).OnValidate".
 
@@ -38,7 +35,6 @@ tableextension 50301 "tableextension50301" extends "Transfer Header"
         */
         //end;
 
-
         //Unsupported feature: Code Modification on ""Transfer-to Code"(Field 11).OnValidate".
 
         //trigger OnValidate()
@@ -67,7 +63,6 @@ tableextension 50301 "tableextension50301" extends "Transfer Header"
         //CALCFIELDS("Transfer To Voy. No.");
         */
         //end;
-
 
         //Unsupported feature: Code Modification on ""Shortcut Dimension 2 Code"(Field 26).OnValidate".
 
@@ -120,7 +115,7 @@ tableextension 50301 "tableextension50301" extends "Transfer Header"
             trigger OnValidate()
             begin
                 ValidateShortcutDimCode(2, "Shortcut Dimension 2 Code");
-                Modify;
+                Modify();
                 //TESTFIELD("New Shortcut Dimension 2 Code","Shortcut Dimension 2 Code");
                 //AAA-Nov2001
                 "External Document No." := 'TRANSORD';
@@ -195,7 +190,6 @@ tableextension 50301 "tableextension50301" extends "Transfer Header"
         }
     }
 
-
     //Unsupported feature: Code Modification on "OnInsert".
 
     //trigger OnInsert()
@@ -223,7 +217,6 @@ tableextension 50301 "tableextension50301" extends "Transfer Header"
       //AAA
     */
     //end;
-
 
     //Unsupported feature: Code Modification on "UpdateTransLines(PROCEDURE 15)".
 
@@ -271,14 +264,12 @@ tableextension 50301 "tableextension50301" extends "Transfer Header"
 
     //Unsupported feature: Variable Insertion (Variable: ItemTrackingMgt) (VariableCollection) on "DeleteOneTransferOrder(PROCEDURE 4)".
 
-
     //Unsupported feature: Variable Insertion (Variable: WhseValidateSourceLine) (VariableCollection) on "DeleteOneTransferOrder(PROCEDURE 4)".
-
 
     local procedure InsertSpecialBomItem(ReqType: Integer; Seadays: Integer)
     begin
 
-        TransLine.Init;
+        TransLine.Init();
         TransLine."Document No." := "No.";
         TransLine."Line No." := 10000;
 
@@ -317,12 +308,9 @@ tableextension 50301 "tableextension50301" extends "Transfer Header"
     end;
 
     var
-        "--------------------": Text[30];
         LocationRec: Record Location;
         Jobs: Record Job;
         OnSeaDays: Integer;
         Supply: Code[20];
-        "OWN LOG.": Option;
         TransLine: Record "Transfer Line";
 }
-

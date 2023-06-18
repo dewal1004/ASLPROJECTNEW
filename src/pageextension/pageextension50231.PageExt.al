@@ -1,6 +1,5 @@
 pageextension 50231 "pageextension50231" extends "Workflow Step Responses"
 {
-
     //Unsupported feature: Code Modification on "OnAfterGetRecord".
 
     //trigger OnAfterGetRecord()
@@ -23,4 +22,3 @@ pageextension 50231 "pageextension50231" extends "Workflow Step Responses"
     */
     //end;
 }
-

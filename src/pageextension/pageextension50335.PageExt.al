@@ -10,4 +10,3 @@ pageextension 50335 "pageextension50335" extends "Skilled Resource List"
         ServItemNo := Item."No.";
     end;
 }
-

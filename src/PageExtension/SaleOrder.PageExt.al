@@ -35,7 +35,4 @@ pageextension 55000 "SaleOrder" extends "Sales Order"
     {
         // Add changes to page actions here
     }
-
-    var
-        myInt: Integer;
 }

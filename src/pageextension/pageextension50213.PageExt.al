@@ -2,7 +2,6 @@ pageextension 50213 "pageextension50213" extends "Data Exch. Setup Subform"
 {
     layout
     {
-
         //Unsupported feature: Code Modification on "SourceField(Control 5).OnAssistEdit".
 
         //trigger OnAssistEdit()
@@ -22,7 +21,6 @@ pageextension 50213 "pageextension50213" extends "Data Exch. Setup Subform"
 
     var
     //***TempXMLStructure: Record "XML Structure" temporary;
-
 
     //Unsupported feature: Code Modification on "SetXMLDefinition(PROCEDURE 3)".
 
@@ -57,8 +55,5 @@ pageextension 50213 "pageextension50213" extends "Data Exch. Setup Subform"
 
     //Unsupported feature: Property Modification (Name) on "SetXMLDefinition(PROCEDURE 3).XMLBuffer(Parameter 1000)".
 
-
     //Unsupported feature: Property Modification (Subtype) on "SetXMLDefinition(PROCEDURE 3).XMLBuffer(Parameter 1000)".
-
 }
-

@@ -4,7 +4,7 @@ report 59102 "Cust Sample"
     RDLCLayout = './src/reportrdlc/CustSample.rdlc';
     UsageCategory = Administration;
     ApplicationArea = All, basic, suite;
-
+    Caption = 'Cust Sample';
     dataset
     {
         dataitem(Customer; Customer)
@@ -24,10 +24,10 @@ report 59102 "Cust Sample"
             column(Name2_Customer; Customer."Name 2")
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
-            column(CurrReport_PAGENO_Control1000000056; CurrReport.PageNo)
+            column(CurrReport_PAGENO_Control1000000056; CurrReport.PageNo())
             {
             }
             column(CurrReport_PAGENOCaption; CurrReport_PAGENOCaptionLbl)
@@ -121,7 +121,7 @@ report 59102 "Cust Sample"
             column(FORMAT_TODAY_0_4__Control1000000044; Format(Today, 0, 4))
             {
             }
-            column(CurrReport_PAGENO_Control1000000045; CurrReport.PageNo)
+            column(CurrReport_PAGENO_Control1000000045; CurrReport.PageNo())
             {
             }
             column(USERID_Control1000000047; UserId)
@@ -148,7 +148,7 @@ report 59102 "Cust Sample"
             column(BalB4Per_Control1000000027; BalB4Per)
             {
             }
-            column(CurrReport_PAGENO_Control1000000060; CurrReport.PageNo)
+            column(CurrReport_PAGENO_Control1000000060; CurrReport.PageNo())
             {
             }
             column(USERID_Control1000000061; UserId)
@@ -217,7 +217,7 @@ report 59102 "Cust Sample"
 
             trigger OnAfterGetRecord()
             begin
-                if (Output = 0) then CurrReport.Break;
+                if (Output = 0) then CurrReport.Break();
 
                 SetRange("Date Filter", 0D, ToDate);
                 CalcFields("Net Change (LCY)");
@@ -230,7 +230,7 @@ report 59102 "Cust Sample"
                 SetRange("Date Filter", FrDate, ToDate);
                 CurrReport.CreateTotals(BalAtDat, BalB4Per, "Debit Amount (LCY)", "Credit Amount (LCY)");
 
-                if (("Net Change (LCY)" = 0) and (not ShowZero)) then CurrReport.Skip;
+                if (("Net Change (LCY)" = 0) and (not ShowZero)) then CurrReport.Skip();
             end;
 
             trigger OnPreDataItem()
@@ -247,7 +247,6 @@ report 59102 "Cust Sample"
 
     requestpage
     {
-
         layout
         {
         }
@@ -263,10 +262,8 @@ report 59102 "Cust Sample"
 
     var
         LastFieldNo: Integer;
-        FooterPrinted: Boolean;
         ToDate: Date;
         ShowZero: Boolean;
-        "-----------": Integer;
         FrDate: Date;
         BalAtDat: Decimal;
         BalB4Per: Decimal;
@@ -295,4 +292,3 @@ report 59102 "Cust Sample"
         Opening_Balance_Caption_Control1000000040Lbl: Label 'Opening Balance ';
         CurrReport_PAGENO_Control1000000060CaptionLbl: Label 'Page';
 }
-

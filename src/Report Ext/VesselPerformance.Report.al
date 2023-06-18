@@ -5,8 +5,7 @@ report 50190 "Vessel Performance"
     RDLCLayout = './src/reportrdlc/VesselPerformance.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
-
-
+    Caption = 'Vessel Performance';
     dataset
     {
         dataitem(Job; Job)
@@ -22,7 +21,7 @@ report 50190 "Vessel Performance"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -60,7 +59,6 @@ report 50190 "Vessel Performance"
             }
             column(FishPer_Control1000000068; FishPer)
             {
-
             }
             column(Job__Port_Day__Manual___Control1000000069; "Port Day (Manual)")
             {
@@ -79,98 +77,75 @@ report 50190 "Vessel Performance"
             }
             column(ExpVal; ExpVal)
             {
-
             }
             column(NairaVal_ExpVal; NairaVal - ExpVal)
             {
-
             }
             column(NairaVal; NairaVal)
             {
-
             }
             column(NairaValB; NairaValB)
             {
-
             }
             column(NairaVal_NairaValB; NairaVal - NairaValB)
             {
-
             }
             column(AGValTot; AGValTot)
             {
-
             }
             column(AGOPct; AGOPct)
             {
-
             }
             column(Direct; Direct)
             {
-
             }
             column(GMargin; GMargin)
             {
-
             }
             column(GMPct; GMPct)
             {
-
             }
             column(Indirect; Indirect)
             {
-
             }
             column(Profit; Profit)
             {
-
             }
             column(CountN; CountN)
             {
             }
             column(ProfitT; ProfitT)
             {
-
             }
             column(IndirectT; IndirectT)
             {
-
             }
             column(GMarginT; GMarginT)
             {
-
             }
             column(DirectT; DirectT)
             {
-
             }
             column(AGValTotG; AGValTotG)
             {
-
             }
             column(NairaValTot_NairaValBTot; NairaValTot - NairaValBTot)
             {
-
             }
             column(NairaValBTot; NairaValBTot)
             {
-
             }
             column(NairaValTot; NairaValTot)
             {
-
             }
             column(NairaValTot_ExpValTot; NairaValTot - ExpValTot)
             {
-
             }
             column(ExpValTot; ExpValTot)
             {
-
             }
             column(FishPer_Control1000000090; FishPer)
             {
-
             }
             column(Job__Port_Day__Manual___Control1000000091; "Port Day (Manual)")
             {
@@ -186,23 +161,18 @@ report 50190 "Vessel Performance"
             }
             column(AGOPctT; AGOPctT)
             {
-
             }
             column(GMPctT; GMPctT)
             {
-
             }
             column(FishPerAvg; FishPerAvg)
             {
-
             }
             column(AGOPctTAvg; AGOPctTAvg)
             {
-
             }
             column(GMPctTAvg; GMPctTAvg)
             {
-
             }
             column(VESSEL_PERFORMANCE_ANALYSISCaption; VESSEL_PERFORMANCE_ANALYSISCaptionLbl)
             {
@@ -354,8 +324,7 @@ report 50190 "Vessel Performance"
                     NairaValTot := NairaValTot + NairaVal;
                     ExpValTot := ExpValTot + ExpVal;
 
-                    Cost;
-
+                    Cost();
                 end;
 
                 trigger OnPreDataItem()
@@ -391,7 +360,7 @@ report 50190 "Vessel Performance"
                     QtyB:="Budget Quantity";
                     PrcB:=GetItPrice("No.","No.B",ETA[1]);
                     PrdPrcB:=QtyB*GetItPrice("No.","No.B",ETA[1]);
-                    
+
                     IF Itempr."Currency Code"<>'' THEN
                     BEGIN
                       PrdPrcB:=QtyB*PrcB;
@@ -403,7 +372,6 @@ report 50190 "Vessel Performance"
                       PrdPrcB:=0;
                     END;
                     NairaValBTot:=NairaValBTot+NairaValB;*///dik
-
                 end;
 
                 trigger OnPreDataItem()
@@ -417,7 +385,6 @@ report 50190 "Vessel Performance"
                 DataItemTableView = SORTING("Document No.", "Gen. Prod. Posting Group") WHERE("Gen. Prod. Posting Group" = FILTER(<> 'FIS'));
                 column(AGVal_Control1000000098; AGVal)
                 {
-
                 }
                 column(Value_Entry__Gen__Prod__Posting_Group_; "Gen. Prod. Posting Group")
                 {
@@ -427,19 +394,15 @@ report 50190 "Vessel Performance"
                 }
                 column(AGVal_Control1000000101; AGVal)
                 {
-
                 }
                 column(Cost_Posted_to_G_L_; -"Cost Posted to G/L")
                 {
-
                 }
                 column(Cost_Posted_to_G_L__Control1000000066; -"Cost Posted to G/L")
                 {
-
                 }
                 column(AGValTot_Control1000000067; AGValTot)
                 {
-
                 }
                 column(Value_Entry_Entry_No_; "Entry No.")
                 {
@@ -458,11 +421,9 @@ report 50190 "Vessel Performance"
                 DataItemTableView = WHERE(Number = CONST(1));
                 column(GLStrT; GLStrT)
                 {
-
                 }
                 column(ResCount; ResCount)
                 {
-
                 }
                 column(Value_Entry___Cost_Posted_to_G_L_; "Value Entry"."Cost Posted to G/L")
                 {
@@ -544,7 +505,6 @@ report 50190 "Vessel Performance"
                      DataStor[8]:=RateSetup.Clearing_Fwrd_NPA*ExpTonnage;
                      DataStor[12]:=RateSetup."Shore Overheads"*CycleDay;
 
-
                      //Credit from G/L Entry
                      CountGPPG:=0;
                      AGValGL:=0;
@@ -565,7 +525,6 @@ report 50190 "Vessel Performance"
                      UNTIL ProdPostGrp.NEXT()=0;
                     // MESSAGE('AG VAl GL = %1',AGValGL);
                    CountN:=CountN+1;*///dik
-
                 end;
 
                 trigger OnPostDataItem()
@@ -591,10 +550,9 @@ report 50190 "Vessel Performance"
                 ETA[1] := "Ending Date";
                 CurrExc.SetRange(CurrExc."Currency Code", 'USD');
                 CurrExc.SetRange(CurrExc."Starting Date", 0D, ETA[1]);
-                if CurrExc.Find('+') then begin
-                    CurrRate := CurrExc."Relational Exch. Rate Amount";
-                    //MESSAGE('EXCHANGE VALUE IS %1',CurrExc."Relational Exch. Rate Amount")
-                end
+                if CurrExc.Find('+') then
+                    CurrRate := CurrExc."Relational Exch. Rate Amount"
+                //MESSAGE('EXCHANGE VALUE IS %1',CurrExc."Relational Exch. Rate Amount")
                 else
                     CurrRate := 1;
                 CurrReport.CreateTotals("Comsumed Value");
@@ -603,7 +561,7 @@ report 50190 "Vessel Performance"
 
             trigger OnPreDataItem()
             begin
-                JobSetup.Get;
+                JobSetup.Get();
                 //MESSAGE('Setup Val is %1',JobSetup."Export Prouct Code");
                 //CurrReport.CREATETOTALS(AGValGL);
             end;
@@ -612,7 +570,6 @@ report 50190 "Vessel Performance"
 
     requestpage
     {
-
         layout
         {
         }
@@ -627,31 +584,13 @@ report 50190 "Vessel Performance"
     }
 
     var
-        Itempr: Record "Item Ledger Entry";
         JobSetup: Record "Jobs Setup";
-        RateSetup: Record "P & L Rates";
         CurrExc: Record "Currency Exchange Rate";
         UOM: Record "Unit of Measure";
-        JBudLn: Record "Job Ledger Entry";
-        Job2: Record Job;
-        Loc: Record Location;
-        ProdPostGrp: Record "Gen. Product Posting Group";
-        InvtPostGrp: Record "Inventory Posting Group";
-        Employee: Record Employee;
-        Coutry: Record "Country/Region";
-        GLEntry: Record "G/L Entry";
-        Res: Record Resource;
-        Flag: Boolean;
-        PeopleOnVoy: Integer;
-        expcnt: Integer;
         ResCount: Integer;
-        CountZ: Integer;
-        CountGPPG: Integer;
-        CountGx: Integer;
         CountLp: Integer;
         CountN: Integer;
         DataStor: array[15] of Decimal;
-        GLStr: array[25] of Decimal;
         GLStrT: Decimal;
         FishPer: Decimal;
         FishPerAvg: Decimal;
@@ -659,11 +598,8 @@ report 50190 "Vessel Performance"
         Prc: Decimal;
         PrdPrc: Decimal;
         NairaVal: Decimal;
-        NairaValT: Integer;
         ExpVal: Decimal;
-        LocVal: Decimal;
         QtyB: Decimal;
-        PrcB: Decimal;
         PrdPrcB: Decimal;
         NairaValB: Decimal;
         CurrRate: Decimal;
@@ -688,11 +624,7 @@ report 50190 "Vessel Performance"
         AGValTotG: Decimal;
         NairaValTot: Decimal;
         ExpValTot: Decimal;
-        LocValTot: Decimal;
         NairaValBTot: Decimal;
-        ExpTonnage: Decimal;
-        "----": Integer;
-        CycleDay: Decimal;
         UOMCd: Code[10];
         "No.B": Code[10];
         ETA: array[2] of Date;
@@ -734,8 +666,6 @@ report 50190 "Vessel Performance"
 
     [Scope('OnPrem')]
     procedure GetItPrice(JNos: Code[20]; Nos: Code[20]; PDays: Date): Decimal
-    var
-        job3: Record Job;
     begin
         /*IF job3.GET(JNos) THEN;
         Itempr.SETRANGE(Itempr."Item No.",Nos);
@@ -751,7 +681,6 @@ report 50190 "Vessel Performance"
            END;
          END;
         EXIT(Prc);*///dik
-
     end;
 
     [Scope('OnPrem')]
@@ -759,4 +688,3 @@ report 50190 "Vessel Performance"
     begin
     end;
 }
-

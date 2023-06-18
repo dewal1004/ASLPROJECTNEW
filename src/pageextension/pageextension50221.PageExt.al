@@ -2,9 +2,7 @@ pageextension 50221 "pageextension50221" extends "Posted Sales Credit Memo"
 {
     actions
     {
-
         //Unsupported feature: Property Modification (Name) on "Print(Action 50)".
-
 
         //Unsupported feature: Code Modification on "Print(Action 50).OnAction".
 
@@ -27,4 +25,3 @@ pageextension 50221 "pageextension50221" extends "Posted Sales Credit Memo"
         //end;
     }
 }
-

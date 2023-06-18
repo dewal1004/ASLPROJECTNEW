@@ -2,7 +2,7 @@ page 50002 "PAYROLL- EMPLOYEE GROUP LIST."
 {
     PageType = Card;
     SourceTable = "Payroll-Employee Group Header.";
-
+    Caption = 'PAYROLL- EMPLOYEE GROUP LIST.';
     layout
     {
         area(content)
@@ -54,4 +54,3 @@ page 50002 "PAYROLL- EMPLOYEE GROUP LIST."
     {
     }
 }
-

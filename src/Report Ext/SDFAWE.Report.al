@@ -2,7 +2,7 @@ report 88233 "SDFAWE"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/SDFAWE.rdlc';
-
+    Caption = 'SDFAWE';
     dataset
     {
         dataitem("Sales Header"; "Sales Header")
@@ -15,7 +15,7 @@ report 88233 "SDFAWE"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -73,7 +73,6 @@ report 88233 "SDFAWE"
 
     requestpage
     {
-
         layout
         {
         }
@@ -89,8 +88,6 @@ report 88233 "SDFAWE"
 
     var
         LastFieldNo: Integer;
-        FooterPrinted: Boolean;
         Sales_HeaderCaptionLbl: Label 'Sales Header';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
 }
-

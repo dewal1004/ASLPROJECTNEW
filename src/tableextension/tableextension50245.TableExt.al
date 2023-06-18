@@ -16,32 +16,4 @@ tableextension 50245 "tableextension50245" extends "Gen. Journal Batch"
         {
         }
     }
-
-
-    //Unsupported feature: Code Modification on "CheckBalance(PROCEDURE 11)".
-
-    //procedure CheckBalance();
-    //Parameters and return type have not been exported.
-    //>>>> ORIGINAL CODE:
-    //begin
-    /*
-    Balance := GetBalance;
-
-    if Balance = 0 then
-      OnGeneralJournalBatchBalanced
-    else
-      OnGeneralJournalBatchNotBalanced;
-    */
-    //end;
-    //>>>> MODIFIED CODE:
-    //begin
-    /*
-    Balance := GetBalance;
-    */
-    //end;
-
-    var
-        "--------------------": Text[30];
-        DimMgt: Codeunit DimensionManagement;
 }
-

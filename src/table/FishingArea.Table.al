@@ -1,7 +1,7 @@
 table 50300 "Fishing Area +"
 {
     LookupPageID = "Fishing Area";
-
+    Caption = 'Fishing Area +';
     fields
     {
         field(1; "No."; Code[10])
@@ -44,4 +44,3 @@ table 50300 "Fishing Area +"
     {
     }
 }
-

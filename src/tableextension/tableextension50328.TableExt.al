@@ -2,7 +2,6 @@ tableextension 50328 "tableextension50328" extends "Sales Cue"
 {
     fields
     {
-
         //Unsupported feature: Property Modification (CalcFormula) on ""Partially Shipped"(Field 8)".
 
         field(50001; "MRPending for Store Approval"; Integer)
@@ -12,6 +11,7 @@ tableextension 50328 "tableextension50328" extends "Sales Cue"
                                                                       Rejected = CONST(false)));
             FieldClass = FlowField;
             TableRelation = "Store Requisition Header New";
+            Editable = false;
         }
         field(50002; "MRPending For HOD Approval"; Integer)
         {
@@ -19,6 +19,7 @@ tableextension 50328 "tableextension50328" extends "Sales Cue"
                                                                       "1st Approved" = FILTER(<> Approved),
                                                                       Rejected = CONST(false)));
             FieldClass = FlowField;
+            Editable = false;
         }
         field(50003; "MR Pending For Store Process"; Integer)
         {
@@ -27,6 +28,7 @@ tableextension 50328 "tableextension50328" extends "Sales Cue"
                                                                       "Issued Captured" = CONST(false),
                                                                       Rejected = CONST(false)));
             FieldClass = FlowField;
+            Editable = false;
         }
         field(50004; "MR Pending for Process"; Integer)
         {
@@ -36,6 +38,7 @@ tableextension 50328 "tableextension50328" extends "Sales Cue"
                                                                       Processed = CONST(false),
                                                                       Rejected = CONST(false)));
             FieldClass = FlowField;
+            Editable = false;
         }
         field(50005; "Completed MR"; Integer)
         {
@@ -45,20 +48,22 @@ tableextension 50328 "tableextension50328" extends "Sales Cue"
                                                                       Processed = CONST(true),
                                                                       Rejected = CONST(false)));
             FieldClass = FlowField;
+            Editable = false;
         }
         field(50006; "ReJected MR"; Integer)
         {
             CalcFormula = Count("Store Requisition Header New" WHERE("Send for Approval" = CONST(true),
                                                                       Rejected = CONST(true)));
             FieldClass = FlowField;
+            Editable = false;
         }
         field(50007; "New MR"; Integer)
         {
             CalcFormula = Count("Store Requisition Header New" WHERE("Send for Approval" = CONST(false)));
             FieldClass = FlowField;
+            Editable = false;
         }
     }
-
 
     //Unsupported feature: Code Modification on "CountOrders(PROCEDURE 9)".
 
@@ -93,7 +98,6 @@ tableextension 50328 "tableextension50328" extends "Sales Cue"
     */
     //end;
 
-
     //Unsupported feature: Code Modification on "FilterOrders(PROCEDURE 11)".
 
     //procedure FilterOrders();
@@ -127,4 +131,3 @@ tableextension 50328 "tableextension50328" extends "Sales Cue"
     */
     //end;
 }
-

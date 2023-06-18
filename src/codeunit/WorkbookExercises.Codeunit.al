@@ -1,6 +1,5 @@
 codeunit 95100 "Workbook Exercises"
 {
-
     trigger OnRun()
     begin
         LoopNo := 25;
@@ -13,13 +12,5 @@ codeunit 95100 "Workbook Exercises"
 
     var
         LoopNo: Integer;
-        YesOrNo: Boolean;
-        Amount: Decimal;
-        "When Was It": Date;
-        "What Time": Time;
-        Description: Text[30];
-        "Code Number": Code[10];
         Ch: Char;
-        Color: Option Red,Orange,Yellow,Green,Blue,Violet;
 }
-

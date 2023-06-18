@@ -2,7 +2,6 @@ pageextension 50212 "pageextension50212" extends "Comment List"
 {
     layout
     {
-
         //Unsupported feature: Property Modification (ImplicitType) on "Comment(Control 6)".
 
         addafter("Code")
@@ -23,4 +22,3 @@ pageextension 50212 "pageextension50212" extends "Comment List"
         }
     }
 }
-

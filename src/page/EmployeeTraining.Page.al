@@ -3,7 +3,7 @@ page 50042 "Employee Training"
     PageType = Card;
     RefreshOnActivate = true;
     SourceTable = "Training Courses";
-
+    Caption = 'Employee Training';
     layout
     {
         area(content)
@@ -21,7 +21,7 @@ page 50042 "Employee Training"
 
                     trigger OnValidate()
                     begin
-                        EnableControls
+                        EnableControls()
                     end;
                 }
                 field("Course Type"; Rec."Course Type")
@@ -99,12 +99,12 @@ page 50042 "Employee Training"
 
     trigger OnAfterGetRecord()
     begin
-        EnableControls
+        EnableControls()
     end;
 
     trigger OnClosePage()
     begin
-        ClearAll;
+        ClearAll();
     end;
 
     trigger OnInit()
@@ -116,16 +116,10 @@ page 50042 "Employee Training"
 
     trigger OnNewRecord(BelowxRec: Boolean)
     begin
-        EnableControls
+        EnableControls()
     end;
 
     var
-        CatRec: Record "Course Attendance";
-        TCourseRec: Record "Training Courses";
-        TotalCost: Decimal;
-        AvgCost: Decimal;
-        RecCount: Integer;
-        CTypeRec: Record "Course Types";
         VendRec: Record Vendor;
         [InDataSet]
         "Total CostEnable": Boolean;
@@ -147,4 +141,3 @@ page 50042 "Employee Training"
         end
     end;
 }
-

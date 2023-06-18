@@ -2,18 +2,17 @@ report 50039 "New Trial Balance"
 {
     // UNL-ASL3.60.01.002 (Santus) May 03, 2005
     // -> new report on trial balance
-    // 
+    //
     // UNL-ASL3.60.01.010 (Santus) June 21, 2005
     // -> modified report to change the way balances are computed
-    // 
+    //
     // BalAtDat
     // BalB4Per
     //  "Debit Amount (LCY)"
     //  "Credit Amount (LCY)"
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/NewTrialBalance.rdlc';
-
-
+    Caption = 'New Trial Balance';
     dataset
     {
         dataitem("G/L Account"; "G/L Account")
@@ -27,7 +26,7 @@ report 50039 "New Trial Balance"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -54,7 +53,7 @@ report 50039 "New Trial Balance"
             column(G_L_Account__Debit_Amount_; "Debit Amount")
             {
             }
-            column(CurrReport_PAGENO_Control1000000056; CurrReport.PageNo)
+            column(CurrReport_PAGENO_Control1000000056; CurrReport.PageNo())
             {
             }
             column(USERID_Control1000000058; UserId)
@@ -143,7 +142,6 @@ report 50039 "New Trial Balance"
                 CalcFields("Net Change", "Debit Amount", "Credit Amount");
 
                 BalAtDat := BalB4Per + "Debit Amount" - "Credit Amount";
-
             end;
 
             trigger OnPreDataItem()
@@ -162,7 +160,6 @@ report 50039 "New Trial Balance"
 
     requestpage
     {
-
         layout
         {
         }
@@ -178,14 +175,11 @@ report 50039 "New Trial Balance"
 
     var
         LastFieldNo: Integer;
-        FooterPrinted: Boolean;
         ToDate: Date;
         ShowZero: Boolean;
-        "-----------": Integer;
         FrDate: Date;
         BalAtDat: Decimal;
         BalB4Per: Decimal;
-        Output: Option Customer,Vendor,Both;
         CurrReport_PAGENOCaptionLbl: Label 'Page';
         Balance_At_DateCaptionLbl: Label 'Balance At Date';
         Trial_BalanceCaptionLbl: Label 'Trial Balance';
@@ -206,4 +200,3 @@ report 50039 "New Trial Balance"
         exit(Date);
     end;
 }
-

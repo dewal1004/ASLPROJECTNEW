@@ -1,7 +1,7 @@
 table 50002 "Payroll-Lookup Header."
 {
     LookupPageID = "Table Lookup Survey.";
-
+    Caption = 'Payroll-Lookup Header.';
     fields
     {
         field(1; TableId; Code[20])
@@ -75,6 +75,9 @@ table 50002 "Payroll-Lookup Header."
 
     fieldgroups
     {
+        fieldgroup(DropDown; TableId, Description)
+        {
+        }
     }
 
     trigger OnDelete()
@@ -92,14 +95,13 @@ table 50002 "Payroll-Lookup Header."
 
         /* First delete the detail lines */
         LookLinesRec.SetRange(TableId, TableId);
-        LookLinesRec.DeleteAll;
+        LookLinesRec.DeleteAll();
 
         /* Delete the 'parent record'*/
-        Delete;
+        Delete();
 
         /* Disable the locking effect */
-        Commit;
-
+        Commit();
     end;
 
     trigger OnInsert()
@@ -108,9 +110,7 @@ table 50002 "Payroll-Lookup Header."
         //LookLinesRec.SETRANGE(TableId,TableId);
         /*IF LookLinesRec.FINDSET THEN BEGIN
           LookLinesRec.TableId := TableId;
-        
         END;*/
-
     end;
 
     var
@@ -122,4 +122,3 @@ table 50002 "Payroll-Lookup Header."
         exit;
     end;
 }
-

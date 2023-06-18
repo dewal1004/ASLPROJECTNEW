@@ -2,7 +2,7 @@ report 99508 "Edit Sales Shipment Month"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/EditSalesShipmentMonth.rdlc';
-
+    Caption = 'Edit Sales Shipment Month';
     dataset
     {
         dataitem("Sales Shipment Header"; "Sales Shipment Header")
@@ -14,7 +14,7 @@ report 99508 "Edit Sales Shipment Month"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -67,7 +67,6 @@ report 99508 "Edit Sales Shipment Month"
 
     requestpage
     {
-
         layout
         {
         }
@@ -85,4 +84,3 @@ report 99508 "Edit Sales Shipment Month"
         Sales_Shipment_HeaderCaptionLbl: Label 'Sales Shipment Header';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
 }
-

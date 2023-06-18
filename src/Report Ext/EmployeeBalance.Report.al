@@ -2,7 +2,7 @@ report 99037 "Employee Balance"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/EmployeeBalance.rdlc';
-
+    Caption = 'Employee Balance';
     dataset
     {
         dataitem(Employee; Employee)
@@ -14,7 +14,7 @@ report 99037 "Employee Balance"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -49,7 +49,6 @@ report 99037 "Employee Balance"
 
     requestpage
     {
-
         layout
         {
         }
@@ -67,4 +66,3 @@ report 99037 "Employee Balance"
         EmployeeCaptionLbl: Label 'Employee';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
 }
-

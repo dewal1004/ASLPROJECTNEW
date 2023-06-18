@@ -2,7 +2,7 @@ report 90187 "Periodic Stock PositionX"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/PeriodicStockPositionX.rdlc';
-
+    Caption = 'Periodic Stock PositionX';
     dataset
     {
         dataitem(Item; Item)
@@ -13,7 +13,7 @@ report 90187 "Periodic Stock PositionX"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -192,7 +192,6 @@ report 90187 "Periodic Stock PositionX"
 
     requestpage
     {
-
         layout
         {
             area(content)
@@ -229,21 +228,12 @@ report 90187 "Periodic Stock PositionX"
     end;
 
     var
-        LastFieldNo: Integer;
-        FooterPrinted: Boolean;
         TotalFor: Label 'Total for ';
-        "---": Integer;
         ItemFilter: Text[250];
         PeriodStartDate: array[7] of Date;
         PeriodLength: Code[20];
-        i: Integer;
-        PrintLine: Boolean;
-        Text001: Label '1M';
-        Text002: Label 'Enter the ending date';
-        Text003: Label '0D';
         Stk: array[8] of Decimal;
         Text004: Label 'As at ';
-        DaysOnly: Boolean;
         Item_Report__Periodic_Movement_CaptionLbl: Label 'Item Report (Periodic Movement)';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
         Stk_6__CaptionLbl: Label 'Closing Stock';
@@ -255,4 +245,3 @@ report 90187 "Periodic Stock PositionX"
         Stk_7__CaptionLbl: Label 'Inventory';
         Stk_8__CaptionLbl: Label 'Transfer';
 }
-

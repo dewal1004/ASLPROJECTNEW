@@ -3,7 +3,7 @@ page 50085 "Fishing Area"
     Editable = false;
     PageType = Card;
     SourceTable = "Fishing Area +";
-
+    Caption = 'Fishing Area';
     layout
     {
         area(content)
@@ -27,4 +27,3 @@ page 50085 "Fishing Area"
     {
     }
 }
-

@@ -12,7 +12,7 @@ page 50125 "DPS Waiting For Approval"
                       WHERE(Processed = CONST(false),
                             "Send For Approval" = CONST(true),
                             Approved = CONST(false));
-
+    Caption = 'DPS Waiting For Approval';
     layout
     {
         area(content)
@@ -101,4 +101,3 @@ page 50125 "DPS Waiting For Approval"
         Rec.FilterGroup(2);
     end;
 }
-

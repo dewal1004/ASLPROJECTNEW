@@ -4,7 +4,6 @@ report 59028 "Vehicle Maintenance - Analys X"
     // RespEmpl.FullName
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/VehicleMaintenanceAnalysX.rdlc';
-
     Caption = 'Maintenance - Analysis';
 
     dataset
@@ -22,7 +21,7 @@ report 59028 "Vehicle Maintenance - Analys X"
             column(USERID; UserId)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(DeprBookText; DeprBookText)
@@ -170,9 +169,9 @@ report 59028 "Vehicle Maintenance - Analys X"
             trigger OnAfterGetRecord()
             begin
                 if Inactive then
-                    CurrReport.Skip;
+                    CurrReport.Skip();
                 if not FADeprBook.Get("No.", DeprBookCode) then
-                    CurrReport.Skip;
+                    CurrReport.Skip();
                 if "FA Posting Group" <> FADeprBook."FA Posting Group" then
                     Error(Text005, FieldCaption("FA Posting Group"), "No.");
                 MaintenanceLedgEntry.SetRange("FA No.", "No.");
@@ -181,7 +180,7 @@ report 59028 "Vehicle Maintenance - Analys X"
                 Amounts[3] := CalculateAmount(MaintenanceCode3, Period3);
                 Amounts[4] := CalculateAmount(MaintenanceCode4, Period4);
                 if (Amounts[1] = 0) and (Amounts[2] = 0) and (Amounts[3] = 0) and (Amounts[4] = 0) then
-                    CurrReport.Skip;
+                    CurrReport.Skip();
             end;
 
             trigger OnPostDataItem()
@@ -211,14 +210,13 @@ report 59028 "Vehicle Maintenance - Analys X"
                     GroupTotals::"FA Posting Group":
                         SetCurrentKey("FA Posting Group");
                 end;
-                if RespEmpl.Get("Responsible Employee") then ResEmp := RespEmpl.FullName else ResEmp := '';
+                if RespEmpl.Get("Responsible Employee") then ResEmp := RespEmpl.FullName() else ResEmp := '';
             end;
         }
     }
 
     requestpage
     {
-
         layout
         {
         }
@@ -242,8 +240,8 @@ report 59028 "Vehicle Maintenance - Analys X"
         if DateSelection = DateSelection::"Posting Date" then
             FAGenReport.AppendPostingDateFilter(FAFilter, StartingDate, EndingDate);
         DeprBookText := StrSubstNo('%1%2 %3', DeprBook.TableCaption, ':', DeprBookCode);
-        MakeGroupTotalText;
-        ValidateDates;
+        MakeGroupTotalText();
+        ValidateDates();
         MakeAmountHeadLine(1, MaintenanceCode1, Period1);
         MakeAmountHeadLine(2, MaintenanceCode2, Period2);
         MakeAmountHeadLine(3, MaintenanceCode3, Period3);
@@ -268,7 +266,6 @@ report 59028 "Vehicle Maintenance - Analys X"
         Text003: Label 'The Starting Date is later than the Ending Date.';
         Text004: Label 'The Starting Date must be specified when you use the option %1.';
         Text005: Label '%1 has been modified in fixed asset %2';
-        FASetup: Record "FA Setup";
         DeprBook: Record "Depreciation Book";
         FADeprBook: Record "FA Depreciation Book";
         MaintenanceLedgEntry: Record "Maintenance Ledger Entry";
@@ -300,7 +297,6 @@ report 59028 "Vehicle Maintenance - Analys X"
         i: Integer;
         Text006: Label 'before Starting Date,Net Change,at Ending Date';
         Text007: Label ' ,FA Class,FA SubClass,FA Location,Main Asset,Global Dimension 1,Global Dimension 2,FA Posting Group';
-        "-------------": Integer;
         RespEmpl: Record Employee;
         ResEmp: Text[100];
         CurrReport_PAGENOCaptionLbl: Label 'Page';
@@ -411,4 +407,3 @@ report 59028 "Vehicle Maintenance - Analys X"
         exit(MaintenanceLedgEntry.Amount);
     end;
 }
-

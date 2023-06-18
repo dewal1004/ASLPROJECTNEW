@@ -81,7 +81,6 @@ tableextension 50324 "tableextension50324" extends "Gen. Journal Line"
         }
     }
 
-
     //Unsupported feature: Code Modification on "ExportPaymentFile(PROCEDURE 81)".
 
     //procedure ExportPaymentFile();
@@ -134,19 +133,5 @@ tableextension 50324 "tableextension50324" extends "Gen. Journal Line"
           LoanRec.MODIFY;
         END;
         */
-
     end;
-
-    //Unsupported feature: Insertion (FieldGroupCollection) on "(FieldGroup: Dropdown)".
-
-
-    var
-        "-------------------": Integer;
-        ItemCostMgt: Codeunit ItemCostManagement;
-        ItemSetup: Record "Inventory Setup";
-        ItemRec: Record Item;
-        LoanRec: Record "Loan.";
-        AverageCostLCY: Decimal;
-        AverageCostACY: Decimal;
 }
-

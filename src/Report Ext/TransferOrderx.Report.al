@@ -1,12 +1,11 @@
 report 95703 "Transfer Orderx"
 {
-    // 
+    //
     // "Transfer Header"."Received By"
     // "Transfer Header"."Issued By"
     // "Transfer Line".ROB
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/TransferOrderx.rdlc';
-
     Caption = 'Transfer Order';
 
     dataset
@@ -70,7 +69,7 @@ report 95703 "Transfer Orderx"
                     column(STRSUBSTNO_Text001_CopyText_; StrSubstNo(Text001, CopyText))
                     {
                     }
-                    column(STRSUBSTNO_Text002_FORMAT_CurrReport_PAGENO__; StrSubstNo(Text002, Format(CurrReport.PageNo)))
+                    column(STRSUBSTNO_Text002_FORMAT_CurrReport_PAGENO__; StrSubstNo(Text002, Format(CurrReport.PageNo())))
                     {
                     }
                     column(TransferToAddr_1_; TransferToAddr[1])
@@ -124,10 +123,10 @@ report 95703 "Transfer Orderx"
                         begin
                             if Number = 1 then begin
                                 if not DocDim1.Find('-') then
-                                    CurrReport.Break;
+                                    CurrReport.Break();
                             end else
                                 if not Continue then
-                                    CurrReport.Break;
+                                    CurrReport.Break();
 
                             Clear(DimText);
                             Continue := false;
@@ -146,13 +145,13 @@ report 95703 "Transfer Orderx"
                                     Continue := true;
                                     exit;
                                 end;
-                            until (DocDim1.Next = 0);
+                            until (DocDim1.Next() = 0);
                         end;
 
                         trigger OnPreDataItem()
                         begin
                             if not ShowInternalInfo then
-                                CurrReport.Break;
+                                CurrReport.Break();
                         end;
                     }
                     dataitem("Transfer Line"; "Transfer Line")
@@ -319,10 +318,10 @@ report 95703 "Transfer Orderx"
                             begin
                                 if Number = 1 then begin
                                     if not DocDim2.Find('-') then
-                                        CurrReport.Break;
+                                        CurrReport.Break();
                                 end else
                                     if not Continue then
-                                        CurrReport.Break;
+                                        CurrReport.Break();
 
                                 Clear(DimText);
                                 Continue := false;
@@ -341,13 +340,13 @@ report 95703 "Transfer Orderx"
                                         Continue := true;
                                         exit;
                                     end;
-                                until (DocDim2.Next = 0);
+                                until (DocDim2.Next() = 0);
                             end;
 
                             trigger OnPreDataItem()
                             begin
                                 if not ShowInternalInfo then
-                                    CurrReport.Break;
+                                    CurrReport.Break();
                             end;
                         }
 
@@ -383,7 +382,6 @@ report 95703 "Transfer Orderx"
                             //AAA - Feb 2002
                             IF ROB>0 THEN ItemExpensed;
                             */
-
                         end;
                     }
                 }
@@ -408,26 +406,24 @@ report 95703 "Transfer Orderx"
                 /*DocDim1.SETRANGE("Table ID",DATABASE::"Transfer Header");
                 DocDim1.SETRANGE("Document Type",5);
                 DocDim1.SETRANGE("Document No.","Transfer Header"."No.");
-                
+
                 FormatAddr.TransferHeaderTransferFrom(TransferFromAddr,"Transfer Header");
                 FormatAddr.TransferHeaderTransferTo(TransferToAddr,"Transfer Header");
-                
+
                 IF NOT ShipmentMethod.GET("Shipment Method Code") THEN
                   ShipmentMethod.INIT;
-                
+
                 //AAA Feb 2002
                 THdr.GET("Transfer Header"."No.");
                 THdr.CALCFIELDS(THdr."Transfer To Voy. No.");
                 VoyNo:=THdr."Transfer To Voy. No.";
                 *///#1
-
             end;
         }
     }
 
     requestpage
     {
-
         layout
         {
         }
@@ -453,7 +449,6 @@ report 95703 "Transfer Orderx"
         ShipmentMethod: Record "Shipment Method";
         DocDim1: Record "Default Dimension";
         DocDim2: Record "Default Dimension";
-        FormatAddr: Codeunit "Format Address";
         TransferFromAddr: array[8] of Text[50];
         TransferToAddr: array[8] of Text[50];
         NoOfCopies: Integer;
@@ -463,12 +458,7 @@ report 95703 "Transfer Orderx"
         OldDimText: Text[75];
         ShowInternalInfo: Boolean;
         Continue: Boolean;
-        "------------------------": Text[30];
         ItemRec: Record Item;
-        ItemLedgLn: Record "Item Ledger Entry";
-        THdr: Record "Transfer Header";
-        Logos: Boolean;
-        ItemExpe: Boolean;
         LastIssueQty: Decimal;
         VoyNo: Code[10];
         LastIssueDate: Date;
@@ -507,4 +497,3 @@ report 95703 "Transfer Orderx"
     begin
     end;
 }
-

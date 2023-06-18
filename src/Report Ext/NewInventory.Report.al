@@ -2,7 +2,7 @@ report 99993 "New Inventory"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/NewInventory.rdlc';
-
+    Caption = 'New Inventory';
     dataset
     {
         dataitem("Item Journal Line"; "Item Journal Line")
@@ -14,7 +14,7 @@ report 99993 "New Inventory"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -65,7 +65,7 @@ report 99993 "New Inventory"
 
             trigger OnAfterGetRecord()
             begin
-                ItJl.Init;
+                ItJl.Init();
                 ItJl."Journal Template Name" := 'ITEM';
                 ItJl."Journal Batch Name" := "Journal Batch Name";
                 ItJl."Line No." := "Line No.";
@@ -79,14 +79,13 @@ report 99993 "New Inventory"
                 ItJl."Gen. Bus. Posting Group" := 'OB';
                 ItJl.Validate(ItJl.Quantity, "Item Journal Line"."Qty. (Calculated)");
                 ItJl."Shortcut Dimension 2 Code" := 'ATLANTIC';
-                if not ItJl.Insert then ItJl.Modify;
+                if not ItJl.Insert() then ItJl.Modify();
             end;
         }
     }
 
     requestpage
     {
-
         layout
         {
         }
@@ -105,4 +104,3 @@ report 99993 "New Inventory"
         Item_Journal_LineCaptionLbl: Label 'Item Journal Line';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
 }
-

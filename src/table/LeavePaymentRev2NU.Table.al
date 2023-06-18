@@ -1,5 +1,6 @@
 table 60020 "Leave Payment Rev 2 NU*"
 {
+    Caption = 'Leave Payment Rev 2 NU*';
     //DrillDownPageID = 60098;
     //LookupPageID = 60098;
 
@@ -20,7 +21,6 @@ table 60020 "Leave Payment Rev 2 NU*"
         }
         field(5; "Amount Paid"; Decimal)
         {
-
             trigger OnValidate()
             begin
                 CalcFields("Amount Due");
@@ -39,8 +39,7 @@ table 60020 "Leave Payment Rev 2 NU*"
                     "Payment Date" := Today;
                 end;
 
-
-                if "Amount Paid" = 0 then Rec.Delete;
+                if "Amount Paid" = 0 then Rec.Delete();
             end;
         }
         field(6; "Payment Date"; Date)
@@ -51,19 +50,17 @@ table 60020 "Leave Payment Rev 2 NU*"
         }
         field(8; "Leave Plan No."; Code[10])
         {
-
             trigger OnValidate()
             begin
                 /*
                 LeaveRec.SETRANGE(LeaveRec."Serial No",xRec."Leave Plan No.");
-                
+
                 IF LeaveRec.find('-') THEN
                   BEGIN
                     "Leave Period" := LeaveRec."Leave Period";
                     "Employee No." := LeaveRec."Employee No.";
                   END;
                 */
-
             end;
         }
         field(9; "Amount Due"; Decimal)
@@ -76,6 +73,7 @@ table 60020 "Leave Payment Rev 2 NU*"
         {
             CalcFormula = Sum("Leave Payment Rev 2 NU*"."Amount Paid" WHERE("Leave Plan No." = FIELD("Leave Plan No.")));
             FieldClass = FlowField;
+            Editable = false;
         }
     }
 
@@ -98,7 +96,7 @@ table 60020 "Leave Payment Rev 2 NU*"
 
     trigger OnInsert()
     begin
-        LeavePayRec.Reset;
+        LeavePayRec.Reset();
 
         if LeavePayRec.Find('+') then
             "Entry no" := LeavePayRec."Entry no" + 10
@@ -110,4 +108,3 @@ table 60020 "Leave Payment Rev 2 NU*"
         LeavePayRec: Record "Leave Payment Rev 2 NU*";
         LeaveRec: Record "Leave Plan Lines Rev 2 NU*";
 }
-

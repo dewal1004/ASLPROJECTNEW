@@ -3,7 +3,7 @@ page 50017 "Employee Groups Survey."
     Editable = false;
     PageType = Card;
     SourceTable = "Payroll-Employee Group Header.";
-
+    Caption = 'Employee Groups Survey.';
     layout
     {
         area(content)
@@ -79,4 +79,3 @@ page 50017 "Employee Groups Survey."
         }
     }
 }
-

@@ -1,6 +1,6 @@
 xmlport 50056 "gl entrys"
 {
-
+    Caption = 'gl entrys';
     schema
     {
         textelement(Node)
@@ -128,7 +128,6 @@ xmlport 50056 "gl entrys"
 
     requestpage
     {
-
         layout
         {
         }
@@ -138,4 +137,3 @@ xmlport 50056 "gl entrys"
         }
     }
 }
-

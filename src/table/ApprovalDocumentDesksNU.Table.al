@@ -2,7 +2,7 @@ table 54003 "Approval Document Desks NU*"
 {
     DrillDownPageID = "Foreign Purchase Order List";
     LookupPageID = "Foreign Purchase Order List";
-
+    Caption = 'Approval Document Desks NU*';
     fields
     {
         field(1; "Code"; Code[10])
@@ -26,6 +26,8 @@ table 54003 "Approval Document Desks NU*"
 
     fieldgroups
     {
+        fieldgroup(DropDown; Description)
+        {
+        }
     }
 }
-

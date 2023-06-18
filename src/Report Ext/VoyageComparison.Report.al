@@ -2,20 +2,19 @@ report 50114 "Voyage Comparison"
 {
     // UNL-ASL3.60.01.007 (Santus) May 31, 2005
     // -> new report to compare voyage performance of vessels in a particular vessel class
-    // 
+    //
     // UNL-ASL3.60.01.008 (Santus) June 07, 2005
     // -> changed voyage class selection criteria to be based on vessel selected, added ETD control,
     //    made each vessel calculate points based on its individual ETD & ETA
-    // 
+    //
     // UNL-ASL3.60.01.009 (Santus) June 14, 2005
     // -> grouping by fishing country, comparison by skipper functionality added, also functionality for
     //   sending data to excel has also been added.
-    // 
+    //
     // UNL-ASL3.60.01.010 (Santus) June 21, 2005
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/VoyageComparison.rdlc';
-
-
+    Caption = 'Voyage Comparison';
     dataset
     {
         dataitem(Job; Job)
@@ -25,7 +24,7 @@ report 50114 "Voyage Comparison"
             column(FORMAT_TODAY_0_4_; Format(Today, 0, 4))
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(COMPANYNAME; CompanyName)
@@ -222,16 +221,16 @@ report 50114 "Voyage Comparison"
                     FA.SetCurrentKey("FA Subclass Code");
                     FA.SetRange("FA Subclass Code", VesselClassCode);
                     FA.SetRange("No.", Job.Vessel);
-                    if not FA.Find('-') then CurrReport.Skip;
+                    if not FA.Find('-') then CurrReport.Skip();
                 end;
 
-                if not Location.Get(Job.Vessel) then CurrReport.Skip;
+                if not Location.Get(Job.Vessel) then CurrReport.Skip();
                 if Resource.Get(Job."Person Responsible") then;
 
                 if Job."Starting Date" < StartingDate then
-                    CurrReport.Skip;
+                    CurrReport.Skip();
                 if Job."Ending Date" > EndingDate then
-                    CurrReport.Skip;
+                    CurrReport.Skip();
 
                 //sea days
                 if ("Starting Date" = 0D) or (Job."Ending Date" = 0D) then
@@ -247,7 +246,7 @@ report 50114 "Voyage Comparison"
                 if LostDays.Find('-') then
                     repeat
                         HoursLost := HoursLost + LostDays."Hours Lost";
-                    until LostDays.Next = 0;
+                    until LostDays.Next() = 0;
                 if HoursLost <> 0 then
                     DaysLost := Round(HoursLost / 24, 1);
 
@@ -311,7 +310,6 @@ report 50114 "Voyage Comparison"
 
     requestpage
     {
-
         layout
         {
             area(content)
@@ -379,7 +377,6 @@ report 50114 "Voyage Comparison"
         JobRec: Record Job;
         LostDays: Record "Comment Line";
         FA: Record "Fixed Asset";
-        FASubClass: Record "FA Subclass";
         Resource: Record Resource;
         Location: Record Location;
         Seadays: Decimal;
@@ -401,13 +398,6 @@ report 50114 "Voyage Comparison"
         PeriodCode: Code[10];
         Skipper: Code[20];
         TotalCount: Integer;
-        // xlApp: Automation BC;
-        // xlBook: Automation BC;
-        // xlSheet: Automation BC;
-        // Send2Excel: Boolean;
-        // TopPage: Boolean;
-        Xr: Integer;
-        Xc: Integer;
         Bold: Boolean;
         UnderLine: Boolean;
         Italic: Boolean;
@@ -472,4 +462,3 @@ report 50114 "Voyage Comparison"
         exit(xlColID);
     end;*/
 }
-

@@ -1,7 +1,7 @@
 xmlport 90996 "Imptitem"
 {
     Format = VariableText;
-
+    Caption = 'Imptitem';
     schema
     {
         textelement(Rootnode)
@@ -207,7 +207,6 @@ xmlport 90996 "Imptitem"
 
     requestpage
     {
-
         layout
         {
         }
@@ -217,4 +216,3 @@ xmlport 90996 "Imptitem"
         }
     }
 }
-

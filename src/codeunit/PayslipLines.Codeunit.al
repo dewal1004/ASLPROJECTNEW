@@ -3,7 +3,6 @@ codeunit 50039 "PayslipLines"
     trigger OnRun()
     begin
     end;
-
 }
 
 //***Case
@@ -122,7 +121,7 @@ codeunit 50039 "PayslipLines"
 // end;
 
 // //[Scope('OnPrem')]
-// local var 
+// local var
 // procedure CheckClosed(): Boolean
 // begin
 //     /*””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””
@@ -279,8 +278,6 @@ codeunit 50039 "PayslipLines"
 
 //     end;
 
-
-
 //     //[Scope('OnPrem')]
 //     procedure AmountIsComputed(var ReturnAmount: Decimal;EntryLineRec: Record "Payroll-Payslip Lines.";EDFileRec: Record "Payroll-E/D Codes.";NewAmount: Decimal;EDCode: Code[20]): Boolean
 //     begin
@@ -367,7 +364,7 @@ codeunit 50039 "PayslipLines"
 
 //     end;
 
-//     
+//
 
 //     [Scope('Onprem')]
 //     procedure EDAmountToDate(EmpNo: Code[10];CurPeriod: Code[10];EDCode: Code[10]): Decimal
@@ -459,4 +456,3 @@ codeunit 50039 "PayslipLines"
 //         /////////** End  Cummulative Tax Calculation **/////////
 //     end;
 // }
-

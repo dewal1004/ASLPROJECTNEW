@@ -3,7 +3,7 @@ xmlport 50029 "paysliplines"
     DefaultFieldsValidation = false;
     Direction = Export;
     Format = VariableText;
-
+    Caption = 'paysliplines';
     schema
     {
         textelement(Node)
@@ -92,7 +92,6 @@ xmlport 50029 "paysliplines"
 
     requestpage
     {
-
         layout
         {
         }
@@ -102,4 +101,3 @@ xmlport 50029 "paysliplines"
         }
     }
 }
-

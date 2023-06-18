@@ -131,7 +131,7 @@ report 50202 "!Sales Document - Test"
                 column(COMPANYNAME; CompanyName)
                 {
                 }
-                column(CurrReport_PAGENO; CurrReport.PageNo)
+                column(CurrReport_PAGENO; CurrReport.PageNo())
                 {
                 }
                 column(USERID; UserId)
@@ -538,10 +538,10 @@ report 50202 "!Sales Document - Test"
                     begin
                         if Number = 1 then begin
                             if not DocDim1.Find('-') then
-                                CurrReport.Break;
+                                CurrReport.Break();
                         end else
                             if not Continue then
-                                CurrReport.Break;
+                                CurrReport.Break();
 
                         Clear(DimText);
                         Continue := false;
@@ -558,13 +558,13 @@ report 50202 "!Sales Document - Test"
                                 Continue := true;
                                 exit;
                             end;
-                        until (DocDim1.Next = 0);
+                        until (DocDim1.Next() = 0);
                     end;
 
                     trigger OnPreDataItem()
                     begin
                         if not ShowDim then
-                            CurrReport.Break;
+                            CurrReport.Break();
                     end;
                 }
                 dataitem(HeaderErrorCounter; "Integer")
@@ -644,7 +644,7 @@ report 50202 "!Sales Document - Test"
                     column(TotalExclVATText; TotalExclVATText)
                     {
                     }
-                    column(VATAmountLine_VATAmountText; VATAmountLine.VATAmountText)
+                    column(VATAmountLine_VATAmountText; VATAmountLine.VATAmountText())
                     {
                     }
                     column(Line_Amount_____Inv__Discount_Amount____VATAmount; "Line Amount" - "Inv. Discount Amount" + VATAmount)
@@ -673,7 +673,7 @@ report 50202 "!Sales Document - Test"
                         AutoFormatExpression = "Sales Header"."Currency Code";
                         AutoFormatType = 1;
                     }
-                    column(VATAmountLine_VATAmountText_Control189; VATAmountLine.VATAmountText)
+                    column(VATAmountLine_VATAmountText_Control189; VATAmountLine.VATAmountText())
                     {
                     }
                     column(VATBaseAmount; VATBaseAmount)
@@ -746,10 +746,10 @@ report 50202 "!Sales Document - Test"
                         begin
                             if Number = 1 then begin
                                 if not DocDim2.Find('-') then
-                                    CurrReport.Break;
+                                    CurrReport.Break();
                             end else
                                 if not Continue then
-                                    CurrReport.Break;
+                                    CurrReport.Break();
 
                             Clear(DimText);
                             Continue := false;
@@ -766,13 +766,13 @@ report 50202 "!Sales Document - Test"
                                     Continue := true;
                                     exit;
                                 end;
-                            until (DocDim2.Next = 0);
+                            until (DocDim2.Next() = 0);
                         end;
 
                         trigger OnPreDataItem()
                         begin
                             if not ShowDim then
-                                CurrReport.Break;
+                                CurrReport.Break();
                         end;
                     }
                     dataitem(LineErrorCounter; "Integer")
@@ -956,8 +956,7 @@ report 50202 "!Sales Document - Test"
                                                   StrSubstNo(
                                                     Text007,
                                                     Item.FieldCaption(Blocked), false, Item.TableCaption, "No."));
-                                            if Item."Costing Method" = Item."Costing Method"::Specific then begin
-                                            end;
+                                            if Item."Costing Method" = Item."Costing Method"::Specific then;
                                             if Item.Reserve = Item.Reserve::Always then begin
                                                 CalcFields("Reserved Quantity");
                                                 if "Document Type" = "Document Type"::"Credit Memo" then begin
@@ -1045,13 +1044,13 @@ report 50202 "!Sales Document - Test"
                     var
                         SalesLine: Record "Sales Line";
                     begin
-                        VATAmountLine.DeleteAll;
+                        VATAmountLine.DeleteAll();
                         SalesLine.CalcVATAmountLines(0, "Sales Header", SalesLine, VATAmountLine);
-                        VATAmount := VATAmountLine.GetTotalVATAmount;
-                        VATBaseAmount := VATAmountLine.GetTotalVATBase;
+                        VATAmount := VATAmountLine.GetTotalVATAmount();
+                        VATBaseAmount := VATAmountLine.GetTotalVATBase();
                         VATDiscountAmount :=
                           VATAmountLine.GetTotalVATDiscount("Sales Header"."Currency Code", SalesHeader."Prices Including VAT");
-                        TotalAmountInclVAT := VATAmountLine.GetTotalAmountInclVAT;
+                        TotalAmountInclVAT := VATAmountLine.GetTotalAmountInclVAT();
                         VATNoError := false;
                         ApplNoError := false;
                         CurrReport.CreateTotals("Line Amount", "Inv. Discount Amount");
@@ -1212,7 +1211,7 @@ report 50202 "!Sales Document - Test"
                     trigger OnPreDataItem()
                     begin
                         if VATAmount = 0 then
-                            CurrReport.Break;
+                            CurrReport.Break();
                         SetRange(Number, 1, VATAmountLine.Count);
                         CurrReport.CreateTotals(
                           VATAmountLine."VAT Base", VATAmountLine."VAT Amount", VATAmountLine."Amount Including VAT",
@@ -1304,7 +1303,7 @@ report 50202 "!Sales Document - Test"
                     trigger OnPreDataItem()
                     begin
                         if not ShowCostAssignment then
-                            CurrReport.Break;
+                            CurrReport.Break();
                         CurrReport.CreateTotals("Amount to Assign", "Qty. to Assign");
                     end;
                 }
@@ -1314,8 +1313,6 @@ report 50202 "!Sales Document - Test"
             var
                 TableID: array[10] of Integer;
                 No: array[10] of Code[20];
-                ShipQtyExist: Boolean;
-                InvtPeriodEndDate: Date;
             begin
                 DimSetEntry1.SetRange("Dimension Set ID", "Dimension Set ID");
 
@@ -1340,7 +1337,7 @@ report 50202 "!Sales Document - Test"
 
                 if "Sell-to Customer No." = '' then
                     AddError(StrSubstNo(Text006, FieldCaption("Sell-to Customer No.")))
-                else begin
+                else
                     if Cust.Get("Sell-to Customer No.") then begin
                         if Cust.Blocked = Cust.Blocked::All then
                             AddError(
@@ -1352,11 +1349,10 @@ report 50202 "!Sales Document - Test"
                           StrSubstNo(
                             Text008,
                             Cust.TableCaption, "Sell-to Customer No."));
-                end;
 
                 if "Bill-to Customer No." = '' then
                     AddError(StrSubstNo(Text006, FieldCaption("Bill-to Customer No.")))
-                else begin
+                else
                     if Cust.Get("Bill-to Customer No.") then begin
                         if Cust.Blocked = Cust.Blocked::All then
                             AddError(
@@ -1368,10 +1364,9 @@ report 50202 "!Sales Document - Test"
                           StrSubstNo(
                             Text008,
                             Cust.TableCaption, "Bill-to Customer No."));
-                end;
 
-                GLSetup.Get;
-                SalesSetup.Get;
+                GLSetup.Get();
+                SalesSetup.Get();
 
                 if "Posting Date" = 0D then
                     AddError(StrSubstNo(Text006, FieldCaption("Posting Date")))
@@ -1421,7 +1416,7 @@ report 50202 "!Sales Document - Test"
                         FieldCaption(Ship), FieldCaption(Invoice), FieldCaption(Receive)));
 
                 if Invoice then begin
-                    SalesLine.Reset;
+                    SalesLine.Reset();
                     SalesLine.SetRange("Document Type", "Document Type");
                     SalesLine.SetRange("Document No.", "No.");
                     SalesLine.SetFilter(Quantity, '<>0');
@@ -1432,18 +1427,18 @@ report 50202 "!Sales Document - Test"
                         Invoice := false;
                         repeat
                             Invoice := (SalesLine."Quantity Shipped" - SalesLine."Quantity Invoiced") <> 0;
-                        until Invoice or (SalesLine.Next = 0);
+                        until Invoice or (SalesLine.Next() = 0);
                     end else
                         if Invoice and (not Receive) and ("Document Type" = "Document Type"::"Credit Memo") then begin
                             Invoice := false;
                             repeat
                                 Invoice := (SalesLine."Return Qty. Received" - SalesLine."Quantity Invoiced") <> 0;
-                            until Invoice or (SalesLine.Next = 0);
+                            until Invoice or (SalesLine.Next() = 0);
                         end;
                 end;
 
                 if Ship then begin
-                    SalesLine.Reset;
+                    SalesLine.Reset();
                     SalesLine.SetRange("Document Type", "Document Type");
                     SalesLine.SetRange("Document No.", "No.");
                     SalesLine.SetFilter(Quantity, '<>0');
@@ -1453,7 +1448,7 @@ report 50202 "!Sales Document - Test"
                     Ship := SalesLine.Find('-');
                 end;
                 if Receive then begin
-                    SalesLine.Reset;
+                    SalesLine.Reset();
                     SalesLine.SetRange("Document Type", "Document Type");
                     SalesLine.SetRange("Document No.", "No.");
                     SalesLine.SetFilter(Quantity, '<>0');
@@ -1494,7 +1489,7 @@ report 50202 "!Sales Document - Test"
                                 Text006,
                                 FieldCaption("Posting No. Series")));
 
-                SalesLine.Reset;
+                SalesLine.Reset();
                 SalesLine.SetRange("Document Type", "Document Type");
                 SalesLine.SetRange("Document No.", "No.");
                 SalesLine.SetFilter("Purch. Order Line No.", '<>0');
@@ -1516,7 +1511,7 @@ report 50202 "!Sales Document - Test"
                                             Text013,
                                             PurchOrderHeader.FieldCaption("Receiving No. Series")));
                             end;
-                        until SalesLine.Next = 0;
+                        until SalesLine.Next() = 0;
                 end;
 
                 if "Document Type" in ["Document Type"::Order, "Document Type"::Invoice] then
@@ -1559,7 +1554,7 @@ report 50202 "!Sales Document - Test"
             trigger OnPreDataItem()
             begin
 
-                CompanyInfo.Get;
+                CompanyInfo.Get();
                 FormatAddr.Company(CompanyAddr, CompanyInfo);
                 FormatAddr.SalesHeaderBillTo(CustAddr, "Sales Header");
 
@@ -1595,7 +1590,6 @@ report 50202 "!Sales Document - Test"
 
     requestpage
     {
-
         layout
         {
         }
@@ -1611,7 +1605,7 @@ report 50202 "!Sales Document - Test"
 
     trigger OnInitReport()
     begin
-        GLSetup.Get;
+        GLSetup.Get();
     end;
 
     trigger OnPreReport()
@@ -1656,7 +1650,6 @@ report 50202 "!Sales Document - Test"
         Text037: Label 'is greater than the quantity in shipment %1.';
         Text038: Label 'The %1 on the return receipt is not the same as the %1 on the sales header.';
         Text039: Label '%1 must have the same sign as the return receipt.';
-        Text040: Label 'The return receipt lines have been deleted.';
         SalesSetup: Record "Sales & Receivables Setup";
         UserSetup: Record "User Setup";
         Cust: Record Customer;
@@ -1671,7 +1664,6 @@ report 50202 "!Sales Document - Test"
         GenPostingSetup: Record "General Posting Setup";
         VATPostingSetup: Record "VAT Posting Setup";
         CustLedgEntry: Record "Cust. Ledger Entry";
-        TempDocDim: Record "Default Dimension" temporary;
         TempDimSetEntry: Record "Dimension Set Entry";
         FA: Record "Fixed Asset";
         FADeprBook: Record "FA Depreciation Book";
@@ -1684,7 +1676,6 @@ report 50202 "!Sales Document - Test"
         ShipInvText: Text[50];
         ReceiveInvText: Text[50];
         ErrorText: array[99] of Text[250];
-        QtyToHandleCaption: Text[30];
         AllowPostingFrom: Date;
         AllowPostingTo: Date;
         VATDate: Date;
@@ -1695,7 +1686,6 @@ report 50202 "!Sales Document - Test"
         VATBaseAmount: Decimal;
         VATDiscountAmount: Decimal;
         TotalAmountInclVAT: Decimal;
-        QtyToHandle: Decimal;
         ErrorCounter: Integer;
         DropShipOrder: Boolean;
         InvOnNextPostReq: Boolean;
@@ -1709,41 +1699,24 @@ report 50202 "!Sales Document - Test"
         VATNoText: Text[30];
         SalesPersonText: Text[30];
         GLSetup: Record "General Ledger Setup";
-        ShipmentMethod: Record "Shipment Method";
-        PaymentTerms: Record "Payment Terms";
         SalesPurchPerson: Record "Salesperson/Purchaser";
         VATAmountLine: Record "VAT Amount Line" temporary;
         SalesLine: Record "Sales Line" temporary;
         DocDim1: Record "Default Dimension";
         DocDim2: Record "Default Dimension";
         DimSetEntry1: Record "Dimension Set Entry";
-        DimSetEntry2: Record "Dimension Set Entry";
-        RespCenter: Record "Responsibility Center";
-        Language: Record Language;
-        SalesCountPrinted: Codeunit "Sales-Printed";
         FormatAddr: Codeunit "Format Address";
-        SegManagement: Codeunit SegManagement;
         CompanyInfo: Record "Company Information";
         CustAddr: array[8] of Text[50];
         ShipToAddr: array[8] of Text[50];
         CompanyAddr: array[8] of Text[50];
         ReferenceText: Text[30];
-        MoreLines: Boolean;
-        NoOfCopies: Integer;
-        NoOfLoops: Integer;
         CopyText: Text[30];
-        ShowShippingAddr: Boolean;
-        i: Integer;
         DimText: Text[120];
         OldDimText: Text[75];
-        ShowInternalInfo: Boolean;
         TotalText: Text[50];
-        "---------------": Text[30];
-        SalesComm: Record "Sales Comment Line";
-        SalesPers: Record "Salesperson/Purchaser";
         Commt: array[10] of Text[250];
         Text042: Label 'Salesperson';
-        Itcat: Record "Item Category";
         ItcatDesc: Text[30];
         CompanyInfo__Phone_No__CaptionLbl: Label 'Phone No.';
         CompanyInfo__Fax_No__CaptionLbl: Label 'Fax No.';
@@ -1790,8 +1763,6 @@ report 50202 "!Sales Document - Test"
         ContinuedCaption_Control210Lbl: Label 'Continued';
         TotalCaption_Control220Lbl: Label 'Total';
         ContinuedCaption_Control223Lbl: Label 'Continued';
-        PrepmtDimSetEntry: Record "Dimension Set Entry";
-        Text045: Label '%1 must not be %2 for %3 %4.';
 
     local procedure AddError(Text: Text[250])
     begin
@@ -1801,11 +1772,10 @@ report 50202 "!Sales Document - Test"
 
     local procedure CheckShptLines(SalesLine: Record "Sales Line"; SalesLine2: Record "Sales Line")
     var
-        PostedDocDim: Record "Dimension Set Entry";
         TempPostedDimSetEntry: Record "Dimension Set Entry" temporary;
     begin
         if Abs(RemQtyToBeInvoiced) > Abs(SalesLine2."Qty. to Ship") then begin
-            SaleShptLine.Reset;
+            SaleShptLine.Reset();
             case SalesLine2."Document Type" of
                 SalesLine2."Document Type"::Order:
                     begin
@@ -1827,7 +1797,7 @@ report 50202 "!Sales Document - Test"
                     if not DimMgt.CheckDimIDConsistency(
                          TempDimSetEntry, TempPostedDimSetEntry, DATABASE::"Sales Line", DATABASE::"Sales Shipment Line")
                     then
-                        AddError(DimMgt.GetDocDimConsistencyErr);
+                        AddError(DimMgt.GetDocDimConsistencyErr());
                     if SaleShptLine."Sell-to Customer No." <> SalesLine2."Sell-to Customer No." then
                         AddError(
                           StrSubstNo(
@@ -1876,7 +1846,7 @@ report 50202 "!Sales Document - Test"
                     SaleShptLine."Quantity Invoiced" := SaleShptLine."Quantity Invoiced" - QtyToBeInvoiced;
                     SaleShptLine."Qty. Shipped Not Invoiced" :=
                       SaleShptLine.Quantity - SaleShptLine."Quantity Invoiced"
-                until (SaleShptLine.Next = 0) or (Abs(RemQtyToBeInvoiced) <= Abs(SalesLine2."Qty. to Ship"))
+                until (SaleShptLine.Next() = 0) or (Abs(RemQtyToBeInvoiced) <= Abs(SalesLine2."Qty. to Ship"))
             else
                 AddError(
                   StrSubstNo(
@@ -1895,12 +1865,10 @@ report 50202 "!Sales Document - Test"
 
     local procedure CheckRcptLines(SalesLine: Record "Sales Line"; SalesLine2: Record "Sales Line")
     var
-        PostedDocDim: Record "Dimension Set Entry";
-        TempPostedDocDim: Record "Dimension Set Entry" temporary;
         TempPostedDimSetEntry: Record "Dimension Set Entry";
     begin
         if Abs(RemQtyToBeInvoiced) > Abs(SalesLine2."Return Qty. to Receive") then begin
-            ReturnRcptLine.Reset;
+            ReturnRcptLine.Reset();
             case SalesLine2."Document Type" of
                 SalesLine2."Document Type"::"Return Order":
                     begin
@@ -1922,7 +1890,7 @@ report 50202 "!Sales Document - Test"
                     if not DimMgt.CheckDimIDConsistency(
                          TempDimSetEntry, TempPostedDimSetEntry, DATABASE::"Sales Line", DATABASE::"Return Receipt Line")
                     then
-                        AddError(DimMgt.GetDocDimConsistencyErr);
+                        AddError(DimMgt.GetDocDimConsistencyErr());
                     if ReturnRcptLine."Sell-to Customer No." <> SalesLine2."Sell-to Customer No." then
                         AddError(
                           StrSubstNo(
@@ -1970,7 +1938,7 @@ report 50202 "!Sales Document - Test"
                     ReturnRcptLine."Quantity Invoiced" := ReturnRcptLine."Quantity Invoiced" + QtyToBeInvoiced;
                     ReturnRcptLine."Return Qty. Rcd. Not Invd." :=
                       ReturnRcptLine.Quantity - ReturnRcptLine."Quantity Invoiced";
-                until (ReturnRcptLine.Next = 0) or (Abs(RemQtyToBeInvoiced) <= Abs(SalesLine2."Return Qty. to Receive"))
+                until (ReturnRcptLine.Next() = 0) or (Abs(RemQtyToBeInvoiced) <= Abs(SalesLine2."Return Qty. to Receive"))
             else
                 AddError(
                   StrSubstNo(
@@ -1987,4 +1955,3 @@ report 50202 "!Sales Document - Test"
                     SalesLine2."Return Receipt No."));
     end;
 }
-

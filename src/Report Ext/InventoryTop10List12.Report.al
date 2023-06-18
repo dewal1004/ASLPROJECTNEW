@@ -16,8 +16,8 @@ report 90711 "Inventory - Top 10 List12"
                 Window.Update(1, "No.");
                 CalcFields("Sales (LCY)", Inventory);
                 if ("Sales (LCY)" = 0) and (Inventory = 0) and not PrintAlsoIfZero then
-                    CurrReport.Skip;
-                ItemAmount.Init;
+                    CurrReport.Skip();
+                ItemAmount.Init();
                 ItemAmount."Item No." := "No.";
                 if ShowType = ShowType::"Sales (LCY)" then begin
                     ItemAmount.Amount := "Sales (LCY)";
@@ -30,12 +30,12 @@ report 90711 "Inventory - Top 10 List12"
                     ItemAmount.Amount := -ItemAmount.Amount;
                     ItemAmount."Amount 2" := -ItemAmount."Amount 2";
                 end;
-                ItemAmount.Insert;
+                ItemAmount.Insert();
                 if (NoOfRecordsToPrint = 0) or (i < NoOfRecordsToPrint) then
                     i := i + 1
                 else begin
                     ItemAmount.Find('+');
-                    ItemAmount.Delete;
+                    ItemAmount.Delete();
                 end;
 
                 TotalItemSales += "Sales (LCY)";
@@ -45,13 +45,12 @@ report 90711 "Inventory - Top 10 List12"
             trigger OnPreDataItem()
             begin
                 Window.Open(Text000);
-                ItemAmount.DeleteAll;
+                ItemAmount.DeleteAll();
                 i := 0;
                 CurrReport.CreateTotals("Sales (LCY)", Inventory);
 
                 /*IF Item.GETFILTER(Item."Date Filter") = '' THEN//
                   SETRANGE("Date Filter",CALCDATE('-1D',WORKDATE)); //#1*/
-
             end;
         }
         dataitem("Integer"; "Integer")
@@ -60,7 +59,7 @@ report 90711 "Inventory - Top 10 List12"
             column(STRSUBSTNO_Text001_ItemDateFilter_; StrSubstNo(Text001, ItemDateFilter))
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(COMPANYNAME; CompanyName)
@@ -175,7 +174,7 @@ report 90711 "Inventory - Top 10 List12"
             begin
                 if Number = 1 then begin
                     if not ItemAmount.Find('-') then
-                        CurrReport.Break;
+                        CurrReport.Break();
                     if ShowSorting = ShowSorting::Largest then
                         MaxAmount := -ItemAmount.Amount
                     else begin
@@ -185,8 +184,8 @@ report 90711 "Inventory - Top 10 List12"
                         ItemAmount := ItemAmount2;
                     end;
                 end else
-                    if ItemAmount.Next = 0 then
-                        CurrReport.Break;
+                    if ItemAmount.Next() = 0 then
+                        CurrReport.Break();
                 Item.Get(ItemAmount."Item No.");
                 Item.CalcFields("Sales (LCY)", Inventory);
                 if ShowSorting = ShowSorting::Largest then begin
@@ -205,7 +204,7 @@ report 90711 "Inventory - Top 10 List12"
 
             trigger OnPreDataItem()
             begin
-                Window.Close;
+                Window.Close();
                 ItemSales := Item."Sales (LCY)";
                 QtyOnHand := Item.Inventory;
                 CurrReport.CreateTotals(Item."Sales (LCY)", Item.Inventory);
@@ -225,7 +224,6 @@ report 90711 "Inventory - Top 10 List12"
                 end;
                 Recpt := Item."Purchases (Qty.)" + Item."Positive Adjmt. (Qty.)" + Item."Transferred (Qty.)";
                 TStk := OpStk + Recpt;
-
 
                 SalesAmountPct := Pct(Item."Sales (LCY)", ItemSales);
                 QtyOnHandPct := Pct(Item.Inventory, QtyOnHand); //#1
@@ -330,10 +328,8 @@ report 90711 "Inventory - Top 10 List12"
         Item__Sales__LCY___Control24CaptionLbl: Label 'Total';
         ItemSalesCaptionLbl: Label 'Total Sales';
         SalesAmountPctCaptionLbl: Label '% of Total Sales';
-        Predate: Date;
         OpStk: Decimal;
         ClsStk: Decimal;
-        DatFilt: Date;
         Recpt: Decimal;
         TStk: Decimal;
 
@@ -353,4 +349,3 @@ report 90711 "Inventory - Top 10 List12"
         exit(Round(Numeral1 / Numeral2 * 100, 0.1));
     end;
 }
-

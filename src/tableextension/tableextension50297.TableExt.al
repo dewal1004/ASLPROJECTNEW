@@ -2,9 +2,7 @@ tableextension 50297 "tableextension50297" extends "Fixed Asset"
 {
     fields
     {
-
         //Unsupported feature: Property Insertion (InitValue) on ""Global Dimension 2 Code"(Field 8)".
-
 
         //Unsupported feature: Property Insertion (NotBlank) on ""Global Dimension 2 Code"(Field 8)".
 
@@ -38,7 +36,6 @@ tableextension 50297 "tableextension50297" extends "Fixed Asset"
         */
         //end;
 
-
         //Unsupported feature: Code Modification on ""Global Dimension 2 Code"(Field 8).OnValidate".
 
         //trigger OnValidate()
@@ -61,6 +58,7 @@ tableextension 50297 "tableextension50297" extends "Fixed Asset"
             CalcFormula = Count(Job WHERE(Vessel = FIELD("No."),
                                            "Starting Date" = FIELD("FA Voyage Date Filter")));
             FieldClass = FlowField;
+            Editable = false;
         }
         field(50301; "FA Voyage Date Filter"; Date)
         {
@@ -121,7 +119,6 @@ tableextension 50297 "tableextension50297" extends "Fixed Asset"
         // }
     }
 
-
     //Unsupported feature: Code Modification on "OnInsert".
 
     //trigger OnInsert()
@@ -150,6 +147,4 @@ tableextension 50297 "tableextension50297" extends "Fixed Asset"
     //end;
 
     //Unsupported feature: Property Modification (Fields) on "DropDown(FieldGroup 1)".
-
 }
-

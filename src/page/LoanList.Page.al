@@ -5,7 +5,7 @@ page 50020 "Loan List"
     SourceTable = "Loan.";
     UsageCategory = Lists;
     ApplicationArea = All, Basic;
-
+    Caption = 'Loan List';
     layout
     {
         area(content)
@@ -89,4 +89,3 @@ page 50020 "Loan List"
         Rec.SetFilter("Remaining Amount", '<>0');
     end;
 }
-

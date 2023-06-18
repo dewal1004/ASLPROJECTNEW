@@ -1,5 +1,6 @@
 table 50011 "Payroll-Posting Group Header."
 {
+    Caption = 'Payroll-Posting Group Header.';
     // Created           : FTN, 143/93
     // File name         : KI03 P.Booking Grps.
     // Comments          : The Header card that is to be used to enter booking
@@ -107,6 +108,9 @@ table 50011 "Payroll-Posting Group Header."
 
     fieldgroups
     {
+        fieldgroup(DropDown; Description)
+        {
+        }
     }
 
     trigger OnDelete()
@@ -124,14 +128,13 @@ table 50011 "Payroll-Posting Group Header."
 
         /* First delete the detail lines */
         BookGrpLinesRec.SetRange("Posting Group", "Posting Group Code");
-        BookGrpLinesRec.DeleteAll;
+        BookGrpLinesRec.DeleteAll();
 
         /* Delete the 'parent record'*/
-        Delete;
+        Delete();
 
         /* Disable the locking effect */
-        Commit;
-
+        Commit();
     end;
 
     var
@@ -148,10 +151,9 @@ table 50011 "Payroll-Posting Group Header."
             OldEmpPGrp.Copy(Rec);
             OldEmpPGrp := OldEmpPGrp2;
             if not OldEmpPGrp.Find('<') then
-                OldEmpPGrp.Init;
+                OldEmpPGrp.Init();
         end;
 
         //"Income/Balance" := OldGLAcc."Income/Balance";
     end;
 }
-

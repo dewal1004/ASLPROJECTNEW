@@ -1,7 +1,7 @@
 xmlport 90999 "ImptCust"
 {
     Format = VariableText;
-
+    Caption = 'ImptCust';
     schema
     {
         textelement(RootNode)
@@ -45,7 +45,6 @@ xmlport 90999 "ImptCust"
 
     requestpage
     {
-
         layout
         {
         }
@@ -55,4 +54,3 @@ xmlport 90999 "ImptCust"
         }
     }
 }
-

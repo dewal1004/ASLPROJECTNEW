@@ -2,7 +2,7 @@ report 99506 "Edit Voy no on Postd TransOrDR"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/EditVoynoonPostdTransOrDR.rdlc';
-
+    Caption = 'Edit Voy no on Postd TransOrDR';
     dataset
     {
         dataitem("Transfer Receipt Header"; "Transfer Receipt Header")
@@ -13,7 +13,7 @@ report 99506 "Edit Voy no on Postd TransOrDR"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -78,7 +78,6 @@ report 99506 "Edit Voy no on Postd TransOrDR"
 
     requestpage
     {
-
         layout
         {
         }
@@ -93,23 +92,6 @@ report 99506 "Edit Voy no on Postd TransOrDR"
     }
 
     var
-        TransShipmt: Record "Transfer Shipment Header";
-        TransOrder: Record "Transfer Header";
-        LastFieldNo: Integer;
-        FooterPrinted: Boolean;
-        loc: Code[120];
-        locn: Code[120];
-        ItDocFilt: Code[120];
-        VaDocFilt: Code[120];
-        JbDocFilt: Code[120];
-        GLDocFilt: Code[120];
-        TSDocFilt: Code[120];
-        TRDocFilt: Code[120];
-        ExDoc: Code[120];
-        ExDocn: Code[120];
-        DocNo: Code[120];
-        TotalFor: Label 'Total for ';
         Transfer_Receipt_HeaderCaptionLbl: Label 'Transfer Receipt Header';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
 }
-

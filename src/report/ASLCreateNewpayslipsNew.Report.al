@@ -8,7 +8,7 @@ report 50054 "ASL Create New payslips - New"
     ProcessingOnly = true;
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
-
+    Caption = 'ASL Create New payslips - New';
     dataset
     {
         dataitem(Employee; Employee)
@@ -27,17 +27,17 @@ report 50054 "ASL Create New payslips - New"
                     PayHeadRec."Period Start" := PayPeriodRec."Start Date";
                     PayHeadRec."Period End" := PayPeriodRec."End Date";
                     PayHeadRec."Period Name" := PayPeriodRec.Name;
-                    PayHeadRec."Employee Name" := FullName;
+                    PayHeadRec."Employee Name" := FullName();
                     PayHeadRec."Global Dimension 1 Code" := Employee."Global Dimension 1 Code";
                     PayHeadRec."Global Dimension 2 Code" := Employee."Global Dimension 2 Code";
                     PayHeadRec."Customer Number" := Employee."SAM Number";
                     PayHeadRec.Designation := Designation;
-                    PayHeadRec.Insert;
+                    PayHeadRec.Insert();
                     PG := Employee."Posting Group";
 
                     /*Create the payroll entry lines.- The entries are copied from the employee group entry lines.*/
                     /*Delimit the Employee group lines appropriately */
-                    EmpGrpLinesRec.Init;
+                    EmpGrpLinesRec.Init();
                     EmpGrpLinesRec.SetRange("E/D Code");
                     EmpGrpLinesRec.SetRange("Employee Group");
                     EmpGrpLinesRec."Employee Group" := "Employee Group";
@@ -54,12 +54,12 @@ report 50054 "ASL Create New payslips - New"
                         repeat /*WHILE (EmpGrpLinesRec."Employee Group" = "Employee Group") */
                             RecRate := 0;
                             RecQty := 0;
-                            PayLinesRec.Init;
+                            PayLinesRec.Init();
                             EDFileRec.Get(EmpGrpLinesRec."E/D Code");
                             EdfileRec1 := EDFileRec;
 
                             /******  Begins Overtime & Other VAriables Calculation SGG  **********/
-                            PaySetup.Reset;
+                            PaySetup.Reset();
                             PaySetup.Find('-');
                             TaxFreeED := PaySetup."Taxfree Pay ED";
                             if TaxFreeED <> '' then
@@ -68,22 +68,22 @@ report 50054 "ASL Create New payslips - New"
                             HrsInDay := PaySetup."Daily Working Hours";
                             //Bin031
 
-                            VarRec.Reset;
+                            VarRec.Reset();
                             VarRec.SetRange(VarRec."Payroll Period", PayLinesRec."Payroll Period");
                             VarRec.SetRange(VarRec."Employee No", PayLinesRec."Employee No");
                             if VarRec.Find('-') then
                                 repeat
                                     SendLines(VarRec."E/D Code", VarRec.Amount, VarRec.Quantity, VarRec.Rate);
-                                until (VarRec.Next = 0);
+                                until (VarRec.Next() = 0);
 
                             /******  Overtime & Other VAriables Calculation Ends SGG  **********/
                             /*AAA Nov 2002*/
-                            EDFileRec.Reset;
+                            EDFileRec.Reset();
                             EDFileRec.SetRange(EDFileRec."Payslip Print Column", EDFileRec."Payslip Print Column"::"Total Earning");
                             if EDFileRec.Find('-') then
                                 TaxableED := EDFileRec."E/D Code";
 
-                            EDFileRec.Reset;
+                            EDFileRec.Reset();
                             EDFileRec.SetRange(EDFileRec."Payslip Group ID", EDFileRec."Payslip Group ID"::"TAX DEDUCTED");
                             if EDFileRec.Find('-') then TaxED := EDFileRec."E/D Code";
 
@@ -91,7 +91,7 @@ report 50054 "ASL Create New payslips - New"
                             //SendLines(TaxED,0,0,0);
                             //SendLines(TaxFreeED,Employee."Annual Tax Freepay"/12,0,0);
 
-                            PaySetup.Reset;
+                            PaySetup.Reset();
                             PaySetup.Find('-');
                             /*AAA Nov 2002*/
 
@@ -161,7 +161,7 @@ report 50054 "ASL Create New payslips - New"
                                         PayLinesRec.Validate(PayLinesRec."E/D Code");
                                     /*BIN 1 & 2*/
                                     //inserted To Calculate Prorated Payment begin Based on Employment Date
-                                    GetPayDays;
+                                    GetPayDays();
 
                                     if (Employee."No of Days") <> 0 then PayDays := Employee."No of Days";
 
@@ -174,7 +174,7 @@ report 50054 "ASL Create New payslips - New"
                                                 if not Confirm(
                                    'Excess of Payment Days Specified for staff is More Than Carried Forward day(s)\\ Continue Calculation')
                                                   then
-                                                    CurrReport.Skip;
+                                                    CurrReport.Skip();
                                         end;
                                         // and (EDFileRec."Control Type" = EDFileRec."Control Type"::Basic)
                                         if not (EDFileRec."Absent Deduction") then
@@ -184,21 +184,20 @@ report 50054 "ASL Create New payslips - New"
                                     if PayLinesRec.Insert(true) then
                                         INSTD := true
                                     else
-                                        PayLinesRec.Modify;
+                                        PayLinesRec.Modify();
                                 end;
                             end;
                             if PayLinesRec."E/D Code" = PaySetup."Basic+Hous+Transp" then
                                 TotalBasHosTrans := PayLinesRec.Amount;
-                        until (EmpGrpLinesRec.Next = 0);
+                        until (EmpGrpLinesRec.Next() = 0);
                         Employee."No of Days" := 0;
-                        Employee.Modify;
+                        Employee.Modify();
                     end;
 
                     CalculateLoans();  //Loan system
-                    Commit;
+                    Commit();
                 end;
-                if PaySetup.Seniority <> '' then Seniority;
-
+                if PaySetup.Seniority <> '' then Seniority();
             end;
 
             trigger OnPostDataItem()
@@ -209,7 +208,6 @@ report 50054 "ASL Create New payslips - New"
                    REPEAT
                      IF EdRec."E/D Code"<>'' THEN SendLines(EdRec."E/D Code",0,0,0);
                    UNTIL(EdRec.NEXT=0);*/
-
             end;
 
             trigger OnPreDataItem()
@@ -251,7 +249,6 @@ report 50054 "ASL Create New payslips - New"
         begin
             PayPeriodRec.Get('2022-11');
         end;
-
     }
 
     labels
@@ -281,50 +278,25 @@ report 50054 "ASL Create New payslips - New"
         InfoCounter: Integer;
         Window: Dialog;
         LoanRec: Record "Loan.";
-        EdgropRec: Record "Payroll-Employee Group Lines.";
-        EdRec: Record "Payroll-E/D Codes.";
         RecRate: Decimal;
         RecQty: Decimal;
-        emploMonth: Integer;
         PayMonth: Integer;
-        emploday: Integer;
-        emplodaywk: Integer;
-        totaldays: Integer;
         Daysinmonth: Integer;
-        "1stdayofmonth": Code[10];
         monthdig: Integer;
         daydig: Integer;
         dayin: Date;
-        ok: Boolean;
-        employr: Integer;
-        "Absent Register": Record "Employee Absence";
-        "Total Days": Decimal;
-        Periodbegin: Date;
-        PeriodEnd: Date;
-        AbsentDeduct: Decimal;
-        EmployeeGroupLinerec: Record "Payroll-Employee Group Lines.";
         PaySetup: Record "ASL Payroll Setup";
         TaxFreeED: Code[10];
-        TaxFreeAmount: Decimal;
         EmptDate: Date;
         DisengDate: Date;
         PayDays: Integer;
-        PBonusED: Code[10];
-        PBonusAmount: Decimal;
         TaxableED: Code[10];
-        TaxFreeYTD: Decimal;
-        TaxableYTD: Decimal;
-        TaxYTD: Decimal;
-        AmountToTax: Decimal;
         TaxED: Code[10];
-        NewTax: Decimal;
-        PayLines2: Record "Payroll-Payslip Lines." temporary;
         MonthlyDays: Integer;
         HrsInDay: Integer;
         VarRec: Record "Monthly Variables Lines.";
         GenPCode: Codeunit "General Purpose Codeunit";
         EDRec2: Record "Payroll-E/D Codes.";
-        "---": Integer;
         PG: Code[10];
         INSTD: Boolean;
         ServiceYear: Decimal;
@@ -338,7 +310,6 @@ report 50054 "ASL Create New payslips - New"
             if StrLen(Format(emplomonth)) = 1 then Evaluate(monthdig, ('0' + Format(emplomonth)));
 
             Daysinmonth := Date2DMY(dayin, 1);
-
         end;
     end;
 
@@ -382,7 +353,7 @@ report 50054 "ASL Create New payslips - New"
                 LoanRec.CalcFields(LoanRec."Remaining Amount");
                 if LoanRec."Remaining Amount" > 0 then begin
 
-                    PayLinesRec.Init;
+                    PayLinesRec.Init();
                     PayLinesRec."Payroll Period" := PayHeadRec."Payroll Period";
                     PayLinesRec."Employee No" := PayHeadRec."Employee No";
                     EDFileRec.Get(LoanRec."Loan ED");
@@ -417,9 +388,9 @@ report 50054 "ASL Create New payslips - New"
                     PayLinesRec.Insert(true);
                     PayLinesRec."Loan ID" := LoanRec."Loan ID";
                     PayLinesRec.Modify(true);
-                    Commit;
+                    Commit();
                 end; /*END FOR CHECK ON REMAINING AMOUNT=0*/
-            until (LoanRec.Next = 0);
+            until (LoanRec.Next() = 0);
         //Loan system FINISH
     end;
 
@@ -455,10 +426,10 @@ report 50054 "ASL Create New payslips - New"
                 PayLinesRec."Debit Account" := BookGrLinesRec."Debit Account No.";
                 PayLinesRec."Credit Account" := BookGrLinesRec."Credit Account No.";
             end;
-            PayLinesRec.Modify;
+            PayLinesRec.Modify();
         end
         else begin
-            PayLinesRec.Init;
+            PayLinesRec.Init();
             PayLinesRec."Payroll Period" := PayPeriodRec."Period Code";
             PayLinesRec."Employee No" := Employee."No.";
             PayLinesRec."E/D Code" := EDToSend;
@@ -476,12 +447,11 @@ report 50054 "ASL Create New payslips - New"
             PayLinesRec."Global Dimension 1 Code" := Employee."Global Dimension 1 Code";
             PayLinesRec."Global Dimension 2 Code" := Employee."Global Dimension 2 Code";
             PayLinesRec."Postg Group" := PG;
-            PayLinesRec.Insert;
+            PayLinesRec.Insert();
         end;
 
-
         /*{Use The Following Lines to send to Employee Group Lines}
-        
+
         IF EdgropRec.GET(EmpGrpLinesRec."Employee Group",EDToSend) THEN
           BEGIN
             EdgropRec."Default Amount" := ROUND(EDAmount,0.01);
@@ -496,7 +466,6 @@ report 50054 "ASL Create New payslips - New"
             EdgropRec."Default Amount" := ROUND(EDAmount,0.01);
             EdgropRec.INSERT
           END;*///Nitin
-
     end;
 
     //[Scope('OnPrem')]
@@ -508,7 +477,7 @@ report 50054 "ASL Create New payslips - New"
 
         if (EmptDate = 0D) then begin
             Message('Employee No %1 must have an Employment Date', Employee."No.");
-            CurrReport.Skip;
+            CurrReport.Skip();
         end;
 
         PayDays := 0;
@@ -517,9 +486,8 @@ report 50054 "ASL Create New payslips - New"
                 if (DisengDate > PayPeriodRec."Start Date") and (DisengDate < PayPeriodRec."End Date") then
                     PayDays := GenPCode.GetNoOfDays(EmptDate, DisengDate)
             end
-            else begin
+            else
                 PayDays := GenPCode.GetNoOfDays(PayPeriodRec."Start Date", EmptDate);
-            end;
         end
         else
             if (DisengDate > PayPeriodRec."Start Date") and (DisengDate < PayPeriodRec."End Date") then
@@ -539,7 +507,7 @@ report 50054 "ASL Create New payslips - New"
                     TaxableYTD := PayLinesRec.EDAmountToDate(Employee."No.",PayLinesRec."Payroll Period",TaxableED);
                     TaxYTD     := PayLinesRec.EDAmountToDate(Employee."No.",PayLinesRec."Payroll Period",TaxED);
         //            MESSAGE(FORMAT(TaxableYTD));
-        
+
                     TaxFreeYTD := PayLinesRec.EDAmountToDate(Employee."No.",PayLinesRec."Payroll Period",TaxFreeED);
                     TaxFreeYTD := TaxFreeYTD + Employee."Annual Tax Freepay"/12;
                     AmountToTax := TaxableYTD - TaxFreeYTD;
@@ -548,7 +516,7 @@ report 50054 "ASL Create New payslips - New"
                     MESSAGE(' Taxable:' + FORMAT(TaxableYTD)+' TaxFreeYTD:' + FORMAT(TaxfreeYTD)+'\\'+
                             ' TaxYTD:' + FORMAT(TaxYTD)+' AmountToTax:' + FORMAT(AmountToTax));
                   END;
-        
+
         BIN 2
                   BEGIN
                     PayLines2.RESET;
@@ -561,8 +529,7 @@ report 50054 "ASL Create New payslips - New"
                     NewTax := PayLines2.Amount;
                     SendLines(TaxED,NewTax-TaxYTD,0,0);
                   END;
-        
-        
+
         */
 
         //Bin 3
@@ -574,7 +541,6 @@ report 50054 "ASL Create New payslips - New"
            SendLines(EdRec."E/D Code",0,0,0);
          UNTIL(EdRec.NEXT=0);
         */
-
     end;
 
     //[Scope('OnPrem')]
@@ -582,14 +548,14 @@ report 50054 "ASL Create New payslips - New"
     begin
         //Set PayLines."Payslip Column" to 3
 
-        ServiceYear := Round(WorkDate - Employee."Employment Date", 1, '<');
+        ServiceYear := Round(WorkDate() - Employee."Employment Date", 1, '<');
         if ServiceYear <> 0 then ServiceYear := Round(ServiceYear / 365.25, 1, '<');
         Message('Service Year Value %1 AND Base is %2', ServiceYear, TotalBasHosTrans);
         //Seniority System START
-        PayLinesRec.Init;
+        PayLinesRec.Init();
         PayLinesRec."Payroll Period" := PayHeadRec."Payroll Period";
         PayLinesRec."Employee No" := PayHeadRec."Employee No";
-        if PaySetup.Find then
+        if PaySetup.Find() then
             EDFileRec.Get(PaySetup.Seniority);
         PayLinesRec."E/D Code" := EDFileRec."E/D Code";
         PayLinesRec."Payslip Text" := EDFileRec."Payslip Text";
@@ -617,10 +583,8 @@ report 50054 "ASL Create New payslips - New"
         PayLinesRec.Validate(PayLinesRec."E/D Code");
         PayLinesRec."Payslip Column" := 3;
         PayLinesRec.Modify(true);
-        Commit;
+        Commit();
         /*END;*/ /*END FOR CHECK ON REMAINING AMOUNT=0*/
                  //Loan system FINISH
-
     end;
 }
-

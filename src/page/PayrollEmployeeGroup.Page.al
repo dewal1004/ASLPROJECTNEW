@@ -69,4 +69,3 @@ page 50101 "PayrollEmployeeGroup"
     {
     }
 }
-

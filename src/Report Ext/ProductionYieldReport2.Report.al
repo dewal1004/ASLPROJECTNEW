@@ -2,7 +2,7 @@ report 99004 "Production Yield Report2"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/ProductionYieldReport2.rdlc';
-
+    Caption = 'Production Yield Report2';
     dataset
     {
         dataitem("Item Ledger Entry"; "Item Ledger Entry")
@@ -77,46 +77,43 @@ report 99004 "Production Yield Report2"
 
                 if ItemRec.Get("Item Ledger Entry"."Item No.") then begin
                     "Item Ledger Entry".Description := ItemRec.Description;
-                    "Item Ledger Entry".Modify;
+                    "Item Ledger Entry".Modify();
                 end;
                 TotalConsumption := 0;
 
-                ItemLedgerEntry.Reset;
+                ItemLedgerEntry.Reset();
                 ItemLedgerEntry.SetCurrentKey("Document No.", "Posting Date", "Entry Type");
                 ItemLedgerEntry.SetFilter(ItemLedgerEntry."Order Type", '%1', ItemLedgerEntry."Order Type"::Production);
                 ItemLedgerEntry.SetFilter(ItemLedgerEntry."Entry Type", '%1', ItemLedgerEntry."Entry Type"::Consumption);
                 ItemLedgerEntry.SetFilter(ItemLedgerEntry."Order No.", "Order No.");
                 ItemLedgerEntry.SetFilter(ItemLedgerEntry."Document No.", '%1', "Document No.");
                 //ItemLedgerEntry.CALCSUMS(ItemLedgerEntry.Quantity);
-                if ItemLedgerEntry.Find('-') then begin
+                if ItemLedgerEntry.Find('-') then
                     repeat
                         //TotalConsumption += ABS(ItemLedgerEntry.Quantity);
                         TotalConsumption += ItemLedgerEntry."Consumed Quantity"
-                      until ItemLedgerEntry.Next = 0;
-                    //MESSAGE('Total Consumption for Document No %1 is %2',"Document No.",TotalConsumption);
-                end;
+                      until ItemLedgerEntry.Next() = 0;
+                //MESSAGE('Total Consumption for Document No %1 is %2',"Document No.",TotalConsumption);
 
                 TotalOutput := 0;
-                ItemLedgerEntry2.Reset;
+                ItemLedgerEntry2.Reset();
                 ItemLedgerEntry.SetCurrentKey("Document No.", "Posting Date", "Entry Type");
                 ItemLedgerEntry2.SetFilter(ItemLedgerEntry2."Order Type", '%1', ItemLedgerEntry2."Order Type"::Production);
                 ItemLedgerEntry2.SetFilter(ItemLedgerEntry2."Entry Type", '%1', ItemLedgerEntry2."Entry Type"::Output);
                 ItemLedgerEntry2.SetFilter(ItemLedgerEntry2."Order No.", "Order No.");
                 ItemLedgerEntry2.SetFilter(ItemLedgerEntry2."Document No.", '%1', "Document No.");
                 //ItemLedgerEntry2.CALCSUMS(ItemLedgerEntry2.Quantity);
-                if ItemLedgerEntry2.Find('-') then begin
+                if ItemLedgerEntry2.Find('-') then
                     repeat
                         TotalOutput += ItemLedgerEntry2.Quantity;
-                    until ItemLedgerEntry2.Next = 0;
-                    //MESSAGE('Total Output for Document No %1 is %2',"Document No.",TotalOutput);
-                end;
+                    until ItemLedgerEntry2.Next() = 0;
+                //MESSAGE('Total Output for Document No %1 is %2',"Document No.",TotalOutput);
             end;
         }
     }
 
     requestpage
     {
-
         layout
         {
         }
@@ -135,34 +132,30 @@ report 99004 "Production Yield Report2"
         Filters := "Item Ledger Entry".GetFilters;
         TotalQtyFP := 0;
         TotalQtyRM := 0;
-        ItemLedgerEntry3.Reset;
+        ItemLedgerEntry3.Reset();
         ItemLedgerEntry4.CopyFilters("Item Ledger Entry");
         ItemLedgerEntry3.SetCurrentKey("Document No.", "Posting Date", "Entry Type");
         ItemLedgerEntry3.SetFilter(ItemLedgerEntry3."Order Type", '%1', ItemLedgerEntry3."Order Type"::Production);
         ItemLedgerEntry3.SetFilter(ItemLedgerEntry3."Entry Type", '%1', ItemLedgerEntry3."Entry Type"::Consumption);
-        if ItemLedgerEntry3.Find('-') then begin
+        if ItemLedgerEntry3.Find('-') then
             repeat
                 TotalQtyRM += ItemLedgerEntry3."Consumed Quantity"
-              until ItemLedgerEntry3.Next = 0;
-        end;
+              until ItemLedgerEntry3.Next() = 0;
 
-        ItemLedgerEntry4.Reset;
+        ItemLedgerEntry4.Reset();
         ItemLedgerEntry4.CopyFilters("Item Ledger Entry");
         ItemLedgerEntry4.SetCurrentKey("Document No.", "Posting Date", "Entry Type");
         ItemLedgerEntry4.SetFilter(ItemLedgerEntry4."Order Type", '%1', ItemLedgerEntry4."Order Type"::Production);
         ItemLedgerEntry4.SetFilter(ItemLedgerEntry4."Entry Type", '%1', ItemLedgerEntry4."Entry Type"::Output);
-        if ItemLedgerEntry4.Find('-') then begin
+        if ItemLedgerEntry4.Find('-') then
             repeat
                 TotalQtyFP += ItemLedgerEntry4.Quantity;
-            until ItemLedgerEntry4.Next = 0;
-
-        end;
+            until ItemLedgerEntry4.Next() = 0;
 
         ConsolidatedYieldPercent := (TotalQtyFP / TotalQtyRM);
     end;
 
     var
-        Yield: Decimal;
         ItemLedgerEntry: Record "Item Ledger Entry";
         ItemLedgerEntry2: Record "Item Ledger Entry";
         ItemLedgerEntry3: Record "Item Ledger Entry";
@@ -177,4 +170,3 @@ report 99004 "Production Yield Report2"
         TotalQtyFP: Decimal;
         ConsolidatedYieldPercent: Decimal;
 }
-

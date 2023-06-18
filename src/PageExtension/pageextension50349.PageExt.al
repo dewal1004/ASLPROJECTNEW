@@ -1,6 +1,5 @@
 pageextension 50349 "pageextension50349" extends "Warehouse Movement Subform"
 {
-
     //Unsupported feature: Code Modification on "ChangeUOM(PROCEDURE 1)".
 
     //procedure ChangeUOM();
@@ -28,4 +27,3 @@ pageextension 50349 "pageextension50349" extends "Warehouse Movement Subform"
     */
     //end;
 }
-

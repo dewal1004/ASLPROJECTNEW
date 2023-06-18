@@ -2,7 +2,7 @@ report 52148 "EDvalidat NU*"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/EDvalidatNU.rdlc';
-
+    Caption = 'EDvalidat NU*';
     dataset
     {
         dataitem("Payroll-Employee Group Lines."; "Payroll-Employee Group Lines.")
@@ -14,7 +14,7 @@ report 52148 "EDvalidat NU*"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -39,14 +39,13 @@ report 52148 "EDvalidat NU*"
                     //  "Payroll-Employee Group Lines.".VALIDATE(Units);
                     "Payroll-Employee Group Lines.".Units := 'Hours';
                 "Payroll-Employee Group Lines.".Rate := 1;
-                Modify;
+                Modify();
             end;
         }
     }
 
     requestpage
     {
-
         layout
         {
         }
@@ -64,4 +63,3 @@ report 52148 "EDvalidat NU*"
         Payroll_Employee_Group_Lines_CaptionLbl: Label 'Payroll-Employee Group Lines.';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
 }
-

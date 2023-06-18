@@ -2,7 +2,7 @@ report 99015 "Renumber Employee"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/RenumberEmployee.rdlc';
-
+    Caption = 'Renumber Employee';
     dataset
     {
         dataitem(Employee; Employee)
@@ -16,7 +16,7 @@ report 99015 "Renumber Employee"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -44,14 +44,13 @@ report 99015 "Renumber Employee"
             trigger OnAfterGetRecord()
             begin
                 if Rename('E' + "No.") then;
-                Modify;
+                Modify();
             end;
         }
     }
 
     requestpage
     {
-
         layout
         {
         }
@@ -66,8 +65,6 @@ report 99015 "Renumber Employee"
     }
 
     var
-        Empl: Record Employee;
         EmployeeCaptionLbl: Label 'Employee';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
 }
-

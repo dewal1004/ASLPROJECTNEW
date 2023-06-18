@@ -2,7 +2,7 @@ page 50041 "Medical Record List"
 {
     PageType = ListPart;
     SourceTable = "Medical Record";
-
+    Caption = 'Medical Record List';
     layout
     {
         area(content)
@@ -18,7 +18,7 @@ page 50041 "Medical Record List"
                 {
                     ApplicationArea = All;
                 }
-                field(FullName; Rec.FullName)
+                field(FullName; Rec.FullName())
                 {
                     Caption = 'Full Name';
                     ApplicationArea = All;
@@ -71,4 +71,3 @@ page 50041 "Medical Record List"
     {
     }
 }
-

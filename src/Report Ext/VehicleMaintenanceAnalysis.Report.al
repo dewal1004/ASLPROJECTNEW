@@ -8,7 +8,6 @@ report 50155 "Vehicle Maintenance - Analysis"
     RDLCLayout = './src/reportrdlc/VehicleMaintenanceAnalysis.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
-
     Caption = 'Vehicle Maintenance - Analysis';
 
     dataset
@@ -26,7 +25,7 @@ report 50155 "Vehicle Maintenance - Analysis"
             column(USERID; UserId)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(DeprBookText; DeprBookText)
@@ -161,9 +160,9 @@ report 50155 "Vehicle Maintenance - Analysis"
             begin
 
                 if Inactive then
-                    CurrReport.Skip;
+                    CurrReport.Skip();
                 if not FADeprBook.Get("No.", DeprBookCode) then
-                    CurrReport.Skip;
+                    CurrReport.Skip();
                 if "FA Posting Group" <> FADeprBook."FA Posting Group" then
                     Error(Text005, FieldCaption("FA Posting Group"), "No.");
                 MaintenanceLedgEntry.SetRange("FA No.", "No.");
@@ -171,12 +170,11 @@ report 50155 "Vehicle Maintenance - Analysis"
                 Amounts[2] := CalculateAmount(MaintenanceCode2, Period2);
                 Amounts[3] := CalculateAmount(MaintenanceCode3, Period3);
                 if (Amounts[1] = 0) and (Amounts[2] = 0) and (Amounts[3] = 0) then
-                    CurrReport.Skip;
-
+                    CurrReport.Skip();
 
                 "Maintenance Amt" := Amounts[2];
-                Modify;
-                Commit;
+                Modify();
+                Commit();
             end;
 
             trigger OnPreDataItem()
@@ -199,7 +197,6 @@ report 50155 "Vehicle Maintenance - Analysis"
                 /*GroupTotals::" ":
                   SETCURRENTKEY("Maintenance Amt");*/
                 end;
-
             end;
         }
         dataitem(fa; "Fixed Asset")
@@ -337,9 +334,9 @@ report 50155 "Vehicle Maintenance - Analysis"
             trigger OnAfterGetRecord()
             begin
                 if Inactive then
-                    CurrReport.Skip;
+                    CurrReport.Skip();
                 if not FADeprBook.Get("No.", DeprBookCode) then
-                    CurrReport.Skip;
+                    CurrReport.Skip();
                 if "FA Posting Group" <> FADeprBook."FA Posting Group" then
                     Error(Text005, FieldCaption("FA Posting Group"), "No.");
                 MaintenanceLedgEntry.SetRange("FA No.", "No.");
@@ -347,7 +344,7 @@ report 50155 "Vehicle Maintenance - Analysis"
                 Amounts[2] := CalculateAmount(MaintenanceCode2, Period2);
                 Amounts[3] := CalculateAmount(MaintenanceCode3, Period3);
                 if (Amounts[1] = 0) and (Amounts[2] = 0) and (Amounts[3] = 0) then
-                    CurrReport.Skip;
+                    CurrReport.Skip();
             end;
 
             trigger OnPreDataItem()
@@ -376,7 +373,6 @@ report 50155 "Vehicle Maintenance - Analysis"
 
     requestpage
     {
-
         layout
         {
         }
@@ -400,8 +396,8 @@ report 50155 "Vehicle Maintenance - Analysis"
         if DateSelection = DateSelection::"Posting Date" then
             FAGenReport.AppendPostingDateFilter(FAFilter, StartingDate, EndingDate);
         DeprBookText := StrSubstNo('%1%2 %3', DeprBook.TableCaption, ':', DeprBookCode);
-        MakeGroupTotalText;
-        ValidateDates;
+        MakeGroupTotalText();
+        ValidateDates();
         MakeAmountHeadLine(1, MaintenanceCode1, Period1);
         MakeAmountHeadLine(2, MaintenanceCode2, Period2);
         MakeAmountHeadLine(3, MaintenanceCode3, Period3);
@@ -425,7 +421,6 @@ report 50155 "Vehicle Maintenance - Analysis"
         Text003: Label 'The Starting Date is later than the Ending Date.';
         Text004: Label 'The Starting Date must be specified when you use the option %1.';
         Text005: Label '%1 has been modified in fixed asset %2';
-        FASetup: Record "FA Setup";
         DeprBook: Record "Depreciation Book";
         FADeprBook: Record "FA Depreciation Book";
         MaintenanceLedgEntry: Record "Maintenance Ledger Entry";
@@ -452,25 +447,20 @@ report 50155 "Vehicle Maintenance - Analysis"
         DeprBookCode: Code[10];
         PrintDetails: Boolean;
         DateSelection: Option "FA Posting Date","Posting Date";
-        i: Integer;
         Text006: Label 'before Starting Date,Net Change,at Ending Date';
         Text007: Label ' ,FA Class,FA SubClass,FA Location,Main Asset,Global Dimension 1,Global Dimension 2,FA Posting Group';
         T1: Label 'Fuel';
         T2: Label 'Maintenance';
         T3: Label 'Total';
-        "---": Integer;
-        RespEmpl: Record Employee;
         ResEmp: Text[100];
         SNO: Integer;
         T4: Label 'Responsible Person';
         T5: Label 'SNo.';
-        T6: Label 'Registration No.';
         SNO2: Integer;
         FUAmt: Decimal;
         MAAmt: Decimal;
         FUAmtTot: Decimal;
         MAAmtTot: Decimal;
-        PrintDetailsME: Boolean;
         CurrReport_PAGENOCaptionLbl: Label 'Page';
         Fuel___Maintenance___AnalysisCaptionLbl: Label 'Fuel & Maintenance - Analysis';
         DetailsCaptionLbl: Label 'Details';
@@ -582,4 +572,3 @@ report 50155 "Vehicle Maintenance - Analysis"
         exit(MaintenanceLedgEntry.Amount);
     end;
 }
-

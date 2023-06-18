@@ -27,4 +27,3 @@ page 50075 "Maintenance List"
     {
     }
 }
-

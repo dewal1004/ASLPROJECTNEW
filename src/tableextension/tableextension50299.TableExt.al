@@ -8,4 +8,3 @@ tableextension 50299 "tableextension50299" extends Maintenance
         }
     }
 }
-

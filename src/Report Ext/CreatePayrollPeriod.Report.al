@@ -1,14 +1,13 @@
 report 50050 "Create Payroll Period"
 {
     ProcessingOnly = true;
-
+    Caption = 'Create Payroll Period';
     dataset
     {
     }
 
     requestpage
     {
-
         layout
         {
             area(content)
@@ -80,7 +79,7 @@ report 50050 "Create Payroll Period"
                 if (FirstPeriodStartDate <> 0D) then
                     if (FiscalYearStartDate >= FirstPeriodStartDate) and (FiscalYearStartDate < LastPeriodStartDate) then
                         Error('It is only possible to create new fiscal years before or after the existing ones.');
-                PayPeriod.Init;
+                PayPeriod.Init();
                 dd := Date2DMY(FiscalYearStartDate, 1);
                 mm := Date2DMY(FiscalYearStartDate, 2);
                 yy := Date2DMY(FiscalYearStartDate, 3);
@@ -103,11 +102,10 @@ report 50050 "Create Payroll Period"
                 PayPeriod."End Date" := CalcDate(PeriodLength, PayPeriod."Start Date") - 1;
                 PayPeriod.Validate("Start Date");
                 if not PayPeriod.Find('=') then
-                    PayPeriod.Insert;
+                    PayPeriod.Insert();
                 FiscalYearStartDate := CalcDate(PeriodLength, FiscalYearStartDate);
             end;
         end;
-
     end;
 
     var
@@ -117,13 +115,10 @@ report 50050 "Create Payroll Period"
         FiscalYearStartDate: Date;
         FirstPeriodStartDate: Date;
         LastPeriodStartDate: Date;
-        FirstPeriodLocked: Boolean;
         i: Integer;
         PeriodCode: Code[10];
-        PayPeriod2: Record "Payroll-Periods.";
         dd: Integer;
         mm: Integer;
         yy: Integer;
         ww: Integer;
 }
-

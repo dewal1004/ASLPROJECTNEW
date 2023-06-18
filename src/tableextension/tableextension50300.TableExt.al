@@ -30,4 +30,3 @@ tableextension 50300 "tableextension50300" extends "Item Category"
         }
     }
 }
-

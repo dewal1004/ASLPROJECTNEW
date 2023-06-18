@@ -60,7 +60,6 @@ tableextension 50307 "Value Entry Ext" extends "Value Entry"
         {
             SumIndexFields = "Valued Quantity", "Cost Amount (Actual)";
         }
-
     }
 
     procedure ItemName() Desc: Text[50]
@@ -71,4 +70,3 @@ tableextension 50307 "Value Entry Ext" extends "Value Entry"
     var
         item: Record Item;
 }
-

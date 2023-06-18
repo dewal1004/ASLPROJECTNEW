@@ -2,7 +2,7 @@ page 50133 "Tel Entering Sheet"
 {
     PageType = Card;
     SourceTable = "AGO Table";
-
+    Caption = 'Tel Entering Sheet';
     layout
     {
         area(content)
@@ -86,4 +86,3 @@ page 50133 "Tel Entering Sheet"
     {
     }
 }
-

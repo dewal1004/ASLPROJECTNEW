@@ -4,12 +4,9 @@ pageextension 50308 "Purchase Ord. Subf. Ext" extends "Purchase Order Subform"
     {
         modify("Qty. to Receive")
         {
-
             //Unsupported feature: Property Modification (Name) on ""Qty. to Receive"(Control 18)".
 
-
             //Unsupported feature: Property Modification (SourceExpr) on ""Qty. to Receive"(Control 18)".
-
 
             //Unsupported feature: Property Modification (ImplicitType) on ""Qty. to Receive"(Control 18)".
 
@@ -17,12 +14,9 @@ pageextension 50308 "Purchase Ord. Subf. Ext" extends "Purchase Order Subform"
         }
         modify(Control43)
         {
-
             //Unsupported feature: Property Modification (Level) on "Control43(Control 43)".
 
-
             //Unsupported feature: Property Modification (ControlType) on "Control43(Control 43)".
-
 
             //Unsupported feature: Property Modification (Name) on "Control43(Control 43)".
 
@@ -30,9 +24,7 @@ pageextension 50308 "Purchase Ord. Subf. Ext" extends "Purchase Order Subform"
 
             //Unsupported feature: Property Insertion (SourceExpr) on "Control43(Control 43)".
 
-
             //Unsupported feature: Property Insertion (ImplicitType) on "Control43(Control 43)".
-
         }
         modify(Control37)
         {
@@ -49,7 +41,6 @@ pageextension 50308 "Purchase Ord. Subf. Ext" extends "Purchase Order Subform"
         }
         modify(Control19)
         {
-
             Caption = 'Invoice Discount %';
             Visible = true;
             Editable = false;
@@ -63,9 +54,7 @@ pageextension 50308 "Purchase Ord. Subf. Ext" extends "Purchase Order Subform"
         }
         modify("Total Amount Excl. VAT")
         {
-
             //Unsupported feature: Property Modification (Level) on ""Total Amount Excl. VAT"(Control 17)".
-
 
             //Unsupported feature: Property Modification (Name) on ""Total Amount Excl. VAT"(Control 17)".
 
@@ -73,15 +62,11 @@ pageextension 50308 "Purchase Ord. Subf. Ext" extends "Purchase Order Subform"
 
             //Unsupported feature: Property Modification (SourceExpr) on ""Total Amount Excl. VAT"(Control 17)".
 
-
             //Unsupported feature: Property Insertion (ImplicitType) on ""Total Amount Excl. VAT"(Control 17)".
-
         }
         modify("Total VAT Amount")
         {
-
             //Unsupported feature: Property Modification (Level) on ""Total VAT Amount"(Control 15)".
-
 
             //Unsupported feature: Property Modification (Name) on ""Total VAT Amount"(Control 15)".
 
@@ -89,19 +74,14 @@ pageextension 50308 "Purchase Ord. Subf. Ext" extends "Purchase Order Subform"
 
             //Unsupported feature: Property Modification (SourceExpr) on ""Total VAT Amount"(Control 15)".
 
-
             //Unsupported feature: Property Insertion (DrillDown) on ""Total VAT Amount"(Control 15)".
-
         }
         modify("Total Amount Incl. VAT")
         {
-
             //Unsupported feature: Property Modification (Level) on ""Total Amount Incl. VAT"(Control 13)".
-
 
             //Unsupported feature: Property Modification (Name) on ""Total Amount Incl. VAT"(Control 13)"
             //Unsupported feature: Property Modification (SourceExpr) on ""Total Amount Incl. VAT"(Control 13)".
-
 
             //Unsupported feature: Property Insertion (DrillDown) on ""Total Amount Incl. VAT"(Control 13)".
 
@@ -109,7 +89,6 @@ pageextension 50308 "Purchase Ord. Subf. Ext" extends "Purchase Order Subform"
             ShowCaption = false;
 
             //Unsupported feature: Property Insertion (ImplicitType) on ""Total Amount Incl. VAT"(Control 13)".
-
         }
         modify("Prepayment %")
         {
@@ -148,7 +127,6 @@ pageextension 50308 "Purchase Ord. Subf. Ext" extends "Purchase Order Subform"
             Visible = false;
         }
 
-
         addfirst(Content)
         {
             group(Control87)
@@ -171,11 +149,10 @@ pageextension 50308 "Purchase Ord. Subf. Ext" extends "Purchase Order Subform"
 
             trigger OnAfterValidate()
             begin
-                RedistributeTotalsOnAfterValidate;
+                RedistributeTotalsOnAfterValidate();
             end;
         }
         moveafter("Allow Item Charge Assignment"; "Prepmt. Amt. Inv.")
-
 
         Modify("Prepmt. Amt. Inv.")
         {
@@ -183,7 +160,7 @@ pageextension 50308 "Purchase Ord. Subf. Ext" extends "Purchase Order Subform"
 
             trigger OnAfterValidate()
             begin
-                RedistributeTotalsOnAfterValidate;
+                RedistributeTotalsOnAfterValidate();
             end;
         }
         modify("Indirect Cost %")
@@ -286,7 +263,6 @@ pageextension 50308 "Purchase Ord. Subf. Ext" extends "Purchase Order Subform"
         moveafter("Planned Receipt Date"; "Document No.")
         moveafter("Expected Receipt Date"; "Order Date")
 
-
         moveafter("Prepayment %"; "Inv. Discount Amount")
         moveafter("Quantity Invoiced"; "Allow Invoice Disc.")
 
@@ -297,24 +273,20 @@ pageextension 50308 "Purchase Ord. Subf. Ext" extends "Purchase Order Subform"
         // moveafter("ActualAncillary(LCY)"; "Qty. to Assign")
     }
 
-
     var
-        TotalAmountStyle: Text;
         RefreshMessageEnabled: Boolean;
-        RefreshMessageText: Text;
-        TypeChosen: Boolean;
         PurchHeader: Record "Purchase Header";
 
     local procedure RedistributeTotalsOnAfterValidate()
     var
         DocumentTotals: Codeunit "Document Totals";
     begin
-        CurrPage.SaveRecord;
+        CurrPage.SaveRecord();
 
         PurchHeader.Get(Rec."Document Type", Rec."Document No.");
         if DocumentTotals.PurchaseCheckNumberOfLinesLimit(PurchHeader) then
             DocumentTotals.PurchaseRedistributeInvoiceDiscountAmounts(Rec, VATAmount, TotalPurchaseLine);
-        CurrPage.Update;
+        CurrPage.Update();
     end;
 }
 
@@ -367,22 +339,15 @@ RedistributeTotalsOnAfterValidate;
 */
 //end;//Unsupported feature: Property Deletion (Visible) on ""Document No."(Control 25)".
 
-
 //Unsupported feature: Property Deletion (Editable) on ""Document No."(Control 25)".
-
 
 //Unsupported feature: Property Deletion (Visible) on ""Line No."(Control 27)".
 
-
 //Unsupported feature: Property Deletion (Editable) on ""Line No."(Control 27)".
-
 
 //Unsupported feature: Property Deletion (GroupType) on "Control43(Control 43)".
 
-
 //Unsupported feature: Property Deletion (ShowCaption) on "Control43(Control 43)".
-
-
 
 //Unsupported feature: Code Insertion on ""Invoice Discount Amount"(Control 37)".
 
@@ -400,10 +365,7 @@ CurrPage.Update(false);
 
 //Unsupported feature: Property Deletion (GroupType) on "Control37(Control 37)".
 
-
 //Unsupported feature: Property Deletion (ShowCaption) on "Control37(Control 37)".
-
-
 
 //Unsupported feature: Code Modification on ""Invoice Discount Amount"(Control 35).OnAfterValidate".
 
@@ -426,28 +388,19 @@ DocumentTotals.PurchaseDocTotalsNotUpToDate;
 
 //Unsupported feature: Property Deletion (CaptionML) on ""Invoice Discount Amount"(Control 35)".
 
-
 //Unsupported feature: Property Deletion (AutoFormatType) on ""Invoice Discount Amount"(Control 35)".
-
 
 //Unsupported feature: Property Deletion (Editable) on ""Invoice Discount Amount"(Control 35)".
 
-
 //Unsupported feature: Property Deletion (CaptionML) on ""Invoice Disc. Pct."(Control 33)".
-
 
 //Unsupported feature: Property Deletion (GroupType) on "Control19(Control 19)".
 
-
 //Unsupported feature: Property Deletion (ShowCaption) on "Control19(Control 19)".
-
 
 //Unsupported feature: Property Deletion (DrillDown) on ""Total Amount Excl. VAT"(Control 17)".
 
-
 //Unsupported feature: Property Deletion (ImplicitType) on ""Total VAT Amount"(Control 15)".
-
-
 
 //Unsupported feature: Code Insertion on "RefreshTotals(Control 13)".
 
@@ -460,6 +413,5 @@ CurrPage.Update(false);
 //end;
 
 //Unsupported feature: Property Deletion (CaptionML) on ""Total Amount Incl. VAT"(Control 13)".
-
 
 //Unsupported feature: Property Deletion (AutoFormatType) on ""Total Amount Incl. VAT"(Control 13)".

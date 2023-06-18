@@ -2,7 +2,7 @@ report 50094 "Store Materia Requisistion"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/StoreMateriaRequisistion.rdlc';
-
+    Caption = 'Store Materia Requisistion';
     dataset
     {
         dataitem("Store Requisition Header New"; "Store Requisition Header New")
@@ -106,11 +106,11 @@ report 50094 "Store Materia Requisistion"
                 trigger OnAfterGetRecord()
                 begin
                     if EmpRec.Get("Store Requisition Line New"."Claim by Employee") then
-                        "Store Requisition Line New".Comment := EmpRec.FullName;
+                        "Store Requisition Line New".Comment := EmpRec.FullName();
                     if "Store Requisition Line New"."Inventory Posting Group" = '' then begin
                         if itemRec.Get("Store Requisition Line New"."Item No.") then
                             "Store Requisition Line New"."Inventory Posting Group" := itemRec."Inventory Posting Group";
-                        "Store Requisition Line New".Modify;
+                        "Store Requisition Line New".Modify();
                     end;
                     SRN := SRN + 1;
                 end;
@@ -125,21 +125,20 @@ report 50094 "Store Materia Requisistion"
             begin
                 if "Store Requisition Header New"."Claim by Employee" <> '' then begin
                     EmpRec.Get("Store Requisition Header New"."Claim by Employee");
-                    ClaimPer := EmpRec.FullName;
+                    ClaimPer := EmpRec.FullName();
                 end else
                     if "Store Requisition Header New"."Claim by Resources" <> '' then begin
                         ResRec.Get("Store Requisition Header New"."Claim by Resources");
                         ClaimPer := ResRec.Name;
                     end;
                 UserRec.SetRange("User Name", UserId);
-                if UserRec.FindSet then;
+                if UserRec.FindSet() then;
             end;
         }
     }
 
     requestpage
     {
-
         layout
         {
         }
@@ -165,7 +164,7 @@ report 50094 "Store Materia Requisistion"
             end;
             "Store Requisition Header New"."No of Copies" := "Store Requisition Header New"."No of Copies" + 1;
             "Store Requisition Header New".Printed := true;
-            "Store Requisition Header New".Modify;
+            "Store Requisition Header New".Modify();
         end;
     end;
 
@@ -175,10 +174,7 @@ report 50094 "Store Materia Requisistion"
         EmpRec: Record Employee;
         ResRec: Record Resource;
         ClaimPer: Text[50];
-        HodApproved: Text[50];
-        StoreApproved: Text[50];
         UserRec: Record User;
         SRN: Integer;
         itemRec: Record Item;
 }
-

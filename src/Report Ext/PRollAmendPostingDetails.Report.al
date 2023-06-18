@@ -1,7 +1,7 @@
 report 50660 "PRoll; Amend Posting Details"
 {
     ProcessingOnly = true;
-
+    Caption = 'PRoll; Amend Posting Details';
     dataset
     {
         dataitem(Employee; Employee)
@@ -51,21 +51,21 @@ report 50660 "PRoll; Amend Posting Details"
                             if Employee."SAM Number" <> '' then
                                 "Credit Account" := Employee."SAM Number";
 
-                        Modify;
+                        Modify();
                     end
                     else begin
                         "Global Dimension 1 Code" := '';
                         "Global Dimension 2 Code" := '';
                         "Debit Account" := '';
                         "Credit Account" := '';
-                        Modify;
+                        Modify();
                     end;
                 end;
             }
 
             trigger OnAfterGetRecord()
             begin
-                if Employee.Blocked then CurrReport.Skip; //Added by Adam to skip Blocked Employees
+                if Employee.Blocked then CurrReport.Skip(); //Added by Adam to skip Blocked Employees
                 Window.Update(2, "No.");
             end;
 
@@ -84,7 +84,6 @@ report 50660 "PRoll; Amend Posting Details"
 
     requestpage
     {
-
         layout
         {
         }
@@ -103,4 +102,3 @@ report 50660 "PRoll; Amend Posting Details"
         InfoCounter: Integer;
         Window: Dialog;
 }
-

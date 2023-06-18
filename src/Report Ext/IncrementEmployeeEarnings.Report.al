@@ -2,7 +2,7 @@ report 50070 "Increment Employee Earnings"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/IncrementEmployeeEarnings.rdlc';
-
+    Caption = 'Increment Employee Earnings';
     dataset
     {
         dataitem("Payroll-Employee Group Header."; "Payroll-Employee Group Header.")
@@ -16,7 +16,7 @@ report 50070 "Increment Employee Earnings"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -94,7 +94,7 @@ report 50070 "Increment Employee Earnings"
                         else
                             "Payroll-Employee Group Lines."."Default Amount" := 0;
 
-                    "Payroll-Employee Group Lines.".Modify;
+                    "Payroll-Employee Group Lines.".Modify();
                 end;
 
                 trigger OnPreDataItem()
@@ -107,7 +107,6 @@ report 50070 "Increment Employee Earnings"
 
     requestpage
     {
-
         layout
         {
         }
@@ -123,12 +122,9 @@ report 50070 "Increment Employee Earnings"
 
     var
         LastFieldNo: Integer;
-        FooterPrinted: Boolean;
-        TotalFor: Label 'Total for ';
         Incpercent: Decimal;
         EDRec: Record "Payroll-E/D Codes.";
         Payroll_Employee_Group_Lines_CaptionLbl: Label 'Payroll-Employee Group Lines.';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
         TextCaptionLbl: Label 'Text';
 }
-

@@ -2,7 +2,7 @@ page 59999 "PaySlip"
 {
     PageType = List;
     SourceTable = "Payroll-Payslip Lines.";
-
+    Caption = 'PaySlip';
     layout
     {
         area(content)
@@ -141,4 +141,3 @@ page 59999 "PaySlip"
     {
     }
 }
-

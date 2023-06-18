@@ -1,6 +1,6 @@
 xmlport 50009 "ChartImp"
 {
-
+    Caption = 'ChartImp';
     schema
     {
         textelement(RootNode)
@@ -14,7 +14,6 @@ xmlport 50009 "ChartImp"
 
     requestpage
     {
-
         layout
         {
         }
@@ -24,4 +23,3 @@ xmlport 50009 "ChartImp"
         }
     }
 }
-

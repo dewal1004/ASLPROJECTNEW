@@ -2,7 +2,7 @@ page 50195 "Average Point Sort"
 {
     PageType = Card;
     SourceTable = Job;
-
+    Caption = 'Average Point Sort';
     layout
     {
         area(content)
@@ -38,4 +38,3 @@ page 50195 "Average Point Sort"
     {
     }
 }
-

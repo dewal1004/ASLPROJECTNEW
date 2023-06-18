@@ -2,7 +2,7 @@ page 50139 "FA.Reports"
 {
     UsageCategory = Administration;
     ApplicationArea = all;
-
+    Caption = 'FA.Reports';
     layout
     {
     }
@@ -228,4 +228,3 @@ page 50139 "FA.Reports"
         }
     }
 }
-

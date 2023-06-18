@@ -2,7 +2,7 @@ page 50001 "Payroll Setup Local"
 {
     PageType = Card;
     SourceTable = "ASL Payroll Setup";
-
+    Caption = 'Payroll Setup Local';
     layout
     {
         area(content)
@@ -96,4 +96,3 @@ page 50001 "Payroll Setup Local"
     {
     }
 }
-

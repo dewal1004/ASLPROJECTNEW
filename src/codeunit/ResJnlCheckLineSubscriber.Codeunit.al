@@ -11,7 +11,7 @@ codeunit 50008 "ResJnlCheckLineSubscriber"
     begin
         GLSetup.Get();
 
-        if ResJournalLine.EmptyLine then
+        if ResJournalLine.EmptyLine() then
             exit;
 
         if ResJournalLine."Gen. Prod. Posting Group" = '' then

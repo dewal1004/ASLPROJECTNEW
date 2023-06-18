@@ -19,7 +19,7 @@ report 58028 "Vehicle Maintenance - AnalysiY"
             column(USERID; UserId)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(DeprBookText; DeprBookText)
@@ -151,7 +151,6 @@ report 58028 "Vehicle Maintenance - AnalysiY"
 
     requestpage
     {
-
         layout
         {
             area(content)
@@ -236,7 +235,6 @@ report 58028 "Vehicle Maintenance - AnalysiY"
           FADescription := "Fixed Asset".FIELDCAPTION(Description);
         END;
         */
-
     end;
 
     var
@@ -245,17 +243,12 @@ report 58028 "Vehicle Maintenance - AnalysiY"
         Text002: Label 'You must specify the Starting Date and the Ending Date.';
         Text003: Label 'The Starting Date is later than the Ending Date.';
         Text004: Label 'The Starting Date must be specified when you use the option %1.';
-        Text005: Label '%1 has been modified in fixed asset %2';
-        FASetup: Record "FA Setup";
         DeprBook: Record "Depreciation Book";
-        FADeprBook: Record "FA Depreciation Book";
         MaintenanceLedgEntry: Record "Maintenance Ledger Entry";
-        FAGenReport: Codeunit "FA General Report";
         FAFilter: Text[250];
         DeprBookText: Text[50];
         GroupCodeName: Text[50];
         GroupHeadLine: Text[50];
-        FANo: Text[50];
         FADescription: Text[50];
         GroupTotals: Option " ","FA Class","FA SubClass","FA Location","Main Asset","Global Dimension 1","Global Dimension 2","FA Posting Group";
         GroupAmounts: array[3] of Decimal;
@@ -265,27 +258,19 @@ report 58028 "Vehicle Maintenance - AnalysiY"
         MaintenanceCode1: Code[10];
         MaintenanceCode2: Code[10];
         MaintenanceCode3: Code[10];
-        Period1: Option "before Starting Date","Net Change","at Ending Date";
-        Period2: Option "before Starting Date","Net Change","at Ending Date";
-        Period3: Option "before Starting Date","Net Change","at Ending Date";
         StartingDate: Date;
         EndingDate: Date;
-        DeprBookCode: Code[10];
         PrintDetails: Boolean;
         DateSelection: Option "FA Posting Date","Posting Date";
-        i: Integer;
         Text006: Label 'before Starting Date,Net Change,at Ending Date';
         Text007: Label ' ,FA Class,FA SubClass,FA Location,Main Asset,Global Dimension 1,Global Dimension 2,FA Posting Group';
         T1: Label 'Fuel';
         T2: Label 'Maintenance';
         T3: Label 'Total';
-        "---": Integer;
-        RespEmpl: Record Employee;
         ResEmp: Text[100];
         SNO: Integer;
         T4: Label 'Responsible Person';
         T5: Label 'SNo.';
-        T6: Label 'Registration No.';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
         Fuel___Maintenance___AnalysisCaptionLbl: Label 'Fuel & Maintenance - Analysis';
         DetailsCaptionLbl: Label 'Details';
@@ -392,4 +377,3 @@ report 58028 "Vehicle Maintenance - AnalysiY"
         exit(MaintenanceLedgEntry.Amount);
     end;
 }
-

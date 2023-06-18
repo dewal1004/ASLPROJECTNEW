@@ -2,7 +2,7 @@ page 50057 "Item Points"
 {
     PageType = List;
     SourceTable = "Item Points";
-
+    Caption = 'Item Points';
     layout
     {
         area(content)
@@ -69,4 +69,3 @@ page 50057 "Item Points"
     {
     }
 }
-

@@ -3,7 +3,7 @@ report 60008 "Create Vendor Acct. for Staff"
     ProcessingOnly = true;
     ShowPrintStatus = false;
     UseRequestPage = false;
-
+    Caption = 'Create Vendor Acct. for Staff';
     dataset
     {
         dataitem(Employee; Employee)
@@ -13,8 +13,8 @@ report 60008 "Create Vendor Acct. for Staff"
 
             trigger OnAfterGetRecord()
             begin
-                Vendors.Init;
-                Vendors.Name := Employee.FullName;
+                Vendors.Init();
+                Vendors.Name := Employee.FullName();
                 Vendors."Search Name" := Employee."First Name";
                 Vendors.Address := Employee.Address;
                 Vendors."Address 2" := Employee."Address 2";
@@ -30,12 +30,12 @@ report 60008 "Create Vendor Acct. for Staff"
                 Vendors.Validate(Vendors."Gen. Bus. Posting Group", 'LOCAL');
                 Vendors."Vendor Posting Group" := 'LOCAL';
                 Vendors."No." := Employee."No.";
-                Vendors.Insert;
+                Vendors.Insert();
 
                 Employee.
                 "Acct. type" := Employee."Acct. type"::Supplier;
                 Employee."Acct. No" := "No.";
-                Employee.Modify;
+                Employee.Modify();
 
                 VendCount := VendCount + 1;
             end;
@@ -50,7 +50,6 @@ report 60008 "Create Vendor Acct. for Staff"
 
     requestpage
     {
-
         layout
         {
         }
@@ -66,15 +65,6 @@ report 60008 "Create Vendor Acct. for Staff"
 
     var
         LastFieldNo: Integer;
-        FooterPrinted: Boolean;
         Vendors: Record Vendor;
-        PPSetup: Record "Purchases & Payables Setup";
-        NoSeriesRec: Record "No. Series Line";
-        NumCode: Code[10];
-        NewVendNum: Code[10];
-        ContractRec: Record "Employment Contract";
-        k: Integer;
-        LnoUsed: Code[10];
         VendCount: Integer;
 }
-

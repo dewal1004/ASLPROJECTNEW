@@ -4,7 +4,7 @@ report 50163 "Online loan"
     RDLCLayout = './src/reportrdlc/Onlineloan.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
-
+    Caption = 'Online loan';
     dataset
     {
         dataitem("Loan."; "Loan.")
@@ -15,7 +15,7 @@ report 50163 "Online loan"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -131,7 +131,6 @@ report 50163 "Online loan"
 
     requestpage
     {
-
         layout
         {
         }
@@ -153,4 +152,3 @@ report 50163 "Online loan"
         Loan_Recommended_by_HOD__CaptionLbl: Label 'Loan Recommended by HOD :';
         Loan_Recommended_by_HR_CaptionLbl: Label 'Loan Recommended by HR:';
 }
-

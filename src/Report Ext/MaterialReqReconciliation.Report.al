@@ -4,7 +4,7 @@ report 50081 "Material Req Reconciliation"
     RDLCLayout = './src/reportrdlc/MaterialReqReconciliation.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
-
+    Caption = 'Material Req Reconciliation';
     dataset
     {
         dataitem("Store Requisition Line New"; "Store Requisition Line New")
@@ -38,7 +38,7 @@ report 50081 "Material Req Reconciliation"
             trigger OnAfterGetRecord()
             begin
                 if EmpRec.Get("Store Requisition Line New"."Claim by Employee") then
-                    EmployeeName := EmpRec.FullName;
+                    EmployeeName := EmpRec.FullName();
             end;
 
             trigger OnPreDataItem()
@@ -50,7 +50,6 @@ report 50081 "Material Req Reconciliation"
 
     requestpage
     {
-
         layout
         {
         }
@@ -68,4 +67,3 @@ report 50081 "Material Req Reconciliation"
         EmployeeName: Text[100];
         EmpRec: Record Employee;
 }
-

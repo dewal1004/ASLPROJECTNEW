@@ -2,7 +2,7 @@ report 90001 "Update Shelf No."
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/UpdateShelfNo.rdlc';
-
+    Caption = 'Update Shelf No.';
     dataset
     {
         dataitem(Item; Item)
@@ -14,7 +14,7 @@ report 90001 "Update Shelf No."
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -48,14 +48,13 @@ report 90001 "Update Shelf No."
             trigger OnAfterGetRecord()
             begin
                 if Item."Shelf No." = '' then Item."Shelf No." := Item."No.";
-                if not Item.Insert then Item.Modify();
+                if not Item.Insert() then Item.Modify();
             end;
         }
     }
 
     requestpage
     {
-
         layout
         {
         }
@@ -73,4 +72,3 @@ report 90001 "Update Shelf No."
         ItemCaptionLbl: Label 'Item';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
 }
-

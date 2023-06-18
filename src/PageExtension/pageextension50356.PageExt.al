@@ -12,4 +12,3 @@ pageextension 50356 "pageextension50356" extends "Acc. Receivables Adm. RC"
         }
     }
 }
-

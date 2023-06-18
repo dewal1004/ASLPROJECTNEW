@@ -10,7 +10,7 @@ page 50062 "Store Req. ready For Approval"
     SourceTable = "Store Requisition Header New";
     SourceTableView = WHERE("Send for Approval" = CONST(true),
                             "1st Approved" = FILTER(<> Approved));
-
+    Caption = 'Store Req. ready For Approval';
     layout
     {
         area(content)
@@ -66,4 +66,3 @@ page 50062 "Store Req. ready For Approval"
         Rec.SetFilter(Rec."1st Approval to", '%1', UserId);
     end;
 }
-

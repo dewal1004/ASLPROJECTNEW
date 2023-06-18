@@ -2,7 +2,7 @@ page 50035 "Skill Appraisals list"
 {
     PageType = Card;
     SourceTable = "Skill Appraisal";
-
+    Caption = 'Skill Appraisals list';
     layout
     {
         area(content)
@@ -26,4 +26,3 @@ page 50035 "Skill Appraisals list"
     {
     }
 }
-

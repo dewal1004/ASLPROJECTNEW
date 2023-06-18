@@ -4,7 +4,7 @@ report 50027 "Voyage P &  L"
     RDLCLayout = './src/reportrdlc/VoyagePL.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
-
+    Caption = 'Voyage P &  L';
     dataset
     {
         dataitem("Job Ledger Entry"; "Job Ledger Entry")
@@ -17,7 +17,7 @@ report 50027 "Voyage P &  L"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -37,19 +37,15 @@ report 50027 "Voyage P &  L"
             }
             column(CycleDay; CycleDay)
             {
-
             }
             column(FishgDay; FishgDay)
             {
-
             }
             column(LostDay; LostDay)
             {
-
             }
             column(PortDay; PortDay)
             {
-
             }
             column(Vess; Vess)
             {
@@ -65,19 +61,15 @@ report 50027 "Voyage P &  L"
             }
             column(Text24; Text24)
             {
-
             }
             column(Text25; Text25)
             {
-
             }
             column(Text26; Text26)
             {
-
             }
             column(Text27; Text27)
             {
-
             }
             column(PntStor_1_s; PntStor[1])
             {
@@ -112,7 +104,6 @@ report 50027 "Voyage P &  L"
             }
             column(Loc__Vessel_Endurance_; Loc."Vessel Endurance")
             {
-
             }
             column(NairaValue; NairaValue)
             {
@@ -350,18 +341,18 @@ report 50027 "Voyage P &  L"
                   TotQtyExp +="Job Ledger Entry".Quantity;
                   Exprice += ProductPrice;
                 END;
-                
+
                 IF "Job Ledger Entry"."Work Type Code" = 'WT' THEN BEGIN
                   QTY2 +="Job Ledger Entry".Quantity;
                 END;
                 IF "Job Ledger Entry"."Work Type Code" = 'NEW' THEN BEGIN
                   QTY3 +="Job Ledger Entry".Quantity;
                 END;
-                
+
                 IF "Job Ledger Entry"."Work Type Code" = 'BHO' THEN BEGIN
                   QTY4 +="Job Ledger Entry".Quantity;
                 END;
-                
+
                 IF "Job Ledger Entry"."Work Type Code" = 'HDL' THEN BEGIN
                   QTY5 +="Job Ledger Entry".Quantity;
                 END;
@@ -374,10 +365,9 @@ report 50027 "Voyage P &  L"
                 */
                 //TotQtyExp := QTY1+QTY2+QTY3+QTY4+QTY5+QTY6+QTY7;
                 /********************************************************************************************/
-                if ("Job Ledger Entry"."Work Type Code" = 'SHR N BG') or ("Job Ledger Entry"."Work Type Code" = 'NET') then begin
+                if ("Job Ledger Entry"."Work Type Code" = 'SHR N BG') or ("Job Ledger Entry"."Work Type Code" = 'NET') then
                     TotQtyLoc += "Job Ledger Entry".Quantity;
-                    //TotQtyLoc +=
-                end;
+                //TotQtyLoc +=
                 QTY1 += "Job Ledger Entry".Quantity;
                 TotQtyExp := QTY1 - TotQtyLoc;
 
@@ -388,25 +378,22 @@ report 50027 "Voyage P &  L"
                 */
                 //TotQtyLoc := QTY8 +QTY9;
 
-                Location.Reset;
+                Location.Reset();
                 Location.Get("Job Ledger Entry"."Location Code");
                 if (Location."Location Type" <> Location."Location Type"::Vessel) then
-                    CurrReport.Skip;
+                    CurrReport.Skip();
                 if ("Job Ledger Entry"."Reason Code" <> 'CATCH') then
-                    CurrReport.Skip;
+                    CurrReport.Skip();
 
                 Item.SetCurrentKey("Gen. Prod. Posting Group");
                 Item.SetRange(Item."No.", "Job Ledger Entry"."No.");
                 Item.SetRange(Item."Gen. Prod. Posting Group", 'FIS');
-                if not Item.FindFirst then
-                    CurrReport.Skip;
+                if not Item.FindFirst() then
+                    CurrReport.Skip();
 
                 Qty := Quantity * (-1);
                 //ProductPrice := Qty * GetItPrice("Job No.","No.","Posting Date");
                 Price := GetItPrice("Job No.", "No.", "Posting Date");
-
-
-
 
                 begin
                     if Job.Get(JobNo) then;
@@ -424,10 +411,9 @@ report 50027 "Voyage P &  L"
                     end;
                     if Job."Cycle Day (Manual)" <> 0 then
                         CycleDay := Job."Cycle Day (Manual)"
-                    else begin
+                    else
                         if (ETA <> 0D) and (ETA2 <> 0D) and (ETA2 < ETA) then
                             CycleDay := ETA - ETA2;
-                    end;
                     Job.CalcFields(Job."Lost Days");
                     if Job."Lost At Sea (Manual)" <> 0 then
                         LostDay := Job."Lost At Sea (Manual)"
@@ -528,10 +514,9 @@ report 50027 "Voyage P &  L"
 
                     CurrExc.SetRange(CurrExc."Currency Code", 'USD');
                     CurrExc.SetRange(CurrExc."Starting Date", 0D, ETA);
-                    if CurrExc.Find('+') then begin
-                        CurrRate := CurrExc."Relational Exch. Rate Amount";
-                        //MESSAGE('EXCHANGE VALUE IS %1',CurrExc."Relational Exch. Rate Amount")
-                    end
+                    if CurrExc.Find('+') then
+                        CurrRate := CurrExc."Relational Exch. Rate Amount"
+                    //MESSAGE('EXCHANGE VALUE IS %1',CurrExc."Relational Exch. Rate Amount")
                     else
                         CurrRate := 1;
                     PntStor[7] := CurrRate;
@@ -549,20 +534,18 @@ report 50027 "Voyage P &  L"
                 BProductPrice := 0;
                 BNairaValue := 0;
 
-
-
                 CatchDefault.SetCurrentKey("Table Name", "No.", Code, "Pack Size");
                 CatchDefault.SetRange("No.", JobNo);
                 if CatchDefault.Find('-') then
                     repeat
                         BItemNo := Syntesis2(CatchDefault.Code, CatchDefault."Pack Size", CatchDefault.Brand); //Compose No.
-                    until (CatchDefault.Next = 0) or (BItemNo = "No.");
+                    until (CatchDefault.Next() = 0) or (BItemNo = "No.");
                 if BItemNo = "No." then begin
-                    CatchDefault1.Reset;
+                    CatchDefault1.Reset();
                     CatchDefault1.SetCurrentKey("Table Name", "No.", Code, "Pack Size");
                     CatchDefault1.SetRange("No.", JobNo);
                     CatchDefault1.SetRange("Item No.", BItemNo);
-                    if CatchDefault1.FindSet then
+                    if CatchDefault1.FindSet() then
                         if CatchDefault1."Budget Quantity" <> 0 then
                             BQty := CatchDefault1."Budget Quantity";
 
@@ -596,12 +579,9 @@ report 50027 "Voyage P &  L"
                         BProductPriceTot := BProductPriceTot + BProductPrice;
                         BNairaValueTot := BNairaValueTot + BNairaValue;
                     end;
-
                 end;
 
                 //END;
-
-
 
                 //ProductPrice := Qty * Price;
                 if SalesPrice."Currency Code" <> '' then begin
@@ -618,28 +598,20 @@ report 50027 "Voyage P &  L"
                     ExportPriceN += NairaValue;
                 end;
 
+                CurrReport.ShowOutput(CurrReport.TotalsCausedBy() = "Job Ledger Entry".FieldNo("Work Type Code"));
 
-
-                CurrReport.ShowOutput(CurrReport.TotalsCausedBy = "Job Ledger Entry".FieldNo("Work Type Code"));
-
-                if CurrReport.ShowOutput then begin
+                if CurrReport.ShowOutput() then begin
                     BNairaValue2 := 0;
                     BProductPrice2 := 0;
                 end;
 
+                CurrReport.ShowOutput(CurrReport.TotalsCausedBy() = "Job Ledger Entry".FieldNo("Work Type Code"));
 
-
-                CurrReport.ShowOutput(CurrReport.TotalsCausedBy = "Job Ledger Entry".FieldNo("Work Type Code"));
-
-
-
-
-
-                CurrReport.ShowOutput(CurrReport.TotalsCausedBy = "Job Ledger Entry".FieldNo("No."));
+                CurrReport.ShowOutput(CurrReport.TotalsCausedBy() = "Job Ledger Entry".FieldNo("No."));
 
                 if Item.Get("No.") then;
 
-                if CurrReport.ShowOutput then begin
+                if CurrReport.ShowOutput() then begin
                     BItemNo := '';
                     BQty := 0;
                     BPrice := 0;
@@ -652,7 +624,7 @@ report 50027 "Voyage P &  L"
                     if CatchDefault.Find('-') then
                         repeat
                             BItemNo := Syntesis2(CatchDefault.Code, CatchDefault."Pack Size", CatchDefault.Brand); //Compose No.
-                        until (CatchDefault.Next = 0) or (BItemNo = "No.");
+                        until (CatchDefault.Next() = 0) or (BItemNo = "No.");
 
                     if BItemNo = "No." then begin
                         if CatchDefault."Budget Quantity" <> 0 then begin
@@ -690,7 +662,6 @@ report 50027 "Voyage P &  L"
                     end;
                 end;
 
-
                 if Evaluate(g_Order, CopyStr(CatchDefault.GroupSort, 2, 2)) then;
                 if g_Order < 8 then begin
                     g_QtyBX := g_QtyBX + BQty;
@@ -703,7 +674,6 @@ report 50027 "Voyage P &  L"
                     NairaValBXLocal := NairaValBXLocal + NairaValB;
                 end;
                 VariTen := NairaValue - BNairaValue;
-
             end;
 
             trigger OnPreDataItem()
@@ -840,9 +810,8 @@ report 50027 "Voyage P &  L"
             begin
                 if ("Job catch Default".GroupSort = 'B09.CROAKER') or ("Job catch Default".GroupSort = 'B08.SNB')
                   or ("Job catch Default".GroupSort = 'B10.SOLE') or ("Job catch Default".GroupSort = 'B11.MIX')
-                  or ("Job catch Default".GroupSort = 'B12.OTHER FISH') then begin
+                  or ("Job catch Default".GroupSort = 'B12.OTHER FISH') then
                     LocBudQtyM += 123;//"Job catch Default"."Budget Quantity";
-                end;
                 TotalBudQtyM += "Job catch Default"."Budget Quantity";
                 ExpBudQtyM := TotalBudQtyM - LocBudQtyM;
 
@@ -867,9 +836,6 @@ report 50027 "Voyage P &  L"
                     PrdPrcB := 0;
                     PrcB := 0;
                 end;
-
-
-
 
                 if SalesPrice."Currency Code" <> '' then begin
                     PrdPrcB := QtyB * PrcB;
@@ -909,7 +875,6 @@ report 50027 "Voyage P &  L"
 
     requestpage
     {
-
         layout
         {
             area(content)
@@ -964,18 +929,16 @@ report 50027 "Voyage P &  L"
             JobRec.Find('+');
             JobNo := JobRec."No."; //"Job Ledger Entry".GETFILTER("Job Ledger Entry"."Job No.");
         end;
-        JobSetUp.Get;
+        JobSetUp.Get();
     end;
 
     var
         LastFieldNo: Integer;
-        FooterPrinted: Boolean;
         Job: Record Job;
         Job2: Record Job;
         SalesPrice: Record "Sales Price";
         CurrExc: Record "Currency Exchange Rate";
         ProdPostGrp: Record "Gen. Product Posting Group";
-        InvtPostGrp: Record "Inventory Posting Group";
         JobSetUp: Record "Jobs Setup";
         RateSetUp: Record "P & L Rates";
         JBudLn: Record "Job Task";
@@ -995,13 +958,6 @@ report 50027 "Voyage P &  L"
         SeaDay: Decimal;
         FishgDay: Decimal;
         a: Decimal;
-        TotDirExp: Decimal;
-        TotIndirExp: Decimal;
-        GrossMarg: Decimal;
-        GrossPerct: Decimal;
-        NetProfPerct: Decimal;
-        TotPrice: Decimal;
-        NetProfit: Decimal;
         ExpTonnage: Decimal;
         Vess: Text[30];
         expcnt: Integer;
@@ -1011,28 +967,9 @@ report 50027 "Voyage P &  L"
         Item: Record Item;
         ResCount: Integer;
         CountGPPG: Integer;
-        CountG: Integer;
         GLStr: array[25] of Decimal;
         "GLGPP Caption": array[25] of Code[10];
         CurrRate: Decimal;
-        TotalFor: Label 'Total';
-        TotalForX: Label 'Total Exports';
-        TotalFory: Label 'Total Local';
-        Text03: Label 'Catch Incentive';
-        Text04: Label 'Salaries & Wages';
-        Text05: Label 'Travelling Expenses';
-        Text06: Label 'License Fees';
-        Text07: Label 'Insurance';
-        Text08: Label 'Other Direct Cost';
-        Text09: Label 'Total Direct Expenses';
-        Text10: Label 'Gross Margin';
-        Text11: Label '% Of Revenue';
-        Text12: Label 'Shore Overheads';
-        Text13: Label 'Depreciation';
-        Text14: Label 'Interest';
-        Text15: Label 'Net Profit';
-        Text17: Label 'Total Indirect Expenses';
-        Text18: Label 'VOYAGE PROFIT AND LOSS STATEMENT';
         Text21: Label 'Shrimp Points';
         Text22: Label 'Fish Points';
         Text23: Label 'Total Points';
@@ -1066,37 +1003,19 @@ report 50027 "Voyage P &  L"
         BExportQty: Decimal;
         BExportPrice: Decimal;
         BExportPriceN: Decimal;
-        "------------------------------": Integer;
         PrcB: Decimal;
-        PrdPrc: Decimal;
         PrdPrcB: Decimal;
-        PrdPrc2: Decimal;
         PrdPrcBX: Decimal;
-        PrdPrc2X: Decimal;
-        PrdPrc2B: Decimal;
-        NairaVal: Decimal;
         NairaValB: Decimal;
         NairaValBX: Decimal;
-        NairaVal2: Decimal;
-        NairaVal2X: Decimal;
-        NairaVal2B: Decimal;
         QtyB: Decimal;
         QtyBX: Decimal;
         NOrder: Decimal;
-        "-----------------------------": Integer;
-        // xlApp: Automation BC;
-        // xlBook: Automation BC;
-        // xlSheet: Automation BC;
-        // Send2Excel: Boolean;
-        // TopPage: Boolean;
-        Xr: Integer;
-        Xc: Integer;
         Bold: Boolean;
         UnderLine: Boolean;
         Italic: Boolean;
         FontSize: Integer;
         PageOrientation: Option "Excel Default",Portrait,Landscape;
-        "----------------------------": Integer;
         LocationCode: Code[10];
         Voyage_P_and_LCaptionLbl: Label 'Voyage P and L';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
@@ -1130,7 +1049,6 @@ report 50027 "Voyage P &  L"
         Total_ExportsCaption_Control1000000108Lbl: Label 'Total Exports';
         Total_LocalCaption_Control1000000109Lbl: Label 'Total Local';
         TotalCaption_Control1000000110Lbl: Label 'Total';
-        JobTask: Record "Job Task";
         TotalLocal: Decimal;
         PrdPrcBXLocal: Decimal;
         NairaValBXLocal: Decimal;
@@ -1140,8 +1058,6 @@ report 50027 "Voyage P &  L"
         g_NairaValBX: Decimal;
         g_QtyBXLocal: Decimal;
         VariTen: Decimal;
-        TOTeXP1: Decimal;
-        TOTLOC1: Decimal;
         QTY1: Decimal;
         QTY2: Decimal;
         QTY3: Decimal;
@@ -1153,7 +1069,6 @@ report 50027 "Voyage P &  L"
         QTY9: Decimal;
         TotQtyExp: Decimal;
         TotQtyLoc: Decimal;
-        Exprice: Decimal;
         LocBudQtyM: Decimal;
         TotalBudQtyM: Decimal;
         ExpBudQtyM: Decimal;
@@ -1173,12 +1088,11 @@ report 50027 "Voyage P &  L"
     var
         job3: Record Job;
     begin
-        SalesPrice.Reset;
+        SalesPrice.Reset();
         job3.Get(JNos);
         SalesPrice.SetCurrentKey("Item No.", "Sales Type", "Sales Code", "Starting Date", "Currency Code", "Variant Code", "Unit of Measure Code", "Minimum Quantity");
         SalesPrice.SetRange(SalesPrice."Item No.", Nos);
         SalesPrice.SetRange(SalesPrice."Starting Date", 0D, PDays);
-
 
         if job3."Price Group Code" <> '' then begin
             SalesPrice.SetRange(SalesPrice."Sales Type", SalesPrice."Sales Type"::"Customer Price Group");
@@ -1190,7 +1104,7 @@ report 50027 "Voyage P &  L"
         if SalesPrice.Find('+') then
             Price := SalesPrice."Unit Price"
         else begin
-            SalesPrice.Reset;
+            SalesPrice.Reset();
             SalesPrice.SetCurrentKey("Item No.", "Sales Type", "Sales Code", "Starting Date", "Currency Code", "Variant Code", "Unit of Measure Code", "Minimum Quantity");
 
             SalesPrice.SetRange("Item No.", Nos);
@@ -1203,10 +1117,9 @@ report 50027 "Voyage P &  L"
             end;
             if SalesPrice.Find('+') then
                 Price := SalesPrice."Unit Price"
-            else begin
+            else
                 Price := 0;
-                //IF Flag THEN MESSAGE('Price Missing for Item %1',Nos);
-            end;
+            //IF Flag THEN MESSAGE('Price Missing for Item %1',Nos);
         end;
         exit(Price);
     end;
@@ -1223,16 +1136,10 @@ report 50027 "Voyage P &  L"
         IF Underline THEN
           xlSheet.Range(GetCol(Col)+FORMAT(Row)).Font.Underline := Underline;
         xlSheet.Range(GetCol(Col)+FORMAT(Row)).Font.Size := FontSize;*/ //dik
-
     end;
 
     [Scope('OnPrem')]
     procedure GetCol(CN: Integer): Text[30]
-    var
-        xlColID: Text[10];
-        x: Integer;
-        c: Integer;
-        i: Integer;
     begin
         /*xlColID := '';
         IF CN <> 0 THEN BEGIN
@@ -1252,7 +1159,5 @@ report 50027 "Voyage P &  L"
         EXIT(xlColID);*/
 
         //dik
-
     end;
 }
-

@@ -21,4 +21,3 @@ tableextension 50283 "tableextension50283" extends Qualification
         }
     }
 }
-

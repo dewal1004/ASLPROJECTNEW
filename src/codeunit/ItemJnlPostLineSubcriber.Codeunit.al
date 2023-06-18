@@ -56,8 +56,6 @@ codeunit 50028 "ItemJnlPostLineSubcriber"
     // begin
     // end;
 
-
-
     //>>>>>>>>>>>>>>>> Stop
 
     // [EventSubscriber(ObjectType::Codeunit, Codeunit::"Item Jnl.-Post Line", 'OnBeforePostInventoryToGL', '', true, true)]
@@ -148,7 +146,6 @@ codeunit 50028 "ItemJnlPostLineSubcriber"
 
 //   CODE
 //   {
-
 //     BEGIN
 //     END.
 //   }
@@ -215,7 +212,6 @@ codeunit 50028 "ItemJnlPostLineSubcriber"
 //                                         {IF ItemJnlLine."Item Tracking No." = 0 THEN
 //                                                       UpdateRelatedItemTracking(OldItemLedgEntry."Entry No.",-AppliedQty);} // blocked by santus 20-10-05
 
-
 //                                         #56..79
 //                                       END;
 
@@ -242,7 +238,6 @@ codeunit 50028 "ItemJnlPostLineSubcriber"
 //                                                                         ValueEntry."Item Ledger Entry Type"::Transfer]) // Inserted by Shod 01/08/18
 //                                         #6..25
 //                                       END;
-
 
 // { Skip(Not required): CodeModification  ;OriginalCode=BEGIN
 //                                         with TempSplitItemJnlLine do begin

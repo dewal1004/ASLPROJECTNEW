@@ -4,7 +4,7 @@ page 50023 "Applicant Card"
 
     PageType = Card;
     SourceTable = Applicants;
-
+    Caption = 'Applicant Card';
     layout
     {
         area(content)
@@ -242,30 +242,6 @@ page 50023 "Applicant Card"
         }
     }
 
-    var
-        //*** Mail: Codeunit Mail;
-        HumanRecSetup: Record "Human Resources Setup";
-        Applicant: Record Applicants;
-        EmploRec: Record Employee;
-        NoSeriesRec: Record "No. Series Line";
-        Numcode: Code[20];
-        NewEmpNum: Code[20];
-        ApplicRec: Record Applicants;
-        ContractRec: Record "Employment Contract";
-        "P Description": Text[30];
-        RegName: Text[60];
-        CCName: Text[60];
-        BCName: Text[60];
-        RegRec: Record "Business Unit";
-        BCRec: Record "Dimension Value";
-        CCRec: Record "Dimension Value";
-        ScoreTxt: Code[5];
-        Avg1: Decimal;
-        Avg2: Decimal;
-        Avg3: Decimal;
-        PictureExists: Boolean;
-        GloDemCd: Record "Analysis View";
-
     [Scope('OnPrem')]
     procedure CheckInterView1()
     begin
@@ -288,7 +264,6 @@ page 50023 "Applicant Card"
              END
           END;
          */
-
     end;
 
     [Scope('OnPrem')]
@@ -308,10 +283,8 @@ page 50023 "Applicant Card"
               CurrForm."Final Interview Result".ENABLED := TRUE;
               CurrForm."Final Interview Maximum".ENABLED := TRUE;
              END
-        
           END;
          */
-
     end;
 
     [Scope('OnPrem')]
@@ -324,4 +297,3 @@ page 50023 "Applicant Card"
     begin
     end;
 }
-

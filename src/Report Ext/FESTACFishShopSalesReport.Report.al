@@ -5,8 +5,7 @@ report 50231 "FESTAC Fish Shop Sales Report"
     RDLCLayout = './src/reportrdlc/FESTACFishShopSalesReport.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
-
-
+    Caption = 'FESTAC Fish Shop Sales Report';
     dataset
     {
         dataitem("Sea Food categories"; "Sea Food categories")
@@ -19,7 +18,7 @@ report 50231 "FESTAC Fish Shop Sales Report"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(FORMAT_TODAY_0_4_; Format(Today, 0, 4))
@@ -115,10 +114,9 @@ report 50231 "FESTAC Fish Shop Sales Report"
                 begin
                     LastFieldNo := FieldNo("No. 2");
                     if GetFilter("Date Filter") = '' then
-                        SetRange("Date Filter", CalcDate('-1D', WorkDate));
+                        SetRange("Date Filter", CalcDate('-1D', WorkDate()));
                     SetRange("SF Cat", CopyStr("Sea Food categories"."Sea food code", 5));
                     RepFilter := GetFilters;
-
 
                     TotSales := TotSales + "Sales (LCY)";
                 end;
@@ -128,7 +126,6 @@ report 50231 "FESTAC Fish Shop Sales Report"
 
     requestpage
     {
-
         layout
         {
         }
@@ -149,7 +146,6 @@ report 50231 "FESTAC Fish Shop Sales Report"
 
     var
         LastFieldNo: Integer;
-        FooterPrinted: Boolean;
         TotalFor: Label 'Total for ';
         RepFilter: Text[120];
         TotSales: Decimal;
@@ -159,4 +155,3 @@ report 50231 "FESTAC Fish Shop Sales Report"
         COPYSTR__Sea_food_code__5_CaptionLbl: Label 'Label1000000007';
         Total_SalesCaptionLbl: Label 'Total Sales';
 }
-

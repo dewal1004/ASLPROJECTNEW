@@ -3,7 +3,7 @@ report 50200 "Voyage P&L Ledger Line b4 Pst"
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/VoyagePLLedgerLineb4Pst.rdlc';
     Permissions = TableData "Job Ledger Entry" = rimd;
-
+    Caption = 'Voyage P&L Ledger Line b4 Pst';
     dataset
     {
         dataitem("Sea Food categories"; "Sea Food categories")
@@ -14,7 +14,7 @@ report 50200 "Voyage P&L Ledger Line b4 Pst"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -34,19 +34,15 @@ report 50200 "Voyage P&L Ledger Line b4 Pst"
             }
             column(CycleDay; CycleDay)
             {
-
             }
             column(FishgDay; FishgDay)
             {
-
             }
             column(LostDay; LostDay)
             {
-
             }
             column(PortDay; PortDay)
             {
-
             }
             column(Vess; Vess)
             {
@@ -62,19 +58,15 @@ report 50200 "Voyage P&L Ledger Line b4 Pst"
             }
             column(Text24; Text24)
             {
-
             }
             column(Text25; Text25)
             {
-
             }
             column(Text26; Text26)
             {
-
             }
             column(Text27; Text27)
             {
-
             }
             column(PntStor_1_; PntStor[1])
             {
@@ -109,7 +101,6 @@ report 50200 "Voyage P&L Ledger Line b4 Pst"
             }
             column(Loc__Vessel_Endurance_; Loc."Vessel Endurance")
             {
-
             }
             column(Sea_Food_categories__Sea_food_code_; "Sea food code")
             {
@@ -356,18 +347,18 @@ report 50200 "Voyage P&L Ledger Line b4 Pst"
                 trigger OnAfterGetRecord()
                 begin
 
-                    Location.Reset;
+                    Location.Reset();
                     Location.Get("Job Ledger Entry"."Location Code");
                     if (Location."Location Type" <> Location."Location Type"::Vessel) then
-                        CurrReport.Skip;
+                        CurrReport.Skip();
                     if ("Job Ledger Entry"."Reason Code" <> 'CATCH') then
-                        CurrReport.Skip;
+                        CurrReport.Skip();
 
                     Item.SetCurrentKey("Gen. Prod. Posting Group");
                     Item.SetRange(Item."No.", "Job Ledger Entry"."No.");
                     Item.SetRange(Item."Gen. Prod. Posting Group", 'FIS');
                     if not Item.Find('-') then
-                        CurrReport.Skip;
+                        CurrReport.Skip();
 
                     Qty := Quantity * -1;
                     PrdPrc := Qty * GetItPrice("Job No.", "No.", "Posting Date");
@@ -440,7 +431,6 @@ report 50200 "Voyage P&L Ledger Line b4 Pst"
 
     requestpage
     {
-
         layout
         {
         }
@@ -456,27 +446,16 @@ report 50200 "Voyage P&L Ledger Line b4 Pst"
 
     trigger OnPreReport()
     begin
-        JobSetUp.Get;
+        JobSetUp.Get();
     end;
 
     var
         LastFieldNo: Integer;
-        FooterPrinted: Boolean;
         TotalFor: Label 'Total';
-        "---": Integer;
-        Job: Record Job;
-        Job2: Record Job;
         Itempr: Record Item;
-        CurrExc: Record "Currency Exchange Rate";
-        ProdPostGrp: Record "Gen. Product Posting Group";
-        InvtPostGrp: Record "Inventory Posting Group";
         JobSetUp: Record "Jobs Setup";
-        RateSetUp: Record "P & L Rates";
-        JBudLn: Record Job;
-        Employee: Record Employee;
         Loc: Record Location;
         Coutry: Record "Country/Region";
-        GLEntry: Record "G/L Entry";
         Res: Record Resource;
         Prc: Decimal;
         PrcB: Decimal;
@@ -485,57 +464,23 @@ report 50200 "Voyage P&L Ledger Line b4 Pst"
         PrdPrc2: Decimal;
         PrdPrcBX: Decimal;
         PrdPrc2X: Decimal;
-        PrdPrc2B: Decimal;
-        CurrRate: Decimal;
-        NairaVal: Decimal;
         NairaValB: Decimal;
         NairaValBX: Decimal;
         NairaVal2: Decimal;
         NairaVal2X: Decimal;
-        NairaVal2B: Decimal;
         Qty: Decimal;
         QtyB: Decimal;
         QtyX: Decimal;
         QtyBX: Decimal;
-        GPPGDesc: Text[30];
-        DataStor: array[15] of Decimal;
         TotalForX: Label 'Total Exports';
         TotalFory: Label 'Total Local';
-        Text03: Label 'Catch Incentive';
-        Text04: Label 'Salaries & Wages';
-        Text05: Label 'Travelling Expenses';
-        Text06: Label 'License Fees';
-        Text07: Label 'Insurance';
-        Text08: Label 'Other Direct Cost';
-        Text09: Label 'Total Direct Expenses';
         PntStor: array[8] of Decimal;
         ETD: Date;
         ETA: Date;
-        ETA2: Date;
         CycleDay: Decimal;
         PortDay: Decimal;
         LostDay: Decimal;
-        SeaDay: Decimal;
         FishgDay: Decimal;
-        a: Decimal;
-        expcnt: Integer;
-        PeopleOnVoy: Integer;
-        ResCount: Integer;
-        Text10: Label 'Gross Margin';
-        Text11: Label '% Of Revenue';
-        Text12: Label 'Shore Overheads';
-        Text13: Label 'Depreciation';
-        Text14: Label 'Interest';
-        Text15: Label 'Net Profit';
-        Text17: Label 'Total Indirect Expenses';
-        TotDirExp: Decimal;
-        TotIndirExp: Decimal;
-        GrossMarg: Decimal;
-        GrossPerct: Decimal;
-        NetProfPerct: Decimal;
-        TotPrice: Decimal;
-        NetProfit: Decimal;
-        ExpTonnage: Decimal;
         Vess: Text[30];
         Text18: Label 'VOYAGE PROFIT AND LOSS STATEMENT';
         Text21: Label 'Shrimp Points';
@@ -551,19 +496,10 @@ report 50200 "Voyage P&L Ledger Line b4 Pst"
         UOMCd: Code[10];
         ItemVar: Code[10];
         "No.B": Code[10];
-        NOrder: Decimal;
-        ValRate: Decimal;
-        ValQty: Decimal;
-        GLStr: array[25] of Decimal;
-        "GLGPP Caption": array[25] of Code[10];
-        CountGPPG: Integer;
-        CountG: Integer;
         Flag: Boolean;
         JobNo: Code[20];
         Location: Record Location;
         Item: Record Item;
-        PrdPrcB2: Decimal;
-        NairaValB2: Decimal;
         CurrReport_PAGENOCaptionLbl: Label 'Page';
         JobNoCaptionLbl: Label 'Label1000000163';
         ETACaptionLbl: Label 'Label1000000165';
@@ -609,15 +545,13 @@ report 50200 "Voyage P&L Ledger Line b4 Pst"
         Itempr.SetRange(Itempr."Starting Date", 0D, PDays);
         //Itempr.SETRANGE(Itempr."Price Group Code",job3."Price Group Code");  #1
         if Itempr.Find('+') then
-            Prc := Itempr."Unit Price" else begin
+            Prc := Itempr."Unit Price" else
             //Itempr.SETRANGE(Itempr."Price Group Code",JobSetUp."Default Price Group Code");  #1
             if Itempr.Find('+') then
                 Prc := Itempr."Unit Price" else begin
                 Prc := 0;
                 if Flag then Message('Price Missing for Item %1', Nos);
             end;
-        end;
         exit(Prc);
     end;
 }
-

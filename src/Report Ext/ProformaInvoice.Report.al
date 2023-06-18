@@ -4,7 +4,6 @@ report 50073 "Proforma Invoice"
     //  "Shipment Text"
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/ProformaInvoice.rdlc';
-
     Caption = 'Order Confirmation';
 
     dataset
@@ -35,7 +34,7 @@ report 50073 "Proforma Invoice"
                     column(STRSUBSTNO_Text004_CopyText_; StrSubstNo(Text004, CopyText))
                     {
                     }
-                    column(STRSUBSTNO_Text005_FORMAT_CurrReport_PAGENO__; StrSubstNo(Text005, Format(CurrReport.PageNo)))
+                    column(STRSUBSTNO_Text005_FORMAT_CurrReport_PAGENO__; StrSubstNo(Text005, Format(CurrReport.PageNo())))
                     {
                     }
                     column(CustAddr_1_; CustAddr[1])
@@ -161,10 +160,10 @@ report 50073 "Proforma Invoice"
                         begin
                             if Number = 1 then begin
                                 if not DocDim1.Find('-') then
-                                    CurrReport.Break;
+                                    CurrReport.Break();
                             end else
                                 if not Continue then
-                                    CurrReport.Break;
+                                    CurrReport.Break();
 
                             Clear(DimText);
                             Continue := false;
@@ -183,13 +182,13 @@ report 50073 "Proforma Invoice"
                                     Continue := true;
                                     exit;
                                 end;
-                            until (DocDim1.Next = 0);
+                            until (DocDim1.Next() = 0);
                         end;
 
                         trigger OnPreDataItem()
                         begin
                             if not ShowInternalInfo then
-                                CurrReport.Break;
+                                CurrReport.Break();
                         end;
                     }
                     dataitem("Sales Line"; "Sales Line")
@@ -205,7 +204,7 @@ report 50073 "Proforma Invoice"
 
                         trigger OnPreDataItem()
                         begin
-                            CurrReport.Break;
+                            CurrReport.Break();
                         end;
                     }
                     dataitem(RoundLoop; "Integer")
@@ -284,7 +283,7 @@ report 50073 "Proforma Invoice"
                         column(TotalExclVATText; TotalExclVATText)
                         {
                         }
-                        column(VATAmountLine_VATAmountText; VATAmountLine.VATAmountText)
+                        column(VATAmountLine_VATAmountText; VATAmountLine.VATAmountText())
                         {
                         }
                         column(TotalInclVATText; TotalInclVATText)
@@ -318,7 +317,7 @@ report 50073 "Proforma Invoice"
                             AutoFormatExpression = "Sales Header"."Currency Code";
                             AutoFormatType = 1;
                         }
-                        column(VATAmountLine_VATAmountText_Control133; VATAmountLine.VATAmountText)
+                        column(VATAmountLine_VATAmountText_Control133; VATAmountLine.VATAmountText())
                         {
                         }
                         column(VATAmount_Control134; VATAmount)
@@ -393,10 +392,10 @@ report 50073 "Proforma Invoice"
                             begin
                                 if Number = 1 then begin
                                     if not DocDim2.Find('-') then
-                                        CurrReport.Break;
+                                        CurrReport.Break();
                                 end else
                                     if not Continue then
-                                        CurrReport.Break;
+                                        CurrReport.Break();
 
                                 Clear(DimText);
                                 Continue := false;
@@ -415,13 +414,13 @@ report 50073 "Proforma Invoice"
                                         Continue := true;
                                         exit;
                                     end;
-                                until (DocDim2.Next = 0);
+                                until (DocDim2.Next() = 0);
                             end;
 
                             trigger OnPreDataItem()
                             begin
                                 if not ShowInternalInfo then
-                                    CurrReport.Break;
+                                    CurrReport.Break();
 
                                 DocDim1.SetRange("Table ID", DATABASE::"Sales Line");
                                 DocDim1.SetRange("Document Type", "Sales Line"."Document Type");
@@ -435,7 +434,7 @@ report 50073 "Proforma Invoice"
                             if Number = 1 then
                                 SalesLine.Find('-')
                             else
-                                SalesLine.Next;
+                                SalesLine.Next();
                             "Sales Line" := SalesLine;
 
                             if (SalesLine.Type = SalesLine.Type::"G/L Account") and (not ShowInternalInfo) then
@@ -444,7 +443,7 @@ report 50073 "Proforma Invoice"
 
                         trigger OnPostDataItem()
                         begin
-                            SalesLine.DeleteAll;
+                            SalesLine.DeleteAll();
                         end;
 
                         trigger OnPreDataItem()
@@ -456,7 +455,7 @@ report 50073 "Proforma Invoice"
                             do
                                 MoreLines := SalesLine.Next(-1) <> 0;
                             if not MoreLines then
-                                CurrReport.Break;
+                                CurrReport.Break();
                             SalesLine.SetRange("Line No.", 0, SalesLine."Line No.");
                             SetRange(Number, 1, SalesLine.Count);
                             CurrReport.CreateTotals(SalesLine."Line Amount", SalesLine."Inv. Discount Amount");
@@ -638,7 +637,7 @@ report 50073 "Proforma Invoice"
                         trigger OnPreDataItem()
                         begin
                             if VATAmount = 0 then
-                                CurrReport.Break;
+                                CurrReport.Break();
                             SetRange(Number, 1, VATAmountLine.Count);
                             CurrReport.CreateTotals(
                               VATAmountLine."Line Amount", VATAmountLine."Inv. Disc. Base Amount",
@@ -716,7 +715,7 @@ report 50073 "Proforma Invoice"
                         trigger OnPreDataItem()
                         begin
                             if not ShowShippingAddr then
-                                CurrReport.Break;
+                                CurrReport.Break();
                         end;
                     }
                 }
@@ -727,15 +726,15 @@ report 50073 "Proforma Invoice"
                 begin
                     Clear(SalesLine);
                     Clear(SalesPost);
-                    VATAmountLine.DeleteAll;
+                    VATAmountLine.DeleteAll();
                     SalesPost.GetSalesLines("Sales Header", SalesLine, 0);
                     SalesLine.CalcVATAmountLines(0, "Sales Header", SalesLine, VATAmountLine);
                     SalesLine.UpdateVATOnLines(0, "Sales Header", SalesLine, VATAmountLine);
-                    VATAmount := VATAmountLine.GetTotalVATAmount;
-                    VATBaseAmount := VATAmountLine.GetTotalVATBase;
+                    VATAmount := VATAmountLine.GetTotalVATAmount();
+                    VATBaseAmount := VATAmountLine.GetTotalVATBase();
                     VATDiscountAmount :=
                       VATAmountLine.GetTotalVATDiscount("Sales Header"."Currency Code", "Sales Header"."Prices Including VAT");
-                    TotalAmountInclVAT := VATAmountLine.GetTotalAmountInclVAT;
+                    TotalAmountInclVAT := VATAmountLine.GetTotalAmountInclVAT();
 
                     if Number > 1 then
                         CopyText := Text003;
@@ -747,7 +746,6 @@ report 50073 "Proforma Invoice"
                     /*IF NOT CurrReport.PREVIEW THEN
                       SalesCountPrinted.RUN("Sales Header");
                       */
-
                 end;
 
                 trigger OnPreDataItem()
@@ -777,12 +775,11 @@ report 50073 "Proforma Invoice"
                 if "Salesperson Code" = '' then begin
                     Clear(SalesPurchPerson);
                     SalesPersonText := '';
-                end else begin
+                end else
                     if SalesPurchPerson.ReadPermission then begin
                         SalesPurchPerson.Get("Salesperson Code");
                         SalesPersonText := Text000;
                     end;
-                end;
                 if "Your Reference" = '' then
                     ReferenceText := ''
                 else
@@ -804,13 +801,13 @@ report 50073 "Proforma Invoice"
                 FormatAddr.SalesHeaderBillTo(CustAddr, "Sales Header");
 
                 if "Payment Terms Code" = '' then
-                    PaymentTerms.Init
+                    PaymentTerms.Init()
                 else
                     PaymentTerms.Get("Payment Terms Code");
 
                 if "Shipment Method Code" = '' then   //AAA - MAR 18 2003 -Modified
                 begin
-                    ShipmentMethod.Init;
+                    ShipmentMethod.Init();
                     "Shipment Text" := '';
                 end
                 else begin
@@ -828,19 +825,17 @@ report 50073 "Proforma Invoice"
                   SegManagement.LogDocument(
                     3,"No.",DATABASE::Customer,"Bill-to Customer No.","Salesperson Code","Posting Description");
                 */ //#1
-
             end;
 
             trigger OnPreDataItem()
             begin
-                CompanyInfo.Get;
+                CompanyInfo.Get();
             end;
         }
     }
 
     requestpage
     {
-
         layout
         {
         }
@@ -856,7 +851,7 @@ report 50073 "Proforma Invoice"
 
     trigger OnInitReport()
     begin
-        GLSetup.Get;
+        GLSetup.Get();
     end;
 
     trigger OnPreReport()
@@ -883,10 +878,7 @@ report 50073 "Proforma Invoice"
         DocDim2: Record "Dimension Set Entry";
         DocDim3: Record "Dimension Buffer";
         RespCenter: Record "Responsibility Center";
-        Language: Record Language;
-        SalesCountPrinted: Codeunit "Sales-Printed";
         FormatAddr: Codeunit "Format Address";
-        SegManagement: Codeunit SegManagement;
         CustAddr: array[8] of Text[50];
         ShipToAddr: array[8] of Text[50];
         CompanyAddr: array[8] of Text[50];
@@ -910,9 +902,6 @@ report 50073 "Proforma Invoice"
         VATBaseAmount: Decimal;
         VATDiscountAmount: Decimal;
         TotalAmountInclVAT: Decimal;
-        "-------------": Integer;
-        PrePrinted: Boolean;
-        Signature: Boolean;
         Countz: Integer;
         Text501: Label 'Goods once sold cannot be taken back. Untill fully paid for, the title of goods does not pass to the buyer. Interest of 12% p.a will be charged from the date of delivery till payment';
         "Shipment Text": Text[30];
@@ -951,4 +940,3 @@ report 50073 "Proforma Invoice"
         Ship_to_AddressCaptionLbl: Label 'Ship-to Address';
         S_No: Integer;
 }
-

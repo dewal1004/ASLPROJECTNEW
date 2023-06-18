@@ -1,6 +1,5 @@
 tableextension 50224 "tableextension50224" extends "G/L Account"
 {
-
     //Unsupported feature: Property Insertion (Permissions) on ""G/L Account"(Table 15)".
 
     fields
@@ -18,10 +17,10 @@ tableextension 50224 "tableextension50224" extends "G/L Account"
         {
             FieldClass = FlowField;
             TableRelation = "Reason Code".Code;
+            Editable = false;
         }
         field(50003; "Department Posting"; Date)
         {
         }
     }
 }
-

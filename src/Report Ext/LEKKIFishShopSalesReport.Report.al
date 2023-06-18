@@ -5,8 +5,7 @@ report 50225 "LEKKI Fish Shop Sales Report"
     RDLCLayout = './src/reportrdlc/LEKKIFishShopSalesReport.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
-
-
+    Caption = 'LEKKI Fish Shop Sales Report';
     dataset
     {
         dataitem("Sea Food categories"; "Sea Food categories")
@@ -17,7 +16,7 @@ report 50225 "LEKKI Fish Shop Sales Report"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(FORMAT_TODAY_0_4_; Format(Today, 0, 4))
@@ -118,7 +117,6 @@ report 50225 "LEKKI Fish Shop Sales Report"
 
     requestpage
     {
-
         layout
         {
         }
@@ -138,8 +136,6 @@ report 50225 "LEKKI Fish Shop Sales Report"
     end;
 
     var
-        LastFieldNo: Integer;
-        FooterPrinted: Boolean;
         TotalFor: Label 'Total for ';
         RepFilter: Text[120];
         TotSales: Decimal;
@@ -149,4 +145,3 @@ report 50225 "LEKKI Fish Shop Sales Report"
         COPYSTR__Sea_food_code__5_CaptionLbl: Label 'Label1000000007';
         Total_SalesCaptionLbl: Label 'Total Sales';
 }
-

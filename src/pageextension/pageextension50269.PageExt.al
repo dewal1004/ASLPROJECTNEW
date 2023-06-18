@@ -2,9 +2,7 @@ pageextension 50269 "pageextension50269" extends "Purchase Order Statistics"
 {
     layout
     {
-
         //Unsupported feature: Property Modification (Name) on ""VATAmount_Invoicing"(Control 47)".
-
     }
 
     //Unsupported feature: Code Modification on "VendInvDiscRecExists(PROCEDURE 4)".
@@ -28,4 +26,3 @@ pageextension 50269 "pageextension50269" extends "Purchase Order Statistics"
     */
     //end;
 }
-

@@ -3,7 +3,7 @@ page 50049 "Applicant Qualification Overv"
     PageType = Card;
     SaveValues = true;
     SourceTable = Applicants;
-
+    Caption = 'Applicant Qualification Overv';
     layout
     {
     }
@@ -11,9 +11,4 @@ page 50049 "Applicant Qualification Overv"
     actions
     {
     }
-
-    var
-        Qualified: Boolean;
-        EmployeeQualification: Record "Employee Qualification";
 }
-

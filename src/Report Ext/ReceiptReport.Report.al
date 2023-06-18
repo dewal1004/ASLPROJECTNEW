@@ -4,8 +4,7 @@ report 50170 "Receipt Report"
     // NUm2Words.ToWords("Amount (LCY)",CurrencyName,CurrencyUnit,100,'')+'
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/ReceiptReport.rdlc';
-
-
+    Caption = 'Receipt Report';
     dataset
     {
         dataitem("Gen. Journal Batch"; "Gen. Journal Batch")
@@ -330,12 +329,12 @@ report 50170 "Receipt Report"
                         if "Currency Code" = '' then
                             "Amount (LCY)" := Amount;
 
-                        UpdateLineBalance;
+                        UpdateLineBalance();
 
                         AccName := '';
                         BalAccName := '';
 
-                        if not EmptyLine then begin
+                        if not EmptyLine() then begin
                             MakeRecurringTexts("Gen. Journal Line");
 
                             AmountError := false;
@@ -354,10 +353,9 @@ report 50170 "Receipt Report"
                                         begin
                                             if ("Gen. Bus. Posting Group" <> '') or ("Gen. Prod. Posting Group" <> '') or
                                                ("VAT Bus. Posting Group" <> '') or ("VAT Prod. Posting Group" <> '')
-                                            then begin
+                                            then
                                                 if "Gen. Posting Type" = 0 then
                                                     AddError(StrSubstNo('%1 must be specified.', FieldName("Gen. Posting Type")));
-                                            end;
                                             if ("Gen. Posting Type" <> "Gen. Posting Type"::" ") and
                                                ("VAT Posting" = "VAT Posting"::"Automatic VAT Entry")
                                             then begin
@@ -376,12 +374,11 @@ report 50170 "Receipt Report"
                                         end;
                                     "Account Type"::Customer, "Account Type"::Vendor:
                                         begin
-                                            if "Gen. Posting Type" <> 0 then begin
+                                            if "Gen. Posting Type" <> 0 then
                                                 AddError(
                                                   StrSubstNo(
                                                     '%1 must be " " when %2 is %3.',
                                                     FieldName("Gen. Posting Type"), FieldName("Account Type"), "Account Type"));
-                                            end;
                                             if ("Gen. Bus. Posting Group" <> '') or ("Gen. Prod. Posting Group" <> '') or
                                                ("VAT Bus. Posting Group" <> '') or ("VAT Prod. Posting Group" <> '')
                                             then
@@ -392,7 +389,7 @@ report 50170 "Receipt Report"
                                                     FieldName("VAT Bus. Posting Group"), FieldName("VAT Prod. Posting Group"),
                                                     FieldName("Account Type"), "Account Type"));
 
-                                            if "Document Type" <> 0 then begin
+                                            if "Document Type" <> 0 then
                                                 if ("Account Type" = "Account Type"::Customer) =
                                                    ("Document Type" in ["Document Type"::Payment, "Document Type"::"Credit Memo"])
                                                 then begin
@@ -400,13 +397,11 @@ report 50170 "Receipt Report"
                                                         AmountError := true;
                                                         AddError(StrSubstNo('%1 must be negative.', FieldName(Amount)));
                                                     end;
-                                                end else begin
+                                                end else
                                                     if (Amount < 0) and not AmountError then begin
                                                         AmountError := true;
                                                         AddError(StrSubstNo('%1 must be positive.', FieldName(Amount)));
                                                     end;
-                                                end;
-                                            end;
                                             if Amount * "Sales/Purch. (LCY)" < 0 then
                                                 AddError(
                                                   StrSubstNo(
@@ -417,12 +412,11 @@ report 50170 "Receipt Report"
                                         end;
                                     "Account Type"::"Bank Account":
                                         begin
-                                            if "Gen. Posting Type" <> 0 then begin
+                                            if "Gen. Posting Type" <> 0 then
                                                 AddError(
                                                   StrSubstNo(
                                                     '%1 must be " " when %2 is %3.',
                                                     FieldName("Gen. Posting Type"), FieldName("Account Type"), "Account Type"));
-                                            end;
                                             if ("Gen. Bus. Posting Group" <> '') or ("Gen. Prod. Posting Group" <> '') or
                                                ("VAT Bus. Posting Group" <> '') or ("VAT Prod. Posting Group" <> '')
                                             then
@@ -449,10 +443,9 @@ report 50170 "Receipt Report"
                                         begin
                                             if ("Bal. Gen. Bus. Posting Group" <> '') or ("Bal. Gen. Prod. Posting Group" <> '') or
                                                ("Bal. VAT Bus. Posting Group" <> '') or ("Bal. VAT Prod. Posting Group" <> '')
-                                            then begin
+                                            then
                                                 if "Bal. Gen. Posting Type" = 0 then
                                                     AddError(StrSubstNo('%1 must be specified.', FieldName("Bal. Gen. Posting Type")));
-                                            end;
                                             if ("Bal. Gen. Posting Type" <> "Bal. Gen. Posting Type"::" ") and
                                                ("VAT Posting" = "VAT Posting"::"Automatic VAT Entry")
                                             then begin
@@ -471,12 +464,11 @@ report 50170 "Receipt Report"
                                         end;
                                     "Bal. Account Type"::Customer, "Bal. Account Type"::Vendor:
                                         begin
-                                            if "Bal. Gen. Posting Type" <> 0 then begin
+                                            if "Bal. Gen. Posting Type" <> 0 then
                                                 AddError(
                                                   StrSubstNo(
                                                     '%1 must be " " when %2 is %3.',
                                                     FieldName("Bal. Gen. Posting Type"), FieldName("Bal. Account Type"), "Bal. Account Type"));
-                                            end;
                                             if ("Bal. Gen. Bus. Posting Group" <> '') or ("Bal. Gen. Prod. Posting Group" <> '') or
                                                ("Bal. VAT Bus. Posting Group" <> '') or ("Bal. VAT Prod. Posting Group" <> '')
                                             then
@@ -487,7 +479,7 @@ report 50170 "Receipt Report"
                                                     FieldName("Bal. VAT Bus. Posting Group"), FieldName("Bal. VAT Prod. Posting Group"),
                                                     FieldName("Bal. Account Type"), "Bal. Account Type"));
 
-                                            if "Document Type" <> 0 then begin
+                                            if "Document Type" <> 0 then
                                                 if ("Bal. Account Type" = "Bal. Account Type"::Customer) =
                                                    ("Document Type" in ["Document Type"::Payment, "Document Type"::"Credit Memo"])
                                                 then begin
@@ -495,13 +487,11 @@ report 50170 "Receipt Report"
                                                         AmountError := true;
                                                         AddError(StrSubstNo('%1 must be positive.', FieldName(Amount)));
                                                     end;
-                                                end else begin
+                                                end else
                                                     if (Amount > 0) and not AmountError then begin
                                                         AmountError := true;
                                                         AddError(StrSubstNo('%1 must be negative.', FieldName(Amount)));
                                                     end;
-                                                end;
-                                            end;
                                             if Amount * "Sales/Purch. (LCY)" > 0 then
                                                 AddError(
                                                   StrSubstNo(
@@ -512,12 +502,11 @@ report 50170 "Receipt Report"
                                         end;
                                     "Bal. Account Type"::"Bank Account":
                                         begin
-                                            if "Bal. Gen. Posting Type" <> 0 then begin
+                                            if "Bal. Gen. Posting Type" <> 0 then
                                                 AddError(
                                                   StrSubstNo(
                                                     '%1 must be " " when %2 is %3.',
                                                     FieldName("Bal. Gen. Posting Type"), FieldName("Bal. Account Type"), "Bal. Account Type"));
-                                            end;
                                             if ("Bal. Gen. Bus. Posting Group" <> '') or ("Bal. Gen. Prod. Posting Group" <> '') or
                                                ("Bal. VAT Bus. Posting Group" <> '') or ("Bal. VAT Prod. Posting Group" <> '')
                                             then
@@ -679,7 +668,7 @@ report 50170 "Receipt Report"
                                 end;
                             end;
 
-                            CheckBalance;
+                            CheckBalance();
                         end;
                     end;
 
@@ -692,13 +681,13 @@ report 50170 "Receipt Report"
                                   StrSubstNo(
                                     '%1 cannot be filtered when you post recurring journals.',
                                     FieldName("Posting Date")));
-                            SetRange("Posting Date", 0D, WorkDate);
+                            SetRange("Posting Date", 0D, WorkDate());
                             if GetFilter("Expiration Date") <> '' then
                                 AddError(
                                   StrSubstNo(
                                     '%1 cannot be filtered when you post recurring journals.',
                                     FieldName("Expiration Date")));
-                            SetFilter("Expiration Date", '%1 | %2..', 0D, WorkDate);
+                            SetFilter("Expiration Date", '%1 | %2..', 0D, WorkDate());
                         end;
 
                         if "Gen. Journal Batch"."No. Series" <> '' then begin
@@ -710,10 +699,10 @@ report 50170 "Receipt Report"
                         CurrentCustomerVendors := 0;
                         VATEntryCreated := false;
 
-                        GenJnlLine2.Reset;
+                        GenJnlLine2.Reset();
                         GenJnlLine2.CopyFilters("Gen. Journal Line");
 
-                        GLAccNetChange.DeleteAll;
+                        GLAccNetChange.DeleteAll();
                         CurrReport.CreateTotals("Amount (LCY)", "Balance (LCY)");
                     end;
                 }
@@ -759,12 +748,12 @@ report 50170 "Receipt Report"
                         if Number = 1 then
                             GLAccNetChange.Find('-')
                         else
-                            GLAccNetChange.Next;
+                            GLAccNetChange.Next();
                     end;
 
                     trigger OnPostDataItem()
                     begin
-                        GLAccNetChange.DeleteAll;
+                        GLAccNetChange.DeleteAll();
                     end;
 
                     trigger OnPreDataItem()
@@ -791,12 +780,12 @@ report 50170 "Receipt Report"
 
             trigger OnPreDataItem()
             begin
-                GLSetup.Get;
-                SalesSetup.Get;
-                PurchSetup.Get;
+                GLSetup.Get();
+                SalesSetup.Get();
+                PurchSetup.Get();
 
                 //AAA-jan-apr2001
-                CompanyInfo.Get;
+                CompanyInfo.Get();
                 FormatAddr.Company(CompanyAddr, CompanyInfo);
             end;
         }
@@ -804,7 +793,6 @@ report 50170 "Receipt Report"
 
     requestpage
     {
-
         layout
         {
         }
@@ -864,9 +852,6 @@ report 50170 "Receipt Report"
         GenJnlTemplate: Record "Gen. Journal Template";
         GenJnlLine2: Record "Gen. Journal Line";
         GenJnlAlloc: Record "Gen. Jnl. Allocation";
-        OldCustLedgEntry: Record "Cust. Ledger Entry";
-        OldVendLedgEntry: Record "Vendor Ledger Entry";
-        GenPostingSetup: Record "General Posting Setup";
         VATPostingSetup: Record "VAT Posting Setup";
         NoSeries: Record "No. Series";
         FA: Record "Fixed Asset";
@@ -909,7 +894,6 @@ report 50170 "Receipt Report"
         VendPosting: Boolean;
         SalesPostingType: Boolean;
         PurchPostingType: Boolean;
-        "------------------------------": Integer;
         FormatAddr: Codeunit "Format Address";
         CompanyInfo: Record "Company Information";
         HdText: Text[250];
@@ -917,16 +901,11 @@ report 50170 "Receipt Report"
         CompanyAddr: array[8] of Text[50];
         paymentof: Text[250];
         Payto: Text[80];
-        "-------------": Text[1];
         CurrencyName: Text[30];
         CurrencyUnit: Text[10];
         NUm2Words: Codeunit Library;
-        GenJnlManagement: Codeunit GenJnlManagement;
-        Paytype: Option Cash,Cheque;
         v1: Text[30];
         v2: Text[30];
-        v3: Text[30];
-        v4: Text[30];
         here: Boolean;
         GJLINE: Record "Gen. Journal Line";
         A1: Text[30];
@@ -1000,22 +979,21 @@ report 50170 "Receipt Report"
                         GenJnlLine2.FieldName("Recurring Method"), GenJnlLine2."Recurring Method",
                         GenJnlLine2.FieldName("Bal. Account Type"), GenJnlLine2."Bal. Account Type"));
             end;
-        end else begin
+        end else
             if GenJnlLine2."Recurring Method" <> 0 then
                 AddError(StrSubstNo('%1 cannot be specified.', GenJnlLine2.FieldName("Recurring Method")));
-            //IF "Recurring Frequency" <> '' THEN
-            //AddError(STRSUBSTNO('%1 cannot be specified.',FIELDNAME("Recurring Frequency")));
-        end;
+        //IF "Recurring Frequency" <> '' THEN
+        //AddError(STRSUBSTNO('%1 cannot be specified.',FIELDNAME("Recurring Frequency")));
     end;
 
     local procedure CheckAllocations(GenJnlLine2: Record "Gen. Journal Line")
     begin
-        GenJnlAlloc.Reset;
+        GenJnlAlloc.Reset();
         GenJnlAlloc.SetRange("Journal Template Name", GenJnlLine2."Journal Template Name");
         GenJnlAlloc.SetRange("Journal Batch Name", GenJnlLine2."Journal Batch Name");
         GenJnlAlloc.SetRange("Journal Line No.", GenJnlLine2."Line No.");
         GenJnlAlloc.SetFilter(Amount, '<>0');
-        if GenJnlAlloc.Find('-') then begin
+        if GenJnlAlloc.Find('-') then
             if not GenJnlTemplate.Recurring then
                 AddError('Allocations can only be used with recurring journals.')
             else begin
@@ -1026,7 +1004,6 @@ report 50170 "Receipt Report"
                         'Please specify %1 in the %2 allocation lines.',
                         GenJnlAlloc.FieldName("Account No."), GenJnlAlloc.Count));
             end;
-        end;
     end;
 
     local procedure MakeRecurringTexts(var GenJnlLine2: Record "Gen. Journal Line")
@@ -1062,11 +1039,11 @@ report 50170 "Receipt Report"
     begin
         GenJnlLine := "Gen. Journal Line";
         LastLineNo := "Gen. Journal Line"."Line No.";
-        if "Gen. Journal Line".Next = 0 then;
+        if "Gen. Journal Line".Next() = 0 then;
         NextGenJnlLine := "Gen. Journal Line";
         MakeRecurringTexts(NextGenJnlLine);
         "Gen. Journal Line" := GenJnlLine;
-        if not GenJnlLine.EmptyLine then begin
+        if not GenJnlLine.EmptyLine() then begin
             DocBalance := DocBalance + GenJnlLine."Balance (LCY)";
             DateBalance := DateBalance + GenJnlLine."Balance (LCY)";
             TotalBalance := TotalBalance + GenJnlLine."Balance (LCY)";
@@ -1191,15 +1168,15 @@ then begin
         if not GLAccNetChange.Get(GLAccNo) then begin
             GLAcc.Get(GLAccNo);
             GLAcc.CalcFields("Balance at Date");
-            GLAccNetChange.Init;
+            GLAccNetChange.Init();
             GLAccNetChange."No." := GLAcc."No.";
             GLAccNetChange.Name := GLAcc.Name;
             GLAccNetChange."Balance after Posting" := GLAcc."Balance at Date";
-            GLAccNetChange.Insert;
+            GLAccNetChange.Insert();
         end;
         GLAccNetChange."Net Change in Jnl." := GLAccNetChange."Net Change in Jnl." + ReconcileAmount;
         GLAccNetChange."Balance after Posting" := GLAccNetChange."Balance after Posting" + ReconcileAmount;
-        GLAccNetChange.Modify;
+        GLAccNetChange.Modify();
     end;
 
     local procedure CheckGLAcc(var GenJnlLine: Record "Gen. Journal Line"; var AccName: Text[30])
@@ -1253,7 +1230,6 @@ then begin
                         FIELDNAME("Shortcut Dimension 1 Code"),GLAcc.TABLENAME,GLAcc."No."));
               END;*/// & u
 
-
             /*CASE GLAcc."Branch Posting" OF
               GLAcc."Branch Posting"::"1":
                 IF GenJnlLine."Shortcut Dimension 2 Code" = '' THEN
@@ -1282,7 +1258,7 @@ then begin
                     GenJnlLine."Gen. Posting Type"::Purchase:
                         PurchPostingType := true;
                 end;
-                TestPostingType;
+                TestPostingType();
 
                 if not VATPostingSetup.Get(GenJnlLine."VAT Bus. Posting Group", GenJnlLine."VAT Prod. Posting Group") then
                     AddError(
@@ -1300,7 +1276,6 @@ then begin
             if GLAcc."Reconciliation Account" then
                 ReconcileGLAccNo(GenJnlLine."Account No.", Round(GenJnlLine."Amount (LCY)" / (1 + GenJnlLine."VAT %" / 100)));
         end;
-
     end;
 
     local procedure CheckCust(var GenJnlLine: Record "Gen. Journal Line"; var AccName: Text[30])
@@ -1313,7 +1288,7 @@ then begin
                 Cust.TABLENAME,"Account No."))
           ELSE BEGIN
             AccName := Cust.Name;
-        
+
             IF Cust.Blocked THEN
               AddError(
                 STRSUBSTNO(
@@ -1325,10 +1300,10 @@ then begin
                   STRSUBSTNO(
                     'The currency %1 cannot be found. Please check the currency table.',
                     "Currency Code"));
-        
+
             CustPosting := TRUE;
             TestPostingType;
-        
+
             IF "Recurring Method" = 0 THEN
               IF "Document Type" IN
                  ["Document Type"::Invoice,"Document Type"::"Credit Memo",
@@ -1341,13 +1316,11 @@ then begin
                 IF OldCustLedgEntry.FIND('-') THEN
                   AddError(STRSUBSTNO('Sales %1 %2 already exists.',"Document Type","Document No."));
               END;
-        
+
              IF SalesSetup."Ext. Doc. No. Mandatory" THEN
                TESTFIELD("External Document No.");
-        
           END;
         END; */ //& u
-
     end;
 
     local procedure CheckVend(var GenJnlLine: Record "Gen. Journal Line"; var AccName: Text[30])
@@ -1360,7 +1333,7 @@ then begin
                 Vend.TABLENAME,"Account No."))
           ELSE BEGIN
             AccName := Vend.Name;
-        
+
             IF Vend.Blocked THEN
               AddError(
                 STRSUBSTNO(
@@ -1372,10 +1345,10 @@ then begin
                   STRSUBSTNO(
                     'The currency %1 cannot be found. Please check the currency table.',
                     "Currency Code"));
-        
+
             VendPosting := TRUE;
             TestPostingType;
-        
+
             IF "Recurring Method" = 0 THEN
               IF "Document Type" IN
                  ["Document Type"::Invoice,"Document Type"::"Credit Memo",
@@ -1391,7 +1364,7 @@ then begin
                     STRSUBSTNO(
                       'Purchase %1 %2 already exists for this vendor.',
                       "Document Type","Document No."));
-        
+
                 IF PurchSetup."Ext. Doc. No. Mandatory" OR
                   ("External Document No." <> '')
                 THEN BEGIN
@@ -1411,11 +1384,9 @@ then begin
                         'Purchase %1 %2 already exists for this vendor.',
                         "Document Type","External Document No."));
                 END;
-        
               END;
           END;
         END;*/ // & u
-
     end;
 
     local procedure CheckBankAcc(var GenJnlLine: Record "Gen. Journal Line"; var AccName: Text[30])
@@ -1527,7 +1498,7 @@ then begin
               StrSubstNo(
                 '%1 and %2 must not both be %3.',
                 GenJnlLine.FieldName("Account Type"), GenJnlLine.FieldName("Bal. Account Type"), GenJnlLine."Account Type"));
-        if GenJnlLine."Account Type" = GenJnlLine."Account Type"::"Fixed Asset" then begin
+        if GenJnlLine."Account Type" = GenJnlLine."Account Type"::"Fixed Asset" then
             if GenJnlLine."FA Posting Type" in
               [GenJnlLine."FA Posting Type"::"Acquisition Cost", GenJnlLine."FA Posting Type"::Disposal, GenJnlLine."FA Posting Type"::Maintenance]
             then begin
@@ -1551,8 +1522,7 @@ then begin
                         '%1 must not be specified when %2 = %3.',
                         GenJnlLine.FieldName("Gen. Prod. Posting Group"), GenJnlLine.FieldName("FA Posting Type"), GenJnlLine."FA Posting Type"));
             end;
-        end;
-        if GenJnlLine."Bal. Account Type" = GenJnlLine."Bal. Account Type"::"Fixed Asset" then begin
+        if GenJnlLine."Bal. Account Type" = GenJnlLine."Bal. Account Type"::"Fixed Asset" then
             if GenJnlLine."FA Posting Type" in
               [GenJnlLine."FA Posting Type"::"Acquisition Cost", GenJnlLine."FA Posting Type"::Disposal, GenJnlLine."FA Posting Type"::Maintenance]
             then begin
@@ -1576,7 +1546,6 @@ then begin
                         '%1 must not be specified when %2 = %3.',
                         GenJnlLine.FieldName("Bal. Gen. Prod. Posting Group"), GenJnlLine.FieldName("FA Posting Type"), GenJnlLine."FA Posting Type"));
             end;
-        end;
         TempErrorText :=
           '%1 ' +
           StrSubstNo(
@@ -1636,7 +1605,7 @@ then begin
                         AllowFAPostingTo := UserSetup."Allow FA Posting To";
                     end;
                 if (AllowFAPostingFrom = 0D) and (AllowFAPostingTo = 0D) then begin
-                    FASetup.Get;
+                    FASetup.Get();
                     AllowFAPostingFrom := FASetup."Allow FA Posting From";
                     AllowFAPostingTo := FASetup."Allow FA Posting To";
                 end;
@@ -1651,7 +1620,7 @@ then begin
                             '%1 is not within your range of allowed posting dates.',
                             GenJnlLine.FieldName("FA Posting Date")));
             end;
-            FASetup.Get;
+            FASetup.Get();
             if (GenJnlLine."FA Posting Type" = GenJnlLine."FA Posting Type"::"Acquisition Cost") and
                (GenJnlLine."Insurance No." <> '') and (GenJnlLine."Depreciation Book Code" <> FASetup."Insurance Depr. Book")
             then
@@ -1751,4 +1720,3 @@ then begin
         end;
     end;
 }
-

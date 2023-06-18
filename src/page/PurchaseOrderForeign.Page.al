@@ -10,7 +10,6 @@ page 50097 "Purchase Order Foreign"
     SourceTableView = WHERE("Document Type" = FILTER(Order),
                             "Order Type" = FILTER(Foreign));
 
-
     layout
     {
         area(content)
@@ -27,7 +26,7 @@ page 50097 "Purchase Order Foreign"
                     trigger OnAssistEdit()
                     begin
                         if Rec.AssistEdit(xRec) then
-                            CurrPage.Update;
+                            CurrPage.Update();
                     end;
                 }
                 field("Buy-from Vendor No."; Rec."Buy-from Vendor No.")
@@ -38,7 +37,7 @@ page 50097 "Purchase Order Foreign"
 
                     trigger OnValidate()
                     begin
-                        BuyfromVendorNoOnAfterValidate;
+                        BuyfromVendorNoOnAfterValidate();
                     end;
                 }
                 field("Buy-from Contact No."; Rec."Buy-from Contact No.")
@@ -126,7 +125,7 @@ page 50097 "Purchase Order Foreign"
 
                     trigger OnValidate()
                     begin
-                        PurchaserCodeOnAfterValidate;
+                        PurchaserCodeOnAfterValidate();
                     end;
                 }
                 field("Responsibility Center"; Rec."Responsibility Center")
@@ -165,7 +164,7 @@ page 50097 "Purchase Order Foreign"
 
                     trigger OnValidate()
                     begin
-                        PaytoVendorNoOnAfterValidate;
+                        PaytoVendorNoOnAfterValidate();
                     end;
                 }
                 field("Pay-to Contact No."; Rec."Pay-to Contact No.")
@@ -207,7 +206,7 @@ page 50097 "Purchase Order Foreign"
 
                     trigger OnValidate()
                     begin
-                        ShortcutDimension1CodeOnAfterV;
+                        ShortcutDimension1CodeOnAfterV();
                     end;
                 }
                 field("Shortcut Dimension 2 Code"; Rec."Shortcut Dimension 2 Code")
@@ -216,7 +215,7 @@ page 50097 "Purchase Order Foreign"
 
                     trigger OnValidate()
                     begin
-                        ShortcutDimension2CodeOnAfterV;
+                        ShortcutDimension2CodeOnAfterV();
                     end;
                 }
                 field("Payment Terms Code"; Rec."Payment Terms Code")
@@ -261,7 +260,7 @@ page 50097 "Purchase Order Foreign"
 
                     trigger OnValidate()
                     begin
-                        PricesIncludingVATOnAfterValid;
+                        PricesIncludingVATOnAfterValid();
                     end;
                 }
                 field("VAT Bus. Posting Group"; Rec."VAT Bus. Posting Group")
@@ -354,17 +353,17 @@ page 50097 "Purchase Order Foreign"
                         if Rec."Posting Date" <> 0D then
                             ChangeExchangeRate.SetParameter(Rec."Currency Code", Rec."Currency Factor", Rec."Posting Date")
                         else
-                            ChangeExchangeRate.SetParameter(Rec."Currency Code", Rec."Currency Factor", WorkDate);
-                        if ChangeExchangeRate.RunModal = ACTION::OK then begin
-                            Rec.Validate("Currency Factor", ChangeExchangeRate.GetParameter);
-                            CurrPage.Update;
+                            ChangeExchangeRate.SetParameter(Rec."Currency Code", Rec."Currency Factor", WorkDate());
+                        if ChangeExchangeRate.RunModal() = ACTION::OK then begin
+                            Rec.Validate("Currency Factor", ChangeExchangeRate.GetParameter());
+                            CurrPage.Update();
                         end;
                         Clear(ChangeExchangeRate);
                     end;
 
                     trigger OnValidate()
                     begin
-                        CurrPage.Update;
+                        CurrPage.Update();
                         PurchCalcDiscByType.ApplyDefaultInvoiceDiscount(0, Rec);
                     end;
                 }
@@ -467,7 +466,7 @@ page 50097 "Purchase Order Foreign"
 
                     trigger OnValidate()
                     begin
-                        Prepayment37OnAfterValidate;
+                        Prepayment37OnAfterValidate();
                     end;
                 }
                 field("Compress Prepayment"; Rec."Compress Prepayment")
@@ -622,8 +621,8 @@ page 50097 "Purchase Order Foreign"
 
                     trigger OnAction()
                     begin
-                        Rec.ShowDocDim;
-                        CurrPage.SaveRecord;
+                        Rec.ShowDocDim();
+                        CurrPage.SaveRecord();
                     end;
                 }
                 action(Statistics)
@@ -638,7 +637,7 @@ page 50097 "Purchase Order Foreign"
 
                     trigger OnAction()
                     begin
-                        Rec.OpenPurchaseOrderStatistics;
+                        Rec.OpenPurchaseOrderStatistics();
                         PurchCalcDiscByType.ResetRecalculateInvoiceDisc(Rec);
                     end;
                 }
@@ -665,7 +664,7 @@ page 50097 "Purchase Order Foreign"
                         ApprovalEntries: Page "Approval Entries";
                     begin
                         ApprovalEntries.Setfilters(DATABASE::"Purchase Header", Rec."Document Type", Rec."No.");
-                        ApprovalEntries.Run;
+                        ApprovalEntries.Run();
                     end;
                 }
                 action("Co&mments")
@@ -912,7 +911,7 @@ page 50097 "Purchase Order Foreign"
 
                     trigger OnAction()
                     begin
-                        ApproveCalcInvDisc;
+                        ApproveCalcInvDisc();
                         PurchCalcDiscByType.ResetRecalculateInvoiceDisc(Rec);
                     end;
                 }
@@ -948,7 +947,7 @@ page 50097 "Purchase Order Foreign"
                     trigger OnAction()
                     begin
                         CopyPurchDoc.SetPurchHeader(Rec);
-                        CopyPurchDoc.RunModal;
+                        CopyPurchDoc.RunModal();
                         Clear(CopyPurchDoc);
                     end;
                 }
@@ -963,8 +962,8 @@ page 50097 "Purchase Order Foreign"
                     begin
                         Clear(MoveNegPurchLines);
                         MoveNegPurchLines.SetPurchHeader(Rec);
-                        MoveNegPurchLines.RunModal;
-                        MoveNegPurchLines.ShowDocument;
+                        MoveNegPurchLines.RunModal();
+                        MoveNegPurchLines.ShowDocument();
                     end;
                 }
                 action("Calculate Standard Landed Cost")
@@ -1090,8 +1089,6 @@ page 50097 "Purchase Order Foreign"
                         //ToolTip = '';
 
                         trigger OnAction()
-                        var
-                            IncomingDocument: Record "Incoming Document";
                         begin
                             //VALIDATE("Incoming Document Entry No.",IncomingDocument.SelectIncomingDocument("Incoming Document Entry No."));
                         end;
@@ -1144,7 +1141,6 @@ page 50097 "Purchase Order Foreign"
                     trigger OnAction()
                     var
                         ApprovalsMgmt: Codeunit "Approvals Mgmt.";
-                        CodeForApprovalsetup: Codeunit "Code For Approval setup";
                     begin
                         //IF ApprovalsMgmt.CheckPurchaseApprovalsWorkflowEnabled(Rec) THEN
                         ApprovalsMgmt.OnSendPurchaseDocForApproval(Rec);
@@ -1195,7 +1191,7 @@ page 50097 "Purchase Order Foreign"
                         GetSourceDocInbound.CreateFromPurchOrder(Rec);
 
                         if not Rec.Find('=><') then
-                            Rec.Init;
+                            Rec.Init();
                     end;
                 }
                 action("Create Inventor&y Put-away/Pick")
@@ -1210,10 +1206,10 @@ page 50097 "Purchase Order Foreign"
 
                     trigger OnAction()
                     begin
-                        Rec.CreateInvtPutAwayPick;
+                        Rec.CreateInvtPutAwayPick();
 
                         if not Rec.Find('=><') then
-                            Rec.Init;
+                            Rec.Init();
                     end;
                 }
                 separator(Action74)
@@ -1303,7 +1299,7 @@ page 50097 "Purchase Order Foreign"
 
                     trigger OnAction()
                     begin
-                        Rec.CancelBackgroundPosting;
+                        Rec.CancelBackgroundPosting();
                     end;
                 }
                 separator(Action201)
@@ -1421,33 +1417,33 @@ page 50097 "Purchase Order Foreign"
 
     trigger OnAfterGetRecord()
     begin
-        SetControlAppearance;
+        SetControlAppearance();
     end;
 
     trigger OnDeleteRecord(): Boolean
     begin
-        CurrPage.SaveRecord;
-        exit(Rec.ConfirmDeletion);
+        CurrPage.SaveRecord();
+        exit(Rec.ConfirmDeletion());
     end;
 
     trigger OnInit()
     begin
-        SetExtDocNoMandatoryCondition;
+        SetExtDocNoMandatoryCondition();
     end;
 
     trigger OnNewRecord(BelowxRec: Boolean)
     begin
-        Rec."Responsibility Center" := UserMgt.GetPurchasesFilter;
+        Rec."Responsibility Center" := UserMgt.GetPurchasesFilter();
         Rec."Order Type" := Rec."Order Type"::Foreign;
     end;
 
     trigger OnOpenPage()
     begin
-        SetDocNoVisible;
+        SetDocNoVisible();
 
-        if UserMgt.GetPurchasesFilter <> '' then begin
+        if UserMgt.GetPurchasesFilter() <> '' then begin
             Rec.FilterGroup(2);
-            Rec.SetRange("Responsibility Center", UserMgt.GetPurchasesFilter);
+            Rec.SetRange("Responsibility Center", UserMgt.GetPurchasesFilter());
             Rec.FilterGroup(0);
         end;
     end;
@@ -1476,13 +1472,13 @@ page 50097 "Purchase Order Foreign"
     begin
         Rec.SendToPosting(PostingCodeunitID);
         if Rec."Job Queue Status" = Rec."Job Queue Status"::"Scheduled for Posting" then
-            CurrPage.Close;
+            CurrPage.Close();
         CurrPage.Update(false);
     end;
 
     local procedure ApproveCalcInvDisc()
     begin
-        CurrPage.PurchLines.PAGE.ApproveCalcInvDisc;
+        CurrPage.PurchLines.PAGE.ApproveCalcInvDisc();
     end;
 
     local procedure BuyfromVendorNoOnAfterValidate()
@@ -1490,7 +1486,7 @@ page 50097 "Purchase Order Foreign"
         if Rec.GetFilter("Buy-from Vendor No.") = xRec."Buy-from Vendor No." then
             if Rec."Buy-from Vendor No." <> xRec."Buy-from Vendor No." then
                 Rec.SetRange("Buy-from Vendor No.");
-        CurrPage.Update;
+        CurrPage.Update();
     end;
 
     local procedure PurchaserCodeOnAfterValidate()
@@ -1500,27 +1496,27 @@ page 50097 "Purchase Order Foreign"
 
     local procedure PaytoVendorNoOnAfterValidate()
     begin
-        CurrPage.Update;
+        CurrPage.Update();
     end;
 
     local procedure ShortcutDimension1CodeOnAfterV()
     begin
-        CurrPage.Update;
+        CurrPage.Update();
     end;
 
     local procedure ShortcutDimension2CodeOnAfterV()
     begin
-        CurrPage.Update;
+        CurrPage.Update();
     end;
 
     local procedure PricesIncludingVATOnAfterValid()
     begin
-        CurrPage.Update;
+        CurrPage.Update();
     end;
 
     local procedure Prepayment37OnAfterValidate()
     begin
-        CurrPage.Update;
+        CurrPage.Update();
     end;
 
     local procedure SetDocNoVisible()
@@ -1535,7 +1531,7 @@ page 50097 "Purchase Order Foreign"
     var
         PurchasesPayablesSetup: Record "Purchases & Payables Setup";
     begin
-        PurchasesPayablesSetup.Get;
+        PurchasesPayablesSetup.Get();
         VendorInvoiceNoMandatory := PurchasesPayablesSetup."Ext. Doc. No. Mandatory"
     end;
 
@@ -1545,7 +1541,7 @@ page 50097 "Purchase Order Foreign"
     begin
         JobQueueVisible := Rec."Job Queue Status" = Rec."Job Queue Status"::"Scheduled for Posting";
         HasIncomingDocument := Rec."Incoming Document Entry No." <> 0;
-        SetExtDocNoMandatoryCondition;
+        SetExtDocNoMandatoryCondition();
         OpenApprovalEntriesExistForCurrUser := ApprovalsMgmt.HasOpenApprovalEntriesForCurrentUser(Rec.RecordId);
         OpenApprovalEntriesExist := ApprovalsMgmt.HasOpenApprovalEntries(Rec.RecordId);
     end;
@@ -1555,14 +1551,14 @@ page 50097 "Purchase Order Foreign"
     var
         UpdateConfirmed: Boolean;
     begin
-        if Rec.PurchLinesExist then begin
-            PurchLine.LockTable;
-            Rec.Modify;
+        if Rec.PurchLinesExist() then begin
+            PurchLine.LockTable();
+            Rec.Modify();
 
-            PurchLine.Reset;
+            PurchLine.Reset();
             PurchLine.SetRange("Document Type", Rec."Document Type");
             PurchLine.SetRange("Document No.", Rec."No.");
-            if PurchLine.Find('-') then begin
+            if PurchLine.Find('-') then
                 /*
                   //AAA
                     FIELDCAPTION("Original Purc. Order No.") :
@@ -1571,8 +1567,6 @@ page 50097 "Purchase Order Foreign"
                                            Text033,ChangedFieldName));
                  */
                 UpdateConfirmed := true;
-
-            end;
 
             repeat
                 case ChangedFieldName of
@@ -1588,9 +1582,7 @@ page 50097 "Purchase Order Foreign"
                         end;
                 end;
                 PurchLine.Modify(true);
-            until PurchLine.Next = 0;
+            until PurchLine.Next() = 0;
         end;
-
     end;
 }
-

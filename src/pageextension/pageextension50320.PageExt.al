@@ -13,7 +13,7 @@ pageextension 50320 "pageextension50320" extends "Location Card"
 
                     trigger OnValidate()
                     begin
-                        UpdateEnabled;
+                        UpdateEnabled();
                     end;
                 }
                 // field(Captain; Captain)  //Revisit
@@ -175,4 +175,3 @@ pageextension 50320 "pageextension50320" extends "Location Card"
         }
     }
 }
-

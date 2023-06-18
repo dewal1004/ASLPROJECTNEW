@@ -2,7 +2,7 @@ report 99988 "Update Empl.BU init checked"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/UpdateEmplBUinitchecked.rdlc';
-
+    Caption = 'Update Empl.BU init checked';
     dataset
     {
         dataitem(Employee; Employee)
@@ -14,7 +14,7 @@ report 99988 "Update Empl.BU init checked"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -56,7 +56,6 @@ report 99988 "Update Empl.BU init checked"
 
     requestpage
     {
-
         layout
         {
         }
@@ -74,4 +73,3 @@ report 99988 "Update Empl.BU init checked"
         EmployeeCaptionLbl: Label 'Employee';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
 }
-

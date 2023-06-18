@@ -11,4 +11,3 @@ tableextension 50318 "tableextension50318" extends "Standard Text"
         }
     }
 }
-

@@ -3,7 +3,7 @@ table 50012 "Payroll-Banks."
     DataPerCompany = false;
     DrillDownPageID = "Banks.";
     LookupPageID = "Banks.";
-
+    Caption = 'Payroll-Banks.';
     fields
     {
         field(1; "Code"; Code[20])
@@ -46,9 +46,11 @@ table 50012 "Payroll-Banks."
 
     fieldgroups
     {
+        fieldgroup(DropDown; Name)
+        {
+        }
     }
 
     var
         CursorPos: Integer;
 }
-

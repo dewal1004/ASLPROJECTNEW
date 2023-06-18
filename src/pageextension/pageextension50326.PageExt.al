@@ -27,4 +27,3 @@ pageextension 50326 "pageextension50326" extends "Posted Transfer Receipt"
         }
     }
 }
-

@@ -10,7 +10,7 @@ page 50123 "Purchase Delivery Sec. Return"
                             "Procurement Mgr. Action" = CONST(Approved),
                             "Return to Security" = CONST(true),
                             "Security Returned" = CONST(false));
-
+    Caption = 'Purchase Delivery Sec. Return';
     layout
     {
         area(content)
@@ -83,4 +83,3 @@ page 50123 "Purchase Delivery Sec. Return"
         }
     }
 }
-

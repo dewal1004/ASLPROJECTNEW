@@ -4,7 +4,7 @@ report 50068 "Payroll Tax Report"
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
     RDLCLayout = './src/reportrdlc/PayrollTaxReport.rdlc';
-
+    Caption = 'Payroll Tax Report';
     dataset
     {
         dataitem("Payroll-Payslip Header."; "Payroll-Payslip Header.")
@@ -24,7 +24,7 @@ report 50068 "Payroll Tax Report"
             column(USERID; UserId)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(Payroll_Payslip_Header___GETFILTERS__; "Payroll-Payslip Header.".GetFilters())
@@ -127,7 +127,7 @@ report 50068 "Payroll Tax Report"
                     tTaxamt := 0;
                     TotalPrinted := false;
                     if not ContinuousPrint then
-                        CurrReport.NewPage;
+                        CurrReport.NewPage();
                 end;
                 NewCoy := "Payroll-Payslip Header.".Company;
 
@@ -150,7 +150,6 @@ report 50068 "Payroll Tax Report"
                 "Payroll-Payslip Header.".SetFilter("Payroll-Payslip Header.".EDFILTER, "Entertainment ED Filter");
                 "Payroll-Payslip Header.".CalcFields("Payroll-Payslip Header.".Edvalue);
                 Entertainmentamt := "Payroll-Payslip Header.".Edvalue;
-
 
                 "Payroll-Payslip Header.".SetFilter("Payroll-Payslip Header.".EDFILTER, "Utility ED Filter");
                 "Payroll-Payslip Header.".CalcFields("Payroll-Payslip Header.".Edvalue);
@@ -180,7 +179,6 @@ report 50068 "Payroll Tax Report"
 
     requestpage
     {
-
         layout
         {
         }
@@ -206,12 +204,9 @@ report 50068 "Payroll Tax Report"
         "Tax ED Filter" := '122..128';
         */
         ContinuousPrint := true;
-
     end;
 
     var
-        LastFieldNo: Integer;
-        FooterPrinted: Boolean;
         "Basic ED Filter": Code[20];
         "Transport ED Filter": Code[20];
         "Housing ED Filter": Code[20];
@@ -239,4 +234,3 @@ report 50068 "Payroll Tax Report"
         NewCoy: Text[100];
         CurrReport_PAGENOCaptionLbl: Label 'Page';
 }
-

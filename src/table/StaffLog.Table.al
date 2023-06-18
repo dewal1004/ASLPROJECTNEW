@@ -1,5 +1,6 @@
 table 50015 "Staff Log"
 {
+    Caption = 'Staff Log';
     //*** DrillDownPageID = 50090;
     //*** LookupPageID = 50090;
 
@@ -52,15 +53,14 @@ table 50015 "Staff Log"
                 // BEEP(100,1000000000);
                 /// FileSTR:='C:\Program Files\Navision Financials\'+SELECTSTR(1,WAVs);
                 // RunAutomate(FileSTR);
-                
+
                  wav := 3;
                 END;
                 //FileSTR:='C:\Program Files\Navision Financials\'+SELECTSTR(wav,WAVs);
                 //RunAutomate(FileSTR);
                 IF wav = 3 THEN ERROR('Intruder!!!!Intruder!!!!!Intruder!!!!!! Go Away!');
                 ;
-                
-                
+
                 //pnk start
                 IF Quantity=1 THEN
                 BEGIN
@@ -69,7 +69,6 @@ table 50015 "Staff Log"
                  Flag:=Rate-LOGREC1.Rate;
                 END;
                 */
-
             end;
         }
         field(2; "Staff No."; Code[10])
@@ -116,19 +115,8 @@ table 50015 "Staff Log"
     {
     }
 
-    var
-        HRREc: Record Employee;
-        Alert: Text[50];
-        LOGREC: Record "Monthly Variables Lines.";
-        FileSTR: Text[80];
-        i: Integer;
-        wav: Integer;
-        WAVs: Text[200];
-        LOGREC1: Record "Monthly Variables Lines.";
-
     [Scope('OnPrem')]
     procedure RunAutomate(var FileName: Text[80])
     begin
     end;
 }
-

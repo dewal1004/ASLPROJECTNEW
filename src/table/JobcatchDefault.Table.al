@@ -110,6 +110,7 @@ table 50037 "Job catch Default"
             CalcFormula = - Sum("Job Ledger Entry".Quantity WHERE("Job No." = FIELD("No."),
                                                                   "No." = FIELD("Item No.")));
             FieldClass = FlowField;
+            Editable = false;
         }
     }
 
@@ -146,6 +147,9 @@ table 50037 "Job catch Default"
 
     fieldgroups
     {
+        fieldgroup(DropDown; Description)
+        {
+        }
     }
 
     trigger OnInsert()
@@ -163,8 +167,6 @@ table 50037 "Job catch Default"
 
     //[Scope('OnPrem')]
     procedure SetUpNewLine()
-    var
-        CatchDefault: Record "Training Courses";
     begin
         //CatchDefault.SETRANGE("Table Name","Table Name");
         //CatchDefault.SETRANGE("No.","No.");
@@ -178,4 +180,3 @@ table 50037 "Job catch Default"
         exit(Format(Cd) + UOM."Catch Code" + CopyStr(Br, 1, 1)); //Requip Code Name
     end;
 }
-

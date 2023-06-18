@@ -2,7 +2,7 @@ table 50028 "Course Attendance"
 {
     DrillDownPageID = "Course Attendance List";
     LookupPageID = "Course Attendance List";
-
+    Caption = 'Course Attendance';
     fields
     {
         field(1; "Rec No."; Integer)
@@ -32,7 +32,7 @@ table 50028 "Course Attendance"
             trigger OnValidate()
             begin
                 EmploRec.Get("Employee No");
-                "Employee Name" := EmploRec.FullName;
+                "Employee Name" := EmploRec.FullName();
                 "Region Code" := EmploRec."Region Code";
                 "Global Dimension 1 Code" := EmploRec."Global Dimension 1 Code";
                 "Global Dimension 2 Code" := EmploRec."Global Dimension 2 Code";
@@ -113,7 +113,7 @@ table 50028 "Course Attendance"
         else
             "Rec No." := 1;
 
-        CAtRec.Reset;
+        CAtRec.Reset();
         CAtRec.SetCurrentKey("Training Group", "Training Course Code", "Course Line No.");
         CAtRec.SetRange("Training Course Code", "Training Course Code");
 
@@ -127,8 +127,6 @@ table 50028 "Course Attendance"
 
     var
         CAtRec: Record "Course Attendance";
-        HumanResSetup: Record "Human Resources Setup";
-        NoSeriesMgt: Codeunit NoSeriesManagement;
         TCourseRec: Record "Training Courses";
         EmploRec: Record Employee;
         TotalCost: Decimal;
@@ -153,4 +151,3 @@ table 50028 "Course Attendance"
         end;
     end;
 }
-

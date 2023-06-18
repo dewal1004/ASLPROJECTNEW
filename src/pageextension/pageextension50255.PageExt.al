@@ -38,10 +38,6 @@ pageextension 50255 "pageextension50255" extends "Item Journal Batches"
         }
     }
 
-    var
-        UserRec: Record "User Setup";
-
-
     //Unsupported feature: Code Modification on "OnOpenPage".
 
     //trigger OnOpenPage()
@@ -61,4 +57,3 @@ pageextension 50255 "pageextension50255" extends "Item Journal Batches"
     */
     //end;
 }
-

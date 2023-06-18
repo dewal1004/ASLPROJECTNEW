@@ -2,7 +2,7 @@ report 99502 "Edit Loc;EDoc No. of PTransOrd"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/EditLocEDocNoofPTransOrd.rdlc';
-
+    Caption = 'Edit Loc;EDoc No. of PTransOrd';
     dataset
     {
         dataitem("Item Ledger Entry"; "Item Ledger Entry")
@@ -13,7 +13,7 @@ report 99502 "Edit Loc;EDoc No. of PTransOrd"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -105,7 +105,7 @@ report 99502 "Edit Loc;EDoc No. of PTransOrd"
                     if "Location Code" = loc then "Location Code" := locn;
 
                 if (ExDocn <> '') and ("External Document No." = ExDoc) then "External Document No." := ExDocn;
-                Modify;
+                Modify();
             end;
 
             trigger OnPreDataItem()
@@ -126,7 +126,7 @@ report 99502 "Edit Loc;EDoc No. of PTransOrd"
             begin
                 if locn <> '' then
                     if "Location Code" = loc then "Location Code" := locn;
-                Modify;
+                Modify();
             end;
 
             trigger OnPreDataItem()
@@ -146,7 +146,7 @@ report 99502 "Edit Loc;EDoc No. of PTransOrd"
             trigger OnAfterGetRecord()
             begin
                 if (ExDocn <> '') and ("External Document No." = ExDoc) then "External Document No." := ExDocn;
-                Modify;
+                Modify();
             end;
 
             trigger OnPreDataItem()
@@ -169,7 +169,7 @@ report 99502 "Edit Loc;EDoc No. of PTransOrd"
                     "External Document No." := ExDocn;
                     "Transfer To Voy. No." := ExDocn;
                 end;
-                Modify;
+                Modify();
             end;
 
             trigger OnPreDataItem()
@@ -192,7 +192,7 @@ report 99502 "Edit Loc;EDoc No. of PTransOrd"
                     "External Document No." := ExDocn;
                     "Transfer To Voy. No." := ExDocn;
                 end;
-                Modify;
+                Modify();
             end;
 
             trigger OnPreDataItem()
@@ -206,7 +206,6 @@ report 99502 "Edit Loc;EDoc No. of PTransOrd"
 
     requestpage
     {
-
         layout
         {
         }
@@ -221,12 +220,9 @@ report 99502 "Edit Loc;EDoc No. of PTransOrd"
     }
 
     var
-        LastFieldNo: Integer;
-        FooterPrinted: Boolean;
         TotalFor: Label 'Total for ';
         loc: Code[10];
         locn: Code[10];
-        ItDocFilt: Code[10];
         VaDocFilt: Code[10];
         JbDocFilt: Code[10];
         GLDocFilt: Code[10];
@@ -238,4 +234,3 @@ report 99502 "Edit Loc;EDoc No. of PTransOrd"
         Item_Ledger_EntryCaptionLbl: Label 'Item Ledger Entry';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
 }
-

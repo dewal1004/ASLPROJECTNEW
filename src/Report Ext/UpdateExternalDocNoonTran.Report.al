@@ -4,7 +4,7 @@ report 50096 "Update External Doc No on Tran"
     RDLCLayout = './src/reportrdlc/UpdateExternalDocNoonTran.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
-
+    Caption = 'Update External Doc No on Tran';
     dataset
     {
         dataitem("Transfer Receipt Header"; "Transfer Receipt Header")
@@ -21,14 +21,14 @@ report 50096 "Update External Doc No on Tran"
                     trigger OnAfterGetRecord()
                     begin
                         "Value Entry"."External Document No." := "Transfer Receipt Header"."Transfer To Voy. No.";
-                        "Value Entry".Modify;
+                        "Value Entry".Modify();
                     end;
                 }
 
                 trigger OnAfterGetRecord()
                 begin
                     "Item Ledger Entry"."External Document No." := "Transfer Receipt Header"."Transfer To Voy. No.";
-                    "Item Ledger Entry".Modify;
+                    "Item Ledger Entry".Modify();
                 end;
             }
         }
@@ -36,7 +36,6 @@ report 50096 "Update External Doc No on Tran"
 
     requestpage
     {
-
         layout
         {
         }
@@ -50,4 +49,3 @@ report 50096 "Update External Doc No on Tran"
     {
     }
 }
-

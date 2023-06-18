@@ -1,7 +1,7 @@
 xmlport 55555 "Employee dates"
 {
     Format = VariableText;
-
+    Caption = 'Employee dates';
     schema
     {
         textelement(Rootnode)
@@ -50,7 +50,6 @@ xmlport 55555 "Employee dates"
 
     requestpage
     {
-
         layout
         {
         }
@@ -60,4 +59,3 @@ xmlport 55555 "Employee dates"
         }
     }
 }
-

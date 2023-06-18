@@ -1,6 +1,5 @@
 codeunit 50095 "Code For Approval setup"
 {
-
     trigger OnRun()
     begin
     end;
@@ -10,8 +9,6 @@ codeunit 50095 "Code For Approval setup"
         ApprovalsMgmt: Codeunit "Approvals Mgmt.";
         Selection: Integer;
         PurchaseHeader: Record "Purchase Header";
-        UserSetup: Record "User Setup";
-        ApprovalUserSetup: Page "Approval User Setup";
 
     [Scope('OnPrem')]
     procedure SendApprovaltoUser(var PurchaseHeader: Record "Purchase Header"; var UserName: Code[20])
@@ -23,7 +20,6 @@ codeunit 50095 "Code For Approval setup"
             ApprovalsMgmt.OnSendPurchaseDocForApproval(PurchaseHeader);
         END;
         */ //A
-
     end;
 
     [Scope('OnPrem')]
@@ -34,15 +30,9 @@ codeunit 50095 "Code For Approval setup"
             0:
                 exit;
             1:
-                begin
-                    //IF ApprovalsMgmt.CheckPurchaseApprovalsWorkflowEnabled(PurchaseHeader) THEN
-                    ApprovalsMgmt.OnSendPurchaseDocForApproval(PurchaseHeader);
-                end
+
+                //IF ApprovalsMgmt.CheckPurchaseApprovalsWorkflowEnabled(PurchaseHeader) THEN
+                ApprovalsMgmt.OnSendPurchaseDocForApproval(PurchaseHeader);
         end
-
-
     end;
-
-
 }
-

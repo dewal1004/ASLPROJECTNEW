@@ -7,7 +7,7 @@ report 50184 "Periodic Stock Position by Grp"
     RDLCLayout = './src/reportrdlc/PeriodicStockPositionbyGrp.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
-
+    Caption = 'Periodic Stock Position by Grp';
     dataset
     {
         dataitem(Item; Item)
@@ -272,7 +272,7 @@ report 50184 "Periodic Stock Position by Grp"
                     PrintLine := true else
                     PrintLine := false;
 
-                if DaysOnly then begin
+                if DaysOnly then
                     if
                      (Stk[2] <> 0) or
                      (Stk[3] <> 0) or
@@ -281,7 +281,6 @@ report 50184 "Periodic Stock Position by Grp"
                      (Stk[8] <> 0) then
                         PrintLine := true else
                         PrintLine := false;
-                end;
 
                 ItemFilter := Item.GetFilters;
                 PeriodStartDate[4] := CalcDate('-' + PeriodLength + '+1D', PeriodStartDate[5]); //#
@@ -302,7 +301,6 @@ report 50184 "Periodic Stock Position by Grp"
                 SETRANGE("Source No. Filter");
 
                 */
-
             end;
 
             trigger OnPreDataItem()
@@ -315,7 +313,6 @@ report 50184 "Periodic Stock Position by Grp"
 
     requestpage
     {
-
         layout
         {
             area(content)
@@ -358,13 +355,10 @@ report 50184 "Periodic Stock Position by Grp"
         LastFieldNo: Integer;
         FooterPrinted: Boolean;
         TotalFor: Label 'Total for ';
-        "---": Integer;
         ItemFilter: Text[250];
         PeriodStartDate: array[7] of Date;
         PeriodLength: Code[20];
-        i: Integer;
         PrintLine: Boolean;
-        Text001: Label '1D';
         Text002: Label 'Enter the ending date';
         Text003: Label '0D';
         Stk: array[8] of Decimal;
@@ -381,4 +375,3 @@ report 50184 "Periodic Stock Position by Grp"
         Stk_8__CaptionLbl: Label 'Transfer';
         "Ending Date": Date;
 }
-

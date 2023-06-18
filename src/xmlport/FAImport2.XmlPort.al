@@ -1,7 +1,7 @@
 xmlport 90402 "FA Import2"
 {
     Format = VariableText;
-
+    Caption = 'FA Import2';
     schema
     {
         textelement(RootNode)
@@ -51,7 +51,6 @@ xmlport 90402 "FA Import2"
 
     requestpage
     {
-
         layout
         {
         }
@@ -61,4 +60,3 @@ xmlport 90402 "FA Import2"
         }
     }
 }
-

@@ -1,6 +1,5 @@
 pageextension 50307 "pageextension50307" extends "Integration Table Mapping List"
 {
-
     //Unsupported feature: Property Modification (TextConstString) on "SynchronizedModifiedCompletedMsg(Variable 1006)".
 
     //var
@@ -11,4 +10,3 @@ pageextension 50307 "pageextension50307" extends "Integration Table Mapping List
     //SynchronizedModifiedCompletedMsg : @@@=%1 caption from page 5338;ENU=Synchronized Modifed Records completed.\See the %1 window for details.;
     //Variable type has not been exported.
 }
-

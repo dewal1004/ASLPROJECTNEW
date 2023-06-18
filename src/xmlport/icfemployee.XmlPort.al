@@ -2,7 +2,7 @@ xmlport 50025 "icfemployee"
 {
     Direction = Export;
     Format = VariableText;
-
+    Caption = 'icfemployee';
     schema
     {
         textelement(Rootnode)
@@ -64,7 +64,6 @@ xmlport 50025 "icfemployee"
 
     requestpage
     {
-
         layout
         {
         }
@@ -74,4 +73,3 @@ xmlport 50025 "icfemployee"
         }
     }
 }
-

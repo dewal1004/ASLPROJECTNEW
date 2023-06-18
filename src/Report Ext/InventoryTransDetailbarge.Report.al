@@ -4,7 +4,6 @@ report 50243 "Inventory-Trans.Detail-barge"
     // "Print Bin Card"
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/InventoryTransDetailbarge.rdlc';
-
     Caption = 'Inventory - Transaction Detail';
     Permissions = TableData "Sales Shipment Header" = rimd;
     UsageCategory = ReportsAndAnalysis;
@@ -22,7 +21,7 @@ report 50243 "Inventory-Trans.Detail-barge"
             column(STRSUBSTNO_Text000_ItemDateFilter_; StrSubstNo(Text000, ItemDateFilter))
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(COMPANYNAME; CompanyName)
@@ -45,7 +44,6 @@ report 50243 "Inventory-Trans.Detail-barge"
             }
             column(Item_Item__CRM___STR_; Item."CRM / STR")
             {
-
             }
             column(Item_Item__Inventory_Posting_Group_; Item."Inventory Posting Group")
             {
@@ -118,7 +116,6 @@ report 50243 "Inventory-Trans.Detail-barge"
                 }
                 column(StartOnHand; StartOnHand)
                 {
-
                 }
                 column(Unit_CostCaption_Control1000000001; Unit_CostCaption_Control1000000001Lbl)
                 {
@@ -133,7 +130,6 @@ report 50243 "Inventory-Trans.Detail-barge"
                     DataItemTableView = SORTING("Item No.", "Variant Code", "Drop Shipment", "Location Code", "Posting Date");
                     column(StartOnHand___Quantity; StartOnHand + Quantity)
                     {
-
                     }
                     column(Item_Ledger_Entry__Posting_Date_; "Posting Date")
                     {
@@ -146,53 +142,42 @@ report 50243 "Inventory-Trans.Detail-barge"
                     }
                     column(IncreasesQty; IncreasesQty)
                     {
-
                     }
                     column(DecreasesQty; DecreasesQty)
                     {
-
                     }
                     column(ItemOnHand; ItemOnHand)
                     {
-
                     }
                     column(Item_Ledger_Entry__Entry_No__; "Entry No.")
                     {
                     }
                     column(TransFr; TransFr)
                     {
-
                     }
                     column(TransTo; TransTo)
                     {
-
                     }
                     column(StartOnHand___Quantity_Control31; StartOnHand + Quantity)
                     {
-
                     }
                     column(Item_Description_Control32; Item.Description)
                     {
                     }
                     column(IncreasesQty_Control33; IncreasesQty)
                     {
-
                     }
                     column(DecreasesQty_Control34; DecreasesQty)
                     {
-
                     }
                     column(StartOnHand___Quantity_Control35; StartOnHand + Quantity)
                     {
-
                     }
                     column(DecreasesQty_Control1000000044; DecreasesQty)
                     {
-
                     }
                     column(IncreasesQty_Control1000000045; IncreasesQty)
                     {
-
                     }
                     column(Item_Description_Control1000000046; Item.Description)
                     {
@@ -230,7 +215,6 @@ report 50243 "Inventory-Trans.Detail-barge"
                         ELSE
                           DecreasesQty := ABS(Quantity);
                            */  //#1
-
                     end;
 
                     trigger OnPreDataItem()
@@ -246,7 +230,6 @@ report 50243 "Inventory-Trans.Detail-barge"
                           SETRANGE("Entry No.",ItLentry."Entry No.",LastrecEntNo);
                         END;
                           */  //#1
-
                     end;
                 }
             }
@@ -271,7 +254,6 @@ report 50243 "Inventory-Trans.Detail-barge"
                   END;
                 ItemOnHand := StartOnHand;
                   */  //#1
-
             end;
 
             trigger OnPreDataItem()
@@ -283,7 +265,6 @@ report 50243 "Inventory-Trans.Detail-barge"
 
     requestpage
     {
-
         layout
         {
         }
@@ -303,7 +284,6 @@ report 50243 "Inventory-Trans.Detail-barge"
         /*ItemFilter := Item.GETFILTERS;
         ItemDateFilter := Item.GETFILTER("Date Filter");
            */  //#1
-
     end;
 
     var
@@ -314,21 +294,8 @@ report 50243 "Inventory-Trans.Detail-barge"
         StartOnHand: Decimal;
         IncreasesQty: Decimal;
         DecreasesQty: Decimal;
-        PrintOnlyOnePerPage: Boolean;
-        "--------------": Integer;
-        TransShip: Record "Transfer Shipment Header";
-        TransRecpt: Record "Transfer Receipt Header";
-        InvtSetUp: Record "Inventory Setup";
-        PurchRec: Record "Purch. Rcpt. Header";
-        SalesShi: Record "Sales Shipment Header";
-        ItLentry: Record "Item Ledger Entry";
         TransTo: Text[30];
         TransFr: Text[30];
-        LastrecEntNo: Integer;
-        "Print Bin Card": Boolean;
-        StopOnHand: Decimal;
-        items2: Record Item;
-        BinOp: Decimal;
         Inventory___Transaction_DetailCaptionLbl: Label 'Inventory - Transaction Detail';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
         Unit_CostCaptionLbl: Label 'Unit Cost';
@@ -343,4 +310,3 @@ report 50243 "Inventory-Trans.Detail-barge"
         ContinuedCaptionLbl: Label 'Continued';
         ContinuedCaption_Control30Lbl: Label 'Continued';
 }
-

@@ -5,8 +5,7 @@ report 50205 "Fish Shop Sales Rep new"
     RDLCLayout = './src/reportrdlc/FishShopSalesRepnew.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
-
-
+    Caption = 'Fish Shop Sales Rep new';
     dataset
     {
         dataitem("Sea Food categories"; "Sea Food categories")
@@ -18,7 +17,7 @@ report 50205 "Fish Shop Sales Rep new"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(FORMAT_TODAY_0_4_; Format(Today, 0, 4))
@@ -112,13 +111,11 @@ report 50205 "Fish Shop Sales Rep new"
                 trigger OnPreDataItem()
                 begin
 
-
                     /*LastFieldNo := FIELDNO("No. 2");
                     IF GETFILTER("Date Filter") = '' THEN
                       SETRANGE("Date Filter",CALCDATE('-1D',WORKDATE));
                     SETRANGE("SF Cat",COPYSTR("Sea Food categories"."Sea food code",5));
                     RepFilter:=GETFILTERS;*/
-
                 end;
             }
 
@@ -131,7 +128,6 @@ report 50205 "Fish Shop Sales Rep new"
 
     requestpage
     {
-
         layout
         {
         }
@@ -151,8 +147,6 @@ report 50205 "Fish Shop Sales Rep new"
     end;
 
     var
-        LastFieldNo: Integer;
-        FooterPrinted: Boolean;
         TotalFor: Label 'Total for ';
         RepFilter: Text[120];
         TotSales: Decimal;
@@ -162,4 +156,3 @@ report 50205 "Fish Shop Sales Rep new"
         COPYSTR__Sea_food_code__5_CaptionLbl: Label 'Label1000000007';
         Total_SalesCaptionLbl: Label 'Total Sales';
 }
-

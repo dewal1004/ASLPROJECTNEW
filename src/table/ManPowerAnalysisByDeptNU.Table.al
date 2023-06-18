@@ -1,5 +1,6 @@
 table 60027 "ManPower Analysis By Dept NU*"
 {
+    Caption = 'ManPower Analysis By Dept NU*';
     // DrillDownPageID = "Manpower Budget List";  ***
     // LookupPageID = "Manpower Budget List";
 
@@ -16,6 +17,7 @@ table 60027 "ManPower Analysis By Dept NU*"
             CalcFormula = Count(Employee WHERE(Status = CONST(Active),
                                                 "Global Dimension 1 Code" = FIELD("Global Dimension 1 Filter")));
             FieldClass = FlowField;
+            Editable = false;
         }
         field(3; "Total Budget"; Decimal)
         {
@@ -24,6 +26,7 @@ table 60027 "ManPower Analysis By Dept NU*"
                                                                                    "Date Filter" = FIELD("Date Filter")));
             DecimalPlaces = 0 : 0;
             FieldClass = FlowField;
+            Editable = false;
         }
         field(4; "Region Filter"; Code[10])
         {
@@ -58,8 +61,4 @@ table 60027 "ManPower Analysis By Dept NU*"
     fieldgroups
     {
     }
-
-    var
-        LeaveRosRec: Record "Leave Roster NU*";
 }
-

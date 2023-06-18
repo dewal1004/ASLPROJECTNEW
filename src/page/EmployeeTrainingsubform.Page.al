@@ -4,7 +4,7 @@ page 50043 "Employee Training sub form"
     MultipleNewLines = true;
     PageType = ListPart;
     SourceTable = "Course Attendance";
-
+    Caption = 'Employee Training sub form';
     layout
     {
         area(content)
@@ -48,12 +48,4 @@ page 50043 "Employee Training sub form"
     actions
     {
     }
-
-    var
-        CatRec: Record "Course Attendance";
-        TCourseRec: Record "Training Courses";
-        TotalCost: Decimal;
-        AvgCost: Decimal;
-        RecCount: Integer;
 }
-

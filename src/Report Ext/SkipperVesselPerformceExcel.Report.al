@@ -8,8 +8,7 @@ report 50189 "Skipper/Vessel Performce Excel"
     RDLCLayout = './src/reportrdlc/SkipperVesselPerformceExcel.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
-
-
+    Caption = 'Skipper/Vessel Performce Excel';
     dataset
     {
         dataitem("Jobs Point Validate"; Job)
@@ -50,7 +49,7 @@ report 50189 "Skipper/Vessel Performce Excel"
                     NetSeaDay := "Sea Days";
                 if NetSeaDay <> 0 then
                     AvgPtSortBay := "Points Actual" / NetSeaDay;
-                Modify;
+                Modify();
             end;
         }
         dataitem(Job; Job)
@@ -63,7 +62,7 @@ report 50189 "Skipper/Vessel Performce Excel"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -331,14 +330,13 @@ report 50189 "Skipper/Vessel Performce Excel"
             trigger OnPreDataItem()
             begin
                 if country.Get("Fishing Country Code") then FCountry := country.Name else FCountry := 'Nigerian';
-                if (CurrReport.TotalsCausedBy = Job.FieldNo("Fishing Country Code")) then Counting := 1;
+                if (CurrReport.TotalsCausedBy() = Job.FieldNo("Fishing Country Code")) then Counting := 1;
             end;
         }
     }
 
     requestpage
     {
-
         layout
         {
             area(content)
@@ -363,7 +361,6 @@ report 50189 "Skipper/Vessel Performce Excel"
     }
 
     var
-        Jobs: Record Job;
         Remark: Record "Comment Line";
         country: Record "Country/Region";
         Resource: Record Resource;
@@ -379,8 +376,6 @@ report 50189 "Skipper/Vessel Performce Excel"
         Rems: Text[225];
         FCountry: Text[30];
         PResp: Text[30];
-        FooterPrinted: Boolean;
-        LastFieldNo: Integer;
         OperationCaptionLbl: Label 'Operation';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
         Control9CaptionLbl: Label 'Label9';
@@ -399,4 +394,3 @@ report 50189 "Skipper/Vessel Performce Excel"
         RemsCaptionLbl: Label 'Remarks';
         FCountryCaptionLbl: Label 'Vessel :';
 }
-

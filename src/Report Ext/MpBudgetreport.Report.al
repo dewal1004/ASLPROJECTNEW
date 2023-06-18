@@ -2,7 +2,7 @@ report 50090 "Mp Budget report"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/MpBudgetreport.rdlc';
-
+    Caption = 'Mp Budget report';
     dataset
     {
         dataitem("Employment Contract"; "Employment Contract")
@@ -14,7 +14,7 @@ report 50090 "Mp Budget report"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -146,7 +146,6 @@ report 50090 "Mp Budget report"
 
     requestpage
     {
-
         layout
         {
         }
@@ -167,7 +166,6 @@ report 50090 "Mp Budget report"
 
     var
         Required: Integer;
-        budtt: Decimal;
         Permtt: Decimal;
         Contatt: Decimal;
         Contbtt: Decimal;
@@ -183,4 +181,3 @@ report 50090 "Mp Budget report"
         ExpatriateCaptionLbl: Label 'Expatriate';
         TOTAL__CaptionLbl: Label 'TOTAL :';
 }
-

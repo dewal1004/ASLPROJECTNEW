@@ -3,8 +3,7 @@ report 60081 "Crew List z"
     // Comp."Ship-to City"
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/CrewListz.rdlc';
-
-
+    Caption = 'Crew List z';
     dataset
     {
         dataitem(Job; Job)
@@ -29,7 +28,7 @@ report 60081 "Crew List z"
                 column(COMPANYNAME; CompanyName)
                 {
                 }
-                column(CurrReport_PAGENO; CurrReport.PageNo)
+                column(CurrReport_PAGENO; CurrReport.PageNo())
                 {
                 }
                 column(USERID; UserId)
@@ -123,7 +122,7 @@ report 60081 "Crew List z"
             begin
                 //Recorded
                 CalcFields(Points);
-                if JobSetup.Get then
+                if JobSetup.Get() then
                     if "Sea Days" > 0 then
                         "Incentive Points Determinant" := Points * (JobSetup."Standard Sea Days" / "Sea Days");
 
@@ -139,10 +138,9 @@ report 60081 "Crew List z"
                 Validate("Total Incentive", "Incentive (Pt. Based)" + "Incentive (Hook Fish)");
                 Validate("Net Incentive", "Total Incentive" + "Add/Ded. Crew");
 
-
                 //Actual
                 CalcFields("Points Actual");
-                if JobSetup.Get then
+                if JobSetup.Get() then
                     if "Sea Days" > 0 then
                         "Incentive Pts Determt Actual" := "Points Actual" * (JobSetup."Standard Sea Days" / "Sea Days");
 
@@ -157,14 +155,13 @@ report 60081 "Crew List z"
                 //MESSAGE('%1 %2 %3', "Incentive (Pt. Based) Actual","Incentive Rate Actual","Points Actual");
                 Validate("Total Incentive Actual", "Incentive (Pt. Based) Actual" + "Incentive (Hook Fish)");
                 Validate("Net Incentive Actual", "Total Incentive Actual" + "Add/Ded. Crew");
-                Modify;
+                Modify();
             end;
         }
     }
 
     requestpage
     {
-
         layout
         {
         }
@@ -180,38 +177,18 @@ report 60081 "Crew List z"
 
     var
         LastFieldNo: Integer;
-        FooterPrinted: Boolean;
-        "------------------": Integer;
-        Res: Record Resource;
-        ResG: Record "Resource Group";
-        Country: Record "Country/Region";
-        Jobs: Record Job;
-        DimVal: Record "Dimension Value";
         Comp: Record "Company Information";
-        Loc: Record Location;
         IncentiveLookUp: Record "Payroll-Lookup Lines.";
         JobSetup: Record "Jobs Setup";
         CrewList: Boolean;
-        PrintHd: Boolean;
         countz: Integer;
-        SeaDays: Integer;
-        COMPTitle: Text[30];
-        T001: Text[50];
         VessNam: Text[30];
         Voyage: Text[30];
         Skipper: Text[30];
-        CountryText: Text[30];
-        Designation: Text[30];
         ETD: Date;
         ETA: Date;
         Nam: Code[50];
         Desig: Code[20];
-        nation: Code[20];
-        Vessel: Code[20];
-        Dato: Date;
-        Cat1: Code[20];
-        TotalFor: Label 'Total for ';
-        T002: Label 'Over all Total';
         Job_Budget_LineCaptionLbl: Label 'Job Budget Line';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
         Crew_Sailing_ListCaptionLbl: Label 'Crew Sailing List';
@@ -230,4 +207,3 @@ report 60081 "Crew List z"
         CurrReport.ShowOutput(CrewList);
     end;
 }
-

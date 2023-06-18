@@ -2,7 +2,7 @@ report 50019 "Purchase Register(LCY)"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/PurchaseRegisterLCY.rdlc';
-
+    Caption = 'Purchase Register(LCY)';
     dataset
     {
         dataitem("Purch. Inv. Header"; "Purch. Inv. Header")
@@ -19,7 +19,7 @@ report 50019 "Purchase Register(LCY)"
             column(FORMAT_TODAY_0_4_; Format(Today, 0, 4))
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(Purch__Inv__Header__GETFILTERS; "Purch. Inv. Header".GetFilters)
@@ -243,7 +243,6 @@ report 50019 "Purchase Register(LCY)"
                             "Purch. Inv. Header"."Posting Date", "Purch. Inv. Header"."Currency Code",
                             "Purch. Inv. Line"."Line Discount Amount", "Purch. Inv. Header"."Currency Factor");
                         TotQty := TotQty + "Purch. Inv. Line".Quantity;
-
                     end;
 
                     if Vendor.Get("Purch. Inv. Line"."Buy-from Vendor No.") then
@@ -273,7 +272,6 @@ report 50019 "Purchase Register(LCY)"
 
     requestpage
     {
-
         layout
         {
             area(content)
@@ -308,13 +306,9 @@ report 50019 "Purchase Register(LCY)"
 
     var
         PurchInvHeader: Record "Purch. Inv. Header";
-        UserSetup: Record "User Setup";
-        ItemRec: Record Item;
         Vendor: Record Vendor;
         CurrencyExchRate: Record "Currency Exchange Rate";
-        totalamount: Decimal;
         DiscAmount: Decimal;
-        InvDisc: Decimal;
         ItemFilter: Code[250];
         TotQty: Decimal;
         UnitCost: Decimal;
@@ -346,7 +340,6 @@ report 50019 "Purchase Register(LCY)"
         TotalCaptionLbl: Label 'Total';
         Grand_TotalCaptionLbl: Label 'Grand Total';
         Total_for_Vendor_CaptionLbl: Label 'Total for Vendor:';
-        postingdate: Date;
         VendorName: Text[50];
         OrderNo: Code[10];
         CurrancyCode: Code[10];
@@ -354,4 +347,3 @@ report 50019 "Purchase Register(LCY)"
         GenPrdtPstngrup: Code[10];
         GenBusPstngrup: Code[10];
 }
-

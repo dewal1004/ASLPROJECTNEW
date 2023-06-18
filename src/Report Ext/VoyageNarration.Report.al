@@ -2,7 +2,7 @@ report 50099 "Voyage Narration"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/VoyageNarration.rdlc';
-
+    Caption = 'Voyage Narration';
     dataset
     {
         dataitem(Job; Job)
@@ -17,7 +17,7 @@ report 50099 "Voyage Narration"
             column(USERID; UserId)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(Job__Voyage_No__; "Voyage No.")
@@ -125,7 +125,6 @@ report 50099 "Voyage Narration"
 
     requestpage
     {
-
         layout
         {
         }
@@ -156,20 +155,11 @@ report 50099 "Voyage Narration"
         Skipper: Text[30];
         CountryText: Text[30];
         VessNam: Text[30];
-        "-----------------------------": Integer;
-        // xlApp: Automation BC;
-        // xlBook: Automation BC;
-        // xlSheet: Automation BC;
-        // Send2Excel: Boolean;
-        // TopPage: Boolean;
-        Xr: Integer;
-        Xc: Integer;
         Bold: Boolean;
         UnderLine: Boolean;
         Italic: Boolean;
         FontSize: Integer;
         PageOrientation: Option "Excel Default",Portrait,Landscape;
-        "----------------------------": Integer;
         Voyage_Narration_ReportCaptionLbl: Label 'Voyage Narration Report';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
         SkipperCaptionLbl: Label 'Skipper';
@@ -214,4 +204,3 @@ report 50099 "Voyage Narration"
         exit(xlColID);
     end;*/
 }
-

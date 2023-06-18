@@ -7,11 +7,9 @@ table 50050 "ASL Entry/Exit Point"
     {
         field(1; "Code"; Code[10])
         {
-
         }
         field(2; Description; Text[50])
         {
-
         }
         field(50000; "Entry No."; Integer)
         {
@@ -22,7 +20,6 @@ table 50050 "ASL Entry/Exit Point"
         field(50002; "Type"; Option)
         {
             Optionmembers = " ","Average",Median;
-
         }
         field(50003; Vessel; Text[30])
         {
@@ -31,7 +28,6 @@ table 50050 "ASL Entry/Exit Point"
         }
         field(50004; Country; Code[10])
         {
-
         }
         field(50005; Skipper; Text[30])
         {
@@ -91,6 +87,14 @@ table 50050 "ASL Entry/Exit Point"
         key(Key3; Date, Vessel, Type)
         { }
     }
+
+    fieldgroups
+    {
+        fieldgroup(DropDown; Description)
+        {
+        }
+    }
+
     trigger OnInsert()
     Begin
 
@@ -99,10 +103,8 @@ table 50050 "ASL Entry/Exit Point"
             "Entry No." := HistoricalPtsData."Entry No." + 1
         else
             "Entry No." := 1;
-
     end;
 
     var
         HistoricalPtsData: Record "ASL Entry/Exit Point";
-
 }

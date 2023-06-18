@@ -21,7 +21,6 @@ pageextension 50266 "pageextension50266" extends "Phys. Inventory Journal"
                 //*** OnAfterValidateShortcutDimCode(Rec, ShortcutDimCode, 8);
             end;
         }
-
     }
     actions
     {
@@ -34,6 +33,4 @@ pageextension 50266 "pageextension50266" extends "Phys. Inventory Journal"
             }
         }
     }
-
 }
-

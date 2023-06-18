@@ -2,7 +2,7 @@ report 99513 "Edit PDate>Trans Ord Dat ReceN"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/EditPDateTransOrdDatReceN.rdlc';
-
+    Caption = 'Edit PDate>Trans Ord Dat ReceN';
     dataset
     {
         dataitem("Transfer Receipt Header"; "Transfer Receipt Header")
@@ -38,7 +38,7 @@ report 99513 "Edit PDate>Trans Ord Dat ReceN"
                 TranOrdDat := "Transfer Order Date";
                 "Posting Date Old" := "Posting Date";
                 "Posting Date" := TranOrdDat;
-                Modify;
+                Modify();
             end;
         }
         dataitem("G/L Entry"; "G/L Entry")
@@ -52,7 +52,7 @@ report 99513 "Edit PDate>Trans Ord Dat ReceN"
             begin
                 "Posting Date" := TranOrdDat;
                 "Document Date" := TranOrdDat;
-                Modify;
+                Modify();
             end;
         }
         dataitem("Item Ledger Entry"; "Item Ledger Entry")
@@ -64,7 +64,7 @@ report 99513 "Edit PDate>Trans Ord Dat ReceN"
                 "Posting Date" := TranOrdDat;
                 "Document Date" := TranOrdDat;
                 if "Last Invoice Date" = "Posting Date" then "Last Invoice Date" := TranOrdDat;
-                Modify;
+                Modify();
             end;
         }
         dataitem("Value Entry"; "Value Entry")
@@ -78,14 +78,13 @@ report 99513 "Edit PDate>Trans Ord Dat ReceN"
                 "Posting Date" := TranOrdDat;
                 "Document Date" := TranOrdDat;
                 if "Valuation Date" = "Posting Date" then "Valuation Date" := TranOrdDat;
-                Modify;
+                Modify();
             end;
         }
     }
 
     requestpage
     {
-
         layout
         {
         }
@@ -102,4 +101,3 @@ report 99513 "Edit PDate>Trans Ord Dat ReceN"
     var
         TranOrdDat: Date;
 }
-

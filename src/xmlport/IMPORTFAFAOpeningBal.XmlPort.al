@@ -1,7 +1,7 @@
 xmlport 99009 "IMPORT FA & FA Opening Bal"
 {
     Format = VariableText;
-
+    Caption = 'IMPORT FA & FA Opening Bal';
     schema
     {
         textelement(RootNode)
@@ -63,7 +63,6 @@ xmlport 99009 "IMPORT FA & FA Opening Bal"
 
     requestpage
     {
-
         layout
         {
         }
@@ -73,4 +72,3 @@ xmlport 99009 "IMPORT FA & FA Opening Bal"
         }
     }
 }
-

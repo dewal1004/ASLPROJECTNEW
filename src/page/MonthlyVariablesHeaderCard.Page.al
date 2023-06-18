@@ -4,7 +4,7 @@ page 50050 "Monthly Variables Header Card."
     SourceTable = "Monthly Variables Header.";
     UsageCategory = Documents;
     ApplicationArea = All, Basic;
-
+    Caption = 'Monthly Variables Header Card.';
     layout
     {
         area(content)
@@ -69,4 +69,3 @@ page 50050 "Monthly Variables Header Card."
     {
     }
 }
-

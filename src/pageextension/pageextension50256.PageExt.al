@@ -8,4 +8,3 @@ pageextension 50256 "pageextension50256" extends "Vendor List"
         }
     }
 }
-

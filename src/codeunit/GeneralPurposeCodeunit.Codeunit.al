@@ -1,13 +1,10 @@
 codeunit 50001 "General Purpose Codeunit"
 {
-
     trigger OnRun()
     begin
     end;
 
     var
-        LDay: Date;
-        LCatRec: Record "Leave Categories NU*";
         Dy: Integer;
         Mth: Integer;
         Yr: Integer;
@@ -16,7 +13,6 @@ codeunit 50001 "General Purpose Codeunit"
         WkDay: Text[10];
         Cnt: Integer;
         TmpDate: Date;
-        TempDate: Date;
         EDRec: Record "Payroll-E/D Codes.";
 
     //[Scope('OnPrem')]
@@ -39,7 +35,7 @@ codeunit 50001 "General Purpose Codeunit"
         Componentsqty[100][10]
         */
 
-        SalesLine.Reset;
+        SalesLine.Reset();
         SalesLine.SetRange("Document Type", SalesHeader."Document Type");
         SalesLine.SetRange("Document No.", SalesHeader."No.");
         g := 0;
@@ -55,7 +51,7 @@ codeunit 50001 "General Purpose Codeunit"
                 g := g + 1;
                 ProductGroups[g] := GetGroup(SalesLine."No.");
             end;
-        until SalesLine.Next = 0;
+        until SalesLine.Next() = 0;
 
         for i := 1 to g do begin  // For each product in (Load ?/return ?)
             ItemRec.SetCurrentKey("Item Category Code");
@@ -66,12 +62,10 @@ codeunit 50001 "General Purpose Codeunit"
                 repeat
                     ComponentsItems[i] [j] := ItemRec."No.";
                     j := j + 1;
-                until ItemRec.Next = 0;
+                until ItemRec.Next() = 0;
             end;
-
         end;
         Message('[' + Format(g) + ']');
-
     end;
 
     //[Scope('OnPrem')]
@@ -98,11 +92,10 @@ codeunit 50001 "General Purpose Codeunit"
         SalesLines.SetRange("Document Type", SalesHeader."Document Type");
         SalesLines.SetRange("Document No.", SalesHeader."No.");
         SalesLines.SetRange(Explodedline, true);
-        if SalesLines.Find('-') then begin
-            SalesLines.DeleteAll;
-        end;
+        if SalesLines.Find('-') then
+            SalesLines.DeleteAll();
 
-        SalesLines.Reset;
+        SalesLines.Reset();
         SalesLines.SetRange("Document Type", SalesHeader."Document Type");
         SalesLines.SetRange("Document No.", SalesHeader."No.");
 
@@ -114,15 +107,14 @@ codeunit 50001 "General Purpose Codeunit"
                     if ItemRec."Assembly BOM" then
                         SalesLines.Mark(true);
                 end;
-            until SalesLines.Next = 0;
+            until SalesLines.Next() = 0;
 
             SalesLines.MarkedOnly(true);
             SalesLines.Find('-');
 
             repeat
                 ExplodeSalesLine(SalesLines);
-            until SalesLines.Next = 0;
-
+            until SalesLines.Next() = 0;
         end;
     end;
 
@@ -160,7 +152,7 @@ codeunit 50001 "General Purpose Codeunit"
         ///IF NOT CONFIRM('Do you want to explode the BOM?',FALSE) THEN
         ///  EXIT;
 
-        ToSalesLine.Reset;
+        ToSalesLine.Reset();
         ToSalesLine.SetRange("Document Type", SalesLine."Document Type");
         ToSalesLine.SetRange("Document No.", SalesLine."Document No.");
         ToSalesLine := SalesLine;
@@ -187,7 +179,7 @@ codeunit 50001 "General Purpose Codeunit"
                     ToSalesLine."Outstanding Quantity" := Round(SalesLine."Quantity (Base)" * FromBOMComp."Quantity per", 0.00001);
                     if ToSalesLine."Outstanding Quantity" > 0 then
                         ItemCheckAvail.SalesLineCheck(ToSalesLine);
-                until FromBOMComp.Next = 0;
+                until FromBOMComp.Next() = 0;
         end;
 
         ToSalesLine := SalesLine;
@@ -196,14 +188,14 @@ codeunit 50001 "General Purpose Codeunit"
         //ToSalesLine."Description 2" := SalesLine."Description 2";
         //ToSalesLine.MODIFY;
         //ToSalesLine."Component Line" := FALSE;
-        ToSalesLine.Modify;
+        ToSalesLine.Modify();
 
-        FromBOMComp.Reset;
+        FromBOMComp.Reset();
         FromBOMComp.SetRange("Parent Item No.", SalesLine."No.");
         FromBOMComp.Find('-');
         NextLineNo := SalesLine."Line No.";
         repeat
-            ToSalesLine.Init;
+            ToSalesLine.Init();
             NextLineNo := NextLineNo + LineSpacing;
             ToSalesLine."Line No." := NextLineNo;
             case FromBOMComp.Type of
@@ -228,7 +220,6 @@ codeunit 50001 "General Purpose Codeunit"
                         0.00001));
                 end else
                     ToSalesLine.Validate(Quantity, SalesLine."Quantity (Base)" * FromBOMComp."Quantity per");
-
             end;
             if SalesHeader."Language Code" = '' then
                 ToSalesLine.Description := FromBOMComp.Description
@@ -238,10 +229,10 @@ codeunit 50001 "General Purpose Codeunit"
 
             ToSalesLine."Location Code" := SalesLine."Location Code"; // Also copy location: Adam
             ToSalesLine.Explodedline := true;
-            ToSalesLine.Insert;
-        until FromBOMComp.Next = 0;
+            ToSalesLine.Insert();
+        until FromBOMComp.Next() = 0;
 
-        Commit;
+        Commit();
     end;
 
     // [Scope('OnPrem')]
@@ -255,9 +246,8 @@ codeunit 50001 "General Purpose Codeunit"
         SalesLineRec.SetRange(SalesLineRec."Document Type", SalesHeader."Document Type");
         SalesLineRec.SetRange(SalesLineRec."Document No.", SalesHeader."No.");
         SalesLineRec.SetRange(SalesLineRec.Explodedline, true);
-        if SalesLineRec.Find('-') then begin
-            SalesLineRec.DeleteAll;
-        end;
+        if SalesLineRec.Find('-') then
+            SalesLineRec.DeleteAll();
     end;
 
     // [Scope('OnPrem')]
@@ -267,8 +257,8 @@ codeunit 50001 "General Purpose Codeunit"
         Mth := Date2DMY(CheckDate, 2);
         Yr := Date2DMY(CheckDate, 3);
 
-        DateRec2.Reset;
-        HolidayRec.Reset;
+        DateRec2.Reset();
+        HolidayRec.Reset();
         HolidayRec.SetRange(HolidayRec.Day, Dy);
         HolidayRec.SetRange(HolidayRec.Month, Mth);
 
@@ -279,7 +269,7 @@ codeunit 50001 "General Purpose Codeunit"
             DateRec2.SetRange(DateRec2."Period Start", CheckDate);
             if DateRec2.Find('-') then begin
                 WkDay := DateRec2."Period Name";
-                HolidayRec.Reset;
+                HolidayRec.Reset();
                 HolidayRec.SetRange(HolidayRec."Day Of Week", WkDay);
                 if HolidayRec.Count <> 0 then
                     exit(true)
@@ -364,7 +354,4 @@ codeunit 50001 "General Purpose Codeunit"
         // JobJnlTemplate.TestField("Test Report ID");
         REPORT.Run(VesselCatchesReportID, true, false, JobJnlLine);
     end;
-
-
 }
-

@@ -6,7 +6,7 @@ codeunit 50005 "Item-Find Point"
     trigger OnRun()
     begin
         ItemPoints.Copy(Rec);
-        ItemPoints.Reset;
+        ItemPoints.Reset();
         ItemPoints.SetCurrentKey(
           "Item No.", "Variant Code", "Responsibility Center", "Price Group Code",
           "Unit of Measure Code", "Currency Code", "Starting Date");
@@ -38,4 +38,3 @@ codeunit 50005 "Item-Find Point"
         Item: Record Item;
         ItemPoints: Record "Item Points";
 }
-

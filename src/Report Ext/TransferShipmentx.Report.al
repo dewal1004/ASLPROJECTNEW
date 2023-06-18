@@ -23,7 +23,7 @@ report 90704 "Transfer Shipmentx"
                     column(STRSUBSTNO_Text001_CopyText_; StrSubstNo(Text001, CopyText))
                     {
                     }
-                    column(STRSUBSTNO_Text002_FORMAT_CurrReport_PAGENO__; StrSubstNo(Text002, Format(CurrReport.PageNo)))
+                    column(STRSUBSTNO_Text002_FORMAT_CurrReport_PAGENO__; StrSubstNo(Text002, Format(CurrReport.PageNo())))
                     {
                     }
                     column(TransferToAddr_1_; TransferToAddr[1])
@@ -119,10 +119,10 @@ report 90704 "Transfer Shipmentx"
                         begin
                             if Number = 1 then begin
                                 if not PostedDocDim1.Find('-') then
-                                    CurrReport.Break;
+                                    CurrReport.Break();
                             end else
                                 if not Continue then
-                                    CurrReport.Break;
+                                    CurrReport.Break();
 
                             Clear(DimText);
                             Continue := false;
@@ -141,13 +141,13 @@ report 90704 "Transfer Shipmentx"
                                     Continue := true;
                                     exit;
                                 end;
-                            until (PostedDocDim1.Next = 0);
+                            until (PostedDocDim1.Next() = 0);
                         end;
 
                         trigger OnPreDataItem()
                         begin
                             if not ShowInternalInfo then
-                                CurrReport.Break;
+                                CurrReport.Break();
                         end;
                     }
                     dataitem("Transfer Shipment Line"; "Transfer Shipment Line")
@@ -211,10 +211,10 @@ report 90704 "Transfer Shipmentx"
                             begin
                                 if Number = 1 then begin
                                     if not PostedDocDim2.Find('-') then
-                                        CurrReport.Break;
+                                        CurrReport.Break();
                                 end else
                                     if not Continue then
-                                        CurrReport.Break;
+                                        CurrReport.Break();
 
                                 Clear(DimText);
                                 Continue := false;
@@ -233,13 +233,13 @@ report 90704 "Transfer Shipmentx"
                                         Continue := true;
                                         exit;
                                     end;
-                                until (PostedDocDim2.Next = 0);
+                                until (PostedDocDim2.Next() = 0);
                             end;
 
                             trigger OnPreDataItem()
                             begin
                                 if not ShowInternalInfo then
-                                    CurrReport.Break;
+                                    CurrReport.Break();
                             end;
                         }
 
@@ -256,7 +256,7 @@ report 90704 "Transfer Shipmentx"
                             while MoreLines and (Description = '') and ("Item No." = '') and (Quantity = 0) do
                                 MoreLines := Next(-1) <> 0;
                             if not MoreLines then
-                                CurrReport.Break;
+                                CurrReport.Break();
                             SetRange("Line No.", 0, "Line No.");
                         end;
                     }
@@ -286,14 +286,13 @@ report 90704 "Transfer Shipmentx"
                 FormatAddr.TransferShptTransferTo(TransferToAddr, "Transfer Shipment Header");
 
                 if not ShipmentMethod.Get("Shipment Method Code") then
-                    ShipmentMethod.Init;
+                    ShipmentMethod.Init();
             end;
         }
     }
 
     requestpage
     {
-
         layout
         {
         }
@@ -330,4 +329,3 @@ report 90704 "Transfer Shipmentx"
         ShipmentMethod_DescriptionCaptionLbl: Label 'Shipment Method';
         Line_DimensionsCaptionLbl: Label 'Line Dimensions';
 }
-

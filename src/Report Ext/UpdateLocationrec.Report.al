@@ -3,8 +3,7 @@ report 99998 "Update Location rec"
     // To Update Vessel, Voyage No. And Operation No on Location Record
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/UpdateLocationrec.rdlc';
-
-
+    Caption = 'Update Location rec';
     dataset
     {
         dataitem(Job; Job)
@@ -16,7 +15,7 @@ report 99998 "Update Location rec"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -80,14 +79,13 @@ report 99998 "Update Location rec"
             trigger OnAfterGetRecord()
             begin
                 Validate(Vessel, Vessel);
-                Modify;
+                Modify();
             end;
         }
     }
 
     requestpage
     {
-
         layout
         {
         }
@@ -105,4 +103,3 @@ report 99998 "Update Location rec"
         JobCaptionLbl: Label 'Job';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
 }
-

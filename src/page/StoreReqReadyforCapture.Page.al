@@ -13,7 +13,7 @@ page 50063 "Store Req. Ready for Capture"
                             "Final Approved" = CONST(Approved),
                             Processed = CONST(false),
                             "Issued Captured" = CONST(false));
-
+    Caption = 'Store Req. Ready for Capture';
     layout
     {
         area(content)
@@ -88,4 +88,3 @@ page 50063 "Store Req. Ready for Capture"
     {
     }
 }
-

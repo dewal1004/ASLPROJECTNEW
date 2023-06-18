@@ -2,7 +2,6 @@ tableextension 50319 "tableextension50319" extends "Sales Price"
 {
     fields
     {
-
         //Unsupported feature: Code Modification on ""Starting Date"(Field 4).OnValidate".
 
         //trigger OnValidate()
@@ -31,7 +30,6 @@ tableextension 50319 "tableextension50319" extends "Sales Price"
         //end;
     }
 
-
     //Unsupported feature: Code Modification on "OnInsert".
 
     //trigger OnInsert()
@@ -53,4 +51,3 @@ tableextension 50319 "tableextension50319" extends "Sales Price"
     */
     //end;
 }
-

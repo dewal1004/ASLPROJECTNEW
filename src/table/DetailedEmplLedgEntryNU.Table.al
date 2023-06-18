@@ -65,8 +65,6 @@ table 50379 "Detailed Empl. Ledg. Entry NU*"
             //TestTableRelation = false;
 
             trigger OnLookup()
-            var
-                LoginMgt: Codeunit "User Management";
             begin
                 //          LoginMgt.LookupUserID("User ID");
             end;
@@ -196,4 +194,3 @@ table 50379 "Detailed Empl. Ledg. Entry NU*"
     {
     }
 }
-

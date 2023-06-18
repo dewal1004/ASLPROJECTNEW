@@ -28,7 +28,6 @@ tableextension 50210 "tableextension50210" extends "Purch. Rcpt. Header"
         }
         modify("Your Reference")
         {
-
             //Unsupported feature: Property Modification (Data type) on ""Your Reference"(Field 11)".
 
             Description = 'Text30';
@@ -48,6 +47,7 @@ tableextension 50210 "tableextension50210" extends "Purch. Rcpt. Header"
                                                         "G/L Account No." = FILTER('2185')));
             Description = 'BPR1.00,LC';
             FieldClass = FlowField;
+            Editable = false;
         }
         field(50002; "Total Amount Item (LCY)"; Decimal)
         {
@@ -69,6 +69,7 @@ tableextension 50210 "tableextension50210" extends "Purch. Rcpt. Header"
                                                                                "Outstanding Quantity" = FILTER(<> 0)));
             Description = 'BPR1.00,LC';
             FieldClass = FlowField;
+            Editable = false;
         }
         field(50015; "Waybill No."; Code[20])
         {
@@ -88,7 +89,6 @@ tableextension 50210 "tableextension50210" extends "Purch. Rcpt. Header"
         }
         field(50310; "Totat Freight"; Decimal)
         {
-
             trigger OnValidate()
             begin
                 if "Currency Factor" <> 0 then
@@ -100,7 +100,6 @@ tableextension 50210 "tableextension50210" extends "Purch. Rcpt. Header"
         }
         field(50311; "Total Ancillary Charges"; Decimal)
         {
-
             trigger OnValidate()
             begin
                 if "Currency Factor" <> 0 then
@@ -112,7 +111,6 @@ tableextension 50210 "tableextension50210" extends "Purch. Rcpt. Header"
         }
         field(50312; "Clearing(LCY)"; Decimal)
         {
-
             trigger OnValidate()
             begin
                 TestField("Currency Code");
@@ -120,7 +118,6 @@ tableextension 50210 "tableextension50210" extends "Purch. Rcpt. Header"
         }
         field(50313; "Interest Expense(LCY)"; Decimal)
         {
-
             trigger OnValidate()
             begin
                 TestField("Currency Code");
@@ -245,6 +242,7 @@ tableextension 50210 "tableextension50210" extends "Purch. Rcpt. Header"
             CalcFormula = Sum("Item Ledger Entry".Quantity WHERE("Entry Type" = CONST(Purchase),
                                                                   "Document No." = FIELD("No.")));
             FieldClass = FlowField;
+            Editable = false;
         }
         field(50399; QtyDeliveredBKord; Decimal)
         {
@@ -262,4 +260,3 @@ tableextension 50210 "tableextension50210" extends "Purch. Rcpt. Header"
         }
     }
 }
-

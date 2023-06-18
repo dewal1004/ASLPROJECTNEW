@@ -15,6 +15,7 @@ tableextension 50246 "tableextension50246" extends "Item Journal Batch"
             CalcFormula = Max("Item Journal Line"."Document No." WHERE("Journal Template Name" = FIELD("Journal Template Name"),
                                                                         "Journal Batch Name" = FIELD(Name)));
             FieldClass = FlowField;
+            Editable = false;
         }
         field(50358; "Gen. Bus. Posting Group"; Code[10])
         {
@@ -27,7 +28,7 @@ tableextension 50246 "tableextension50246" extends "Item Journal Batch"
                     ItemJnlLine.SetRange("Journal Template Name", "Journal Template Name");
                     ItemJnlLine.SetRange("Journal Batch Name", Name);
                     ItemJnlLine.ModifyAll("Gen. Bus. Posting Group", "Gen. Bus. Posting Group");
-                    Modify;
+                    Modify();
                 end;
             end;
         }
@@ -42,4 +43,3 @@ tableextension 50246 "tableextension50246" extends "Item Journal Batch"
     var
         ItemJnlLine: Record "Item Journal Line";
 }
-

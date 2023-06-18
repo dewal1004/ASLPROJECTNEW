@@ -1,5 +1,6 @@
 table 60009 "Leave Roster NU*"
 {
+    Caption = 'Leave Roster NU*';
     //DrillDownPageID = 60009;
     //LookupPageID = 60009;
 
@@ -57,6 +58,7 @@ table 60009 "Leave Roster NU*"
                                                           "Region Code" = FIELD("Region Filter"),
                                                           "Global Dimension 1 Code" = FIELD("Global Dimension 1 Filter")));
             FieldClass = FlowField;
+            Editable = false;
         }
         field(16; "Total Leaves Taken"; Integer)
         {
@@ -69,6 +71,7 @@ table 60009 "Leave Roster NU*"
                                                           "Global Dimension 1 Code" = FIELD("Global Dimension 1 Filter"),
                                                           "Global Dimension 2 Code" = FIELD("Global Dimension 2 Filter")));
             FieldClass = FlowField;
+            Editable = false;
         }
         field(17; "Employee Filter"; Code[30])
         {
@@ -166,6 +169,9 @@ table 60009 "Leave Roster NU*"
 
     fieldgroups
     {
+        fieldgroup(DropDown; Duration)
+        {
+        }
     }
 
     trigger OnInsert()
@@ -180,7 +186,4 @@ table 60009 "Leave Roster NU*"
 
     var
         LeaveRosRec: Record "Leave Roster NU*";
-        LCatRec: Record "Leave Categories NU*";
-        DateRec: Record Date;
 }
-

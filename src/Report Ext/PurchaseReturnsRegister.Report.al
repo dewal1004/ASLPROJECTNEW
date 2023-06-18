@@ -4,7 +4,7 @@ report 50020 "Purchase Returns Register"
     RDLCLayout = './src/reportrdlc/PurchaseReturnsRegister.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
-
+    Caption = 'Purchase Returns Register';
     dataset
     {
         dataitem("Purch. Cr. Memo Hdr."; "Purch. Cr. Memo Hdr.")
@@ -20,7 +20,7 @@ report 50020 "Purchase Returns Register"
             column(FORMAT_TODAY_0_4_; Format(Today, 0, 4))
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(Purch__Cr__Memo_Hdr___GETFILTERS; "Purch. Cr. Memo Hdr.".GetFilters)
@@ -196,7 +196,6 @@ report 50020 "Purchase Returns Register"
                 begin
                     UnitCost := 0;
 
-
                     if "Purch. Cr. Memo Hdr."."Currency Code" = '' then begin
                         InvAmount := "Purch. Cr. Memo Line"."Amount Including VAT";
                         UnitCost := "Purch. Cr. Memo Line"."Direct Unit Cost";
@@ -245,7 +244,6 @@ report 50020 "Purchase Returns Register"
 
     requestpage
     {
-
         layout
         {
             area(content)
@@ -276,18 +274,14 @@ report 50020 "Purchase Returns Register"
         else
             AmountCaption := 'Amount(LCY)';
         if "Purch. Cr. Memo Line"."Buy-from Vendor No." = '' then
-            CurrReport.Skip;
+            CurrReport.Skip();
     end;
 
     var
         PurchInvHeader: Record "Purch. Cr. Memo Hdr.";
-        UserSetup: Record "User Setup";
-        ItemRec: Record Item;
         Vendor: Record Vendor;
         CurrencyExchRate: Record "Currency Exchange Rate";
-        totalamount: Decimal;
         DiscAmount: Decimal;
-        InvDisc: Decimal;
         ItemFilter: Code[250];
         TotQty: Decimal;
         UnitCost: Decimal;
@@ -318,4 +312,3 @@ report 50020 "Purchase Returns Register"
         Grand_TotalCaptionLbl: Label 'Grand Total';
         Total_for_Vendor_CaptionLbl: Label 'Total for Vendor:';
 }
-

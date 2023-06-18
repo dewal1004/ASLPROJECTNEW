@@ -2,7 +2,7 @@ report 99012 "Renumber Employee 2"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/RenumberEmployee2.rdlc';
-
+    Caption = 'Renumber Employee 2';
     dataset
     {
         dataitem(Employee; Employee)
@@ -13,7 +13,7 @@ report 99012 "Renumber Employee 2"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -42,7 +42,6 @@ report 99012 "Renumber Employee 2"
 
     requestpage
     {
-
         layout
         {
         }
@@ -57,10 +56,6 @@ report 99012 "Renumber Employee 2"
     }
 
     var
-        Empl: Record Employee;
-        NewNo: Integer;
-        NewN: Integer;
         EmployeeCaptionLbl: Label 'Employee';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
 }
-

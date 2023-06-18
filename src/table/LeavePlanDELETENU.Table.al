@@ -1,5 +1,6 @@
 table 60008 "Leave Plan DELETE NU*"
 {
+    Caption = 'Leave Plan DELETE NU*';
     // DrillDownPageID = 60007;
     //LookupPageID = 60007;
 
@@ -24,7 +25,6 @@ table 60008 "Leave Plan DELETE NU*"
         }
         field(5; "Start Date"; Date)
         {
-
             trigger OnValidate()
             begin
 
@@ -45,7 +45,6 @@ table 60008 "Leave Plan DELETE NU*"
         }
         field(6; "End Date"; Date)
         {
-
             trigger OnValidate()
             begin
                 if "End Date" = 0D then begin
@@ -65,7 +64,6 @@ table 60008 "Leave Plan DELETE NU*"
         }
         field(7; "No. Days"; Integer)
         {
-
             trigger OnValidate()
             begin
 
@@ -138,7 +136,7 @@ table 60008 "Leave Plan DELETE NU*"
             "Line No." := 1;
 
         if "Serial No" = '' then begin
-            HumanResSetup.Get;
+            HumanResSetup.Get();
             HumanResSetup.TestField("Leave Plan No");
             NoSeriesMgt.InitSeries(HumanResSetup."Leave Plan No", xRec."No Series", 0D, "Serial No", "No Series");
         end;
@@ -150,4 +148,3 @@ table 60008 "Leave Plan DELETE NU*"
         NoSeriesMgt: Codeunit NoSeriesManagement;
     //GenPCode: Codeunit "General Purpose Codeunit";
 }
-

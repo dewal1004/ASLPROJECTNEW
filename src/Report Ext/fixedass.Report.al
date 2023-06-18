@@ -6,8 +6,7 @@ report 50250 "fixed ass"
     // EndingDate:=013103D;
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/fixedass.rdlc';
-
-
+    Caption = 'fixed ass';
     dataset
     {
         dataitem("Fixed Asset"; "Fixed Asset")
@@ -33,7 +32,7 @@ report 50250 "fixed ass"
             column(USERID; UserId)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(DeprBookText; DeprBookText)
@@ -167,9 +166,9 @@ report 50250 "fixed ass"
             trigger OnAfterGetRecord()
             begin
                 if Inactive then
-                    CurrReport.Skip;
+                    CurrReport.Skip();
                 if not FADeprBook.Get("No.", DeprBookCode) then
-                    CurrReport.Skip;
+                    CurrReport.Skip();
                 if "FA Posting Group" <> FADeprBook."FA Posting Group" then
                     Error(Text005, FieldCaption("FA Posting Group"), "No.");
                 MaintenanceLedgEntry.SetRange("FA No.", "No.");
@@ -177,12 +176,11 @@ report 50250 "fixed ass"
                 Amounts[2] := CalculateAmount(MaintenanceCode2, Period2);
                 Amounts[3] := CalculateAmount(MaintenanceCode3, Period3);
                 if (Amounts[1] = 0) and (Amounts[2] = 0) and (Amounts[3] = 0) then
-                    CurrReport.Skip;
-
+                    CurrReport.Skip();
 
                 "Maintenance Amt" := Amounts[2];
-                Modify;
-                Commit;
+                Modify();
+                Commit();
             end;
 
             trigger OnPostDataItem()
@@ -227,7 +225,6 @@ report 50250 "fixed ass"
                 /*GroupTotals::" ":
                   SETCURRENTKEY("Maintenance Amt");*/
                 end;
-
             end;
         }
         dataitem(fa; "Fixed Asset")
@@ -317,9 +314,9 @@ report 50250 "fixed ass"
             trigger OnAfterGetRecord()
             begin
                 if Inactive then
-                    CurrReport.Skip;
+                    CurrReport.Skip();
                 if not FADeprBook.Get("No.", DeprBookCode) then
-                    CurrReport.Skip;
+                    CurrReport.Skip();
                 if "FA Posting Group" <> FADeprBook."FA Posting Group" then
                     Error(Text005, FieldCaption("FA Posting Group"), "No.");
                 MaintenanceLedgEntry.SetRange("FA No.", "No.");
@@ -327,7 +324,7 @@ report 50250 "fixed ass"
                 Amounts[2] := CalculateAmount(MaintenanceCode2, Period2);
                 Amounts[3] := CalculateAmount(MaintenanceCode3, Period3);
                 if (Amounts[1] = 0) and (Amounts[2] = 0) and (Amounts[3] = 0) then
-                    CurrReport.Skip;
+                    CurrReport.Skip();
             end;
         }
         dataitem("Maintenance Ledger Entry"; "Maintenance Ledger Entry")
@@ -379,7 +376,6 @@ report 50250 "fixed ass"
 
     requestpage
     {
-
         layout
         {
         }
@@ -403,8 +399,8 @@ report 50250 "fixed ass"
         if DateSelection = DateSelection::"Posting Date" then
             FAGenReport.AppendPostingDateFilter(FAFilter, StartingDate, EndingDate);
         DeprBookText := StrSubstNo('%1%2 %3', DeprBook.TableCaption, ':', DeprBookCode);
-        MakeGroupTotalText;
-        ValidateDates;
+        MakeGroupTotalText();
+        ValidateDates();
         MakeAmountHeadLine(1, MaintenanceCode1, Period1);
         MakeAmountHeadLine(2, MaintenanceCode2, Period2);
         MakeAmountHeadLine(3, MaintenanceCode3, Period3);
@@ -422,7 +418,6 @@ report 50250 "fixed ass"
     end;
 
     var
-        FASetup: Record "FA Setup";
         DeprBook: Record "Depreciation Book";
         FADeprBook: Record "FA Depreciation Book";
         MaintenanceLedgEntry: Record "Maintenance Ledger Entry";
@@ -449,9 +444,6 @@ report 50250 "fixed ass"
         DeprBookCode: Code[10];
         PrintDetails: Boolean;
         DateSelection: Option "FA Posting Date","Posting Date";
-        i: Integer;
-        "---": Integer;
-        RespEmpl: Record Employee;
         ResEmp: Text[100];
         SNO: Integer;
         SNO2: Integer;
@@ -459,7 +451,6 @@ report 50250 "fixed ass"
         MAAmt: Decimal;
         FUAmtTot: Decimal;
         MAAmtTot: Decimal;
-        PrintDetailsME: Boolean;
         Text000: Label 'Group Total';
         Text001: Label 'Group Totals';
         Text002: Label 'You must specify the Starting Date and the Ending Date.';
@@ -473,7 +464,6 @@ report 50250 "fixed ass"
         T3: Label 'Total';
         T4: Label 'Responsible Person';
         T5: Label 'SNo.';
-        T6: Label 'Registration No.';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
         Fuel___Maintenance___AnalysisCaptionLbl: Label 'Fuel & Maintenance - Analysis';
         DetailsCaptionLbl: Label 'Details';
@@ -585,4 +575,3 @@ report 50250 "fixed ass"
         exit(MaintenanceLedgEntry.Amount);
     end;
 }
-

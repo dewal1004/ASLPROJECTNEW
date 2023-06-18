@@ -48,4 +48,3 @@ pageextension 50251 "pageextension50251" extends "Cash Receipt Journal"
     */
     //end;
 }
-

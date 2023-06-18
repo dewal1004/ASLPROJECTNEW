@@ -1,6 +1,5 @@
 pageextension 50295 "pageextension50295" extends "Employee Relatives"
 {
-
     //Unsupported feature: Property Insertion (PopulateAllFields) on ""Employee Relatives"(Page 5209)".
 
     layout
@@ -18,4 +17,3 @@ pageextension 50295 "pageextension50295" extends "Employee Relatives"
         }
     }
 }
-

@@ -5,7 +5,7 @@ report 50058 "PRoll; Transfer ED definitions"
     // Booking details for the new E/D(s) are found they are also transfered.
 
     ProcessingOnly = true;
-
+    Caption = 'PRoll; Transfer ED definitions';
     dataset
     {
         dataitem("Payroll-E/D Codes."; "Payroll-E/D Codes.")
@@ -30,7 +30,7 @@ report 50058 "PRoll; Transfer ED definitions"
                         if not "Closed?" then
                             if not EntryLineRec.Get("Payroll Period", "Employee No",
                                          "Payroll-E/D Codes."."E/D Code") then begin
-                                EntryLineRec.Init;
+                                EntryLineRec.Init();
                                 begin
                                     EntryLineRec."Payroll Period" := "Payroll Period";
                                     EntryLineRec."Employee No" := "Employee No";
@@ -46,7 +46,6 @@ report 50058 "PRoll; Transfer ED definitions"
                                     EntryLineRec."Overline Column" := "Payroll-E/D Codes."."Overline Column";
                                     EntryLineRec."Underline Amount" := "Payroll-E/D Codes."."Underline Amount";
                                     EntryLineRec."Payslip Text" := "Payroll-E/D Codes."."Payslip Text";
-
                                 end;
 
                                 /* Calculate the amount if neither quantities nor yes flag are required*/
@@ -88,21 +87,20 @@ report 50058 "PRoll; Transfer ED definitions"
                                             if Employee."SAM Number" <> '' then
                                                 EntryLineRec."Credit Account" := Employee."SAM Number";
                                 end;
-                                EntryLineRec.Insert;
+                                EntryLineRec.Insert();
                             end;
-
                     end;
 
                     trigger OnPreDataItem()
                     begin
                         //EntryLineRec.LOCKTABLE( FALSE);
-                        EntryLineRec.Reset;
+                        EntryLineRec.Reset();
                     end;
                 }
 
                 trigger OnAfterGetRecord()
                 begin
-                    if Employee.Blocked then CurrReport.Skip; //Added by Adam to skip Blocked Employees
+                    if Employee.Blocked then CurrReport.Skip(); //Added by Adam to skip Blocked Employees
                     Window.Update(2, "No.");
                 end;
             }
@@ -125,7 +123,6 @@ report 50058 "PRoll; Transfer ED definitions"
 
     requestpage
     {
-
         layout
         {
         }
@@ -157,7 +154,6 @@ report 50058 "PRoll; Transfer ED definitions"
         PrevLookRec: Record "Payroll-Lookup Lines.";
         InfoCounter: Integer;
         Window: Dialog;
-        TMPamt: Decimal;
 
     [Scope('OnPrem')]
     procedure CalcAmount(EDFileRec: Record "Payroll-E/D Codes."; EntryLineRec: Record "Payroll-Payslip Lines."; EntryLineAmount: Decimal): Decimal
@@ -192,7 +188,7 @@ report 50058 "PRoll; Transfer ED definitions"
             /* If this 'Factor of' entry record is marked then this trigger was called
               from this 'Fator of' record, therefore ensure the amount to be used is
               the updated amount*/
-            if ProllFactorRec.Mark then
+            if ProllFactorRec.Mark() then
                 ProllFactorRec.Amount := EntryLineAmount;
 
         /* Calculate the amount based on values in Table Look Up or Percentage fields
@@ -216,17 +212,16 @@ report 50058 "PRoll; Transfer ED definitions"
                   dbFINDREC */
                 case LookHeaderRec.Type of
                     0, 2:
-                        begin
-                            /* Lookup table is searched with numeric variables */
-                            if ProllFactorRec.Amount > -1 then begin
-                                LookLinesRec."Lower Code" := '';
-                                InputAmount := ProllFactorRec.Amount * LookHeaderRec."Input Factor";
-                                LookLinesRec."Lower Amount" := InputAmount;
-                                LookLinesRec.SetRange("Lower Code", '');
-                            end
-                            else
-                                exit(LookHeaderRec."Min. Extract Amount")
-                        end;
+
+                        /* Lookup table is searched with numeric variables */
+                        if ProllFactorRec.Amount > -1 then begin
+                            LookLinesRec."Lower Code" := '';
+                            InputAmount := ProllFactorRec.Amount * LookHeaderRec."Input Factor";
+                            LookLinesRec."Lower Amount" := InputAmount;
+                            LookLinesRec.SetRange("Lower Code", '');
+                        end
+                        else
+                            exit(LookHeaderRec."Min. Extract Amount");
                     else  /*Lookup table is searched with variables of type code*/
                       begin
                         LookLinesRec."Lower Amount" := 0;
@@ -238,27 +233,26 @@ report 50058 "PRoll; Transfer ED definitions"
 
                 case LookHeaderRec.Type of
                     0, 1:
-                        begin
-                            /* Extract amount as follows; First find line where Lower Amount or
-                              lower code is just greater than the Factor Amount then move one
-                              line back.*/
 
-                            if LookLinesRec.Find('=') then
-                                ReturnAmount := LookLinesRec."Extract Amount"
+                        /* Extract amount as follows; First find line where Lower Amount or
+                          lower code is just greater than the Factor Amount then move one
+                          line back.*/
+
+                        if LookLinesRec.Find('=') then
+                            ReturnAmount := LookLinesRec."Extract Amount"
+                        else
+                            if LookLinesRec.Find('>') then begin
+                                BackOneRec := LookLinesRec.Next(-1);
+                                ReturnAmount := LookLinesRec."Extract Amount";
+                            end
                             else
-                                if LookLinesRec.Find('>') then begin
-                                    BackOneRec := LookLinesRec.Next(-1);
-                                    ReturnAmount := LookLinesRec."Extract Amount";
+                                if LookHeaderRec.Type = 0 then begin
+                                    /*'Factor' Amount is > than the table's greatest "Lower amount"*/
+                                    if LookLinesRec.Find('+') then
+                                        ReturnAmount := LookLinesRec."Extract Amount";
                                 end
                                 else
-                                    if LookHeaderRec.Type = 0 then begin
-                                        /*'Factor' Amount is > than the table's greatest "Lower amount"*/
-                                        if LookLinesRec.Find('+') then
-                                            ReturnAmount := LookLinesRec."Extract Amount";
-                                    end
-                                    else
-                                        exit(EntryLineRec.Amount);
-                        end;
+                                    exit(EntryLineRec.Amount);
 
                     2: /*  Extract amount from tax table*/
                         ReturnAmount := (CalcTaxAmt(LookLinesRec, InputAmount)) *
@@ -288,14 +282,13 @@ report 50058 "PRoll; Transfer ED definitions"
                 end;
                 ReturnAmount := Round(ReturnAmount, RoundPrec, RoundDir);
 
-                LookLinesRec.Reset
+                LookLinesRec.Reset()
             end;
 
         /*Check for rounding, Maximum and minimum */
         ReturnAmount := ChkRoundMaxMin(EDFileRec, ReturnAmount);
 
         exit(ReturnAmount);
-
     end;
 
     [Scope('OnPrem')]
@@ -333,7 +326,7 @@ report 50058 "PRoll; Transfer ED definitions"
             "E/DFileRec".Get(ProllRecStore."E/D Code");
             if "E/DFileRec".Compute = EntryLineRec."E/D Code" then begin
 
-                if ProllRecStore.Mark then
+                if ProllRecStore.Mark() then
                     AmtToAdd := NewAmount
                 else
                     AmtToAdd := ProllRecStore.Amount;
@@ -349,7 +342,6 @@ report 50058 "PRoll; Transfer ED definitions"
             end
         until (ProllRecStore.Next(1) = 0);
         exit(IsComputed);
-
     end;
 
     [Scope('OnPrem')]
@@ -386,7 +378,6 @@ report 50058 "PRoll; Transfer ED definitions"
         TheAmount := Round(TheAmount, RoundPrec, RoundDir);
 
         exit(TheAmount);
-
     end;
 
     [Scope('OnPrem')]
@@ -406,7 +397,6 @@ report 50058 "PRoll; Transfer ED definitions"
         PrevLookRec := LDetailsRec;
         /*SG** COPYFILTERS(LDetailsRec );
          */
-
 
         if LDetailsRec.Find('=') then
             /*Record found where Lower Amount is equal to TaxTableInput*/
@@ -433,7 +423,6 @@ report 50058 "PRoll; Transfer ED definitions"
             ReturnAmount := CalcGraduated(LDetailsRec, TaxTableInput);
 
         exit(ReturnAmount);
-
     end;
 
     [Scope('OnPrem')]
@@ -465,7 +454,5 @@ report 50058 "PRoll; Transfer ED definitions"
             ReturnAmount := ReturnAmount + PrevLookRec."Cum. Tax Payable";
         end;
         exit(ReturnAmount);
-
     end;
 }
-

@@ -12,4 +12,3 @@ pageextension 50298 "pageextension50298" extends "Absence Registration"
         }
     }
 }
-

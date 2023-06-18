@@ -2,7 +2,7 @@ page 50054 "Task"
 {
     PageType = List;
     SourceTable = Task;
-
+    Caption = 'Task';
     layout
     {
         area(content)
@@ -29,4 +29,3 @@ page 50054 "Task"
     {
     }
 }
-

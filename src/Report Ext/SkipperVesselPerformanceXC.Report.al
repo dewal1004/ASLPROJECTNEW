@@ -1,6 +1,6 @@
 report 50149 "Skipper/Vessel Performance XC"
 {
-    // 
+    //
     // EndDate
     // Consd_Deductible_Days
     // NetSeaDay
@@ -9,8 +9,7 @@ report 50149 "Skipper/Vessel Performance XC"
     RDLCLayout = './src/reportrdlc/SkipperVesselPerformanceXC.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
-
-
+    Caption = 'Skipper/Vessel Performance XC';
     dataset
     {
         dataitem("Integer"; "Integer")
@@ -31,8 +30,8 @@ report 50149 "Skipper/Vessel Performance XC"
                             NetSeaDay := Jobs."Sea Days";
                         if NetSeaDay <> 0 then
                             Jobs.AvgPtSortBay := Jobs."Points Actual" / NetSeaDay;
-                        Jobs.Modify;
-                    until Jobs.Next = 0;
+                        Jobs.Modify();
+                    until Jobs.Next() = 0;
                 Jobs.SetRange(Jobs."Sea Days");
                 Jobs.SetRange(Jobs."Voyage Ended");
             end;
@@ -75,7 +74,7 @@ report 50149 "Skipper/Vessel Performance XC"
                     NetSeaDay := "Sea Days";
                 if NetSeaDay <> 0 then
                     AvgPtSortBay := "Points Actual" / NetSeaDay;
-                Modify;
+                Modify();
             end;
         }
         dataitem(Job; Job)
@@ -88,7 +87,7 @@ report 50149 "Skipper/Vessel Performance XC"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -210,7 +209,6 @@ report 50149 "Skipper/Vessel Performance XC"
 
     requestpage
     {
-
         layout
         {
             area(content)
@@ -256,4 +254,3 @@ report 50149 "Skipper/Vessel Performance XC"
         Shrimp_2_CaptionLbl: Label 'Shrimp Points';
         Fish_2_CaptionLbl: Label 'Fish Points';
 }
-

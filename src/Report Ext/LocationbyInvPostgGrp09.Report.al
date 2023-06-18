@@ -2,7 +2,7 @@ report 90503 "Location by Inv. Postg Grp0..9"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/LocationbyInvPostgGrp09.rdlc';
-
+    Caption = 'Location by Inv. Postg Grp0..9';
     dataset
     {
         dataitem(Location; Location)
@@ -14,7 +14,7 @@ report 90503 "Location by Inv. Postg Grp0..9"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -48,12 +48,12 @@ report 90503 "Location by Inv. Postg Grp0..9"
                     val := '12090050';
                     if (Location.Code = 'CRM-ASL') and ("Inventory Posting Group".Code > '133') then val := '12090060';
                     if (Location.Code = 'CRM-ASL') and ("Inventory Posting Group".Code <= '133') then val := '12090050';
-                    InvSetUp.Init;
+                    InvSetUp.Init();
                     InvSetUp."Location Code" := Location.Code;
                     InvSetUp."Invt. Posting Group Code" := "Inventory Posting Group".Code;
                     InvSetUp."Inventory Account" := val;
                     InvSetUp."Inventory Account (Interim)" := val;
-                    if not InvSetUp.Insert then InvSetUp.Modify;
+                    if not InvSetUp.Insert() then InvSetUp.Modify();
                 end;
             }
         }
@@ -61,7 +61,6 @@ report 90503 "Location by Inv. Postg Grp0..9"
 
     requestpage
     {
-
         layout
         {
         }
@@ -81,4 +80,3 @@ report 90503 "Location by Inv. Postg Grp0..9"
         LocationCaptionLbl: Label 'Location';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
 }
-

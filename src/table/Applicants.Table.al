@@ -4,16 +4,15 @@ table 50018 "Applicants"
     DataPerCompany = false;
     DrillDownPageID = "Applicants List";
     LookupPageID = "Applicants List";
-
+    Caption = 'Applicants';
     fields
     {
         field(1; "No."; Code[20])
         {
-
             trigger OnValidate()
             begin
                 if "No." <> xRec."No." then begin
-                    HumanResSetup.Get;
+                    HumanResSetup.Get();
                     NoSeriesMgt.TestManual(HumanResSetup."Application Nos.");
                     "No. Series" := '';
                 end;
@@ -24,7 +23,6 @@ table 50018 "Applicants"
         }
         field(3; "First Name"; Text[30])
         {
-
             trigger OnValidate()
             begin
                 if ("Search Name" = '') then
@@ -36,7 +34,6 @@ table 50018 "Applicants"
         }
         field(5; Initials; Text[30])
         {
-
             trigger OnValidate()
             begin
                 if ("Search Name" = UpperCase(xRec.Initials)) or ("Search Name" = '') then
@@ -113,13 +110,13 @@ table 50018 "Applicants"
                 if (("Application Status" = "Application Status"::Accepted) or
                    ("Application Status" = "Application Status"::Accepted)) and
                    ("Date Accepted/Rejected" = 0D) then begin
-                    "Date Accepted/Rejected" := WorkDate;
-                    ApplicantRec."Date Offer Made" := WorkDate;
+                    "Date Accepted/Rejected" := WorkDate();
+                    ApplicantRec."Date Offer Made" := WorkDate();
                 end;
                 if ("Application Status" = "Application Status"::Accepted) then
                     if Confirm('Do you want to convert this applicant to staff?', true) then begin
                         "Application Status" := "Application Status"::Accepted;
-                        Modify;
+                        Modify();
                         Applicantsr.SetRange("No.", "No.");
                         REPORT.Run(REPORT::"Convert Applicant to Staff", true, true, Applicantsr);
                     end;
@@ -134,7 +131,7 @@ table 50018 "Applicants"
             trigger OnValidate()
             begin
                 ValidateShortcutDimCode(1, "Global Dimension 1 Code");
-                MODIFY;
+                MODIFY();
             end;
         }
         field(37; "Global Dimension 2 Code"; Code[20])
@@ -146,7 +143,7 @@ table 50018 "Applicants"
             trigger OnValidate()
             begin
                 ValidateShortcutDimCode(2, "Global Dimension 2 Code");
-                MODIFY;
+                MODIFY();
             end;
         }
         field(39; Comment; Boolean)
@@ -230,7 +227,6 @@ table 50018 "Applicants"
         }
         field(50093; "Assigned Employee No"; Code[10])
         {
-
             trigger OnValidate()
             begin
                 if "Assigned Employee No" <> '' then
@@ -310,7 +306,6 @@ table 50018 "Applicants"
         }
         field(53010; "Second Interview Maximum"; Decimal)
         {
-
             trigger OnValidate()
             begin
                 if ("Second Interview Result" > "Second Interview Maximum") then
@@ -319,7 +314,6 @@ table 50018 "Applicants"
         }
         field(53011; "Final Interview Maximum"; Decimal)
         {
-
             trigger OnValidate()
             begin
                 if ("Final Interview Result" > "Final Interview Maximum") then
@@ -360,36 +354,39 @@ table 50018 "Applicants"
 
     fieldgroups
     {
+        fieldgroup(DropDown; "Post Code", City, Address, "Address 2")
+        {
+        }
     }
 
     trigger OnDelete()
     begin
         AlternativeAddr.SetRange("Employee No.", "No.");
-        AlternativeAddr.DeleteAll;
+        AlternativeAddr.DeleteAll();
 
         EmployeeQualification.SetRange("Employee No.", "No.");
-        EmployeeQualification.DeleteAll;
+        EmployeeQualification.DeleteAll();
 
         Relative.SetRange("Employee No.", "No.");
-        Relative.DeleteAll;
+        Relative.DeleteAll();
 
         EmployeeAbsence.SetRange("Employee No.", "No.");
-        EmployeeAbsence.DeleteAll;
+        EmployeeAbsence.DeleteAll();
 
         MiscArticleInformation.SetRange("Employee No.", "No.");
-        MiscArticleInformation.DeleteAll;
+        MiscArticleInformation.DeleteAll();
 
         ConfidentialInformation.SetRange("Employee No.", "No.");
-        ConfidentialInformation.DeleteAll;
+        ConfidentialInformation.DeleteAll();
 
         HumanResComment.SetRange("No.", "No.");
-        HumanResComment.DeleteAll;
+        HumanResComment.DeleteAll();
     end;
 
     trigger OnInsert()
     begin
         if "No." = '' then begin
-            HumanResSetup.Get;
+            HumanResSetup.Get();
             HumanResSetup.TestField("Application Nos.");
             NoSeriesMgt.InitSeries(HumanResSetup."Application Nos.", xRec."No. Series", 0D, "No.", "No. Series");
         end;
@@ -408,7 +405,6 @@ table 50018 "Applicants"
         IF SalespersonPurchaser.READPERMISSION THEN
           EmployeeSalespersonUpdate.HumanResToSalesPerson(xRec,Rec);
         */
-
     end;
 
     trigger OnRename()
@@ -417,11 +413,9 @@ table 50018 "Applicants"
     end;
 
     var
-        approved: Boolean;
         //approv: Record "Object";
         HumanResSetup: Record "Human Resources Setup";
         ApplicantRec: Record Applicants;
-        Res: Record Resource;
         PostCode: Record "Post Code";
         AlternativeAddr: Record "Alternative Address";
         EmployeeQualification: Record "Employee Qualification";
@@ -430,31 +424,23 @@ table 50018 "Applicants"
         MiscArticleInformation: Record "Misc. Article Information";
         ConfidentialInformation: Record "Confidential Information";
         HumanResComment: Record "Human Resource Comment Line";
-        SalespersonPurchaser: Record "Salesperson/Purchaser";
         NoSeriesMgt: Codeunit NoSeriesManagement;
-        EmployeeResUpdate: Codeunit "Employee/Resource Update";
-        EmployeeSalespersonUpdate: Codeunit "Employee/Salesperson Update";
-        DepartRec: Record "Dimension Value";
-        "day Employed": Integer;
         EmplContract: Record "Employment Contract";
         Applicantsr: Record Applicants;
         InterCount: Integer;
         TotalScore: Decimal;
         TotalMax: Decimal;
         AllAvg: Decimal;
-        RegRec: Record "Business Unit";
-        BCRec: Record "Dimension Value";
-        CCRec: Record "Dimension Value";
         DimMgt: Codeunit DimensionManagement;
 
     [Scope('OnPrem')]
     procedure AssistEdit(OldApplicant: Record Applicants): Boolean
     begin
         ApplicantRec := Rec;
-        HumanResSetup.Get;
+        HumanResSetup.Get();
         HumanResSetup.TestField("Application Nos.");
         if NoSeriesMgt.SelectSeries(HumanResSetup."Application Nos.", OldApplicant."No. Series", ApplicantRec."No. Series") then begin
-            HumanResSetup.Get;
+            HumanResSetup.Get();
             HumanResSetup.TestField("Application Nos.");
             NoSeriesMgt.SetSeries(ApplicantRec."No.");
             Rec := ApplicantRec;
@@ -516,7 +502,6 @@ table 50018 "Applicants"
     begin
         DimMgt.ValidateDimValueCode(FieldNo, ShortcutDimCode);
         DimMgt.SaveDefaultDim(DATABASE::"Applicant Qualification", "No.", FieldNo, ShortcutDimCode);
-        Modify;
+        Modify();
     end;
 }
-

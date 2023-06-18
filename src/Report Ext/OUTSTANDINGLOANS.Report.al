@@ -5,8 +5,7 @@ report 50069 "OUTSTANDING LOANS"
     RDLCLayout = './src/reportrdlc/OUTSTANDINGLOANS.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
-
-
+    Caption = 'OUTSTANDING LOANS';
     dataset
     {
         dataitem("Loan."; "Loan.")
@@ -19,7 +18,7 @@ report 50069 "OUTSTANDING LOANS"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -101,7 +100,6 @@ report 50069 "OUTSTANDING LOANS"
 
     requestpage
     {
-
         layout
         {
         }
@@ -117,11 +115,8 @@ report 50069 "OUTSTANDING LOANS"
 
     var
         LastFieldNo: Integer;
-        FooterPrinted: Boolean;
         TotalFor: Label 'Total for ';
         Loan_CaptionLbl: Label 'Loan.';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
         FiltersCaptionLbl: Label 'Filters';
-        CompanyInformation: Record "Company Information";
 }
-

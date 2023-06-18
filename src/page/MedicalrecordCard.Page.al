@@ -2,7 +2,7 @@ page 50044 "Medical record Card"
 {
     PageType = Card;
     SourceTable = "Medical Record";
-
+    Caption = 'Medical record Card';
     layout
     {
         area(content)
@@ -43,7 +43,7 @@ page 50044 "Medical record Card"
 
                     trigger OnValidate()
                     begin
-                        CheckTransType
+                        CheckTransType()
                     end;
                 }
                 field("Transaction Description"; Rec."Transaction Description")
@@ -102,8 +102,8 @@ page 50044 "Medical record Card"
 
     trigger OnAfterGetRecord()
     begin
-        CheckTransType;
-        HospitalCodeOnFormat;
+        CheckTransType();
+        HospitalCodeOnFormat();
     end;
 
     trigger OnInit()
@@ -114,7 +114,7 @@ page 50044 "Medical record Card"
 
     trigger OnModifyRecord(): Boolean
     begin
-        CheckTransType
+        CheckTransType()
     end;
 
     var
@@ -150,4 +150,3 @@ page 50044 "Medical record Card"
             VendName := '';
     end;
 }
-

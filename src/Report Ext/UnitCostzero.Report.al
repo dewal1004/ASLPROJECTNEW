@@ -2,7 +2,7 @@ report 90903 "UnitCost zero"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/UnitCostzero.rdlc';
-
+    Caption = 'UnitCost zero';
     dataset
     {
         dataitem(Item; Item)
@@ -12,14 +12,13 @@ report 90903 "UnitCost zero"
             trigger OnAfterGetRecord()
             begin
                 Item."Unit Cost" := 0;
-                Modify;
+                Modify();
             end;
         }
     }
 
     requestpage
     {
-
         layout
         {
         }
@@ -33,4 +32,3 @@ report 90903 "UnitCost zero"
     {
     }
 }
-

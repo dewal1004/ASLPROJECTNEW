@@ -15,4 +15,3 @@ pageextension 50297 "pageextension50297" extends "Employee Absences"
         }
     }
 }
-

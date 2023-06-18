@@ -4,7 +4,7 @@ report 50098 "Material Variant report"
     RDLCLayout = './src/reportrdlc/MaterialVariantreport.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
-
+    Caption = 'Material Variant report';
     dataset
     {
         dataitem("Store Requisition Header New"; "Store Requisition Header New")
@@ -60,7 +60,6 @@ report 50098 "Material Variant report"
 
     requestpage
     {
-
         layout
         {
         }
@@ -74,4 +73,3 @@ report 50098 "Material Variant report"
     {
     }
 }
-

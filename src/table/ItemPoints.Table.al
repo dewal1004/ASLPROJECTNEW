@@ -107,4 +107,3 @@ table 50049 "Item Points"
         if Item.Get("Item No.") then exit(Item.Description);
     end;
 }
-

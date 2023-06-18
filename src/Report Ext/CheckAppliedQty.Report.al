@@ -2,7 +2,7 @@ report 50052 "Check Applied Qty"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/CheckAppliedQty.rdlc';
-
+    Caption = 'Check Applied Qty';
     dataset
     {
         dataitem("Item Ledger Entry"; "Item Ledger Entry")
@@ -26,19 +26,18 @@ report 50052 "Check Applied Qty"
             begin
                 ItemApprec.SetFilter(ItemApprec."Inbound Item Entry No.", '%1', "Item Ledger Entry"."Entry No.");
                 ItemApprec.SetFilter(ItemApprec."Outbound Item Entry No.", '<>%1', 0);
-                if ItemApprec.FindSet then begin
+                if ItemApprec.FindSet() then begin
                     ItemApprec.CalcSums(ItemApprec.Quantity);
                     "Item Ledger Entry"."Applied Qty  Negative" := ItemApprec.Quantity;
-                    "Item Ledger Entry".Modify;
+                    "Item Ledger Entry".Modify();
                 end else
-                    CurrReport.Skip;
+                    CurrReport.Skip();
             end;
         }
     }
 
     requestpage
     {
-
         layout
         {
         }
@@ -55,4 +54,3 @@ report 50052 "Check Applied Qty"
     var
         ItemApprec: Record "Item Application Entry";
 }
-

@@ -1,6 +1,5 @@
 pageextension 50252 "pageextension50252" extends "Payment Journal"
 {
-
     //Unsupported feature: Code Modification on "OnAfterGetCurrRecord".
 
     //trigger OnAfterGetCurrRecord()
@@ -32,4 +31,3 @@ pageextension 50252 "pageextension50252" extends "Payment Journal"
     */
     //end;
 }
-

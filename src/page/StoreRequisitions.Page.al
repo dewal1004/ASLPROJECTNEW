@@ -7,7 +7,7 @@ page 50058 "Store Requisitions"
     Editable = false;
     UsageCategory = Lists;
     ApplicationArea = All, Basic;
-
+    Caption = 'Store Requisitions';
     layout
     {
         area(content)
@@ -58,4 +58,3 @@ page 50058 "Store Requisitions"
     {
     }
 }
-

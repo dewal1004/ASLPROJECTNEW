@@ -2,17 +2,16 @@ report 50157 "Short Supply thru Posted Trans"
 {
     // There is the possibility that An order is posted more than once in this case it will
     // show because the quantity will not be the same as shipped.
-    // 
+    //
     // ******To have the accurate quantity, the no of times the Order was shipped would have to be
     // divided into the total calculated quantity.
-    // 
+    //
     // Shame shipment shout not have item counted twice;
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/ShortSupplythruPostedTrans.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
-
-
+    Caption = 'Short Supply thru Posted Trans';
     dataset
     {
         dataitem(Job; Job)
@@ -26,7 +25,7 @@ report 50157 "Short Supply thru Posted Trans"
             column(FORMAT_TODAY_0_4_; Format(Today, 0, 4))
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(GETFILTERS; GetFilters)
@@ -108,23 +107,18 @@ report 50157 "Short Supply thru Posted Trans"
                 }
                 column(Transfer_Shipment_Line__Unit_of_Measure_; "Unit of Measure")
                 {
-
                 }
                 column(Transfer_Shipment_Line_Quantity; Quantity)
                 {
-
                 }
                 column(Quantity_Shipped_; "Quantity Shipped")
                 {
-
                 }
                 column(Transfer_Shipment_Line__Qty__Reqd__; "Qty. Reqd.")
                 {
-
                 }
                 column(QtyR; QtyR)
                 {
-
                 }
                 column(Transfer_Shipment_Line__Document_No__; "Document No.")
                 {
@@ -140,43 +134,33 @@ report 50157 "Short Supply thru Posted Trans"
                 }
                 column(QtyR_Control1000000040; QtyR)
                 {
-
                 }
                 column(Quantity_Shipped__Control1000000046; "Quantity Shipped")
                 {
-
                 }
                 column(Transfer_Shipment_Line_Quantity_Control1000000047; Quantity)
                 {
-
                 }
                 column(Transfer_Shipment_Line__Qty__Reqd___Control1000000048; "Qty. Reqd.")
                 {
-
                 }
                 column(Transfer_Shipment_Line__Unit_of_Measure__Control1000000049; "Unit of Measure")
                 {
-
                 }
                 column(QtyR_Control1000000052; QtyR)
                 {
-
                 }
                 column(Quantity_Shipped__Control1000000056; "Quantity Shipped")
                 {
-
                 }
                 column(Transfer_Shipment_Line_Quantity_Control1000000057; Quantity)
                 {
-
                 }
                 column(Transfer_Shipment_Line__Qty__Reqd___Control1000000058; "Qty. Reqd.")
                 {
-
                 }
                 column(Transfer_Shipment_Line__Unit_of_Measure__Control1000000059; "Unit of Measure")
                 {
-
                 }
                 column(Transfer_Shipment_Line_Description_Control1000000060; Description)
                 {
@@ -224,7 +208,6 @@ report 50157 "Short Supply thru Posted Trans"
 
     requestpage
     {
-
         layout
         {
         }
@@ -239,15 +222,10 @@ report 50157 "Short Supply thru Posted Trans"
     }
 
     var
-        LastFieldNo: Integer;
-        FooterPrinted: Boolean;
         TotalFor: Label 'Total for ';
-        TrShipLn: Record "Transfer Shipment Line";
         TrShipHd: Record "Transfer Shipment Header";
         "JbNo.": Code[20];
         QtyR: Decimal;
-        ShowDet: Boolean;
-        "Quantity Shipped": Decimal;
         Short_Supply_List_2CaptionLbl: Label 'Short Supply List 2';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
         QtyRCaptionLbl: Label 'Short Suplly';
@@ -257,4 +235,3 @@ report 50157 "Short Supply thru Posted Trans"
         Jobs__No__CaptionLbl: Label 'Job No.';
         Jobs__Voyage_No__CaptionLbl: Label 'Voy. No.';
 }
-

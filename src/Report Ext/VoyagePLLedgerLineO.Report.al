@@ -1,12 +1,11 @@
 report 50991 "Voyage P&L Ledger LineO"
 {
-    // 
+    //
     // "Period Start"
     // "Period End"
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/VoyagePLLedgerLineO.rdlc';
-
-
+    Caption = 'Voyage P&L Ledger LineO';
     dataset
     {
         dataitem("Job Ledger Entry"; "Job Ledger Entry")
@@ -18,7 +17,7 @@ report 50991 "Voyage P&L Ledger LineO"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -44,19 +43,15 @@ report 50991 "Voyage P&L Ledger LineO"
             }
             column(CycleDay; CycleDay)
             {
-
             }
             column(FishgDay; FishgDay)
             {
-
             }
             column(LostDay; LostDay)
             {
-
             }
             column(PortDay; PortDay)
             {
-
             }
             column(Vess; Vess)
             {
@@ -72,19 +67,15 @@ report 50991 "Voyage P&L Ledger LineO"
             }
             column(Text24; Text24)
             {
-
             }
             column(Text25; Text25)
             {
-
             }
             column(Text26; Text26)
             {
-
             }
             column(Text27; Text27)
             {
-
             }
             column(PntStor_1_; PntStor[1])
             {
@@ -239,7 +230,6 @@ report 50991 "Voyage P&L Ledger LineO"
                 END;
                 PrdPrc:=Qty*Prc;
                 */ //AA
-
             end;
 
             trigger OnPreDataItem()
@@ -259,7 +249,7 @@ report 50991 "Voyage P&L Ledger LineO"
             column(COMPANYNAME_Control1000000155; CompanyName)
             {
             }
-            column(CurrReport_PAGENO_Control1000000156; CurrReport.PageNo)
+            column(CurrReport_PAGENO_Control1000000156; CurrReport.PageNo())
             {
             }
             column(USERID_Control1000000158; UserId)
@@ -270,19 +260,15 @@ report 50991 "Voyage P&L Ledger LineO"
             }
             column(Text27_Control1000000160; Text27)
             {
-
             }
             column(Text26_Control1000000161; Text26)
             {
-
             }
             column(Text25_Control1000000162; Text25)
             {
-
             }
             column(Text24_Control1000000163; Text24)
             {
-
             }
             column(Text23_Control1000000164; Text23)
             {
@@ -320,19 +306,15 @@ report 50991 "Voyage P&L Ledger LineO"
             }
             column(PortDay_Control1000000183; PortDay)
             {
-
             }
             column(LostDay_Control1000000184; LostDay)
             {
-
             }
             column(FishgDay_Control1000000185; FishgDay)
             {
-
             }
             column(CycleDay_Control1000000186; CycleDay)
             {
-
             }
             column(Jobss__Ending_Date_; "Ending Date")
             {
@@ -367,19 +349,15 @@ report 50991 "Voyage P&L Ledger LineO"
             }
             column(PortDay_Control1000000239; PortDay)
             {
-
             }
             column(LostDay_Control1000000240; LostDay)
             {
-
             }
             column(FishgDay_Control1000000241; FishgDay)
             {
-
             }
             column(CycleDay_Control1000000242; CycleDay)
             {
-
             }
             column(TotalFor___FIELDCAPTION_Vessel_; TotalFor + FieldCaption(Vessel))
             {
@@ -408,19 +386,15 @@ report 50991 "Voyage P&L Ledger LineO"
             }
             column(PortDay_Control1000000228; PortDay)
             {
-
             }
             column(LostDay_Control1000000229; LostDay)
             {
-
             }
             column(FishgDay_Control1000000230; FishgDay)
             {
-
             }
             column(CycleDay_Control1000000231; CycleDay)
             {
-
             }
             column(Coutry_Name_Control1000000218; Coutry.Name)
             {
@@ -460,7 +434,6 @@ report 50991 "Voyage P&L Ledger LineO"
             }
             column(CycleDay_Control1000000202; CycleDay)
             {
-
             }
             column(PntStor_4__Control1000000204; PntStor[4])
             {
@@ -468,11 +441,9 @@ report 50991 "Voyage P&L Ledger LineO"
             }
             column(Text24_Control1000000205; Text24)
             {
-
             }
             column(FishgDay_Control1000000206; FishgDay)
             {
-
             }
             column(PntStor_5__Control1000000208; PntStor[5])
             {
@@ -480,11 +451,9 @@ report 50991 "Voyage P&L Ledger LineO"
             }
             column(Text25_Control1000000209; Text25)
             {
-
             }
             column(LostDay_Control1000000210; LostDay)
             {
-
             }
             column(PntStor_6__Control1000000212; PntStor[6])
             {
@@ -492,7 +461,6 @@ report 50991 "Voyage P&L Ledger LineO"
             }
             column(Text26_Control1000000213; Text26)
             {
-
             }
             column(PntStor_7__Countrs_Control1000000214; PntStor[7] / Countrs)
             {
@@ -500,11 +468,9 @@ report 50991 "Voyage P&L Ledger LineO"
             }
             column(Text27_Control1000000215; Text27)
             {
-
             }
             column(PortDay_Control1000000216; PortDay)
             {
-
             }
             column(JobCaption; JobCaptionLbl)
             {
@@ -564,7 +530,7 @@ report 50991 "Voyage P&L Ledger LineO"
                 IF Res.GET("Person Responsible") THEN;
                   ETD:= "Starting Date";
                   ETA:= "Ending Date";
-                
+
                   //Cycle Day
                   Job2.GET("No.");
                   Job2.SETRANGE(Job2.Vessel,Vessel);    //Find last voyage
@@ -575,32 +541,32 @@ report 50991 "Voyage P&L Ledger LineO"
                     Loc.GET(Vessel);
                     ETA2:=Loc."Begining ETA";
                   END;
-                
+
                   IF "Cycle Day (Manual)"<>0 THEN CycleDay:="Cycle Day (Manual)"
                     ELSE CycleDay:=ETA-ETA2;
-                
+
                   CALCFIELDS("Lost Days");
                   IF "Lost At Sea (Manual)"<>0 THEN LostDay:= "Lost At Sea (Manual)"
                     ELSE LostDay:="Lost Days";
-                
+
                   IF "Fishing Day (Manual)"<>0 THEN FishgDay:="Fishing Day (Manual)"
                      ELSE FishgDay:="Sea Days"-LostDay;
-                
+
                   IF "Port Day (Manual)"<>0 THEN PortDay:="Port Day (Manual)"
                     ELSE PortDay:=CycleDay-(FishgDay+LostDay);
                   SeaDay:=FishgDay+LostDay;
-                
+
                   //Find Total Tonnage of Export
                   SETFILTER("Task Filter",'SHR');
                   CALCFIELDS("Product Quantity","Points Actual");
                   ExpTonnage:="Product Quantity"/1000;
                   PntStor[1]:="Points Actual";
-                
+
                   SETFILTER("Task Filter",'');
                   CALCFIELDS("Points Actual");
                   PntStor[3]:="Points Actual";
                   PntStor[2]:=PntStor[3]-PntStor[1];
-                
+
                   IF SeaDay<>0 THEN
                   BEGIN
                     PntStor[4]:=PntStor[1]/SeaDay;
@@ -609,10 +575,9 @@ report 50991 "Voyage P&L Ledger LineO"
                   END;
                   VALIDATE("Net Incentive Actual");
                   DataStor[3]:="Net Incentive Actual";
-                
-                
+
                   JobSetUp.GET; a:=100;
-                
+
                   //Calculate the Fixed Salaries
                   JBudLn.SETRANGE(JBudLn."Job No.","No.");
                   //JBudLn.SETRANGE(JBudLn.Type,JBudLn.Type::Resource);
@@ -623,7 +588,7 @@ report 50991 "Voyage P&L Ledger LineO"
                   END
                   ELSE PeopleOnVoy:="No. of Deck Hands"+2;
                   DataStor[4]:=JobSetUp."Fixed Salary Rate"*CycleDay*(PeopleOnVoy);
-                
+
                   //Travelling Expenses for Expatriate
                   REPEAT
                     Employee.SETCURRENTKEY(Employee."Resource No.");
@@ -633,7 +598,7 @@ report 50991 "Voyage P&L Ledger LineO"
                     ResCount:=ResCount+1;
                   UNTIL JBudLn.NEXT()=0;
                   DataStor[5]:=JobSetUp."Travelling Expenses Rate"*expcnt*CycleDay;
-                
+
                   //License Fee
                   IF Coutry.GET("Country Code") THEN
                      DataStor[6]:=Coutry."License Fees Rate"*CycleDay
@@ -649,10 +614,10 @@ report 50991 "Voyage P&L Ledger LineO"
                     DataStor[14]:=Loc."Interest Rate"*CycleDay;
                     Vess:=Loc.Name;
                   END;
-                
+
                   DataStor[8]:=JobSetUp.Clearing_Fwrd_NPA*ExpTonnage;
                   DataStor[12]:=JobSetUp."Shore Overheads"*CycleDay;
-                
+
                   //Credit from G/L Entry
                   CountGPPG:=0;
                   IF ProdPostGrp.FIND('-') THEN
@@ -668,7 +633,7 @@ report 50991 "Voyage P&L Ledger LineO"
                         GLStr[CountGPPG]:=GLStr[CountGPPG] +GLEntry.Amount;
                     UNTIL GLEntry.NEXT()=0;
                   UNTIL ProdPostGrp.NEXT()=0;
-                
+
                 CurrExc.SETRANGE(CurrExc."Currency Code",'USD');
                 CurrExc.SETRANGE(CurrExc."Starting Date",0D,ETA);
                 IF CurrExc.FIND('+') THEN
@@ -679,7 +644,6 @@ report 50991 "Voyage P&L Ledger LineO"
                   ELSE CurrRate:=1;
                   PntStor[7]:=CurrRate;
                 */ //AA
-
             end;
 
             trigger OnPreDataItem()
@@ -692,7 +656,6 @@ report 50991 "Voyage P&L Ledger LineO"
                 Countrs:=COUNT;
                 IF Countrs=0 THEN Countrs:=1;
                 */ //AA
-
             end;
         }
         dataitem("Sea Food categories"; "Sea Food categories")
@@ -864,7 +827,6 @@ report 50991 "Voyage P&L Ledger LineO"
                     Itempr.SETRANGE(Itempr."Starting Date",0D,"Posting Date");
                     IF Itempr.FIND('+') THEN Prc:=Itempr."Unit Price" ELSE Prc:=0;
                     */ //AA
-
                 end;
 
                 trigger OnPreDataItem()
@@ -877,7 +839,6 @@ report 50991 "Voyage P&L Ledger LineO"
                     LastFieldNo := FIELDNO(GroupSort);
                     CurrReport.CREATETOTALS(PrdPrc2,NairaVal2,Qty);
                     */ //AA
-
                 end;
             }
             dataitem("Job catch Default"; "Job catch Default")
@@ -922,7 +883,6 @@ report 50991 "Voyage P&L Ledger LineO"
                     IF Itempr.FIND('+') THEN PrcB:=Itempr."Unit Price" ELSE PrcB:=0;
                     PrdPrcB:=QtyB*PrcB;
                     */ //AA
-
                 end;
 
                 trigger OnPreDataItem()
@@ -933,7 +893,6 @@ report 50991 "Voyage P&L Ledger LineO"
                     LastFieldNo := FIELDNO(GroupSort);
                     CurrReport.CREATETOTALS(PrdPrcB,NairaValB,QtyB);
                     */ //AA
-
                 end;
             }
 
@@ -943,7 +902,6 @@ report 50991 "Voyage P&L Ledger LineO"
                 A1[1]:=0;A1[2]:=0;A1[3]:=0;A1[4]:=0;
                 A2[1]:=0;A2[2]:=0;A2[3]:=0;A2[4]:=0;
                 */ //AA
-
             end;
 
             trigger OnPreDataItem()
@@ -951,7 +909,7 @@ report 50991 "Voyage P&L Ledger LineO"
                 /*
                 CurrReport.CREATETOTALS(PrdPrc2,NairaVal2,Qty);
                 CurrReport.CREATETOTALS(PrdPrcB,NairaValB,QtyB);
-                
+
                 JobRange.SETCURRENTKEY(Vessel,"Starting Date");
                 JobRange.SETFILTER(JobRange.Vessel,VesselSel);
                 IF JobRange.FIND('-') THEN
@@ -960,7 +918,6 @@ report 50991 "Voyage P&L Ledger LineO"
                 UNTIL JobRange.NEXT()=0;
                 IF STRLEN(VoyageFilter)>1 THEN VoyageFilter:=COPYSTR(VoyageFilter,1,STRLEN(VoyageFilter)-1);
                 */ //AA
-
             end;
         }
         dataitem("Value Entry"; "Value Entry")
@@ -1005,7 +962,6 @@ report 50991 "Voyage P&L Ledger LineO"
                 /*
                 SETFILTER("Document No.",VoyageFilter);
                 */ //AA
-
             end;
         }
         dataitem("Integer"; "Integer")
@@ -1121,7 +1077,6 @@ report 50991 "Voyage P&L Ledger LineO"
 
     requestpage
     {
-
         layout
         {
         }
@@ -1137,38 +1092,20 @@ report 50991 "Voyage P&L Ledger LineO"
 
     var
         LastFieldNo: Integer;
-        FooterPrinted: Boolean;
         TotalFor: Label 'Total';
-        "---": Integer;
         Job: Record Job;
-        Job2: Record Job;
-        JobRange: Record Job;
-        Itempr: Record "Item Translation";
-        CurrExc: Record "Currency Exchange Rate";
-        ProdPostGrp: Record "Gen. Product Posting Group";
-        InvtPostGrp: Record "Inventory Posting Group";
-        JobSetUp: Record "Jobs Setup";
-        JBudLn: Record "Job Ledger Entry";
-        Employee: Record Employee;
-        Loc: Record Location;
         Coutry: Record "Country/Region";
-        GLEntry: Record "G/L Entry";
         Res: Record Resource;
-        Prc: Decimal;
-        PrcB: Decimal;
         PrdPrc: Decimal;
         PrdPrcB: Decimal;
         PrdPrc2: Decimal;
         PrdPrcBX: Decimal;
         PrdPrc2X: Decimal;
-        PrdPrc2B: Decimal;
-        CurrRate: Decimal;
         NairaVal: Decimal;
         NairaValB: Decimal;
         NairaValBX: Decimal;
         NairaVal2: Decimal;
         NairaVal2X: Decimal;
-        NairaVal2B: Decimal;
         Qty: Decimal;
         QtyB: Decimal;
         QtyX: Decimal;
@@ -1187,11 +1124,9 @@ report 50991 "Voyage P&L Ledger LineO"
         PntStor: array[8] of Decimal;
         ETD: Date;
         ETA: Date;
-        ETA2: Date;
         CycleDay: Decimal;
         PortDay: Decimal;
         LostDay: Decimal;
-        SeaDay: Decimal;
         FishgDay: Decimal;
         a: Decimal;
         expcnt: Integer;
@@ -1209,7 +1144,6 @@ report 50991 "Voyage P&L Ledger LineO"
         GrossMarg: Decimal;
         GrossPerct: Decimal;
         NetProfPerct: Decimal;
-        TotPrice: Decimal;
         NetProfit: Decimal;
         ExpTonnage: Decimal;
         Vess: Text[30];
@@ -1223,24 +1157,9 @@ report 50991 "Voyage P&L Ledger LineO"
         Text27: Label 'Exchange Rate';
         A1: array[5] of Decimal;
         A2: array[5] of Decimal;
-        UOM: Record "Unit of Measure";
-        UOMCd: Code[10];
-        ItemVar: Code[10];
         "No.B": Code[10];
-        NOrder: Decimal;
         ValRate: Decimal;
         ValQty: Decimal;
-        GLStr: array[25] of Decimal;
-        "GLGPP Caption": array[25] of Code[10];
-        CountGPPG: Integer;
-        CountG: Integer;
-        Flag: Boolean;
-        "----": Integer;
-        "Voyage No.": Code[30];
-        "Period Start": Date;
-        "Period End": Date;
-        VesselSel: Code[25];
-        VoyageFilter: Code[250];
         Countrs: Integer;
         CurrReport_PAGENOCaptionLbl: Label 'Page';
         QtyCaptionLbl: Label 'Quantity';
@@ -1287,7 +1206,6 @@ report 50991 "Voyage P&L Ledger LineO"
         ItemVar:=FORMAT(Cd)+UOMCd+COPYSTR(Br,1,1);    //Requip Code Name
         "No.B":=ItemVar;
         */ //AA
-
     end;
 
     [Scope('OnPrem')]
@@ -1315,7 +1233,5 @@ report 50991 "Voyage P&L Ledger LineO"
         ELSE
           ValQty:=0;
         */
-
     end;
 }
-

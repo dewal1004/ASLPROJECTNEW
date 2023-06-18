@@ -5,7 +5,7 @@ codeunit 80081 "Sales-Post (Yes/No)Z"
     trigger OnRun()
     begin
         SalesHeader.Copy(Rec);
-        Code;
+        Code();
         Rec := SalesHeader;
     end;
 
@@ -46,4 +46,3 @@ codeunit 80081 "Sales-Post (Yes/No)Z"
         SalesPost.Run(SalesHeader);
     end;
 }
-

@@ -1,6 +1,6 @@
 xmlport 50048 "GL"
 {
-
+    Caption = 'GL';
     schema
     {
         textelement(Rootnode)
@@ -29,7 +29,6 @@ xmlport 50048 "GL"
 
     requestpage
     {
-
         layout
         {
         }
@@ -39,4 +38,3 @@ xmlport 50048 "GL"
         }
     }
 }
-

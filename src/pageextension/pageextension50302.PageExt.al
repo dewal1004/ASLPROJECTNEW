@@ -1,6 +1,5 @@
 pageextension 50302 "pageextension50302" extends "View Applied Entries"
 {
-
     //Unsupported feature: Code Modification on "RemoveApplications(PROCEDURE 1)".
 
     //procedure RemoveApplications();
@@ -26,4 +25,3 @@ pageextension 50302 "pageextension50302" extends "View Applied Entries"
     */
     //end;
 }
-

@@ -15,9 +15,7 @@ tableextension 50306 "tableextension50306" extends "Transfer Receipt Line"
                 /*IF ROB > "Qty. Reqd." THEN ERROR('ROB can not be greater that Quantity Required');
                 VALIDATE(Quantity,"Qty. Reqd."-ROB);
                 */
-
             end;
         }
     }
 }
-

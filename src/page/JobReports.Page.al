@@ -3,7 +3,7 @@ page 50165 "Job-Reports"
     PageType = List;
     UsageCategory = Lists;
     ApplicationArea = All, Basic;
-
+    Caption = 'Job-Reports';
     layout
     {
         area(content)
@@ -105,4 +105,3 @@ page 50165 "Job-Reports"
         }
     }
 }
-

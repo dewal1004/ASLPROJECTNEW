@@ -2,7 +2,7 @@ report 99970 "Update Vessel on Job Catch Def"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/UpdateVesselonJobCatchDef.rdlc';
-
+    Caption = 'Update Vessel on Job Catch Def';
     dataset
     {
         dataitem("Job catch Default"; "Job catch Default")
@@ -15,7 +15,7 @@ report 99970 "Update Vessel on Job Catch Def"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -63,14 +63,13 @@ report 99970 "Update Vessel on Job Catch Def"
                 Validate("No.");
                 if Jobs.Get("No.") then Vessel := Jobs.Vessel;
 
-                Modify;
+                Modify();
             end;
         }
     }
 
     requestpage
     {
-
         layout
         {
         }
@@ -89,4 +88,3 @@ report 99970 "Update Vessel on Job Catch Def"
         Job_Catch_DefaultCaptionLbl: Label 'Job Catch Default';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
 }
-

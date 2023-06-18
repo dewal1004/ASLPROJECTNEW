@@ -2,7 +2,7 @@ page 50047 "Casual Employees Survey"
 {
     PageType = Card;
     SourceTable = "Casual Employees";
-
+    Caption = 'Casual Employees Survey';
     layout
     {
         area(content)
@@ -52,14 +52,8 @@ page 50047 "Casual Employees Survey"
     {
     }
 
-    var
-        VendRec: Record Vendor;
-        HospName: Text[60];
-        MediRec: Record "Medical Record";
-
     [Scope('OnPrem')]
     procedure SumCost(): Decimal
     begin
     end;
 }
-

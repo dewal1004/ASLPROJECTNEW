@@ -8,7 +8,7 @@ table 50004 "Payroll-Periods."
     //                   : Relations - None
 
     LookupPageID = "Payroll Periods.";
-
+    Caption = 'Payroll-Periods.';
     fields
     {
         field(1; "Period Code"; Code[10])
@@ -28,7 +28,6 @@ table 50004 "Payroll-Periods."
                 Name := DELCHR (Name, '<');
                 "Search Name" := Name;
                 */
-
             end;
         }
         field(2; "Start Date"; Date)
@@ -47,7 +46,6 @@ table 50004 "Payroll-Periods."
         }
         field(4; Name; Text[40])
         {
-
             trigger OnValidate()
             begin
                 if (1 < CursorPos) and (CursorPos < MaxStrLen("Search Name")) then begin
@@ -82,6 +80,7 @@ table 50004 "Payroll-Periods."
                                                                      "E/D Code" = FIELD("Empl. Delimitation")));
             DecimalPlaces = 0 : 5;
             FieldClass = FlowField;
+            Editable = false;
         }
     }
 
@@ -98,9 +97,11 @@ table 50004 "Payroll-Periods."
 
     fieldgroups
     {
+        fieldgroup(DropDown; Name)
+        {
+        }
     }
 
     var
         CursorPos: Integer;
 }
-

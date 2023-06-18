@@ -1,6 +1,6 @@
 xmlport 50030 "Import Catch Figures"
 {
-
+    Caption = 'Import Catch Figures';
     schema
     {
         textelement(RootNode)
@@ -29,7 +29,6 @@ xmlport 50030 "Import Catch Figures"
 
     requestpage
     {
-
         layout
         {
         }
@@ -39,4 +38,3 @@ xmlport 50030 "Import Catch Figures"
         }
     }
 }
-

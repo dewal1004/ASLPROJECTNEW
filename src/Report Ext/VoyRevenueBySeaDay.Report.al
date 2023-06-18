@@ -7,7 +7,6 @@ report 50197 "Voy Revenue By Sea Day"
     ApplicationArea = All, Basic, Suite;
     Caption = 'Voy Revenue By Sea Day';
 
-
     dataset
     {
         dataitem("Vessel Performance By Sea Day"; "Vessel Performance By Sea Day")
@@ -20,7 +19,7 @@ report 50197 "Voy Revenue By Sea Day"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -338,16 +337,14 @@ report 50197 "Voy Revenue By Sea Day"
                 LastFieldNo := FieldNo("Voyage Sea Days");
                 if HdrStore.Get(UserId) then begin
                     HdrValue := HdrStore.Description;
-                    HdrStore.Delete;
+                    HdrStore.Delete();
                 end;
-
 
                 CountZ := CountZ + 1;
                 SD := "Fishing Days" + "Lost Days";
                 if SD <> 0 then "Direct/SD" := Direct / SD else "Direct/SD" := 0;
 
-
-                if (CurrReport.TotalsCausedBy = FieldNo("Voyage Sea Days")) then begin
+                if (CurrReport.TotalsCausedBy() = FieldNo("Voyage Sea Days")) then begin
                     CountZx := CountZ;
                     CountZ := 0;
                 end;
@@ -378,7 +375,6 @@ report 50197 "Voy Revenue By Sea Day"
                 SD := "Fishing Days" + "Lost Days";
                 if SD <> 0 then "Direct/SD" := Direct / SD else "Direct/SD" := 0;
 
-
                 "Rev/SD" := Revenue / ("Fishing Days" + "Lost Days");
                 "Rev/FD" := Revenue / "Fishing Days";
 
@@ -394,7 +390,6 @@ report 50197 "Voy Revenue By Sea Day"
 
     requestpage
     {
-
         layout
         {
         }
@@ -410,8 +405,6 @@ report 50197 "Voy Revenue By Sea Day"
 
     var
         LastFieldNo: Integer;
-        FooterPrinted: Boolean;
-        TotalFor: Label 'Total for ';
         CountZ: Integer;
         CountZx: Integer;
         "Direct/SD": Decimal;
@@ -426,4 +419,3 @@ report 50197 "Voy Revenue By Sea Day"
         AvgCaptionLbl: Label 'Avg';
         TotalCaptionLbl: Label 'Total';
 }
-

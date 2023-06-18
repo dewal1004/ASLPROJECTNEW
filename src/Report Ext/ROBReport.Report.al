@@ -3,7 +3,7 @@ report 50226 "ROB Report"
     ProcessingOnly = true;
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
-
+    Caption = 'ROB Report';
     dataset
     {
         dataitem("Integer"; "Integer")
@@ -16,26 +16,26 @@ report 50226 "ROB Report"
                 DateCol[1] := refDate;
                 FOR i := 2 TO NoofDays DO
                   DateCol[i] := refDate-(i-1);
-                
+
                 Vessel.SETRANGE(Vessel."Location Type",Vessel."Location Type"::Vessel);
                 Vessel.FIND('-');
-                
+
                 Window.OPEN(
                   Text000 +
                   '@1@@@@@@@@@@@@@@@@@@@@@\');
                 Window.UPDATE(1,0);
                 TotalRecNo := Vessel.COUNTAPPROX;
                 RecNo :=0;
-                
+
                 TempExcelBuffer.DELETEALL;
                 CLEAR(TempExcelBuffer);
-                
+
                 RowNo := 1;
                 EnterCell(RowNo,1,Text001,FALSE,FALSE,TRUE);
                 BEGIN
                   RowNo := RowNo + 1;
                   EnterFilterInCell(RowNo,FORMAT(refDate),'Date Filter');
-                
+
                   RowNo := 4;
                   RowNo := RowNo + 1;
                   ColumnNo := 1;
@@ -99,9 +99,9 @@ report 50226 "ROB Report"
                       UNTIL OpDailyLog.NEXT = 0;
                   UNTIL Vessel.NEXT = 0;
                 END;
-                
+
                 Window.CLOSE;
-                
+
                 IF Option = Option::"Update Workbook" THEN BEGIN
                   TempExcelBuffer.OpenBook(FileName,SheetName);
                   TempExcelBuffer.CreateSheet(SheetName,'',COMPANYNAME,USERID);
@@ -111,14 +111,12 @@ report 50226 "ROB Report"
                 END;
                 TempExcelBuffer.GiveUserControl;
                 */
-
             end;
         }
     }
 
     requestpage
     {
-
         layout
         {
         }
@@ -134,27 +132,6 @@ report 50226 "ROB Report"
 
     var
         TempExcelBuffer: Record "Excel Buffer" temporary;
-        ColumnValue: Decimal;
-        FileName: Text[250];
-        SheetName: Text[250];
-        Option: Option "Create Workbook","Update Workbook";
-        "-----": Integer;
-        OpDailyLog: Record "Operation Daily Radio";
-        OpDailyLog2: Record "Operation Daily Radio";
-        Job: Record Job;
-        Vessel: Record Location;
-        DateCol: array[50] of Date;
-        refDate: Date;
-        StartDate: Date;
-        iCount: Integer;
-        i: Integer;
-        NoofDays: Integer;
-        NumDays: DateFormula;
-        DisplayOption: Option Balance,Consumption;
-        FuelBalance: Decimal;
-        Text000: Label 'Analyzing Data...\\';
-        Text001: Label 'Filters';
-        Text002: Label 'Update Workbook';
 
     [Scope('OnPrem')]
     procedure UpdateRequestForm()
@@ -170,7 +147,6 @@ report 50226 "ROB Report"
           RequestOptionsForm.SheetName.ENABLED(FALSE);
         END;
         */
-
     end;
 
     local procedure EnterFilterInCell(RowNo: Integer; "Filter": Text[250]; FieldName: Text[30])
@@ -183,7 +159,7 @@ report 50226 "ROB Report"
 
     local procedure EnterCell(RowNo: Integer; ColumnNo: Integer; CellValue: Text[50]; Bold: Boolean; Italic: Boolean; UnderLine: Boolean)
     begin
-        TempExcelBuffer.Init;
+        TempExcelBuffer.Init();
         TempExcelBuffer.Validate("Row No.", RowNo);
         TempExcelBuffer.Validate("Column No.", ColumnNo);
         TempExcelBuffer."Cell Value as Text" := CellValue;
@@ -191,7 +167,6 @@ report 50226 "ROB Report"
         TempExcelBuffer.Bold := Bold;
         TempExcelBuffer.Italic := Italic;
         TempExcelBuffer.Underline := UnderLine;
-        TempExcelBuffer.Insert;
+        TempExcelBuffer.Insert();
     end;
 }
-

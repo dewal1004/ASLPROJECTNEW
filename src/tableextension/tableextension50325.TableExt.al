@@ -59,7 +59,6 @@ tableextension 50325 "tableextension50325" extends "Item Journal Line"
         */
         //end;
 
-
         //Unsupported feature: Code Modification on "Quantity(Field 13).OnValidate".
 
         //trigger OnValidate()
@@ -89,7 +88,6 @@ tableextension 50325 "tableextension50325" extends "Item Journal Line"
         */
         //end;
 
-
         //Unsupported feature: Code Modification on ""Shortcut Dimension 2 Code"(Field 35).OnValidate".
 
         //trigger OnValidate()
@@ -108,7 +106,6 @@ tableextension 50325 "tableextension50325" extends "Item Journal Line"
         */
         //end;
 
-
         //Unsupported feature: Code Insertion on ""Reason Code"(Field 42)".
 
         //trigger OnValidate()
@@ -120,7 +117,6 @@ tableextension 50325 "tableextension50325" extends "Item Journal Line"
         //IF "Reason Code"='USAGE' THEN "Gen. Bus. Posting Group":='LOCAL';
         */
         //end;
-
 
         //Unsupported feature: Code Modification on ""New Location Code"(Field 50).OnValidate".
 
@@ -149,7 +145,6 @@ tableextension 50325 "tableextension50325" extends "Item Journal Line"
         */
         //end;
 
-
         //Unsupported feature: Code Insertion on ""External Document No."(Field 62)".
 
         //trigger OnValidate()
@@ -163,7 +158,6 @@ tableextension 50325 "tableextension50325" extends "Item Journal Line"
             Validate("Shortcut Dimension 2 Code",FixAs."Global Dimension 2 Code");
         */
         //end;
-
 
         //Unsupported feature: Code Modification on ""Variant Code"(Field 5402).OnValidate".
 
@@ -188,14 +182,12 @@ tableextension 50325 "tableextension50325" extends "Item Journal Line"
         #1..31
             //Description := ItemVariant.Description;  //previous Location
 
-
           // AAA/BRP-2001
           //Description := ItemVariant.Description; //OLD
           if Description ='' then Description := ItemVariant.Description;
         end;
         */
         //end;
-
 
         //Unsupported feature: Code Modification on ""Unit of Measure Code"(Field 5407).OnValidate".
 
@@ -229,7 +221,6 @@ tableextension 50325 "tableextension50325" extends "Item Journal Line"
         */
         //end;
 
-
         //Unsupported feature: Code Modification on ""Scrap Quantity"(Field 5847).OnValidate".
 
         //trigger OnValidate()
@@ -253,11 +244,10 @@ tableextension 50325 "tableextension50325" extends "Item Journal Line"
         //end;
         field(50000; "BOM EXPLODED"; Boolean)
         {
-
             trigger OnValidate()
             begin
                 //AAA
-                ItemSetup.Get;
+                ItemSetup.Get();
                 if ItemSetup."Automatic BOM Explosion" then
                     ExplodeBom.Run(Rec)
                 else
@@ -304,7 +294,6 @@ tableextension 50325 "tableextension50325" extends "Item Journal Line"
         }
     }
 
-
     //Unsupported feature: Code Modification on "OnDelete".
 
     //trigger OnDelete()
@@ -325,7 +314,6 @@ tableextension 50325 "tableextension50325" extends "Item Journal Line"
     if ItemJnlBatch."Lock batch" then Error('You Can Not Delete Item from this Batch');
     */
     //end;
-
 
     //Unsupported feature: Code Modification on "OnInsert".
 
@@ -355,7 +343,6 @@ tableextension 50325 "tableextension50325" extends "Item Journal Line"
     */
     //end;
 
-
     //Unsupported feature: Code Modification on "OnModify".
 
     //trigger OnModify()
@@ -374,7 +361,6 @@ tableextension 50325 "tableextension50325" extends "Item Journal Line"
     if xRec."Lock Qty" then Error('You Area NOT allowed to change anything from Approved Requsition Journal');
     */
     //end;
-
 
     //Unsupported feature: Code Modification on "SetUpNewLine(PROCEDURE 8)".
 
@@ -422,7 +408,6 @@ tableextension 50325 "tableextension50325" extends "Item Journal Line"
     #49..55
     */
     //end;
-
 
     //Unsupported feature: Code Modification on "GetUnitAmount(PROCEDURE 6)".
 
@@ -485,7 +470,6 @@ tableextension 50325 "tableextension50325" extends "Item Journal Line"
     */
     //end;
 
-
     //Unsupported feature: Code Modification on "ClearSingleAndRolledUpCosts(PROCEDURE 4)".
 
     //procedure ClearSingleAndRolledUpCosts();
@@ -516,11 +500,6 @@ tableextension 50325 "tableextension50325" extends "Item Journal Line"
     //end;
 
     var
-        "--------": Text[30];
         ItemSetup: Record "Inventory Setup";
-        ItemLedEnt: Record "Item Ledger Entry";
-        FixAs: Record "Fixed Asset";
         ExplodeBom: Codeunit "Item Jnl.-Explode BOM";
-        RC: Code[10];
 }
-

@@ -23,7 +23,6 @@ pageextension 50201 "pageextension50201" extends "Company Information"
             field("Name 2"; Rec."Name 2")
             {
                 ApplicationArea = All;
-
             }
         }
         addafter("Cal. Convergence Time Frame")
@@ -35,4 +34,3 @@ pageextension 50201 "pageextension50201" extends "Company Information"
         }
     }
 }
-

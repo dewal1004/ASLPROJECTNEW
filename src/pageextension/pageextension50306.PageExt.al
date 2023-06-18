@@ -1,6 +1,5 @@
 pageextension 50306 "pageextension50306" extends "CRM Connection Setup"
 {
-
     //Unsupported feature: Property Modification (TextConstString) on "SynchronizeModifiedQst(Variable 1038)".
 
     //var
@@ -13,17 +12,11 @@ pageextension 50306 "pageextension50306" extends "CRM Connection Setup"
 
     //Unsupported feature: Variable Insertion (Variable: TempCRMConnectionSetup) (VariableCollection) on "SetStyleExpr(PROCEDURE 9)".
 
-
     //Unsupported feature: Variable Insertion (Variable: CRMIntegrationManagement) (VariableCollection) on "SetStyleExpr(PROCEDURE 9)".
-
 
     //Unsupported feature: Variable Insertion (Variable: ErrorObject) (VariableCollection) on "SetStyleExpr(PROCEDURE 9)".
 
-
     //Unsupported feature: Variable Insertion (Variable: ConnectionName) (VariableCollection) on "SetStyleExpr(PROCEDURE 9)".
 
-
     //Unsupported feature: Variable Insertion (Variable: CRMIntegrationManagement) (VariableCollection) on "GetRunningJobsStyleExpr(PROCEDURE 1)".
-
 }
-

@@ -4,7 +4,7 @@ page 50045 "Casual Employees Card"
     PageType = Card;
     SourceTable = "Casual Employees";
     SourceTableView = SORTING("No.");
-
+    Caption = 'Casual Employees Card';
     layout
     {
         area(content)
@@ -19,7 +19,7 @@ page 50045 "Casual Employees Card"
                     trigger OnAssistEdit()
                     begin
                         if Rec.AssistEdit(xRec) then
-                            CurrPage.Update;
+                            CurrPage.Update();
                     end;
                 }
                 field("Employee name"; Rec."Employee name")
@@ -152,7 +152,6 @@ page 50045 "Casual Employees Card"
 
     trigger OnClosePage()
     begin
-        ClearAll;
+        ClearAll();
     end;
 }
-

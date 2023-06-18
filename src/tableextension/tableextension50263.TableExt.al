@@ -31,4 +31,3 @@ tableextension 50263 "tableextension50263" extends "Purchases & Payables Setup"
         }
     }
 }
-

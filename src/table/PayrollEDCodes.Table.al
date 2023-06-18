@@ -1,7 +1,7 @@
 table 50001 "Payroll-E/D Codes."
 {
     LookupPageID = "ED Codes.";
-
+    Caption = 'Payroll-E/D Codes.';
     fields
     {
         field(1; "E/D Code"; Code[20])
@@ -221,4 +221,3 @@ table 50001 "Payroll-E/D Codes."
         "E/DFileRec": Record "Payroll-E/D Codes.";
         LookupRec: Record "Payroll-Lookup Header.";
 }
-

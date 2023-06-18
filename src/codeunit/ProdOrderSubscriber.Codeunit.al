@@ -16,7 +16,7 @@ codeunit 50038 "ProdOrderSubscriber"
           Round(ProdOrderComponent."Unit Cost" * ProdOrderComponent."Qty. per Unit of Measure",
             GLSetup."Unit-Amount Rounding Precision");
 
-        ProdOrderComponent."Indirect Cost %" := Round(Item."Indirect Cost %", UOMMgt.QtyRndPrecision);
+        ProdOrderComponent."Indirect Cost %" := Round(Item."Indirect Cost %", UOMMgt.QtyRndPrecision());
 
         ProdOrderComponent."Overhead Rate" :=
           Round(Item."Overhead Rate" * ProdOrderComponent."Qty. per Unit of Measure",
@@ -34,7 +34,5 @@ codeunit 50038 "ProdOrderSubscriber"
 
     var
         Item: Record Item;
-        GLSetup: Record "General Ledger Setup";
-        SKU: Record "Stockkeeping Unit";
         UOMMgt: Codeunit "Unit of Measure Management";
 }

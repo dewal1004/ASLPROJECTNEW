@@ -3,7 +3,7 @@ page 60013 "Manpower Budget List"
     Editable = false;
     PageType = Card;
     SourceTable = "Manpower Budget Table NU*";
-
+    Caption = 'Manpower Budget List';
     layout
     {
         area(content)
@@ -55,4 +55,3 @@ page 60013 "Manpower Budget List"
     {
     }
 }
-

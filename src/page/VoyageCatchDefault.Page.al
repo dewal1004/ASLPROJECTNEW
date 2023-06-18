@@ -5,7 +5,7 @@ page 50083 "Voyage Catch Default"
     PageType = Card;
     SourceTable = "Job catch Default";
     SourceTableView = SORTING("S/No.");
-
+    Caption = 'Voyage Catch Default';
     layout
     {
         area(content)
@@ -80,21 +80,19 @@ page 50083 "Voyage Catch Default"
                 ApplicationArea = All;
 
                 trigger OnAction()
-                var
-                    DocPrint: Codeunit "Document-Print";
                 begin
                     DefCatch.SetCurrentKey(DefCatch."S/No.");
                     DefCatch.SetRange(DefCatch."In Use", true);
                     if DefCatch.Find('-') then
                         repeat
-                            Rec.Init;
+                            Rec.Init();
                             Rec.Code := DefCatch."No.";
                             Rec."Pack Size" := DefCatch."Pack Size";
                             Rec.Brand := DefCatch.Brand;
                             Rec.Description := DefCatch.Description;
                             fine := Evaluate(Rec."S/No.", Rec.Code);
-                            if not Rec.Insert then Rec.Modify();
-                        until DefCatch.Next = 0;
+                            if not Rec.Insert() then Rec.Modify();
+                        until DefCatch.Next() = 0;
                 end;
             }
         }
@@ -109,4 +107,3 @@ page 50083 "Voyage Catch Default"
         DefCatch: Record "Catch Default";
         fine: Boolean;
 }
-

@@ -3,8 +3,7 @@ report 50113 "Voyage Ending Inv Cons exp3!"
     // ItemUOV== Items Used On Vessel
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/VoyageEndingInvConsexp3.50113.rdlc';
-
-
+    Caption = 'Voyage Ending Inv Cons exp3!';
     dataset
     {
         dataitem(Job; Job)
@@ -16,7 +15,7 @@ report 50113 "Voyage Ending Inv Cons exp3!"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -73,7 +72,7 @@ report 50113 "Voyage Ending Inv Cons exp3!"
 
                 Job.TestField(Job.Status, 2);
                 Message('Sea Days is %1 ', Job."Sea Days");
-                if not Confirm('has the ending date been Updated', false) then CurrReport.Quit;
+                if not Confirm('has the ending date been Updated', false) then CurrReport.Quit();
             end;
 
             trigger OnPostDataItem()
@@ -142,7 +141,7 @@ report 50113 "Voyage Ending Inv Cons exp3!"
                     d.OPEN('Processing item #1#########-processing #2###');
                     d.UPDATE(1,ItemUOV."No." );
                     d.UPDATE(2,count_current);
-                    
+
                     CALCFIELDS(Inventory);
                     IF Inventory<>0 THEN
                     BEGIN
@@ -154,7 +153,7 @@ report 50113 "Voyage Ending Inv Cons exp3!"
                       JobJL."Posting Date":=WORKDATE;
                       JobJL."Document Date":=WORKDATE;
                       JobJLX.INIT;
-                    
+
                     //JobJL.SetUpNewLine(JobJL);
                       JobJL."Document No.":=Job."No.";
                       JobJL."Job No.":=Job."No.";
@@ -172,9 +171,8 @@ report 50113 "Voyage Ending Inv Cons exp3!"
                       JobJL."Gen. Bus. Posting Group":='CONSPJ';
                       IF NOT JobJL.INSERT THEN JobJL.MODIFY;
                     END;
-                    
-                    */
 
+                    */
                 end;
 
                 trigger OnPreDataItem()
@@ -189,7 +187,7 @@ report 50113 "Voyage Ending Inv Cons exp3!"
 
                     count_record := ItemUOV.Count;
 
-                    JobJB.Init;
+                    JobJB.Init();
                     JobJB."Journal Template Name" := 'JOB';
                     JobJB.Name := Job."No." + 'CONS';
                     JobJB."Voyage No." := Job."Voyage No.";
@@ -197,13 +195,13 @@ report 50113 "Voyage Ending Inv Cons exp3!"
                     if Loc.Get(Job.Vessel) then JobJB."Vessel Name" := Loc.Name;
                     JobJB."No. Series" := '';
                     JobJB."Batch Type" := 3;
-                    if not JobJB.Insert then JobJB.Modify;
+                    if not JobJB.Insert() then JobJB.Modify();
                 end;
             }
 
             trigger OnAfterGetRecord()
             begin
-                if old_record = "Item Ledger Entry"."Item No." then CurrReport.Skip;
+                if old_record = "Item Ledger Entry"."Item No." then CurrReport.Skip();
                 old_record := "Item Ledger Entry"."Item No.";
             end;
 
@@ -217,7 +215,6 @@ report 50113 "Voyage Ending Inv Cons exp3!"
 
     requestpage
     {
-
         layout
         {
         }
@@ -233,26 +230,13 @@ report 50113 "Voyage Ending Inv Cons exp3!"
 
     var
         old_record: Code[20];
-        d: Dialog;
         JobJB: Record "Job Journal Batch";
-        JobJL: Record "Job Journal Line";
-        JobJL2: Record "Job Journal Line";
-        JobJLX: Record "Job Journal Line";
         Loc: Record Location;
         Icount: array[2] of Integer;
-        LocCd: Code[10];
-        I: Code[10];
-        RES: Record Resource;
         JNo: Code[250];
-        JobSetup: Record "Jobs Setup";
-        IncentiveLookUp: Record "Payroll-Lookup Lines.";
-        InctvCat: Code[20];
-        Ended: Boolean;
         count_record: Decimal;
-        count_current: Decimal;
         JobCaptionLbl: Label 'Job';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
         Voyage_ConsumptionCaptionLbl: Label 'Voyage Consumption';
         ConsumptionCaptionLbl: Label 'Consumption';
 }
-

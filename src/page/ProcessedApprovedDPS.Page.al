@@ -12,7 +12,7 @@ page 50127 "Processed Approved DPS"
                       WHERE(Processed = CONST(true),
                             "Send For Approval" = CONST(true),
                             Approved = CONST(true));
-
+    Caption = 'Processed Approved DPS';
     layout
     {
         area(content)
@@ -95,4 +95,3 @@ page 50127 "Processed Approved DPS"
     {
     }
 }
-

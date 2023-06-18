@@ -6,8 +6,7 @@ report 50104 "Daily Points History"
     RDLCLayout = './src/reportrdlc/DailyPointsHistory.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
-
-
+    Caption = 'Daily Points History';
     dataset
     {
         dataitem("Integer"; "Integer")
@@ -19,7 +18,7 @@ report 50104 "Daily Points History"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -98,7 +97,7 @@ report 50104 "Daily Points History"
             column(COMPANYNAME_Control1000000169; CompanyName)
             {
             }
-            column(CurrReport_PAGENO_Control1000000170; CurrReport.PageNo)
+            column(CurrReport_PAGENO_Control1000000170; CurrReport.PageNo())
             {
             }
             column(USERID_Control1000000172; UserId)
@@ -393,7 +392,6 @@ report 50104 "Daily Points History"
 
     requestpage
     {
-
         layout
         {
         }
@@ -434,4 +432,3 @@ report 50104 "Daily Points History"
         TotalCaptionLbl: Label 'Total';
         AverageCaption_Control1000000008Lbl: Label 'Average';
 }
-

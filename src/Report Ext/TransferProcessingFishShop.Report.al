@@ -4,20 +4,19 @@
 report 50059 "Transfer Processing/Fish Shop"
 {
     // UNL-ASL3.60.01.005 (Santus) May 17, 2005
-    // -> New report for display of transfer to processing// 
-    // UNL-ASL3.60.01.006 (Santus) May 17, 2005// 
-    // 
+    // -> New report for display of transfer to processing//
+    // UNL-ASL3.60.01.006 (Santus) May 17, 2005//
+    //
     // -> modified report to handle display of both transfer to processing and transfer to fish shop,
     //   added transfer to excel functionality
-    // 
+    //
     // UNL-ASL3.60.01.007 (Santus) July 15, 2014
     // -> modified report to add all Fish Shop locations (total 9 as of this editing).
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/TransferProcessingFishShop.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
-
-
+    Caption = 'Transfer Processing/Fish Shop';
     dataset
     {
         dataitem("Value Entry"; "Value Entry")
@@ -30,7 +29,7 @@ report 50059 "Transfer Processing/Fish Shop"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -154,13 +153,11 @@ report 50059 "Transfer Processing/Fish Shop"
                 if ReportOptions = ReportOptions::Processing then begin
                     case "Value Entry"."Item Ledger Entry Type" of
                         "Value Entry"."Item Ledger Entry Type"::"Positive Adjmt.":
-                            begin
-                                Qty[2] := "Value Entry"."Valued Quantity";
-                            end;
+
+                            Qty[2] := "Value Entry"."Valued Quantity";
                         "Value Entry"."Item Ledger Entry Type"::"Negative Adjmt.":
-                            begin
-                                Qty[1] := "Value Entry"."Valued Quantity";
-                            end;
+
+                            Qty[1] := "Value Entry"."Valued Quantity";
                     end;
 
                     Qty[3] := Qty[1] + Qty[2];
@@ -183,8 +180,6 @@ report 50059 "Transfer Processing/Fish Shop"
 
                 CurrReport.CreateTotals(Qty);
                 SerialNo := 0;
-
-
 
                 Sno := 0;
 
@@ -210,7 +205,6 @@ report 50059 "Transfer Processing/Fish Shop"
                         end;
                 end;
 
-
                 //UNL-ASL3.60.01.007
             end;
         }
@@ -218,7 +212,6 @@ report 50059 "Transfer Processing/Fish Shop"
 
     requestpage
     {
-
         layout
         {
             area(content)
@@ -250,21 +243,13 @@ report 50059 "Transfer Processing/Fish Shop"
     end;
 
     var
-        LastFieldNo: Integer;
-        FooterPrinted: Boolean;
         ItemRec: Record Item;
         Qty: array[3] of Decimal;
         Total: Decimal;
         SerialNo: Integer;
         ReportOptions: Option Processing,"Fish Shop";
         ShowProcess: Boolean;
-        // xlApp: Automation BC;
-        // xlBook: Automation BC;
-        // xlSheet: Automation BC;
-        Send2Excel: Boolean;
         TopPage: Boolean;
-        Xr: Integer;
-        Xc: Integer;
         Bold: Boolean;
         UnderLine: Boolean;
         Italic: Boolean;
@@ -327,4 +312,3 @@ report 50059 "Transfer Processing/Fish Shop"
         exit(xlColID);
     end;
 }
-

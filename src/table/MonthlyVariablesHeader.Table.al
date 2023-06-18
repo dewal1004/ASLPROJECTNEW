@@ -12,6 +12,7 @@ table 50013 "Monthly Variables Header."
     // Display fields are: Period start, Period end and Period name, Employee name
 
     DataCaptionFields = "Payroll Period", "Employee No", "Employee Name";
+    Caption = 'Monthly Variables Header.';
     // LookupPageID = "Monthly Var. Header Survey.";  ***
 
     fields
@@ -59,7 +60,7 @@ table 50013 "Monthly Variables Header."
             begin
                 EmployeeRec.Get("Employee No");
                 begin
-                    "Employee Name" := EmployeeRec.FullName;
+                    "Employee Name" := EmployeeRec.FullName();
                     "Global Dimension 1 Code" := EmployeeRec."Global Dimension 1 Code";
                     "Global Dimension 2 Code" := EmployeeRec."Global Dimension 2 Code";
                     "Customer Number" := EmployeeRec."SAM Number";
@@ -158,30 +159,29 @@ table 50013 "Monthly Variables Header."
     begin
         /*IF "Closed?" THEN
           ERROR ('Entries for this Employee/Period closed. Nothing can be deleted');
-        
+
         { Confirm }
         IF NOT CONFIRM ('All entries for this employee in this period '+
                         'will be deleted!'+
                         'Proceed with Deletion?    ')
         THEN
           ERROR ('Nothing was deleted');
-        
+
         { Lock 'parent' and 'child' files}
          //AAA LOCKTABLE( FALSE);
          //AAA VarLinesRec.LOCKTABLE( FALSE);
-        
+
         { First delete the detail lines }
          VarLinesRec.SETRANGE("Payroll Period", "Payroll Period");
          VarLinesRec.SETRANGE("Employee No", "Employee No");
          VarLinesRec.DELETEALL;
-        
+
         { Delete the 'parent record'}
          DELETE;
-        
+
         { Disable the locking effect }
         COMMIT ;
         */
-
     end;
 
     trigger OnInsert()
@@ -192,7 +192,6 @@ table 50013 "Monthly Variables Header."
 
         /* Get the employee group number/code */
         // EmployeeRec.GET( "Employee No");//nitin
-
 
         //***Remarked to Prevent payslip Lines from being copied form Employee Group***//
         /*
@@ -206,10 +205,10 @@ table 50013 "Monthly Variables Header."
            EmpGrpLinesRec.RESET;
           EXIT
         END;
-        
+
         { Lock the Payroll Lines Entry file }
            VarLinesRec.LOCKTABLE(FALSE);    //SQL does not allow function
-        
+
         { Transfer the E/D lines from Employe Group lines to Payroll Lines }
          EmpGrpLinesRec.FIND( '>');
         BEGIN
@@ -252,17 +251,17 @@ table 50013 "Monthly Variables Header."
             ELSE
             IF VarLinesRec."Budget Center Code" = '' THEN
               VarLinesRec."Budget Center Code" := EmployeeRec."Budget Center Code";
-        
+
             IF NOT BookGrLinesRec."Transfer Cost Center" THEN
               VarLinesRec."Cost Center Code" := ''
             ELSE
             IF VarLinesRec."Cost Center Code" = '' THEN
               VarLinesRec."Cost Center Code" := EmployeeRec."Cost Center Code";
-        
+
             IF BookGrLinesRec."Debit Acc. Type" = 1 THEN
               IF EmployeeRec."SAM Number" <> '' THEN
                 VarLinesRec."Debit Account" := EmployeeRec."SAM Number" ;
-        
+
             IF BookGrLinesRec."Credit Acc. Type" = 1 THEN
               IF EmployeeRec."SAM Number" <> '' THEN
                 VarLinesRec."Credit Account" := EmployeeRec."SAM Number" ;
@@ -278,18 +277,9 @@ table 50013 "Monthly Variables Header."
         COMMIT;
         */
         //***Remarked to Prevent payslip Lines from being copied form Employee Group***//
-
     end;
 
     var
         PayPeriodRec: Record "Payroll-Periods.";
-        CompanyRec: Record "Payroll-Banks.";
-        DepartRec: Record "Dimension Value";
         EmployeeRec: Record Employee;
-        VarLinesRec: Record "Monthly Variables Lines.";
-        EmpGrpRec: Record "Payroll-Employee Group Header.";
-        EmpGrpLinesRec: Record "Payroll-Employee Group Lines.";
-        EDFileRec: Record "Payroll-E/D Codes.";
-        BookGrLinesRec: Record "Payroll-Posting Group Line.";
 }
-

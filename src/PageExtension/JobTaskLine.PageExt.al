@@ -9,7 +9,6 @@ pageextension 50203 "pageextension50203" extends "Job Task Lines"
     }
     actions
     {
-
         //Unsupported feature: Code Modification on ""Create &Sales Invoice"(Action 15).OnAction".
 
         //trigger OnAction()
@@ -39,7 +38,6 @@ pageextension 50203 "pageextension50203" extends "Job Task Lines"
         */
         //end;
 
-
         //Unsupported feature: Code Modification on ""Split &Planning Lines"(Action 17).OnAction".
 
         //trigger OnAction()
@@ -68,7 +66,6 @@ pageextension 50203 "pageextension50203" extends "Job Task Lines"
         #4..10
         */
         //end;
-
 
         //Unsupported feature: Code Modification on ""Change &Dates"(Action 22).OnAction".
 
@@ -100,4 +97,3 @@ pageextension 50203 "pageextension50203" extends "Job Task Lines"
         //end;
     }
 }
-

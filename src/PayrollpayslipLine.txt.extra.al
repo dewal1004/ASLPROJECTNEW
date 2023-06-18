@@ -112,7 +112,7 @@
 // end;
 
 // ////[Scope('OnPrem')]
-// local var 
+// local var
 // procedure CheckClosed(): Boolean
 // begin
 //     /*””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””
@@ -488,7 +488,6 @@
 //              LookLinesRec.Reset
 //           end;
 
-
 //         /* Adjust amount as per maximum/minimum set in the E/D file. This will overide
 //           any max/min. values set in the Table Lookup Header file*/
 //         ReturnAmount := ChkRoundMaxMin (EDFileRec, ReturnAmount);
@@ -836,7 +835,7 @@
 
 //     end;
 
-//     
+//
 
 //     //[Scope('OnPrem')]
 //     procedure EDAmountToDate(EmpNo: Code[10];CurPeriod: Code[10];EDCode: Code[10]): Decimal

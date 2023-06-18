@@ -1,6 +1,6 @@
 table 50040 "IOU"
 {
-
+    Caption = 'IOU';
     fields
     {
         field(1; Date; Date)
@@ -44,6 +44,9 @@ table 50040 "IOU"
 
     fieldgroups
     {
+        fieldgroup(DropDown; Date)
+        {
+        }
     }
 
     trigger OnDelete()
@@ -58,7 +61,6 @@ table 50040 "IOU"
     procedure EmployeeName(): Text[30]
     begin
         if Employee.Get("Employee No.") then
-            exit(Employee.FullName);
+            exit(Employee.FullName());
     end;
 }
-

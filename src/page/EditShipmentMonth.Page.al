@@ -2,7 +2,7 @@ page 50190 "Edit Shipment Month"
 {
     PageType = Card;
     SourceTable = "Sales Shipment Header";
-
+    Caption = 'Edit Shipment Month';
     layout
     {
         area(content)
@@ -66,4 +66,3 @@ page 50190 "Edit Shipment Month"
     {
     }
 }
-

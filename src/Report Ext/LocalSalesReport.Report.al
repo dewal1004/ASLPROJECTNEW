@@ -19,7 +19,7 @@ report 50078 "Local Sales Report"
             column(STRSUBSTNO_Text001_ItemDateFilter_; StrSubstNo(Text001, ItemDateFilter))
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(COMPANYNAME; CompanyName)
@@ -169,7 +169,6 @@ report 50078 "Local Sales Report"
 
     requestpage
     {
-
         layout
         {
         }
@@ -186,7 +185,7 @@ report 50078 "Local Sales Report"
     trigger OnPreReport()
     begin
         if Item.GetFilter(Item."Date Filter") = '' then
-            Item.SetRange(Item."Date Filter", CalcDate('-1D', WorkDate));
+            Item.SetRange(Item."Date Filter", CalcDate('-1D', WorkDate()));
 
         ItemFilter := Item.GetFilters;
         ItemDateFilter := Item.GetFilter("Date Filter");
@@ -197,37 +196,25 @@ report 50078 "Local Sales Report"
     end;
 
     var
-        Text000: Label 'Sorting items    #1##########';
         Text001: Label 'Period: %1';
         Text002: Label 'Ranked according to %1 %2';
-        Text003: Label 'Portion of %1';
-        Window: Dialog;
-        ItemAmount: Record "Item Amount" temporary;
-        ItemAmount2: Record "Item Amount";
         ItemFilter: Text[250];
         ItemDateFilter: Text[30];
         Sequence: Text[30];
         Heading: Text[30];
         ShowSorting: Option Largest,Smallest;
         ShowType: Option "Sales (LCY)",Inventory;
-        NoOfRecordsToPrint: Integer;
-        PrintAlsoIfZero: Boolean;
         ItemSales: Decimal;
         QtyOnHand: Decimal;
         SalesAmountPct: Decimal;
         QtyOnHandPct: Decimal;
-        MaxAmount: Decimal;
-        BarText: Text[50];
-        i: Integer;
         Text004: Label 'Largest,Smallest';
         Text005: Label 'Sales (LCY),Inventory';
-        Item2: Record Item;
         Predate: Date;
         Recpt: Decimal;
         TStk: Decimal;
         OpStk: Decimal;
         ClsStk: Decimal;
-        DatFilt: Date;
         Local_Sales_ReportCaptionLbl: Label 'Local Sales Report';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
         This_report_also_includes_items_not_on_inventory_or_that_are_not_sold_CaptionLbl: Label 'This report also includes items not on inventory or that are not sold.';
@@ -248,4 +235,3 @@ report 50078 "Local Sales Report"
         exit(Round(Numeral1 / Numeral2 * 100, 0.1));
     end;
 }
-

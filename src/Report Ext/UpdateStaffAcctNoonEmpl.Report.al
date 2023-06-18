@@ -2,7 +2,7 @@ report 99985 "Update Staff Acct No. on Empl."
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/UpdateStaffAcctNoonEmpl.rdlc';
-
+    Caption = 'Update Staff Acct No. on Empl.';
     dataset
     {
         dataitem(Employee; Employee)
@@ -14,7 +14,7 @@ report 99985 "Update Staff Acct No. on Empl."
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -58,15 +58,14 @@ report 99985 "Update Staff Acct No. on Empl."
                     "Acct. type" := Employee."Acct. type"::Customer;
                 end
                 else
-                    CurrReport.Skip;
-                Modify;
+                    CurrReport.Skip();
+                Modify();
             end;
         }
     }
 
     requestpage
     {
-
         layout
         {
         }
@@ -84,4 +83,3 @@ report 99985 "Update Staff Acct No. on Empl."
         EmployeeCaptionLbl: Label 'Employee';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
 }
-

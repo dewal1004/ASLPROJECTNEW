@@ -2,7 +2,7 @@ page 50031 "MP Budget Names"
 {
     PageType = Card;
     SourceTable = "MP Budget Name";
-
+    Caption = 'MP Budget Names';
     layout
     {
         area(content)
@@ -26,4 +26,3 @@ page 50031 "MP Budget Names"
     {
     }
 }
-

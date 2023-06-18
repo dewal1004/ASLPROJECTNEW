@@ -2,7 +2,7 @@ report 50103 "Weekly Points Report"
 {
     // UNL-ASL3.60.01.002 (Santus) May 03, 2005
     // -> new report
-    // 
+    //
     // UNL-ASL3.60.01.003 (Santus) May 10, 2005
     // -> modified report to kep track of hours lost and average voyage points,
     //   block report from checking for sea days less than 8 or 9, added functionality for sending report results to excel.
@@ -10,8 +10,7 @@ report 50103 "Weekly Points Report"
     RDLCLayout = './src/reportrdlc/WeeklyPointsReport.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
-
-
+    Caption = 'Weekly Points Report';
     dataset
     {
         dataitem(Job; Job)
@@ -24,7 +23,7 @@ report 50103 "Weekly Points Report"
             column(DataItem1000000003; 'Weekly Points Report - Port Captain Wise -  ' + Format(StartDate, 0, '<day,2> <month text,3> <year4>') + ' to ' + Format(EndDate, 0, '<day,2> <month text,3> <year4>'))
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -170,7 +169,7 @@ report 50103 "Weekly Points Report"
                 VoyagePoints := 0;
 
                 if (Job."Ending Date" <= EndDate) then
-                    CurrReport.Skip;
+                    CurrReport.Skip();
 
                 j := 1;
                 repeat
@@ -184,15 +183,14 @@ report 50103 "Weekly Points Report"
                     SeaDays := 0;
 
                 if SeaDays < 1 then
-                    CurrReport.Skip;
+                    CurrReport.Skip();
 
                 //show all
                 if (SeaDays < 8) and (Job."Fishing Country Code" in ['GB', '']) then
-                    CurrReport.Skip;
+                    CurrReport.Skip();
 
                 if (SeaDays < 9) and (Job."Fishing Country Code" = 'CA') then
-                    CurrReport.Skip;
-
+                    CurrReport.Skip();
 
                 //check for lost hours
                 LostDays.SetRange("No.", Job."No.");
@@ -201,10 +199,10 @@ report 50103 "Weekly Points Report"
                 if LostDays.Find('-') then
                     repeat
                         HoursLost := HoursLost + LostDays."Hours Lost"
-                    until LostDays.Next = 0;
+                    until LostDays.Next() = 0;
 
                 if HoursLost > 20 then
-                    CurrReport.Skip;
+                    CurrReport.Skip();
 
                 //weekly
                 //points
@@ -245,7 +243,6 @@ report 50103 "Weekly Points Report"
 
     requestpage
     {
-
         layout
         {
         }
@@ -282,18 +279,12 @@ report 50103 "Weekly Points Report"
 
         EndDate := CalcDate('6D', StartDate);
 
-
-
         UpdateCell(2, 4, 'WEEKLY POINTS REPORT', Bold, not Italic, not UnderLine, FontSize + 2);
     end;
 
     var
-        FooterPrinted: Boolean;
-        Eval: Boolean;
         LostDays: Record "Comment Line";
-        Resource: Record Resource;
         LastFieldNo: Integer;
-        I: Integer;
         SerialNo: Integer;
         j: Integer;
         pts: array[5] of Decimal;
@@ -304,13 +295,7 @@ report 50103 "Weekly Points Report"
         StartDate: Date;
         EndDate: Date;
         Ave: array[7] of Decimal;
-        // xlApp: Automation BC;  //***R
-        // xlBook: Automation BC;
-        // xlSheet: Automation BC;
-        Send2Excel: Boolean;
         TopPage: Boolean;
-        Xr: Integer;
-        Xc: Integer;
         Bold: Boolean;
         UnderLine: Boolean;
         Italic: Boolean;
@@ -371,4 +356,3 @@ report 50103 "Weekly Points Report"
         exit(xlColID);
     end;
 }
-

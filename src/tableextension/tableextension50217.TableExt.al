@@ -98,4 +98,3 @@ tableextension 50217 "tableextension50217" extends "Purch. Cr. Memo Line"
         }
     }
 }
-

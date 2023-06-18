@@ -1,6 +1,6 @@
 xmlport 50050 "teet"
 {
-
+    Caption = 'teet';
     schema
     {
         textelement(RootNode)
@@ -20,7 +20,6 @@ xmlport 50050 "teet"
 
     requestpage
     {
-
         layout
         {
         }
@@ -30,4 +29,3 @@ xmlport 50050 "teet"
         }
     }
 }
-

@@ -62,6 +62,7 @@ tableextension 50289 "Employment Contract Ext" extends "Employment Contract"
                                                                         Date = FIELD("Date Filter")));
             DecimalPlaces = 0 : 0;
             FieldClass = FlowField;
+            Editable = false;
         }
         field(50010; "Budget Filter"; Code[10])
         {
@@ -143,6 +144,7 @@ tableextension 50289 "Employment Contract Ext" extends "Employment Contract"
                                                 "Global Dimension 2 Code" = FIELD("Global Dimension 2 Filter"),
                                                 Blocked = CONST(false)));
             FieldClass = FlowField;
+            Editable = false;
         }
         field(50314; Junior; Integer)
         {
@@ -153,6 +155,7 @@ tableextension 50289 "Employment Contract Ext" extends "Employment Contract"
                                                 "Global Dimension 2 Code" = FIELD("Global Dimension 2 Filter"),
                                                 Blocked = CONST(false)));
             FieldClass = FlowField;
+            Editable = false;
         }
         field(50315; Intermediate; Integer)
         {
@@ -163,6 +166,7 @@ tableextension 50289 "Employment Contract Ext" extends "Employment Contract"
                                                 "Global Dimension 2 Code" = FIELD("Global Dimension 2 Filter"),
                                                 Blocked = CONST(false)));
             FieldClass = FlowField;
+            Editable = false;
         }
         field(50316; Senior; Integer)
         {
@@ -173,6 +177,7 @@ tableextension 50289 "Employment Contract Ext" extends "Employment Contract"
                                                 "Global Dimension 2 Code" = FIELD("Global Dimension 2 Filter"),
                                                 Blocked = CONST(false)));
             FieldClass = FlowField;
+            Editable = false;
         }
         field(50317; Expatriates; Integer)
         {
@@ -183,6 +188,7 @@ tableextension 50289 "Employment Contract Ext" extends "Employment Contract"
                                                 "Global Dimension 2 Code" = FIELD("Global Dimension 2 Filter"),
                                                 Blocked = CONST(false)));
             FieldClass = FlowField;
+            Editable = false;
         }
         field(50318; Contract; Integer)
         {
@@ -193,6 +199,7 @@ tableextension 50289 "Employment Contract Ext" extends "Employment Contract"
                                                 "Empl Contr Uni Code" = FIELD("Unique Cd No"),
                                                 Blocked = CONST(false)));
             FieldClass = FlowField;
+            Editable = false;
         }
         field(50319; "Unique Cd No"; Code[10])
         {
@@ -208,7 +215,6 @@ tableextension 50289 "Employment Contract Ext" extends "Employment Contract"
     }
     keys
     {
-
         //Unsupported feature: Deletion (KeyCollection) on "Code(Key)".
 
         key(ASLKey1; "Unique Cd No")
@@ -228,7 +234,6 @@ tableextension 50289 "Employment Contract Ext" extends "Employment Contract"
         {
         }
     }
-
 
     //Unsupported feature: Code Insertion on "OnInsert".
 
@@ -250,7 +255,7 @@ tableextension 50289 "Employment Contract Ext" extends "Employment Contract"
             OldEmpContr.Copy(Rec);
             OldEmpContr := OldEmpContr2;
             if not OldEmpContr.Find('<') then
-                OldEmpContr.Init;
+                OldEmpContr.Init();
         end;
 
         //Univision Finish 31/10/01
@@ -264,13 +269,9 @@ tableextension 50289 "Employment Contract Ext" extends "Employment Contract"
 
     //Unsupported feature: Property Deletion (LookupPageID).
 
-
     //Unsupported feature: Property Deletion (DrillDownPageID).
 
-
     var
-        approved: Boolean;
         // approv: Record "Object"; //*** Revisit
         EmpGrp: Record "Payroll-Employee Group Header.";
 }
-

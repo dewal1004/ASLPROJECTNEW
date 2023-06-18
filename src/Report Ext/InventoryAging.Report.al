@@ -5,8 +5,7 @@ report 50146 "Inventory Aging"
     RDLCLayout = './src/reportrdlc/InventoryAging.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
-
-
+    Caption = 'Inventory Aging';
     dataset
     {
         dataitem("item upd"; Item)
@@ -33,7 +32,7 @@ report 50146 "Inventory Aging"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -113,7 +112,6 @@ report 50146 "Inventory Aging"
 
     requestpage
     {
-
         layout
         {
         }
@@ -129,7 +127,6 @@ report 50146 "Inventory Aging"
 
     var
         LastFieldNo: Integer;
-        FooterPrinted: Boolean;
         TotalFor: Label 'Total for ';
         ItLedEnt: Record "Item Ledger Entry";
         OldstQty: Decimal;
@@ -140,4 +137,3 @@ report 50146 "Inventory Aging"
         OldstDatCaptionLbl: Label 'Inventory Since';
         OldstQtyCaptionLbl: Label 'Old Stock';
 }
-

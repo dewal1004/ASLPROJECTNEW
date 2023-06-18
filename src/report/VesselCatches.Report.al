@@ -1,14 +1,13 @@
 report 50085 "Vessel Catches"
 {
     // Job."Person Responsible"
-    // 
+    //
     // "Job."Ending Date"
     // Job."Sea Days"
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/VesselCatches.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
-
     Caption = 'Vessel Catches';
 
     dataset
@@ -37,7 +36,7 @@ report 50085 "Vessel Catches"
                 column(USERID; UserId)
                 {
                 }
-                column(CurrReport_PAGENO; CurrReport.PageNo)
+                column(CurrReport_PAGENO; CurrReport.PageNo())
                 {
                 }
                 column(Job_Journal_Batch___Journal_Template_Name_; "Job Journal Batch"."Journal Template Name")
@@ -109,7 +108,6 @@ report 50085 "Vessel Catches"
                 column(KNOWING; KNOWINGLb1)
                 {
                 }
-
                 dataitem("Job Journal Line"; "Job Journal Line")
                 {
                     DataItemLink = "Journal Template Name" = FIELD("Journal Template Name"), "Journal Batch Name" = FIELD(Name);
@@ -257,10 +255,10 @@ report 50085 "Vessel Catches"
 
                             if Number = 1 then begin
                                 if not JnlLineDim.Find('-') then
-                                    CurrReport.Break;
+                                    CurrReport.Break();
                             end else
                                 if not Continue then
-                                    CurrReport.Break;
+                                    CurrReport.Break();
 
                             Clear(DimText);
                             Continue := false;
@@ -277,14 +275,14 @@ report 50085 "Vessel Catches"
                                     Continue := true;
                                     exit;
                                 end;
-                            until (JnlLineDim.Next = 0);
+                            until (JnlLineDim.Next() = 0);
                         end;
 
                         trigger OnPreDataItem()
                         begin
 
                             if not ShowDim then
-                                CurrReport.Break;
+                                CurrReport.Break();
                             JnlLineDim.SetRange("Table ID", DATABASE::"Job Journal Line");
                             //JnlLineDim.SETRANGE("Journal Template Name","Job Journal Line"."Journal Template Name");
                             //JnlLineDim.SETRANGE("Journal Batch Name","Job Journal Line"."Journal Batch Name");
@@ -318,7 +316,7 @@ report 50085 "Vessel Catches"
                     trigger OnAfterGetRecord()
                     begin
 
-                        if EmptyLine then
+                        if EmptyLine() then
                             exit;
                         MakeRecurringTexts("Job Journal Line");
 
@@ -366,7 +364,6 @@ report 50085 "Vessel Catches"
                                  Type::"Account (G/L)" :;
                                 END;*/
 
-
                         CheckRecurringLine("Job Journal Line");
 
                         if "Posting Date" = 0D then
@@ -387,7 +384,7 @@ report 50085 "Vessel Catches"
                                         AllowPostingTo := UserSetup."Allow Posting To";
                                     end;
                                 if (AllowPostingFrom = 0D) and (AllowPostingTo = 0D) then begin
-                                    GLSetup.Get;
+                                    GLSetup.Get();
                                     AllowPostingFrom := GLSetup."Allow Posting From";
                                     AllowPostingTo := GLSetup."Allow Posting To";
                                 end;
@@ -433,16 +430,14 @@ report 50085 "Vessel Catches"
                             "Work Type Code Sort" := 'XX';
                         MODIFY();
 
-
                         if Catch = 0 then Validate(Catch);
                         //MODIFY;
                         Job.SetRange(Job."No.", "Job Journal Line"."Job No.");
-                        if Job.FindFirst then
+                        if Job.FindFirst() then
                             Vessl := Job.Vessel;
                         if Res.Get(Job."Person Responsible") then RESP := Res.Name else RESP := Job."Person Responsible";
 
-                       // Quantity := 199;
-
+                        // Quantity := 199;
                     end;
 
                     trigger OnPreDataItem()
@@ -455,12 +450,12 @@ report 50085 "Vessel Catches"
                                 AddError(
                                   StrSubstNo(
                                     Text000, FieldCaption("Posting Date")));
-                            SetRange("Posting Date", 0D, WorkDate);
+                            SetRange("Posting Date", 0D, WorkDate());
                             if GetFilter("Expiration Date") <> '' then
                                 AddError(
                                   StrSubstNo(
                                     Text000, FieldCaption("Expiration Date")));
-                            SetFilter("Expiration Date", '%1 | %2..', 0D, WorkDate);
+                            SetFilter("Expiration Date", '%1 | %2..', 0D, WorkDate());
                         end;
 
                         CurrReport.CreateTotals("Total Cost", "Total Price");
@@ -529,18 +524,11 @@ report 50085 "Vessel Catches"
                         TableRelation = "Job Journal Batch";
                     }
                 }
-
             }
         }
 
-
         var
             JobJnl: Record "Job Journal Line";
-
-
-
-
-
     }
 
     labels
@@ -570,10 +558,6 @@ report 50085 "Vessel Catches"
         Text002: Label 'Job %1 does not exist.';
         Text003: Label '%1 must be %2 for job %3.';
         Text004: Label '%1 %2 %3 does not exist.';
-        Text005: Label 'Resource %1 does not exist.';
-        Text006: Label '%1 must be %2 for resource %3.';
-        Text007: Label 'Item %1 does not exist.';
-        Text008: Label '%1 must be %2 for item %3.';
         Text009: Label '%1 must not be a closing date.';
         Text010: Label 'The lines are not listed according to Posting Date because they were not entered in that order.';
         Text011: Label '%1 is not within your allowed range of posting dates.';
@@ -610,7 +594,6 @@ report 50085 "Vessel Catches"
         OldDimText: Text[75];
         ShowDim: Boolean;
         Continue: Boolean;
-        "----": Text[30];
         OpBudgLn: Record "Job Planning Line";
         Locat: Record Location;
         InvtPostgGro: Record "Inventory Posting Group";
@@ -643,7 +626,6 @@ report 50085 "Vessel Catches"
         DimensionsCaptionLbl: Label 'Dimensions';
         ErrorText_Number_CaptionLbl: Label 'Warning!';
         ReccatchQuantity1: Decimal;
-        RecQuantity2: Decimal;
         Job: Record Job;
 
     local procedure CheckRecurringLine(JobJnlLine2: Record "Job Journal Line")
@@ -691,4 +673,3 @@ report 50085 "Vessel Catches"
         ErrorText[ErrorCounter] := Text;
     end;
 }
-

@@ -14,8 +14,6 @@ tableextension 50209 "tableextension50209" extends "Sales Cr.Memo Line"
 
     //Unsupported feature: Property Insertion (Local) on "ShowItemReturnRcptLines(PROCEDURE 9)".
 
-
-
     //Unsupported feature: Code Modification on "ShowLineComments(PROCEDURE 5)".
 
     //procedure ShowLineComments();
@@ -33,4 +31,3 @@ tableextension 50209 "tableextension50209" extends "Sales Cr.Memo Line"
     */
     //end;
 }
-

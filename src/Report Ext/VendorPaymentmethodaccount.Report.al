@@ -2,7 +2,7 @@ report 99992 "Vendor Payment method=account;"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/VendorPaymentmethodaccount.rdlc';
-
+    Caption = 'Vendor Payment method=account;';
     dataset
     {
         dataitem(Vendor; Vendor)
@@ -14,7 +14,7 @@ report 99992 "Vendor Payment method=account;"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -48,14 +48,13 @@ report 99992 "Vendor Payment method=account;"
             trigger OnAfterGetRecord()
             begin
                 if "Payment Method Code" <> 'BANK' then "Payment Method Code" := 'ACCOUNT';
-                Modify;
+                Modify();
             end;
         }
     }
 
     requestpage
     {
-
         layout
         {
         }
@@ -73,4 +72,3 @@ report 99992 "Vendor Payment method=account;"
         VendorCaptionLbl: Label 'Vendor';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
 }
-

@@ -2,7 +2,7 @@ report 50919 "Update Item category cod"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/UpdateItemcategorycod.rdlc';
-
+    Caption = 'Update Item category cod';
     dataset
     {
         dataitem(Item; Item)
@@ -14,7 +14,7 @@ report 50919 "Update Item category cod"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -57,14 +57,13 @@ report 50919 "Update Item category cod"
             trigger OnAfterGetRecord()
             begin
                 if InvtPg.Get(Item."Inventory Posting Group") then Item."SF Cat" := CopyStr(InvtPg.Category, 5);
-                Modify;
+                Modify();
             end;
         }
     }
 
     requestpage
     {
-
         layout
         {
         }
@@ -83,4 +82,3 @@ report 50919 "Update Item category cod"
         ItemCaptionLbl: Label 'Item';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
 }
-

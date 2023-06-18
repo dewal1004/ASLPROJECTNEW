@@ -2,7 +2,7 @@ page 50093 "list of depreciation books"
 {
     PageType = Card;
     SourceTable = "FA Depreciation Book";
-
+    Caption = 'list of depreciation books';
     layout
     {
         area(content)
@@ -85,7 +85,6 @@ page 50093 "list of depreciation books"
                         //This functionality was copied from page #50094. Unsupported part was commented. Please check it.
                         /*CurrPage.AppraisalLines.FORM.*/
                         //ShowDimensions;
-
                     end;
                 }
                 action("Item &Tracking Entries")
@@ -99,11 +98,9 @@ page 50093 "list of depreciation books"
                         //This functionality was copied from page #50094. Unsupported part was commented. Please check it.
                         /*CurrPage.AppraisalLines.FORM.*/
                         //ShowItemTrackingLines;
-
                     end;
                 }
             }
         }
     }
 }
-

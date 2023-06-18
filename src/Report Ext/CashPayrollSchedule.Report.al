@@ -5,8 +5,7 @@ report 50063 "Cash Payroll Schedule"
     RDLCLayout = './src/reportrdlc/CashPayrollSchedule.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
-
-
+    Caption = 'Cash Payroll Schedule';
     dataset
     {
         dataitem(Employee; Employee)
@@ -17,7 +16,7 @@ report 50063 "Cash Payroll Schedule"
             column(GETFILTER__Period_Filter__; GetFilter("Period Filter"))
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(CompanyData_Name; CompanyData.Name)
@@ -26,7 +25,7 @@ report 50063 "Cash Payroll Schedule"
             column(TODAY; Today)
             {
             }
-            column(DELCHR__FullName_______; DelChr(FullName, '<>'))
+            column(DELCHR__FullName_______; DelChr(FullName(), '<>'))
             {
             }
             column(BasicAm; BasicAm)
@@ -71,21 +70,19 @@ report 50063 "Cash Payroll Schedule"
 
             trigger OnAfterGetRecord()
             begin
-                if Employee.Blocked then CurrReport.Skip; //Added by Adam to skip Blocked Employees
+                if Employee.Blocked then CurrReport.Skip(); //Added by Adam to skip Blocked Employees
                 if Employee."Mode of payment" =
                    Employee."Mode of payment"::Bank then
-                    CurrReport.Skip;
+                    CurrReport.Skip();
 
                 SetRange("ED Filter", BASIC);
                 CalcFields(EDAmount);
                 BasicAm := EDAmount;
 
-                if BasicAm = 0 then CurrReport.Skip;
+                if BasicAm = 0 then CurrReport.Skip();
 
-
-                if HeadPrint then begin
+                if HeadPrint then
                     HeadPrint := false
-                end
             end;
 
             trigger OnPreDataItem()
@@ -93,11 +90,9 @@ report 50063 "Cash Payroll Schedule"
                 if GetFilter("Period Filter") = '' then
                     Error('The period delimitation must be entered');
 
-
-
                 CurrReport.CreateTotals(EmployeeAm, EmployerAm, BasicAm);
 
-                CompanyData.Get;
+                CompanyData.Get();
                 HeadPrint := true;
             end;
         }
@@ -105,7 +100,6 @@ report 50063 "Cash Payroll Schedule"
 
     requestpage
     {
-
         layout
         {
         }
@@ -122,12 +116,9 @@ report 50063 "Cash Payroll Schedule"
     var
         BasicAm: Decimal;
         BASIC: Code[20];
-        Edrec: Record "Payroll-E/D Codes.";
         EmployerAm: Decimal;
         EmployeeAm: Decimal;
         CompanyData: Record "Company Information";
-        NSSF1: Code[20];
-        NSSF2: Code[20];
         HeadPrint: Boolean;
         Cash_Payroll_ScheduleCaptionLbl: Label 'Cash Payroll Schedule';
         Period_CaptionLbl: Label 'Period:';
@@ -137,4 +128,3 @@ report 50063 "Cash Payroll Schedule"
         Net_SalaryCaptionLbl: Label 'Net Salary';
         TOTALSCaptionLbl: Label 'TOTALS';
 }
-

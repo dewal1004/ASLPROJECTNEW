@@ -2,7 +2,7 @@ report 50091 "Convert Applicant to Staff"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/ConvertApplicanttoStaff.rdlc';
-
+    Caption = 'Convert Applicant to Staff';
     dataset
     {
         dataitem(ApplicantsX; Applicants)
@@ -12,7 +12,7 @@ report 50091 "Convert Applicant to Staff"
             column(USERID; UserId)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(FORMAT_TODAY_0_4_; Format(Today, 0, 4))
@@ -75,8 +75,8 @@ report 50091 "Convert Applicant to Staff"
 
             trigger OnAfterGetRecord()
             begin
-                if not (Confirm('Are you sure youu want to convert %1 to an EMployee?', true, ApplicantsX.FullName)) then
-                    CurrReport.Skip;
+                if not (Confirm('Are you sure youu want to convert %1 to an EMployee?', true, ApplicantsX.FullName())) then
+                    CurrReport.Skip();
 
                 HumanRecSetup.Get();
                 if HumanRecSetup."Application Nos." <> '' then begin
@@ -94,10 +94,8 @@ report 50091 "Convert Applicant to Staff"
                             NewEmpNum := LnoUsed;
                         end;
 
-
-
                         ApplicantsX.Staffed := true;
-                        EmploRec.Init;
+                        EmploRec.Init();
                         EmploRec.TransferFields(ApplicantsX);
                         if (ApplicantsX."Assigned Employee No" = '') then begin
                             ApplicantsX."Assigned Employee No" := NewEmpNum;
@@ -112,7 +110,7 @@ report 50091 "Convert Applicant to Staff"
                             NoSeriesRec."Last No. Used" := ApplicantsX."Assigned Employee No";
 
                         NoSeriesRec."Last Date Used" := Today;
-                        NoSeriesRec.Modify;
+                        NoSeriesRec.Modify();
 
                         EmploRec."No. Series" := HumanRecSetup."Employee Nos.";
                         EmploRec.Status := 0;
@@ -128,12 +126,11 @@ report 50091 "Convert Applicant to Staff"
                                       END;
                         */
 
-                        EmploRec.Insert;
+                        EmploRec.Insert();
 
                         ApplicantsX."Date Offer Made" := Today;
                         ApplicantsX."Agreed Start Date" := Today;
-                        ApplicantsX.Modify;
-
+                        ApplicantsX.Modify();
 
                         EmpCount := EmpCount + 1;
                     end
@@ -142,7 +139,6 @@ report 50091 "Convert Applicant to Staff"
                 end
                 else
                     Error('Human resouces No series is Not assign Human Resources Setup ');
-
             end;
 
             trigger OnPostDataItem()
@@ -164,7 +160,6 @@ report 50091 "Convert Applicant to Staff"
 
     requestpage
     {
-
         layout
         {
         }
@@ -180,21 +175,14 @@ report 50091 "Convert Applicant to Staff"
 
     var
         LastFieldNo: Integer;
-        FooterPrinted: Boolean;
         EmploRec: Record Employee;
         HumanRecSetup: Record "Human Resources Setup";
         NoSeriesRec: Record "No. Series Line";
         NumCode: Code[10];
         NewEmpNum: Code[10];
-        ContractRec: Record "Employment Contract";
         k: Integer;
         LnoUsed: Code[10];
         EmpCount: Integer;
-        Grd: Code[2];
-        Stp: Code[2];
-        EmpGrp: Record "Payroll-Employee Group Header.";
-        GrpCode: Code[10];
-        HV: Boolean;
         Date_EmployedCaptionLbl: Label 'Date Employed';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
         ProjectCaptionLbl: Label 'Project';
@@ -205,4 +193,3 @@ report 50091 "Convert Applicant to Staff"
         Employee_NoCaptionLbl: Label 'Employee No';
         Applicant_NoCaptionLbl: Label 'Applicant No';
 }
-

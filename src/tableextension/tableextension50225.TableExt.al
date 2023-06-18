@@ -1,6 +1,5 @@
 tableextension 50225 "tableextension50225" extends "Workflow Step"
 {
-
     //Unsupported feature: Code Modification on "OpenEventConditions(PROCEDURE 17)".
 
     //procedure OpenEventConditions();
@@ -33,7 +32,6 @@ tableextension 50225 "tableextension50225" extends "Workflow Step"
     */
     //end;
 
-
     //Unsupported feature: Code Modification on "CompareEventRule(PROCEDURE 21)".
 
     //procedure CompareEventRule();
@@ -63,7 +61,6 @@ tableextension 50225 "tableextension50225" extends "Workflow Step"
       (ThisWorkflowRule.Operator = OtherWorkflowRule.Operator))
     */
     //end;
-
 
     //Unsupported feature: Code Modification on "GetDescription(PROCEDURE 1)".
 
@@ -97,7 +94,6 @@ tableextension 50225 "tableextension50225" extends "Workflow Step"
     */
     //end;
 
-
     //Unsupported feature: Code Modification on "FindWorkflowRules(PROCEDURE 19)".
 
     //procedure FindWorkflowRules();
@@ -120,7 +116,6 @@ tableextension 50225 "tableextension50225" extends "Workflow Step"
     exit(not WorkflowRule.IsEmpty);
     */
     //end;
-
 
     //Unsupported feature: Code Modification on "HasParentEvent(PROCEDURE 23)".
 
@@ -191,11 +186,7 @@ tableextension 50225 "tableextension50225" extends "Workflow Step"
 
     //Unsupported feature: Deletion (VariableCollection) on "GetDescription(PROCEDURE 1).WorkflowEvent(Variable 1001)".
 
-
     //Unsupported feature: Deletion (VariableCollection) on "GetDescription(PROCEDURE 1).WorkflowStepArgument(Variable 1003)".
 
-
     //Unsupported feature: Deletion (VariableCollection) on "GetDescription(PROCEDURE 1).WorkflowResponseHandling(Variable 1002)".
-
 }
-

@@ -18,8 +18,6 @@ pageextension 50274 "pageextension50274" extends "Sales List"
                 RunObject = xmlport "Import FS daily sales";
                 ApplicationArea = All;
             }
-
         }
     }
 }
-

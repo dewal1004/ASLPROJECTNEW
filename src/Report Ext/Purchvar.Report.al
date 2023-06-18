@@ -8,8 +8,7 @@ report 50186 "Purch var"
     // "Purch. Rcpt. Header"."Waybill No."
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/Purchvar.rdlc';
-
-
+    Caption = 'Purch var';
     dataset
     {
         dataitem(PageLoop; "Integer")
@@ -26,7 +25,7 @@ report 50186 "Purch var"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -122,25 +121,23 @@ report 50186 "Purch var"
                 "Purch. Rcpt. Header".SETCURRENTKEY("Purch. Rcpt. Header"."Order No.");
                 "Purch. Rcpt. Header".SETFILTER("Purch. Rcpt. Header"."Order No.",Ordernumber);
                 "Purch. Rcpt. Header".FIND('-');
-                
+
                 FormatAddr.PurchRcptPayTo(VendAddr,"Purch. Rcpt. Header");
-                
+
                 ItemRec.SETRANGE(ItemRec."Order Fillter", Ordernumber);
                 ItemRec.CALCFIELDS(ItemRec."VReceived Qty",ItemRec."VSupplimentary Qty",ItemRec."VOrdered Qty");
                 Trecev:=ItemRec."VReceived Qty"+ItemRec."VSupplimentary Qty";
-                
+
                 PurInvHd.SETCURRENTKEY(PurInvHd."Order No.");
                 PurInvHd.SETRANGE(PurInvHd."Order No.","Purch. Rcpt. Header"."Order No.");
                 IF PurInvHd.FIND('-') THEN;
                 */
-
             end;
         }
     }
 
     requestpage
     {
-
         layout
         {
         }
@@ -156,14 +153,12 @@ report 50186 "Purch var"
 
     var
         ItemRec: Record Item;
-        Ordernumber: Code[20];
         Trecev: Decimal;
         Text002: Label 'Variance On Goods Received %1';
         CopyText: Text[30];
         "Purch. Rcpt. Header": Record "Purch. Rcpt. Header";
         PurInvHd: Record "Purch. Inv. Header";
         VendAddr: array[8] of Text[50];
-        FormatAddr: Codeunit "Format Address";
         Purchase_Variance__Item_CaptionLbl: Label 'Purchase Variance (Item)';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
         Date_CaptionLbl: Label 'Date:';
@@ -177,4 +172,3 @@ report 50186 "Purch var"
         Quantity_OrderedCaptionLbl: Label 'Quantity Ordered';
         Short__Excess__SupplyCaptionLbl: Label 'Short\(Excess) Supply';
 }
-

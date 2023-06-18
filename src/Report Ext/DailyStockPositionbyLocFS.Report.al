@@ -4,7 +4,7 @@ report 50185 "Daily Stock Position by Loc-FS"
     RDLCLayout = './src/reportrdlc/DailyStockPositionbyLocFS.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
-
+    Caption = 'Daily Stock Position by Loc-FS';
     dataset
     {
         dataitem(Location; Location)
@@ -16,7 +16,7 @@ report 50185 "Daily Stock Position by Loc-FS"
             column(USERID; UserId)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(Period_Length_Used____PeriodLength; 'Period Length Used :' + PeriodLength)
@@ -36,23 +36,18 @@ report 50185 "Daily Stock Position by Loc-FS"
             }
             column(IssueName_5__; IssueName[5])
             {
-
             }
             column(IssueName_4__; IssueName[4])
             {
-
             }
             column(IssueName_3__; IssueName[3])
             {
-
             }
             column(IssueName_2__; IssueName[2])
             {
-
             }
             column(IssueName_1__; IssueName[1])
             {
-
             }
             column(Location_Code; Code)
             {
@@ -126,269 +121,204 @@ report 50185 "Daily Stock Position by Loc-FS"
                 }
                 column(Stk_6__; Stk[6])
                 {
-
                 }
                 column(Stk_2__; Stk[2])
                 {
-
                 }
                 column(Stk_4__; Stk[4])
                 {
-
                 }
                 column(Stk_10__; Stk[10])
                 {
-
                 }
                 column(Stk_5__; Stk[5])
                 {
-
                 }
                 column(Stk_1__; Stk[1])
                 {
-
                 }
                 column(Stk_7__; Stk[7])
                 {
-
                 }
                 column(Stk_3__; Stk[3])
                 {
-
                 }
                 column(Stk_9__; Stk[9])
                 {
-
                 }
                 column(Stk_15__; Stk[15])
                 {
-
                 }
                 column(Stk_16__; Stk[16])
                 {
-
                 }
                 column(Stk_17__; Stk[17])
                 {
-
                 }
                 column(Stk_22__; Stk[22])
                 {
-
                 }
                 column(Stk_23__; Stk[23])
                 {
-
                 }
                 column(Stk_24__; Stk[24])
                 {
-
                 }
                 column(Stk_25__; Stk[25])
                 {
-
                 }
                 column(Stk_21__; Stk[21])
                 {
-
                 }
                 column(TotalFor___FIELDCAPTION__Inventory_Posting_Group__; TotalFor + FieldCaption("Inventory Posting Group"))
                 {
                 }
                 column(Stk_1___Control1000000000; Stk[1])
                 {
-
                 }
                 column(Stk_2___Control1000000001; Stk[2])
                 {
-
                 }
                 column(Stk_4___Control1000000105; Stk[4])
                 {
-
                 }
                 column(Stk_10___Control1000000106; Stk[10])
                 {
-
                 }
                 column(Stk_5___Control1000000107; Stk[5])
                 {
-
                 }
                 column(Stk_3___Control1000000109; Stk[3])
                 {
-
                 }
                 column(Stk_9___Control1000000110; Stk[9])
                 {
-
                 }
                 column(Stk_15___Control1000000004; Stk[15])
                 {
-
                 }
                 column(Stk_6___Control1000000005; Stk[6])
                 {
-
                 }
                 column(Stk_7___Control1000000006; Stk[7])
                 {
-
                 }
                 column(Stk_21___Control1000000029; Stk[21])
                 {
-
                 }
                 column(Stk_22___Control1000000073; Stk[22])
                 {
-
                 }
                 column(Stk_23___Control1000000074; Stk[23])
                 {
-
                 }
                 column(Stk_24___Control1000000075; Stk[24])
                 {
-
                 }
                 column(Stk_25___Control1000000076; Stk[25])
                 {
-
                 }
                 column(TotalFor___FIELDCAPTION__Statistics_Group__; TotalFor + FieldCaption("Statistics Group"))
                 {
                 }
                 column(Stk_1___Control1000000009; Stk[1])
                 {
-
                 }
                 column(Stk_2___Control1000000010; Stk[2])
                 {
-
                 }
                 column(Stk_4___Control1000000091; Stk[4])
                 {
-
                 }
                 column(Stk_10___Control1000000092; Stk[10])
                 {
-
                 }
                 column(Stk_5___Control1000000093; Stk[5])
                 {
-
                 }
                 column(Stk_3___Control1000000095; Stk[3])
                 {
-
                 }
                 column(Stk_9___Control1000000096; Stk[9])
                 {
-
                 }
                 column(Stk_17___Control1000000007; Stk[17])
                 {
-
                 }
                 column(Stk_16___Control1000000008; Stk[16])
                 {
-
                 }
                 column(Stk_15___Control1000000011; Stk[15])
                 {
-
                 }
                 column(Stk_6___Control1000000013; Stk[6])
                 {
-
                 }
                 column(Stk_7___Control1000000014; Stk[7])
                 {
-
                 }
                 column(Stk_21___Control1000000080; Stk[21])
                 {
-
                 }
                 column(Stk_22___Control1000000083; Stk[22])
                 {
-
                 }
                 column(Stk_23___Control1000000084; Stk[23])
                 {
-
                 }
                 column(Stk_24___Control1000000085; Stk[24])
                 {
-
                 }
                 column(Stk_25___Control1000000090; Stk[25])
                 {
-
                 }
                 column(Stk_2___Control1000000068; Stk[2])
                 {
-
                 }
                 column(Stk_1___Control1000000069; Stk[1])
                 {
-
                 }
                 column(Stk_4___Control1000000077; Stk[4])
                 {
-
                 }
                 column(Stk_10___Control1000000078; Stk[10])
                 {
-
                 }
                 column(Stk_5___Control1000000079; Stk[5])
                 {
-
                 }
                 column(Stk_3___Control1000000081; Stk[3])
                 {
-
                 }
                 column(Stk_9___Control1000000082; Stk[9])
                 {
-
                 }
                 column(Stk_15___Control1000000023; Stk[15])
                 {
-
                 }
                 column(Stk_6___Control1000000024; Stk[6])
                 {
-
                 }
                 column(Stk_7___Control1000000025; Stk[7])
                 {
-
                 }
                 column(Stk_21___Control1000000094; Stk[21])
                 {
-
                 }
                 column(Stk_22___Control1000000097; Stk[22])
                 {
-
                 }
                 column(Stk_23___Control1000000098; Stk[23])
                 {
-
                 }
                 column(Stk_24___Control1000000099; Stk[24])
                 {
-
                 }
                 column(Stk_25___Control1000000104; Stk[25])
                 {
-
                 }
                 column(Stk_11__; Stk[11])
                 {
-
                 }
                 column(Stk_11___Control1000000062; Stk[11])
                 {
@@ -453,71 +383,54 @@ report 50185 "Daily Stock Position by Loc-FS"
                     }
                     column(Stk_1___Control1000000111; Stk[1])
                     {
-
                     }
                     column(Stk_2___Control1000000112; Stk[2])
                     {
-
                     }
                     column(Stk_3___Control1000000113; Stk[3])
                     {
-
                     }
                     column(Stk_4___Control1000000114; Stk[4])
                     {
-
                     }
                     column(Stk_5___Control1000000115; Stk[5])
                     {
-
                     }
                     column(Stk_9___Control1000000116; Stk[9])
                     {
-
                     }
                     column(Stk_21___Control1000000117; Stk[21])
                     {
-
                     }
                     column(Stk_22___Control1000000118; Stk[22])
                     {
-
                     }
                     column(Stk_23___Control1000000119; Stk[23])
                     {
-
                     }
                     column(Stk_24___Control1000000120; Stk[24])
                     {
-
                     }
                     column(Stk_25___Control1000000121; Stk[25])
                     {
-
                     }
                     column(Stk_10___Control1000000122; Stk[10])
                     {
-
                     }
                     column(Stk_6___Control1000000123; Stk[6])
                     {
-
                     }
                     column(Stk_7___Control1000000124; Stk[7])
                     {
-
                     }
                     column(Stk_15___Control1000000125; Stk[15])
                     {
-
                     }
                     column(Stk_16___Control1000000126; Stk[16])
                     {
-
                     }
                     column(SalesAmt_SalesQty_Control1000000127; SalesAmt / SalesQty)
                     {
-
                     }
 
                     trigger OnAfterGetRecord()
@@ -594,7 +507,7 @@ report 50185 "Daily Stock Position by Loc-FS"
                         PrintLine := true else
                         PrintLine := false;
 
-                    if DaysOnly then begin
+                    if DaysOnly then
                         if
                          (Stk[2] <> 0) or
                          (Stk[3] <> 0) or
@@ -603,7 +516,6 @@ report 50185 "Daily Stock Position by Loc-FS"
                          (Stk[8] <> 0) then
                             PrintLine := true else
                             PrintLine := false;
-                    end;
                 end;
 
                 trigger OnPreDataItem()
@@ -634,7 +546,6 @@ report 50185 "Daily Stock Position by Loc-FS"
 
     requestpage
     {
-
         layout
         {
         }
@@ -656,28 +567,19 @@ report 50185 "Daily Stock Position by Loc-FS"
 
     var
         LastFieldNo: Integer;
-        FooterPrinted: Boolean;
         TotalFor: Label 'Total for ';
-        "---": Integer;
-        PriceList: Record "Sales Price";
         IssueType: Record "Standard Text";
         PrintLine: Boolean;
         DaysOnly: Boolean;
-        i: Integer;
         J: Integer;
         IssNos: Integer;
-        IssQty: array[10] of Decimal;
         Stk: array[40] of Decimal;
         SalesAmt: Decimal;
         SalesQty: Decimal;
         ItemFilter: Text[250];
         IssueName: array[10] of Text[30];
         PeriodLength: Code[20];
-        Text001: Label '1D';
-        Text002: Label 'Enter the ending date';
-        Text003: Label '0D';
         Text004: Label 'As at ';
-        Text011: Label '1M';
         PeriodStartDate: array[7] of Date;
         CurrReport_PAGENOCaptionLbl: Label 'Page';
         Item_Report__Periodic_Movement_CaptionLbl: Label 'Item Report (Periodic Movement)';
@@ -700,21 +602,17 @@ report 50185 "Daily Stock Position by Loc-FS"
     procedure GetItPrice(Nos: Code[20]; PDays: Date): Decimal
     var
         Itempr: Record "Sales Price";
-        jobsetup: Record "Jobs Setup";
         Prc: Decimal;
     begin
         Itempr.SetRange(Itempr."Item No.", Nos);
         Itempr.SetRange(Itempr."Starting Date", 0D, PDays);
         //IF Location.Code='FISH-SHOP' THEN Itempr.SETRANGE(Itempr."Price Group Code",'FS');
         if Itempr.Find('+') then
-            Prc := Itempr."Unit Price" else begin
+            Prc := Itempr."Unit Price" else
             //Itempr.SETRANGE(Itempr."Price Group Code",jobsetup."Default Price Group Code");
             if Itempr.Find('+') then
-                Prc := Itempr."Unit Price" else begin
+                Prc := Itempr."Unit Price" else
                 Prc := 0;  //IF Flag THEN MESSAGE('Price Missing for Item %1',Nos);
-            end;
-        end;
         exit(Prc);
     end;
 }
-

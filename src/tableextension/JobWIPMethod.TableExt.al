@@ -2,7 +2,6 @@ tableextension 50203 "tableextension50203" extends "Job WIP Method"
 {
     fields
     {
-
         //Unsupported feature: Code Modification on ""WIP Cost"(Field 3).OnValidate".
 
         //trigger OnValidate()
@@ -25,4 +24,3 @@ tableextension 50203 "tableextension50203" extends "Job WIP Method"
         //end;
     }
 }
-

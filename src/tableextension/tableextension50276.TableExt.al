@@ -13,8 +13,6 @@ tableextension 50276 "tableextension50276" extends "Purchase Line"
         }
         //Unsupported feature: Property Insertion (InitValue) on ""Indirect Cost %"(Field 54)".
 
-
-
         //Unsupported feature: Code Modification on ""Direct Unit Cost"(Field 22).OnValidate".
 
         //trigger OnValidate()
@@ -43,8 +41,6 @@ tableextension 50276 "tableextension50276" extends "Purchase Line"
         //end;
 
         //Unsupported feature: Property Deletion (MinValue) on ""Indirect Cost %"(Field 54)".
-
-
 
         //Unsupported feature: Code Modification on ""Unit of Measure Code"(Field 5407).OnValidate".
 
@@ -175,7 +171,7 @@ tableextension 50276 "tableextension50276" extends "Purchase Line"
             trigger OnValidate()
             begin
                 if UnitOfMeasure.Get("Pack Size") then "Pack Size Code" := UnitOfMeasure."Catch Code";
-                GenNo;
+                GenNo();
             end;
         }
         field(50353; Brand; Code[10])
@@ -186,7 +182,7 @@ tableextension 50276 "tableextension50276" extends "Purchase Line"
             trigger OnValidate()
             begin
                 "Brand Code" := CopyStr(Brand, 1, 1);
-                GenNo;
+                GenNo();
             end;
         }
         field(50354; "Pack Size Code"; Code[1])
@@ -201,10 +197,9 @@ tableextension 50276 "tableextension50276" extends "Purchase Line"
         }
         field(50356; ProdCd; Code[3])
         {
-
             trigger OnValidate()
             begin
-                GenNo;
+                GenNo();
             end;
         }
         field(50360; "Original Purc. Order No."; Code[20])
@@ -238,10 +233,8 @@ tableextension 50276 "tableextension50276" extends "Purchase Line"
             begin
                 Validate("Indirect Cost %", "ASL Indirect Cost %")
             end;
-
         }
     }
-
 
     //Unsupported feature: Code Modification on "OnModify".
 
@@ -280,7 +273,6 @@ tableextension 50276 "tableextension50276" extends "Purchase Line"
     */
     //end;
 
-
     //Unsupported feature: Code Modification on "UpdateAmounts(PROCEDURE 3)".
 
     //procedure UpdateAmounts();
@@ -315,9 +307,7 @@ tableextension 50276 "tableextension50276" extends "Purchase Line"
 
     //Unsupported feature: Property Modification (Attributes) on "UpdatePrepmtSetupFields(PROCEDURE 102)".
 
-
     //Unsupported feature: Property Deletion (Local) on "UpdateSalesCost(PROCEDURE 6)".
-
 
     //Unsupported feature: Property Deletion (Local) on "GetFAPostingGroup(PROCEDURE 10)".
 
@@ -339,42 +329,21 @@ tableextension 50276 "tableextension50276" extends "Purchase Line"
     end;
 
     var
-        "--------": Text[30];
-        PurSetup: Record "Purchases & Payables Setup";
-        PVariance: Record "ASL Payroll Setup";
-        PVarianceX: Record "ASL Payroll Setup";
-        PG: Integer;
-        "..................": Integer;
-        ItemAvailByDate: Page "Item Availability by Periods";
-        Text014: Label 'Change %1 from %2 to %3?';
-        ItemAvailByVar: Page "Item Availability by Variant";
-        ItemAvailByLoc: Page "Item Availability by Location";
-        ItemTrackingLines: Page "Item Tracking Lines";
         UnitOfMeasure: Record "Unit of Measure";
-
-
-
-    var
-        myInt: Integer;
 
     trigger OnInsert()
     begin
-
     end;
 
     trigger OnModify()
     begin
-
     end;
 
     trigger OnDelete()
     begin
-
     end;
 
     trigger OnRename()
     begin
-
     end;
 }
-

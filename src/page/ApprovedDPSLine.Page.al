@@ -10,8 +10,7 @@ page 50128 "Approved DPS Line"
                             Approved = CONST(true));
     UsageCategory = Administration;
     ApplicationArea = all;
-
-
+    Caption = 'Approved DPS Line';
     layout
     {
         area(content)
@@ -227,7 +226,7 @@ page 50128 "Approved DPS Line"
 
                 trigger OnAction()
                 begin
-                    Rec.CreatePurchInv;
+                    Rec.CreatePurchInv();
                 end;
             }
             action("Create Purchase Register")
@@ -240,10 +239,9 @@ page 50128 "Approved DPS Line"
 
                 trigger OnAction()
                 begin
-                    Rec.UpdatePurReq;
+                    Rec.UpdatePurReq();
                 end;
             }
         }
     }
 }
-

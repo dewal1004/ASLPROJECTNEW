@@ -5,7 +5,7 @@ page 50106 "Cust.  Ledger with Diff. Grp"
     ApplicationArea = all;
     SourceTable = "Cust. Ledger Entry";
     SourceTableView = WHERE("Customer Group Map" = CONST(false));
-
+    Caption = 'Cust.  Ledger with Diff. Grp';
     layout
     {
         area(content)
@@ -60,4 +60,3 @@ page 50106 "Cust.  Ledger with Diff. Grp"
     {
     }
 }
-

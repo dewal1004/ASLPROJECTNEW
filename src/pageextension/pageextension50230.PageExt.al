@@ -1,6 +1,5 @@
 pageextension 50230 "pageextension50230" extends Workflows
 {
-
     //Unsupported feature: Code Modification on "OnAfterGetCurrRecord".
 
     //trigger OnAfterGetCurrRecord()
@@ -17,4 +16,3 @@ pageextension 50230 "pageextension50230" extends Workflows
     */
     //end;
 }
-

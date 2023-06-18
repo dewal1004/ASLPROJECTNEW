@@ -5,7 +5,7 @@ page 50012 "Table Lookup Survey."
     SourceTable = "Payroll-Lookup Header.";
     UsageCategory = Documents;
     ApplicationArea = All, Basic;
-
+    Caption = 'Table Lookup Survey.';
     layout
     {
         area(content)
@@ -41,4 +41,3 @@ page 50012 "Table Lookup Survey."
     {
     }
 }
-

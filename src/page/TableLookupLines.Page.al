@@ -4,7 +4,7 @@ page 50011 "Table Lookup Lines."
     SaveValues = true;
     SourceTable = "Payroll-Lookup Lines.";
     SourceTableView = SORTING(TableId, "Lower Amount", "Lower Code");
-
+    Caption = 'Table Lookup Lines.';
     layout
     {
         area(content)
@@ -47,4 +47,3 @@ page 50011 "Table Lookup Lines."
     {
     }
 }
-

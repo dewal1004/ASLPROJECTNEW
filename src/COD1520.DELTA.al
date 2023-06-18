@@ -1,4 +1,3 @@
-
 // OBJECT Modification "Workflow Event Handling"(Codeunit 1520)
 // {
 //   OBJECT-PROPERTIES
@@ -38,9 +37,7 @@
 //   }
 //   CODE
 //   {
-
 //     BEGIN
 //     END.
 //   }
 // }
-

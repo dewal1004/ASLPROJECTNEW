@@ -2,7 +2,7 @@ report 90991 "Fishing Area to Phase Code"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/FishingAreatoPhaseCode.rdlc';
-
+    Caption = 'Fishing Area to Phase Code';
     dataset
     {
         dataitem("Fishing Area +"; "Fishing Area +")
@@ -14,7 +14,7 @@ report 90991 "Fishing Area to Phase Code"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -46,14 +46,12 @@ report 90991 "Fishing Area to Phase Code"
                 Phase.Description:=Phase.Code;
                 Phase."No.":="Fishing Area +"."No.";
                 IF NOT Phase.INSERT() THEN Phase.MODIFY();*/
-
             end;
         }
     }
 
     requestpage
     {
-
         layout
         {
         }
@@ -71,4 +69,3 @@ report 90991 "Fishing Area to Phase Code"
         Fishing_AreaCaptionLbl: Label 'Fishing Area';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
 }
-

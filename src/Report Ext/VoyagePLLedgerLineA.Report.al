@@ -2,7 +2,7 @@ report 77151 "Voyage P&L Ledger Line A"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/VoyagePLLedgerLineA.rdlc';
-
+    Caption = 'Voyage P&L Ledger Line A';
     dataset
     {
         dataitem("Job Ledger Entry"; "Job Ledger Entry")
@@ -15,7 +15,7 @@ report 77151 "Voyage P&L Ledger Line A"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -41,19 +41,15 @@ report 77151 "Voyage P&L Ledger Line A"
             }
             column(CycleDay; CycleDay)
             {
-
             }
             column(FishgDay; FishgDay)
             {
-
             }
             column(LostDay; LostDay)
             {
-
             }
             column(PortDay; PortDay)
             {
-
             }
             column(Vess; Vess)
             {
@@ -69,19 +65,15 @@ report 77151 "Voyage P&L Ledger Line A"
             }
             column(Text24; Text24)
             {
-
             }
             column(Text25; Text25)
             {
-
             }
             column(Text26; Text26)
             {
-
             }
             column(Text27; Text27)
             {
-
             }
             column(PntStor_1_; PntStor[1])
             {
@@ -236,7 +228,6 @@ report 77151 "Voyage P&L Ledger Line A"
                 END;
                 PrdPrc:=Qty*Prc;
                   */ //#1
-
             end;
 
             trigger OnPreDataItem()
@@ -245,7 +236,6 @@ report 77151 "Voyage P&L Ledger Line A"
                 LastFieldNo := FIELDNO("Work Type Code");
                 CurrReport.CREATETOTALS(PrdPrc,NairaVal,Qty);
                 */  //#1
-
             end;
         }
         dataitem("Sea Food categories"; "Sea Food categories")
@@ -417,7 +407,6 @@ report 77151 "Voyage P&L Ledger Line A"
                     Itempr.SETRANGE(Itempr."Starting Date",0D,"Posting Date");
                     IF Itempr.FIND('+') THEN Prc:=Itempr."Unit Price" ELSE Prc:=0;
                     */ //#1
-
                 end;
 
                 trigger OnPreDataItem()
@@ -427,7 +416,6 @@ report 77151 "Voyage P&L Ledger Line A"
                     LastFieldNo := FIELDNO(GroupSort);
                     CurrReport.CREATETOTALS(PrdPrc2,NairaVal2,Qty);
                     */  //#1
-
                 end;
             }
             dataitem("Job catch Default"; "Job catch Default")
@@ -472,7 +460,6 @@ report 77151 "Voyage P&L Ledger Line A"
                     IF Itempr.FIND('+') THEN PrcB:=Itempr."Unit Price" ELSE PrcB:=0;
                     PrdPrcB:=QtyB*PrcB;
                      */  //#1
-
                 end;
 
                 trigger OnPreDataItem()
@@ -482,7 +469,6 @@ report 77151 "Voyage P&L Ledger Line A"
                     LastFieldNo := FIELDNO(GroupSort);
                     CurrReport.CREATETOTALS(PrdPrcB,NairaValB,QtyB);
                       */  //#1
-
                 end;
             }
 
@@ -492,7 +478,6 @@ report 77151 "Voyage P&L Ledger Line A"
                 A1[1]:=0;A1[2]:=0;A1[3]:=0;A1[4]:=0;
                 A2[1]:=0;A2[2]:=0;A2[3]:=0;A2[4]:=0;
                  */  //#
-
             end;
 
             trigger OnPreDataItem()
@@ -501,7 +486,6 @@ report 77151 "Voyage P&L Ledger Line A"
                 CurrReport.CREATETOTALS(PrdPrc2,NairaVal2,Qty);
                 CurrReport.CREATETOTALS(PrdPrcB,NairaValB,QtyB);
                 */  //#1
-
             end;
         }
         dataitem("Value Entry"; "Value Entry")
@@ -659,7 +643,6 @@ report 77151 "Voyage P&L Ledger Line A"
 
     requestpage
     {
-
         layout
         {
         }
@@ -674,38 +657,20 @@ report 77151 "Voyage P&L Ledger Line A"
     }
 
     var
-        LastFieldNo: Integer;
-        FooterPrinted: Boolean;
         TotalFor: Label 'Total';
-        "---": Integer;
         Job: Record Job;
-        Job2: Record Job;
-        Itempr: Record "Item Ledger Entry";
-        CurrExc: Record "Currency Exchange Rate";
-        ProdPostGrp: Record "Gen. Product Posting Group";
-        InvtPostGrp: Record "Inventory Posting Group";
-        JobSetUp: Record "Jobs Setup";
-        JBudLn: Record "Job Ledger Entry";
-        Employee: Record Employee;
-        Loc: Record Location;
         Coutry: Record "Country/Region";
-        GLEntry: Record "G/L Entry";
         Res: Record Resource;
-        Prc: Decimal;
-        PrcB: Decimal;
         PrdPrc: Decimal;
         PrdPrcB: Decimal;
         PrdPrc2: Decimal;
         PrdPrcBX: Decimal;
         PrdPrc2X: Decimal;
-        PrdPrc2B: Decimal;
-        CurrRate: Decimal;
         NairaVal: Decimal;
         NairaValB: Decimal;
         NairaValBX: Decimal;
         NairaVal2: Decimal;
         NairaVal2X: Decimal;
-        NairaVal2B: Decimal;
         Qty: Decimal;
         QtyB: Decimal;
         QtyX: Decimal;
@@ -724,11 +689,9 @@ report 77151 "Voyage P&L Ledger Line A"
         PntStor: array[8] of Decimal;
         ETD: Date;
         ETA: Date;
-        ETA2: Date;
         CycleDay: Decimal;
         PortDay: Decimal;
         LostDay: Decimal;
-        SeaDay: Decimal;
         FishgDay: Decimal;
         a: Decimal;
         expcnt: Integer;
@@ -746,7 +709,6 @@ report 77151 "Voyage P&L Ledger Line A"
         GrossMarg: Decimal;
         GrossPerct: Decimal;
         NetProfPerct: Decimal;
-        TotPrice: Decimal;
         NetProfit: Decimal;
         ExpTonnage: Decimal;
         Vess: Text[30];
@@ -760,18 +722,9 @@ report 77151 "Voyage P&L Ledger Line A"
         Text27: Label 'Exchange Rate';
         A1: array[5] of Decimal;
         A2: array[5] of Decimal;
-        UOM: Record "Unit of Measure";
-        UOMCd: Code[10];
-        ItemVar: Code[10];
         "No.B": Code[10];
-        NOrder: Decimal;
         ValRate: Decimal;
         ValQty: Decimal;
-        GLStr: array[25] of Decimal;
-        "GLGPP Caption": array[25] of Code[10];
-        CountGPPG: Integer;
-        CountG: Integer;
-        Flag: Boolean;
         CurrReport_PAGENOCaptionLbl: Label 'Page';
         QtyCaptionLbl: Label 'Quantity';
         EmptyStringCaptionLbl: Label '$';
@@ -801,7 +754,6 @@ report 77151 "Voyage P&L Ledger Line A"
         ItemVar:=FORMAT(Cd)+UOMCd+COPYSTR(Br,1,1);    //Requip Code Name
         "No.B":=ItemVar;
          */  //#1
-
     end;
 
     [Scope('OnPrem')]
@@ -828,7 +780,5 @@ report 77151 "Voyage P&L Ledger Line A"
         ELSE
           ValQty:=0;
         */
-
     end;
 }
-

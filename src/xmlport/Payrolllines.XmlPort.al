@@ -2,7 +2,7 @@ xmlport 50049 "Payroll lines"
 {
     //*** Encoding = UTF16;
     Format = VariableText;
-
+    Caption = 'Payroll lines';
     schema
     {
         textelement(Root)
@@ -40,7 +40,6 @@ xmlport 50049 "Payroll lines"
 
     requestpage
     {
-
         layout
         {
         }
@@ -50,4 +49,3 @@ xmlport 50049 "Payroll lines"
         }
     }
 }
-

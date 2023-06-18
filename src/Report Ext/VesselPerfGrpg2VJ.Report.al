@@ -6,8 +6,7 @@ report 50210 "Vessel Perf Grpg2 VJ"
     // XVal[4]::AGVal
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/VesselPerfGrpg2VJ.rdlc';
-
-
+    Caption = 'Vessel Perf Grpg2 VJ';
     dataset
     {
         dataitem(JbRec; Job)
@@ -38,7 +37,7 @@ report 50210 "Vessel Perf Grpg2 VJ"
             begin
                 if Loc.Get(JbRec.Vessel) then
                     JbRec."Voyage Sea Days" := Loc."Sea Days";
-                JbRec.Modify;
+                JbRec.Modify();
             end;
         }
         dataitem(Job; Job)
@@ -50,7 +49,7 @@ report 50210 "Vessel Perf Grpg2 VJ"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -85,14 +84,12 @@ report 50210 "Vessel Perf Grpg2 VJ"
             }
             column(FishPer; FishPer)
             {
-
             }
             column(AGVal; AGVal)
             {
             }
             column(FishPer_Control1000000068; FishPer)
             {
-
             }
             column(Job__Port_Day__Manual___Control1000000069; "Port Day (Manual)")
             {
@@ -111,51 +108,39 @@ report 50210 "Vessel Perf Grpg2 VJ"
             }
             column(PrtXVal_2_; PrtXVal[2])
             {
-
             }
             column(PrtXVal_1__PrtXVal_2_; PrtXVal[1] - PrtXVal[2])
             {
-
             }
             column(PrtXVal_1_; PrtXVal[1])
             {
-
             }
             column(DRes_1_; DRes[1])
             {
-
             }
             column(DRes_2_; DRes[2])
             {
-
             }
             column(PrtXVal_4_; PrtXVal[4])
             {
-
             }
             column(PrtXVal_9_; PrtXVal[9])
             {
-
             }
             column(PrtXVal_7_; PrtXVal[7])
             {
-
             }
             column(PrtXVal_11_; PrtXVal[11])
             {
-
             }
             column(PrtXVal_10_; PrtXVal[10])
             {
-
             }
             column(PrtXVal_8_; PrtXVal[8])
             {
-
             }
             column(PrtXVal_12_; PrtXVal[12])
             {
-
             }
             column(CountZ; CountZ)
             {
@@ -174,171 +159,129 @@ report 50210 "Vessel Perf Grpg2 VJ"
             }
             column(FishPer_Control1000000142; FishPer)
             {
-
             }
             column(TotXVal_2_; TotXVal[2])
             {
-
             }
             column(TotXVal_1__TotXVal_2_; TotXVal[1] - TotXVal[2])
             {
-
             }
             column(TotXVal_1_; TotXVal[1])
             {
-
             }
             column(DResTot_1_; DResTot[1])
             {
-
             }
             column(DResTot_2_; DResTot[2])
             {
-
             }
             column(TotXVal_4_; TotXVal[4])
             {
-
             }
             column(TotXVal_9_; TotXVal[9])
             {
-
             }
             column(TotXVal_7_; TotXVal[7])
             {
-
             }
             column(TotXVal_11_; TotXVal[11])
             {
-
             }
             column(TotXVal_10_; TotXVal[10])
             {
-
             }
             column(TotXVal_8_; TotXVal[8])
             {
-
             }
             column(TotXVal_12_; TotXVal[12])
             {
-
             }
             column(AvgPct_3_; AvgPct[3])
             {
-
             }
             column(AvgXVal_2_; AvgXVal[2])
             {
-
             }
             column(AvgXVal_1__AvgXVal_2_; AvgXVal[1] - AvgXVal[2])
             {
-
             }
             column(AvgXVal_1_; AvgXVal[1])
             {
-
             }
             column(AvgXVal_4_; AvgXVal[4])
             {
-
             }
             column(AvgPct_1_; AvgPct[1])
             {
-
             }
             column(AvgXVal_7_; AvgXVal[7])
             {
-
             }
             column(AvgXVal_11_; AvgXVal[11])
             {
-
             }
             column(AvgPct_2_; AvgPct[2])
             {
-
             }
             column(AvgXVal_8_; AvgXVal[8])
             {
-
             }
             column(AvgXVal_12_; AvgXVal[12])
             {
-
             }
             column(AvgDay_1_; AvgDay[1])
             {
-
             }
             column(AvgDay_2_; AvgDay[2])
             {
-
             }
             column(AvgDay_3_; AvgDay[3])
             {
-
             }
             column(AvgDay_4_; AvgDay[4])
             {
-
             }
             column(DResAvg_1_; DResAvg[1])
             {
-
             }
             column(DResAvg_2_; DResAvg[2])
             {
-
             }
             column(TotXVal_3_; TotXVal[3])
             {
-
             }
             column(TotXVal_1__TotXVal_3_; TotXVal[1] - TotXVal[3])
             {
-
             }
             column(AvgXVal_1__AvgXVal_3_; AvgXVal[1] - AvgXVal[3])
             {
-
             }
             column(AvgXVal_3_; AvgXVal[3])
             {
-
             }
             column(AvgXVal_3__Control1000000111; AvgXVal[3])
             {
-
             }
             column(AvgXVal_1__AvgXVal_3__Control1000000112; AvgXVal[1] - AvgXVal[3])
             {
-
             }
             column(TotXVal_3__Control1000000084; TotXVal[3])
             {
-
             }
             column(TotXVal_1__TotXVal_3__Control1000000085; TotXVal[1] - TotXVal[3])
             {
-
             }
             column(TotXVal_12__Control1000000078; TotXVal[12])
             {
-
             }
             column(TotXVal_8__Control1000000079; TotXVal[8])
             {
-
             }
             column(TotXVal_11__Control1000000081; TotXVal[11])
             {
-
             }
             column(FishPer_Control1000000090; FishPer)
             {
-
             }
             column(Job__Port_Day__Manual___Control1000000091; "Port Day (Manual)")
             {
@@ -354,107 +297,81 @@ report 50210 "Vessel Perf Grpg2 VJ"
             }
             column(TotXVal_9__Control1000000103; TotXVal[9])
             {
-
             }
             column(TotXVal_10__Control1000000104; TotXVal[10])
             {
-
             }
             column(TotXVal_2__Control1000000026; TotXVal[2])
             {
-
             }
             column(TotXVal_1__TotXVal_2__Control1000000035; TotXVal[1] - TotXVal[2])
             {
-
             }
             column(TotXVal_1__Control1000000074; TotXVal[1])
             {
-
             }
             column(TotXVal_4__Control1000000086; TotXVal[4])
             {
-
             }
             column(TotXVal_7__Control1000000082; TotXVal[7])
             {
-
             }
             column(DResTot_1__Control1000000180; DResTot[1])
             {
-
             }
             column(DResTot_2__Control1000000181; DResTot[2])
             {
-
             }
             column(AvgPct_3__Control1000000114; AvgPct[3])
             {
-
             }
             column(AvgXVal_2__Control1000000088; AvgXVal[2])
             {
-
             }
             column(AvgXVal_1__AvgXVal_2__Control1000000089; AvgXVal[1] - AvgXVal[2])
             {
-
             }
             column(AvgXVal_1__Control1000000110; AvgXVal[1])
             {
-
             }
             column(AvgXVal_4__Control1000000113; AvgXVal[4])
             {
-
             }
             column(AvgPct_1__Control1000000115; AvgPct[1])
             {
-
             }
             column(AvgXVal_7__Control1000000116; AvgXVal[7])
             {
-
             }
             column(AvgXVal_11__Control1000000117; AvgXVal[11])
             {
-
             }
             column(AvgPct_2__Control1000000118; AvgPct[2])
             {
-
             }
             column(AvgXVal_8__Control1000000119; AvgXVal[8])
             {
-
             }
             column(AvgXVal_12__Control1000000120; AvgXVal[12])
             {
-
             }
             column(AvgDay_1__Control1000000121; AvgDay[1])
             {
-
             }
             column(AvgDay_2__Control1000000122; AvgDay[2])
             {
-
             }
             column(AvgDay_3__Control1000000123; AvgDay[3])
             {
-
             }
             column(AvgDay_4__Control1000000124; AvgDay[4])
             {
-
             }
             column(DResAvg_1__Control1000000178; DResAvg[1])
             {
-
             }
             column(DResAvg_2__Control1000000179; DResAvg[2])
             {
-
             }
             column(VESSEL_PERFORMANCE_ANALYSISCaption; VESSEL_PERFORMANCE_ANALYSISCaptionLbl)
             {
@@ -604,7 +521,7 @@ report 50210 "Vessel Perf Grpg2 VJ"
                     /*
                     Qty:=Quantity*-1;
                     PrdPrc:=Qty*GetItPrice("Job No.","No.","Posting Date");
-                    
+
                     IF Itempr."Currency Code"<>'' THEN
                     BEGIN
                       NairaVal:=PrdPrc*CurrRate;
@@ -612,23 +529,22 @@ report 50210 "Vessel Perf Grpg2 VJ"
                     ELSE
                     BEGIN
                       NairaVal:=PrdPrc*1;
-                    
+
                       IF "Task Code"<>JobSetup."Export Prouct Code" THEN
                          PrdPrc:=0; //Will turn the value to Zero for Non Shrimp product
                     END;
-                    
+
                     IF "Task Code"=JobSetup."Export Prouct Code" THEN ExpVal:=NairaVal;
-                    
+
                     XVal[1]:=XVal[1]+NairaVal;
                     XVal[2]:=XVal[2]+ExpVal;
-                    
+
                     NairaValTot:=NairaValTot+NairaVal;
                     ExpValTot:=ExpValTot+ExpVal;
-                    
-                    Cost;{B2}
-                    
-                    */
 
+                    Cost;{B2}
+
+                    */
                 end;
 
                 trigger OnPreDataItem()
@@ -697,7 +613,6 @@ report 50210 "Vessel Perf Grpg2 VJ"
                 DataItemTableView = SORTING("Gen. Prod. Posting Group", "Document No.") WHERE("Gen. Prod. Posting Group" = FILTER(<> 'FIS'));
                 column(AGVal_Control1000000098; AGVal)
                 {
-
                 }
                 column(Value_Entry__Gen__Prod__Posting_Group_; "Gen. Prod. Posting Group")
                 {
@@ -707,19 +622,15 @@ report 50210 "Vessel Perf Grpg2 VJ"
                 }
                 column(AGVal_Control1000000101; AGVal)
                 {
-
                 }
                 column(Cost_Posted_to_G_L_; -"Cost Posted to G/L")
                 {
-
                 }
                 column(Cost_Posted_to_G_L__Control1000000066; -"Cost Posted to G/L")
                 {
-
                 }
                 column(AGValTot; AGValTot)
                 {
-
                 }
                 column(Value_Entry_Entry_No_; "Entry No.")
                 {
@@ -743,11 +654,9 @@ report 50210 "Vessel Perf Grpg2 VJ"
                 DataItemTableView = SORTING(Number) WHERE(Number = CONST(1));
                 column(GLStrT; GLStrT)
                 {
-
                 }
                 column(ResCount; ResCount)
                 {
-
                 }
                 column(Value_Entry___Cost_Posted_to_G_L_; "Value Entry"."Cost Posted to G/L")
                 {
@@ -757,7 +666,6 @@ report 50210 "Vessel Perf Grpg2 VJ"
                 }
                 column(Direct; Direct)
                 {
-
                 }
                 column(Integer_Number; Number)
                 {
@@ -781,18 +689,17 @@ report 50210 "Vessel Perf Grpg2 VJ"
                     Job2.SetRange(Job2.Vessel, Job.Vessel);    //Find last voyage
                     if Job2.Next(-1) <> 0 then
                         ETA[2] := Job2."Ending Date"
-                    else begin
+                    else
                         if Loc.Get(Job.Vessel) then
                             if Loc."Begining ETA" <> 0D then
                                 ETA[2] := Loc."Begining ETA"
                             else
-                                ETA[2] := WorkDate;
-                    end;
+                                ETA[2] := WorkDate();
 
                     if ETA[1] = 0D then
-                        ETA[1] := WorkDate;
+                        ETA[1] := WorkDate();
                     if ETA[2] = 0D then
-                        ETA[2] := WorkDate;
+                        ETA[2] := WorkDate();
 
                     if Job."Cycle Day (Manual)" <> 0 then
                         CycleDay := Job."Cycle Day (Manual)"
@@ -806,7 +713,6 @@ report 50210 "Vessel Perf Grpg2 VJ"
                     Job.Validate(Job."Net Incentive Actual");
                     Job.CalcFields(Job."Incentive (Hook Fish)", Job."Add/Ded. Crew");
                     DataStor[3] := Job."Net Incentive Actual" + Job."Incentive (Hook Fish)" + Job."Add/Ded. Crew";
-
 
                     RateSetup.SetRange(RateSetup."Starting Date", 0D, Job."Ending Date");
                     if RateSetup.Find('+') then;
@@ -848,7 +754,6 @@ report 50210 "Vessel Perf Grpg2 VJ"
                     DataStor[8] := RateSetup.Clearing_Fwrd_NPA * ExpTonnage;
                     DataStor[12] := RateSetup."Shore Overheads" * CycleDay;
 
-
                     //Credit from G/L Entry
                     CountGPPG := 0;
                     AGValGL := 0;
@@ -884,8 +789,6 @@ report 50210 "Vessel Perf Grpg2 VJ"
                             'Store 8 = %6\' +
                             'Total = %7', DataStor[3], DataStor[4], DataStor[5], DataStor[6], DataStor[7], DataStor[8], DataStor[15], TotPrice);
 
-
-
                     DirectT := DirectT + Direct;
                     IndirectT := IndirectT + Indirect;
                 end;
@@ -900,7 +803,6 @@ report 50210 "Vessel Perf Grpg2 VJ"
                       CurrReport.CREATETOTALS(DataStor[CountLp]);
                       CountLp:=CountLp-1;
                     UNTIL CountLp=0;*/
-
                 end;
             }
 
@@ -909,10 +811,9 @@ report 50210 "Vessel Perf Grpg2 VJ"
                 ETA[1] := "Ending Date";
                 CurrExc.SetRange(CurrExc."Currency Code", 'USD');
                 CurrExc.SetRange(CurrExc."Starting Date", 0D, ETA[1]);
-                if CurrExc.Find('+') then begin
-                    CurrRate := CurrExc."Relational Exch. Rate Amount";
-                    //MESSAGE('EXCHANGE VALUE IS %1',CurrExc."Relational Exch. Rate Amount")
-                end
+                if CurrExc.Find('+') then
+                    CurrRate := CurrExc."Relational Exch. Rate Amount"
+                //MESSAGE('EXCHANGE VALUE IS %1',CurrExc."Relational Exch. Rate Amount")
                 else
                     CurrRate := 1;
                 CurrReport.CreateTotals("Comsumed Value");
@@ -921,17 +822,15 @@ report 50210 "Vessel Perf Grpg2 VJ"
 
             trigger OnPreDataItem()
             begin
-                JobSetup.Get;    /*B1*/
+                JobSetup.Get();    /*B1*/
                 Job.CopyFilters(JbRec);
                 LastFieldNo := FieldNo("Voyage Sea Days");
-
             end;
         }
     }
 
     requestpage
     {
-
         layout
         {
         }
@@ -952,7 +851,7 @@ report 50210 "Vessel Perf Grpg2 VJ"
 
     trigger OnPreReport()
     begin
-        ReportStore.DeleteAll;
+        ReportStore.DeleteAll();
     end;
 
     var
@@ -964,17 +863,12 @@ report 50210 "Vessel Perf Grpg2 VJ"
         UOM: Record "Unit of Measure";
         JBudLn: Record "Job Ledger Entry";
         Job2: Record Job;
-        Job3: Record Job;
         Loc: Record Location;
         ProdPostGrp: Record "Gen. Product Posting Group";
-        InvtPostGrp: Record "Inventory Posting Group";
         Employee: Record Employee;
         Coutry: Record "Country/Region";
         GLEntry: Record "G/L Entry";
-        Res: Record Resource;
         LastFieldNo: Integer;
-        FooterPrinted: Boolean;
-        DStr: array[4] of Decimal;
         DRes: array[2] of Decimal;
         DResTot: array[2] of Decimal;
         DResAvg: array[2] of Decimal;
@@ -983,54 +877,33 @@ report 50210 "Vessel Perf Grpg2 VJ"
         expcnt: Integer;
         ResCount: Integer;
         CountZ: Integer;
-        CountZx: Integer;
         CountGPPG: Integer;
-        CountGx: Integer;
         CountLp: Integer;
         CountN: Integer;
-        J: Integer;
         DataStor: array[15] of Decimal;
         GLStr: array[25] of Decimal;
         GLStrT: Decimal;
         FishPer: Decimal;
-        FishPerAvg: Decimal;
         Qty: Decimal;
         Prc: Decimal;
         PrdPrc: Decimal;
         NairaVal: Decimal;
-        NairaValT: Integer;
         ExpVal: Decimal;
-        LocVal: Decimal;
         QtyB: Decimal;
         PrcB: Decimal;
         PrdPrcB: Decimal;
         NairaValB: Decimal;
         CurrRate: Decimal;
-        AGOPct: Decimal;
-        AGOPctT: Decimal;
-        AGOPctTAvg: Decimal;
-        GMargin: Decimal;
-        GMarginT: Decimal;
-        GMPct: Decimal;
-        GMPctT: Decimal;
-        GMPctTAvg: Decimal;
         Direct: Decimal;
         DirectT: Decimal;
         Indirect: Decimal;
         IndirectT: Decimal;
         TotPrice: Decimal;
-        Profit: Decimal;
-        ProfitT: Decimal;
         AGVal: Decimal;
         AGValGL: Decimal;
         AGValTot: Decimal;
-        AGValTotG: Decimal;
-        NairaValTot: Decimal;
-        ExpValTot: Decimal;
-        LocValTot: Decimal;
         NairaValBTot: Decimal;
         ExpTonnage: Decimal;
-        "----": Integer;
         CycleDay: Decimal;
         UOMCd: Code[10];
         "No.B": Code[10];
@@ -1041,12 +914,7 @@ report 50210 "Vessel Perf Grpg2 VJ"
         AvgXVal: array[12] of Decimal;
         AvgDay: array[4] of Decimal;
         AvgPct: array[3] of Decimal;
-        "------": Integer;
         ReportStore: Record "Vessel Performance By Sea Day";
-        HdrStore: Record "Standard Text";
-        FGVal: Decimal;
-        EGVal: Decimal;
-        "-----------------": Integer;
         TotalPrice: Decimal;
         VESSEL_PERFORMANCE_ANALYSISCaptionLbl: Label 'VESSEL PERFORMANCE ANALYSIS';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
@@ -1118,7 +986,7 @@ report 50210 "Vessel Perf Grpg2 VJ"
     [Scope('OnPrem')]
     procedure RepStr()
     begin
-        ReportStore.Init;
+        ReportStore.Init();
         ReportStore."No." := Job."No.";
         ReportStore."Voyage Sea Days" := Job."Voyage Sea Days";
         ReportStore."Revenue Per Sea Day" := DRes[1];
@@ -1140,7 +1008,7 @@ report 50210 "Vessel Perf Grpg2 VJ"
         ReportStore."Gross Margin Perc" := PrtXVal[10];
         ReportStore.Indirect := PrtXVal[8];
         ReportStore.Profit := PrtXVal[12];
-        if not ReportStore.Insert then ReportStore.Modify;
+        if not ReportStore.Insert() then ReportStore.Modify();
     end;
 
     [Scope('OnPrem')]
@@ -1152,7 +1020,5 @@ report 50210 "Vessel Perf Grpg2 VJ"
           Job3.MODIFY;
         END;
         */
-
     end;
 }
-

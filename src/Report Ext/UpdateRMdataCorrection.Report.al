@@ -2,7 +2,7 @@ report 50097 "Update RM data  Correction"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/UpdateRMdataCorrection.rdlc';
-
+    Caption = 'Update RM data  Correction';
     dataset
     {
         dataitem("Store Requisition Header New"; "Store Requisition Header New")
@@ -22,7 +22,7 @@ report 50097 "Update RM data  Correction"
                     "Store Requisition Line New"."Final Approval Date" := DT2Date("Store Requisition Header New"."Final Approved Time");
                     "Store Requisition Line New"."Process Date" := "Store Requisition Header New"."Processed Date";
                     "Store Requisition Line New"."Issued Captured" := "Store Requisition Header New"."Issued Captured";
-                    "Store Requisition Line New".Modify;
+                    "Store Requisition Line New".Modify();
 
                     /*"Store Requisition Line New".Processed := "Store Requisition Header New".Processed;
                     IF "Store Requisition Line New"."Approved Quantity" < 0 THEN
@@ -31,7 +31,6 @@ report 50097 "Update RM data  Correction"
                     "Store Requisition Line New"."Available Quantity"   := 0;
                     //"Store Requisition Line New".MODIFY;
                     */
-
                 end;
             }
 
@@ -43,14 +42,13 @@ report 50097 "Update RM data  Correction"
                     "Store Requisition Header New".Rejected := true;
                 if ("Store Requisition Header New"."Document No." <> '') and ("Store Requisition Header New".Processed = false) then
                     "Store Requisition Header New".Processed := true;
-                "Store Requisition Header New".Modify;
+                "Store Requisition Header New".Modify();
             end;
         }
     }
 
     requestpage
     {
-
         layout
         {
         }
@@ -64,4 +62,3 @@ report 50097 "Update RM data  Correction"
     {
     }
 }
-

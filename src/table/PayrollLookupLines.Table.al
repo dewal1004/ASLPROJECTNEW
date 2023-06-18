@@ -1,7 +1,7 @@
 table 50003 "Payroll-Lookup Lines."
 {
     LookupPageID = "Table Lookup Lines.";
-
+    Caption = 'Payroll-Lookup Lines.';
     fields
     {
         field(1; TableId; Code[20])
@@ -45,7 +45,6 @@ table 50003 "Payroll-Lookup Lines."
         }
         field(4; "Lower Code"; Code[20])
         {
-
             trigger OnValidate()
             begin
                 LookupHeader.Get(Rec.TableId);
@@ -56,7 +55,6 @@ table 50003 "Payroll-Lookup Lines."
         }
         field(5; "Upper Code"; Code[20])
         {
-
             trigger OnValidate()
             begin
                 LookupHeader.Get(Rec.TableId);
@@ -115,10 +113,10 @@ table 50003 "Payroll-Lookup Lines."
                             /* We are at the record being edited currently*/
                       "Cum. Tax Payable" := LookupLines."Cum. Tax Payable"
                         else
-                            LookupLines.Modify;
+                            LookupLines.Modify();
                         PrevRec := LookupLines;
 
-                        if (LookupLines.Next <> 0) then
+                        if (LookupLines.Next() <> 0) then
                             repeat
 
                                 if LookupLines."Lower Amount" = "Lower Amount" then
@@ -138,12 +136,11 @@ table 50003 "Payroll-Lookup Lines."
                                     /* We are at the record being edited currently*/
                         "Cum. Tax Payable" := LookupLines."Cum. Tax Payable"
                                 else
-                                    LookupLines.Modify;
+                                    LookupLines.Modify();
                                 PrevRec := LookupLines;
-                            until (LookupLines.Next = 0)
+                            until (LookupLines.Next() = 0)
                     end
                 end
-
             end;
         }
         field(10; "Cum. Tax Payable"; Decimal)
@@ -163,6 +160,9 @@ table 50003 "Payroll-Lookup Lines."
 
     fieldgroups
     {
+        fieldgroup(DropDown; TableId)
+        {
+        }
     }
 
     var
@@ -170,4 +170,3 @@ table 50003 "Payroll-Lookup Lines."
         LookupLines: Record "Payroll-Lookup Lines.";
         PrevRec: Record "Payroll-Lookup Lines.";
 }
-

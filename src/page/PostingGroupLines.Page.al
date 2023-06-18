@@ -2,7 +2,7 @@ page 50014 "Posting Group Lines."
 {
     PageType = ListPart;
     SourceTable = "Payroll-Posting Group Line.";
-
+    Caption = 'Posting Group Lines.';
     layout
     {
         area(content)
@@ -38,4 +38,3 @@ page 50014 "Posting Group Lines."
     {
     }
 }
-

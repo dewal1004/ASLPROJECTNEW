@@ -2,7 +2,7 @@ report 55512 "Vessel Grouping"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/VesselGrouping.rdlc';
-
+    Caption = 'Vessel Grouping';
     dataset
     {
         dataitem(Job; Job)
@@ -15,7 +15,7 @@ report 55512 "Vessel Grouping"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -85,7 +85,6 @@ report 55512 "Vessel Grouping"
 
     requestpage
     {
-
         layout
         {
         }
@@ -101,9 +100,6 @@ report 55512 "Vessel Grouping"
 
     var
         LastFieldNo: Integer;
-        FooterPrinted: Boolean;
-        TotalFor: Label 'Total for ';
         JobCaptionLbl: Label 'Job';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
 }
-

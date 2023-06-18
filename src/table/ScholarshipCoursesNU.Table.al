@@ -1,5 +1,6 @@
 table 60031 "Scholarship Courses NU*"
 {
+    Caption = 'Scholarship Courses NU*';
     //***DrillDownPageID = 60044;
     //***LookupPageID = 60044;
 
@@ -22,6 +23,7 @@ table 60031 "Scholarship Courses NU*"
             BlankZero = true;
             CalcFormula = Count("Scholarship Register NU*" WHERE("Course Code" = FIELD("Course Code")));
             FieldClass = FlowField;
+            Editable = false;
         }
         field(5; "Date Filter"; Date)
         {
@@ -50,6 +52,8 @@ table 60031 "Scholarship Courses NU*"
 
     fieldgroups
     {
+        fieldgroup(DropDown; Description)
+        {
+        }
     }
 }
-

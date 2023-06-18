@@ -2,7 +2,7 @@ table 50048 "Task"
 {
     DrillDownPageID = Task;
     LookupPageID = Task;
-
+    Caption = 'Task';
     fields
     {
         field(1; "Code"; Code[10])
@@ -52,6 +52,8 @@ table 50048 "Task"
 
     fieldgroups
     {
+        fieldgroup(DropDown; Description)
+        {
+        }
     }
 }
-

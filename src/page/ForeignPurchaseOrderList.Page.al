@@ -5,11 +5,10 @@ page 50095 "Foreign Purchase Order List"
     PageType = List;
     UsageCategory = Lists;
     ApplicationArea = all;
-
     SourceTable = "Purchase Header";
     SourceTableView = WHERE("Document Type" = CONST(Order),
                             "Order Type" = FILTER(Foreign));
-
+    Caption = 'Foreign Purchase Order List';
     layout
     {
         area(content)
@@ -913,4 +912,3 @@ page 50095 "Foreign Purchase Order List"
     {
     }
 }
-

@@ -2,7 +2,7 @@ report 99972 "Value Entry Date corr"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/ValueEntryDatecorr.rdlc';
-
+    Caption = 'Value Entry Date corr';
     dataset
     {
         dataitem("Value Entry"; "Value Entry")
@@ -15,7 +15,7 @@ report 99972 "Value Entry Date corr"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -84,14 +84,13 @@ report 99972 "Value Entry Date corr"
 
             trigger OnAfterGetRecord()
             begin
-                if ItemLedEntry.Get("Item Ledger Entry No.") then begin
+                if ItemLedEntry.Get("Item Ledger Entry No.") then
                     if (ItemLedEntry."Posting Date" <> "Posting Date") then begin
                         ValEntry.Get("Entry No.");
                         ValEntry."Posting Date" := ItemLedEntry."Posting Date";
                         //MESSAGE('FOUND Date Diff');
-                        ValEntry.Modify;
+                        ValEntry.Modify();
                     end;
-                end;
             end;
 
             trigger OnPreDataItem()
@@ -103,7 +102,6 @@ report 99972 "Value Entry Date corr"
 
     requestpage
     {
-
         layout
         {
         }
@@ -119,11 +117,8 @@ report 99972 "Value Entry Date corr"
 
     var
         LastFieldNo: Integer;
-        FooterPrinted: Boolean;
-        "----": Integer;
         ItemLedEntry: Record "Item Ledger Entry";
         ValEntry: Record "Value Entry";
         Value_EntryCaptionLbl: Label 'Value Entry';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
 }
-

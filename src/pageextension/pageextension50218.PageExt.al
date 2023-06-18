@@ -2,7 +2,6 @@ pageextension 50218 "pageextension50218" extends "CAL Test Tool"
 {
     actions
     {
-
         //Unsupported feature: Code Modification on "ExportProject(Action 17).OnAction".
 
         //trigger OnAction()
@@ -21,4 +20,3 @@ pageextension 50218 "pageextension50218" extends "CAL Test Tool"
         //end;
     }
 }
-

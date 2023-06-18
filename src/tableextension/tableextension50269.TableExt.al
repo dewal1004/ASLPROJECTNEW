@@ -2,9 +2,7 @@ tableextension 50269 "tableextension50269" extends "Sales Header"
 {
     fields
     {
-
         //Unsupported feature: Property Modification (Editable) on ""No. Series"(Field 107)".
-
 
         //Unsupported feature: Code Modification on ""Posting Date"(Field 20).OnValidate".
 
@@ -33,7 +31,6 @@ tableextension 50269 "tableextension50269" extends "Sales Header"
         SynchronizeAsmHeader;
         */
         //end;
-
 
         //Unsupported feature: Code Modification on ""Location Code"(Field 28).OnValidate".
 
@@ -67,7 +64,6 @@ tableextension 50269 "tableextension50269" extends "Sales Header"
         */
         //end;
 
-
         //Unsupported feature: Code Modification on ""Sell-to Contact No."(Field 5052).OnValidate".
 
         //trigger "(Field 5052)()
@@ -99,7 +95,6 @@ tableextension 50269 "tableextension50269" extends "Sales Header"
         #45..47
         */
         //end;
-
 
         //Unsupported feature: Code Modification on ""Responsibility Center"(Field 5700).OnValidate".
 
@@ -167,7 +162,6 @@ tableextension 50269 "tableextension50269" extends "Sales Header"
         }
         field(50305; "Skill Percentage"; Decimal)
         {
-
             trigger OnLookup()
             begin
                 /*
@@ -182,7 +176,6 @@ tableextension 50269 "tableextension50269" extends "Sales Header"
                 "Skill Percentage":=ROUND("Skill Percentage",Precision,Larger);
                 // Univision Finish 31/10/01 Yusuf
                 */  //#1
-
             end;
         }
         field(50306; "Performance Score"; Decimal)
@@ -203,7 +196,6 @@ tableextension 50269 "tableextension50269" extends "Sales Header"
         }
         field(50308; "Performance Percentage"; Decimal)
         {
-
             trigger OnLookup()
             begin
                 //Univision Start 31/10/01 Yusuf
@@ -222,7 +214,6 @@ tableextension 50269 "tableextension50269" extends "Sales Header"
         }
         field(50309; "Total Percentage"; Decimal)
         {
-
             trigger OnLookup()
             begin
                 // Univision Start 31/10/01 Yusuf
@@ -258,7 +249,6 @@ tableextension 50269 "tableextension50269" extends "Sales Header"
         }
         field(50314; Rgrade; Code[2])
         {
-
             trigger OnValidate()
             begin
                 if StrLen(Rgrade) = 1 then Rgrade := '0' + Rgrade;
@@ -267,7 +257,6 @@ tableextension 50269 "tableextension50269" extends "Sales Header"
         }
         field(50315; Rstep; Code[2])
         {
-
             trigger OnValidate()
             begin
                 RGrp := GetGrp(Rgrade, Rstep);
@@ -295,7 +284,6 @@ tableextension 50269 "tableextension50269" extends "Sales Header"
         }
         field(50330; Agrade; Code[2])
         {
-
             trigger OnValidate()
             begin
                 if StrLen(Agrade) = 1 then Agrade := '0' + Agrade;
@@ -304,7 +292,6 @@ tableextension 50269 "tableextension50269" extends "Sales Header"
         }
         field(50332; Astep; Code[2])
         {
-
             trigger OnValidate()
             begin
                 if StrLen(Astep) = 1 then Astep := '0' + Astep;
@@ -320,7 +307,6 @@ tableextension 50269 "tableextension50269" extends "Sales Header"
         }
         field(50336; AGrp; Code[10])
         {
-
             trigger OnValidate()
             begin
                 if EmpGrpT.Get(AGrp) then begin
@@ -460,13 +446,13 @@ tableextension 50269 "tableextension50269" extends "Sales Header"
                                                            "Document No." = FIELD("No.")));
             FieldClass = FlowField;
             TableRelation = Item.Inventory;
+            Editable = false;
         }
         field(50386; "No. Of DN Printed"; Integer)
         {
         }
         field(50387; "Insert Offloading Charge"; Boolean)
         {
-
             trigger OnValidate()
             begin
                 SalesSetup.Get();
@@ -474,31 +460,30 @@ tableextension 50269 "tableextension50269" extends "Sales Header"
                     SalesLine.SetRange(SalesLine."Document No.", "No.");
                     SalesLine.SetRange(SalesLine."Document Type", "Document Type");
                     SalesLine.SetFilter(SalesLine."No.", '%1', SalesSetup."Default Off Loading Account");
-                    if SalesLine.FindLast then begin
+                    if SalesLine.FindLast() then begin
                         SalesLine.Validate(SalesLine."Unit Price", SalesSetup."Default Off Loading Charge");
-                        SalesLine.Modify;
+                        SalesLine.Modify();
                     end else begin
-                        SalesLine.Reset;
+                        SalesLine.Reset();
                         SalesLine.SetRange(SalesLine."Document No.", "No.");
                         SalesLine.SetRange(SalesLine."Document Type", "Document Type");
-                        if SalesLine.FindLast then
+                        if SalesLine.FindLast() then
                             LineNo := SalesLine."Line No." + 10000
                         else
                             LineNo := 10000;
-                        SalesLine.Init;
+                        SalesLine.Init();
                         SalesLine.Validate(SalesLine."Document No.", "No.");
                         SalesLine.Validate(SalesLine."Document Type", "Document Type");
                         SalesLine."Line No." := LineNo;
                         SalesLine.Type := SalesLine.Type::"G/L Account";
                         SalesLine.Validate(SalesLine."No.", SalesSetup."Default Off Loading Account");
                         SalesLine.Validate(SalesLine."Unit Price", SalesSetup."Default Off Loading Charge");
-                        SalesLine.Insert;
+                        SalesLine.Insert();
                     end;
                 end;
             end;
         }
     }
-
 
     //Unsupported feature: Code Modification on "InitInsert(PROCEDURE 61)".
 
@@ -530,7 +515,6 @@ tableextension 50269 "tableextension50269" extends "Sales Header"
     end ;
     */
     //end;
-
 
     //Unsupported feature: Code Modification on "InitRecord(PROCEDURE 10)".
 
@@ -567,7 +551,6 @@ tableextension 50269 "tableextension50269" extends "Sales Header"
     */
     //end;
 
-
     //Unsupported feature: Code Modification on "TestNoSeries(PROCEDURE 6)".
 
     //procedure TestNoSeries();
@@ -593,7 +576,6 @@ tableextension 50269 "tableextension50269" extends "Sales Header"
     OnAfterTestNoSeries(Rec);
     */
     //end;
-
 
     //Unsupported feature: Code Modification on "CheckItemAvailabilityInLines(PROCEDURE 142)".
 
@@ -627,22 +609,15 @@ tableextension 50269 "tableextension50269" extends "Sales Header"
 
     //Unsupported feature: Variable Insertion (Variable: FSdailySale) (VariableCollection) on "GenerateFSDailySales(PROCEDURE 82)".
 
-
     //Unsupported feature: Variable Insertion (Variable: TransactionDate) (VariableCollection) on "GenerateFSDailySales(PROCEDURE 82)".
-
 
     //Unsupported feature: Variable Insertion (Variable: SalesRecLine) (VariableCollection) on "GenerateFSDailySales(PROCEDURE 82)".
 
-
     //Unsupported feature: Variable Insertion (Variable: FsdailyFilter) (VariableCollection) on "GenerateFSDailySales(PROCEDURE 82)".
-
 
     //Unsupported feature: Variable Insertion (Variable: LNO) (VariableCollection) on "GenerateFSDailySales(PROCEDURE 82)".
 
-
     //Unsupported feature: Property Modification (Name) on "DeferralHeadersExist(PROCEDURE 82)".
-
-
 
     //Unsupported feature: Code Modification on "DeferralHeadersExist(PROCEDURE 82)".
 
@@ -674,13 +649,13 @@ tableextension 50269 "tableextension50269" extends "Sales Header"
         FSdailySale.SetFilter(FSdailySale.Processed, '%1', false);
         FSdailySale.SetFilter(FSdailySale."Transaction Date", '%1', "Document Date");
         FSdailySale.SetFilter(FSdailySale."Payment Type", '%1', "Payment Method Code");
-        if FSdailySale.FindFirst then
+        if FSdailySale.FindFirst() then
             repeat
                 FsdailyFilter.CopyFilters(FSdailySale);
                 FsdailyFilter.SetFilter(FsdailyFilter."Item No.", '%1', FSdailySale."Item No.");
-                if FsdailyFilter.FindSet then begin
+                if FsdailyFilter.FindSet() then begin
                     FsdailyFilter.CalcFields(FsdailyFilter."Day Sale Qty", FsdailyFilter."Day Sale Value");
-                    SalesRecLine.Init;
+                    SalesRecLine.Init();
                     SalesRecLine."Document No." := "No.";
                     SalesRecLine."Document Type" := "Document Type";
                     SalesRecLine."Line No." := LNO;
@@ -698,7 +673,7 @@ tableextension 50269 "tableextension50269" extends "Sales Header"
                     FsdailyFilter.ModifyAll(FsdailyFilter.Processed, true);
                 end;
                 LNO := LNO + 10000;
-            until FSdailySale.Next = 0;
+            until FSdailySale.Next() = 0;
     end;
 
     procedure DeferralHeadersExist1(): Boolean
@@ -706,7 +681,7 @@ tableextension 50269 "tableextension50269" extends "Sales Header"
         DeferralHeader: Record "Deferral Header";
         DeferralUtilities: Codeunit "Deferral Utilities";
     begin
-        DeferralHeader.SetRange("Deferral Doc. Type", DeferralUtilities.GetSalesDeferralDocType);
+        DeferralHeader.SetRange("Deferral Doc. Type", DeferralUtilities.GetSalesDeferralDocType());
         DeferralHeader.SetRange("Gen. Jnl. Template Name", '');
         DeferralHeader.SetRange("Gen. Jnl. Batch Name", '');
         DeferralHeader.SetRange("Document Type", "Document Type");
@@ -729,14 +704,11 @@ tableextension 50269 "tableextension50269" extends "Sales Header"
             repeat
                 SalesLine.validate(SalesLine.Quantity);
                 SalesLine.Modify();
-            until SalesLine.Next = 0;
+            until SalesLine.Next() = 0;
     end;
     //Unsupported feature: Deletion (VariableCollection) on "DeferralHeadersExist(PROCEDURE 82).DeferralHeader(Variable 1000)".
 
-
     //Unsupported feature: Deletion (VariableCollection) on "DeferralHeadersExist(PROCEDURE 82).DeferralUtilities(Variable 1001)".
-
-
 
     //Unsupported feature: Property Modification (Id) on "RecreateSalesLinesCancelErr(Variable 1104)".
 
@@ -748,18 +720,11 @@ tableextension 50269 "tableextension50269" extends "Sales Header"
     //RecreateSalesLinesCancelErr : 1204;
     //Variable type has not been exported.
 
-
     var
-        "--------": Integer;
-        Emp: Record Employee;
-        App: Record Applicants;
         EmpGrpT: Record "Payroll-Employee Group Header.";
         ttscore: Decimal;
         Result: Decimal;
         Precision: Decimal;
-        Cedamount: Decimal;
-        Redamount: Decimal;
-        Aedamount: Decimal;
         Larger: Text[30];
         StaffType: Code[1];
         Rgrade: Code[2];
@@ -767,10 +732,7 @@ tableextension 50269 "tableextension50269" extends "Sales Header"
         Rstep: Code[2];
         Astep: Code[2];
         RGrp: Code[10];
-        length: Integer;
         LineNo: Integer;
         SalesSetup: record "Sales & Receivables Setup";
         SalesLine: Record "Sales Line";
-
 }
-

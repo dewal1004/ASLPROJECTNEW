@@ -33,7 +33,7 @@ page 50029 "Appraisal Entry Subform."
                     trigger OnValidate()
                     begin
                         Rec.ShowShortcutDimCode(ShortcutDimCode);
-                        NoOnAfterValidate;
+                        NoOnAfterValidate();
                     end;
                 }
                 field("Document Type"; Rec."Document Type")
@@ -57,7 +57,7 @@ page 50029 "Appraisal Entry Subform."
 
                     trigger OnValidate()
                     begin
-                        QuantityOnAfterValidate;
+                        QuantityOnAfterValidate();
                     end;
                 }
                 field(Comment; Rec.Comment)
@@ -100,7 +100,6 @@ page 50029 "Appraisal Entry Subform."
                             //This functionality was copied from page #50028. Unsupported part was commented. Please check it.
                             /*CurrPage.SalesLines.FORM.*/
                             _ItemAvailability(0);
-
                         end;
                     }
                     action(Variant)
@@ -114,7 +113,6 @@ page 50029 "Appraisal Entry Subform."
                             //This functionality was copied from page #50028. Unsupported part was commented. Please check it.
                             /*CurrPage.SalesLines.FORM.*/
                             _ItemAvailability(1);
-
                         end;
                     }
                     action(Location)
@@ -128,7 +126,6 @@ page 50029 "Appraisal Entry Subform."
                             //This functionality was copied from page #50028. Unsupported part was commented. Please check it.
                             /*CurrPage.SalesLines.FORM.*/
                             _ItemAvailability(2);
-
                         end;
                     }
                 }
@@ -143,8 +140,7 @@ page 50029 "Appraisal Entry Subform."
                     begin
                         //This functionality was copied from page #50028. Unsupported part was commented. Please check it.
                         /*CurrPage.SalesLines.FORM.*/
-                        _ShowReservationEntries;
-
+                        _ShowReservationEntries();
                     end;
                 }
                 action("Select Item Substitution")
@@ -158,8 +154,7 @@ page 50029 "Appraisal Entry Subform."
                     begin
                         //This functionality was copied from page #50028. Unsupported part was commented. Please check it.
                         /*CurrPage.SalesLines.FORM.*/
-                        _ShowItemSub;
-
+                        _ShowItemSub();
                     end;
                 }
                 action(Dimensions)
@@ -173,8 +168,7 @@ page 50029 "Appraisal Entry Subform."
                     begin
                         //This functionality was copied from page #50028. Unsupported part was commented. Please check it.
                         /*CurrPage.SalesLines.FORM.*/
-                        _ShowDimensions;
-
+                        _ShowDimensions();
                     end;
                 }
                 action("Item Charge &Assignment")
@@ -188,8 +182,7 @@ page 50029 "Appraisal Entry Subform."
                     begin
                         //This functionality was copied from page #50028. Unsupported part was commented. Please check it.
                         /*CurrPage.SalesLines.FORM.*/
-                        ItemChargeAssgnt;
-
+                        ItemChargeAssgnt();
                     end;
                 }
                 action("Item &Tracking Lines")
@@ -203,8 +196,7 @@ page 50029 "Appraisal Entry Subform."
                     begin
                         //This functionality was copied from page #50028. Unsupported part was commented. Please check it.
                         /*CurrPage.SalesLines.FORM.*/
-                        _OpenItemTrackingLines;
-
+                        _OpenItemTrackingLines();
                     end;
                 }
             }
@@ -226,8 +218,7 @@ page 50029 "Appraisal Entry Subform."
                     begin
                         //This functionality was copied from page #50028. Unsupported part was commented. Please check it.
                         /*CurrPage.SalesLines.FORM.*/
-                        ApproveCalcInvDisc;
-
+                        ApproveCalcInvDisc();
                     end;
                 }
                 action("E&xplode BOM")
@@ -242,8 +233,7 @@ page 50029 "Appraisal Entry Subform."
                     begin
                         //This functionality was copied from page #50028. Unsupported part was commented. Please check it.
                         /*CurrPage.SalesLines.FORM.*/
-                        ExplodeBOM;
-
+                        ExplodeBOM();
                     end;
                 }
                 action("Insert &Ext. Texts")
@@ -257,7 +247,6 @@ page 50029 "Appraisal Entry Subform."
                         //This functionality was copied from page #50028. Unsupported part was commented. Please check it.
                         /*CurrPage.SalesLines.FORM.*/
                         _InsertExtendedText(true);
-
                     end;
                 }
                 group("Drop Shipment")
@@ -277,8 +266,7 @@ page 50029 "Appraisal Entry Subform."
                         begin
                             //This functionality was copied from page #50028. Unsupported part was commented. Please check it.
                             /*CurrPage.SalesLines.FORM.*/
-                            OpenPurchOrderForm;
-
+                            OpenPurchOrderForm();
                         end;
                     }
                 }
@@ -298,8 +286,7 @@ page 50029 "Appraisal Entry Subform."
                         begin
                             //This functionality was copied from page #50028. Unsupported part was commented. Please check it.
                             /*CurrPage.SalesLines.FORM.*/
-                            OpenPurchOrderForm;
-
+                            OpenPurchOrderForm();
                         end;
                     }
                 }
@@ -315,8 +302,7 @@ page 50029 "Appraisal Entry Subform."
                     begin
                         //This functionality was copied from page #50028. Unsupported part was commented. Please check it.
                         /*CurrPage.SalesLines.FORM.*/
-                        _ShowReservation;
-
+                        _ShowReservation();
                     end;
                 }
                 action("Order &Tracking")
@@ -330,8 +316,7 @@ page 50029 "Appraisal Entry Subform."
                     begin
                         //This functionality was copied from page #50028. Unsupported part was commented. Please check it.
                         /*CurrPage.SalesLines.FORM.*/
-                        ShowTracking;
-
+                        ShowTracking();
                     end;
                 }
             }
@@ -350,8 +335,6 @@ page 50029 "Appraisal Entry Subform."
     end;
 
     var
-        SalesHeader: Record "Sales Header";
-        ItemCrossReference: Record "Item Cross Reference";
         TransferExtendedText: Codeunit "Transfer Extended Text";
         ShortcutDimCode: array[8] of Code[20];
 
@@ -382,17 +365,17 @@ page 50029 "Appraisal Entry Subform."
         PurchHeader.SetRange("No.", Rec."Purchase Order No.");
         PurchOrder.SetTableView(PurchHeader);
         PurchOrder.Editable := false;
-        PurchOrder.Run;
+        PurchOrder.Run();
     end;
 
     [Scope('OnPrem')]
     procedure _InsertExtendedText(Unconditionally: Boolean)
     begin
         if TransferExtendedText.SalesCheckIfAnyExtText(Rec, Unconditionally) then begin
-            CurrPage.SaveRecord;
+            CurrPage.SaveRecord();
             TransferExtendedText.InsertSalesExtText(Rec);
         end;
-        if TransferExtendedText.MakeUpdate then
+        if TransferExtendedText.MakeUpdate() then
             UpdateForm(true);
     end;
 
@@ -400,25 +383,25 @@ page 50029 "Appraisal Entry Subform."
     procedure InsertExtendedText(Unconditionally: Boolean)
     begin
         if TransferExtendedText.SalesCheckIfAnyExtText(Rec, Unconditionally) then begin
-            CurrPage.SaveRecord;
+            CurrPage.SaveRecord();
             TransferExtendedText.InsertSalesExtText(Rec);
         end;
-        if TransferExtendedText.MakeUpdate then
+        if TransferExtendedText.MakeUpdate() then
             UpdateForm(true);
     end;
 
     [Scope('OnPrem')]
     procedure _ShowReservation()
     begin
-        Rec.Find;
-        Rec.ShowReservation;
+        Rec.Find();
+        Rec.ShowReservation();
     end;
 
     [Scope('OnPrem')]
     procedure ShowReservation()
     begin
-        Rec.Find;
-        Rec.ShowReservation;
+        Rec.Find();
+        Rec.ShowReservation();
     end;
 
     [Scope('OnPrem')]
@@ -448,43 +431,43 @@ page 50029 "Appraisal Entry Subform."
     [Scope('OnPrem')]
     procedure _ShowDimensions()
     begin
-        Rec.ShowDimensions;
+        Rec.ShowDimensions();
     end;
 
     [Scope('OnPrem')]
     procedure ShowDimensions()
     begin
-        Rec.ShowDimensions;
+        Rec.ShowDimensions();
     end;
 
     [Scope('OnPrem')]
     procedure _ShowItemSub()
     begin
-        Rec.ShowItemSub;
+        Rec.ShowItemSub();
     end;
 
     [Scope('OnPrem')]
     procedure ShowItemSub()
     begin
-        Rec.ShowItemSub;
+        Rec.ShowItemSub();
     end;
 
     [Scope('OnPrem')]
     procedure ShowNonstockItems()
     begin
-        Rec.ShowNonstock;
+        Rec.ShowNonstock();
     end;
 
     [Scope('OnPrem')]
     procedure _OpenItemTrackingLines()
     begin
-        Rec.OpenItemTrackingLines;
+        Rec.OpenItemTrackingLines();
     end;
 
     [Scope('OnPrem')]
     procedure OpenItemTrackingLines()
     begin
-        Rec.OpenItemTrackingLines;
+        Rec.OpenItemTrackingLines();
     end;
 
     [Scope('OnPrem')]
@@ -493,13 +476,13 @@ page 50029 "Appraisal Entry Subform."
         TrackingPage: Page "Order Tracking";
     begin
         TrackingPage.SetSalesLine(Rec);
-        TrackingPage.RunModal;
+        TrackingPage.RunModal();
     end;
 
     [Scope('OnPrem')]
     procedure ItemChargeAssgnt()
     begin
-        Rec.ShowItemChargeAssgnt;
+        Rec.ShowItemChargeAssgnt();
     end;
 
     [Scope('OnPrem')]
@@ -514,16 +497,15 @@ page 50029 "Appraisal Entry Subform."
         if (Rec.Type = Rec.Type::"Charge (Item)") and (Rec."No." <> xRec."No.") and
            (xRec."No." <> '')
         then
-            CurrPage.SaveRecord;
+            CurrPage.SaveRecord();
     end;
 
     local procedure QuantityOnAfterValidate()
     begin
         if Rec.Reserve = Rec.Reserve::Always then begin
-            CurrPage.SaveRecord;
-            Rec.AutoReserve;
+            CurrPage.SaveRecord();
+            Rec.AutoReserve();
             CurrPage.Update(false);
         end;
     end;
 }
-

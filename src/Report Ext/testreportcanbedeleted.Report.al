@@ -2,7 +2,7 @@ report 50900 "test report can be deleted"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/testreportcanbedeleted.rdlc';
-
+    Caption = 'test report can be deleted';
     dataset
     {
         dataitem(Job; Job)
@@ -15,7 +15,7 @@ report 50900 "test report can be deleted"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -101,7 +101,7 @@ report 50900 "test report can be deleted"
                 trigger OnPreDataItem()
                 begin
                     //Section Code group8 //AA
-                    if CurrReport.TotalsCausedBy = Job.FieldNo(Vessel) then begin
+                    if CurrReport.TotalsCausedBy() = Job.FieldNo(Vessel) then begin
                         print_x_var := x_var;
                         total_x_var := total_x_var + x_var;
                         x_var := 0;
@@ -120,7 +120,6 @@ report 50900 "test report can be deleted"
 
     requestpage
     {
-
         layout
         {
         }
@@ -136,7 +135,6 @@ report 50900 "test report can be deleted"
 
     var
         LastFieldNo: Integer;
-        FooterPrinted: Boolean;
         TotalFor: Label 'Total for ';
         x_var: Decimal;
         print_x_var: Decimal;
@@ -145,4 +143,3 @@ report 50900 "test report can be deleted"
         CurrReport_PAGENOCaptionLbl: Label 'Page';
         GRAND_TOTALCaptionLbl: Label 'GRAND TOTAL';
 }
-

@@ -2,7 +2,7 @@ report 50159 "Kumar PWC Rep"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/KumarPWCRep.rdlc';
-
+    Caption = 'Kumar PWC Rep';
     dataset
     {
         dataitem("Job Ledger Entry"; "Job Ledger Entry")
@@ -13,7 +13,7 @@ report 50159 "Kumar PWC Rep"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -132,7 +132,6 @@ report 50159 "Kumar PWC Rep"
 
     requestpage
     {
-
         layout
         {
         }
@@ -147,14 +146,8 @@ report 50159 "Kumar PWC Rep"
     }
 
     var
-        LastFieldNo: Integer;
-        FooterPrinted: Boolean;
         TotalFor: Label 'Total for ';
-        Date1: Date;
-        Date2: Date;
-        TotQty: Decimal;
         Job_Ledger_EntryCaptionLbl: Label 'Job Ledger Entry';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
         Processing___Other_EntriesCaptionLbl: Label 'Processing & Other Entries';
 }
-

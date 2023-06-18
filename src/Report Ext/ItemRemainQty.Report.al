@@ -2,7 +2,7 @@ report 70001 "Item Remain Qty"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/ItemRemainQty.rdlc';
-
+    Caption = 'Item Remain Qty';
     dataset
     {
         dataitem(Item; Item)
@@ -16,7 +16,7 @@ report 70001 "Item Remain Qty"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -71,13 +71,13 @@ report 70001 "Item Remain Qty"
                 Item.CalcFields(Item.Inventory);
                 ItemLedgEntry.SetCurrentKey("Item No.", "Posting Date");
                 ItemLedgEntry.SetRange(ItemLedgEntry."Item No.", Item."No.");
-                if ItemLedgEntry.FindSet then
+                if ItemLedgEntry.FindSet() then
                     repeat
                         RemQty := RemQty + ItemLedgEntry."Remaining Quantity";
-                    until ItemLedgEntry.Next = 0;
+                    until ItemLedgEntry.Next() = 0;
 
                 if RemQty = Item.Inventory then
-                    CurrReport.Skip;
+                    CurrReport.Skip();
             end;
 
             trigger OnPreDataItem()
@@ -85,13 +85,13 @@ report 70001 "Item Remain Qty"
 
                 RemQty := 0;
                 Item.CalcFields(Item.Inventory, Item."Net Change");
-                ItemLedgEntry.Reset;
+                ItemLedgEntry.Reset();
                 ItemLedgEntry.SetCurrentKey("Item No.", "Posting Date");
                 ItemLedgEntry.SetRange(ItemLedgEntry."Item No.", Item."No.");
                 if ItemLedgEntry.Find('-') then
                     repeat
                         RemQty := RemQty + ItemLedgEntry."Remaining Quantity";
-                    until ItemLedgEntry.Next = 0;
+                    until ItemLedgEntry.Next() = 0;
 
                 if RemQty = Item."Net Change" then
                     CurrReport.ShowOutput(false);
@@ -102,7 +102,6 @@ report 70001 "Item Remain Qty"
 
     requestpage
     {
-
         layout
         {
         }
@@ -123,4 +122,3 @@ report 70001 "Item Remain Qty"
         CurrReport_PAGENOCaptionLbl: Label 'Page';
         RemQtyCaptionLbl: Label 'Remaining Qty';
 }
-

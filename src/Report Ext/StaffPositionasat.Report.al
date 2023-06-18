@@ -9,8 +9,7 @@ report 50179 "Staff Position as at"
     RDLCLayout = './src/reportrdlc/StaffPositionasat.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
-
-
+    Caption = 'Staff Position as at';
     dataset
     {
         dataitem(PPG; "Payroll-Posting Group Header.")
@@ -25,7 +24,7 @@ report 50179 "Staff Position as at"
             column(FORMAT_TODAY_0_4_; Format(Today, 0, 4))
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(At___FORMAT_EndDate_; At + Format(EndDate))
@@ -295,7 +294,6 @@ report 50179 "Staff Position as at"
 
     requestpage
     {
-
         layout
         {
             area(content)
@@ -326,8 +324,6 @@ report 50179 "Staff Position as at"
 
     var
         LastFieldNo: Integer;
-        FooterPrinted: Boolean;
-        TotalFor: Label 'Total for ';
         Empl: Record Employee;
         TotStaff: array[5] of Decimal;
         StaffSum: Decimal;
@@ -345,4 +341,3 @@ report 50179 "Staff Position as at"
         IT_TraineeCaptionLbl: Label 'IT/Trainee';
         TotalCaptionLbl: Label 'Total';
 }
-

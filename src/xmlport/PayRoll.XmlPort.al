@@ -1,6 +1,6 @@
 xmlport 50100 "PayRoll"
 {
-
+    Caption = 'PayRoll';
     schema
     {
         textelement(Root)
@@ -14,7 +14,6 @@ xmlport 50100 "PayRoll"
 
     requestpage
     {
-
         layout
         {
         }
@@ -24,4 +23,3 @@ xmlport 50100 "PayRoll"
         }
     }
 }
-

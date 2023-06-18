@@ -2,16 +2,15 @@ table 50030 "Casual Employees"
 {
     DrillDownPageID = "Casual Employees List";
     LookupPageID = "Casual Employees List";
-
+    Caption = 'Casual Employees';
     fields
     {
         field(1; "No."; Code[10])
         {
-
             trigger OnValidate()
             begin
                 if "No." <> xRec."No." then begin
-                    HumanResSetup.Get;
+                    HumanResSetup.Get();
                     NoSeriesMgt.TestManual(HumanResSetup."Casual Employees No.");
                     "No. Series" := '';
                 end;
@@ -38,10 +37,9 @@ table 50030 "Casual Employees"
 
             trigger OnValidate()
             begin
-                if CCRec.Get("Global Dimension 2 Code") then begin
+                if CCRec.Get("Global Dimension 2 Code") then
                     "Global Dimension 1 Code" := CCRec."Dimension Code"; //CCRec."Budget Center Code"
                                                                          //  "Region Code" := CCRec."Region Code";
-                end;
             end;
         }
         field(7; "Date Employed"; Date)
@@ -168,12 +166,15 @@ table 50030 "Casual Employees"
 
     fieldgroups
     {
+        fieldgroup(DropDown; Address)
+        {
+        }
     }
 
     trigger OnInsert()
     begin
         if "No." = '' then begin
-            HumanResSetup.Get;
+            HumanResSetup.Get();
             HumanResSetup.TestField("Casual Employees No.");
             NoSeriesMgt.InitSeries(HumanResSetup."Casual Employees No.", xRec."No. Series", 0D, "No.", "No. Series");
         end;
@@ -195,10 +196,10 @@ table 50030 "Casual Employees"
     procedure AssistEdit(OldEmployee: Record "Casual Employees"): Boolean
     begin
         Cemployee := Rec;
-        HumanResSetup.Get;
+        HumanResSetup.Get();
         HumanResSetup.TestField("Casual Employees No.");
         if NoSeriesMgt.SelectSeries(HumanResSetup."Casual Employees No.", OldEmployee."No. Series", Cemployee."No. Series") then begin
-            HumanResSetup.Get;
+            HumanResSetup.Get();
             HumanResSetup.TestField("Casual Employees No.");
             NoSeriesMgt.SetSeries(Cemployee."No.");
             Rec := Cemployee;
@@ -206,4 +207,3 @@ table 50030 "Casual Employees"
         end;
     end;
 }
-

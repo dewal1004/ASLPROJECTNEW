@@ -2,7 +2,7 @@ report 99984 "Update Payslip ID on EG Grp Ln"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/UpdatePayslipIDonEGGrpLn.rdlc';
-
+    Caption = 'Update Payslip ID on EG Grp Ln';
     dataset
     {
         dataitem("Payroll-Employee Group Lines."; "Payroll-Employee Group Lines.")
@@ -14,7 +14,7 @@ report 99984 "Update Payslip ID on EG Grp Ln"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -60,14 +60,13 @@ report 99984 "Update Payslip ID on EG Grp Ln"
             trigger OnAfterGetRecord()
             begin
                 Validate("E/D Code");
-                Modify;
+                Modify();
             end;
         }
     }
 
     requestpage
     {
-
         layout
         {
         }
@@ -85,4 +84,3 @@ report 99984 "Update Payslip ID on EG Grp Ln"
         Payroll_Employee_Group_Lines_CaptionLbl: Label 'Payroll-Employee Group Lines.';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
 }
-

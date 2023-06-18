@@ -3,8 +3,7 @@ report 90999 "Class distribution Item"
     // Caught Item category= C
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/ClassdistributionItem.rdlc';
-
-
+    Caption = 'Class distribution Item';
     dataset
     {
         dataitem(Item; Item)
@@ -17,7 +16,7 @@ report 90999 "Class distribution Item"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -52,14 +51,12 @@ report 90999 "Class distribution Item"
             begin
                 /*Item.ProdOrderExist:='C';
                 Item.MODIFY;  *///ma
-
             end;
         }
     }
 
     requestpage
     {
-
         layout
         {
         }
@@ -78,4 +75,3 @@ report 90999 "Class distribution Item"
         CurrReport_PAGENOCaptionLbl: Label 'Page';
         ProdOrderExistCaptionLbl: Label 'Label15';
 }
-

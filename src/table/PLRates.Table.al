@@ -1,6 +1,6 @@
 table 50043 "P & L Rates"
 {
-
+    Caption = 'P & L Rates';
     fields
     {
         field(1; "Starting Date"; Date)
@@ -41,4 +41,3 @@ table 50043 "P & L Rates"
     {
     }
 }
-

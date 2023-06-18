@@ -2,7 +2,7 @@ report 99332 "fa list"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/falist.rdlc';
-
+    Caption = 'fa list';
     dataset
     {
         dataitem("Fixed Asset"; "Fixed Asset")
@@ -14,7 +14,7 @@ report 99332 "fa list"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -80,7 +80,6 @@ report 99332 "fa list"
 
     requestpage
     {
-
         layout
         {
         }
@@ -98,4 +97,3 @@ report 99332 "fa list"
         Fixed_AssetCaptionLbl: Label 'Fixed Asset';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
 }
-

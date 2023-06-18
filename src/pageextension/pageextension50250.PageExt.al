@@ -33,7 +33,6 @@ pageextension 50250 "pageextension50250" extends "General Journal Batches"
                 Visible = true;
                 ApplicationArea = All;
             }
-
         }
         addafter(Name)
         {
@@ -65,11 +64,9 @@ pageextension 50250 "pageextension50250" extends "General Journal Batches"
     actions
     {
         //  Unsupported feature: Property Modification (Name) on "TestReport(Action 16)".
-
     }
 }
 
 //  Unsupported feature: Property Modification (Name) on "Name(Control 2)".
 //  Unsupported feature: Property Modification (SourceExpr) on "Name(Control 2)".
 //  Unsupported feature: Property Modification (ImplicitType) on "Name(Control 2)".
-

@@ -1,7 +1,7 @@
 xmlport 50019 "Inventory Posting Grp"
 {
     Format = VariableText;
-
+    Caption = 'Inventory Posting Grp';
     schema
     {
         textelement(RootNode)
@@ -33,7 +33,6 @@ xmlport 50019 "Inventory Posting Grp"
 
     requestpage
     {
-
         layout
         {
         }
@@ -43,4 +42,3 @@ xmlport 50019 "Inventory Posting Grp"
         }
     }
 }
-

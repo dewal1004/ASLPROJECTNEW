@@ -1,6 +1,5 @@
 pageextension 50347 "pageextension50347" extends "Error Messages"
 {
-
     //Unsupported feature: Code Modification on "SetRecords(PROCEDURE 1)".
 
     //procedure SetRecords();
@@ -23,4 +22,3 @@ pageextension 50347 "pageextension50347" extends "Error Messages"
     */
     //end;
 }
-

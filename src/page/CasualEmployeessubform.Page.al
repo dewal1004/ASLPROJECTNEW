@@ -3,7 +3,7 @@ page 50048 "Casual Employees subform"
     Editable = false;
     PageType = ListPart;
     SourceTable = "Casual Employees";
-
+    Caption = 'Casual Employees subform';
     layout
     {
         area(content)
@@ -76,4 +76,3 @@ page 50048 "Casual Employees subform"
     {
     }
 }
-

@@ -1,5 +1,6 @@
 table 60032 "Scholarship Register NU*"
 {
+    Caption = 'Scholarship Register NU*';
     //*** DrillDownPageID = 60047;
     //*** LookupPageID = 60047;
 
@@ -47,7 +48,6 @@ table 60032 "Scholarship Register NU*"
         }
         field(8; "Start Date"; Date)
         {
-
             trigger OnValidate()
             begin
                 if ("Start Date" = 0D) then exit;
@@ -61,7 +61,6 @@ table 60032 "Scholarship Register NU*"
         }
         field(9; "End Date"; Date)
         {
-
             trigger OnValidate()
             begin
                 if ("End Date" = 0D) then exit;
@@ -78,6 +77,7 @@ table 60032 "Scholarship Register NU*"
             CalcFormula = Max("Scholarship Payment NU*"."Date Paid" WHERE("Employee No" = FIELD("Employee No"),
                                                                            "Register No" = FIELD("Reg No")));
             FieldClass = FlowField;
+            Editable = false;
         }
         field(12; "Date Authorized"; Date)
         {
@@ -198,4 +198,3 @@ table 60032 "Scholarship Register NU*"
             exit(0);
     end;
 }
-

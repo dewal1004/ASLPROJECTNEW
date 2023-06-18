@@ -4,7 +4,7 @@ report 50117 "Cummulative Payroll Report"
     RDLCLayout = './src/reportrdlc/CummulativePayrollReport.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
-
+    Caption = 'Cummulative Payroll Report';
     dataset
     {
         dataitem("Payroll-Payslip Lines."; "Payroll-Payslip Lines.")
@@ -222,8 +222,7 @@ report 50117 "Cummulative Payroll Report"
                 if Emptable.Get("Payroll-Payslip Lines."."Employee No") then
                     name := Emptable."First Name";
                 if Block then
-                    if Emptable.Blocked then CurrReport.Skip;
-
+                    if Emptable.Blocked then CurrReport.Skip();
 
                 AMT1 := 0;
                 AMT2 := 0;
@@ -305,7 +304,6 @@ report 50117 "Cummulative Payroll Report"
                 ED13 := '6000';
                 ED14 := '7000';
 
-
                 AMT1 := 0;
                 AMT2 := 0;
                 AMT3 := 0;
@@ -320,7 +318,6 @@ report 50117 "Cummulative Payroll Report"
                 AMT12 := 0;
                 AMT13 := 0;
                 AMT14 := 0;
-
 
                 if "Payroll-Payslip Lines."."E/D Code" = ED1 then
                     AMT1 := Amount + AMT1
@@ -372,7 +369,6 @@ report 50117 "Cummulative Payroll Report"
 
     requestpage
     {
-
         layout
         {
         }
@@ -392,9 +388,6 @@ report 50117 "Cummulative Payroll Report"
     end;
 
     var
-        seadays: Integer;
-        Date: Date;
-        points: Decimal;
         Emptable: Record Employee;
         "empno.": Code[20];
         Block: Boolean;
@@ -435,4 +428,3 @@ report 50117 "Cummulative Payroll Report"
         Emp_No_Caption_Control1000000003Lbl: Label 'Emp No.';
         Emp_NameCaption_Control1000000006Lbl: Label 'Emp Name';
 }
-

@@ -1,6 +1,6 @@
 table 50000 "ASL Payroll Setup"
 {
-
+    Caption = 'ASL Payroll Setup';
     fields
     {
         field(1; "Loan Nos."; Code[10])
@@ -101,7 +101,6 @@ table 50000 "ASL Payroll Setup"
         }
         field(25; "Monthly Working Days"; Integer)
         {
-
             trigger OnValidate()
             begin
                 "Daily Working Hours" := "Monthly Working Days" * 8;
@@ -188,7 +187,7 @@ table 50000 "ASL Payroll Setup"
 
     trigger OnModify()
     begin
-        GenSetup.Get;
+        GenSetup.Get();
         if UserId <> GenSetup.Administrator then Error(Text001);
     end;
 
@@ -196,4 +195,3 @@ table 50000 "ASL Payroll Setup"
         Text001: Label 'You are not permitted to modify the set up;';
         GenSetup: Record "General Ledger Setup";
 }
-

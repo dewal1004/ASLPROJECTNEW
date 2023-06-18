@@ -72,7 +72,6 @@ page 50067 "Sales Packing Sheet"
 
     trigger OnNewRecord(BelowxRec: Boolean)
     begin
-        Rec.SetUpNewLine;
+        Rec.SetUpNewLine();
     end;
 }
-

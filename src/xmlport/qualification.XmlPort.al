@@ -2,7 +2,7 @@ xmlport 50027 "qualification"
 {
     Direction = Export;
     Format = VariableText;
-
+    Caption = 'qualification';
     schema
     {
         textelement(Rootnode)
@@ -22,7 +22,6 @@ xmlport 50027 "qualification"
 
     requestpage
     {
-
         layout
         {
         }
@@ -32,4 +31,3 @@ xmlport 50027 "qualification"
         }
     }
 }
-

@@ -1,7 +1,7 @@
 page 50137 "Production Role Center"
 {
     PageType = RoleCenter;
-
+    Caption = 'Production Role Center';
     layout
     {
         area(rolecenter)
@@ -121,4 +121,3 @@ page 50137 "Production Role Center"
         }
     }
 }
-

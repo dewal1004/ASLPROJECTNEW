@@ -7,7 +7,7 @@ page 50022 "Payslip Header Survey."
     UsageCategory = Lists;
     ApplicationArea = All;
     AdditionalSearchTerms = 'Payslip';
-
+    Caption = 'Payslip Header Survey.';
     layout
     {
         area(content)
@@ -18,7 +18,6 @@ page 50022 "Payslip Header Survey."
                 field("Payroll Period"; Rec."Payroll Period")
                 {
                     ApplicationArea = All;
-
                 }
                 field("Period Name"; Rec."Period Name")
                 {
@@ -83,4 +82,3 @@ page 50022 "Payslip Header Survey."
         }
     }
 }
-

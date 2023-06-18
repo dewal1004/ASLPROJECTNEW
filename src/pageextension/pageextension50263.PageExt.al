@@ -38,8 +38,5 @@ pageextension 50263 "pageextension50263" extends "Item Ledger Entries"
 
     //Unsupported feature: Property Insertion (Length) on "GetCaption(PROCEDURE 3).ReturnValue".
 
-
     //Unsupported feature: Property Insertion (Length) on "GetCaption(PROCEDURE 3).SourceTableName(Variable 1002)".
-
 }
-

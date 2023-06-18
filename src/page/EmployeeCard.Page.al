@@ -21,7 +21,7 @@ page 50008 "Employee Card."
                     trigger OnAssistEdit()
                     begin
                         if Rec.AssistEdit() then
-                            CurrPage.Update;
+                            CurrPage.Update();
                     end;
                 }
                 field("No2."; Rec."No2.")
@@ -45,7 +45,7 @@ page 50008 "Employee Card."
                 {
                     ApplicationArea = All;
                 }
-                field(FullName; Rec.FullName)
+                field(FullName; Rec.FullName())
                 {
                     Caption = 'Full Name';
                     ApplicationArea = All;
@@ -319,11 +319,10 @@ page 50008 "Employee Card."
 
     trigger OnAfterGetRecord()
     begin
-        StateOnFormat;
+        StateOnFormat();
     end;
 
     var
-        Mail: Codeunit Mail;
         StateName: Text[30];
         StateRec: Record States;
 
@@ -332,4 +331,3 @@ page 50008 "Employee Card."
         if StateRec.Get(Rec.State) then StateName := StateRec.Name;
     end;
 }
-

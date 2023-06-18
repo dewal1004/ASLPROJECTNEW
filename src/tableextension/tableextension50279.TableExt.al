@@ -22,4 +22,3 @@ tableextension 50279 "tableextension50279" extends "Invt. Posting Buffer"
         }
     }
 }
-

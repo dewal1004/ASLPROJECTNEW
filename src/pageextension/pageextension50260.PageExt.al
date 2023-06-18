@@ -76,13 +76,11 @@ pageextension 50260 "pageextension50260" extends "Item List"
                 ApplicationArea = All;
             }
         }
-
     }
     actions
     {
         modify(CancelApprovalRequest)
         {
-
             Caption = 'Phys. Inventory Journal';
             //Unsupported feature: Property Modification (Name) on "CancelApprovalRequest(Action 86)".
             //Unsupported feature: Property Insertion (RunObject) on "CancelApprovalRequest(Action 86)".
@@ -127,60 +125,42 @@ pageextension 50260 "pageextension50260" extends "Item List"
 
 // actions
 // {
-
 //Unsupported feature: Property Modification (Level) on "Item(Action 64)".
-
 
 //Unsupported feature: Property Modification (Level) on ""&Units of Measure"(Action 25)".
 
-
 //Unsupported feature: Property Modification (Level) on "Attributes(Action 137)".
-
 
 //Unsupported feature: Property Modification (Level) on "FilterByAttributes(Action 138)".
 
-
 //Unsupported feature: Property Modification (Level) on "ClearAttributes(Action 139)".
-
 
 //Unsupported feature: Property Modification (Level) on ""Va&riants"(Action 30)".
 
-
 //Unsupported feature: Property Modification (Level) on ""Substituti&ons"(Action 500)".
-
 
 //Unsupported feature: Property Modification (Level) on "Identifiers(Action 121)".
 
-
 //Unsupported feature: Property Modification (Level) on ""Cross Re&ferences"(Action 82)".
-
 
 //Unsupported feature: Property Modification (Level) on ""E&xtended Texts"(Action 28)".
 
-
 //Unsupported feature: Property Modification (Level) on "Translations(Action 27)".
-
 
 //Unsupported feature: Property Modification (Level) on "Action145(Action 145)".
 
-
 //Unsupported feature: Property Modification (Level) on "AdjustInventory(Action 90)".
-
 
 //Unsupported feature: Property Modification (Level) on "Dimensions(Action 94)".
 
-
 //Unsupported feature: Property Modification (Level) on "DimensionsSingle(Action 184)".
 
-
 //Unsupported feature: Property Modification (Level) on "DimensionsMultiple(Action 93)".
-
 
 //Unsupported feature: Property Modification (Name) on ""Revaluation Journal"(Action 119)".
 
 ///*** modify(SendApprovalRequest)
 //  {
-
 //Unsupported feature: Property Modification (Name) on "SendApprovalRequest(Action 87)".
 // }
 

@@ -1,6 +1,5 @@
 tableextension 50231 "tableextension50231" extends "Option Lookup Buffer"
 {
-
     //Unsupported feature: Code Modification on "FillBufferInternal(PROCEDURE 3)".
 
     //procedure FillBufferInternal();
@@ -33,4 +32,3 @@ tableextension 50231 "tableextension50231" extends "Option Lookup Buffer"
     */
     //end;
 }
-

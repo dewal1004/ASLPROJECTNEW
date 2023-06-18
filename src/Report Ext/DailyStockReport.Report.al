@@ -2,7 +2,7 @@ report 99039 "Daily Stock Report"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/DailyStockReport.rdlc';
-
+    Caption = 'Daily Stock Report';
     dataset
     {
         dataitem(Location; Location)
@@ -15,7 +15,7 @@ report 99039 "Daily Stock Report"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -71,7 +71,6 @@ report 99039 "Daily Stock Report"
 
     requestpage
     {
-
         layout
         {
         }
@@ -89,4 +88,3 @@ report 99039 "Daily Stock Report"
         LocationCaptionLbl: Label 'Location';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
 }
-

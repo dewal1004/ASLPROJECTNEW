@@ -2,7 +2,7 @@ page 50037 "Course Type List"
 {
     PageType = Card;
     SourceTable = "Course Types";
-
+    Caption = 'Course Type List';
     layout
     {
         area(content)
@@ -26,4 +26,3 @@ page 50037 "Course Type List"
     {
     }
 }
-

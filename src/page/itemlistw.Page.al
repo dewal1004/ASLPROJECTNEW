@@ -2,7 +2,7 @@ page 50157 "item list w"
 {
     PageType = Card;
     SourceTable = Item;
-
+    Caption = 'item list w';
     layout
     {
         area(content)
@@ -26,4 +26,3 @@ page 50157 "item list w"
     {
     }
 }
-

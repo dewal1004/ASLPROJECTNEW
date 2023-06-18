@@ -2,7 +2,7 @@ report 99977 "Variant RemovalS"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/VariantRemovalS.rdlc';
-
+    Caption = 'Variant RemovalS';
     dataset
     {
         dataitem("Item Ledger Entry"; "Item Ledger Entry")
@@ -13,7 +13,7 @@ report 99977 "Variant RemovalS"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -54,7 +54,6 @@ report 99977 "Variant RemovalS"
 
     requestpage
     {
-
         layout
         {
         }
@@ -69,8 +68,6 @@ report 99977 "Variant RemovalS"
     }
 
     var
-        ITEM: Record "Item Ledger Entry";
         Item_Ledger_EntryCaptionLbl: Label 'Item Ledger Entry';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
 }
-

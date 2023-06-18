@@ -2,7 +2,7 @@ page 50150 "Sea Food Categories"
 {
     PageType = Card;
     SourceTable = "Sea Food categories";
-
+    Caption = 'Sea Food Categories';
     layout
     {
         area(content)
@@ -34,12 +34,7 @@ page 50150 "Sea Food Categories"
         }
     }
 
-
-
     actions
     {
     }
-
-
 }
-

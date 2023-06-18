@@ -3,8 +3,7 @@ report 50047 "Voyage Ending Inv Cons exp3"
     // ItemUOV== Items Used On Vessel
     DefaultLayout = RDLC;
     RDLCLayout = './src/ReportRdlc/VoyageEndingInvConsexp3.rdlc';
-
-
+    Caption = 'Voyage Ending Inv Cons exp3';
     dataset
     {
         dataitem(Job; Job)
@@ -16,7 +15,7 @@ report 50047 "Voyage Ending Inv Cons exp3"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -105,7 +104,6 @@ report 50047 "Voyage Ending Inv Cons exp3"
                 trigger OnAfterGetRecord()
                 begin
 
-
                     count_current := count_current + 1;
                     /*d.OPEN('Processing item #1######### - #2### of #3### - #4### pct.');
                     d.UPDATE(1,ItemUOV."No." );
@@ -113,19 +111,17 @@ report 50047 "Voyage Ending Inv Cons exp3"
                     d.UPDATE(3,count_record);
                     d.UPDATE(4,ROUND(count_current*100/count_record,0.01));*/
 
-
-
                     //SETFILTER("Location Filter",Job.Vessel);
                     CalcFields(Inventory);
                     if Inventory <> 0 then begin
                         Icount[2] := Icount[2] + 10;
-                        JobJL.Init;
+                        JobJL.Init();
                         JobJL."Journal Template Name" := 'JOB';
                         JobJL."Journal Batch Name" := Job."No." + 'CONS';
                         JobJL."Line No." := Icount[2];
                         JobJL."Posting Date" := Today;
                         JobJL."Document Date" := Today;
-                        JobJLX.Init;
+                        JobJLX.Init();
 
                         //JobJL.SetUpNewLine(JobJL);
                         JobJL."Document No." := Job."No.";
@@ -148,12 +144,11 @@ report 50047 "Voyage Ending Inv Cons exp3"
                         JobJL."Task Code" := ItemUOV."Item Category Code";// &
                         JobJL."Posting Date" := Job."Ending Date";
                         JobTask.SetRange("Job No.", JobJL."Job No.");
-                        if JobTask.FindFirst then
+                        if JobTask.FindFirst() then
                             Jobtask_No := JobTask."Job Task No.";
                         JobJL.Validate("Job Task No.", Jobtask_No);
-                        if not JobJL.Insert then JobJL.Modify;
+                        if not JobJL.Insert() then JobJL.Modify();
                     end;
-
                 end;
 
                 trigger OnPreDataItem()
@@ -168,7 +163,7 @@ report 50047 "Voyage Ending Inv Cons exp3"
 
                     count_record := ItemUOV.Count;
 
-                    JobJB.Init;
+                    JobJB.Init();
                     JobJB."Journal Template Name" := 'JOB';
                     JobJB.Name := Job."No." + 'CONS';
                     JobJB."Voyage No." := Job."Voyage No.";
@@ -176,7 +171,7 @@ report 50047 "Voyage Ending Inv Cons exp3"
                     if Loc.Get(Job.Vessel) then JobJB."Vessel Name" := Loc.Name;
                     JobJB."No. Series" := '';
                     JobJB."Batch Type" := 3;
-                    if not JobJB.Insert then JobJB.Modify;
+                    if not JobJB.Insert() then JobJB.Modify();
                 end;
             }
 
@@ -185,12 +180,10 @@ report 50047 "Voyage Ending Inv Cons exp3"
 
                 Job.TestField(Job.Status, 2);
                 Message('Sea Days is %1 ', Job."Sea Days");
-                if not Confirm('has the ending date been Updated', false) then CurrReport.Quit;
-
+                if not Confirm('has the ending date been Updated', false) then CurrReport.Quit();
 
                 /*IF Item.GET("No.") THEN
                  Inventory := Item.Inventory;*/
-
             end;
 
             trigger OnPostDataItem()
@@ -213,7 +206,6 @@ report 50047 "Voyage Ending Inv Cons exp3"
 
     requestpage
     {
-
         layout
         {
         }
@@ -228,30 +220,18 @@ report 50047 "Voyage Ending Inv Cons exp3"
     }
 
     var
-        d: Dialog;
         JobJB: Record "Job Journal Batch";
         JobJL: Record "Job Journal Line";
-        JobJL2: Record "Job Journal Line";
         JobJLX: Record "Job Journal Line";
         Loc: Record Location;
         Icount: array[2] of Integer;
-        LocCd: Code[20];
-        I: Code[20];
-        RES: Record Resource;
         JNo: Code[20];
-        JobSetup: Record "Jobs Setup";
-        IncentiveLookUp: Record "Payroll-Lookup Lines.";
-        InctvCat: Code[20];
-        Ended: Boolean;
         count_record: Decimal;
         count_current: Decimal;
         JobCaptionLbl: Label 'Job';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
         Voyage_ConsumptionCaptionLbl: Label 'Voyage Consumption';
         ConsumptionCaptionLbl: Label 'Consumption';
-        Inventory: Decimal;
-        Item: Record Item;
         JobTask: Record "Job Task";
         Jobtask_No: Code[20];
 }
-

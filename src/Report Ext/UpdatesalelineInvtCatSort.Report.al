@@ -2,7 +2,7 @@ report 99980 "Update sale line Invt Cat Sort"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/UpdatesalelineInvtCatSort.rdlc';
-
+    Caption = 'Update sale line Invt Cat Sort';
     dataset
     {
         dataitem("Sales Line"; "Sales Line")
@@ -15,7 +15,7 @@ report 99980 "Update sale line Invt Cat Sort"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -68,14 +68,12 @@ report 99980 "Update sale line Invt Cat Sort"
             begin
                 /*CatSort;
                 MODIFY();*///#dik
-
             end;
         }
     }
 
     requestpage
     {
-
         layout
         {
         }
@@ -93,4 +91,3 @@ report 99980 "Update sale line Invt Cat Sort"
         Sales_LineCaptionLbl: Label 'Sales Line';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
 }
-

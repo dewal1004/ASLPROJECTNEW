@@ -4,7 +4,7 @@ report 50216 "Item Age Composition Qty"
     RDLCLayout = './src/reportrdlc/ItemAgeCompositionQty.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
-
+    Caption = 'Item Age Composition Qty';
     dataset
     {
         dataitem(Item; Item)
@@ -14,7 +14,7 @@ report 50216 "Item Age Composition Qty"
             column(FORMAT_TODAY_0_4_; Format(Today, 0, 4))
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(COMPANYNAME; CompanyName)
@@ -159,7 +159,7 @@ report 50216 "Item Age Composition Qty"
                 BalanceAtDate := ItemRec."Net Change";
 
                 for i := 1 to 4 do begin
-                    ItemRec.Reset;
+                    ItemRec.Reset();
                     ItemRec.Get(Item."No.");
                     ItemRec.SetRange(ItemRec."Date Filter", PeriodStartDate[i + 1] + 1, PeriodStartDate[i]);
                     ItemRec.CalcFields(ItemRec."Purchases (Qty.)");
@@ -194,7 +194,6 @@ report 50216 "Item Age Composition Qty"
 
     requestpage
     {
-
         layout
         {
             area(content)
@@ -228,9 +227,8 @@ report 50216 "Item Age Composition Qty"
         ItemFilter := Item.GetFilters;
 
         PeriodStartDate[1] := EndDate;
-        for i := 2 to 4 do begin
+        for i := 2 to 4 do
             PeriodStartDate[i] := CalcDate('-' + PeriodLength, PeriodStartDate[i - 1]);
-        end;
         PeriodStartDate[5] := 19000101D;
 
         ValueEntry.SetCurrentKey("Item Ledger Entry No.", Inventoriable,
@@ -242,25 +240,13 @@ report 50216 "Item Age Composition Qty"
     end;
 
     var
-        Text001: Label '1M';
-        Text002: Label 'Enter the ending date';
-        Text003: Label '0D';
         ItemRec: Record Item;
         ValueEntry: Record "Value Entry";
-        ItemCostMgt: Codeunit ItemCostManagement;
         ItemFilter: Text[250];
-        InvtValue: array[6] of Decimal;
         InvtQty: array[6] of Decimal;
-        TotalInvoicedQty: Decimal;
-        UnitCost: Decimal;
         PeriodStartDate: array[6] of Date;
         PeriodLength: Code[20];
         i: Integer;
-        TotalInvtValue: Decimal;
-        TotalInvtQty: Decimal;
-        PrintLine: Boolean;
-        AverageCost: Decimal;
-        AverageCostACY: Decimal;
         EndDate: Date;
         BalanceAtDate: Decimal;
         TotalBal: Decimal;
@@ -274,4 +260,3 @@ report 50216 "Item Age Composition Qty"
         ContinueCaptionLbl: Label 'Continue';
         TotalCaptionLbl: Label 'Total';
 }
-

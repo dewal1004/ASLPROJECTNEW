@@ -2,7 +2,7 @@ report 50207 "Update Port Captain on Job"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/UpdatePortCaptainonJob.rdlc';
-
+    Caption = 'Update Port Captain on Job';
     dataset
     {
         dataitem(Job; Job)
@@ -14,7 +14,7 @@ report 50207 "Update Port Captain on Job"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -55,7 +55,6 @@ report 50207 "Update Port Captain on Job"
 
     requestpage
     {
-
         layout
         {
         }
@@ -73,4 +72,3 @@ report 50207 "Update Port Captain on Job"
         JobCaptionLbl: Label 'Job';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
 }
-

@@ -2,7 +2,7 @@ report 90901 "Caught for Incentive"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/CaughtforIncentive.rdlc';
-
+    Caption = 'Caught for Incentive';
     dataset
     {
         dataitem("Inventory Posting Group"; "Inventory Posting Group")
@@ -15,7 +15,7 @@ report 90901 "Caught for Incentive"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -113,9 +113,8 @@ report 90901 "Caught for Incentive"
                 if "Statistics Group" = 3 then T001 := 'CUTTLE FISH/CRAB/OTHER EXPORTS';
                 if "Statistics Group" = 4 then T001 := 'SHRIMP IN BAG/NET FISH/HOOK FISH';
 
-
                 if not FooterPrinted then
-                    LastFieldNo := CurrReport.TotalsCausedBy;
+                    LastFieldNo := CurrReport.TotalsCausedBy();
                 CurrReport.ShowOutput(not FooterPrinted);
                 FooterPrinted := true;
             end;
@@ -124,7 +123,6 @@ report 90901 "Caught for Incentive"
 
     requestpage
     {
-
         layout
         {
         }
@@ -142,7 +140,6 @@ report 90901 "Caught for Incentive"
         LastFieldNo: Integer;
         FooterPrinted: Boolean;
         TotalFor: Label 'Total for ';
-        "-----": Text[30];
         Cat1: Code[20];
         T001: Text[50];
         T002: Label 'Over all Total';
@@ -152,4 +149,3 @@ report 90901 "Caught for Incentive"
         T001CaptionLbl: Label 'Group';
         Cat1CaptionLbl: Label 'Category';
 }
-

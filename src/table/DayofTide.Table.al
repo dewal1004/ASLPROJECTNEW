@@ -1,6 +1,6 @@
 table 50036 "Day of Tide"
 {
-
+    Caption = 'Day of Tide';
     fields
     {
         field(1; Date; Date)
@@ -23,6 +23,8 @@ table 50036 "Day of Tide"
 
     fieldgroups
     {
+        fieldgroup(DropDown; Date)
+        {
+        }
     }
 }
-

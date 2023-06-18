@@ -6,7 +6,7 @@ report 50154 "Consolidated Value  & Ratio"
                   TableData "Value Entry" = rimd;
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
-
+    Caption = 'Consolidated Value  & Ratio';
     dataset
     {
         dataitem(Jobss; Job)
@@ -21,7 +21,7 @@ report 50154 "Consolidated Value  & Ratio"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -35,19 +35,15 @@ report 50154 "Consolidated Value  & Ratio"
             }
             column(Text27; Text27)
             {
-
             }
             column(Text26; Text26)
             {
-
             }
             column(Text25; Text25)
             {
-
             }
             column(Text24; Text24)
             {
-
             }
             column(Text23; Text23)
             {
@@ -85,19 +81,15 @@ report 50154 "Consolidated Value  & Ratio"
             }
             column(PortDay; PortDay)
             {
-
             }
             column(LostDay; LostDay)
             {
-
             }
             column(FishgDay; FishgDay)
             {
-
             }
             column(CycleDay; CycleDay)
             {
-
             }
             column(Jobss__Ending_Date_; "Ending Date")
             {
@@ -132,19 +124,15 @@ report 50154 "Consolidated Value  & Ratio"
             }
             column(PortDay_Control1000000239; PortDay)
             {
-
             }
             column(LostDay_Control1000000240; LostDay)
             {
-
             }
             column(FishgDay_Control1000000241; FishgDay)
             {
-
             }
             column(CycleDay_Control1000000242; CycleDay)
             {
-
             }
             column(TotalFor___FIELDCAPTION_Vessel_; TotalFor + FieldCaption(Vessel))
             {
@@ -173,19 +161,15 @@ report 50154 "Consolidated Value  & Ratio"
             }
             column(PortDay_Control1000000228; PortDay)
             {
-
             }
             column(LostDay_Control1000000229; LostDay)
             {
-
             }
             column(FishgDay_Control1000000230; FishgDay)
             {
-
             }
             column(CycleDay_Control1000000231; CycleDay)
             {
-
             }
             column(Coutry_Name; Coutry.Name)
             {
@@ -219,7 +203,6 @@ report 50154 "Consolidated Value  & Ratio"
             }
             column(CycleDay_Control1000000202; CycleDay)
             {
-
             }
             column(PntStor_4__Control1000000204; PntStor[4])
             {
@@ -227,11 +210,9 @@ report 50154 "Consolidated Value  & Ratio"
             }
             column(Text24_Control1000000205; Text24)
             {
-
             }
             column(FishgDay_Control1000000206; FishgDay)
             {
-
             }
             column(PntStor_5__Control1000000208; PntStor[5])
             {
@@ -239,11 +220,9 @@ report 50154 "Consolidated Value  & Ratio"
             }
             column(Text25_Control1000000209; Text25)
             {
-
             }
             column(LostDay_Control1000000210; LostDay)
             {
-
             }
             column(PntStor_6__Control1000000212; PntStor[6])
             {
@@ -251,7 +230,6 @@ report 50154 "Consolidated Value  & Ratio"
             }
             column(Text26_Control1000000213; Text26)
             {
-
             }
             column(PntStor_7__Countrs_Control1000000214; PntStor[7] / Countrs)
             {
@@ -259,11 +237,9 @@ report 50154 "Consolidated Value  & Ratio"
             }
             column(Text27_Control1000000215; Text27)
             {
-
             }
             column(PortDay_Control1000000216; PortDay)
             {
-
             }
             column(ETDCons; ETDCons)
             {
@@ -368,9 +344,8 @@ report 50154 "Consolidated Value  & Ratio"
                 Job2.SetRange(Job2.Vessel, Vessel);    //Find last voyage
                 if Job2.Next(-1) <> 0 then
                     ETA2 := Job2."Ending Date"
-                else begin
+                else
                     if Loc.Get(Vessel) then ETA2 := Loc."Begining ETA" else ETA2 := 0D;
-                end;
 
                 if "Cycle Day (Manual)" <> 0 then
                     CycleDay := "Cycle Day (Manual)"
@@ -418,7 +393,6 @@ report 50154 "Consolidated Value  & Ratio"
                 end;
                 Validate("Net Incentive Actual");
                 DataStor[3] := "Net Incentive Actual";
-
 
                 a := 100;
                 RateSetUp.SetRange(RateSetUp."Starting Date", 0D, Jobss."Ending Date");
@@ -481,10 +455,9 @@ report 50154 "Consolidated Value  & Ratio"
 
                 CurrExc.SetRange(CurrExc."Currency Code", 'USD');
                 CurrExc.SetRange(CurrExc."Starting Date", 0D, ETA);
-                if CurrExc.Find('+') then begin
-                    CurrRate := CurrExc."Relational Exch. Rate Amount";
-                    //MESSAGE('EXCHANGE VALUE IS %1',CurrExc."Relational Exch. Rate Amount")
-                end
+                if CurrExc.Find('+') then
+                    CurrRate := CurrExc."Relational Exch. Rate Amount"
+                //MESSAGE('EXCHANGE VALUE IS %1',CurrExc."Relational Exch. Rate Amount")
                 else
                     CurrRate := 1;
                 PntStor[7] := CurrRate;
@@ -597,7 +570,7 @@ report 50154 "Consolidated Value  & Ratio"
                 trigger OnAfterGetRecord()
                 begin
                     "Marked Rec" := true;
-                    Modify;
+                    Modify();
                 end;
             }
 
@@ -700,74 +673,63 @@ report 50154 "Consolidated Value  & Ratio"
             }
             column(SeaV_9_; SeaV[9])
             {
-
             }
             column(SeaR_8_; SeaR[8])
             {
             }
             column(SeaV_8_; SeaV[8])
             {
-
             }
             column(SeaR_7_; SeaR[7])
             {
             }
             column(SeaV_7_; SeaV[7])
             {
-
             }
             column(SeaR_6_; SeaR[6])
             {
             }
             column(SeaV_6_; SeaV[6])
             {
-
             }
             column(SeaR_5_; SeaR[5])
             {
             }
             column(SeaV_5_; SeaV[5])
             {
-
             }
             column(SeaR_4_; SeaR[4])
             {
             }
             column(SeaV_4_; SeaV[4])
             {
-
             }
             column(SeaR_3_; SeaR[3])
             {
             }
             column(SeaV_3_; SeaV[3])
             {
-
             }
             column(SeaR_2_; SeaR[2])
             {
             }
             column(SeaV_2_; SeaV[2])
             {
-
             }
             column(SeaR_1_; SeaR[1])
             {
             }
             column(SeaV_1_; SeaV[1])
             {
-
             }
             column(TotVR_3_; TotVR[3])
             {
             }
             column(TotVR_1_; TotVR[1])
             {
-
             }
             column(TotVR_2_; TotVR[2])
             {
-
             }
             column(ValueCaption; ValueCaptionLbl)
             {
@@ -924,19 +886,15 @@ report 50154 "Consolidated Value  & Ratio"
                 }
                 column(SeaV_1__Control1000000041; SeaV[1])
                 {
-
                 }
                 column(SeaV_2__Control1000000042; SeaV[2])
                 {
-
                 }
                 column(SeaV_3__Control1000000043; SeaV[3])
                 {
-
                 }
                 column(SeaV_4__Control1000000047; SeaV[4])
                 {
-
                 }
                 column(SeaR_2__Control1000000050; SeaR[2])
                 {
@@ -958,46 +916,39 @@ report 50154 "Consolidated Value  & Ratio"
                 }
                 column(SeaV_8__Control1000000100; SeaV[8])
                 {
-
                 }
                 column(SeaR_7__Control1000000110; SeaR[7])
                 {
                 }
                 column(SeaV_7__Control1000000111; SeaV[7])
                 {
-
                 }
                 column(SeaR_6__Control1000000112; SeaR[6])
                 {
                 }
                 column(SeaV_6__Control1000000113; SeaV[6])
                 {
-
                 }
                 column(SeaR_5__Control1000000114; SeaR[5])
                 {
                 }
                 column(SeaV_5__Control1000000115; SeaV[5])
                 {
-
                 }
                 column(SeaR_9__Control1000000093; SeaR[9])
                 {
                 }
                 column(SeaV_9__Control1000000094; SeaV[9])
                 {
-
                 }
                 column(TotVR_1__Control1000000154; TotVR[1])
                 {
-
                 }
                 column(TotVR_3__Control1000000195; TotVR[3])
                 {
                 }
                 column(TotVR_2__Control1000000268; TotVR[2])
                 {
-
                 }
                 column(Sea_Food_categories__Sea_food_code_Caption; FieldCaption("Sea food code"))
                 {
@@ -1096,7 +1047,7 @@ report 50154 "Consolidated Value  & Ratio"
             trigger OnPreDataItem()
             begin
 
-                SeaCdList;
+                SeaCdList();
                 Countx := 1;
                 repeat CurrReport.CreateTotals(SeaV[Countx], SeaP[Countx]); Countx := Countx + 1; until Countx = 100;
                 CurrReport.CreateTotals(TotVR[1], TotVR[2]);
@@ -1106,7 +1057,6 @@ report 50154 "Consolidated Value  & Ratio"
 
     requestpage
     {
-
         layout
         {
             area(content)
@@ -1157,7 +1107,7 @@ report 50154 "Consolidated Value  & Ratio"
 
     trigger OnInitReport()
     begin
-        JobSetUp.Get;
+        JobSetUp.Get();
     end;
 
     trigger OnPreReport()
@@ -1177,18 +1127,12 @@ report 50154 "Consolidated Value  & Ratio"
 
     var
         LastFieldNo: Integer;
-        FooterPrinted: Boolean;
         TotalFor: Label 'Total';
         "---": Integer;
-        Job: Record Job;
         Job2: Record Job;
-        JobRange: Record Job;
-        JobETA: Record Job;
         Itempr: Record "Sales Price";
         CurrExc: Record "Currency Exchange Rate";
         ProdPostGrp: Record "Gen. Product Posting Group";
-        InvtPostGrp: Record "Inventory Posting Group";
-        JobLedgerGrpSort: Record "Job Ledger Entry";
         JobSetUp: Record "Jobs Setup";
         RateSetUp: Record "P & L Rates";
         JBudLn: Record "Job Planning Line";
@@ -1202,35 +1146,23 @@ report 50154 "Consolidated Value  & Ratio"
         "Val Ent": Record "Value Entry";
         SF: Record "Sea Food categories";
         Prc: Decimal;
-        PrcB: Decimal;
         PrdPrc: Decimal;
         PrdPrcB: Decimal;
         PrdPrc2: Decimal;
         PrdPrcBX: Decimal;
         PrdPrc2X: Decimal;
-        PrdPrc2B: Decimal;
         CurrRate: Decimal;
-        NairaVal: Decimal;
         NairaValB: Decimal;
         NairaValBX: Decimal;
         NairaVal2: Decimal;
         NairaVal2X: Decimal;
-        NairaVal2B: Decimal;
         Qty: Decimal;
         QtyB: Decimal;
         QtyX: Decimal;
         QtyBX: Decimal;
-        GPPGDesc: Text[30];
         DataStor: array[15] of Decimal;
         TotalForX: Label 'Total Exports';
         TotalFory: Label 'Total Local';
-        Text03: Label 'Catch Incentive';
-        Text04: Label 'Salaries & Wages';
-        Text05: Label 'Travelling Expenses';
-        Text06: Label 'License Fees';
-        Text07: Label 'Insurance';
-        Text08: Label 'Clearing & FWRD. & NPA';
-        Text09: Label 'Total Direct Expenses';
         PntStor: array[8] of Decimal;
         ETD: Date;
         ETA: Date;
@@ -1247,20 +1179,8 @@ report 50154 "Consolidated Value  & Ratio"
         expcntTot: Integer;
         PeopleOnVoy: Integer;
         ResCount: Integer;
-        Text10: Label 'Gross Margin';
-        Text11: Label '% Of Revenue';
-        Text12: Label 'Shore Overheads';
-        Text13: Label 'Depreciation';
-        Text14: Label 'Interest';
-        Text15: Label 'Net Profit';
-        Text17: Label 'Total Indirect Expenses';
         TotDirExp: Decimal;
-        TotIndirExp: Decimal;
-        GrossMarg: Decimal;
-        GrossPerct: Decimal;
-        NetProfPerct: Decimal;
         TotPrice: Decimal;
-        NetProfit: Decimal;
         ExpTonnage: Decimal;
         Vess: Text[30];
         Text18: Label 'Voyage Value & Ratio by Vessel';
@@ -1277,15 +1197,10 @@ report 50154 "Consolidated Value  & Ratio"
         UOMCd: Code[10];
         ItemVar: Code[10];
         "No.B": Code[10];
-        NOrder: Decimal;
-        ValRate: Decimal;
-        ValQty: Decimal;
         GLStr: array[25] of Decimal;
         "GLGPP Caption": array[25] of Code[10];
         CountGPPG: Integer;
-        CountG: Integer;
         Flag: Boolean;
-        "----": Integer;
         "Period Start": Date;
         "Period End": Date;
         FishingCount: Code[30];
@@ -1350,14 +1265,13 @@ report 50154 "Consolidated Value  & Ratio"
         Itempr.SetRange(Itempr."Starting Date", 0D, PDays);
         //Itempr.SETRANGE(Itempr."Price Group Code",Job3."Price Group Code");
         if Itempr.Find('+') then
-            Prc := Itempr."Unit Price" else begin
+            Prc := Itempr."Unit Price" else
             //Itempr.SETRANGE(Itempr."Price Group Code",JobSetUp."Default Price Group Code");
             if Itempr.Find('+') then
                 Prc := Itempr."Unit Price" else begin
                 Prc := 0;
                 if Flag then Message('Price Missing for Item %1', Nos);
             end;
-        end;
         exit(Prc);
     end;
 
@@ -1394,7 +1308,7 @@ report 50154 "Consolidated Value  & Ratio"
             ValH[Countx] := 'Value';
             RatH[Countx] := 'Ratio';
             Countx := Countx + 1;
-        until SF.Next = 0;
+        until SF.Next() = 0;
     end;
 
     [Scope('OnPrem')]
@@ -1424,4 +1338,3 @@ report 50154 "Consolidated Value  & Ratio"
         until Countx = 20;
     end;
 }
-

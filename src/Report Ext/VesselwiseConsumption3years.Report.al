@@ -4,7 +4,7 @@ report 50227 "Vesselwise Consumption 3years"
     RDLCLayout = './src/reportrdlc/VesselwiseConsumption3years.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
-
+    Caption = 'Vesselwise Consumption 3years';
     dataset
     {
         dataitem(Location; Location)
@@ -15,7 +15,7 @@ report 50227 "Vesselwise Consumption 3years"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -86,7 +86,6 @@ report 50227 "Vesselwise Consumption 3years"
 
     requestpage
     {
-
         layout
         {
             area(content)
@@ -137,11 +136,9 @@ report 50227 "Vesselwise Consumption 3years"
         EndDate: array[3] of Date;
         ItemCode: Code[20];
         Text100: Label 'Please select Item!';
-        i: Integer;
         Qty: array[3] of Decimal;
         Total: Decimal;
         Vesselwise_Consumption_Last_3_yearsCaptionLbl: Label 'Vesselwise Consumption Last 3 years';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
         TotalCaptionLbl: Label 'TOTAL';
 }
-

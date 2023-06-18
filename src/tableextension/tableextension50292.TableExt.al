@@ -2,14 +2,12 @@ tableextension 50292 "tableextension50292" extends "Misc. Article Information"
 {
     fields
     {
-
         //Unsupported feature: Code Modification on ""Misc. Article Code"(Field 2).OnValidate".
         modify("Misc. Article Code")
         {
             trigger onaftervalidate()
             var
                 MiscArticle: Record "Misc. Article";
-                myInt: Integer;
             begin
                 "Mat Type" := MiscArticle."Mat Type";
                 "Item No." := MiscArticle."Item No.";
@@ -55,8 +53,4 @@ tableextension 50292 "tableextension50292" extends "Misc. Article Information"
             InitValue = 1;
         }
     }
-
-    var
-        ItemRec: Record Item;
 }
-

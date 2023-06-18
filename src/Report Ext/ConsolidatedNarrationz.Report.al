@@ -3,8 +3,7 @@ report 99087 "Consolidated Narrationz"
     // "Comment Line"."Day Lost Cause"
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/ConsolidatedNarrationz.rdlc';
-
-
+    Caption = 'Consolidated Narrationz';
     dataset
     {
         dataitem("Comment Line"; "Comment Line")
@@ -15,7 +14,7 @@ report 99087 "Consolidated Narrationz"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -75,7 +74,6 @@ report 99087 "Consolidated Narrationz"
 
     requestpage
     {
-
         layout
         {
         }
@@ -90,16 +88,12 @@ report 99087 "Consolidated Narrationz"
     }
 
     var
-        Loc: Record Location;
         VessName: Code[50];
         NarratnFilter: Code[20];
         Text000: Label 'Consolidated Narration Report As of %1';
-        StartDate: Date;
-        EndDate: Date;
         CurrReport_PAGENOCaptionLbl: Label 'Page';
         Vessel_NameCaptionLbl: Label 'Vessel Name';
         NarrationCaptionLbl: Label 'Narration';
         Comment_Line__Day_Lost_Cause_CaptionLbl: Label 'Loss Cause';
         Conolidated_Narration_Report_50087CaptionLbl: Label 'Conolidated Narration Report 50087';
 }
-

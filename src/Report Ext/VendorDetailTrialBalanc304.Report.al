@@ -17,7 +17,7 @@ report 50134 "Vendor-Detail Trial Balanc-304"
             column(STRSUBSTNO_Text000_VendDateFilter_; StrSubstNo(Text000, VendDateFilter))
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(COMPANYNAME; CompanyName)
@@ -250,7 +250,7 @@ report 50134 "Vendor-Detail Trial Balanc-304"
                 begin
                     if not VendLedgEntryExists and ((StartBalanceLCY = 0) or not PrintAllHavingBal) then begin
                         StartBalanceLCY := 0;
-                        CurrReport.Skip;
+                        CurrReport.Skip();
                     end;
                 end;
             }
@@ -279,7 +279,6 @@ report 50134 "Vendor-Detail Trial Balanc-304"
 
     requestpage
     {
-
         layout
         {
         }
@@ -337,4 +336,3 @@ report 50134 "Vendor-Detail Trial Balanc-304"
         ContinuedCaptionLbl: Label 'Continued';
         ContinuedCaption_Control46Lbl: Label 'Continued';
 }
-

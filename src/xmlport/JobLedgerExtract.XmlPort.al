@@ -1,7 +1,7 @@
 xmlport 90006 "Job Ledger Extract"
 {
     Format = VariableText;
-
+    Caption = 'Job Ledger Extract';
     schema
     {
         textelement(Rootnode)
@@ -87,7 +87,6 @@ xmlport 90006 "Job Ledger Extract"
 
     requestpage
     {
-
         layout
         {
         }
@@ -97,4 +96,3 @@ xmlport 90006 "Job Ledger Extract"
         }
     }
 }
-

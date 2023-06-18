@@ -2,7 +2,7 @@ page 50010 "Table Lookup Header."
 {
     PageType = Card;
     SourceTable = "Payroll-Lookup Header.";
-
+    Caption = 'Table Lookup Header.';
     layout
     {
         area(content)
@@ -67,4 +67,3 @@ page 50010 "Table Lookup Header."
     {
     }
 }
-

@@ -2,7 +2,7 @@ report 50172 "Update Transfer Source NO."
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/UpdateTransferSourceNO.rdlc';
-
+    Caption = 'Update Transfer Source NO.';
     dataset
     {
         dataitem("Value Entry"; "Value Entry")
@@ -15,7 +15,7 @@ report 50172 "Update Transfer Source NO."
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -70,14 +70,13 @@ report 50172 "Update Transfer Source NO."
                 Job.SetRange(Job."Voyage No.", "Value Entry"."External Document No.");
                 if Job.Find('-') and ("Value Entry"."Source No." = '') then
                     "Value Entry"."Source No." := Job."No.";
-                Modify;
+                Modify();
             end;
         }
     }
 
     requestpage
     {
-
         layout
         {
         }
@@ -96,4 +95,3 @@ report 50172 "Update Transfer Source NO."
         Value_EntryCaptionLbl: Label 'Value Entry';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
 }
-

@@ -1,6 +1,6 @@
 table 50126 "Catch Dimensional Matrix +"
 {
-
+    Caption = 'Catch Dimensional Matrix +';
     fields
     {
         field(1; "Catch No."; Code[10])
@@ -27,4 +27,3 @@ table 50126 "Catch Dimensional Matrix +"
     {
     }
 }
-

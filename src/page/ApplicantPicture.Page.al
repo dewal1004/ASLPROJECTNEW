@@ -2,7 +2,7 @@ page 50024 "Applicant Picture"
 {
     PageType = Card;
     SourceTable = Applicants;
-
+    Caption = 'Applicant Picture';
     layout
     {
         area(content)
@@ -61,15 +61,11 @@ page 50024 "Applicant Picture"
                         if Picture.HasValue then
                             if Confirm('Do you want to delete the picture of %1 %2?', false, Rec.TableName, Rec."No.") then begin
                                 Clear(Rec.Picture);
-                                CurrPage.SaveRecord;
+                                CurrPage.SaveRecord();
                             end;
                     end;
                 }
             }
         }
     }
-
-    var
-        PictureExists: Boolean;
 }
-

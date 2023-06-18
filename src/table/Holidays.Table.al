@@ -1,6 +1,6 @@
 table 50025 "Holidays"
 {
-
+    Caption = 'Holidays';
     fields
     {
         field(1; "Serial No."; Integer)
@@ -40,6 +40,9 @@ table 50025 "Holidays"
 
     fieldgroups
     {
+        fieldgroup(DropDown; Description)
+        {
+        }
     }
 
     trigger OnInsert()
@@ -52,4 +55,3 @@ table 50025 "Holidays"
         HRec: Record Holidays;
         HCounter: Integer;
 }
-

@@ -2,7 +2,7 @@ report 99504 "Edit PDate>Trans Ord Dat Ship"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/EditPDateTransOrdDatShip.rdlc';
-
+    Caption = 'Edit PDate>Trans Ord Dat Ship';
     dataset
     {
         dataitem("Transfer Shipment Header"; "Transfer Shipment Header")
@@ -13,7 +13,7 @@ report 99504 "Edit PDate>Trans Ord Dat Ship"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -82,7 +82,7 @@ report 99504 "Edit PDate>Trans Ord Dat Ship"
                 begin
                     "Posting Date" := TranOrdDat;
                     "Document Date" := TranOrdDat;
-                    Modify;
+                    Modify();
                 end;
             }
             dataitem("Item Ledger Entry"; "Item Ledger Entry")
@@ -95,7 +95,7 @@ report 99504 "Edit PDate>Trans Ord Dat Ship"
                     "Posting Date" := TranOrdDat;
                     "Document Date" := TranOrdDat;
                     if "Last Invoice Date" = "Posting Date" then "Last Invoice Date" := TranOrdDat;
-                    Modify;
+                    Modify();
                 end;
             }
             dataitem("Value Entry"; "Value Entry")
@@ -108,7 +108,7 @@ report 99504 "Edit PDate>Trans Ord Dat Ship"
                     "Posting Date" := TranOrdDat;
                     "Document Date" := TranOrdDat;
                     if "Valuation Date" = "Posting Date" then "Valuation Date" := TranOrdDat;
-                    Modify;
+                    Modify();
                 end;
             }
         }
@@ -116,7 +116,6 @@ report 99504 "Edit PDate>Trans Ord Dat Ship"
 
     requestpage
     {
-
         layout
         {
         }
@@ -135,4 +134,3 @@ report 99504 "Edit PDate>Trans Ord Dat Ship"
         Transfer_Receipt_HeaderCaptionLbl: Label 'Transfer Receipt Header';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
 }
-

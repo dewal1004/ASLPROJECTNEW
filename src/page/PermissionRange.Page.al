@@ -2,7 +2,7 @@ page 90077 "Permission Range"
 {
     PageType = Card;
     SourceTable = "Permission Range";
-
+    Caption = 'Permission Range';
     layout
     {
         area(content)
@@ -54,4 +54,3 @@ page 90077 "Permission Range"
     {
     }
 }
-

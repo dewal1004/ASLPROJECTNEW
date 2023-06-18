@@ -2,7 +2,7 @@ report 90003 "Landed Costxx"
 {
     ProcessingOnly = true;
     UseRequestPage = false;
-
+    Caption = 'Landed Costxx';
     dataset
     {
         dataitem("Purchase Header"; "Purchase Header")
@@ -66,7 +66,7 @@ report 90003 "Landed Costxx"
 
                     if E <> 0 then
                         Z := ((B + C) / E) * 100;
-                    PurcSetup.Get;
+                    PurcSetup.Get();
 
                     //Standard Cost total for the lines
                     "Purchase Header".CalcFields("Purchase Header"."Freight(LCY)LT", "Purchase Header"."Ancillary(LCY)LT");
@@ -129,7 +129,6 @@ report 90003 "Landed Costxx"
 
     requestpage
     {
-
         layout
         {
         }
@@ -144,15 +143,7 @@ report 90003 "Landed Costxx"
     }
 
     var
-        GenLed: Record "G/L Entry";
-        GITRec: Record "Reason Code";
         PurcSetup: Record "Purchases & Payables Setup";
-        TotalCost: Decimal;
-        TotalValue: Decimal;
-        TotalQty: Decimal;
-        TotalWeight: Decimal;
-        LandedAmount: Decimal;
-        xTotalQty: Integer;
         A: Decimal;
         B: Decimal;
         C: Decimal;
@@ -165,8 +156,6 @@ report 90003 "Landed Costxx"
         J: Decimal;
         K: array[10] of Decimal;
         L: array[10] of Decimal;
-        X: Decimal;
-        Y: Decimal;
         Z: Decimal;
         FOBx: Decimal;
         LandExtra: Decimal;
@@ -201,7 +190,7 @@ report 90003 "Landed Costxx"
           GenLed.SETRANGE(GenLed."Reason Code",'INTEREST');
            IF GenLed.FIND('-') THEN I:=GenLed.Amount ELSE I:=0;
              K[10]:=I;
-        
+
           GenLed.SETRANGE(GenLed."Reason Code",'CISS');
             IF GenLed.FIND('-') THEN K[1]:=GenLed.Amount ELSE K[1]:=0;
           GenLed.SETRANGE(GenLed."Reason Code",'DUTY');
@@ -215,7 +204,5 @@ report 90003 "Landed Costxx"
           GenLed.SETRANGE(GenLed."Reason Code",'VAT');
             IF GenLed.FIND('-') THEN K[6]:=GenLed.Amount ELSE K[6]:=0;
          */
-
     end;
 }
-

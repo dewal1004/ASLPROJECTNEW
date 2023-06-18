@@ -3,6 +3,7 @@ report 50084 "Calculate Inventory By Group"
     ProcessingOnly = true;
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
+    Caption = 'Calculate Inventory By Group';
     dataset
     {
         dataitem(Item; Item)
@@ -31,7 +32,7 @@ report 50084 "Calculate Inventory By Group"
                         ItemLedgEntry.CalcSums(Quantity);
 
                     if (ItemLedgEntry.Quantity <> 0) or ZeroQty then begin
-                        QuantityOnHandBuffer.Reset;
+                        QuantityOnHandBuffer.Reset();
                         QuantityOnHandBuffer.SetRange("Item No.", ItemLedgEntry."Item No.");
                         QuantityOnHandBuffer.SetRange("Variant Code", ItemLedgEntry."Variant Code");
                         /*IF ByDept THEN
@@ -45,7 +46,7 @@ report 50084 "Calculate Inventory By Group"
                         //SETRANGE("Bin Code",ItemLedgEntry."Bin Code");
                         if QuantityOnHandBuffer.Find('-') then begin
                             QuantityOnHandBuffer.Quantity := QuantityOnHandBuffer.Quantity + ItemLedgEntry.Quantity;
-                            QuantityOnHandBuffer.Modify;
+                            QuantityOnHandBuffer.Modify();
                         end else begin
                             QuantityOnHandBuffer."Item No." := ItemLedgEntry."Item No.";
                             QuantityOnHandBuffer."Variant Code" := ItemLedgEntry."Variant Code";
@@ -59,46 +60,44 @@ report 50084 "Calculate Inventory By Group"
                             //IF ByBin THEN
                             //"Bin Code" := ItemLedgEntry."Bin Code";
                             QuantityOnHandBuffer.Quantity := ItemLedgEntry.Quantity;
-                            QuantityOnHandBuffer.Insert;
+                            QuantityOnHandBuffer.Insert();
                         end;
                     end;
                     ItemLedgEntry.Find('+');
 
                     Step := 0;
-                    if ByBin then begin
+                    if ByBin then
                         //Item.COPYFILTER("Bin Filter",ItemLedgEntry."Bin Code");
-                        Step := ItemLedgEntry.Next;
-                    end;
+                        Step := ItemLedgEntry.Next();
                     if (Step = 0) and ByLocation then begin
                         Item.CopyFilter("Location Filter", ItemLedgEntry."Location Code");
-                        Step := ItemLedgEntry.Next;
+                        Step := ItemLedgEntry.Next();
                     end;
                     if (Step = 0) and ByProj then begin
                         Item.CopyFilter("Global Dimension 2 Filter", ItemLedgEntry."Global Dimension 2 Code");
-                        Step := ItemLedgEntry.Next;
+                        Step := ItemLedgEntry.Next();
                     end;
                     if (Step = 0) and ByDept then begin
                         Item.CopyFilter("Global Dimension 1 Filter", ItemLedgEntry."Global Dimension 1 Code");
-                        Step := ItemLedgEntry.Next;
+                        Step := ItemLedgEntry.Next();
                     end;
                     if Step = 0 then begin
                         ItemLedgEntry.SetRange("Drop Shipment");
-                        Step := ItemLedgEntry.Next;
+                        Step := ItemLedgEntry.Next();
                     end;
                     if Step = 0 then begin
                         Item.CopyFilter("Variant Filter", ItemLedgEntry."Variant Code");
-                        Step := ItemLedgEntry.Next;
+                        Step := ItemLedgEntry.Next();
                     end;
 
                     if Step = 0 then
-                        CurrReport.Break;
-
+                        CurrReport.Break();
                 end;
 
                 trigger OnPreDataItem()
                 begin
                     //AA
-                    ItemLedgEntry.Reset;
+                    ItemLedgEntry.Reset();
                     if ByDept or ByProj then
                         ItemLedgEntry.SetCurrentKey(
                           "Item No.", "Variant Code", "Drop Shipment", "Global Dimension 1 Code", "Global Dimension 2 Code", "Location Code")//"Bin Code" )
@@ -111,23 +110,23 @@ report 50084 "Calculate Inventory By Group"
                     Item.CopyFilter("Location Filter", ItemLedgEntry."Location Code");
                     //Item.COPYFILTER("Bin Filter",ItemLedgEntry."Bin Code");
                     if not ItemLedgEntry.Find('-') then
-                        CurrReport.Break;
+                        CurrReport.Break();
                 end;
             }
 
             trigger OnAfterGetRecord()
             begin
-                Window.Update;
+                Window.Update();
             end;
 
             trigger OnPostDataItem()
             begin
-                QuantityOnHandBuffer.Reset;
+                QuantityOnHandBuffer.Reset();
                 if QuantityOnHandBuffer.Find('-') then begin
                     repeat
                         InsertItemJnlLine(QuantityOnHandBuffer."Item No.", QuantityOnHandBuffer."Variant Code", A1, A2, QuantityOnHandBuffer."Location Code", QuantityOnHandBuffer."Bin Code", QuantityOnHandBuffer.Quantity);
-                    until QuantityOnHandBuffer.Next = 0;
-                    QuantityOnHandBuffer.DeleteAll;
+                    until QuantityOnHandBuffer.Next() = 0;
+                    QuantityOnHandBuffer.DeleteAll();
                 end;
             end;
 
@@ -147,7 +146,7 @@ report 50084 "Calculate Inventory By Group"
                         ItemJnlLine.SetRange("Journal Batch Name", ItemJnlLine."Journal Batch Name");
                         if not ItemJnlLine.Find('-') then
                             NextDocNo := NoSeriesMgt.GetNextNo(ItemJnlBatch."No. Series", PostingDate, false);
-                        ItemJnlLine.Init;
+                        ItemJnlLine.Init();
                     end;
                     if NextDocNo = '' then
                         Error('Please enter the document no.');
@@ -157,15 +156,14 @@ report 50084 "Calculate Inventory By Group"
 
                 Window.Open('Processing items    #1##########', Item."No.");
 
-                QuantityOnHandBuffer.Reset;
-                QuantityOnHandBuffer.DeleteAll;
+                QuantityOnHandBuffer.Reset();
+                QuantityOnHandBuffer.DeleteAll();
             end;
         }
     }
 
     requestpage
     {
-
         layout
         {
         }
@@ -196,7 +194,6 @@ report 50084 "Calculate Inventory By Group"
         ByLocation: Boolean;
         ByBin: Boolean;
         ZeroQty: Boolean;
-        busgrp: Code[10];
         A1: Code[10];
         A2: Code[10];
 
@@ -223,18 +220,18 @@ report 50084 "Calculate Inventory By Group"
         ItemLedgEntry: Record "Item Ledger Entry";
     begin
         if NextLineNo = 0 then begin
-            ItemJnlLine.LockTable;
+            ItemJnlLine.LockTable();
             ItemJnlLine.SetRange("Journal Template Name", ItemJnlLine."Journal Template Name");
             ItemJnlLine.SetRange("Journal Batch Name", ItemJnlLine."Journal Batch Name");
             if ItemJnlLine.Find('+') then
                 NextLineNo := ItemJnlLine."Line No.";
 
-            SourceCodeSetup.Get;
+            SourceCodeSetup.Get();
         end;
         NextLineNo := NextLineNo + 10000;
 
         if (Quantity2 <> 0) or ZeroQty then begin
-            ItemJnlLine.Init;
+            ItemJnlLine.Init();
             ItemJnlLine."Line No." := NextLineNo;
             ItemJnlLine.Validate("Posting Date", PostingDate);
             ItemJnlLine.Validate("Entry Type", ItemJnlLine."Entry Type"::"Positive Adjmt.");
@@ -252,7 +249,7 @@ report 50084 "Calculate Inventory By Group"
             ItemJnlLine.Validate("Qty. (Calculated)", Quantity2);
             ItemJnlLine.Validate("Unit Amount", 0);
 
-            ItemLedgEntry.Reset;
+            ItemLedgEntry.Reset();
             ItemLedgEntry.SetCurrentKey("Item No.");
             ItemLedgEntry.SetRange("Item No.", Item."No.");
             if ItemLedgEntry.Find('+') then
@@ -276,4 +273,3 @@ report 50084 "Calculate Inventory By Group"
         ByBin := ByBin2;
     end;
 }
-

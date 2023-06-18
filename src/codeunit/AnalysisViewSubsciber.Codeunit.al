@@ -2,8 +2,6 @@
 /// CodeUnit AnalysisViewSubsciber (ID 50014).
 /// </summary>
 
-
-
 // {  Pending
 //   OBJECT-PROPERTIES
 
@@ -194,4 +192,3 @@
 //   CODE
 
 // }
-

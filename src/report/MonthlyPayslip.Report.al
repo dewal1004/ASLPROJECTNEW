@@ -90,7 +90,7 @@ report 50051 "Monthly Payslip"
                         case "Payslip appearance" of
                             0: /* Nonzero and Code */
                                 if Amount = 0 then
-                                    CurrReport.Skip
+                                    CurrReport.Skip()
                                 else
                                     PayEntryText := "E/D Code";
                             1: /* Always and Code */
@@ -104,34 +104,31 @@ report 50051 "Monthly Payslip"
 
                             3: /* Non-zero & text */
                                 if Amount = 0 then
-                                    CurrReport.Skip
+                                    CurrReport.Skip()
                                 else
                                     if RecOfEDFile.Get("E/D Code") then
                                         PayEntryText := RecOfEDFile."Payslip Text"
                                     else
                                         PayEntryText := '*' + "E/D Code";
                             4: /* Does not appear */
-                                CurrReport.Skip;
+                                CurrReport.Skip();
                             5: /* Heading */
-                                begin
-                                    if RecOfEDFile.Get("E/D Code") then
-                                        if RecOfEDFile."Payslip Text" <> '' then
-                                            PayEntryText := RecOfEDFile."Payslip Text"
 
-                                        else
-                                            PayEntryText := "E/D Code"
+                                if RecOfEDFile.Get("E/D Code") then
+                                    if RecOfEDFile."Payslip Text" <> '' then
+                                        PayEntryText := RecOfEDFile."Payslip Text"
+
                                     else
-                                        PayEntryText := '*' + PayEntryText;
-                                end;
+                                        PayEntryText := "E/D Code"
+                                else
+                                    PayEntryText := '*' + PayEntryText;
                         end;
-
-
 
                         /*IF "Payslip appearance" = 5 THEN
                           UNDEFINED('genSELECTLINES',0,'J')
                         ELSE*/
                         /* Process which column to print */
-                        if RecOfEDFile.Get("E/D Code") then begin
+                        if RecOfEDFile.Get("E/D Code") then
                             case RecOfEDFile."Payslip Column" of
                                 1: /* Column 2 */
                                     if "Underline Amount" = 1 then
@@ -159,8 +156,6 @@ report 50051 "Monthly Payslip"
                                         else
                                             UnderlineID := 'A';
                             end; /*CASE*/
-                        end;
-
 
                         if "Payroll-Payslip Lines."."Payslip Print Column" = "Payroll-Payslip Lines."."Payslip Print Column"::Postive then begin
                             //CurrReport.SHOWOUTPUT(TRUE);
@@ -168,7 +163,6 @@ report 50051 "Monthly Payslip"
                             EDamtTable[Ei, 1] := Amount;
                             EDTextTable[Ei, 1] := PayEntryText;
                         end;
-
 
                         if "Payroll-Payslip Lines."."Payslip Print Column" = "Payroll-Payslip Lines."."Payslip Print Column"::Negative then begin
                             CurrReport.ShowOutput(true);
@@ -217,7 +211,6 @@ report 50051 "Monthly Payslip"
                         if (RecOfEDFile.Get("E/D Code") and ("E/D Code" = '6100')) then     //Added by Yusuf 27/03/02
                             if "Payroll-Payslip Lines.".Quantity <> 0 then
                                 latehr := "Payroll-Payslip Lines.".Quantity;
-
                     end;
 
                     trigger OnPreDataItem()
@@ -372,7 +365,7 @@ report 50051 "Monthly Payslip"
                         begin
                             if i > 0 then
                                 if (EDamtTable[i, 1] = 0) and (EDamtTable[i, 2] = 0) then
-                                    CurrReport.Break;
+                                    CurrReport.Break();
                             i := i + 1;
                         end;
 
@@ -404,8 +397,8 @@ report 50051 "Monthly Payslip"
                 trigger OnAfterGetRecord()
                 begin
                     if not Payrec.Get("Payroll-Payslip Header."."Employee No") then   // Adam
-                        CurrReport.Skip;
-                    if Payrec.Blocked then CurrReport.Skip;                 //Added by Adam to skip Blocked Employees
+                        CurrReport.Skip();
+                    if Payrec.Blocked then CurrReport.Skip();                 //Added by Adam to skip Blocked Employees
                     BusinessUnit := Payrec."Global Dimension 2 Code";
                     if BURec.Get(BusinessUnit) then begin
                         BUName := BURec.Name;
@@ -438,14 +431,13 @@ report 50051 "Monthly Payslip"
                       UNDEFINED('genSELECTLINES',0,'A')
                     ELSE
                       UNDEFINED('genSELECTLINES',0,'B');*/
-
                 end;
             }
 
             trigger OnAfterGetRecord()
             begin
                 if Employee.Blocked then
-                    CurrReport.Skip;
+                    CurrReport.Skip();
             end;
         }
     }
@@ -465,7 +457,6 @@ report 50051 "Monthly Payslip"
             Employee."No." := 'E00004';
             "Payroll-Payslip Lines."."Payroll Period" := '2022-11';
         end;
-
     }
 
     labels
@@ -520,4 +511,3 @@ report 50051 "Monthly Payslip"
         NCaption_Control1000000003Lbl: Label 'N';
         The_Net_Salary_stated_above_is_due_to_you_at_the_end_of_this_month_CaptionLbl: Label 'The Net Salary stated above is due to you at the end of this month.';
 }
-

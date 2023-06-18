@@ -30,7 +30,7 @@ page 50086 "Lost Days"
                 {
                     ApplicationArea = All;
                 }
-                field(Description; Rec.Description)
+                field(Description; Rec.Description())
                 {
                     Caption = 'Lost Day Description';
                     ApplicationArea = All;
@@ -107,4 +107,3 @@ page 50086 "Lost Days"
         Rec.Type := Rec.Type::Narration;
     end;
 }
-

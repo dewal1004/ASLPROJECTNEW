@@ -3,7 +3,7 @@ page 50025 "Apl. Qualification Overview"
     PageType = Card;
     SaveValues = true;
     SourceTable = Applicants;
-
+    Caption = 'Apl. Qualification Overview';
     layout
     {
     }
@@ -11,9 +11,4 @@ page 50025 "Apl. Qualification Overview"
     actions
     {
     }
-
-    var
-        Qualified: Boolean;
-        EmployeeQualification: Record "Employee Qualification";
 }
-

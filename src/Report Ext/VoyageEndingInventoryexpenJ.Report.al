@@ -5,8 +5,7 @@ report 70043 "Voyage Ending Inventory expenJ"
     // //
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/VoyageEndingInventoryexpenJ.rdlc';
-
-
+    Caption = 'Voyage Ending Inventory expenJ';
     dataset
     {
         dataitem(Job; Job)
@@ -18,7 +17,7 @@ report 70043 "Voyage Ending Inventory expenJ"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -84,13 +83,13 @@ report 70043 "Voyage Ending Inventory expenJ"
                     CalcFields(Inventory);
                     if Inventory <> 0 then begin
                         Icount[1] := Icount[1] + 10;
-                        JobJL.Init;
+                        JobJL.Init();
                         JobJL."Journal Template Name" := 'JOB';
                         JobJL."Journal Batch Name" := Job."No.";
                         JobJL."Line No." := Icount[1];
                         JobJL."Posting Date" := Today;
                         JobJL."Document Date" := Today;
-                        JobJLX.Init;
+                        JobJLX.Init();
 
                         // JobJL.SetUpNewLine(JobJL);
                         JobJL."Document No." := Job."No.";
@@ -110,10 +109,10 @@ report 70043 "Voyage Ending Inventory expenJ"
                         JobJL."Reason Code" := '0';
                         JobJL."Work Type Code" := "Item Category Code";
                         JobJL."Source Code" := 'JETTY';
-                        if not JobJL.Insert then JobJL.Modify;
+                        if not JobJL.Insert() then JobJL.Modify();
 
                         //Take Catches to Store
-                        JobJL2.Init;
+                        JobJL2.Init();
                         JobJL2 := JobJL;
                         JobJL2."Line No." := JobJL2."Line No." - 5;
 
@@ -123,14 +122,13 @@ report 70043 "Voyage Ending Inventory expenJ"
                         if Job."Global Dimension 2 Code" = 'COSMOS' then LocCd := 'COS';
                         if Job."Global Dimension 2 Code" = 'SAVANNAH' then LocCd := 'SSC';
 
-
                         LocCd := 'ASL';
                         JobJL2."Location Code" := 'CRM-' + LocCd;
                         JobJL2.Validate(JobJL2.Quantity, JobJL2.Quantity * -1);
                         JobJL2."Reconciliation Catch Quantity" := JobJL2.Quantity;
                         JobJL2."Shortcut Dimension 2 Code" := 'ATLANTIC';
                         JobJL2."Variant Code" := '';
-                        if not JobJL2.Insert then JobJL2.Modify;
+                        if not JobJL2.Insert() then JobJL2.Modify();
                     end;
                 end;
 
@@ -142,13 +140,13 @@ report 70043 "Voyage Ending Inventory expenJ"
                     SetRange("Location Filter", Job.Vessel);
                     SetRange("Gen. Prod. Posting Group", 'FIS');
 
-                    JobJB.Init;
+                    JobJB.Init();
                     JobJB."Journal Template Name" := 'JOB';
                     JobJB.Name := Job."No.";
                     JobJB."Voyage No." := Job."Voyage No.";
                     JobJB."Job No." := Job.Vessel;
                     JobJB."No. Series" := '';
-                    if not JobJB.Insert then JobJB.Modify;
+                    if not JobJB.Insert() then JobJB.Modify();
                 end;
             }
             dataitem("Job Ledger Entry"; "Job Ledger Entry")
@@ -193,16 +191,16 @@ report 70043 "Voyage Ending Inventory expenJ"
                 begin
                     if RES.Get("No.") then begin
                         RES.Posted := false;
-                        RES.Modify;
+                        RES.Modify();
                         "Ended Voyage" := true;
                         Validate("Ending Date", Job."Ending Date");
-                        Modify;
+                        Modify();
                     end;
                 end;
 
                 trigger OnPreDataItem()
                 begin
-                    CurrReport.NewPage;
+                    CurrReport.NewPage();
                 end;
             }
 
@@ -210,7 +208,7 @@ report 70043 "Voyage Ending Inventory expenJ"
             begin
                 Job.TestField(Job.Status, 2);
                 Message('Sea Days is %1 ', Job."Sea Days");
-                if not Confirm('has the ending date been Updated', false) then CurrReport.Quit;
+                if not Confirm('has the ending date been Updated', false) then CurrReport.Quit();
             end;
 
             trigger OnPostDataItem()
@@ -231,7 +229,6 @@ report 70043 "Voyage Ending Inventory expenJ"
 
     requestpage
     {
-
         layout
         {
         }
@@ -252,16 +249,10 @@ report 70043 "Voyage Ending Inventory expenJ"
         JobJLX: Record "Job Journal Line";
         Icount: array[2] of Integer;
         LocCd: Code[10];
-        I: Code[10];
         RES: Record Resource;
         JNo: Code[10];
-        JobSetup: Record "Jobs Setup";
-        IncentiveLookUp: Record "Payroll-Lookup Lines.";
-        InctvCat: Code[20];
-        Ended: Boolean;
         JobCaptionLbl: Label 'Job';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
         Calculated_CatchCaptionLbl: Label 'Calculated Catch';
         Resource_on_BoardCaptionLbl: Label 'Resource on Board';
 }
-

@@ -1,6 +1,5 @@
 pageextension 50309 "pageextension50309" extends "Item Avail. by Variant Lines"
 {
-
     //Unsupported feature: Code Modification on "OnOpenPage".
 
     //trigger OnOpenPage()
@@ -18,4 +17,3 @@ pageextension 50309 "pageextension50309" extends "Item Avail. by Variant Lines"
     */
     //end;
 }
-

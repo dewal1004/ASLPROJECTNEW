@@ -2,7 +2,6 @@ pageextension 50364 "pageextension50364" extends "Sales Invoice List"
 {
     layout
     {
-
         moveafter("Shipment Method Code"; "Shipping Agent Code")
         Modify("Shipping Agent Code")
         {
@@ -16,7 +15,6 @@ pageextension 50364 "pageextension50364" extends "Sales Invoice List"
         {
             ApplicationArea = Basic, Suite;
             ToolTip = 'Specifies the sum of amounts in the Line Amount field on the sales order lines. It is used to calculate the invoice discount of the sales order.';
-
         }
     }
     actions
@@ -36,7 +34,7 @@ pageextension 50364 "pageextension50364" extends "Sales Invoice List"
                 begin
                     TrasRec.SetRange(TrasRec."No.", Rec."No.");
                     TrasRec.SetRange(TrasRec."Document Type", Rec."Document Type");
-                    if TrasRec.FindFirst then
+                    if TrasRec.FindFirst() then
                         REPORT.RunModal(50093, true, false, TrasRec);
                 end;
             }
@@ -52,7 +50,6 @@ pageextension 50364 "pageextension50364" extends "Sales Invoice List"
         }
     }
 
-
     //Unsupported feature: Property Modification (Id) on "LinesInstructionMgt(Variable 1003)".
 
     //var
@@ -62,7 +59,6 @@ pageextension 50364 "pageextension50364" extends "Sales Invoice List"
     //>>>> MODIFIED VALUE:
     //LinesInstructionMgt : 1103;
     //Variable type has not been exported.
-
 
     //Unsupported feature: Property Modification (Id) on "JobQueueActive(Variable 1000)".
 
@@ -74,7 +70,6 @@ pageextension 50364 "pageextension50364" extends "Sales Invoice List"
     //JobQueueActive : 1100;
     //Variable type has not been exported.
 
-
     //Unsupported feature: Property Modification (Id) on "OpenApprovalEntriesExist(Variable 1004)".
 
     //var
@@ -84,7 +79,6 @@ pageextension 50364 "pageextension50364" extends "Sales Invoice List"
     //>>>> MODIFIED VALUE:
     //OpenApprovalEntriesExist : 1104;
     //Variable type has not been exported.
-
 
     //Unsupported feature: Property Modification (Id) on "OpenPostedSalesInvQst(Variable 1006)".
 
@@ -99,4 +93,3 @@ pageextension 50364 "pageextension50364" extends "Sales Invoice List"
     var
         TrasRec: Record "Sales Header";
 }
-

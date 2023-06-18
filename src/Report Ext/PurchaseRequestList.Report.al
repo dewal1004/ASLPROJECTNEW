@@ -4,7 +4,7 @@ report 50233 "Purchase Request List"
     RDLCLayout = './src/reportrdlc/PurchaseRequestList.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
-
+    Caption = 'Purchase Request List';
     dataset
     {
         dataitem("Purchase Requisition1"; "Purchase Requisition1")
@@ -88,7 +88,6 @@ report 50233 "Purchase Request List"
 
     requestpage
     {
-
         layout
         {
         }
@@ -105,4 +104,3 @@ report 50233 "Purchase Request List"
     var
         SNo: Integer;
 }
-

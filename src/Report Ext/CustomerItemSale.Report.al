@@ -18,7 +18,7 @@ report 50102 "Customer/Item Sale"
             column(STRSUBSTNO_Text000_PeriodText_; StrSubstNo(Text000, PeriodText))
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(COMPANYNAME; CompanyName)
@@ -123,14 +123,11 @@ report 50102 "Customer/Item Sale"
                     CurrReport.CreateTotals("Invoiced Quantity", "Sales Amount (Actual)", Profit, "Discount Amount");
                     CurrReport.CreateTotals("Value Entry"."Invoiced Quantity");
 
+                    CalcProfitPct();
 
-                    CalcProfitPct;
-
-
-
-                    CalcProfitPct;
+                    CalcProfitPct();
                     if not Item.Get("Item No.") then
-                        Item.Init
+                        Item.Init()
                 end;
             }
 
@@ -143,7 +140,6 @@ report 50102 "Customer/Item Sale"
 
     requestpage
     {
-
         layout
         {
         }
@@ -190,4 +186,3 @@ report 50102 "Customer/Item Sale"
             ProfitPct := 0;
     end;
 }
-

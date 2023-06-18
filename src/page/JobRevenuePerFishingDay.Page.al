@@ -3,7 +3,7 @@ page 89345 "Job Revenue Per Fishing Day"
     PageType = Card;
     SourceTable = Job;
     SourceTableView = WHERE("Ending Date" = FILTER(20030101D .. 20030131D));
-
+    Caption = 'Job Revenue Per Fishing Day';
     layout
     {
         area(content)
@@ -35,4 +35,3 @@ page 89345 "Job Revenue Per Fishing Day"
     {
     }
 }
-

@@ -4,7 +4,7 @@ report 50147 "Sales Returns Register"
     RDLCLayout = './src/reportrdlc/SalesReturnsRegister.50147.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
-
+    Caption = 'Sales Returns Register';
     dataset
     {
         dataitem("Sales Cr.Memo Header"; "Sales Cr.Memo Header")
@@ -21,7 +21,7 @@ report 50147 "Sales Returns Register"
             column(FORMAT_TODAY_0_4_; Format(Today, 0, 4))
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(Sales_Cr_Memo_Header__GETFILTERS; "Sales Cr.Memo Header".GetFilters)
@@ -237,7 +237,6 @@ report 50147 "Sales Returns Register"
             begin
                 Customer.GET("Sales Cr.Memo Header"."Sell-to Customer No.");
                 SalesInvHeader := "Sales Cr.Memo Header";
-
             end;
 
             trigger OnPreDataItem()
@@ -249,7 +248,6 @@ report 50147 "Sales Returns Register"
 
     requestpage
     {
-
         layout
         {
         }
@@ -273,19 +271,14 @@ report 50147 "Sales Returns Register"
 
     var
         SalesInvHeader: Record "Sales Cr.Memo Header";
-        UserSetup: Record "User Setup";
-        ItemRec: Record Item;
         Customer: Record Customer;
         CurrencyExchRate: Record "Currency Exchange Rate";
-        totalamount: Decimal;
         DiscAmount: Decimal;
-        InvDisc: Decimal;
         ItemFilter: Code[250];
         TotQty: Decimal;
         UnitPrice: Decimal;
         InvAmount: Decimal;
         VatAmount: Decimal;
-        ShowDetails: Boolean;
         ShowVat: Boolean;
         AmountCaption: Text[30];
         CurrReport_PAGENOCaptionLbl: Label 'Page';
@@ -311,4 +304,3 @@ report 50147 "Sales Returns Register"
         Grand_TotalCaptionLbl: Label 'Grand Total';
         Total_for_Customer_CaptionLbl: Label 'Total for Customer:';
 }
-

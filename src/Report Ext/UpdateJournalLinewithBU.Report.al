@@ -2,7 +2,7 @@ report 99901 "Update Journal Line with BU"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/UpdateJournalLinewithBU.rdlc';
-
+    Caption = 'Update Journal Line with BU';
     dataset
     {
         dataitem("Item Journal Line"; "Item Journal Line")
@@ -14,7 +14,7 @@ report 99901 "Update Journal Line with BU"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -102,7 +102,6 @@ report 99901 "Update Journal Line with BU"
 
     requestpage
     {
-
         layout
         {
         }
@@ -120,4 +119,3 @@ report 99901 "Update Journal Line with BU"
         Item_Journal_LineCaptionLbl: Label 'Item Journal Line';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
 }
-

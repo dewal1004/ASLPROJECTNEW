@@ -2,9 +2,7 @@ pageextension 50268 "pageextension50268" extends "Sales Order Statistics"
 {
     layout
     {
-
         //Unsupported feature: Property Modification (Name) on "VATAmount(Control 16)".
-
     }
 
     //Unsupported feature: Code Modification on "RefreshOnAfterGetRecord(PROCEDURE 10)".
@@ -32,7 +30,6 @@ pageextension 50268 "pageextension50268" extends "Sales Order Statistics"
     */
     //end;
 
-
     //Unsupported feature: Code Modification on "CustInvDiscRecExists(PROCEDURE 4)".
 
     //procedure CustInvDiscRecExists();
@@ -54,4 +51,3 @@ pageextension 50268 "pageextension50268" extends "Sales Order Statistics"
     */
     //end;
 }
-

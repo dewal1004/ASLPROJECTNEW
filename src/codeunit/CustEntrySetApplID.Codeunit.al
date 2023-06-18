@@ -12,7 +12,7 @@ codeunit 50101 "Cust. Entry-SetAppl.ID."
     [Scope('OnPrem')]
     procedure SetApplId(var CustLedgEntry: Record "Cust. Ledger Entry"; AppliesToID: Code[20])
     begin
-        CustLedgEntry.LockTable;
+        CustLedgEntry.LockTable();
         if CustLedgEntry.Find('-') then begin
             // Make Applies-to ID
             if CustLedgEntry."Applies-to ID" <> '' then
@@ -30,9 +30,8 @@ codeunit 50101 "Cust. Entry-SetAppl.ID."
             repeat
                 CustLedgEntry.TestField(Open, true);
                 CustLedgEntry."Applies-to ID" := CustEntryApplID;
-                CustLedgEntry.Modify;
-            until CustLedgEntry.Next = 0;
+                CustLedgEntry.Modify();
+            until CustLedgEntry.Next() = 0;
         end;
     end;
 }
-

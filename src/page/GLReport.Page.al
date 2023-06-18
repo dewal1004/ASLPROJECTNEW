@@ -2,7 +2,7 @@ page 50138 "GL-Report"
 {
     UsageCategory = Administration;
     ApplicationArea = all;
-
+    Caption = 'GL-Report';
     layout
     {
     }
@@ -90,7 +90,7 @@ page 50138 "GL-Report"
                 {
                     Image = "report";
                     ApplicationArea = All;
-                    //***R RunObject = Report "Periodic Landing Report";//***R 
+                    //***R RunObject = Report "Periodic Landing Report";//***R
                 }
                 action("Bank LIST local currency")
                 {
@@ -167,4 +167,3 @@ page 50138 "GL-Report"
         }
     }
 }
-

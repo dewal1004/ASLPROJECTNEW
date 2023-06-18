@@ -25,14 +25,13 @@ report 50037 "PurchaseGRNExt"
             column(CreatedBy; UserId) { }
             column(ApprovedBy; ApprovedBy) { }
             column(Signature; Signature) { }
-
             dataitem(PageCounter; "Integer")
             {
                 DataItemTableView = SORTING(Number) WHERE(Number = CONST(1));
                 column(FORMAT_TODAY_0_4_; Format(Today, 0, 4))
                 {
                 }
-                column(COMPANYNAME; COMPANYPROPERTY.DisplayName)
+                column(COMPANYNAME; COMPANYPROPERTY.DisplayName())
                 {
                 }
                 column(USERID; UserId)
@@ -432,7 +431,7 @@ report 50037 "PurchaseGRNExt"
                     trigger OnAfterGetRecord()
                     begin
                         if Number = 1 then begin
-                            if not DimSetEntry1.FindSet then
+                            if not DimSetEntry1.FindSet() then
                                 CurrReport.Break();
                         end else
                             if not Continue then
@@ -584,7 +583,7 @@ report 50037 "PurchaseGRNExt"
                         column(TotalInclVATText; TotalInclVATText)
                         {
                         }
-                        column(VATAmountLine_VATAmountText; VATAmountLine.VATAmountText)
+                        column(VATAmountLine_VATAmountText; VATAmountLine.VATAmountText())
                         {
                         }
                         column(TotalExclVATText; TotalExclVATText)
@@ -619,7 +618,7 @@ report 50037 "PurchaseGRNExt"
                         column(TotalInclVATText_Control155; TotalInclVATText)
                         {
                         }
-                        column(VATAmountLine_VATAmountText_Control151; VATAmountLine.VATAmountText)
+                        column(VATAmountLine_VATAmountText_Control151; VATAmountLine.VATAmountText())
                         {
                         }
                         column(TotalExclVATText_Control153; TotalExclVATText)
@@ -684,14 +683,12 @@ report 50037 "PurchaseGRNExt"
                         }
                         column(S_No; S_No)
                         {
-
                         }
                         column(UOM; "Purchase Line"."Unit of Measure") { }
                         Column(Unit_Rate; "Purchase Line"."Unit Cost") { }
                         column(UnitCostLCY_PurchaseLine; "Purchase Line"."Unit Cost (LCY)") { }
                         column(OutstandingAmountLCY_PurchaseLine; "Purchase Line"."Outstanding Amount (LCY)") { }
                         column(InvPosGrp; "Purchase Line"."Posting Group") { }
-
                         dataitem(DimensionLoop2;
                         "Integer")
                         {
@@ -712,7 +709,7 @@ report 50037 "PurchaseGRNExt"
                             trigger OnAfterGetRecord()
                             begin
                                 if Number = 1 then begin
-                                    if not DimSetEntry2.FindSet then
+                                    if not DimSetEntry2.FindSet() then
                                         CurrReport.Break();
                                 end else
                                     if not Continue then
@@ -780,7 +777,7 @@ report 50037 "PurchaseGRNExt"
                             if Number = 1 then
                                 TempPurchLine.Find('-')
                             else
-                                TempPurchLine.Next;
+                                TempPurchLine.Next();
                             "Purchase Line" := TempPurchLine;
 
                             if not "Purchase Header"."Prices Including VAT" and
@@ -851,7 +848,7 @@ then
                                 GenPostingSetup.Reset();
                                 GenPostingSetup.SetRange("Gen. Bus. Posting Group", "Purchase Line"."Gen. Bus. Posting Group");
                                 GenPostingSetup.SetRange("Gen. Prod. Posting Group", "Purchase Line"."Gen. Prod. Posting Group");
-                                if not GenPostingSetup.FindLast then
+                                if not GenPostingSetup.FindLast() then
                                     AddError(
                                       StrSubstNo(
                                         Text020,
@@ -885,7 +882,7 @@ then
                             end;
 
                             if ("Purchase Line".Type <> "Purchase Line".Type::" ") and ("Purchase Line"."Qty. to Invoice" <> 0) then
-                                if not ApplicationAreaMgmt.IsSalesTaxEnabled then
+                                if not ApplicationAreaMgmt.IsSalesTaxEnabled() then
                                     if not GenPostingSetup.Get("Purchase Line"."Gen. Bus. Posting Group", "Purchase Line"."Gen. Prod. Posting Group") then
                                         AddError(
                                           StrSubstNo(
@@ -926,12 +923,12 @@ then
                             if "Purchase Line"."Line No." > OrigMaxLineNo then begin
                                 AddDimToTempLine("Purchase Line");
                                 if not DimMgt.CheckDimIDComb("Purchase Line"."Dimension Set ID") then
-                                    AddError(DimMgt.GetDimCombErr);
+                                    AddError(DimMgt.GetDimCombErr());
                                 if not DimMgt.CheckDimValuePosting(TableID, No, "Purchase Line"."Dimension Set ID") then
-                                    AddError(DimMgt.GetDimValuePostingErr);
+                                    AddError(DimMgt.GetDimValuePostingErr());
                             end else begin
                                 if not DimMgt.CheckDimIDComb("Purchase Line"."Dimension Set ID") then
-                                    AddError(DimMgt.GetDimCombErr);
+                                    AddError(DimMgt.GetDimCombErr());
 
                                 TableID[1] := DimMgt.TypeToTableID3("Purchase Line".Type.AsInteger());
                                 No[1] := "Purchase Line"."No.";
@@ -941,7 +938,7 @@ then
                                 No[3] := "Purchase Line"."Work Center No.";
                                 OnBeforeCheckDimValuePostingLine("Purchase Line", TableID, No);
                                 if not DimMgt.CheckDimValuePosting(TableID, No, "Purchase Line"."Dimension Set ID") then
-                                    AddError(DimMgt.GetDimValuePostingErr);
+                                    AddError(DimMgt.GetDimValuePostingErr());
                             end;
 
                             AllowInvDisctxt := Format("Purchase Line"."Allow Invoice Disc.");
@@ -1346,8 +1343,8 @@ then
                         PurchPost.GetPurchLines("Purchase Header", TempPurchLine, 1);
                         TempPurchLine.CalcVATAmountLines(0, "Purchase Header", TempPurchLine, VATAmountLine);
                         TempPurchLine.UpdateVATOnLines(0, "Purchase Header", TempPurchLine, VATAmountLine);
-                        VATAmount := VATAmountLine.GetTotalVATAmount;
-                        VATBaseAmount := VATAmountLine.GetTotalVATBase;
+                        VATAmount := VATAmountLine.GetTotalVATAmount();
+                        VATBaseAmount := VATAmountLine.GetTotalVATBase();
                         VATDiscountAmount :=
                           VATAmountLine.GetTotalVATDiscount("Purchase Header"."Currency Code", "Purchase Header"."Prices Including VAT");
                     end;
@@ -1528,7 +1525,7 @@ then
                 PurchLine.SetRange("Document No.", "No.");
                 PurchLine.SetFilter("Sales Order Line No.", '<>0');
                 if Receive then
-                    if PurchLine.FindSet then
+                    if PurchLine.FindSet() then
                         repeat
                             if SalesHeader."No." <> PurchLine."Sales Order No." then begin
                                 SalesHeader.Get(1, PurchLine."Sales Order No.");
@@ -1558,7 +1555,7 @@ then
                     VendLedgEntry.SetCurrentKey("External Document No.");
                     VendorMgt.SetFilterForExternalDocNo(
                       VendLedgEntry, "Document Type", "Vendor Invoice No.", "Pay-to Vendor No.", "Document Date");
-                    if VendLedgEntry.FindFirst then
+                    if VendLedgEntry.FindFirst() then
                         AddError(
                           StrSubstNo(
                             Text017,
@@ -1566,7 +1563,7 @@ then
                 end;
 
                 if not DimMgt.CheckDimIDComb("Dimension Set ID") then
-                    AddError(DimMgt.GetDimCombErr);
+                    AddError(DimMgt.GetDimCombErr());
 
                 TableID[1] := DATABASE::Vendor;
                 No[1] := "Pay-to Vendor No.";
@@ -1578,7 +1575,7 @@ then
                 No[5] := "Responsibility Center";
                 OnBeforeCheckDimValuePostingHeader("Purchase Header", TableID, No);
                 if not DimMgt.CheckDimValuePosting(TableID, No, "Dimension Set ID") then
-                    AddError(DimMgt.GetDimValuePostingErr);
+                    AddError(DimMgt.GetDimValuePostingErr());
 
                 PricesInclVATtxt := Format("Prices Including VAT");
 
@@ -1590,7 +1587,7 @@ then
                 PurchHeader.Copy("Purchase Header");
                 PurchHeader.FilterGroup := 2;
                 PurchHeader.SetRange("Document Type", PurchHeader."Document Type"::Order);
-                if PurchHeader.FindFirst then begin
+                if PurchHeader.FindFirst() then begin
                     case true of
                         ReceiveShipOnNextPostReq and InvOnNextPostReq:
                             ReceiveInvoiceText := Text000;
@@ -1602,7 +1599,7 @@ then
                     ReceiveInvoiceText := StrSubstNo(Text003, ReceiveInvoiceText);
                 end;
                 PurchHeader.SetRange("Document Type", PurchHeader."Document Type"::"Return Order");
-                if PurchHeader.FindFirst then begin
+                if PurchHeader.FindFirst() then begin
                     case true of
                         ReceiveShipOnNextPostReq and InvOnNextPostReq:
                             ShipInvoiceText := Text028;
@@ -1616,8 +1613,6 @@ then
             end;
         }
     }
-
-
 
     requestpage
     {
@@ -1695,10 +1690,7 @@ then
         Signature: Label 'Signature: ';
         ApprovedBy: Label 'Approved By: ';
         PreparedBy: Label 'Prepared By: ';
-        CreatedBy: Label 'Created By';
         S_No: integer;
-        UOM: Code[20];
-        Unit_Rate: Decimal;
 
     trigger OnInitReport()
     begin
@@ -1999,7 +1991,7 @@ then
                     if not DimMgt.CheckDimIDConsistency(
                          TempDimSetEntry, TempPostedDimSetEntry, DATABASE::"Purchase Line", DATABASE::"Purch. Rcpt. Line")
                     then
-                        AddError(DimMgt.GetDocDimConsistencyErr);
+                        AddError(DimMgt.GetDocDimConsistencyErr());
                     if PurchRcptLine."Buy-from Vendor No." <> PurchLine2."Buy-from Vendor No." then
                         AddError(
                           StrSubstNo(
@@ -2088,7 +2080,7 @@ then
                     if not DimMgt.CheckDimIDConsistency(
                          TempDimSetEntry, TempPostedDimSetEntry, DATABASE::"Purchase Line", DATABASE::"Return Shipment Line")
                     then
-                        AddError(DimMgt.GetDocDimConsistencyErr);
+                        AddError(DimMgt.GetDocDimConsistencyErr());
 
                     if ReturnShptLine."Buy-from Vendor No." <> PurchLine2."Buy-from Vendor No." then
                         AddError(
@@ -2245,7 +2237,7 @@ then
     begin
         if PurchaseHeader."Buy-from Vendor No." = '' then
             AddError(StrSubstNo(Text006, PurchaseHeader.FieldCaption("Buy-from Vendor No.")))
-        else begin
+        else
             if Vend.Get(PurchaseHeader."Buy-from Vendor No.") then begin
                 if Vend."Privacy Blocked" then
                     AddError(Vend.GetPrivacyBlockedGenericErrorText(Vend));
@@ -2260,7 +2252,6 @@ then
                   StrSubstNo(
                     Text008,
                     Vend.TableCaption, PurchaseHeader."Buy-from Vendor No."));
-        end;
     end;
 
     local procedure VerifyPayToVend(PurchaseHeader: Record "Purchase Header")
@@ -2268,7 +2259,7 @@ then
         if PurchaseHeader."Pay-to Vendor No." = '' then
             AddError(StrSubstNo(Text006, PurchaseHeader.FieldCaption("Pay-to Vendor No.")))
         else
-            if PurchaseHeader."Pay-to Vendor No." <> PurchaseHeader."Buy-from Vendor No." then begin
+            if PurchaseHeader."Pay-to Vendor No." <> PurchaseHeader."Buy-from Vendor No." then
                 if Vend.Get(PurchaseHeader."Pay-to Vendor No.") then begin
                     if Vend."Privacy Blocked" then
                         AddError(Vend.GetPrivacyBlockedGenericErrorText(Vend));
@@ -2282,7 +2273,6 @@ then
                       StrSubstNo(
                         Text008,
                         Vend.TableCaption, PurchaseHeader."Pay-to Vendor No."));
-            end;
     end;
 
     local procedure VerifyPostingDate(PurchaseHeader: Record "Purchase Header")
@@ -2299,7 +2289,7 @@ then
             else begin
                 if not UserSetupManagement.TestAllowedPostingDate(PurchaseHeader."Posting Date", TempErrorText) then
                     AddError(TempErrorText);
-                if IsInvtPosting then begin
+                if IsInvtPosting() then begin
                     InvtPeriodEndDate := PurchaseHeader."Posting Date";
                     if not InvtPeriod.IsValidDate(InvtPeriodEndDate) then
                         AddError(
@@ -2332,5 +2322,4 @@ then
     local procedure OnCheckPurchLineCaseTypeElse(LineType: Option; "No.": Code[20]; var ErrorText: Text[250])
     begin
     end;
-
 }

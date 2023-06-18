@@ -13,6 +13,5 @@ codeunit 50013 "FormatAddressSubscriber"
         //   ELSE
         //     PostCodeCityText := City;
         // END;
-
     end;
 }

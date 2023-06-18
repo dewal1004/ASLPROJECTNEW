@@ -2,7 +2,7 @@ table 50033 "Sea Food categories"
 {
     LookupPageID = "Sea Food Categories";
     DrillDownPageId = "Sea Food Categories";
-
+    Caption = 'Sea Food categories';
     fields
     {
         field(1; "Sea food code"; Code[15])
@@ -80,4 +80,3 @@ table 50033 "Sea Food categories"
         fieldgroup(bricks; "Sea food code", "Sea food Description", "Inventory.", "Inventory 1", "Inventory 2") { }
     }
 }
-

@@ -4,7 +4,6 @@ report 50137 "Inventory - BINCARD 704 B"
     // "Print Bin Card"
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/InventoryBINCARD704B.rdlc';
-
     Caption = 'Inventory - Transaction Detail';
     Permissions = TableData "Sales Shipment Header" = rimd;
 
@@ -20,7 +19,7 @@ report 50137 "Inventory - BINCARD 704 B"
             column(STRSUBSTNO_Text000_ItemDateFilter_; StrSubstNo(Text000, ItemDateFilter))
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(COMPANYNAME; CompanyName)
@@ -94,7 +93,6 @@ report 50137 "Inventory - BINCARD 704 B"
                 }
                 column(StartOnHand; StartOnHand)
                 {
-
                 }
                 column(Unit_CostCaption_Control1000000001; Unit_CostCaption_Control1000000001Lbl)
                 {
@@ -194,7 +192,7 @@ report 50137 "Inventory - BINCARD 704 B"
                         end;
                         "Item Ledger Entry".SETFILTER("Posting Date", ItemDateFilter);
 
-                        IF InvtSetUp.GET THEN;
+                        IF InvtSetUp.GET() THEN;
                         TransTo := '';
                         TransFr := '';
                         //g_EntryFound := FALSE;
@@ -210,28 +208,24 @@ report 50137 "Inventory - BINCARD 704 B"
                                     TransFr := InvtSetUp."Default Store";//negative adjustment and sales
                                 END;
                             4:
-                                BEGIN
-                                    IF TransShip.GET("Document No.") THEN BEGIN
-                                        TransTo := TransShip."Transfer-to Code";
-                                        TransFr := TransShip."Transfer-from Code";
-                                        IssueNo := TransShip."Transfer Order No.";
-                                    end;
-                                End;
 
+                                IF TransShip.GET("Document No.") THEN BEGIN
+                                    TransTo := TransShip."Transfer-to Code";
+                                    TransFr := TransShip."Transfer-from Code";
+                                    IssueNo := TransShip."Transfer Order No.";
+                                end;
                         end;
 
                         PurchRec.SETRANGE(PurchRec."No.", "Document No.");
-                        IF PurchRec.FINDFIRST THEN BEGIN
+                        IF PurchRec.FINDFIRST() THEN BEGIN
                             TransFr := PurchRec."Buy-from Vendor No.";
                             IssueNo := PurchRec."Order No.";
                         END;
                         SalesShi.SETRANGE(SalesShi."No.", "Document No.");
-                        IF SalesShi.FINDFIRST THEN BEGIN
+                        IF SalesShi.FINDFIRST() THEN BEGIN
                             TransTo := SalesShi."Sell-to Customer No.";
                             IssueNo := SalesShi."Order No.";
                         END;
-
-
 
                         ItemOnHand := ItemOnHand + Quantity;
                         IF Quantity > 0 THEN
@@ -239,7 +233,6 @@ report 50137 "Inventory - BINCARD 704 B"
                         ELSE
                             DecreasesQty := ABS(Quantity);
                         HandQty := HandQty + "Item Ledger Entry".Quantity + StartOnHand;
-
 
                         //ss
                     End;
@@ -275,7 +268,6 @@ report 50137 "Inventory - BINCARD 704 B"
 
     requestpage
     {
-
         layout
         {
         }
@@ -304,9 +296,7 @@ report 50137 "Inventory - BINCARD 704 B"
         IncreasesQty: Decimal;
         DecreasesQty: Decimal;
         PrintOnlyOnePerPage: Boolean;
-        "--------------": Integer;
         TransShip: Record "Transfer Shipment Header";
-        TransRecpt: Record "Transfer Receipt Header";
         InvtSetUp: Record "Inventory Setup";
         PurchRec: Record "Purch. Rcpt. Header";
         SalesShi: Record "Sales Shipment Header";
@@ -315,9 +305,6 @@ report 50137 "Inventory - BINCARD 704 B"
         TransFr: Text[30];
         LastrecEntNo: Integer;
         "Print Bin Card": Boolean;
-        StopOnHand: Decimal;
-        items2: Record Item;
-        BinOp: Decimal;
         Inventory___Transaction_DetailCaptionLbl: Label 'Inventory - Transaction Detail';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
         Unit_CostCaptionLbl: Label 'Unit Cost';
@@ -333,4 +320,3 @@ report 50137 "Inventory - BINCARD 704 B"
         IssueNo: Code[20];
         HandQty: Decimal;
 }
-

@@ -1,7 +1,7 @@
 table 50006 "Payroll-Payslip Lines."
 {
     DrillDownPageID = "Payslip Lines.";
-
+    Caption = 'Payroll-Payslip Lines.';
     fields
     {
         field(1; "Payroll Period"; Code[10])
@@ -35,7 +35,7 @@ table 50006 "Payroll-Payslip Lines."
                 GetParam();
 
                 /* If Period+Employee has already been closed then stop edit */
-                if CheckClosed then
+                if CheckClosed() then
                     Error('Entries for Employee %1 for period %2 ' +
                            'have already been closed.', "Employee No", "Payroll Period");
 
@@ -120,7 +120,6 @@ table 50006 "Payroll-Payslip Lines."
                     if BookGrLinesRec."Transfer Business Units" then
                         "Global Dimension 2 Code" := EmployeeRec."Global Dimension 2 Code";
                 end;
-
             end;
         }
         field(4; Units; Text[10])
@@ -136,7 +135,7 @@ table 50006 "Payroll-Payslip Lines."
                 GetParam();
 
                 /* If Period+Employee has already been closed then stop edit */
-                if CheckClosed then
+                if CheckClosed() then
                     Error('Entries for Employee %1 for period %2 ' +
                            'have already been closed.', "Employee No", "Payroll Period");
 
@@ -148,9 +147,7 @@ table 50006 "Payroll-Payslip Lines."
 
                     /*Check for rounding, Maximum and minimum */
                     "E/DFileRec".Get("E/D Code");
-
                 end
-
             end;
         }
         field(6; Quantity; Decimal)
@@ -160,7 +157,7 @@ table 50006 "Payroll-Payslip Lines."
             trigger OnValidate()
             begin
                 /* If Period+Employee has already been closed then stop edit */
-                if CheckClosed then
+                if CheckClosed() then
                     Error('Entries for Employee %1 for period %2 ' +
                            'have already been closed.', "Employee No", "Payroll Period");
 
@@ -182,18 +179,15 @@ table 50006 "Payroll-Payslip Lines."
                         Amount := Round((BasicPay * Rate * Quantity) / DaysInMonth);
 
                     /////////////
-
                 end
-
             end;
         }
         field(7; Flag; Boolean)
         {
-
             trigger OnValidate()
             begin
                 /* If Period+Employee has already been closed then stop edit */
-                if CheckClosed then
+                if CheckClosed() then
                     Error('Entries for Employee %1 for period %2 ' +
                            'have already been closed.', "Employee No", "Payroll Period");
 
@@ -202,16 +196,14 @@ table 50006 "Payroll-Payslip Lines."
                     Flag := false
                 else
                     Amount := CalcAmount("E/DFileRec", Rec, Amount, "E/D Code");
-
             end;
         }
         field(8; Amount; Decimal)
         {
-
             trigger OnValidate()
             begin
                 /* If Period+Employee has already been closed then stop edit */
-                if CheckClosed then
+                if CheckClosed() then
                     Error('Entries for Employee %1 for period %2 ' +
                            'have already been closed.', "Employee No", "Payroll Period");
 
@@ -221,7 +213,6 @@ table 50006 "Payroll-Payslip Lines."
                 else
                     /*Check for rounding, Maximum and minimum */
                   Amount := ChkRoundMaxMin("E/DFileRec", Amount);
-
             end;
         }
         field(9; "Debit Account"; Code[20])
@@ -413,7 +404,6 @@ table 50006 "Payroll-Payslip Lines."
 
         /* Set the 'Change' flags to false in all the lines */
         ResetChangeFlags(Rec);
-
     end;
 
     trigger OnModify()
@@ -445,9 +435,7 @@ table 50006 "Payroll-Payslip Lines."
 
             /*BDC
                MARK( FALSE);*/
-
         end;
-
     end;
 
     var
@@ -484,8 +472,6 @@ table 50006 "Payroll-Payslip Lines."
         PerStart: Date;
         Per1: Code[10];
         YearStart: Date;
-        T1: Decimal;
-        T2: Decimal;
         PaySetup: Record "ASL Payroll Setup";
         HrsInDay: Integer;
         DaysInMonth: Integer;
@@ -497,17 +483,12 @@ table 50006 "Payroll-Payslip Lines."
         TaxYTD: Decimal;
         AmountToTax: Decimal;
         TaxED: Code[10];
-        NewTax: Decimal;
-        MonthlyDays: Integer;
-        VarRec: Record "Monthly Variables Lines.";
-        GenPCode: Codeunit "General Purpose Codeunit";
         CurrTaxable: Decimal;
         NewEmpRec: Record Employee;
-        LookupRec: Record "Payroll-Lookup Header.";
 
     procedure GetParam()
     begin
-        PaySetup.Reset;
+        PaySetup.Reset();
         PaySetup.Find('-');
         DaysInMonth := PaySetup."Monthly Working Days";
         HrsInDay := PaySetup."Daily Working Hours";
@@ -522,7 +503,6 @@ table 50006 "Payroll-Payslip Lines."
         ””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””*/
         ProllHeader.Get("Payroll Period", "Employee No");
         exit(ProllHeader."Closed?");
-
     end;
 
     procedure CalcCompute(EntryRecParam: Record "Payroll-Payslip Lines."; AmountInLine: Decimal; "CalledFromEdCode?": Boolean; EDCode: Code[20])
@@ -542,7 +522,7 @@ table 50006 "Payroll-Payslip Lines."
         if "E/DFileRec".Compute = '' then
             exit;
 
-        ProllEntryRec.Init;
+        ProllEntryRec.Init();
         ProllEntryRec.SetRange("Payroll Period", EntryRecParam."Payroll Period");
         ProllEntryRec.SetRange("Employee No", EntryRecParam."Employee No");
 
@@ -600,7 +580,7 @@ table 50006 "Payroll-Payslip Lines."
 
         /* Move the computed amount to the line whose E/D Code is the one that has
           just been calculated.*/
-        ProllEntryRec.Init;
+        ProllEntryRec.Init();
         ProllEntryRec."E/D Code" := ConstEDFileRec.Compute;
         "E/DFileRec".Get(ConstEDFileRec.Compute);
         /*FTN No Need
@@ -620,13 +600,12 @@ table 50006 "Payroll-Payslip Lines."
             ProllEntryRec.Amount := ComputedTotal;
             ProllEntryRec.ChangeOthers := true;
             ProllEntryRec.HasBeenChanged := true;
-            ProllEntryRec.Modify;
+            ProllEntryRec.Modify();
         end;
-        Commit;
+        Commit();
 
         ProllEntryRec.SetRange("Payroll Period");
         ProllEntryRec.SetRange("Employee No");
-
     end;
 
     procedure CalcFactor1(CurrentEntryLine: Record "Payroll-Payslip Lines.")
@@ -640,7 +619,7 @@ table 50006 "Payroll-Payslip Lines."
 
         /* Get first record in Entry Lines file for this Employee/Period */
         ProllEntryRec := CurrentEntryLine;
-        ProllEntryRec.Init;
+        ProllEntryRec.Init();
         ProllEntryRec.SetRange("Employee No", ProllEntryRec."Employee No");
         ProllEntryRec.SetRange("Payroll Period", ProllEntryRec."Payroll Period");
         ProllEntryRec."E/D Code" := '';
@@ -661,13 +640,11 @@ table 50006 "Payroll-Payslip Lines."
                 also entries where it is a Factor, therefore set ChangeOthers to True*/
                 if FactorRecAmount <> ProllEntryRec.Amount then begin
                     ProllEntryRec.ChangeOthers := true;
-                    ProllEntryRec.Modify;
+                    ProllEntryRec.Modify();
                 end
             end;
-
         until (ProllEntryRec.Next(1) = 0);
-        Commit;
-
+        Commit();
     end;
 
     procedure ChangeAllOver(CurrentRec: Record "Payroll-Payslip Lines."; CurrWasDeleted: Boolean)
@@ -705,12 +682,12 @@ table 50006 "Payroll-Payslip Lines."
             end;
             ChangeOthersRec.ChangeOthers := false;
             ChangeOthersRec.ChangeCounter := ChangeOthersRec.ChangeCounter + 1;
-            ChangeOthersRec.Modify;
+            ChangeOthersRec.Modify();
             ProllRecStore := ChangeOthersRec;
             ChangeOthersRec."E/D Code" := '';
         until ((ProllRecStore.ChangeCounter > MaxChangeCount) or
                (ChangeOthersRec.Next(1) = 0));
-        Commit;
+        Commit();
         ChangeOthersRec.SetRange("Payroll Period");
         ChangeOthersRec.SetRange("Employee No");
         ChangeOthersRec.SetRange(ChangeOthers);
@@ -720,7 +697,6 @@ table 50006 "Payroll-Payslip Lines."
                      ' characteristics', ProllRecStore."E/D Code");
 
         exit;
-
     end;
 
     procedure ResetChangeFlags(CurrentRec: Record "Payroll-Payslip Lines.")
@@ -732,7 +708,7 @@ table 50006 "Payroll-Payslip Lines."
         ””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””*/
         /*Get first record in Employee Group Lines file for this Employee group*/
         ProllEntryRec := CurrentRec;
-        ProllEntryRec.Init;
+        ProllEntryRec.Init();
         ProllEntryRec.SetRange("Payroll Period", CurrentRec."Payroll Period");
         ProllEntryRec.SetRange("Employee No", CurrentRec."Employee No");
         ProllEntryRec."E/D Code" := '';
@@ -745,13 +721,11 @@ table 50006 "Payroll-Payslip Lines."
             ChangeOthersRec.ChangeCounter := 0;
             /*BDC - Do not modify the one to be deleted*/
             if ProllEntryRec."E/D Code" <> CurrentRec."E/D Code" then
-                ProllEntryRec.Modify;
-
+                ProllEntryRec.Modify();
         until (ProllEntryRec.Next(1) = 0);
-        Commit;
+        Commit();
 
-        ProllEntryRec.Reset;
-
+        ProllEntryRec.Reset();
     end;
 
     procedure SpecialRelation("FieldNo.": Integer)
@@ -766,10 +740,9 @@ table 50006 "Payroll-Payslip Lines."
             exit;
 
         /* If Period+Employee has already been closed then stop edit */
-        if CheckClosed then
+        if CheckClosed() then
             Error('Entries for Employee %1 for period %2 ' +
                    'have already been closed.', "Employee No", "Payroll Period");
-
     end;
 
     procedure CalcAmount(EDFileRec: Record "Payroll-E/D Codes."; EntryLineRec: Record "Payroll-Payslip Lines."; EntryLineAmount: Decimal; EDCode: Code[20]): Decimal
@@ -824,17 +797,16 @@ table 50006 "Payroll-Payslip Lines."
 
                 case LookHeaderRec.Type of
                     0, 2:
-                        begin
-                            /* Lookup table is searched with numeric variables */
-                            if ProllFactorRec.Amount > -1 then begin
-                                LookLinesRec."Lower Code" := '';
-                                InputAmount := ProllFactorRec.Amount * LookHeaderRec."Input Factor";
-                                LookLinesRec."Lower Amount" := InputAmount;
-                                LookLinesRec.SetRange("Lower Code", '');
-                            end
-                            else
-                                exit(LookHeaderRec."Min. Extract Amount")
-                        end;
+
+                        /* Lookup table is searched with numeric variables */
+                        if ProllFactorRec.Amount > -1 then begin
+                            LookLinesRec."Lower Code" := '';
+                            InputAmount := ProllFactorRec.Amount * LookHeaderRec."Input Factor";
+                            LookLinesRec."Lower Amount" := InputAmount;
+                            LookLinesRec.SetRange("Lower Code", '');
+                        end
+                        else
+                            exit(LookHeaderRec."Min. Extract Amount");
                     else  /*Lookup table is searched with variables of type code*/
                       begin
                         LookLinesRec."Lower Amount" := 0;
@@ -846,27 +818,26 @@ table 50006 "Payroll-Payslip Lines."
 
                 case LookHeaderRec.Type of
                     0, 1:
-                        begin
-                            /* Extract amount as follows; First find line where Lower Amount or
-                              lower code is just greater than the Factor Amount then move one
-                              line back.*/
 
-                            if LookLinesRec.Find('=') then
-                                ReturnAmount := LookLinesRec."Extract Amount"
+                        /* Extract amount as follows; First find line where Lower Amount or
+                          lower code is just greater than the Factor Amount then move one
+                          line back.*/
+
+                        if LookLinesRec.Find('=') then
+                            ReturnAmount := LookLinesRec."Extract Amount"
+                        else
+                            if LookLinesRec.Find('>') then begin
+                                BackOneRec := LookLinesRec.Next(-1);
+                                ReturnAmount := LookLinesRec."Extract Amount";
+                            end
                             else
-                                if LookLinesRec.Find('>') then begin
-                                    BackOneRec := LookLinesRec.Next(-1);
-                                    ReturnAmount := LookLinesRec."Extract Amount";
+                                if LookHeaderRec.Type = 0 then begin
+                                    /*'Factor' Amount is > than the table's greatest "Lower amount"*/
+                                    if LookLinesRec.Find('+') then
+                                        ReturnAmount := LookLinesRec."Extract Amount";
                                 end
                                 else
-                                    if LookHeaderRec.Type = 0 then begin
-                                        /*'Factor' Amount is > than the table's greatest "Lower amount"*/
-                                        if LookLinesRec.Find('+') then
-                                            ReturnAmount := LookLinesRec."Extract Amount";
-                                    end
-                                    else
-                                        exit(EntryLineRec.Amount);
-                        end;
+                                    exit(EntryLineRec.Amount);
 
                     2: /*  Extract amount from tax table*/
                         ReturnAmount := (CalcTaxAmt(LookLinesRec, InputAmount)) *
@@ -896,7 +867,7 @@ table 50006 "Payroll-Payslip Lines."
                 end;
                 ReturnAmount := Round(ReturnAmount, RoundPrec, RoundDir);
 
-                LookLinesRec.Reset
+                LookLinesRec.Reset()
             end;
 
         /*Check for rounding, Maximum and minimum */
@@ -961,7 +932,6 @@ table 50006 "Payroll-Payslip Lines."
 
         //MESSAGE('Tax Table Output:' + FORMAT(ReturnAmount));
         exit(ReturnAmount);
-
     end;
 
     procedure CalcGraduated(var WantedLookRec: Record "Payroll-Lookup Lines."; InputToTable: Decimal): Decimal
@@ -998,7 +968,6 @@ table 50006 "Payroll-Payslip Lines."
         end;
         //MESSAGE('Output from Graduated Final: ' + FORMAT(ReturnAmount));
         exit(ReturnAmount);
-
     end;
 
     procedure "CalcFactor1.1"(CurrLineRec: Record "Payroll-Payslip Lines."; LineToChangeRec: Record "Payroll-Payslip Lines."; EDFileRec: Record "Payroll-E/D Codes."): Decimal
@@ -1037,17 +1006,16 @@ table 50006 "Payroll-Payslip Lines."
                   dbFINDREC */
                 case LookHeaderRec.Type of
                     0, 2:
-                        begin
-                            /* Lookup table is searched with numeric variables */
-                            if CurrLineRec.Amount > -1 then begin
-                                LookLinesRec."Lower Code" := '';
-                                LookLinesRec."Lower Amount" := CurrLineRec.Amount *
-                                                               LookHeaderRec."Input Factor";
-                                LookLinesRec.SetRange("Lower Code", '');
-                            end
-                            else
-                                exit(LookHeaderRec."Min. Extract Amount")
-                        end;
+
+                        /* Lookup table is searched with numeric variables */
+                        if CurrLineRec.Amount > -1 then begin
+                            LookLinesRec."Lower Code" := '';
+                            LookLinesRec."Lower Amount" := CurrLineRec.Amount *
+                                                           LookHeaderRec."Input Factor";
+                            LookLinesRec.SetRange("Lower Code", '');
+                        end
+                        else
+                            exit(LookHeaderRec."Min. Extract Amount");
                     else  /*Lookup table is searched with variables of type code*/
                       begin
                         LookLinesRec."Lower Amount" := 0;
@@ -1059,36 +1027,34 @@ table 50006 "Payroll-Payslip Lines."
 
                 case LookHeaderRec.Type of
                     0, 1:
-                        begin
-                            /* Extract amount as follows; First find line where Lower Amount or
-                              Lower Code is just greater than the CurrLineRec then move one line
-                              back.*/
 
-                            if LookLinesRec.Find('=') then
-                                ReturnAmount := LookLinesRec."Extract Amount"
+                        /* Extract amount as follows; First find line where Lower Amount or
+                          Lower Code is just greater than the CurrLineRec then move one line
+                          back.*/
+
+                        if LookLinesRec.Find('=') then
+                            ReturnAmount := LookLinesRec."Extract Amount"
+                        else
+                            if LookLinesRec.Find('>') then begin
+                                BackOneRec := LookLinesRec.Next(-1);
+                                ReturnAmount := LookLinesRec."Extract Amount";
+                            end
                             else
-                                if LookLinesRec.Find('>') then begin
-                                    BackOneRec := LookLinesRec.Next(-1);
-                                    ReturnAmount := LookLinesRec."Extract Amount";
+                                if LookHeaderRec.Type = 0 then begin
+                                    /*CurrLineRec.Amount is > than the table's greatest "Lower amount"*/
+                                    if LookLinesRec.Find('+') then
+                                        ReturnAmount := LookLinesRec."Extract Amount"
+                                    else
+                                        exit(LineToChangeRec.Amount)
                                 end
                                 else
-                                    if LookHeaderRec.Type = 0 then begin
-                                        /*CurrLineRec.Amount is > than the table's greatest "Lower amount"*/
-                                        if LookLinesRec.Find('+') then
-                                            ReturnAmount := LookLinesRec."Extract Amount"
-                                        else
-                                            exit(LineToChangeRec.Amount)
-                                    end
-                                    else
-                                        /*CurrLineRec.EDCode is > than the table's greatest "Lower code"*/
+                                    /*CurrLineRec.EDCode is > than the table's greatest "Lower code"*/
                   exit(LineToChangeRec.Amount);
-                        end;
 
                     2: /*  Extract amount from tax table*/
-                        ReturnAmount := (CalcTaxAmt(LookLinesRec, PreTaxCalc *
+                        ReturnAmount := (CalcTaxAmt(LookLinesRec, PreTaxCalc() *
                                                      LookHeaderRec."Input Factor")) *
                                                      LookHeaderRec."Output Factor";
-
                 end; /* Case */
 
                 /* Adjust the amount as per the maximum/minimum in the LookupHeader*/
@@ -1114,18 +1080,15 @@ table 50006 "Payroll-Payslip Lines."
                 end;
                 ReturnAmount := Round(ReturnAmount, RoundPrec, RoundDir);
 
-                LookLinesRec.Reset
+                LookLinesRec.Reset()
             end;
-
 
         /* Adjust amount as per maximum/minimum set in the E/D file. This will overide
           any max/min. values set in the Table Lookup Header file*/
         ReturnAmount := ChkRoundMaxMin(EDFileRec, ReturnAmount);
 
         exit(ReturnAmount);
-
     end;
-
 
     procedure ComputeAgain(ParamLine: Record "Payroll-Payslip Lines."; CurrentRec: Record "Payroll-Payslip Lines."; CurrWasDeleted: Boolean)
     begin
@@ -1143,8 +1106,8 @@ table 50006 "Payroll-Payslip Lines."
         if "E/DFileRec".Compute = '' then
             exit;
 
-        ProllEntryRec.Reset;
-        ProllEntryRec.Init;
+        ProllEntryRec.Reset();
+        ProllEntryRec.Init();
         ProllEntryRec.SetRange("Payroll Period", CurrentRec."Payroll Period");
         ProllEntryRec.SetRange("Employee No", CurrentRec."Employee No");
 
@@ -1200,13 +1163,12 @@ table 50006 "Payroll-Payslip Lines."
                     else
                         /* Add */
                 ComputedTotal := ComputedTotal + ProllEntryRec.Amount
-
             end
         until (ProllEntryRec.Next(1) = 0);
 
         /* Move the computed amount to the line whose E/D Code is the one that has
           just been calculated.*/
-        ProllEntryRec.Init;
+        ProllEntryRec.Init();
         ProllEntryRec."E/D Code" := ConstEDFileRec.Compute;
         "E/DFileRec".Get(ConstEDFileRec.Compute);
         /*dbTRANSFERFIELDS ("E/DFileRec", ProllEntryRec);*/
@@ -1218,7 +1180,7 @@ table 50006 "Payroll-Payslip Lines."
         ProllRecStore := ProllEntryRec;*/
 
         ProllEntryRec.LockTable();
-        if ProllEntryRec.Find('=') then begin
+        if ProllEntryRec.Find('=') then
             /*FactorRecAmount := ProllEntryRec.Amount;*/
             /*ProllEntryRec := ProllRecStore;*/
 
@@ -1227,13 +1189,11 @@ table 50006 "Payroll-Payslip Lines."
             if ProllEntryRec.Amount <> ComputedTotal then begin
                 ProllEntryRec.Amount := ComputedTotal;
                 ProllEntryRec.ChangeOthers := true;
-                ProllEntryRec.Modify
-            end
-        end;
-        Commit;
+                ProllEntryRec.Modify()
+            end;
+        Commit();
 
-        ProllEntryRec.Reset;
-
+        ProllEntryRec.Reset();
     end;
 
     procedure CalcFactorAgain(ParamLine: Record "Payroll-Payslip Lines."; CurrentRec: Record "Payroll-Payslip Lines."; CurrWasDeleted: Boolean)
@@ -1249,8 +1209,8 @@ table 50006 "Payroll-Payslip Lines."
         ””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””*/
 
         /*Get first record in Employee Group Lines file for this Employee group*/
-        ProllEntryRec.Reset;
-        ProllEntryRec.Init;
+        ProllEntryRec.Reset();
+        ProllEntryRec.Init();
         ProllEntryRec.SetRange("Payroll Period", ParamLine."Payroll Period");
         ProllEntryRec.SetRange("Employee No", ParamLine."Employee No");
         ProllEntryRec := ParamLine;
@@ -1278,15 +1238,13 @@ table 50006 "Payroll-Payslip Lines."
                  also entries where it is a Factor, therefore set ChangeOthers to True*/
                 if FactorRecAmount <> ProllEntryRec.Amount then begin
                     ProllEntryRec.ChangeOthers := true;
-                    ProllEntryRec.Modify
+                    ProllEntryRec.Modify()
                 end
             end;
-
         until (ProllEntryRec.Next(1) = 0);
-        Commit;
+        Commit();
 
-        ProllEntryRec.Reset;
-
+        ProllEntryRec.Reset();
     end;
 
     procedure AmountIsComputed(var ReturnAmount: Decimal; EntryLineRec: Record "Payroll-Payslip Lines."; EDFileRec: Record "Payroll-E/D Codes."; NewAmount: Decimal; EDCode: Code[20]): Boolean
@@ -1342,7 +1300,6 @@ table 50006 "Payroll-Payslip Lines."
         until (ProllRecStore.Next(1) = 0);
 
         exit(IsComputed);
-
     end;
 
     procedure ChkRoundMaxMin(EDRecord: Record "Payroll-E/D Codes."; TheAmount: Decimal): Decimal
@@ -1379,7 +1336,6 @@ table 50006 "Payroll-Payslip Lines."
         TheAmount := Round(TheAmount, RoundPrec, RoundDir);
 
         exit(TheAmount);
-
     end;
 
     procedure EDAmountToDate(EmpNo: Code[10]; CurPeriod: Code[10]; EDCode: Code[10]): Decimal
@@ -1412,19 +1368,17 @@ table 50006 "Payroll-Payslip Lines."
     end;
 
     procedure PreTaxCalc(): Decimal
-    var
-        Ret1: Decimal;
     begin
         /////////** Begin Cummulative Tax Calculation **/////////
 
-        EDRec2.Reset;
+        EDRec2.Reset();
         EDRec2.SetRange(EDRec2."Payslip Group ID", EDRec2."Payslip Group ID"::"TAXABLE PAY");
         if EDRec2.Find('-') then TaxableED := EDRec2."E/D Code";
-        EDRec2.Reset;
+        EDRec2.Reset();
         EDRec2.SetRange(EDRec2."Payslip Group ID", EDRec2."Payslip Group ID"::"TAX DEDUCTED");
         if EDRec2.Find('-') then TaxED := EDRec2."E/D Code";
 
-        PaySetup.Reset;
+        PaySetup.Reset();
         PaySetup.Find('-');
         TaxfreeED := PaySetup."Taxfree Pay ED";
 
@@ -1487,6 +1441,4 @@ table 50006 "Payroll-Payslip Lines."
         ChangeAllOver(DeletedRec, TRUE);
         EXIT;
     end;
-
 }
-

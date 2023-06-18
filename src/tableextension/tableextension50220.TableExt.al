@@ -1,6 +1,5 @@
 tableextension 50220 "tableextension50220" extends "Salesperson/Purchaser"
 {
-
     //Unsupported feature: Code Modification on "OnInsert".
 
     //trigger OnInsert()
@@ -23,4 +22,3 @@ tableextension 50220 "tableextension50220" extends "Salesperson/Purchaser"
     */
     //end;
 }
-

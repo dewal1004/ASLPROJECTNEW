@@ -2,7 +2,7 @@ report 50138 "Monthly PC Wise Report VJ"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/MonthlyPCWiseReportVJ.rdlc';
-
+    Caption = 'Monthly PC Wise Report VJ';
     dataset
     {
         dataitem(Job; Job)
@@ -87,7 +87,6 @@ report 50138 "Monthly PC Wise Report VJ"
 
     requestpage
     {
-
         layout
         {
         }
@@ -103,11 +102,9 @@ report 50138 "Monthly PC Wise Report VJ"
 
     var
         LastFieldNo: Integer;
-        FooterPrinted: Boolean;
         TotalFor: Label 'Total for ';
         GTotal: Decimal;
         Port_Captain_Wise___CaptionLbl: Label 'Port Captain Wise - ';
         Grand_TotalCaptionLbl: Label 'Grand Total';
         AverageCaptionLbl: Label 'Average';
 }
-

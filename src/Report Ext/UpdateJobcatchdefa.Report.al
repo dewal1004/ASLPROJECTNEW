@@ -2,7 +2,7 @@ report 50199 "Update Job catch defa"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/UpdateJobcatchdefa.rdlc';
-
+    Caption = 'Update Job catch defa';
     dataset
     {
         dataitem("Job catch Default"; "Job catch Default")
@@ -14,7 +14,7 @@ report 50199 "Update Job catch defa"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -102,14 +102,13 @@ report 50199 "Update Job catch defa"
             trigger OnAfterGetRecord()
             begin
                 "Job catch Default".Validate("Job catch Default"."Budget Quantity");
-                "Job catch Default".Modify;
+                "Job catch Default".Modify();
             end;
         }
     }
 
     requestpage
     {
-
         layout
         {
         }
@@ -127,4 +126,3 @@ report 50199 "Update Job catch defa"
         Job_Catch_DefaultCaptionLbl: Label 'Job Catch Default';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
 }
-

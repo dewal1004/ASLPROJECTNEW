@@ -1,9 +1,7 @@
 pageextension 50259 "Item Card Ext" extends "Item Card"
 {
-
     layout
     {
-
         // modify("Item Category Code") {Visible = true;}
         modify("Shelf No.") { Caption = 'Phy. Verification Date'; }
         modify("Qty. on Prod. Order") { Importance = Additional; }
@@ -218,7 +216,6 @@ pageextension 50259 "Item Card Ext" extends "Item Card"
     {
         // modify(ActionContainer1900000003)
         // {
-
         //     //Unsupported feature: Property Modification (Name) on "ActionContainer1900000003(Action 1900000003)".
 
         //     Caption = 'Operation';
@@ -242,12 +239,10 @@ pageextension 50259 "Item Card Ext" extends "Item Card"
     var
         UserSetup: Record "User Setup";
     begin
-        if UserSetup.geT(UserId) then begin
+        if UserSetup.geT(UserId) then
             if not UserSetup."Modify Item" then
                 CurrPage.Editable(false)
             else
                 CurrPage.Editable(true);
-        end;
     end;
 }
-

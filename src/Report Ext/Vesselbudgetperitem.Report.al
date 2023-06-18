@@ -3,8 +3,7 @@ report 50178 "Vessel budget per item"
     // Item."Gen. Prod. Posting Group"
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/Vesselbudgetperitem.rdlc';
-
-
+    Caption = 'Vessel budget per item';
     dataset
     {
         dataitem(Location; Location)
@@ -24,7 +23,7 @@ report 50178 "Vessel budget per item"
                 column(COMPANYNAME; CompanyName)
                 {
                 }
-                column(CurrReport_PAGENO; CurrReport.PageNo)
+                column(CurrReport_PAGENO; CurrReport.PageNo())
                 {
                 }
                 column(USERID; UserId)
@@ -38,7 +37,6 @@ report 50178 "Vessel budget per item"
                 }
                 column(VoyNo_1_; VoyNo[1])
                 {
-
                 }
                 column(VoyNo_2_; VoyNo[2])
                 {
@@ -60,7 +58,6 @@ report 50178 "Vessel budget per item"
                 }
                 column(ETA_1_; ETA[1])
                 {
-
                 }
                 column(ETA_2_; ETA[2])
                 {
@@ -76,7 +73,6 @@ report 50178 "Vessel budget per item"
                 }
                 column(ETA_6_; ETA[6])
                 {
-
                 }
                 column(ETA_7_; ETA[7])
                 {
@@ -92,51 +88,39 @@ report 50178 "Vessel budget per item"
                 }
                 column(STot_3_; STot[3])
                 {
-
                 }
                 column(STot_2_; STot[2])
                 {
-
                 }
                 column(STot_1_; STot[1])
                 {
-
                 }
                 column(Suppld_8_; Suppld[8])
                 {
-
                 }
                 column(Suppld_7_; Suppld[7])
                 {
-
                 }
                 column(Suppld_6_; Suppld[6])
                 {
-
                 }
                 column(Suppld_5_; Suppld[5])
                 {
-
                 }
                 column(Suppld_4_; Suppld[4])
                 {
-
                 }
                 column(Suppld_3_; Suppld[3])
                 {
-
                 }
                 column(Suppld_2_; Suppld[2])
                 {
-
                 }
                 column(Suppld_1_; Suppld[1])
                 {
-
                 }
                 column(BudTyp_4_; BudTyp[4])
                 {
-
                 }
                 column(Item__Base_Unit_of_Measure_; "Base Unit of Measure")
                 {
@@ -152,51 +136,39 @@ report 50178 "Vessel budget per item"
                 }
                 column(STot_3__Control1000000068; STot[3])
                 {
-
                 }
                 column(STot_2__Control1000000069; STot[2])
                 {
-
                 }
                 column(STot_1__Control1000000070; STot[1])
                 {
-
                 }
                 column(Suppld_8__Control1000000071; Suppld[8])
                 {
-
                 }
                 column(Suppld_7__Control1000000072; Suppld[7])
                 {
-
                 }
                 column(Suppld_6__Control1000000073; Suppld[6])
                 {
-
                 }
                 column(Suppld_5__Control1000000074; Suppld[5])
                 {
-
                 }
                 column(Suppld_4__Control1000000075; Suppld[4])
                 {
-
                 }
                 column(Suppld_3__Control1000000076; Suppld[3])
                 {
-
                 }
                 column(Suppld_2__Control1000000077; Suppld[2])
                 {
-
                 }
                 column(Suppld_1__Control1000000078; Suppld[1])
                 {
-
                 }
                 column(BudTyp_4__Control1000000079; BudTyp[4])
                 {
-
                 }
                 column(Item__Base_Unit_of_Measure__Control1000000080; "Base Unit of Measure")
                 {
@@ -224,51 +196,39 @@ report 50178 "Vessel budget per item"
                 }
                 column(BudTyp_4__Control1000000056; BudTyp[4])
                 {
-
                 }
                 column(Suppld_2__Control1000000057; Suppld[2])
                 {
-
                 }
                 column(Suppld_3__Control1000000058; Suppld[3])
                 {
-
                 }
                 column(Suppld_4__Control1000000059; Suppld[4])
                 {
-
                 }
                 column(Suppld_5__Control1000000060; Suppld[5])
                 {
-
                 }
                 column(Suppld_6__Control1000000061; Suppld[6])
                 {
-
                 }
                 column(Suppld_1__Control1000000062; Suppld[1])
                 {
-
                 }
                 column(STot_3__Control1000000063; STot[3])
                 {
-
                 }
                 column(STot_2__Control1000000064; STot[2])
                 {
-
                 }
                 column(STot_1__Control1000000065; STot[1])
                 {
-
                 }
                 column(Suppld_7__Control1000000066; Suppld[7])
                 {
-
                 }
                 column(Suppld_8__Control1000000067; Suppld[8])
                 {
-
                 }
                 column(Sn_Control1000000011; Sn)
                 {
@@ -284,51 +244,39 @@ report 50178 "Vessel budget per item"
                 }
                 column(BudTyp_4__Control1000000007; BudTyp[4])
                 {
-
                 }
                 column(Suppld_2__Control1000000013; Suppld[2])
                 {
-
                 }
                 column(Suppld_3__Control1000000016; Suppld[3])
                 {
-
                 }
                 column(Suppld_4__Control1000000019; Suppld[4])
                 {
-
                 }
                 column(Suppld_5__Control1000000022; Suppld[5])
                 {
-
                 }
                 column(Suppld_6__Control1000000025; Suppld[6])
                 {
-
                 }
                 column(Suppld_1__Control1000000023; Suppld[1])
                 {
-
                 }
                 column(STot_3__Control1000000010; STot[3])
                 {
-
                 }
                 column(STot_2__Control1000000050; STot[2])
                 {
-
                 }
                 column(STot_1__Control1000000053; STot[1])
                 {
-
                 }
                 column(Suppld_7__Control1000000054; Suppld[7])
                 {
-
                 }
                 column(Suppld_8__Control1000000033; Suppld[8])
                 {
-
                 }
                 column(End_____Gen__Prod__Posting_Group_; 'End ' + "Gen. Prod. Posting Group")
                 {
@@ -403,7 +351,7 @@ report 50178 "Vessel budget per item"
                     Vess := Location.Code;
                     VesTyp := Location."Sea Days";
                     //MESSAGE('Vessel Type is %1',VesTyp);
-                    VoyHdr;
+                    VoyHdr();
                 end;
             }
         }
@@ -411,7 +359,6 @@ report 50178 "Vessel budget per item"
 
     requestpage
     {
-
         layout
         {
         }
@@ -427,8 +374,6 @@ report 50178 "Vessel budget per item"
 
     var
         LastFieldNo: Integer;
-        FooterPrinted: Boolean;
-        TotalFor: Label 'Total for ';
         Sn: Integer;
         BudTyp: array[4] of Decimal;
         VesTyp: Integer;
@@ -442,7 +387,6 @@ report 50178 "Vessel budget per item"
         TotVoy: Integer;
         Countx: Integer;
         CompVoy: Integer;
-        Tr: array[3] of Boolean;
         ItemCaptionLbl: Label 'Item';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
         Sn_Control1000000011CaptionLbl: Label 'SNo.';
@@ -456,7 +400,7 @@ report 50178 "Vessel budget per item"
     procedure VoyHdr()
     begin
         Job.SetCurrentKey(Job.Vessel, Job."Starting Date");
-        Job.SetFilter(Job."Ending Date", '%1..%2', CalcDate('CY-1Y+1D', WorkDate), CalcDate('CY', WorkDate));
+        Job.SetFilter(Job."Ending Date", '%1..%2', CalcDate('CY-1Y+1D', WorkDate()), CalcDate('CY', WorkDate()));
         Job.SetFilter(Job.Vessel, Vess);
         TotVoy := Job.Count;
         Job.Find('-');
@@ -468,7 +412,7 @@ report 50178 "Vessel budget per item"
             ETD[Countx] := Job."Starting Date";
             if ETA[Countx] <> 0D then CompVoy := CompVoy + 1;    //No of completed Voyages
             Countx := Countx + 1;
-            Job.Next;
+            Job.Next();
         until Countx = Job.Count + 1;
     end;
 
@@ -484,7 +428,5 @@ report 50178 "Vessel budget per item"
               CurrOper:='';//Job."Current Operation";
           OperDetails;
         */
-
     end;
 }
-

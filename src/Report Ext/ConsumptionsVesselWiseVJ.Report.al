@@ -4,7 +4,7 @@ report 50169 "Consumptions Vessel Wise VJ"
     RDLCLayout = './src/reportrdlc/ConsumptionsVesselWiseVJ.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
-
+    Caption = 'Consumptions Vessel Wise VJ';
     dataset
     {
         dataitem("Value Entry"; "Value Entry")
@@ -17,7 +17,7 @@ report 50169 "Consumptions Vessel Wise VJ"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -102,8 +102,7 @@ report 50169 "Consumptions Vessel Wise VJ"
                 LastFieldNo := FieldNo("Item Ledger Entry Type");
                 //CurrReport.CREATETOTALS(VQtyCost[3],VQtyCost2[3],VQtyCost[4],VQtyCost2[4]);
 
-
-                if (CurrReport.TotalsCausedBy = "Value Entry".FieldNo("Item Ledger Entry Type"))
+                if (CurrReport.TotalsCausedBy() = "Value Entry".FieldNo("Item Ledger Entry Type"))
                 and ("Item Ledger Entry Type" <> 0)
                 then begin
                     VQtyCost["Item Ledger Entry Type"] := Abs("Value Entry"."Valued Quantity");
@@ -115,7 +114,6 @@ report 50169 "Consumptions Vessel Wise VJ"
 
     requestpage
     {
-
         layout
         {
         }
@@ -131,7 +129,6 @@ report 50169 "Consumptions Vessel Wise VJ"
 
     var
         LastFieldNo: Integer;
-        FooterPrinted: Boolean;
         TotalFor: Label 'Total for ';
         VQtyCost: array[5] of Decimal;
         VQtyCost2: array[5] of Decimal;
@@ -141,4 +138,3 @@ report 50169 "Consumptions Vessel Wise VJ"
         Value_Entry__Cost_Amount__Actual___ACY__CaptionLbl: Label 'Consumed Qty.';
         Value_Entry__Cost_Posted_to_G_L__ACY__CaptionLbl: Label 'Consumed Cost';
 }
-

@@ -2,7 +2,7 @@ report 91001 "Update resource posted"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/Updateresourceposted.rdlc';
-
+    Caption = 'Update resource posted';
     dataset
     {
         dataitem(Resource; Resource)
@@ -15,7 +15,7 @@ report 91001 "Update resource posted"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -68,7 +68,6 @@ report 91001 "Update resource posted"
 
     requestpage
     {
-
         layout
         {
         }
@@ -86,4 +85,3 @@ report 91001 "Update resource posted"
         ResourceCaptionLbl: Label 'Resource';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
 }
-

@@ -2,7 +2,7 @@ report 50245 "Consolidated Narration_kk"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/ConsolidatedNarrationkk.rdlc';
-
+    Caption = 'Consolidated Narration_kk';
     dataset
     {
         dataitem("Comment Line"; "Comment Line")
@@ -13,7 +13,7 @@ report 50245 "Consolidated Narration_kk"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -97,7 +97,6 @@ report 50245 "Consolidated Narration_kk"
 
     requestpage
     {
-
         layout
         {
         }
@@ -112,21 +111,13 @@ report 50245 "Consolidated Narration_kk"
     }
 
     var
-        Loc: Record Location;
         VessName: Code[50];
         NarratnFilter: Code[20];
-        StartDate: Date;
-        EndDate: Date;
         Seadays: Integer;
         TotHrsLost: Decimal;
-        Job: Record Job;
-        CommentLine: Record "Comment Line";
-        CommentLine2: Record "Comment Line";
         Day1: Boolean;
         Day2: Boolean;
         Day3: Boolean;
-        ComplaintDate: array[3] of Date;
-        i: Integer;
         Text000: Label 'Consolidated Narration Report As of %1';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
         Vessel_NameCaptionLbl: Label 'Vessel Name';
@@ -139,4 +130,3 @@ report 50245 "Consolidated Narration_kk"
         Day3CaptionLbl: Label 'Day Before';
         Conolidated_Narration_Report_50087CaptionLbl: Label 'Conolidated Narration Report 50087';
 }
-

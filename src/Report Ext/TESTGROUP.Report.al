@@ -2,7 +2,7 @@ report 50996 "TEST GROUP"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/TESTGROUP.rdlc';
-
+    Caption = 'TEST GROUP';
     dataset
     {
         dataitem("Job Ledger Entry"; "Job Ledger Entry")
@@ -15,7 +15,7 @@ report 50996 "TEST GROUP"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -97,7 +97,6 @@ report 50996 "TEST GROUP"
 
     requestpage
     {
-
         layout
         {
         }
@@ -113,10 +112,8 @@ report 50996 "TEST GROUP"
 
     var
         LastFieldNo: Integer;
-        FooterPrinted: Boolean;
         TotalFor: Label 'Total for ';
         Job_Ledger_EntryCaptionLbl: Label 'Job Ledger Entry';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
         Quantity__1CaptionLbl: Label 'Label21';
 }
-

@@ -1,7 +1,7 @@
 table 60017 "Skill Appraisal. NU*"
 {
     LookupPageID = PurchReceiptLines;
-
+    Caption = 'Skill Appraisal. NU*';
     fields
     {
         field(1; "Skill code"; Code[10])
@@ -73,7 +73,6 @@ table 60017 "Skill Appraisal. NU*"
                         Points := 3;
                     Performance::Average:
                         Points := 2;
-
                 end;
             end;
         }
@@ -105,7 +104,6 @@ table 60017 "Skill Appraisal. NU*"
                   IF GenProdPostingGrp.ValidateVatProdPostingGroup(GenProdPostingGrp,"Gen. Prod. Posting Group") THEN
                     VALIDATE("VAT Prod. Posting Group",GenProdPostingGrp."Def. VAT Prod. Posting Group");
                 */
-
             end;
         }
         field(58; "VAT Prod. Posting Group"; Code[10])
@@ -130,4 +128,3 @@ table 60017 "Skill Appraisal. NU*"
     {
     }
 }
-

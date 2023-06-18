@@ -7,14 +7,12 @@ tableextension 50270 "Sales Line Ext" extends "Sales Line"
             OptionCaption = 'Quote,Order,Invoice,Credit Memo,Blanket Order,Return Order,Appraisal';
 
             //Unsupported feature: Property Modification (OptionString) on ""Document Type"(Field 1)".
-
         }
         modify(Type)
         {
             OptionCaption = ' ,G/L Account,Item,Resource,Fixed Asset,Charge (Item),Skill,Performance';
 
             //Unsupported feature: Property Modification (OptionString) on "Type(Field 5)".
-
         }
         modify("Location Code")
         {
@@ -22,23 +20,18 @@ tableextension 50270 "Sales Line Ext" extends "Sales Line"
                                             "Location Type" = FILTER(Store));
         }
 
-        // {          
+        // {
         //  }
 
         //Unsupported feature: Property Modification (Data type) on ""Description 2"(Field 12)".
 
-
         //Unsupported feature: Property Insertion (Editable) on ""Unit Price"(Field 22)".
-
 
         //Unsupported feature: Property Insertion (Enabled) on ""Substitution Available"(Field 5702)".
 
-
         //Unsupported feature: Property Insertion (Enabled) on ""Qty. to Assign"(Field 5801)".
 
-
         //Unsupported feature: Property Insertion (Enabled) on ""Qty. Assigned"(Field 5802)".
-
 
         //Unsupported feature: Code Modification on ""No."(Field 6).OnValidate".
 
@@ -85,7 +78,6 @@ tableextension 50270 "Sales Line Ext" extends "Sales Line"
         */
         //end;
 
-
         //Unsupported feature: Code Modification on ""Location Code"(Field 7).OnValidate".
 
         //trigger OnValidate()
@@ -112,7 +104,6 @@ tableextension 50270 "Sales Line Ext" extends "Sales Line"
           ValidateReturnReasonCode(FieldNo("Location Code"));
         */
         //end;
-
 
         //Unsupported feature: Code Modification on ""Shipment Date"(Field 10).OnValidate".
 
@@ -147,7 +138,6 @@ tableextension 50270 "Sales Line Ext" extends "Sales Line"
         */
         //end;
 
-
         //Unsupported feature: Code Modification on "Quantity(Field 15).OnValidate".
 
         //trigger OnValidate()
@@ -180,7 +170,6 @@ tableextension 50270 "Sales Line Ext" extends "Sales Line"
         */
         //end;
 
-
         //Unsupported feature: Code Modification on ""Unit Price"(Field 22).OnValidate".
 
         //trigger OnValidate()
@@ -201,7 +190,6 @@ tableextension 50270 "Sales Line Ext" extends "Sales Line"
         Error('You are not Authorized to Change');
         */
         //end;
-
 
         //Unsupported feature: Code Modification on ""Unit Cost (LCY)"(Field 23).OnValidate".
 
@@ -240,7 +228,6 @@ tableextension 50270 "Sales Line Ext" extends "Sales Line"
         */
         //end;
 
-
         //Unsupported feature: Code Modification on ""Appl.-to Item Entry"(Field 38).OnValidate".
 
         //trigger -to Item Entry"(Field 38)()
@@ -272,7 +259,6 @@ tableextension 50270 "Sales Line Ext" extends "Sales Line"
         */
         //end;
 
-
         //Unsupported feature: Code Modification on ""Gen. Bus. Posting Group"(Field 74).OnValidate".
 
         //trigger  Bus()
@@ -292,7 +278,6 @@ tableextension 50270 "Sales Line Ext" extends "Sales Line"
         #1..3
         */
         //end;
-
 
         //Unsupported feature: Code Modification on ""Gen. Prod. Posting Group"(Field 75).OnValidate".
 
@@ -315,7 +300,6 @@ tableextension 50270 "Sales Line Ext" extends "Sales Line"
         #1..5
         */
         //end;
-
 
         //Unsupported feature: Code Modification on ""Deferral Code"(Field 1700).OnValidate".
 
@@ -346,7 +330,6 @@ tableextension 50270 "Sales Line Ext" extends "Sales Line"
         */
         //end;
 
-
         //Unsupported feature: Code Modification on ""Unit of Measure Code"(Field 5407).OnValidate".
 
         //trigger OnValidate()
@@ -376,7 +359,6 @@ tableextension 50270 "Sales Line Ext" extends "Sales Line"
         #7..65
         */
         //end;
-
 
         //Unsupported feature: Code Modification on ""Planned Shipment Date"(Field 5795).OnValidate".
 
@@ -469,7 +451,6 @@ tableextension 50270 "Sales Line Ext" extends "Sales Line"
                                     TTPerformance := 4;
                                 end;
                         end;
-
                 end;
                 //Univision Finish 24/10/01
             end;
@@ -511,7 +492,6 @@ tableextension 50270 "Sales Line Ext" extends "Sales Line"
         }
         field(50352; "Pack Size"; Code[10])
         {
-
             trigger OnValidate()
             begin
                 if UnitOfMeasure.Get("Pack Size") then "Pack Size Code" := UnitOfMeasure."Catch Code";
@@ -579,7 +559,6 @@ tableextension 50270 "Sales Line Ext" extends "Sales Line"
         // }
     }
 
-
     //Unsupported feature: Code Modification on "OnDelete".
 
     //trigger OnDelete()
@@ -617,8 +596,6 @@ tableextension 50270 "Sales Line Ext" extends "Sales Line"
 
     //Unsupported feature: Property Modification (Attributes) on "InitOutstanding(PROCEDURE 16)".
 
-
-
     //Unsupported feature: Code Modification on "MaxQtyToInvoice(PROCEDURE 18)".
 
     //procedure MaxQtyToInvoice();
@@ -648,7 +625,6 @@ tableextension 50270 "Sales Line Ext" extends "Sales Line"
     */
     //end;
 
-
     //Unsupported feature: Code Modification on "ShowMessageOnce(PROCEDURE 229)".
 
     //procedure ShowMessageOnce();
@@ -675,10 +651,7 @@ tableextension 50270 "Sales Line Ext" extends "Sales Line"
 
     //Unsupported feature: Property Modification (Attributes) on "UpdatePrepmtSetupFields(PROCEDURE 102)".
 
-
     //Unsupported feature: Variable Insertion (Variable: CalledByDateField) (VariableCollection) on "CheckItemAvailable(PROCEDURE 4)".
-
-
 
     //Unsupported feature: Code Modification on "CheckItemAvailable(PROCEDURE 4)".
 
@@ -712,25 +685,17 @@ tableextension 50270 "Sales Line Ext" extends "Sales Line"
 
     //Unsupported feature: Property Modification (Attributes) on "CalcPlannedDeliveryDate(PROCEDURE 92)".
 
-
     //Unsupported feature: Property Insertion (Local) on "CalcPlannedDeliveryDate(PROCEDURE 92)".
-
 
     //Unsupported feature: Property Modification (Attributes) on "CalcPlannedShptDate(PROCEDURE 93)".
 
-
     //Unsupported feature: Property Insertion (Local) on "CalcPlannedShptDate(PROCEDURE 93)".
-
 
     //Unsupported feature: Property Modification (Attributes) on "CalcShipmentDate(PROCEDURE 111)".
 
-
     //Unsupported feature: Property Modification (Name) on "CalcShipmentDate(PROCEDURE 111)".
 
-
     //Unsupported feature: Property Insertion (Local) on "CalcShipmentDate(PROCEDURE 111)".
-
-
 
     //Unsupported feature: Code Modification on "CalcShipmentDate(PROCEDURE 111)".
 
@@ -788,7 +753,6 @@ tableextension 50270 "Sales Line Ext" extends "Sales Line"
     */
     //end;
 
-
     //Unsupported feature: Code Modification on "SignedXX(PROCEDURE 20)".
 
     //procedure SignedXX();
@@ -816,7 +780,6 @@ tableextension 50270 "Sales Line Ext" extends "Sales Line"
     #8..10
     */
     //end;
-
 
     //Unsupported feature: Code Modification on "ShowItemChargeAssgnt(PROCEDURE 5801)".
 
@@ -848,7 +811,6 @@ tableextension 50270 "Sales Line Ext" extends "Sales Line"
     #5..53
     */
     //end;
-
 
     //Unsupported feature: Code Modification on "UpdateItemChargeAssgnt(PROCEDURE 5807)".
 
@@ -972,7 +934,6 @@ tableextension 50270 "Sales Line Ext" extends "Sales Line"
     */
     //end;
 
-
     //Unsupported feature: Code Modification on "DeleteItemChargeAssgnt(PROCEDURE 5802)".
 
     //procedure DeleteItemChargeAssgnt();
@@ -997,7 +958,6 @@ tableextension 50270 "Sales Line Ext" extends "Sales Line"
     #1..5
     */
     //end;
-
 
     //Unsupported feature: Code Modification on "DeleteChargeChargeAssgnt(PROCEDURE 5804)".
 
@@ -1025,7 +985,6 @@ tableextension 50270 "Sales Line Ext" extends "Sales Line"
     #2..14
     */
     //end;
-
 
     //Unsupported feature: Code Modification on "CalcVATAmountLines(PROCEDURE 35)".
 
@@ -1059,7 +1018,6 @@ tableextension 50270 "Sales Line Ext" extends "Sales Line"
     #73..104
     */
     //end;
-
 
     //Unsupported feature: Code Modification on "UpdateWithWarehouseShip(PROCEDURE 41)".
 
@@ -1100,7 +1058,6 @@ tableextension 50270 "Sales Line Ext" extends "Sales Line"
     #19..27
     */
     //end;
-
 
     //Unsupported feature: Code Modification on "CheckWarehouse(PROCEDURE 46)".
 
@@ -1162,7 +1119,6 @@ tableextension 50270 "Sales Line Ext" extends "Sales Line"
     */
     //end;
 
-
     //Unsupported feature: Code Modification on "IsInbound(PROCEDURE 97)".
 
     //procedure IsInbound();
@@ -1188,7 +1144,6 @@ tableextension 50270 "Sales Line Ext" extends "Sales Line"
     #5..8
     */
     //end;
-
 
     //Unsupported feature: Code Modification on "CheckApplFromItemLedgEntry(PROCEDURE 157)".
 
@@ -1234,7 +1189,6 @@ tableextension 50270 "Sales Line Ext" extends "Sales Line"
     */
     //end;
 
-
     //Unsupported feature: Code Modification on "SetDefaultQuantity(PROCEDURE 62)".
 
     //procedure SetDefaultQuantity();
@@ -1269,7 +1223,6 @@ tableextension 50270 "Sales Line Ext" extends "Sales Line"
     #10..17
     */
     //end;
-
 
     //Unsupported feature: Code Modification on "ValidateReturnReasonCode(PROCEDURE 99)".
 
@@ -1307,7 +1260,6 @@ tableextension 50270 "Sales Line Ext" extends "Sales Line"
     */
     //end;
 
-
     //Unsupported feature: Code Modification on "UpdateDeferralAmounts(PROCEDURE 105)".
 
     //procedure UpdateDeferralAmounts();
@@ -1339,7 +1291,6 @@ tableextension 50270 "Sales Line Ext" extends "Sales Line"
     */
     //end;
 
-
     //Unsupported feature: Code Modification on "InitDeferralCode(PROCEDURE 108)".
 
     //procedure InitDeferralCode();
@@ -1366,7 +1317,6 @@ tableextension 50270 "Sales Line Ext" extends "Sales Line"
     #3..14
     */
     //end;
-
 
     //Unsupported feature: Code Modification on "IsCreditDocType(PROCEDURE 110)".
 
@@ -1445,7 +1395,6 @@ tableextension 50270 "Sales Line Ext" extends "Sales Line"
         if "Postg Gropu".Get("Posting Group") then "Item Category Code Sort" := "Postg Gropu".Category;
     end;
 
-
     //Unsupported feature: Property Modification (Id) on "UnitPriceChangedMsg(Variable 1091)".
 
     //var
@@ -1457,23 +1406,9 @@ tableextension 50270 "Sales Line Ext" extends "Sales Line"
     //Variable type has not been exported.
 
     var
-        "-----": Text[30];
         TTSkill: Decimal;
         TTPerformance: Decimal;
-        AppraiseRec: Record "Payroll-Lookup Lines.";
         "Postg Gropu": Record "Inventory Posting Group";
-        "...................": Integer;
-        ItemAvailByDate: Page "Item Availability by Periods";
-        ItemAvailByVar: Page "Item Availability by Variant";
-        ItemAvailByLoc: Page "Item Availability by Location";
-        // "............": ;
-        Text012: Label 'Change %1 from %2 to %3?';
-        userrec: Record "User Setup";
-        Customerrec: Record Customer;
-        EditableCon: Boolean;
         TempSalesLine: Record "Sales Line";
         UnitOfMeasure: Record "Unit of Measure";
-        CalendarMgmt: Codeunit "Calendar Management";
-        CalChange: Record "Customized Calendar Change";
 }
-

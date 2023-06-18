@@ -188,7 +188,7 @@ page 50053 "Reports"
                 {
                     Image = "report";
                     ApplicationArea = All;
-                    //***p RunObject = Report "Daily BreakUp by Vessel Rep 1"; 
+                    //***p RunObject = Report "Daily BreakUp by Vessel Rep 1";
                 }
                 action("Daily Breakup by Vessel Rep 2")
                 {
@@ -1027,4 +1027,3 @@ page 50053 "Reports"
         }
     }
 }
-

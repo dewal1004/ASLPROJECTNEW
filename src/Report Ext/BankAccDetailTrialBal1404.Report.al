@@ -19,7 +19,7 @@ report 50132 "Bank Acc-Detail Trial Bal-1404"
             column(STRSUBSTNO_Text000_BankAccDateFilter_; StrSubstNo(Text000, BankAccDateFilter))
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(COMPANYNAME; CompanyName)
@@ -183,7 +183,6 @@ report 50132 "Bank Acc-Detail Trial Bal-1404"
                     BankAccLedgEntryExists := false;
                     CurrReport.CreateTotals(Amount, "Amount (LCY)");
 
-
                     case "Bal. Account Type" of
                         0:
                             if GL.Get("Bal. Account No.") then
@@ -232,7 +231,7 @@ report 50132 "Bank Acc-Detail Trial Bal-1404"
                 begin
                     if not BankAccLedgEntryExists and ((StartBalance = 0) or not PrintAllHavingBal) then begin
                         StartBalanceLCY := 0;
-                        CurrReport.Skip;
+                        CurrReport.Skip();
                     end;
                 end;
             }
@@ -266,7 +265,6 @@ report 50132 "Bank Acc-Detail Trial Bal-1404"
 
     requestpage
     {
-
         layout
         {
         }
@@ -297,7 +295,6 @@ report 50132 "Bank Acc-Detail Trial Bal-1404"
         StartBalance: Decimal;
         StartBalanceLCY: Decimal;
         BankAccLedgEntryExists: Boolean;
-        "------": Integer;
         Desc: Text[30];
         GL: Record "G/L Account";
         Cust: Record Customer;
@@ -315,4 +312,3 @@ report 50132 "Bank Acc-Detail Trial Bal-1404"
         ContinuedCaptionLbl: Label 'Continued';
         ContinuedCaption_Control46Lbl: Label 'Continued';
 }
-

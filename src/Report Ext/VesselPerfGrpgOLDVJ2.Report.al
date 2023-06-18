@@ -6,8 +6,7 @@ report 50140 "Vessel Perf Grpg OLD VJ2"
     // XVal[4]::AGVal
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/VesselPerfGrpgOLDVJ2.rdlc';
-
-
+    Caption = 'Vessel Perf Grpg OLD VJ2';
     dataset
     {
         dataitem(Job; Job)
@@ -18,7 +17,7 @@ report 50140 "Vessel Perf Grpg OLD VJ2"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -47,14 +46,12 @@ report 50140 "Vessel Perf Grpg OLD VJ2"
             }
             column(FishPer; FishPer)
             {
-
             }
             column(AGVal; AGVal)
             {
             }
             column(FishPer_Control1000000068; FishPer)
             {
-
             }
             column(Job__Port_Day__Manual___Control1000000069; "Port Day (Manual)")
             {
@@ -73,31 +70,24 @@ report 50140 "Vessel Perf Grpg OLD VJ2"
             }
             column(PrtXVal_2_; PrtXVal[2])
             {
-
             }
             column(PrtXVal_1__PrtXVal_2_; PrtXVal[1] - PrtXVal[2])
             {
-
             }
             column(PrtXVal_1_; PrtXVal[1])
             {
-
             }
             column(PrtXVal_3_; PrtXVal[3])
             {
-
             }
             column(PrtXVal_1__PrtXVal_3_; PrtXVal[1] - PrtXVal[3])
             {
-
             }
             column(PrtXVal_4_; PrtXVal[4])
             {
-
             }
             column(PrtXVal_9_; PrtXVal[9])
             {
-
             }
             column(CountZ; CountZ)
             {
@@ -125,83 +115,63 @@ report 50140 "Vessel Perf Grpg OLD VJ2"
             }
             column(FishPer_Control1000000104; FishPer)
             {
-
             }
             column(TotXVal_2_; TotXVal[2])
             {
-
             }
             column(TotXVal_1_; TotXVal[1])
             {
-
             }
             column(TotXVal_3_; TotXVal[3])
             {
-
             }
             column(TotXVal_1__TotXVal_3_; TotXVal[1] - TotXVal[3])
             {
-
             }
             column(TotXVal_4_; TotXVal[4])
             {
-
             }
             column(TotXVal_9_; TotXVal[9])
             {
-
             }
             column(TotXVal_1__TotXVal_2_; TotXVal[1] - TotXVal[2])
             {
-
             }
             column(AvgPct_3_; AvgPct[3])
             {
-
             }
             column(AvgXVal_2_; AvgXVal[2])
             {
-
             }
             column(AvgXVal_1__AvgXVal_2_; AvgXVal[1] - AvgXVal[2])
             {
-
             }
             column(AvgXVal_1_; AvgXVal[1])
             {
-
             }
             column(AvgXVal_3_; AvgXVal[3])
             {
-
             }
             column(AvgXVal_1__AvgXVal_3_; AvgXVal[1] - AvgXVal[3])
             {
-
             }
             column(AvgXVal_4_; AvgXVal[4])
             {
-
             }
             column(AvgPct_1_; AvgPct[1])
             {
-
             }
             column(AvgDay_1_; AvgDay[1])
             {
-
             }
             column(AvgDay_2_; AvgDay[2])
             {
-
             }
             column(AvgDay_3_; AvgDay[3])
             {
-
             }
             column(AvgDay_4_; AvgDay[4])
             {
-
             }
             column(VESSEL_PERFORMANCE_ANALYSISCaption; VESSEL_PERFORMANCE_ANALYSISCaptionLbl)
             {
@@ -354,7 +324,6 @@ report 50140 "Vessel Perf Grpg OLD VJ2"
             {
                 column(AGVal_Control1000000098; AGVal)
                 {
-
                 }
                 column(Value_Entry__Gen__Prod__Posting_Group_; "Gen. Prod. Posting Group")
                 {
@@ -364,19 +333,15 @@ report 50140 "Vessel Perf Grpg OLD VJ2"
                 }
                 column(AGVal_Control1000000101; AGVal)
                 {
-
                 }
                 column(Cost_Posted_to_G_L_; -"Cost Posted to G/L")
                 {
-
                 }
                 column(Cost_Posted_to_G_L__Control1000000066; -"Cost Posted to G/L")
                 {
-
                 }
                 column(AGValTot; AGValTot)
                 {
-
                 }
                 column(Value_Entry_Entry_No_; "Entry No.")
                 {
@@ -389,11 +354,9 @@ report 50140 "Vessel Perf Grpg OLD VJ2"
             {
                 column(GLStrT; GLStrT)
                 {
-
                 }
                 column(ResCount; ResCount)
                 {
-
                 }
                 column(Value_Entry___Cost_Posted_to_G_L_; "Value Entry"."Cost Posted to G/L")
                 {
@@ -403,7 +366,6 @@ report 50140 "Vessel Perf Grpg OLD VJ2"
                 }
                 column(Direct; Direct)
                 {
-
                 }
                 column(Integer_Number; Number)
                 {
@@ -414,7 +376,6 @@ report 50140 "Vessel Perf Grpg OLD VJ2"
 
     requestpage
     {
-
         layout
         {
             area(content)
@@ -459,94 +420,31 @@ report 50140 "Vessel Perf Grpg OLD VJ2"
     end;
 
     var
-        JobSetup: Record "Jobs Setup";
-        RateSetup: Record "P & L Rates";
-        CurrExc: Record "Currency Exchange Rate";
         UOM: Record "Unit of Measure";
-        Job2: Record Job;
-        Loc: Record Location;
-        ProdPostGrp: Record "Gen. Product Posting Group";
-        InvtPostGrp: Record "Inventory Posting Group";
-        Employee: Record Employee;
-        Coutry: Record "Country/Region";
-        GLEntry: Record "G/L Entry";
-        Res: Record Resource;
         Flag: Boolean;
-        PeopleOnVoy: Integer;
-        expcnt: Integer;
         ResCount: Integer;
         CountZ: Integer;
-        CountGPPG: Integer;
-        CountGx: Integer;
-        CountLp: Integer;
-        CountN: Integer;
-        J: Integer;
-        DataStor: array[15] of Decimal;
-        GLStr: array[25] of Decimal;
         GLStrT: Decimal;
         FishPer: Decimal;
-        FishPerAvg: Decimal;
         Qty: Decimal;
         Prc: Decimal;
         PrdPrc: Decimal;
         NairaVal: Decimal;
-        NairaValT: Integer;
         ExpVal: Decimal;
-        LocVal: Decimal;
-        QtyB: Decimal;
-        PrcB: Decimal;
-        PrdPrcB: Decimal;
         NairaValB: Decimal;
-        CurrRate: Decimal;
-        AGOPct: Decimal;
-        AGOPctT: Decimal;
-        AGOPctTAvg: Decimal;
-        GMargin: Decimal;
-        GMarginT: Decimal;
-        GMPct: Decimal;
-        GMPctT: Decimal;
-        GMPctTAvg: Decimal;
         Direct: Decimal;
-        DirectT: Decimal;
-        Indirect: Decimal;
-        IndirectT: Decimal;
-        TotPrice: Decimal;
-        Profit: Decimal;
-        ProfitT: Decimal;
         AGVal: Decimal;
         AGValGL: Decimal;
         AGValTot: Decimal;
-        AGValTotG: Decimal;
-        NairaValTot: Decimal;
-        ExpValTot: Decimal;
-        LocValTot: Decimal;
-        NairaValBTot: Decimal;
-        ExpTonnage: Decimal;
-        "----": Integer;
-        CycleDay: Decimal;
         UOMCd: Code[10];
         "No.B": Code[10];
-        ETA: array[2] of Date;
-        XVal: array[12] of Decimal;
         PrtXVal: array[12] of Decimal;
         TotXVal: array[12] of Decimal;
         AvgXVal: array[12] of Decimal;
         AvgDay: array[4] of Decimal;
         AvgPct: array[3] of Decimal;
-        "GLGPP Caption": Code[10];
-        CountG: Integer;
-        FGVal: Decimal;
-        EGVal: Decimal;
         Skipper: Text[30];
         Country: Text[30];
-        "-------": Integer;
-        // xlApp: Automation BC;
-        // xlBook: Automation BC;
-        // xlSheet: Automation BC;
-        // Send2Excel: Boolean;
-        // TopPage: Boolean;
-        Xr: Integer;
-        Xc: Integer;
         Bold: Boolean;
         UnderLine: Boolean;
         Italic: Boolean;
@@ -579,7 +477,6 @@ report 50140 "Vessel Perf Grpg OLD VJ2"
         Naira_ValueCaptionLbl: Label 'Naira Value';
         Export_ValueCaptionLbl: Label 'Export Value';
         Itempr: Record "Sales Price";
-        JBudLn: Record "Job Planning Line";
 
     [Scope('OnPrem')]
     procedure Syntesis2(Cd: Code[10]; Pk: Code[10]; Br: Code[10]) Itemno: Code[10]
@@ -599,14 +496,13 @@ report 50140 "Vessel Perf Grpg OLD VJ2"
         Itempr.SetRange(Itempr."Starting Date", 0D, PDays);
         //Itempr.SETRANGE(Itempr."Price Group Code",job3."Price Group Code");
         if Itempr.Find('+') then
-            Prc := Itempr."Unit Price" else begin
+            Prc := Itempr."Unit Price" else
             //Itempr.SETRANGE(Itempr."Price Group Code",JobSetup."Default Price Group Code");
             if Itempr.Find('+') then
                 Prc := Itempr."Unit Price" else begin
                 Prc := 0;
                 if Flag then Message('Price Missing for Item %1 in Job No %2', Nos, JNos);
             end;
-        end;
         exit(Prc);
     end;
 
@@ -654,4 +550,3 @@ report 50140 "Vessel Perf Grpg OLD VJ2"
         exit(xlColID);
     end;*/
 }
-

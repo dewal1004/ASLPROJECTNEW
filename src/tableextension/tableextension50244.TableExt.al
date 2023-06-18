@@ -19,4 +19,3 @@ tableextension 50244 "tableextension50244" extends "Reason Code"
         }
     }
 }
-

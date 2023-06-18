@@ -50,9 +50,8 @@ codeunit 50037 "JobSbuscriber"
             if Loc.Get(rec.Vessel) then begin
                 Loc.ETD := rec."Starting Date";
                 Loc.ETA := rec."Ending Date";
-                Loc.Modify;
+                Loc.Modify();
             end;
-
     end;
 
     [EventSubscriber(ObjectType::Table, Database::Job, 'OnBeforeValidateEvent', 'Status', true, true)]
@@ -64,37 +63,30 @@ codeunit 50037 "JobSbuscriber"
     local procedure ChangeJobStatusVessel(var Rec: Record Job; var xRec: Record Job)
     var
         GenSetup: Record "General Ledger Setup";
-        ChangeJobStatus: Boolean;
-        Text001: Label 'You cannot change a job to its previous status.';
-        Text002: Label 'Please note that you cannot change a job to its previous';
-        Text003: Label 'Update text Labet';  //Revisit
+
     begin
-        GenSetup.Get;
-        if UserId <> GenSetup.Administrator then begin
+        GenSetup.Get();
+        if UserId <> GenSetup.Administrator then
             if Rec.Status = xRec.Status then
                 exit;
-            // {
-            //  IF Rec.Status < xRec.Status THEN
-            //         ERROR(Text001);
-
-            //     ChangeJobStatus :=
-            //       CONFIRM(
-            //         Text002 +
-            //         Text003, FALSE,
-            //         rec.FieldCaption(Rec.Status));
-
-            //     IF NOT ChangeJobStatus THEN BEGIN
-            //         Rec.Status := xRec.Status;
-            //         EXIT;
-            //     END;
-            // //  }
-            //  if (Status = Status::"Close Job Card") and (CopyStr(Job."No.",1,1)='J') then
-            //    TestField("Voyage Ended",true);
-            // if xRec.Status <> Status then 
-            // begin
-
-            // end;
-        end;
+        // {
+        //  IF Rec.Status < xRec.Status THEN
+        //         ERROR(Text001);
+        //     ChangeJobStatus :=
+        //       CONFIRM(
+        //         Text002 +
+        //         Text003, FALSE,
+        //         rec.FieldCaption(Rec.Status));
+        //     IF NOT ChangeJobStatus THEN BEGIN
+        //         Rec.Status := xRec.Status;
+        //         EXIT;
+        //     END;
+        // //  }
+        //  if (Status = Status::"Close Job Card") and (CopyStr(Job."No.",1,1)='J') then
+        //    TestField("Voyage Ended",true);
+        // if xRec.Status <> Status then
+        // begin
+        // end;
     end;
 }
 
@@ -166,8 +158,6 @@ end;
 */
 //end;
 
-
-
 //Unsupported feature: Code Modification on ""Apply Usage Link"(Field 1025).OnValidate".
 
 //trigger OnValidate()
@@ -226,7 +216,3 @@ if (("Project Manager" <> xRec."Project Manager") and (xRec."Project Manager" <>
     AddToMyJobs("Project Manager");
 */
 //end;
-
-
-
-

@@ -8,4 +8,3 @@ pageextension 50330 "pageextension50330" extends "Value Entries"
         }
     }
 }
-

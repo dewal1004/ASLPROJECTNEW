@@ -4,7 +4,7 @@ page 50027 "Applicant Qualifications"
     DataCaptionFields = "Employee No.";
     PageType = Card;
     SourceTable = "Employee Qualification";
-
+    Caption = 'Applicant Qualifications';
     layout
     {
         area(content)
@@ -89,4 +89,3 @@ page 50027 "Applicant Qualifications"
         }
     }
 }
-

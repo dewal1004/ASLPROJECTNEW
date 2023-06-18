@@ -5,7 +5,6 @@ codeunit 50036 "SalesPriceCalcMgtSubscriber"
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales Price Calc. Mgt.", 'OnFindSalesLineDiscOnAfterSetFilters', '', true, true)]
     local procedure MyProcedure()
     begin
-
     end;
 }
 

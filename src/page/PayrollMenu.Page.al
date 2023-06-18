@@ -74,7 +74,6 @@ page 50000 "Payroll Menu"
                 }
             }
         }
-
         area(processing)
         {
             action(Periods)
@@ -116,7 +115,6 @@ page 50000 "Payroll Menu"
                 PromotedCategory = Process;
                 RunObject = Page "Monthly Var. Header Survey.";
                 ApplicationArea = All;
-
             }
             action("Create G/L Journal")
             {
@@ -154,12 +152,10 @@ page 50000 "Payroll Menu"
                 ApplicationArea = All;
 
                 trigger OnAction()
-                var
-                    Reportlist: Record "Report Selections";
                 Begin
                     ;
                     ;
-                    //reportlist.ShowList(FIELDNO("Payroll Reports"));                   
+                    //reportlist.ShowList(FIELDNO("Payroll Reports"));
                 end;
             }
             action(Utilities)
@@ -190,19 +186,14 @@ page 50000 "Payroll Menu"
 
     trigger OnOpenPage()
     begin
-        if Users.Get(UserId) then begin
+        if Users.Get(UserId) then
             SetupEnable := Users."Periodic Activits/SetUp Access";
-        end;
     end;
 
     var
         Users: Record "User Setup";
-        GenJnlManagement: Codeunit GenJnlManagement;
-        IntraJnlManagement: Codeunit IntraJnlManagement;
-        VATStmtManagement: Codeunit VATStmtManagement;
         [InDataSet]
         SetupEnable: Boolean;
         Text19034387: Label 'PayRoll';
         Text19062951: Label '   . . . .';
 }
-

@@ -3,7 +3,7 @@ page 50007 "Payroll Periods."
     PageType = Card;
     SourceTable = "Payroll-Periods.";
     SourceTableView = sorting("Period Code") order(descending);
-
+    Caption = 'Payroll Periods.';
     layout
     {
         area(content)
@@ -55,4 +55,3 @@ page 50007 "Payroll Periods."
         }
     }
 }
-

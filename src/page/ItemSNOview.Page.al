@@ -3,7 +3,7 @@ page 50188 "Item S/NO. view"
     PageType = Card;
     SourceTable = Item;
     SourceTableView = WHERE("Gen. Prod. Posting Group" = CONST('FIS'));
-
+    Caption = 'Item S/NO. view';
     layout
     {
         area(content)
@@ -35,4 +35,3 @@ page 50188 "Item S/NO. view"
     {
     }
 }
-

@@ -1,6 +1,6 @@
 table 50042 "Vessel Performance By Sea Day"
 {
-
+    Caption = 'Vessel Performance By Sea Day';
     fields
     {
         field(10; "No."; Code[20])
@@ -84,4 +84,3 @@ table 50042 "Vessel Performance By Sea Day"
     {
     }
 }
-

@@ -2,7 +2,7 @@ report 90013 "Update Job Journal Batch Name"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/UpdateJobJournalBatchName.rdlc';
-
+    Caption = 'Update Job Journal Batch Name';
     dataset
     {
         dataitem("Job Ledger Entry"; "Job Ledger Entry")
@@ -15,7 +15,7 @@ report 90013 "Update Job Journal Batch Name"
                 Job.Get("Job Ledger Entry"."Job No.");
                 if "Job Ledger Entry"."Journal Batch Name" <> Job.Vessel then begin
                     "Job Ledger Entry"."Journal Batch Name" := Job.Vessel;
-                    Modify;
+                    Modify();
                 end;
             end;
         }
@@ -23,7 +23,6 @@ report 90013 "Update Job Journal Batch Name"
 
     requestpage
     {
-
         layout
         {
         }
@@ -40,4 +39,3 @@ report 90013 "Update Job Journal Batch Name"
     var
         Job: Record Job;
 }
-

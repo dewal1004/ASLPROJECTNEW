@@ -2,7 +2,7 @@ page 50033 "HR Attendance Registration"
 {
     PageType = Card;
     SourceTable = "Staff Log";
-
+    Caption = 'HR Attendance Registration';
     layout
     {
         area(content)
@@ -47,4 +47,3 @@ page 50033 "HR Attendance Registration"
     {
     }
 }
-

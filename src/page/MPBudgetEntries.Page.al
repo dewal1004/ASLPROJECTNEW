@@ -6,7 +6,7 @@ page 50030 "MP Budget Entries"
     InsertAllowed = false;
     PageType = Card;
     SourceTable = "MP Budget Entry";
-
+    Caption = 'MP Budget Entries';
     layout
     {
         area(content)
@@ -68,4 +68,3 @@ page 50030 "MP Budget Entries"
     {
     }
 }
-

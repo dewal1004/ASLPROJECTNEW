@@ -73,6 +73,7 @@ tableextension 50223 "LocationExt" extends Location
                                                                 "Day Lost Cause" = FIELD("Location Filter"),
                                                                 Type = CONST(Narration)));
             FieldClass = FlowField;
+            Editable = false;
         }
         field(50328; "date filter"; Date)
         {
@@ -395,7 +396,7 @@ tableextension 50223 "LocationExt" extends Location
             Enabled = false;
         }
         key(ASLKey14; "Life Rf")
-            {
+        {
             Enabled = false;
         }
         key(ASLKey15; Parchut)
@@ -489,4 +490,3 @@ tableextension 50223 "LocationExt" extends Location
         JobsOper: Record Job;
         Location: Record Location;
 }
-

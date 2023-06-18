@@ -12,4 +12,3 @@ pageextension 50282 "pageextension50282" extends "Acc. Schedule Overview"
         }
     }
 }
-

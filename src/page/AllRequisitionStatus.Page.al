@@ -8,7 +8,7 @@ page 50104 "All Requisition Status"
     SourceTableView = WHERE("Send for Approval" = CONST(true));
     UsageCategory = Lists;
     ApplicationArea = all;
-
+    Caption = 'All Requisition Status';
     layout
     {
         area(content)
@@ -115,4 +115,3 @@ page 50104 "All Requisition Status"
         }
     }
 }
-

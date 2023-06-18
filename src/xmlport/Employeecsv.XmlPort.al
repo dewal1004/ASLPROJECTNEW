@@ -3,7 +3,7 @@ xmlport 50001 "Employee csv"
     DefaultFieldsValidation = false;
     Direction = Import;
     Format = VariableText;
-
+    Caption = 'Employee csv';
     schema
     {
         textelement(Node)
@@ -163,7 +163,6 @@ xmlport 50001 "Employee csv"
 
     requestpage
     {
-
         layout
         {
         }
@@ -173,4 +172,3 @@ xmlport 50001 "Employee csv"
         }
     }
 }
-

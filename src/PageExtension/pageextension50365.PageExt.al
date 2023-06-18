@@ -2,9 +2,7 @@ pageextension 50365 "pageextension50365" extends "Sales Order List"
 {
     actions
     {
-
         //Unsupported feature: Property Modification (Name) on ""Print Confirmation"(Action 151)".
-
     }
 
     //Unsupported feature: Code Modification on "OnOpenPage".
@@ -37,4 +35,3 @@ pageextension 50365 "pageextension50365" extends "Sales Order List"
     */
     //end;
 }
-

@@ -21,7 +21,7 @@ codeunit 50006 "DN-Printed"
         end else
             Error('You are Not Allowed to Use this System');
         Rec.Modify();
-        Commit;
+        Commit();
     end;
 
     var
@@ -30,7 +30,7 @@ codeunit 50006 "DN-Printed"
     [Scope('OnPrem')]
     procedure "Transfer DN Printer"(var TranRec: Record "Transfer Header")
     begin
-        TranRec.Find;
+        TranRec.Find();
         if Usersetup.Get(UserId) then begin
             if TranRec."No. Of DN Printed" = 0 then begin
                 if Usersetup."Print DN" then begin
@@ -46,8 +46,7 @@ codeunit 50006 "DN-Printed"
                     Error('You Are Not Allowed to Re-Print Delivery Note');
         end else
             Error('You are Not Allowed to Use this System');
-        TranRec.Modify;
-        Commit;
+        TranRec.Modify();
+        Commit();
     end;
 }
-

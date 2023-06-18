@@ -2,7 +2,7 @@ report 99212 "Modify Export Order No"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/ModifyExportOrderNo.rdlc';
-
+    Caption = 'Modify Export Order No';
     dataset
     {
         dataitem("Sales Invoice Header"; "Sales Invoice Header")
@@ -13,7 +13,7 @@ report 99212 "Modify Export Order No"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -61,7 +61,6 @@ report 99212 "Modify Export Order No"
 
     requestpage
     {
-
         layout
         {
         }
@@ -80,4 +79,3 @@ report 99212 "Modify Export Order No"
         Sales_Invoice_HeaderCaptionLbl: Label 'Sales Invoice Header';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
 }
-

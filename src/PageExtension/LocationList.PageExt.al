@@ -93,84 +93,57 @@ pageextension 50229 "pageextension50229" extends "Location List"
                 ApplicationArea = All;
             }
 
-
             // field("Require Shipment"; "Require Shipment") {}
-
 
             // field("Bin Mandatory"; "Bin Mandatory") {}
 
-
             // field("Directed Put-away and Pick"; "Directed Put-away and Pick") {}
-
 
             // field("Default Bin Selection"; "Default Bin Selection") {}
 
-
             // field("Outbound Whse. Handling Time"; "Outbound Whse. Handling Time") {}
-
 
             // field("Inbound Whse. Handling Time"; "Inbound Whse. Handling Time") {}
 
-
             // field("Put-away Template Code"; "Put-away Template Code") {}
-
 
             // field("Use Put-away Worksheet"; "Use Put-away Worksheet") {}
 
-
             // field("Pick According to FEFO"; "Pick According to FEFO") {}
-
 
             // field("Allow Breakbulk"; "Allow Breakbulk") {}
 
-
             // field("Bin Capacity Policy"; "Bin Capacity Policy") {}
-
 
             // field("Open Shop Floor Bin Code"; "Open Shop Floor Bin Code") {}
 
-
             // field("To-Production Bin Code"; "To-Production Bin Code") {}
-
 
             // field("From-Production Bin Code"; "From-Production Bin Code") {}
 
-
             // field("Adjustment Bin Code"; "Adjustment Bin Code") {}
-
 
             // field("Always Create Put-away Line"; "Always Create Put-away Line") {}
 
-
             // field("Always Create Pick Line"; "Always Create Pick Line") {}
-
 
             // field("Special Equipment"; "Special Equipment") {}
 
-
             // field("Receipt Bin Code"; "Receipt Bin Code") {}
-
 
             // field("Shipment Bin Code"; "Shipment Bin Code") {}
 
-
             // field("Cross-Dock Bin Code"; "Cross-Dock Bin Code") {}
-
 
             // field("To-Assembly Bin Code"; "To-Assembly Bin Code") {}
 
-
             // field("From-Assembly Bin Code"; "From-Assembly Bin Code") {}
-
 
             // field("Asm.-to-Order Shpt. Bin Code"; "Asm.-to-Order Shpt. Bin Code") {}
 
-
             // field("Base Calendar Code"; "Base Calendar Code") {}
 
-
             // field("Use ADCS"; "Use ADCS") {}
-
 
             // field("Location Type"; "Location Type") {Visible = false;}
             // field("Sea Days"; "Sea Days") {Visible = false;}
@@ -183,7 +156,6 @@ pageextension 50229 "pageextension50229" extends "Location List"
             // field("date filter"; "date filter") {}
             // field("Location Filter"; "Location Filter") {}
             // field("Lost Day Cause Filter"; "Lost Day Cause Filter") {}
-
 
             // field("Global Dimension 1 Filter"; "Global Dimension 1 Filter") {}
             // field("Global Dimension 2 Filter"; "Global Dimension 2 Filter") {}
@@ -206,8 +178,8 @@ pageextension 50229 "pageextension50229" extends "Location List"
             // field("Nxt Ovh"; "Nxt Ovh") {}
             // field("Nxt Ddk"; "Nxt Ddk") {}
             // field(xx2; xx2) {}
-            // field("Life Jacket"; "Life Jacket") {} 
-            // field("Life Buoy"; "Life Buoy") {} 
+            // field("Life Jacket"; "Life Jacket") {}
+            // field("Life Buoy"; "Life Buoy") {}
             // field(Parchut; Parchut) {}
             // field("R Flare"; "R Flare") {}
             // field("Store Taking"; "Store Taking") {}
@@ -232,7 +204,6 @@ pageextension 50229 "pageextension50229" extends "Location List"
             // field("Voyage Sea Days2"; "Voyage Sea Days2") {}
             // field("Voyage Sea Any Time"; "Voyage Sea Any Time") {}
 
-
             // field("Last Rep Operation No. Val"; "Last Rep Operation No. Val") {}
             // field("Last Reportd Vessel Pts"; "Last Reportd Vessel Pts") {}
             // field("Last Reportd Shrimps Pts"; "Last Reportd Shrimps Pts") {}// field(Inventory; Inventory) {}
@@ -255,7 +226,6 @@ pageextension 50229 "pageextension50229" extends "Location List"
     var
         JOB: Record Job;
 
-
     //Unsupported feature: Code Insertion on "OnAfterGetRecord".
 
     trigger OnAfterGetRecord()
@@ -265,9 +235,6 @@ pageextension 50229 "pageextension50229" extends "Location List"
     end;
 }
 
-
 //Unsupported feature: Property Modification (Name) on "Name(Control 4)".
 //Unsupported feature: Property Modification (SourceExpr) on "Name(Control 4)".
 //Unsupported feature: Property Modification (ImplicitType) on "Name(Control 4)".
-
-

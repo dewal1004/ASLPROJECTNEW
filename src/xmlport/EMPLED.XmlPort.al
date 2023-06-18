@@ -1,7 +1,7 @@
 xmlport 50020 "EMPLED"
 {
     Format = VariableText;
-
+    Caption = 'EMPLED';
     schema
     {
         textelement(RootNode)
@@ -90,7 +90,6 @@ xmlport 50020 "EMPLED"
 
     requestpage
     {
-
         layout
         {
         }
@@ -100,4 +99,3 @@ xmlport 50020 "EMPLED"
         }
     }
 }
-

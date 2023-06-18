@@ -2,7 +2,7 @@ page 50019 "Loan Card."
 {
     PageType = Card;
     SourceTable = "Loan.";
-
+    Caption = 'Loan Card.';
     layout
     {
         area(content)
@@ -18,7 +18,7 @@ page 50019 "Loan Card."
                     begin
 
                         if Rec.AssistEdit(xRec) then
-                            CurrPage.Update;
+                            CurrPage.Update();
                     end;
                 }
                 field("Staff No."; Rec."Staff No.")
@@ -122,7 +122,7 @@ page 50019 "Loan Card."
                 {
                     ApplicationArea = All;
                 }
-                field(LPlusInt; Rec.LPlusInt)
+                field(LPlusInt; Rec.LPlusInt())
                 {
                     Caption = 'Loan Plus Interest';
                     Editable = false;
@@ -203,7 +203,7 @@ page 50019 "Loan Card."
 
                 trigger OnAction()
                 begin
-                    Rec.InserGlLine;
+                    Rec.InserGlLine();
                     Message('Job Completed!');
                 end;
             }
@@ -226,4 +226,3 @@ page 50019 "Loan Card."
     var
         employee: Record Employee;
 }
-

@@ -3,8 +3,7 @@ report 50088 "Sales Test/Confirmation Report"
     // "Sales Line"."Line Amount"
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/SalesTestConfirmationReport.rdlc';
-
-
+    Caption = 'Sales Test/Confirmation Report';
     dataset
     {
         dataitem("Sales Header"; "Sales Header")
@@ -191,7 +190,7 @@ report 50088 "Sales Test/Confirmation Report"
             column(USERID; UserId)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(FORMAT_TODAY_0_4_; Format(Today, 0, 4))
@@ -232,7 +231,6 @@ report 50088 "Sales Test/Confirmation Report"
 
     requestpage
     {
-
         layout
         {
         }
@@ -248,10 +246,7 @@ report 50088 "Sales Test/Confirmation Report"
 
     var
         LastFieldNo: Integer;
-        FooterPrinted: Boolean;
         TotalFor: Label 'Total for ';
-        "-------------": Integer;
-        Cust: Record Customer;
         CustName: Text[50];
         Sno: Integer;
         TotQty: Decimal;
@@ -272,8 +267,6 @@ report 50088 "Sales Test/Confirmation Report"
         Rate_KgCaption_Control1000000035Lbl: Label 'Rate/Kg';
         Amount_NairaCaption_Control1000000036Lbl: Label 'Amount Naira';
         Line_Discount__CaptionLbl: Label 'Line Discount %';
-        Sell_to_Customer_No___________CustNameCaptionLbl: Label 'Customer ID ';
         Sales_Header__No__CaptionLbl: Label 'Doc. No.';
         SnoCaptionLbl: Label 'Label1000000005';
 }
-

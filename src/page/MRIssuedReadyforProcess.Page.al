@@ -15,7 +15,6 @@ page 50103 "MR. Issued Ready for Process"
                             Processed = CONST(false),
                             "Issued Captured" = CONST(true));
 
-
     layout
     {
         area(content)
@@ -94,4 +93,3 @@ page 50103 "MR. Issued Ready for Process"
     {
     }
 }
-

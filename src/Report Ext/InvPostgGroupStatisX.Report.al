@@ -2,7 +2,7 @@ report 99099 "Inv Postg Group StatisX"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/InvPostgGroupStatisX.rdlc';
-
+    Caption = 'Inv Postg Group StatisX';
     dataset
     {
         dataitem("Inventory Posting Group"; "Inventory Posting Group")
@@ -13,7 +13,7 @@ report 99099 "Inv Postg Group StatisX"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -93,7 +93,6 @@ report 99099 "Inv Postg Group StatisX"
 
     requestpage
     {
-
         layout
         {
         }
@@ -108,10 +107,7 @@ report 99099 "Inv Postg Group StatisX"
     }
 
     var
-        LastFieldNo: Integer;
-        FooterPrinted: Boolean;
         TotalFor: Label 'Total for ';
         Inventory_Posting_GroupCaptionLbl: Label 'Inventory Posting Group';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
 }
-

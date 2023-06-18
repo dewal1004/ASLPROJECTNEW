@@ -110,11 +110,11 @@ page 50055 "Purchase Order Subform Foreign"
 
                     trigger OnValidate()
                     begin
-                        NoOnAfterValidate;
+                        NoOnAfterValidate();
                         //TypeChosen := HasTypeToFillMandatotyFields;
 
                         if xRec."No." <> '' then
-                            RedistributeTotalsOnAfterValidate;
+                            RedistributeTotalsOnAfterValidate();
                     end;
                 }
                 field("No."; Rec."No.")
@@ -125,10 +125,10 @@ page 50055 "Purchase Order Subform Foreign"
                     trigger OnValidate()
                     begin
                         Rec.ShowShortcutDimCode(ShortcutDimCode);
-                        NoOnAfterValidate;
+                        NoOnAfterValidate();
 
                         if xRec."No." <> '' then
-                            RedistributeTotalsOnAfterValidate;
+                            RedistributeTotalsOnAfterValidate();
                     end;
                 }
                 field(Description; Rec.Description)
@@ -143,7 +143,7 @@ page 50055 "Purchase Order Subform Foreign"
 
                     trigger OnValidate()
                     begin
-                        RedistributeTotalsOnAfterValidate;
+                        RedistributeTotalsOnAfterValidate();
                     end;
                 }
                 field("Unit of Measure Code"; Rec."Unit of Measure Code")
@@ -152,7 +152,7 @@ page 50055 "Purchase Order Subform Foreign"
 
                     trigger OnValidate()
                     begin
-                        RedistributeTotalsOnAfterValidate;
+                        RedistributeTotalsOnAfterValidate();
                     end;
                 }
                 field("Direct Unit Cost"; Rec."Direct Unit Cost")
@@ -223,7 +223,7 @@ page 50055 "Purchase Order Subform Foreign"
 
                     trigger OnValidate()
                     begin
-                        RedistributeTotalsOnAfterValidate;
+                        RedistributeTotalsOnAfterValidate();
                     end;
                 }
                 field("Gen. Prod. Posting Group"; Rec."Gen. Prod. Posting Group")
@@ -275,7 +275,7 @@ page 50055 "Purchase Order Subform Foreign"
 
                     trigger OnValidate()
                     begin
-                        RedistributeTotalsOnAfterValidate;
+                        RedistributeTotalsOnAfterValidate();
                     end;
                 }
                 field("ActualAncillary(LCY)"; Rec."ActualAncillary(LCY)")
@@ -305,7 +305,7 @@ page 50055 "Purchase Order Subform Foreign"
 
                     trigger OnValidate()
                     begin
-                        RedistributeTotalsOnAfterValidate;
+                        RedistributeTotalsOnAfterValidate();
                     end;
                 }
                 field("Unit Cost (LCY)"; Rec."Unit Cost (LCY)")
@@ -315,7 +315,7 @@ page 50055 "Purchase Order Subform Foreign"
 
                     trigger OnValidate()
                     begin
-                        RedistributeTotalsOnAfterValidate;
+                        RedistributeTotalsOnAfterValidate();
                     end;
                 }
                 field("ActualVat (LCY)"; Rec."ActualVat (LCY)")
@@ -338,7 +338,7 @@ page 50055 "Purchase Order Subform Foreign"
 
                     trigger OnValidate()
                     begin
-                        RedistributeTotalsOnAfterValidate;
+                        RedistributeTotalsOnAfterValidate();
                     end;
                 }
                 field("Line Discount %"; Rec."Line Discount %")
@@ -348,7 +348,7 @@ page 50055 "Purchase Order Subform Foreign"
 
                     trigger OnValidate()
                     begin
-                        RedistributeTotalsOnAfterValidate;
+                        RedistributeTotalsOnAfterValidate();
                     end;
                 }
                 field("Line Discount Amount"; Rec."Line Discount Amount")
@@ -358,7 +358,7 @@ page 50055 "Purchase Order Subform Foreign"
 
                     trigger OnValidate()
                     begin
-                        RedistributeTotalsOnAfterValidate;
+                        RedistributeTotalsOnAfterValidate();
                     end;
                 }
                 field("Prepayment %"; Rec."Prepayment %")
@@ -368,7 +368,7 @@ page 50055 "Purchase Order Subform Foreign"
 
                     trigger OnValidate()
                     begin
-                        RedistributeTotalsOnAfterValidate;
+                        RedistributeTotalsOnAfterValidate();
                     end;
                 }
                 field("Prepmt. Line Amount"; Rec."Prepmt. Line Amount")
@@ -378,7 +378,7 @@ page 50055 "Purchase Order Subform Foreign"
 
                     trigger OnValidate()
                     begin
-                        RedistributeTotalsOnAfterValidate;
+                        RedistributeTotalsOnAfterValidate();
                     end;
                 }
                 field("Prepmt. Amt. Inv."; Rec."Prepmt. Amt. Inv.")
@@ -388,7 +388,7 @@ page 50055 "Purchase Order Subform Foreign"
 
                     trigger OnValidate()
                     begin
-                        RedistributeTotalsOnAfterValidate;
+                        RedistributeTotalsOnAfterValidate();
                     end;
                 }
                 field("Allow Invoice Disc."; Rec."Allow Invoice Disc.")
@@ -728,7 +728,7 @@ page 50055 "Purchase Order Subform Foreign"
 
                         trigger OnAction()
                         begin
-                            ItemAvailFormsMgt.ShowItemAvailFromPurchLine(Rec, ItemAvailFormsMgt.ByEvent)
+                            ItemAvailFormsMgt.ShowItemAvailFromPurchLine(Rec, ItemAvailFormsMgt.ByEvent())
                         end;
                     }
                     action(Period)
@@ -739,7 +739,7 @@ page 50055 "Purchase Order Subform Foreign"
 
                         trigger OnAction()
                         begin
-                            ItemAvailFormsMgt.ShowItemAvailFromPurchLine(Rec, ItemAvailFormsMgt.ByPeriod)
+                            ItemAvailFormsMgt.ShowItemAvailFromPurchLine(Rec, ItemAvailFormsMgt.ByPeriod())
                         end;
                     }
                     action(Variant)
@@ -750,7 +750,7 @@ page 50055 "Purchase Order Subform Foreign"
 
                         trigger OnAction()
                         begin
-                            ItemAvailFormsMgt.ShowItemAvailFromPurchLine(Rec, ItemAvailFormsMgt.ByVariant)
+                            ItemAvailFormsMgt.ShowItemAvailFromPurchLine(Rec, ItemAvailFormsMgt.ByVariant())
                         end;
                     }
                     action(Location)
@@ -762,7 +762,7 @@ page 50055 "Purchase Order Subform Foreign"
 
                         trigger OnAction()
                         begin
-                            ItemAvailFormsMgt.ShowItemAvailFromPurchLine(Rec, ItemAvailFormsMgt.ByLocation)
+                            ItemAvailFormsMgt.ShowItemAvailFromPurchLine(Rec, ItemAvailFormsMgt.ByLocation())
                         end;
                     }
                     action("BOM Level")
@@ -773,7 +773,7 @@ page 50055 "Purchase Order Subform Foreign"
 
                         trigger OnAction()
                         begin
-                            ItemAvailFormsMgt.ShowItemAvailFromPurchLine(Rec, ItemAvailFormsMgt.ByBOM)
+                            ItemAvailFormsMgt.ShowItemAvailFromPurchLine(Rec, ItemAvailFormsMgt.ByBOM())
                         end;
                     }
                 }
@@ -798,7 +798,7 @@ page 50055 "Purchase Order Subform Foreign"
 
                     trigger OnAction()
                     begin
-                        Rec.OpenItemTrackingLines;
+                        Rec.OpenItemTrackingLines();
                     end;
                 }
                 action(Dimensions)
@@ -811,7 +811,7 @@ page 50055 "Purchase Order Subform Foreign"
 
                     trigger OnAction()
                     begin
-                        Rec.ShowDimensions;
+                        Rec.ShowDimensions();
                     end;
                 }
                 action("Co&mments")
@@ -822,7 +822,7 @@ page 50055 "Purchase Order Subform Foreign"
 
                     trigger OnAction()
                     begin
-                        Rec.ShowLineComments;
+                        Rec.ShowLineComments();
                     end;
                 }
                 action(ItemChargeAssignment)
@@ -834,7 +834,7 @@ page 50055 "Purchase Order Subform Foreign"
 
                     trigger OnAction()
                     begin
-                        Rec.ShowItemChargeAssgnt;
+                        Rec.ShowItemChargeAssgnt();
                     end;
                 }
                 action(DeferralSchedule)
@@ -864,7 +864,7 @@ page 50055 "Purchase Order Subform Foreign"
 
                     trigger OnAction()
                     begin
-                        ExplodeBOM;
+                        ExplodeBOM();
                     end;
                 }
                 action("Insert Ext. Texts")
@@ -888,8 +888,8 @@ page 50055 "Purchase Order Subform Foreign"
 
                     trigger OnAction()
                     begin
-                        Rec.Find;
-                        Rec.ShowReservation;
+                        Rec.Find();
+                        Rec.ShowReservation();
                     end;
                 }
                 action(OrderTracking)
@@ -900,7 +900,7 @@ page 50055 "Purchase Order Subform Foreign"
 
                     trigger OnAction()
                     begin
-                        ShowTracking;
+                        ShowTracking();
                     end;
                 }
             }
@@ -921,7 +921,7 @@ page 50055 "Purchase Order Subform Foreign"
 
                         trigger OnAction()
                         begin
-                            OpenSalesOrderForm;
+                            OpenSalesOrderForm();
                         end;
                     }
                 }
@@ -938,7 +938,7 @@ page 50055 "Purchase Order Subform Foreign"
 
                         trigger OnAction()
                         begin
-                            OpenSpecOrderSalesOrderForm;
+                            OpenSpecOrderSalesOrderForm();
                         end;
                     }
                 }
@@ -965,7 +965,7 @@ page 50055 "Purchase Order Subform Foreign"
         ReservePurchLine: Codeunit "Purch. Line-Reserve";
     begin
         if (Rec.Quantity <> 0) and Rec.ItemExists(Rec."No.") then begin
-            Commit;
+            Commit();
             if not ReservePurchLine.DeleteLineConfirm(Rec) then
                 exit(false);
             ReservePurchLine.DeleteLine(Rec);
@@ -974,7 +974,7 @@ page 50055 "Purchase Order Subform Foreign"
 
     trigger OnNewRecord(BelowxRec: Boolean)
     begin
-        Rec.InitType;
+        Rec.InitType();
         Clear(ShortcutDimCode);
     end;
 
@@ -1025,16 +1025,16 @@ page 50055 "Purchase Order Subform Foreign"
         SalesHeader.SetRange("No.", Rec."Sales Order No.");
         SalesOrder.SetTableView(SalesHeader);
         SalesOrder.Editable := false;
-        SalesOrder.Run;
+        SalesOrder.Run();
     end;
 
     local procedure InsertExtendedText(Unconditionally: Boolean)
     begin
         if TransferExtendedText.PurchCheckIfAnyExtText(Rec, Unconditionally) then begin
-            CurrPage.SaveRecord;
+            CurrPage.SaveRecord();
             TransferExtendedText.InsertPurchExtText(Rec);
         end;
-        if TransferExtendedText.MakeUpdate then
+        if TransferExtendedText.MakeUpdate() then
             UpdateForm(true);
     end;
 
@@ -1044,7 +1044,7 @@ page 50055 "Purchase Order Subform Foreign"
         TrackingForm: Page "Order Tracking";
     begin
         TrackingForm.SetPurchLine(Rec);
-        TrackingForm.RunModal;
+        TrackingForm.RunModal();
     end;
 
     local procedure OpenSpecOrderSalesOrderForm()
@@ -1056,7 +1056,7 @@ page 50055 "Purchase Order Subform Foreign"
         SalesHeader.SetRange("No.", Rec."Special Order Sales No.");
         SalesOrder.SetTableView(SalesHeader);
         SalesOrder.Editable := false;
-        SalesOrder.Run;
+        SalesOrder.Run();
     end;
 
     [Scope('OnPrem')]
@@ -1100,7 +1100,7 @@ page 50055 "Purchase Order Subform Foreign"
         if (Rec.Type = Rec.Type::"Charge (Item)") and (Rec."No." <> xRec."No.") and
            (xRec."No." <> '')
         then
-            CurrPage.SaveRecord;
+            CurrPage.SaveRecord();
     end;
 
     local procedure CrossReferenceNoOnAfterValidat()
@@ -1110,12 +1110,11 @@ page 50055 "Purchase Order Subform Foreign"
 
     local procedure RedistributeTotalsOnAfterValidate()
     begin
-        CurrPage.SaveRecord;
+        CurrPage.SaveRecord();
 
         PurchHeader.Get(Rec."Document Type", Rec."Document No.");
         if DocumentTotals.PurchaseCheckNumberOfLinesLimit(PurchHeader) then
             DocumentTotals.PurchaseRedistributeInvoiceDiscountAmounts(Rec, VATAmount, TotalPurchaseLine);
-        CurrPage.Update;
+        CurrPage.Update();
     end;
 }
-

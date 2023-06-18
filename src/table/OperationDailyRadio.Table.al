@@ -1,6 +1,6 @@
 table 50039 "Operation Daily Radio"
 {
-
+    Caption = 'Operation Daily Radio';
     fields
     {
         field(1; Date; Date)
@@ -80,6 +80,8 @@ table 50039 "Operation Daily Radio"
 
     fieldgroups
     {
+        fieldgroup(DropDown; Date, Name, Description)
+        {
+        }
     }
 }
-

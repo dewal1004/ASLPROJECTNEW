@@ -2,7 +2,7 @@ page 90087 "Catch Formy"
 {
     PageType = Card;
     SourceTable = Item;
-
+    Caption = 'Catch Formy';
     layout
     {
         area(content)
@@ -622,15 +622,15 @@ page 90087 "Catch Formy"
                 trigger OnAction()
                 begin
                     J := 1;
-                    for I := 1 to 68 do begin
+                    for I := 1 to 68 do
                         for J := 1 to 3 do begin
-                            JJLine.Init;
+                            JJLine.Init();
                             JJLine."Journal Template Name" := 'JOB';
                             JJLine."Journal Batch Name" := 'CATCH';
                             JJLine."Line No." := I * 10000 + J * 100;
                             JJLine."Job No." := 'J00030';
-                            JJLine."Posting Date" := WorkDate;
-                            JJLine."Document No." := 'JJ' + Format(WorkDate);
+                            JJLine."Posting Date" := WorkDate();
+                            JJLine."Document No." := 'JJ' + Format(WorkDate());
                             JJLine.Type := JJLine.Type::Item;
                             if J = 2 then
                                 ItVar := Format(I - 1) + 'A' else
@@ -642,10 +642,9 @@ page 90087 "Catch Formy"
                                 JJLine.Validate(JJLine."No.", ItVar);
                                 JJLine.Validate(JJLine.Catch, CTH[I, J]);
                                 JJLine.Validate(JJLine."Location Code", 'LDAN');
-                                if not JJLine.Insert then JJLine.Modify;
+                                if not JJLine.Insert() then JJLine.Modify();
                             end;
                         end;
-                    end;
                 end;
             }
         }
@@ -662,4 +661,3 @@ page 90087 "Catch Formy"
         Text19045268: Label 'WILD TIGER';
         Text19080001: Label 'WILD TIGER';
 }
-

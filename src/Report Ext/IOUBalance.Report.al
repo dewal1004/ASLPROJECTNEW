@@ -4,7 +4,7 @@ report 50108 "IOU Balance"
     RDLCLayout = './src/reportrdlc/IOUBalance.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
-
+    Caption = 'IOU Balance';
     dataset
     {
         dataitem(Employee; Employee)
@@ -38,7 +38,7 @@ report 50108 "IOU Balance"
                 column(COMPANYNAME; CompanyName)
                 {
                 }
-                column(CurrReport_PAGENO; CurrReport.PageNo)
+                column(CurrReport_PAGENO; CurrReport.PageNo())
                 {
                 }
                 column(USERID; UserId)
@@ -111,21 +111,20 @@ report 50108 "IOU Balance"
                 trigger OnPreDataItem()
                 begin
                     /*LastFieldNo := FIELDNO("Customer No.");
-                    
+
                     IF NOT FooterPrinted THEN
                       LastFieldNo := CurrReport.TOTALSCAUSEDBY;
                     CurrReport.SHOWOUTPUT := NOT FooterPrinted;
                     FooterPrinted := TRUE;
-                    
+
                     CurrReport.SHOWOUTPUT :=
                       CurrReport.TOTALSCAUSEDBY = "Cust. Ledger Entry".FIELDNO("Customer No.");
                     Emp.GET(Employee."No.");
                     IF "Remaining Amt. (LCY)">0 THEN Emp.Blocked:=TRUE ELSE Emp.Blocked:= FALSE;
                     Emp.MODIFY;
-                    
+
                     TotRem:=TotRem+"Remaining Amt. (LCY)";
                     TotAmt:=TotAmt+"Amount (LCY)";*/
-
                 end;
             }
         }
@@ -133,7 +132,6 @@ report 50108 "IOU Balance"
 
     requestpage
     {
-
         layout
         {
         }
@@ -148,10 +146,6 @@ report 50108 "IOU Balance"
     }
 
     var
-        LastFieldNo: Integer;
-        FooterPrinted: Boolean;
-        "-----": Integer;
-        Emp: Record Employee;
         TotRem: Decimal;
         TotAmt: Decimal;
         TotalFor: Label 'Employee Balance';
@@ -161,4 +155,3 @@ report 50108 "IOU Balance"
         CurrReport_PAGENOCaptionLbl: Label 'Page';
         Cust__Ledger_Entry__Customer_No__CaptionLbl: Label 'Employee No.';
 }
-

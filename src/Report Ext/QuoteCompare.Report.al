@@ -2,7 +2,7 @@ report 50212 "Quote Compare"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/QuoteCompare.rdlc';
-
+    Caption = 'Quote Compare';
     dataset
     {
         dataitem("Purchase Line"; "Purchase Line")
@@ -13,7 +13,7 @@ report 50212 "Quote Compare"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -103,7 +103,6 @@ report 50212 "Quote Compare"
 
     requestpage
     {
-
         layout
         {
         }
@@ -119,8 +118,6 @@ report 50212 "Quote Compare"
 
     var
         LastFieldNo: Integer;
-        FooterPrinted: Boolean;
-        "-----------------": Text[30];
         VendorRec: Record Vendor;
         VendName: Text[50];
         Quote_CompareCaptionLbl: Label 'Quote Compare';
@@ -128,4 +125,3 @@ report 50212 "Quote Compare"
         VendorCaptionLbl: Label 'Vendor';
         Item_No_CaptionLbl: Label 'Item No.';
 }
-

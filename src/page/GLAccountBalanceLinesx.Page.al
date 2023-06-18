@@ -35,7 +35,7 @@ page 50416 "G/L Account Balance Linesx"
 
                     trigger OnDrillDown()
                     begin
-                        BalanceDrillDown;
+                        BalanceDrillDown();
                     end;
                 }
                 field("GLAcc.""Credit Amount"""; GLAcc."Credit Amount")
@@ -49,7 +49,7 @@ page 50416 "G/L Account Balance Linesx"
 
                     trigger OnDrillDown()
                     begin
-                        BalanceDrillDown;
+                        BalanceDrillDown();
                     end;
                 }
                 field("GLAcc.""Net Change"""; GLAcc."Net Change")
@@ -64,7 +64,7 @@ page 50416 "G/L Account Balance Linesx"
 
                     trigger OnDrillDown()
                     begin
-                        BalanceDrillDown;
+                        BalanceDrillDown();
                     end;
                 }
             }
@@ -77,7 +77,7 @@ page 50416 "G/L Account Balance Linesx"
 
     trigger OnAfterGetRecord()
     begin
-        SetDateFilter;
+        SetDateFilter();
         GLAcc.CalcFields("Net Change");
         GLAcc."Debit Amount" := GLAcc."Net Change";
         GLAcc."Credit Amount" := -GLAcc."Net Change";
@@ -95,7 +95,7 @@ page 50416 "G/L Account Balance Linesx"
 
     trigger OnOpenPage()
     begin
-        Rec.Reset;
+        Rec.Reset();
     end;
 
     var
@@ -120,8 +120,8 @@ page 50416 "G/L Account Balance Linesx"
     var
         GLEntry: Record "G/L Entry";
     begin
-        SetDateFilter;
-        GLEntry.Reset;
+        SetDateFilter();
+        GLEntry.Reset();
         GLEntry.SetCurrentKey("G/L Account No.", "Posting Date");
         GLEntry.SetRange("G/L Account No.", GLAcc."No.");
         if GLAcc.Totaling <> '' then
@@ -154,7 +154,7 @@ page 50416 "G/L Account Balance Linesx"
                     GLAcc.SetFilter(
                       "Date Filter", GLAcc.GetFilter("Date Filter") + '&<>%1',
                       ClosingDate(AccountingPeriod."Starting Date" - 1));
-                until AccountingPeriod.Next = 0;
+                until AccountingPeriod.Next() = 0;
         end else
             GLAcc.SetRange(
               "Date Filter",
@@ -162,4 +162,3 @@ page 50416 "G/L Account Balance Linesx"
               ClosingDate(GLAcc.GetRangeMax("Date Filter")));
     end;
 }
-

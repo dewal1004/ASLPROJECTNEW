@@ -2,7 +2,7 @@ page 50016 "Employee Group Lines."
 {
     PageType = ListPart;
     SourceTable = "Payroll-Employee Group Lines.";
-
+    Caption = 'Employee Group Lines.';
     layout
     {
         area(content)
@@ -24,7 +24,7 @@ page 50016 "Employee Group Lines."
                     //  Lookup = true;
                     //LookupPageID = "E/D Survey";
                 }
-                field(GetEDName; GetEDName)
+                field(GetEDName; GetEDName())
                 {
                     Caption = 'Payslip Text';
                     ApplicationArea = All;
@@ -82,4 +82,3 @@ page 50016 "Employee Group Lines."
         if EDRec.Get(Rec."E/D Code") then exit(EDRec."Payslip Text");
     end;
 }
-

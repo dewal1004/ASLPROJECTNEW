@@ -2,7 +2,7 @@ report 51100 "employeeCorrection"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/employeeCorrection.rdlc';
-
+    Caption = 'employeeCorrection';
     dataset
     {
         dataitem(Employee; Employee)
@@ -14,7 +14,7 @@ report 51100 "employeeCorrection"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -45,15 +45,13 @@ report 51100 "employeeCorrection"
                    Employee."Statistics Group Code":= Employee."Statistics Group Code":: "12545";
                    MODIFY;*/
 
-                Modify;
-
+                Modify();
             end;
         }
     }
 
     requestpage
     {
-
         layout
         {
         }
@@ -68,8 +66,6 @@ report 51100 "employeeCorrection"
     }
 
     var
-        resource: Record Resource;
         EmployeeCaptionLbl: Label 'Employee';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
 }
-

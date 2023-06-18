@@ -2,7 +2,7 @@ report 99044 "GB POSTING GRP"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/GBPOSTINGGRP.rdlc';
-
+    Caption = 'GB POSTING GRP';
     dataset
     {
         dataitem("Item Journal Line"; "Item Journal Line")
@@ -14,7 +14,7 @@ report 99044 "GB POSTING GRP"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -51,14 +51,13 @@ report 99044 "GB POSTING GRP"
             trigger OnAfterGetRecord()
             begin
                 "Item Journal Line"."Gen. Bus. Posting Group" := 'OB';
-                "Item Journal Line".Modify;
+                "Item Journal Line".Modify();
             end;
         }
     }
 
     requestpage
     {
-
         layout
         {
         }
@@ -76,4 +75,3 @@ report 99044 "GB POSTING GRP"
         Item_Journal_LineCaptionLbl: Label 'Item Journal Line';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
 }
-

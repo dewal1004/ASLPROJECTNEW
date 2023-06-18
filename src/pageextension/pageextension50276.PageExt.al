@@ -2,7 +2,6 @@ pageextension 50276 "pageextension50276" extends "Issued Fin. Charge Memo List"
 {
     actions
     {
-
         //Unsupported feature: Code Modification on ""Send by &Email"(Action 5).OnAction".
 
         //trigger OnAction()
@@ -25,4 +24,3 @@ pageextension 50276 "pageextension50276" extends "Issued Fin. Charge Memo List"
         //end;
     }
 }
-

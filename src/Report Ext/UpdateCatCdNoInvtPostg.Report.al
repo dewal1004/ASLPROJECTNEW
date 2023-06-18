@@ -2,7 +2,7 @@ report 99996 "Update Cat Cd No.- Invt Postg"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/UpdateCatCdNoInvtPostg.rdlc';
-
+    Caption = 'Update Cat Cd No.- Invt Postg';
     dataset
     {
         dataitem("Inventory Posting Group"; "Inventory Posting Group")
@@ -15,7 +15,7 @@ report 99996 "Update Cat Cd No.- Invt Postg"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -66,7 +66,6 @@ report 99996 "Update Cat Cd No.- Invt Postg"
 
     requestpage
     {
-
         layout
         {
         }
@@ -81,8 +80,6 @@ report 99996 "Update Cat Cd No.- Invt Postg"
     }
 
     var
-        ItCat: Record "Item Category";
         Inventory_Posting_GroupCaptionLbl: Label 'Inventory Posting Group';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
 }
-

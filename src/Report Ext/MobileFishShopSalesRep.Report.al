@@ -5,8 +5,7 @@ report 50167 "Mobile Fish Shop Sales Rep"
     RDLCLayout = './src/reportrdlc/MobileFishShopSalesRep.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
-
-
+    Caption = 'Mobile Fish Shop Sales Rep';
     dataset
     {
         dataitem("Sales Header"; "Sales Header")
@@ -25,7 +24,7 @@ report 50167 "Mobile Fish Shop Sales Rep"
                 column(COMPANYNAME; CompanyName)
                 {
                 }
-                column(CurrReport_PAGENO; CurrReport.PageNo)
+                column(CurrReport_PAGENO; CurrReport.PageNo())
                 {
                 }
                 column(FORMAT_TODAY_0_4_; Format(Today, 0, 4))
@@ -121,7 +120,6 @@ report 50167 "Mobile Fish Shop Sales Rep"
 
     requestpage
     {
-
         layout
         {
         }
@@ -141,8 +139,6 @@ report 50167 "Mobile Fish Shop Sales Rep"
     end;
 
     var
-        LastFieldNo: Integer;
-        FooterPrinted: Boolean;
         TotalFor: Label 'Total for ';
         RepFilter: Text[120];
         TotSales: Decimal;
@@ -152,4 +148,3 @@ report 50167 "Mobile Fish Shop Sales Rep"
         COPYSTR__Sea_food_code__5_CaptionLbl: Label 'Label1000000007';
         Total_SalesCaptionLbl: Label 'Total Sales';
 }
-

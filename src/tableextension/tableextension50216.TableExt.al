@@ -4,7 +4,6 @@ tableextension 50216 "tableextension50216" extends "Purch. Cr. Memo Hdr."
     {
         modify("Your Reference")
         {
-
             //Unsupported feature: Property Modification (Data type) on ""Your Reference"(Field 11)".
 
             Description = 'Text30';
@@ -21,6 +20,7 @@ tableextension 50216 "tableextension50216" extends "Purch. Cr. Memo Hdr."
                                                         "G/L Account No." = FILTER('2185')));
             Description = 'BPR1.00,LC';
             FieldClass = FlowField;
+            Editable = false;
         }
         field(50002; "Total Amount Item (LCY)"; Decimal)
         {
@@ -42,6 +42,7 @@ tableextension 50216 "tableextension50216" extends "Purch. Cr. Memo Hdr."
                                                                                "Outstanding Quantity" = FILTER(<> 0)));
             Description = 'BPR1.00,LC';
             FieldClass = FlowField;
+            Editable = false;
         }
         field(50300; "Form M No."; Code[20])
         {
@@ -60,7 +61,6 @@ tableextension 50216 "tableextension50216" extends "Purch. Cr. Memo Hdr."
         }
         field(50310; "Totat Freight"; Decimal)
         {
-
             trigger OnValidate()
             begin
                 if "Currency Factor" <> 0 then
@@ -72,7 +72,6 @@ tableextension 50216 "tableextension50216" extends "Purch. Cr. Memo Hdr."
         }
         field(50311; "Total Ancillary Charges"; Decimal)
         {
-
             trigger OnValidate()
             begin
                 if "Currency Factor" <> 0 then
@@ -84,7 +83,6 @@ tableextension 50216 "tableextension50216" extends "Purch. Cr. Memo Hdr."
         }
         field(50312; "Clearing(LCY)"; Decimal)
         {
-
             trigger OnValidate()
             begin
                 TestField("Currency Code");
@@ -92,7 +90,6 @@ tableextension 50216 "tableextension50216" extends "Purch. Cr. Memo Hdr."
         }
         field(50313; "Interest Expense(LCY)"; Decimal)
         {
-
             trigger OnValidate()
             begin
                 TestField("Currency Code");
@@ -221,4 +218,3 @@ tableextension 50216 "tableextension50216" extends "Purch. Cr. Memo Hdr."
         }
     }
 }
-

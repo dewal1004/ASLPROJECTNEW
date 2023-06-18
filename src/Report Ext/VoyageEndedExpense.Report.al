@@ -6,8 +6,7 @@ report 50046 "Voyage Ended Expense"
     RDLCLayout = './src/reportrdlc/VoyageEndedExpense.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
-
-
+    Caption = 'Voyage Ended Expense';
     dataset
     {
         dataitem(Job; Job)
@@ -18,7 +17,7 @@ report 50046 "Voyage Ended Expense"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -98,7 +97,6 @@ report 50046 "Voyage Ended Expense"
 
     requestpage
     {
-
         layout
         {
         }
@@ -113,18 +111,8 @@ report 50046 "Voyage Ended Expense"
     }
 
     var
-        JobJB: Record "Job Journal Batch";
-        JobJL: Record "Job Journal Line";
-        JobJL2: Record "Job Journal Line";
-        JobJLX: Record "Job Journal Line";
-        Icount: array[2] of Integer;
-        LocCd: Code[10];
-        I: Code[10];
-        RES: Record Resource;
-        JNo: Code[10];
         Ivt: Integer;
         JobCaptionLbl: Label 'Job';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
         ConsumptionCaptionLbl: Label 'Consumption';
 }
-

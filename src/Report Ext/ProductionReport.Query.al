@@ -1,6 +1,6 @@
 query 50000 "Production Report"
 {
-
+    Caption = 'Production Report';
     elements
     {
         dataitem(Item_Ledger_Entry; "Item Ledger Entry")
@@ -24,4 +24,3 @@ query 50000 "Production Report"
         }
     }
 }
-

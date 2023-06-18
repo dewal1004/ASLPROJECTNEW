@@ -5,8 +5,7 @@ report 50066 "E/D-Employee-period"
     // also printed for each employee.
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/EDEmployeeperiod.rdlc';
-
-
+    Caption = 'E/D-Employee-period';
     dataset
     {
         dataitem("Payroll-E/D Codes."; "Payroll-E/D Codes.")
@@ -184,9 +183,8 @@ report 50066 "E/D-Employee-period"
 
                     EmpText := GetFilter("Employee No");
 
-
                     if EmployeeRec.Get("Employee No") then
-                        EmployeeName := EmployeeRec.FullName;
+                        EmployeeName := EmployeeRec.FullName();
                     ArrayIndex := 1;
                     ArrayTop := 10;
                     for ArrayIndex := 1 to ArrayTop do
@@ -194,7 +192,6 @@ report 50066 "E/D-Employee-period"
 
                     /*IF EmpText <> ''
                      THEN UNDEFINED('genSELECTLINES', 1);*/
-
                 end;
             }
 
@@ -205,14 +202,13 @@ report 50066 "E/D-Employee-period"
 
             trigger OnPreDataItem()
             begin
-                CompanyData.Get;
+                CompanyData.Get();
             end;
         }
     }
 
     requestpage
     {
-
         layout
         {
         }
@@ -245,4 +241,3 @@ report 50066 "E/D-Employee-period"
         TOTAL_AMOUNTSCaptionLbl: Label 'TOTAL AMOUNTS';
         NB__Report_is_for_Employee_Numbers_CaptionLbl: Label 'NB: Report is for Employee Numbers:';
 }
-

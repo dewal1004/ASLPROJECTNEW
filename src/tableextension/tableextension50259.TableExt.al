@@ -8,4 +8,3 @@ tableextension 50259 "tableextension50259" extends "Bank Account Posting Group"
         }
     }
 }
-

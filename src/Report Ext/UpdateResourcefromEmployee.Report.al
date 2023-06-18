@@ -2,7 +2,7 @@ report 99912 "Update Resource from Employee"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/UpdateResourcefromEmployee.rdlc';
-
+    Caption = 'Update Resource from Employee';
     dataset
     {
         dataitem(Employee; Employee)
@@ -13,7 +13,7 @@ report 99912 "Update Resource from Employee"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -60,7 +60,6 @@ report 99912 "Update Resource from Employee"
 
     requestpage
     {
-
         layout
         {
         }
@@ -77,13 +76,7 @@ report 99912 "Update Resource from Employee"
     var
         Res: Record Resource;
         Res2: Record Resource;
-        EmpContra: Record "Employment Contract";
-        ResGroup: Record "Resource Group";
-        Eval: Boolean;
-        Answ: Boolean;
         Answ2: Boolean;
-        I: Integer;
-        eM: Integer;
         EmployeeCaptionLbl: Label 'Employee';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
 
@@ -99,10 +92,9 @@ report 99912 "Update Resource from Employee"
                 //CONFIRM('Employee has a resource no already\'
                 //              +'delete old resource No.',TRUE);
                 if Answ2 then
-                    Res2.Delete
+                    Res2.Delete()
                 else
                     Error('Resource May not be duplicated');
-            until Res2.Next = 0;
+            until Res2.Next() = 0;
     end;
 }
-

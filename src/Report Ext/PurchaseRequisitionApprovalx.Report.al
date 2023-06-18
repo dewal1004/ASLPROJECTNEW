@@ -3,8 +3,7 @@ report 90032 "Purchase Requisition Approvalx"
     // Item."Monthly Consumption"
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/PurchaseRequisitionApprovalx.rdlc';
-
-
+    Caption = 'Purchase Requisition Approvalx';
     dataset
     {
         dataitem("Requisition Wksh. Name"; "Requisition Wksh. Name")
@@ -29,7 +28,7 @@ report 90032 "Purchase Requisition Approvalx"
                 column(dato; dato)
                 {
                 }
-                column(CurrReport_PAGENO; CurrReport.PageNo)
+                column(CurrReport_PAGENO; CurrReport.PageNo())
                 {
                 }
                 column(COMPANYNAME; CompanyName)
@@ -170,7 +169,6 @@ report 90032 "Purchase Requisition Approvalx"
                         Item2.Get("Requisition Line"."No.");
                         Item2.SetRange(Item2."Date Filter", 0D, PrPurDate);
                         Item2.CalcFields(Item2.Inventory, Item2."Qty. on Purch. Order");
-
                     end;
                 end;
 
@@ -184,7 +182,6 @@ report 90032 "Purchase Requisition Approvalx"
 
     requestpage
     {
-
         layout
         {
         }
@@ -200,7 +197,7 @@ report 90032 "Purchase Requisition Approvalx"
 
     trigger OnInitReport()
     begin
-        CompanyInformation.Get;
+        CompanyInformation.Get();
         CompanyInformation.CalcFields(Picture);
     end;
 
@@ -212,22 +209,12 @@ report 90032 "Purchase Requisition Approvalx"
 
     var
         Text004: Label 'Purchase Requisition Approval';
-        CompanyInfo: Record "Company Information";
-        RespCenter: Record "Responsibility Center";
-        Language: Record Language;
-        FormatAddr: Codeunit "Format Address";
-        CompanyAddr: array[8] of Text[50];
-        BuyFromAddr: array[8] of Text[50];
-        ReqNo: Text[50];
         dato: Text[50];
         CopyText: Text[50];
-        "-------": Text[30];
         ItemLedg: Record "Item Ledger Entry";
         PurcRecpHd: Record "Purch. Rcpt. Header";
         VendTab: Record Vendor;
-        LetterHd: Boolean;
         ReqStrId: Code[20];
-        Text000: Label 'The key was successfully selected! ';
         Text001: Label 'Sorry, the key could not be found.. ';
         PrPurDate: Date;
         PrPurQty: Decimal;
@@ -236,7 +223,6 @@ report 90032 "Purchase Requisition Approvalx"
         PrPurVenNam: Code[80];
         Item: Record Item;
         Item2: Record Item;
-        Filt: array[2] of Code[20];
         JTempNm: Code[20];
         JBatcNm: Code[20];
         Requisition_LineCaptionLbl: Label 'Requisition Line';
@@ -253,4 +239,3 @@ report 90032 "Purchase Requisition Approvalx"
         Checked_and_Approved__By_CaptionLbl: Label 'Checked and Approved  By:';
         CompanyInformation: Record "Company Information";
 }
-

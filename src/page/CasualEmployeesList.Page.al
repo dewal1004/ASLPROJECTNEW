@@ -2,7 +2,7 @@ page 50046 "Casual Employees List"
 {
     PageType = Card;
     SourceTable = "Casual Employees";
-
+    Caption = 'Casual Employees List';
     layout
     {
         area(content)
@@ -74,4 +74,3 @@ page 50046 "Casual Employees List"
     {
     }
 }
-

@@ -7,4 +7,3 @@ tableextension 50308 "Inventory Posting Setup Ext" extends "Inventory Posting Se
         }
     }
 }
-

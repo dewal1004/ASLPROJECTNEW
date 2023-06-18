@@ -5,7 +5,7 @@ codeunit 60081 "Sales-Post (Yes/No)w"
     trigger OnRun()
     begin
         SalesHeader.Copy(Rec);
-        Code;
+        Code();
         Rec := SalesHeader;
     end;
 
@@ -67,7 +67,5 @@ codeunit 60081 "Sales-Post (Yes/No)w"
                             exit;
         end;
         SalesPost.Run(SalesHeader);
-
     end;
 }
-

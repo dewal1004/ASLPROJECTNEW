@@ -2,7 +2,7 @@ report 99902 "Sort S/No."
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/SortSNo.rdlc';
-
+    Caption = 'Sort S/No.';
     dataset
     {
         dataitem("Catch Default"; "Catch Default")
@@ -14,7 +14,7 @@ report 99902 "Sort S/No."
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -51,19 +51,16 @@ report 99902 "Sort S/No."
                 EVALUATE("S/No.","No.");
                 MODIFY();
                 */
-
             end;
         }
         dataitem("Job catch Default"; "Job catch Default")
         {
-
             trigger OnAfterGetRecord()
             begin
                 /*
                 EVALUATE("S/No.",Code);
                 MODIFY();
                 */
-
             end;
         }
         dataitem("Inventory Posting Group"; "Inventory Posting Group")
@@ -90,7 +87,6 @@ report 99902 "Sort S/No."
 
     requestpage
     {
-
         layout
         {
         }
@@ -108,4 +104,3 @@ report 99902 "Sort S/No."
         Catch_DefaultCaptionLbl: Label 'Catch Default';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
 }
-

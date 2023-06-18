@@ -2,7 +2,7 @@ report 50072 "BANK LIST foreign currency"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/BANKLISTforeigncurrency.rdlc';
-
+    Caption = 'BANK LIST foreign currency';
     dataset
     {
         dataitem("Bank Account"; "Bank Account")
@@ -15,7 +15,7 @@ report 50072 "BANK LIST foreign currency"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -91,13 +91,10 @@ report 50072 "BANK LIST foreign currency"
             trigger OnAfterGetRecord()
             begin
 
-
                 "Bank Account".SetRange("Bank Account"."Date Filter", 0D, CalcDate('-1D', MINDATE));
                 "Bank Account".CalcFields("Bank Account"."Net Change");
                 OPENBAL := "Bank Account"."Net Change";
                 OPENBALTOT := OPENBALTOT + OPENBAL;
-
-
 
                 "Bank Account".SetRange("Bank Account"."Date Filter", 0D, MAXDATE);
                 "Bank Account".CalcFields("Bank Account"."Net Change");
@@ -120,7 +117,6 @@ report 50072 "BANK LIST foreign currency"
 
     requestpage
     {
-
         layout
         {
         }
@@ -150,4 +146,3 @@ report 50072 "BANK LIST foreign currency"
         Debit_Amount_CaptionLbl: Label '<Debit Amount>';
         CLOSINGCaptionLbl: Label 'CLOSING';
 }
-

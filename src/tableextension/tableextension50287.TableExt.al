@@ -7,4 +7,3 @@ tableextension 50287 "tableextension50287" extends "Cause of Absence"
         }
     }
 }
-

@@ -4,7 +4,7 @@ report 50092 "Voyage Consumption2"
     RDLCLayout = './src/reportrdlc/VoyageConsumption2.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
-
+    Caption = 'Voyage Consumption2';
     dataset
     {
         dataitem("Job Ledger Entry"; "Job Ledger Entry")
@@ -14,7 +14,7 @@ report 50092 "Voyage Consumption2"
             column(FORMAT_TODAY_0_4_; Format(Today, 0, 4))
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -186,7 +186,6 @@ report 50092 "Voyage Consumption2"
 
     requestpage
     {
-
         layout
         {
         }
@@ -204,9 +203,7 @@ report 50092 "Voyage Consumption2"
         Operatn: Record Job;
         Locatn: Record Location;
         Resour: Record Resource;
-        InventPG: Record "Inventory Posting Group";
         LastFieldNo: Integer;
-        FooterPrinted: Boolean;
         TotalFor: Label 'Total for ';
         Desc: Text[30];
         Voyage_Consumption_ReportCaptionLbl: Label 'Voyage Consumption Report';
@@ -218,4 +215,3 @@ report 50092 "Voyage Consumption2"
         Vessel_Name_CaptionLbl: Label 'Vessel Name:';
         Category_CaptionLbl: Label 'Category:';
 }
-

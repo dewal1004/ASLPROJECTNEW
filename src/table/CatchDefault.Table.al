@@ -1,6 +1,6 @@
 table 50038 "Catch Default"
 {
-
+    Caption = 'Catch Default';
     fields
     {
         field(1; "No."; Code[10])
@@ -57,10 +57,12 @@ table 50038 "Catch Default"
 
     fieldgroups
     {
+        fieldgroup(DropDown; Description)
+        {
+        }
     }
 
     var
         Product: Record Item;
         fine: Boolean;
 }
-

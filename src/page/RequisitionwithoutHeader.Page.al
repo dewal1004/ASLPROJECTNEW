@@ -5,7 +5,7 @@ page 50112 "Requisition without Header"
     SourceTableView = WHERE("No Header" = CONST(true));
     UsageCategory = Lists;
     ApplicationArea = all;
-
+    Caption = 'Requisition without Header';
     layout
     {
         area(content)
@@ -76,4 +76,3 @@ page 50112 "Requisition without Header"
     {
     }
 }
-

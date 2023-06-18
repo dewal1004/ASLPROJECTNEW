@@ -1,5 +1,6 @@
 table 60028 "Education Institute Grp NU*"
 {
+    Caption = 'Education Institute Grp NU*';
     // DrillDownPageID = 60041;
     // LookupPageID = 60041; ***
 
@@ -24,6 +25,8 @@ table 60028 "Education Institute Grp NU*"
 
     fieldgroups
     {
+        fieldgroup(DropDown; Description)
+        {
+        }
     }
 }
-

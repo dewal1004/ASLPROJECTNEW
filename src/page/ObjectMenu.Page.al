@@ -4,7 +4,7 @@ page 83921 "Object Menu"
     SourceTable = "Object";
     UsageCategory = Administration;
     ApplicationArea = All, Basic;
-
+    Caption = 'Object Menu';
     layout
     {
         area(content)
@@ -68,4 +68,3 @@ page 83921 "Object Menu"
     {
     }
 }
-

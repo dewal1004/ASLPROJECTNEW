@@ -2,7 +2,7 @@ report 99969 "Catch to Cold Room & Budget"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/CatchtoColdRoomBudget.rdlc';
-
+    Caption = 'Catch to Cold Room & Budget';
     dataset
     {
         dataitem(Location; Location)
@@ -14,7 +14,7 @@ report 99969 "Catch to Cold Room & Budget"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -61,7 +61,6 @@ report 99969 "Catch to Cold Room & Budget"
 
     requestpage
     {
-
         layout
         {
         }
@@ -79,4 +78,3 @@ report 99969 "Catch to Cold Room & Budget"
         LocationCaptionLbl: Label 'Location';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
 }
-

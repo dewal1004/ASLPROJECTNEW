@@ -4,7 +4,7 @@ report 50196 "Voyage Rev by Sea Day"
     RDLCLayout = './src/reportrdlc/VoyageRevbySeaDay.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
-
+    Caption = 'Voyage Rev by Sea Day';
     dataset
     {
         dataitem("Vessel Performance By Sea Day"; "Vessel Performance By Sea Day")
@@ -15,7 +15,7 @@ report 50196 "Voyage Rev by Sea Day"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -56,7 +56,6 @@ report 50196 "Voyage Rev by Sea Day"
 
     requestpage
     {
-
         layout
         {
         }
@@ -71,9 +70,6 @@ report 50196 "Voyage Rev by Sea Day"
     }
 
     var
-        LastFieldNo: Integer;
-        FooterPrinted: Boolean;
         Vessel_Performance_By_Sea_DayCaptionLbl: Label 'Vessel Performance By Sea Day';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
 }
-

@@ -2,12 +2,11 @@ report 90014 "Copy Records"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/CopyRecords.rdlc';
-
+    Caption = 'Copy Records';
     dataset
     {
         dataitem("Integer"; "Integer")
         {
-
             trigger OnAfterGetRecord()
             begin
                 CopyTable := true;
@@ -18,16 +17,15 @@ report 90014 "Copy Records"
                             JobJnlLine.ChangeCompany(CompanyName);
                             JobJnlLine.Insert(true);
                             JobJnlLine.ChangeCompany('ATLANTIC SHRIMPERS LIMITED');
-                        until JobJnlLine.Next = 0;
+                        until JobJnlLine.Next() = 0;
                 end;
-                CurrReport.Break;
+                CurrReport.Break();
             end;
         }
     }
 
     requestpage
     {
-
         layout
         {
         }
@@ -45,4 +43,3 @@ report 90014 "Copy Records"
         JobJnlLine: Record "Job Journal Line";
         CopyTable: Boolean;
 }
-

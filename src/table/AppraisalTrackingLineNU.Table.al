@@ -90,6 +90,8 @@ table 50057 "Appraisal Tracking Line NU*"
 
     fieldgroups
     {
+        fieldgroup(DropDown; Description)
+        {
+        }
     }
 }
-

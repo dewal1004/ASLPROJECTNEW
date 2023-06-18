@@ -3,8 +3,7 @@ report 90042 "Daily Break Upz"
     // Invt[1]
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/DailyBreakUpz.rdlc';
-
-
+    Caption = 'Daily Break Upz';
     dataset
     {
         dataitem(Item; Item)
@@ -14,7 +13,7 @@ report 90042 "Daily Break Upz"
             column(FORMAT_TODAY_0_4_; Format(Today, 0, 4))
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -236,14 +235,13 @@ report 90042 "Daily Break Upz"
                 repeat
                     SeaRange[Countx] := locate.Code;
                     Countx := Countx + 1;
-                until locate.Next = 0;
+                until locate.Next() = 0;
             end;
         }
     }
 
     requestpage
     {
-
         layout
         {
         }
@@ -259,7 +257,6 @@ report 90042 "Daily Break Upz"
 
     var
         LastFieldNo: Integer;
-        FooterPrinted: Boolean;
         TotalFor: Label 'Total for ';
         locate: Record Location;
         SeaRange: array[100] of Text[30];
@@ -270,4 +267,3 @@ report 90042 "Daily Break Upz"
         ItemCaptionLbl: Label 'Item';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
 }
-

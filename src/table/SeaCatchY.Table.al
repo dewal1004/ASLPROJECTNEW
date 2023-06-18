@@ -14,7 +14,7 @@ table 90029 "Sea CatchY"
             trigger OnValidate()
             begin
                 if "No." <> xRec."No." then begin
-                    GetJobSetup;
+                    GetJobSetup();
                     NoSeriesMgt.TestManual(JobSetup."Catch Nos.");
                     "No. Series" := '';
                 end;
@@ -294,9 +294,7 @@ table 90029 "Sea CatchY"
 
             trigger OnValidate()
             begin
-                if Voy.Get("Job No.") then begin
-
-                end;
+                if Voy.Get("Job No.") then;
             end;
         }
     }
@@ -316,7 +314,7 @@ table 90029 "Sea CatchY"
     trigger OnInsert()
     begin
         if "No." = '' then begin
-            GetJobSetup;
+            GetJobSetup();
             JobSetup.TestField("Catch Nos.");
             NoSeriesMgt.InitSeries(JobSetup."Catch Nos.", xRec."No. Series", 0D, "No.", "No. Series");
         end;
@@ -334,7 +332,7 @@ table 90029 "Sea CatchY"
     //[Scope('OnPrem')]
     procedure AssistEdit(): Boolean
     begin
-        GetJobSetup;
+        GetJobSetup();
         JobSetup.TestField("Catch Nos.");
         if NoSeriesMgt.SelectSeries(JobSetup."Catch Nos.", xRec."No. Series", "No. Series") then begin
             NoSeriesMgt.SetSeries("No.");
@@ -346,7 +344,7 @@ table 90029 "Sea CatchY"
     procedure GetJobSetup()
     begin
         if not HasInvtSetup then begin
-            JobSetup.Get;
+            JobSetup.Get();
             HasInvtSetup := true;
         end;
     end;
@@ -354,11 +352,10 @@ table 90029 "Sea CatchY"
     //[Scope('OnPrem')]
     procedure UpdateCatchMatrix(var Fldno: Integer; var FldContent: Text[30])
     begin
-        CatchMatrix.Init;
+        CatchMatrix.Init();
         CatchMatrix."Course Type Code" := "No.";
         CatchMatrix.Description := Format(Fldno);
         // CatchMatrix.Content:=FldContent;
-        if not CatchMatrix.Insert then CatchMatrix.Modify;
+        if not CatchMatrix.Insert() then CatchMatrix.Modify();
     end;
 }
-

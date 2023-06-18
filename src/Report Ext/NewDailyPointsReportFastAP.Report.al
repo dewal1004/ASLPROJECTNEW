@@ -4,7 +4,6 @@ report 50241 "NewDailyPointsReport Fast-AP"
     // -> modified report to write output data to the Entry/Exit Table. the data will be stored as historical data.
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/NewDailyPointsReportFastAP.rdlc';
-
     Caption = 'New Daily Points Report';
 
     dataset
@@ -21,12 +20,12 @@ report 50241 "NewDailyPointsReport Fast-AP"
                   JobsPointVal.SETCURRENTKEY(JobsPointVal.Vessel,JobsPointVal.Status);
                   JobsPointVal.SETRANGE(JobsPointVal.Status,2);
                 END;
-                
+
                 IF RepDate<>0D THEN
                   JobsPointVal.SETFILTER(JobsPointVal."Posting Date Filter",'%1',RepDate)
                 ELSE
                   JobsPointVal.SETFILTER(JobsPointVal."Posting Date Filter",'%1..%2',010180D,TODAY);
-                
+
                 //MESSAGE('Report Date is %1',RepDate);
                 IF JobsPointVal.FIND('-') THEN
                 REPEAT
@@ -37,7 +36,6 @@ report 50241 "NewDailyPointsReport Fast-AP"
                   JobsPointVal.MODIFY();
                 UNTIL JobsPointVal.NEXT=0;
                 */  //#1
-
             end;
         }
         dataitem(Job; Job)
@@ -49,7 +47,7 @@ report 50241 "NewDailyPointsReport Fast-AP"
             column(Consolidated_Daily_Points_Report_As_On_____FORMAT_Workdat_0_4_; 'Consolidated Daily Points Report As On : ' + Format(Workdat, 0, 4))
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -78,126 +76,96 @@ report 50241 "NewDailyPointsReport Fast-AP"
             }
             column(pts_1_; pts[1])
             {
-
             }
             column(pts_3_; pts[3])
             {
-
             }
             column(pts_2_; pts[2])
             {
-
             }
             column(pts_7_; pts[7])
             {
-
             }
             column(pts_8_; pts[8])
             {
-
             }
             column(pts_9_; pts[9])
             {
-
             }
             column(pts_4_; pts[4])
             {
-
             }
             column(pts_5_; pts[5])
             {
-
             }
             column(pts_6_; pts[6])
             {
-
             }
             column(SeaDays; SeaDays)
             {
             }
             column(TotPts_1_; TotPts[1])
             {
-
             }
             column(TotPts_2_; TotPts[2])
             {
-
             }
             column(TotPts_3_; TotPts[3])
             {
-
             }
             column(TotPts_4_; TotPts[4])
             {
-
             }
             column(TotPts_5_; TotPts[5])
             {
-
             }
             column(TotPts_6_; TotPts[6])
             {
-
             }
             column(TotPts_7_; TotPts[7])
             {
-
             }
             column(TotPts_8_; TotPts[8])
             {
-
             }
             column(TotPts_9_; TotPts[9])
             {
-
             }
             column(TotPtsA_1_; TotPtsA[1])
             {
-
             }
             column(TotPtsA_2_; TotPtsA[2])
             {
-
             }
             column(TotPtsA_3_; TotPtsA[3])
             {
-
             }
             column(TotPtsA_4_; TotPtsA[4])
             {
-
             }
             column(TotPtsA_5_; TotPtsA[5])
             {
-
             }
             column(TotPtsA_6_; TotPtsA[6])
             {
-
             }
             column(TotPtsA_7_; TotPtsA[7])
             {
-
             }
             column(TotPtsA_8_; TotPtsA[8])
             {
-
             }
             column(TotPtsA_9_; TotPtsA[9])
             {
-
             }
             column(SeaDaysTot; SeaDaysTot)
             {
-
             }
             column(SeaTempA; SeaTempA)
             {
-
             }
             column(SeaDayA; SeaDayA)
             {
-
             }
             column(OperationCaption; OperationCaptionLbl)
             {
@@ -278,17 +246,17 @@ report 50241 "NewDailyPointsReport Fast-AP"
                 /*
                 IF RepDate<>0D THEN Workdat:=RepDate
                 ELSE Workdat:=TODAY;
-                
+
                 j:=1;
                 REPEAT
                  pts[j]:=0;
                  j:=j+1;
                 UNTIL j = 10;
-                
+
                 job1.GET(Job."No.");
                 job1.SETRANGE(job1."Task Filter");
                 job1.SETRANGE(job1."Date Filter");
-                
+
                 JobLdgr.SETCURRENTKEY(JobLdgr."Job No.",JobLdgr."Posting Date");
                 JobLdgr.SETFILTER(JobLdgr."Job No.",job1."No.");
                 JobLdgr.SETRANGE(JobLdgr."Posting Date",0D,Workdat);
@@ -303,7 +271,7 @@ report 50241 "NewDailyPointsReport Fast-AP"
                   SeTemp:='';
                   SeArea:='';
                 END;
-                
+
                 // get fish holding temperature
                 DailyOper.SETRANGE(DailyOper.Date,0D,Workdat);
                 DailyOper.SETRANGE(DailyOper."Job No.",job1."No.");
@@ -311,21 +279,21 @@ report 50241 "NewDailyPointsReport Fast-AP"
                   FishTemp := DailyOper."Fish Hold Temp"
                 ELSE
                   FishTemp := 0;
-                
+
                 // Cumulative
                 //MESSAGE('Date is %1',Workdat);
                 job1.SETRANGE(job1."Date Filter",0D,Workdat);
                 //job1.CALCFIELDS(job1.Points);
                 pts[6]:= job1.PointZ(job1."No.",'',job1.GETFILTER("Date Filter"),'','','',job1.Vessel);  //job1.Points;
-                
+
                 job1.SETFILTER(job1."Task Filter",'SHR');
                 //job1.CALCFIELDS(job1.Points);
                 pts[5]:=job1.PointZ(job1."No.",'',job1.GETFILTER("Date Filter"),'','SHR','',job1.Vessel);//job1.Points;
-                
+
                 job1.SETFILTER(job1."Task Filter",'FIS');
                 //job1.CALCFIELDS(job1.Points);
                 pts[4]:=job1.PointZ(job1."No.",'',job1.GETFILTER("Date Filter"),'','FIS','',job1.Vessel); //job1.Points;
-                
+
                 //Average
                 //AAA* IF  job1."Starting Date"<>0D THEN SeaDays:=TODAY-job1."Starting Date" ELSE SeaDays:=0;
                 IF job1."Starting Date"<>0D THEN SeaDays:=Workdat-job1."Starting Date" ELSE SeaDays:=0;
@@ -337,30 +305,29 @@ report 50241 "NewDailyPointsReport Fast-AP"
                 END;
                 AvgPtSortBay:=pts[9];
                 MODIFY;
-                
+
                 //Daily
                 job1.SETFILTER(job1."Date Filter",'=%1',Workdat);
                 job1.SETRANGE(job1."Task Filter");
                 //job1.CALCFIELDS(job1.Points);
                 pts[3]:=job1.PointZ(job1."No.",'',job1.GETFILTER("Date Filter"),'','','',job1.Vessel);//job1.Points;
-                
+
                 job1.SETFILTER(job1."Task Filter",'SHR');
                 //job1.CALCFIELDS(job1.Points);
                 pts[2]:=job1.PointZ(job1."No.",'',job1.GETFILTER("Date Filter"),'','SHR','',job1.Vessel);//job1.Points;
-                
+
                 job1.SETFILTER(job1."Task Filter",'FIS');
                 //job1.CALCFIELDS(job1.Points);
                 pts[1]:=job1.PointZ(job1."No.",'',job1.GETFILTER("Date Filter"),'','FIS','',job1.Vessel);//job1.Points;
-                
+
                 //No Catch Record Exist
                 job1.SETRANGE(job1."Task Filter");
                 job1.SETRANGE(job1."Type Filter",0);
                 job1.CALCFIELDS(job1.NoCatchExist);
                 NoCatch:=job1.NoCatchExist;
-                
+
                 //SeaDaysTot:=SeaDaysTot+SeaDays;
                      */  //#1
-
             end;
 
             trigger OnPostDataItem()
@@ -376,14 +343,13 @@ report 50241 "NewDailyPointsReport Fast-AP"
                 IF FIND('+') THEN;
                 NEXT(-Medn);
                 MednVoy[2]:="No.";
-                
+
                 {IF ((ROUND(COUNT/2,1,'>'))-(ROUND(COUNT/2,1,'<')))=0 THEN
                 NEXT(-1);
                 MednVoy[1]:="No.";
                 //MESSAGE('Voyages are %1 and %2',MednVoy[1],MednVoy[2])
                 }
                  */  //#1
-
             end;
 
             trigger OnPreDataItem()
@@ -399,7 +365,6 @@ report 50241 "NewDailyPointsReport Fast-AP"
                 SETFILTER(AvgPtSortBay,'');
                 IF FIND('-') THEN;
                   */  //#1
-
             end;
         }
         dataitem(Job2; Job)
@@ -422,39 +387,30 @@ report 50241 "NewDailyPointsReport Fast-AP"
             }
             column(pts_1__Control1000000064; pts[1])
             {
-
             }
             column(pts_2__Control1000000065; pts[2])
             {
-
             }
             column(pts_3__Control1000000066; pts[3])
             {
-
             }
             column(pts_4__Control1000000067; pts[4])
             {
-
             }
             column(pts_5__Control1000000068; pts[5])
             {
-
             }
             column(pts_6__Control1000000069; pts[6])
             {
-
             }
             column(pts_7__Control1000000070; pts[7])
             {
-
             }
             column(pts_8__Control1000000071; pts[8])
             {
-
             }
             column(pts_9__Control1000000072; pts[9])
             {
-
             }
             column(UPPERCASE_FishCountry_; UpperCase(FishCountry))
             {
@@ -464,43 +420,33 @@ report 50241 "NewDailyPointsReport Fast-AP"
             }
             column(pts_1__Control1000000051; pts[1])
             {
-
             }
             column(pts_2__Control1000000052; pts[2])
             {
-
             }
             column(pts_3__Control1000000053; pts[3])
             {
-
             }
             column(pts_4__Control1000000054; pts[4])
             {
-
             }
             column(pts_5__Control1000000055; pts[5])
             {
-
             }
             column(pts_6__Control1000000056; pts[6])
             {
-
             }
             column(pts_7__Control1000000057; pts[7])
             {
-
             }
             column(pts_8__Control1000000058; pts[8])
             {
-
             }
             column(pts_9__Control1000000059; pts[9])
             {
-
             }
             column(pts_10_; pts[10])
             {
-
             }
             column(AverageCaption_Control1000000075; AverageCaption_Control1000000075Lbl)
             {
@@ -514,17 +460,17 @@ report 50241 "NewDailyPointsReport Fast-AP"
                 /*
                 IF RepDate<>0D THEN Workdat:=RepDate
                 ELSE Workdat:=TODAY;
-                
+
                 j:=1;
                 REPEAT
                  pts[j]:=0;
                  j:=j+1;
                 UNTIL j = 11;
-                
+
                 job3.GET(Job2."No.");
                 job3.SETRANGE(job3."Task Filter");
                 job3.SETRANGE(job3."Date Filter");
-                
+
                 JobLdgr.SETCURRENTKEY(JobLdgr."Job No.",JobLdgr."Posting Date");
                 JobLdgr.SETFILTER(JobLdgr."Job No.",job3."No.");
                 JobLdgr.SETRANGE(JobLdgr."Posting Date",0D,Workdat);
@@ -539,24 +485,21 @@ report 50241 "NewDailyPointsReport Fast-AP"
                   SeTemp:='';
                   SeArea:='';
                 END;
-                
-                
+
                 // Cumulative
                 //MESSAGE('Date is %1',Workdat);
                 job3.SETRANGE(job3."Date Filter",0D,Workdat);
                 //job3.CALCFIELDS(job3.Points);
                 pts[6]:=job3.PointZ(job3."No.",'',job3.GETFILTER("Date Filter"),'','','',job3.Vessel);//job3.Points;
-                
-                
+
                 job3.SETFILTER(job3."Task Filter",'SHR');
                 //job3.CALCFIELDS(job3.Points);
                 pts[5]:=job3.PointZ(job3."No.",'',job3.GETFILTER("Date Filter"),'','SHR','',job3.Vessel);//job3.Points;
-                
+
                 job3.SETFILTER(job3."Task Filter",'FIS');
                 //job3.CALCFIELDS(job3.Points);
                 pts[4]:=job3.PointZ(job3."No.",'',job3.GETFILTER("Date Filter"),'','FIS','',job3.Vessel);//job3.Points;
-                
-                
+
                 //Average
                 //AAA* IF  job3."Starting Date"<>0D THEN SeaDays:=TODAY-job3."Starting Date" ELSE SeaDays:=0;
                 IF job3."Starting Date"<>0D THEN SeaDays:=Workdat-job3."Starting Date" ELSE SeaDays:=0;
@@ -566,33 +509,32 @@ report 50241 "NewDailyPointsReport Fast-AP"
                   pts[8]:=pts[5]/SeaDays;
                   pts[7]:=pts[4]/SeaDays
                 END;
-                
+
                 //Daily
                 job3.SETFILTER(job3."Date Filter",'=%1',Workdat);
                 job3.SETRANGE(job3."Task Filter");
                 //job3.CALCFIELDS(job3.Points);
                 pts[3]:=job3.PointZ(job3."No.",'',job3.GETFILTER("Date Filter"),'','','',job3.Vessel);//job3.Points;
-                
+
                 job3.SETFILTER(job3."Task Filter",'SHR');
                 //job3.CALCFIELDS(job3.Points);
                 pts[2]:=job3.PointZ(job3."No.",'',job3.GETFILTER("Date Filter"),'','SHR','',job3.Vessel);//job3.Points;
-                
+
                 job3.SETFILTER(job3."Task Filter",'FIS');
                 //job3.CALCFIELDS(job3.Points);
                 pts[1]:=job3.PointZ(job3."No.",'',job3.GETFILTER("Date Filter"),'','FIS','',job3.Vessel);//job3.Points;
-                
+
                 IF pts[3]=0 THEN CurrReport.SKIP;
-                
+
                 //No Catch Record Exist
                 job3.SETRANGE(job3."Task Filter");
                 job3.SETRANGE(job3."Type Filter",0);
                 job3.CALCFIELDS(job3.NoCatchExist);
                 NoCatch:=job3.NoCatchExist;
-                
-                pts[10]:=SeaDays;
-                
-                */  //#1
 
+                pts[10]:=SeaDays;
+
+                */  //#1
             end;
 
             trigger OnPreDataItem()
@@ -603,7 +545,6 @@ report 50241 "NewDailyPointsReport Fast-AP"
                 //Job2.SETFILTER(Job2."Date Filter",'%1',040104D);
                 j:=1;  REPEAT  CurrReport.CREATETOTALS(pts[j]); j:=j+1;  UNTIL j = 11;
                  */  //#1
-
             end;
         }
         dataitem(VoyMedian; Job)
@@ -626,75 +567,57 @@ report 50241 "NewDailyPointsReport Fast-AP"
             }
             column(pts_1__Control1000000082; pts[1])
             {
-
             }
             column(pts_2__Control1000000083; pts[2])
             {
-
             }
             column(pts_3__Control1000000084; pts[3])
             {
-
             }
             column(pts_4__Control1000000085; pts[4])
             {
-
             }
             column(pts_5__Control1000000086; pts[5])
             {
-
             }
             column(pts_6__Control1000000087; pts[6])
             {
-
             }
             column(pts_7__Control1000000088; pts[7])
             {
-
             }
             column(pts_8__Control1000000089; pts[8])
             {
-
             }
             column(pts_9__Control1000000090; pts[9])
             {
-
             }
             column(pts_1__Control1000000091; pts[1])
             {
-
             }
             column(pts_2__Control1000000092; pts[2])
             {
-
             }
             column(pts_3__Control1000000093; pts[3])
             {
-
             }
             column(pts_4__Control1000000094; pts[4])
             {
-
             }
             column(pts_5__Control1000000095; pts[5])
             {
-
             }
             column(pts_6__Control1000000096; pts[6])
             {
-
             }
             column(pts_7__Control1000000097; pts[7])
             {
-
             }
             column(pts_8__Control1000000098; pts[8])
             {
-
             }
             column(pts_9__Control1000000099; pts[9])
             {
-
             }
             column(Median_NigeriaCaption; Median_NigeriaCaptionLbl)
             {
@@ -709,7 +632,7 @@ report 50241 "NewDailyPointsReport Fast-AP"
                 job1.GET("No.");
                 job1.SETRANGE(job1."Task Filter");
                 job1.SETRANGE(job1."Date Filter");
-                
+
                 JobLdgr.SETCURRENTKEY(JobLdgr."Job No.",JobLdgr."Posting Date");
                 JobLdgr.SETFILTER(JobLdgr."Job No.",job1."No.");
                 JobLdgr.SETRANGE(JobLdgr."Posting Date",0D,Workdat);
@@ -724,22 +647,21 @@ report 50241 "NewDailyPointsReport Fast-AP"
                   SeTemp:='';
                   SeArea:='';
                 END;
-                
-                
+
                 // Cumulative
                 //MESSAGE('Date is %1',Workdat);
                 job1.SETRANGE(job1."Date Filter",0D,Workdat);
                 //job1.CALCFIELDS(job1.Points);
                 pts[6]:=job1.PointZ(job1."No.",'',job1.GETFILTER("Date Filter"),'','','',job1.Vessel);//job1.Points;
-                
+
                 job1.SETFILTER(job1."Task Filter",'SHR');
                 //job1.CALCFIELDS(job1.Points);
                 pts[5]:=job1.PointZ(job1."No.",'',job1.GETFILTER("Date Filter"),'','SHR','',job1.Vessel);//job1.Points;
-                
+
                 job1.SETFILTER(job1."Task Filter",'FIS');
                 //job1.CALCFIELDS(job1.Points);
                 pts[4]:=job1.PointZ(job1."No.",'',job1.GETFILTER("Date Filter"),'','FIS','',job1.Vessel);//job1.Points;
-                
+
                 //Average
                 //AAA* IF  job1."Starting Date"<>0D THEN SeaDays:=TODAY-job1."Starting Date" ELSE SeaDays:=0;
                 IF job1."Starting Date"<>0D THEN SeaDays:=Workdat-job1."Starting Date" ELSE SeaDays:=0;
@@ -749,22 +671,21 @@ report 50241 "NewDailyPointsReport Fast-AP"
                   pts[8]:=pts[5]/SeaDays;
                   pts[7]:=pts[4]/SeaDays
                 END;
-                
+
                 //Daily
                 job1.SETFILTER(job1."Date Filter",'=%1',Workdat);
                 job1.SETRANGE(job1."Task Filter");
                 //job1.CALCFIELDS(job1.Points);
                 pts[3]:=job1.PointZ(job1."No.",'',job1.GETFILTER("Date Filter"),'','','',job1.Vessel);//job1.Points;
-                
+
                 job1.SETFILTER(job1."Task Filter",'SHR');
                 //job1.CALCFIELDS(job1.Points);
                 pts[2]:=job1.PointZ(job1."No.",'',job1.GETFILTER("Date Filter"),'','SHR','',job1.Vessel);//job1.Points;
-                
+
                 job1.SETFILTER(job1."Task Filter",'FIS');
                 //job1.CALCFIELDS(job1.Points);
                 pts[1]:=job1.PointZ(job1."No.",'',job1.GETFILTER("Date Filter"),'','FIS','',job1.Vessel);//job1.Points;
                 */  //#1
-
             end;
 
             trigger OnPreDataItem()
@@ -774,14 +695,12 @@ report 50241 "NewDailyPointsReport Fast-AP"
                 VoyMedian.SETFILTER(VoyMedian."No.",'%1|%2',MednVoy[1],MednVoy[2]);
                 j:=1; REPEAT CurrReport.CREATETOTALS(pts[j]);  j:=j+1; UNTIL j = 10;
                 */  //#1
-
             end;
         }
     }
 
     requestpage
     {
-
         layout
         {
         }
@@ -796,50 +715,21 @@ report 50241 "NewDailyPointsReport Fast-AP"
     }
 
     var
-        job1: Record Job;
-        JobLdgr: Record "Job Ledger Entry";
-        DOTrec: Record "Day of Tide";
-        JobsPointVal: Record Job;
-        Resource: Record Resource;
-        Loc: Record Location;
-        NoCatch: Boolean;
-        Eval: Boolean;
         SeaDays: Integer;
-        I: Integer;
-        j: Integer;
-        k: Integer;
         Countz: Integer;
         pts: array[10] of Decimal;
         TotPts: array[9] of Decimal;
         TotPtsA: array[9] of Decimal;
-        TotPtsAvg: array[9] of Decimal;
         SeaDaysTot: Decimal;
         SeaDayA: Integer;
-        CountCum: array[9] of Decimal;
-        SeaTemp: Decimal;
         SeaTempA: Decimal;
-        SeTempVal: Decimal;
         Skipper: Text[30];
         Desc: Text[30];
-        SeTemp: Code[10];
         SeArea: Code[10];
         DOT: Code[15];
         Workdat: Date;
-        RepDate: Date;
-        "------------": Integer;
-        Country: Record "Country/Region";
-        job3: Record Job;
-        LastFieldNo: Integer;
-        FooterPrinted: Boolean;
         FishCountry: Text[100];
-        Medn: Decimal;
-        MednVoy: array[2] of Code[10];
         CountJ: Integer;
-        CountJx: Integer;
-        PntsAvg: Decimal;
-        Historical: Boolean;
-        HistoricalData: Record "Entry/Exit Point";
-        DailyOper: Record "Operation Daily Radio";
         FishTemp: Decimal;
         OperationCaptionLbl: Label 'Operation';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
@@ -868,4 +758,3 @@ report 50241 "NewDailyPointsReport Fast-AP"
         Median_NigeriaCaptionLbl: Label 'Median Nigeria';
         RES: Record Resource;
 }
-

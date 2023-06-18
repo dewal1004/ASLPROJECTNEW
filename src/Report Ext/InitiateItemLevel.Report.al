@@ -2,7 +2,7 @@ report 90985 "Initiate Item Level"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/InitiateItemLevel.rdlc';
-
+    Caption = 'Initiate Item Level';
     dataset
     {
         dataitem(Item; Item)
@@ -14,7 +14,7 @@ report 90985 "Initiate Item Level"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -66,7 +66,7 @@ report 90985 "Initiate Item Level"
             trigger OnAfterGetRecord()
             begin
                 K := K + 10;
-                IJL.Init;
+                IJL.Init();
                 IJL."Journal Template Name" := 'ITEM';
                 IJL."Journal Batch Name" := 'DEFAULT';
                 IJL."Line No." := K;
@@ -81,7 +81,7 @@ report 90985 "Initiate Item Level"
                 IJL.Validate(IJL."Gen. Prod. Posting Group", Item."Gen. Prod. Posting Group");
                 IJL.Validate(IJL.Quantity, 10000);
                 IJL.Validate(IJL."Unit Amount", 10);
-                if not IJL.Insert then IJL.Modify;
+                if not IJL.Insert() then IJL.Modify();
             end;
 
             trigger OnPreDataItem()
@@ -93,7 +93,6 @@ report 90985 "Initiate Item Level"
 
     requestpage
     {
-
         layout
         {
         }
@@ -113,4 +112,3 @@ report 90985 "Initiate Item Level"
         ItemCaptionLbl: Label 'Item';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
 }
-

@@ -2,7 +2,7 @@ page 50100 "PurchReceiptLines"
 {
     PageType = Card;
     SourceTable = "Purch. Rcpt. Line";
-
+    Caption = 'PurchReceiptLines';
     layout
     {
         area(content)
@@ -46,4 +46,3 @@ page 50100 "PurchReceiptLines"
     {
     }
 }
-

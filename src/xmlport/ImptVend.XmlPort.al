@@ -1,7 +1,7 @@
 xmlport 90998 "ImptVend"
 {
     Format = VariableText;
-
+    Caption = 'ImptVend';
     schema
     {
         textelement(Rootnode)
@@ -78,7 +78,6 @@ xmlport 90998 "ImptVend"
 
     requestpage
     {
-
         layout
         {
         }
@@ -88,4 +87,3 @@ xmlport 90998 "ImptVend"
         }
     }
 }
-

@@ -2,7 +2,7 @@ page 50005 "Payslip Header Card."
 {
     PageType = Card;
     SourceTable = "Payroll-Payslip Header.";
-
+    Caption = 'Payslip Header Card.';
     layout
     {
         area(content)
@@ -96,4 +96,3 @@ page 50005 "Payslip Header Card."
         }
     }
 }
-

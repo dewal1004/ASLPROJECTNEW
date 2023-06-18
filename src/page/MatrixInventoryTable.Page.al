@@ -4,7 +4,7 @@ page 90013 "Matrix Inventory Table"
 
     PageType = Card;
     SourceTable = "Integer";
-
+    Caption = 'Matrix Inventory Table';
     layout
     {
     }
@@ -13,4 +13,3 @@ page 90013 "Matrix Inventory Table"
     {
     }
 }
-

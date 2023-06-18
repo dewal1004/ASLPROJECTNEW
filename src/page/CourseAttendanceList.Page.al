@@ -3,7 +3,7 @@ page 50038 "Course Attendance List"
     Editable = false;
     PageType = Card;
     SourceTable = "Course Attendance";
-
+    Caption = 'Course Attendance List';
     layout
     {
         area(content)
@@ -68,4 +68,3 @@ page 50038 "Course Attendance List"
         CurrPage.LookupMode := true;
     end;
 }
-

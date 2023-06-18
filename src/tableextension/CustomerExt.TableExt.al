@@ -22,8 +22,6 @@ tableextension 50237 "CustomerExt" extends Customer
             OptionCaption = ' ,Initial Entry,Application,Unrealized Loss,Unrealized Gain,Realized Loss,Realized Gain,Payment Discount,Payment Discount (VAT Excl.),Payment Discount (VAT Adjustment),Appln. Rounding,Correction of Remaining Amount';
             OptionMembers = " ","Initial Entry",Application,"Unrealized Loss","Unrealized Gain","Realized Loss","Realized Gain","Payment Discount","Payment Discount (VAT Excl.)","Payment Discount (VAT Adjustment)","Appln. Rounding","Correction of Remaining Amount";
         }
-
-
     }
 
     keys
@@ -34,19 +32,15 @@ tableextension 50237 "CustomerExt" extends Customer
     }
 
     trigger OnInsert()
-    var
-        myInt: Integer;
     begin
         if UserRec.Get(UserId) then
             if not UserRec."Modify Customer" then Error('You Can Not Create New Customer');
         "Global Dimension 2 Code" := 'ATLANTIC';     //AAA - Oct 2002
         if "No." <> '' then
             "Shipping Advice" := "Shipping Advice"::Partial; //#1
-        UpdateReferencedIds;
+        UpdateReferencedIds();
         // SetLastModifiedDateTime;
     end;
-
-
 
     //Unsupported feature: Code Modification on "OnInsert".
 
@@ -87,7 +81,6 @@ tableextension 50237 "CustomerExt" extends Customer
     SetLastModifiedDateTime;
     */
     //end;
-
 
     //Unsupported feature: Code Modification on "OnModify".
 
@@ -168,10 +161,6 @@ tableextension 50237 "CustomerExt" extends Customer
 
     //Unsupported feature: Property Modification (Fields) on "DropDown(FieldGroup 1)".
 
-
     var
         UserRec: Record "User Setup";
-
-
 }
-

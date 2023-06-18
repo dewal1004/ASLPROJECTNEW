@@ -2,7 +2,7 @@ page 60018 "Leave Categories"
 {
     PageType = Card;
     SourceTable = "Leave Categories NU*";
-
+    Caption = 'Leave Categories';
     layout
     {
         area(content)
@@ -43,4 +43,3 @@ page 60018 "Leave Categories"
         CurrPage.LookupMode := true;
     end;
 }
-

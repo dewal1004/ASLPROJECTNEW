@@ -12,9 +12,7 @@ pageextension 50374 "pageextension50374" extends "Purchase Quote Subform"
     }
     actions
     {
-
         //Unsupported feature: Property Modification (Name) on ""E&xplode BOM"(Action 1901991404)".
-
 
         //Unsupported feature: Property Modification (Image) on ""Insert &Ext. Texts"(Action 1900295904)".
 
@@ -33,4 +31,3 @@ pageextension 50374 "pageextension50374" extends "Purchase Quote Subform"
         }
     }
 }
-

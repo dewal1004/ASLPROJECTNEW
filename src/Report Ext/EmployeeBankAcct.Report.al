@@ -12,8 +12,7 @@ report 50029 "Employee-Bank Acct"
     RDLCLayout = './src/reportrdlc/EmployeeBankAcct.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
-
-
+    Caption = 'Employee-Bank Acct';
     dataset
     {
         dataitem("Payroll-Payslip Lines."; "Payroll-Payslip Lines.")
@@ -42,104 +41,80 @@ report 50029 "Employee-Bank Acct"
             column(Amount; "Payroll-Payslip Lines.".Amount)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(EDText_1_1_; EDText[1, 1])
             {
-
             }
             column(EDText_1_2_; EDText[1, 2])
             {
-
             }
             column(EDText_2_1_; EDText[2, 1])
             {
-
             }
             column(EDText_2_2_; EDText[2, 2])
             {
-
             }
             column(EDText_3_1_; EDText[3, 1])
             {
-
             }
             column(EDText_3_2_; EDText[3, 2])
             {
-
             }
             column(EDText_4_1_; EDText[4, 1])
             {
-
             }
             column(EDText_4_2_; EDText[4, 2])
             {
-
             }
             column(EDText_5_1_; EDText[5, 1])
             {
-
             }
             column(EDText_5_2_; EDText[5, 2])
             {
-
             }
             column(EDText_6_1_; EDText[6, 1])
             {
-
             }
             column(EDText_6_2_; EDText[6, 2])
             {
-
             }
             column(EDText_7_1_; EDText[7, 1])
             {
-
             }
             column(EDText_7_2_; EDText[7, 2])
             {
-
             }
             column(EDText_8_1_; EDText[8, 1])
             {
-
             }
             column(EDText_8_2_; EDText[8, 2])
             {
-
             }
             column(EDText_9_1_; EDText[9, 1])
             {
-
             }
             column(EDText_9_2_; EDText[9, 2])
             {
-
             }
             column(EDText_10_1_; EDText[10, 1])
             {
-
             }
             column(EDText_10_2_; EDText[10, 2])
             {
-
             }
             column(EDText_11_1_; EDText[11, 1])
             {
-
             }
             column(EDText_11_2_; EDText[11, 2])
             {
-
             }
             column(EDText_12_1_; EDText[12, 1])
             {
-
             }
             column(EDText_12_2_; EDText[12, 2])
             {
-
             }
             column(DELCHR__EmployeeName_______; DelChr(EmployeeName, '<>'))
             {
@@ -161,51 +136,39 @@ report 50029 "Employee-Bank Acct"
             }
             column(EDAmountsArray_1_; EDAmountsArray[1])
             {
-
             }
             column(EDAmountsArray_2_; EDAmountsArray[2])
             {
-
             }
             column(EDAmountsArray_3_; EDAmountsArray[3])
             {
-
             }
             column(EDAmountsArray_4_; EDAmountsArray[4])
             {
-
             }
             column(EDAmountsArray_5_; EDAmountsArray[5])
             {
-
             }
             column(EDAmountsArray_6_; EDAmountsArray[6])
             {
-
             }
             column(EDAmountsArray_7_; EDAmountsArray[7])
             {
-
             }
             column(EDAmountsArray_8_; EDAmountsArray[8])
             {
-
             }
             column(EDAmountsArray_9_; EDAmountsArray[9])
             {
-
             }
             column(EDAmountsArray_10_; EDAmountsArray[10])
             {
-
             }
             column(EDAmountsArray_12_; EDAmountsArray[12])
             {
-
             }
             column(EDAmountsArray_11_; EDAmountsArray[11])
             {
-
             }
             column(CountZ; CountZ)
             {
@@ -215,15 +178,12 @@ report 50029 "Employee-Bank Acct"
             }
             column(EDAmountsArray_10__Control33; EDAmountsArray[10])
             {
-
             }
             column(Total11; Total11)
             {
-
             }
             column(Total12; Total12)
             {
-
             }
             column(Salary_schedule_for_Period_Caption; Salary_schedule_for_Period_CaptionLbl)
             {
@@ -315,11 +275,11 @@ report 50029 "Employee-Bank Acct"
                     Clear(EDAmountsArray);
                     g_EmpNo := "Payroll-Payslip Lines."."Employee No";
                 end;
-                if not PayEmp.Get("Payroll-Payslip Lines."."Employee No") then CurrReport.Skip; //Added by Adam to skip Deleted? Employees//
+                if not PayEmp.Get("Payroll-Payslip Lines."."Employee No") then CurrReport.Skip(); //Added by Adam to skip Deleted? Employees//
                 EmployeeName := PayEmp."First Name" + ' ' + PayEmp."Last Name";
                 AccountNo := PayEmp."Bank Account";
                 EmployeeNTSIF := PayEmp."NSITF Number";                                                                              // Not: Employees are normally kept
-                if PayEmp.Blocked then CurrReport.Skip; //Added by Adam to skip Blocked Employees
+                if PayEmp.Blocked then CurrReport.Skip(); //Added by Adam to skip Blocked Employees
 
                 case "E/D Code" of
                     RequestEDsArray[1]."E/D Code":
@@ -395,12 +355,11 @@ report 50029 "Employee-Bank Acct"
             trigger OnPreDataItem()
             begin
                 Sno1 := 0;
-                CompanyData.Get;
+                CompanyData.Get();
                 if GetFilter("Employee No") <> '' then
                     EmplHeadTxt := 'Employee Filter: ' + GetFilter("Employee No")
                 else
                     EmplHeadTxt := 'Schedule for All Employees.';
-
 
                 /* Create column header text*/
                 for ArrayIndex := 1 to ArrayTop do
@@ -420,14 +379,12 @@ report 50029 "Employee-Bank Acct"
                             EDText[ArrayIndex, 2] := CopyStr(EDString, 11, 10);
                         end
                     end;
-
             end;
         }
     }
 
     requestpage
     {
-
         layout
         {
             area(content)
@@ -545,12 +502,10 @@ report 50029 "Employee-Bank Acct"
         "Payroll-Payslip Lines.".CopyFilter("Payroll Period", PeriodRec."Period Code");
         if PeriodRec.Count > 1 then
             PeriodTxt := StrSubstNo('(#1 periods)', PeriodRec.Count);
-
     end;
 
     var
         CompanyData: Record "Company Information";
-        EmployeeRec: Record Employee;
         PeriodRec: Record "Payroll-Periods.";
         EmployeeName: Text[40];
         RequestEDsArray: array[12] of Record "Payroll-E/D Codes.";
@@ -562,8 +517,6 @@ report 50029 "Employee-Bank Acct"
         EmplCount: Integer;
         EmplHeadTxt: Text[60];
         PeriodTxt: Text[15];
-        "BANK/CASH": Text[30];
-        IsDescription: Boolean;
         Total11: Decimal;
         Total12: Decimal;
         i: Integer;
@@ -581,13 +534,9 @@ report 50029 "Employee-Bank Acct"
         S_no: Integer;
         PayEmp: Record Employee;
         SNo: Integer;
-        Amount1: Decimal;
         GrandTotals: array[12] of Decimal;
         g_EmpNo: Code[20];
         Sno1: Integer;
-        employee: Record Employee;
         EmployeeNTSIF: Code[50];
         AccountNo: Code[10];
-        "Payroll Period && Employees": Integer;
 }
-

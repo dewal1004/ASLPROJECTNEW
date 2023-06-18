@@ -2,7 +2,7 @@ report 99899 "Transfer To Vessel Test"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/TransferToVesselTest.rdlc';
-
+    Caption = 'Transfer To Vessel Test';
     dataset
     {
         dataitem("Value Entry"; "Value Entry")
@@ -15,7 +15,7 @@ report 99899 "Transfer To Vessel Test"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -135,7 +135,7 @@ report 99899 "Transfer To Vessel Test"
                 LastFieldNo := FieldNo("Gen. Prod. Posting Group");
 
                 if not FooterPrinted then
-                    LastFieldNo := CurrReport.TotalsCausedBy;
+                    LastFieldNo := CurrReport.TotalsCausedBy();
                 CurrReport.ShowOutput(not FooterPrinted);
                 FooterPrinted := true;
             end;
@@ -144,7 +144,6 @@ report 99899 "Transfer To Vessel Test"
 
     requestpage
     {
-
         layout
         {
         }
@@ -165,4 +164,3 @@ report 99899 "Transfer To Vessel Test"
         Value_EntryCaptionLbl: Label 'Value Entry';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
 }
-

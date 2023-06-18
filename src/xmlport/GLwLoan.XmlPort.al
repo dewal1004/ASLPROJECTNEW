@@ -1,6 +1,6 @@
 xmlport 50053 "GLwLoan"
 {
-
+    Caption = 'GLwLoan';
     schema
     {
         textelement(RootNode)
@@ -25,7 +25,6 @@ xmlport 50053 "GLwLoan"
 
     requestpage
     {
-
         layout
         {
         }
@@ -35,4 +34,3 @@ xmlport 50053 "GLwLoan"
         }
     }
 }
-

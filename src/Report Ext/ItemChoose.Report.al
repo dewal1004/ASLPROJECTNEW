@@ -2,7 +2,7 @@ report 60500 "Item_Choose"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/ItemChoose.rdlc';
-
+    Caption = 'Item_Choose';
     dataset
     {
         dataitem(Item; Item)
@@ -32,7 +32,7 @@ report 60500 "Item_Choose"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
         }
@@ -40,7 +40,6 @@ report 60500 "Item_Choose"
 
     requestpage
     {
-
         layout
         {
         }
@@ -56,10 +55,9 @@ report 60500 "Item_Choose"
 
     trigger OnPreReport()
     begin
-        Company_Info.Get;
+        Company_Info.Get();
     end;
 
     var
         Company_Info: Record "Company Information";
 }
-

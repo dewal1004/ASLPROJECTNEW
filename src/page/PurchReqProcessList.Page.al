@@ -10,7 +10,7 @@ page 50118 "Purch. Req. Process List"
                             "Security checked" = CONST(true),
                             "Procurement Mgr. Action" = CONST(Approved),
                             Process = CONST(false));
-
+    Caption = 'Purch. Req. Process List';
     layout
     {
         area(content)
@@ -106,7 +106,7 @@ page 50118 "Purch. Req. Process List"
 
                 trigger OnAction()
                 begin
-                    Rec.CreatePurchInv;
+                    Rec.CreatePurchInv();
                 end;
             }
             action("Print Status List")
@@ -118,4 +118,3 @@ page 50118 "Purch. Req. Process List"
         }
     }
 }
-

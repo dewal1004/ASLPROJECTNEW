@@ -13,12 +13,6 @@ page 60492 "Daily B/Up by Fishg Areax"
     {
     }
 
-    var
-        ItemLedgerEntry: Record "Item Ledger Entry";
-        MatrixHeader: Text[250];
-        ShowColumnName: Boolean;
-        ShowInTransit: Boolean;
-
     local procedure InventoryDrillDown()
     begin
     end;
@@ -27,4 +21,3 @@ page 60492 "Daily B/Up by Fishg Areax"
     begin
     end;
 }
-

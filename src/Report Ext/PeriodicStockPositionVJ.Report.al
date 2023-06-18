@@ -2,7 +2,7 @@ report 50139 "Periodic Stock Position VJ"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/PeriodicStockPositionVJ.rdlc';
-
+    Caption = 'Periodic Stock Position VJ';
     dataset
     {
         dataitem(Item; Item)
@@ -220,7 +220,7 @@ report 50139 "Periodic Stock Position VJ"
                     PrintLine := true else
                     PrintLine := false;
 
-                if DaysOnly then begin
+                if DaysOnly then
                     if
                      (Stk[2] <> 0) or
                      (Stk[3] <> 0) or
@@ -229,7 +229,6 @@ report 50139 "Periodic Stock Position VJ"
                      (Stk[8] <> 0) then
                         PrintLine := true else
                         PrintLine := false;
-                end;
             end;
 
             trigger OnPostDataItem()
@@ -256,7 +255,6 @@ report 50139 "Periodic Stock Position VJ"
 
     requestpage
     {
-
         layout
         {
         }
@@ -278,17 +276,11 @@ report 50139 "Periodic Stock Position VJ"
 
     var
         LastFieldNo: Integer;
-        FooterPrinted: Boolean;
         TotalFor: Label 'Total for ';
-        "---": Integer;
         ItemFilter: Text[250];
         PeriodStartDate: array[7] of Date;
         PeriodLength: Code[20];
-        i: Integer;
         PrintLine: Boolean;
-        Text001: Label '1D';
-        Text002: Label 'Enter the ending date';
-        Text003: Label '0D';
         Stk: array[8] of Decimal;
         Text004: Label 'As at ';
         DaysOnly: Boolean;
@@ -302,4 +294,3 @@ report 50139 "Periodic Stock Position VJ"
         Stk_7__CaptionLbl: Label 'Inventory';
         Stk_8__CaptionLbl: Label 'Transfer';
 }
-

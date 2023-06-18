@@ -7,7 +7,7 @@ page 50116 "Purchase Delivery Sec. check"
     SourceTableView = WHERE("Sent to Security" = CONST(true),
                             "QCC Check" = CONST(false),
                             "Security checked" = CONST(false));
-
+    Caption = 'Purchase Delivery Sec. check';
     layout
     {
         area(content)
@@ -85,4 +85,3 @@ page 50116 "Purchase Delivery Sec. check"
     {
     }
 }
-

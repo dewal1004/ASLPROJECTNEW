@@ -2,7 +2,7 @@ report 99995 "Update resource Group"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/UpdateresourceGroup.rdlc';
-
+    Caption = 'Update resource Group';
     dataset
     {
         dataitem(Resource; Resource)
@@ -14,7 +14,7 @@ report 99995 "Update resource Group"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -64,7 +64,6 @@ report 99995 "Update resource Group"
 
     requestpage
     {
-
         layout
         {
         }
@@ -79,8 +78,6 @@ report 99995 "Update resource Group"
     }
 
     var
-        Res2: Record Resource;
         ResourceCaptionLbl: Label 'Resource';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
 }
-

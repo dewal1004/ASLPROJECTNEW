@@ -23,7 +23,7 @@ page 90000 "Sales Order test"
                     trigger OnAssistEdit()
                     begin
                         if Rec.AssistEdit(xRec) then
-                            CurrPage.Update;
+                            CurrPage.Update();
                     end;
                 }
                 field("Sell-to Customer No."; Rec."Sell-to Customer No.")
@@ -34,7 +34,7 @@ page 90000 "Sales Order test"
 
                     trigger OnValidate()
                     begin
-                        SelltoCustomerNoOnAfterValidat;
+                        SelltoCustomerNoOnAfterValidat();
                     end;
                 }
                 field("Sell-to Contact No."; Rec."Sell-to Contact No.")
@@ -127,7 +127,7 @@ page 90000 "Sales Order test"
 
                     trigger OnValidate()
                     begin
-                        SalespersonCodeOnAfterValidate;
+                        SalespersonCodeOnAfterValidate();
                     end;
                 }
                 field("Campaign No."; Rec."Campaign No.")
@@ -179,7 +179,7 @@ page 90000 "Sales Order test"
 
                     trigger OnValidate()
                     begin
-                        BilltoCustomerNoOnAfterValidat;
+                        BilltoCustomerNoOnAfterValidat();
                     end;
                 }
                 field("Bill-to Contact No."; Rec."Bill-to Contact No.")
@@ -221,7 +221,7 @@ page 90000 "Sales Order test"
 
                     trigger OnValidate()
                     begin
-                        ShortcutDimension1CodeOnAfterV;
+                        ShortcutDimension1CodeOnAfterV();
                     end;
                 }
                 field("Shortcut Dimension 2 Code"; Rec."Shortcut Dimension 2 Code")
@@ -230,7 +230,7 @@ page 90000 "Sales Order test"
 
                     trigger OnValidate()
                     begin
-                        ShortcutDimension2CodeOnAfterV;
+                        ShortcutDimension2CodeOnAfterV();
                     end;
                 }
                 field("Payment Terms Code"; Rec."Payment Terms Code")
@@ -265,7 +265,7 @@ page 90000 "Sales Order test"
 
                     trigger OnValidate()
                     begin
-                        PricesIncludingVATOnAfterValid;
+                        PricesIncludingVATOnAfterValid();
                     end;
                 }
                 field("VAT Bus. Posting Group"; Rec."VAT Bus. Posting Group")
@@ -388,17 +388,17 @@ page 90000 "Sales Order test"
                         if Rec."Posting Date" <> 0D then
                             ChangeExchangeRate.SetParameter(Rec."Currency Code", Rec."Currency Factor", Rec."Posting Date")
                         else
-                            ChangeExchangeRate.SetParameter(Rec."Currency Code", Rec."Currency Factor", WorkDate);
-                        if ChangeExchangeRate.RunModal = ACTION::OK then begin
-                            Rec.Validate("Currency Factor", ChangeExchangeRate.GetParameter);
-                            CurrPage.Update;
+                            ChangeExchangeRate.SetParameter(Rec."Currency Code", Rec."Currency Factor", WorkDate());
+                        if ChangeExchangeRate.RunModal() = ACTION::OK then begin
+                            Rec.Validate("Currency Factor", ChangeExchangeRate.GetParameter());
+                            CurrPage.Update();
                         end;
                         Clear(ChangeExchangeRate);
                     end;
 
                     trigger OnValidate()
                     begin
-                        CurrPage.Update;
+                        CurrPage.Update();
                         SalesCalcDiscountByType.ApplyDefaultInvoiceDiscount(0, Rec);
                     end;
                 }
@@ -437,7 +437,7 @@ page 90000 "Sales Order test"
 
                     trigger OnValidate()
                     begin
-                        Prepayment37OnAfterValidate;
+                        Prepayment37OnAfterValidate();
                     end;
                 }
                 field("Compress Prepayment"; Rec."Compress Prepayment")
@@ -484,7 +484,7 @@ page 90000 "Sales Order test"
 
                     trigger OnAction()
                     begin
-                        Rec.OpenSalesOrderStatistics;
+                        Rec.OpenSalesOrderStatistics();
                         SalesCalcDiscountByType.ResetRecalculateInvoiceDisc(Rec);
                     end;
                 }
@@ -507,8 +507,8 @@ page 90000 "Sales Order test"
 
                     trigger OnAction()
                     begin
-                        Rec.ShowDocDim;
-                        CurrPage.SaveRecord;
+                        Rec.ShowDocDim();
+                        CurrPage.SaveRecord();
                     end;
                 }
                 action("A&pprovals")
@@ -522,7 +522,7 @@ page 90000 "Sales Order test"
                         ApprovalEntries: Page "Approval Entries";
                     begin
                         ApprovalEntries.Setfilters(DATABASE::"Sales Header", Rec."Document Type", Rec."No.");
-                        ApprovalEntries.Run;
+                        ApprovalEntries.Run();
                     end;
                 }
                 action("Co&mments")
@@ -767,7 +767,7 @@ page 90000 "Sales Order test"
 
                     trigger OnAction()
                     begin
-                        ApproveCalcInvDisc;
+                        ApproveCalcInvDisc();
                         SalesCalcDiscountByType.ResetRecalculateInvoiceDisc(Rec);
                     end;
                 }
@@ -797,7 +797,7 @@ page 90000 "Sales Order test"
                     trigger OnAction()
                     begin
                         CopySalesDoc.SetSalesHeader(Rec);
-                        CopySalesDoc.RunModal;
+                        CopySalesDoc.RunModal();
                         Clear(CopySalesDoc);
                     end;
                 }
@@ -812,8 +812,8 @@ page 90000 "Sales Order test"
                     begin
                         Clear(MoveNegSalesLines);
                         MoveNegSalesLines.SetSalesHeader(Rec);
-                        MoveNegSalesLines.RunModal;
-                        MoveNegSalesLines.ShowDocument;
+                        MoveNegSalesLines.RunModal();
+                        MoveNegSalesLines.ShowDocument();
                     end;
                 }
                 action("Archive Document")
@@ -874,8 +874,6 @@ page 90000 "Sales Order test"
                         //ToolTip = '';
 
                         trigger OnAction()
-                        var
-                            IncomingDocument: Record "Incoming Document";
                         begin
                             //VALIDATE("Incoming Document Entry No.",IncomingDocument.SelectIncomingDocument("Incoming Document Entry No."));
                         end;
@@ -945,7 +943,7 @@ page 90000 "Sales Order test"
                     begin
                         DemandOverview.SetCalculationParameter(true);
                         DemandOverview.Initialize(0D, 1, Rec."No.", '', '');
-                        DemandOverview.RunModal;
+                        DemandOverview.RunModal();
                     end;
                 }
                 action("Pla&nning")
@@ -959,7 +957,7 @@ page 90000 "Sales Order test"
                         SalesPlanForm: Page "Sales Order Planning";
                     begin
                         SalesPlanForm.SetSalesOrder(Rec."No.");
-                        SalesPlanForm.RunModal;
+                        SalesPlanForm.RunModal();
                     end;
                 }
             }
@@ -977,8 +975,6 @@ page 90000 "Sales Order test"
                     ApplicationArea = All;
 
                     trigger OnAction()
-                    var
-                        ApprovalsMgmt: Codeunit "Approvals Mgmt.";
                     begin
                         //IF ApprovalsMgmt.CheckSalesApprovalsWorkflowEnabled(Rec) THEN
                         //ApprovalsMgmt.OnSendSalesDocForApproval(Rec);
@@ -1044,10 +1040,10 @@ page 90000 "Sales Order test"
 
                     trigger OnAction()
                     begin
-                        Rec.CreateInvtPutAwayPick;
+                        Rec.CreateInvtPutAwayPick();
 
                         if not Rec.Find('=><') then
-                            Rec.Init;
+                            Rec.Init();
                     end;
                 }
                 action("Create &Whse. Shipment")
@@ -1064,7 +1060,7 @@ page 90000 "Sales Order test"
                         GetSourceDocOutbound.CreateFromSalesOrder(Rec);
 
                         if not Rec.Find('=><') then
-                            Rec.Init;
+                            Rec.Init();
                     end;
                 }
             }
@@ -1152,7 +1148,7 @@ page 90000 "Sales Order test"
 
                     trigger OnAction()
                     begin
-                        Rec.CancelBackgroundPosting;
+                        Rec.CancelBackgroundPosting();
                     end;
                 }
                 action("Preview Posting")
@@ -1163,7 +1159,7 @@ page 90000 "Sales Order test"
 
                     trigger OnAction()
                     begin
-                        ShowPreview;
+                        ShowPreview();
                     end;
                 }
                 group("Prepa&yment")
@@ -1316,45 +1312,45 @@ page 90000 "Sales Order test"
 
     trigger OnAfterGetRecord()
     begin
-        SetControlVisibility;
+        SetControlVisibility();
     end;
 
     trigger OnDeleteRecord(): Boolean
     begin
-        CurrPage.SaveRecord;
-        exit(Rec.ConfirmDeletion);
+        CurrPage.SaveRecord();
+        exit(Rec.ConfirmDeletion());
     end;
 
     trigger OnInit()
     begin
-        SetExtDocNoMandatoryCondition;
+        SetExtDocNoMandatoryCondition();
     end;
 
     trigger OnInsertRecord(BelowxRec: Boolean): Boolean
     begin
-        Rec.CheckCreditMaxBeforeInsert;
+        Rec.CheckCreditMaxBeforeInsert();
     end;
 
     trigger OnNewRecord(BelowxRec: Boolean)
     begin
-        Rec."Responsibility Center" := UserMgt.GetSalesFilter;
+        Rec."Responsibility Center" := UserMgt.GetSalesFilter();
     end;
 
     trigger OnOpenPage()
     var
         CRMIntegrationManagement: Codeunit "CRM Integration Management";
     begin
-        if UserMgt.GetSalesFilter <> '' then begin
+        if UserMgt.GetSalesFilter() <> '' then begin
             Rec.FilterGroup(2);
-            Rec.SetRange("Responsibility Center", UserMgt.GetSalesFilter);
+            Rec.SetRange("Responsibility Center", UserMgt.GetSalesFilter());
             Rec.FilterGroup(0);
         end;
 
-        Rec.SetRange("Date Filter", 0D, WorkDate - 1);
+        Rec.SetRange("Date Filter", 0D, WorkDate() - 1);
 
-        SetDocNoVisible;
+        SetDocNoVisible();
 
-        CRMIntegrationEnabled := CRMIntegrationManagement.IsCRMIntegrationEnabled;
+        CRMIntegrationEnabled := CRMIntegrationManagement.IsCRMIntegrationEnabled();
     end;
 
     var
@@ -1380,13 +1376,12 @@ page 90000 "Sales Order test"
         OpenApprovalEntriesExist: Boolean;
         CRMIntegrationEnabled: Boolean;
         CRMIsCoupledToRecord: Boolean;
-        ShowWorkflowStatus: Boolean;
 
     local procedure Post(PostingCodeunitID: Integer)
     begin
         Rec.SendToPosting(PostingCodeunitID);
         if Rec."Job Queue Status" = Rec."Job Queue Status"::"Scheduled for Posting" then
-            CurrPage.Close;
+            CurrPage.Close();
         CurrPage.Update(false);
     end;
 
@@ -1400,7 +1395,7 @@ page 90000 "Sales Order test"
         if Rec.GetFilter("Sell-to Customer No.") = xRec."Sell-to Customer No." then
             if Rec."Sell-to Customer No." <> xRec."Sell-to Customer No." then
                 Rec.SetRange("Sell-to Customer No.");
-        CurrPage.Update;
+        CurrPage.Update();
     end;
 
     local procedure SalespersonCodeOnAfterValidate()
@@ -1410,27 +1405,27 @@ page 90000 "Sales Order test"
 
     local procedure BilltoCustomerNoOnAfterValidat()
     begin
-        CurrPage.Update;
+        CurrPage.Update();
     end;
 
     local procedure ShortcutDimension1CodeOnAfterV()
     begin
-        CurrPage.Update;
+        CurrPage.Update();
     end;
 
     local procedure ShortcutDimension2CodeOnAfterV()
     begin
-        CurrPage.Update;
+        CurrPage.Update();
     end;
 
     local procedure PricesIncludingVATOnAfterValid()
     begin
-        CurrPage.Update;
+        CurrPage.Update();
     end;
 
     local procedure Prepayment37OnAfterValidate()
     begin
-        CurrPage.Update;
+        CurrPage.Update();
     end;
 
     local procedure SetDocNoVisible()
@@ -1445,7 +1440,7 @@ page 90000 "Sales Order test"
     var
         SalesReceivablesSetup: Record "Sales & Receivables Setup";
     begin
-        SalesReceivablesSetup.Get;
+        SalesReceivablesSetup.Get();
         ExternalDocNoMandatory := SalesReceivablesSetup."Ext. Doc. No. Mandatory"
     end;
 
@@ -1462,10 +1457,9 @@ page 90000 "Sales Order test"
     begin
         JobQueueVisible := Rec."Job Queue Status" = Rec."Job Queue Status"::"Scheduled for Posting";
         HasIncomingDocument := Rec."Incoming Document Entry No." <> 0;
-        SetExtDocNoMandatoryCondition;
+        SetExtDocNoMandatoryCondition();
 
         OpenApprovalEntriesExistForCurrUser := ApprovalsMgmt.HasOpenApprovalEntriesForCurrentUser(Rec.RecordId);
         OpenApprovalEntriesExist := ApprovalsMgmt.HasOpenApprovalEntries(Rec.RecordId);
     end;
 }
-

@@ -4,7 +4,7 @@ report 50060 "Issues To Cost Centers"
     RDLCLayout = './src/reportrdlc/IssuesToCostCenters.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
-
+    Caption = 'Issues To Cost Centers';
     dataset
     {
         dataitem("Value Entry"; "Value Entry")
@@ -17,7 +17,7 @@ report 50060 "Issues To Cost Centers"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -134,7 +134,6 @@ report 50060 "Issues To Cost Centers"
 
     requestpage
     {
-
         layout
         {
             area(content)
@@ -163,4 +162,3 @@ report 50060 "Issues To Cost Centers"
         CostCenterCaptionLbl: Label 'CostCenter';
         TotalCaption_Control1000000013Lbl: Label 'Total';
 }
-

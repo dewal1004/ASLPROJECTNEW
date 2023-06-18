@@ -2,7 +2,7 @@ page 50036 "Job Category List"
 {
     PageType = Card;
     SourceTable = "Job Category";
-
+    Caption = 'Job Category List';
     layout
     {
         area(content)
@@ -30,4 +30,3 @@ page 50036 "Job Category List"
     {
     }
 }
-

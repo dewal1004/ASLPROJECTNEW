@@ -2,7 +2,7 @@ xmlport 50997 "employee grp"
 {
     Direction = Export;
     Format = VariableText;
-
+    Caption = 'employee grp';
     schema
     {
         textelement(Rootnode)
@@ -22,7 +22,6 @@ xmlport 50997 "employee grp"
 
     requestpage
     {
-
         layout
         {
         }
@@ -32,4 +31,3 @@ xmlport 50997 "employee grp"
         }
     }
 }
-

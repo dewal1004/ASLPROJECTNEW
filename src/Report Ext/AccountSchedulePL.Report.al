@@ -3,7 +3,6 @@ report 50223 "Account Schedule PL"
     // Text004
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/AccountSchedulePL.rdlc';
-
     Caption = 'Account Schedule';
 
     dataset
@@ -19,7 +18,7 @@ report 50223 "Account Schedule PL"
                 column(USERID; UserId)
                 {
                 }
-                column(CurrReport_PAGENO; CurrReport.PageNo)
+                column(CurrReport_PAGENO; CurrReport.PageNo())
                 {
                 }
                 column(COMPANYNAME; CompanyName)
@@ -173,7 +172,7 @@ report 50223 "Account Schedule PL"
                     trigger OnPreDataItem()
                     begin
                         if not ShowAccSchedSetup then
-                            CurrReport.Break;
+                            CurrReport.Break();
                     end;
                 }
                 dataitem(PageBreak; "Integer")
@@ -182,13 +181,13 @@ report 50223 "Account Schedule PL"
 
                     trigger OnAfterGetRecord()
                     begin
-                        CurrReport.NewPage;
+                        CurrReport.NewPage();
                     end;
 
                     trigger OnPreDataItem()
                     begin
                         if not ShowAccSchedSetup then
-                            CurrReport.Break;
+                            CurrReport.Break();
                     end;
                 }
                 dataitem("Acc. Schedule Line"; "Acc. Schedule Line")
@@ -462,7 +461,6 @@ report 50223 "Account Schedule PL"
 
     requestpage
     {
-
         layout
         {
         }
@@ -478,17 +476,15 @@ report 50223 "Account Schedule PL"
 
     trigger OnPreReport()
     begin
-        InitAccSched;
+        InitAccSched();
     end;
 
     var
         Text000: Label '(Thousands)';
         Text001: Label '(Millions)';
         Text002: Label '* ERROR *';
-        Text003: Label 'All amounts are in %1.';
         ColLayoutTmp: Record "Column Layout" temporary;
         AnalysisView: Record "Analysis View";
-        GLSetup: Record "General Ledger Setup";
         AccSchedManagement: Codeunit AccSchedManagement;
         ColumnLayoutName: Code[10];
         ColumnLayoutNameHidden: Code[10];
@@ -562,7 +558,7 @@ report 50223 "Account Schedule PL"
                     end;
                 end;
                 NoOfCols := NoOfCols + 1;
-            until (i >= MaxColumnsDisplayed) or (ColLayoutTmp.Next = 0);
+            until (i >= MaxColumnsDisplayed) or (ColLayoutTmp.Next() = 0);
             MaxColumnsDisplayed := i;
         end;
     end;
@@ -587,7 +583,7 @@ report 50223 "Account Schedule PL"
                     i := i + 1;
                     ColumnValuesDisplayed[i] :=
                       AccSchedManagement.CalcCell("Acc. Schedule Line", ColLayoutTmp, UseAmtsInAddCurr);
-                    if AccSchedManagement.GetDivisionError then begin
+                    if AccSchedManagement.GetDivisionError() then begin
                         if ShowDivideError then
                             ColumnValuesAsText[i] := Text002
                         else
@@ -598,7 +594,7 @@ report 50223 "Account Schedule PL"
                           AccSchedManagement.FormatCellAsText(ColLayoutTmp, ColumnValuesDisplayed[i], true);
                     end;
                 end;
-            until (i >= MaxColumnsDisplayed) or (ColLayoutTmp.Next = 0);
+            until (i >= MaxColumnsDisplayed) or (ColLayoutTmp.Next() = 0);
         exit(NonZero);
     end;
 
@@ -613,10 +609,9 @@ report 50223 "Account Schedule PL"
             exit(false);
         if "Acc. Schedule Line".Italic <> Italic then
             exit(false);
-        NonZero := CalcColumns;
+        NonZero := CalcColumns();
         if "Acc. Schedule Line".Show = "Acc. Schedule Line".Show::"If Any Column Not Zero" then
             exit(NonZero);
         exit(true);
     end;
 }
-

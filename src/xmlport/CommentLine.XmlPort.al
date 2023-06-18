@@ -1,7 +1,7 @@
 xmlport 90007 "Comment Line"
 {
     Format = VariableText;
-
+    Caption = 'Comment Line';
     schema
     {
         textelement(Rootnode)
@@ -147,7 +147,6 @@ xmlport 90007 "Comment Line"
 
     requestpage
     {
-
         layout
         {
         }
@@ -157,4 +156,3 @@ xmlport 90007 "Comment Line"
         }
     }
 }
-

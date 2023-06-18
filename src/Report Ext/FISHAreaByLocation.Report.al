@@ -2,7 +2,7 @@ report 99345 "FISH Area By Location"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/FISHAreaByLocation.rdlc';
-
+    Caption = 'FISH Area By Location';
     dataset
     {
         dataitem(Location; Location)
@@ -15,7 +15,7 @@ report 99345 "FISH Area By Location"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -56,7 +56,6 @@ report 99345 "FISH Area By Location"
 
     requestpage
     {
-
         layout
         {
         }
@@ -74,4 +73,3 @@ report 99345 "FISH Area By Location"
         LocationCaptionLbl: Label 'Location';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
 }
-

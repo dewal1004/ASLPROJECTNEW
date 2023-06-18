@@ -2,7 +2,7 @@ report 99999 "Update Catch Sea Day on Jlegen"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/UpdateCatchSeaDayonJlegen.rdlc';
-
+    Caption = 'Update Catch Sea Day on Jlegen';
     dataset
     {
         dataitem("Job Ledger Entry"; "Job Ledger Entry")
@@ -15,7 +15,7 @@ report 99999 "Update Catch Sea Day on Jlegen"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -64,7 +64,6 @@ report 99999 "Update Catch Sea Day on Jlegen"
 
     requestpage
     {
-
         layout
         {
         }
@@ -83,4 +82,3 @@ report 99999 "Update Catch Sea Day on Jlegen"
         Job_Ledger_EntryCaptionLbl: Label 'Job Ledger Entry';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
 }
-

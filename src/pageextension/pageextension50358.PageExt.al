@@ -19,4 +19,3 @@ pageextension 50358 "pageextension50358" extends "Account Manager Activities"
         }
     }
 }
-

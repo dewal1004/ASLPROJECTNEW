@@ -3,7 +3,7 @@ page 50084 "Catch Default"
     PageType = Card;
     SourceTable = "Catch Default";
     SourceTableView = SORTING("S/No.");
-
+    Caption = 'Catch Default';
     layout
     {
         area(content)
@@ -39,4 +39,3 @@ page 50084 "Catch Default"
     {
     }
 }
-

@@ -8,7 +8,7 @@ report 50182 "Catch Reconciliatn Posted"
     RDLCLayout = './src/reportrdlc/CatchReconciliatnPosted.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
-
+    Caption = 'Catch Reconciliatn Posted';
     dataset
     {
         dataitem(Job; Job)
@@ -20,7 +20,7 @@ report 50182 "Catch Reconciliatn Posted"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(FORMAT_TODAY_0_4_; Format(Today, 0, 4))
@@ -190,7 +190,6 @@ report 50182 "Catch Reconciliatn Posted"
 
     requestpage
     {
-
         layout
         {
         }
@@ -212,16 +211,12 @@ report 50182 "Catch Reconciliatn Posted"
         OpBudgLn.SETFILTER(OpBudgLn."Resource Group",'CENG','ENG2');
         IF OpBudgLn.FIND('-') THEN Engr:=OpBudgLn.Description;
         */
-
     end;
 
     var
         LastFieldNo: Integer;
-        FooterPrinted: Boolean;
         TotalFor: Label 'Total for ';
         Catch: array[3] of Decimal;
-        CT: Integer;
-        T: Label 'Total for  ';
         HD1: Label 'Vessel Catch Report (VCR)';
         HD2: Label 'Actual Catch Landed (ACL)';
         HD3: Label 'Variance (ACL-VCR)';
@@ -230,8 +225,6 @@ report 50182 "Catch Reconciliatn Posted"
         Vessl: Text[30];
         Resp: Text[30];
         Engr: Text[30];
-        JobJnlLineFilter: Text[500];
-        ShowD: Boolean;
         CurrReport_PAGENOCaptionLbl: Label 'Page';
         Job_Ledger_EntryCaptionLbl: Label 'Job Ledger Entry';
         Job_Job__Sea_Days_CaptionLbl: Label 'Sea Days:';
@@ -242,4 +235,3 @@ report 50182 "Catch Reconciliatn Posted"
         Job_Job__Voyage_No__CaptionLbl: Label 'Voyage No.:';
         VesslCaptionLbl: Label 'Vessel Name:';
 }
-

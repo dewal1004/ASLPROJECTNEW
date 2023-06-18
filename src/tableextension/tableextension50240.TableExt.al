@@ -20,9 +20,9 @@ tableextension 50240 "tableextension50240" extends "Cust. Ledger Entry"
             CalcFormula = Exist(Customer WHERE("No." = FIELD("Customer No."),
                                                 "Customer Posting Group" = FIELD("Customer Posting Group")));
             FieldClass = FlowField;
+            Editable = false;
         }
     }
-
 
     //Unsupported feature: Code Modification on "ShowDoc(PROCEDURE 7)".
 
@@ -88,14 +88,9 @@ tableextension 50240 "tableextension50240" extends "Cust. Ledger Entry"
 
     //Unsupported feature: Property Modification (Id) on "ShowDoc(PROCEDURE 7).ServiceInvoiceHeader(Variable 1000)".
 
-
     //Unsupported feature: Property Modification (Id) on "ShowDoc(PROCEDURE 7).ServiceCrMemoHeader(Variable 1001)".
-
 
     //Unsupported feature: Property Modification (Id) on "ShowDoc(PROCEDURE 7).IssuedFinChargeMemoHeader(Variable 1004)".
 
-
     //Unsupported feature: Property Modification (Id) on "ShowDoc(PROCEDURE 7).IssuedReminderHeader(Variable 1005)".
-
 }
-

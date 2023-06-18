@@ -9,8 +9,7 @@ report 50180 "Staff Position as at by PG"
     RDLCLayout = './src/reportrdlc/StaffPositionasatbyPG.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
-
-
+    Caption = 'Staff Position as at by PG';
     dataset
     {
         dataitem(PPG; "Payroll-Posting Group Header.")
@@ -26,7 +25,7 @@ report 50180 "Staff Position as at by PG"
             column(FORMAT_TODAY_0_4_; Format(Today, 0, 4))
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(At___FORMAT_EndDate_; At + Format(EndDate))
@@ -131,7 +130,6 @@ report 50180 "Staff Position as at by PG"
 
     requestpage
     {
-
         layout
         {
             area(content)
@@ -161,10 +159,6 @@ report 50180 "Staff Position as at by PG"
     }
 
     var
-        LastFieldNo: Integer;
-        FooterPrinted: Boolean;
-        TotalFor: Label 'Total for ';
-        Empl: Record Employee;
         TotStaff: array[5] of Decimal;
         StaffSum: Decimal;
         StartDate: Date;
@@ -178,4 +172,3 @@ report 50180 "Staff Position as at by PG"
         Posting_GroupCaptionLbl: Label 'Posting Group';
         TotalCaptionLbl: Label 'Total';
 }
-

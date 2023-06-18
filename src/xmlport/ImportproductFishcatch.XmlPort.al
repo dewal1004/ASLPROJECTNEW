@@ -2,7 +2,7 @@ xmlport 50006 "Import product - Fish catch"
 {
     Direction = Import;
     Format = VariableText;
-
+    Caption = 'Import product - Fish catch';
     schema
     {
         textelement(ROOT)
@@ -32,7 +32,6 @@ xmlport 50006 "Import product - Fish catch"
 
     requestpage
     {
-
         layout
         {
         }
@@ -42,4 +41,3 @@ xmlport 50006 "Import product - Fish catch"
         }
     }
 }
-

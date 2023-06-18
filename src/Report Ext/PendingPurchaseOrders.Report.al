@@ -4,7 +4,7 @@ report 50035 "Pending Purchase Orders"
     RDLCLayout = './src/reportrdlc/PendingPurchaseOrders.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
-
+    Caption = 'Pending Purchase Orders';
     dataset
     {
         dataitem("Purchase Header"; "Purchase Header")
@@ -15,7 +15,7 @@ report 50035 "Pending Purchase Orders"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -86,7 +86,6 @@ report 50035 "Pending Purchase Orders"
 
     requestpage
     {
-
         layout
         {
         }
@@ -101,11 +100,7 @@ report 50035 "Pending Purchase Orders"
     }
 
     var
-        LastFieldNo: Integer;
-        FooterPrinted: Boolean;
         TotalFor: Label 'Total for ';
-        "---": Text[30];
-        VendTab: Record Vendor;
         Telephone: Text[30];
         OverDue: Integer;
         List_of_Pending_Purchase_OrderCaptionLbl: Label 'List of Pending Purchase Order';
@@ -113,4 +108,3 @@ report 50035 "Pending Purchase Orders"
         Over_Due_DaysCaptionLbl: Label 'Over Due Days';
         Telephone_No_CaptionLbl: Label 'Telephone No.';
 }
-

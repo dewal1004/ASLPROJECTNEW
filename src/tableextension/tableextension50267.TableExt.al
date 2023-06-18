@@ -13,4 +13,3 @@ tableextension 50267 "tableextension50267" extends "Column Layout"
         }
     }
 }
-

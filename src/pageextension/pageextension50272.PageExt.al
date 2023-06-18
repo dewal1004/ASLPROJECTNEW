@@ -9,9 +9,7 @@ pageextension 50272 "pageextension50272" extends "Sales Credit Memo"
     }
     actions
     {
-
         //Unsupported feature: Property Insertion (RunObject) on "TestReport(Action 71)".
-
 
         //Unsupported feature: Code Modification on "TestReport(Action 71).OnAction".
 
@@ -31,4 +29,3 @@ pageextension 50272 "pageextension50272" extends "Sales Credit Memo"
         //end;
     }
 }
-

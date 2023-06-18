@@ -3,7 +3,7 @@ page 50039 "Training Courses List"
     Editable = false;
     PageType = Card;
     SourceTable = "Training Courses";
-
+    Caption = 'Training Courses List';
     layout
     {
         area(content)
@@ -96,4 +96,3 @@ page 50039 "Training Courses List"
         }
     }
 }
-

@@ -1,6 +1,5 @@
 pageextension 50313 "pageextension50313" extends "Item Availability by Event"
 {
-
     //Unsupported feature: Code Modification on "Initialize(PROCEDURE 1)".
 
     //procedure Initialize();
@@ -21,4 +20,3 @@ pageextension 50313 "pageextension50313" extends "Item Availability by Event"
     */
     //end;
 }
-

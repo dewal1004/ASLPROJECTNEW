@@ -6,8 +6,7 @@ report 50015 "Vessel Daily Log"
     RDLCLayout = './src/reportrdlc/VesselDailyLog.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
-
-
+    Caption = 'Vessel Daily Log';
     dataset
     {
         dataitem("Operation Daily Radio"; "Operation Daily Radio")
@@ -20,7 +19,7 @@ report 50015 "Vessel Daily Log"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -212,9 +211,8 @@ report 50015 "Vessel Daily Log"
 
             trigger OnAfterGetRecord()
             begin
-                if "Operation Daily Radio"."Job No." <> '' then begin
+                if "Operation Daily Radio"."Job No." <> '' then
                     Jobs.Get("Operation Daily Radio"."Job No.");
-                end;
                 Catch := 0;
                 Catch := Jobs.PointZ("Job No.", '', Format(Date), '', '', '', Jobs.Vessel);
             end;
@@ -228,7 +226,6 @@ report 50015 "Vessel Daily Log"
 
     requestpage
     {
-
         layout
         {
             area(content)
@@ -252,9 +249,7 @@ report 50015 "Vessel Daily Log"
 
     var
         LastFieldNo: Integer;
-        FooterPrinted: Boolean;
         TotalFor: Label 'Total for ';
-        "----": Integer;
         Jobs: Record Job;
         DisplayOptions: Option "By Date","By Job";
         Catch: Decimal;
@@ -270,4 +265,3 @@ report 50015 "Vessel Daily Log"
         Jobs__Ending_Date_CaptionLbl: Label 'ETA';
         Jobs__Voyage_No__CaptionLbl: Label 'Voyage No.';
 }
-

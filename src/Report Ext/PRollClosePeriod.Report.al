@@ -2,7 +2,7 @@ report 50053 "PRoll; Close Period"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/PRollClosePeriod.rdlc';
-
+    Caption = 'PRoll; Close Period';
     dataset
     {
         dataitem("Payroll-Payslip Header."; "Payroll-Payslip Header.")
@@ -15,7 +15,7 @@ report 50053 "PRoll; Close Period"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -40,9 +40,8 @@ report 50053 "PRoll; Close Period"
                 begin
                     /* Set Closed to true in P.Roll Header file */
                     "Closed?" := true;
-                    Modify
+                    Modify()
                 end;
-
             end;
 
             trigger OnPreDataItem()
@@ -57,7 +56,6 @@ report 50053 "PRoll; Close Period"
 
     requestpage
     {
-
         layout
         {
         }
@@ -72,9 +70,7 @@ report 50053 "PRoll; Close Period"
     }
 
     var
-        RequestPeriodRec: Record "Payroll-Periods.";
         ReqPeriod: Code[10];
         Payroll_Payslip_Header_CaptionLbl: Label 'Payroll-Payslip Header.';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
 }
-

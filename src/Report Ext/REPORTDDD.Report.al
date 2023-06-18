@@ -2,7 +2,7 @@ report 86666 "REPORT DDD"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/REPORTDDD.rdlc';
-
+    Caption = 'REPORT DDD';
     dataset
     {
         dataitem("Inventory Posting Group"; "Inventory Posting Group")
@@ -14,7 +14,7 @@ report 86666 "REPORT DDD"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -46,14 +46,13 @@ report 86666 "REPORT DDD"
                 INVREC."Invt. Posting Group Code" := "Inventory Posting Group".Code;
                 INVREC."Inventory Account" := '12090100';
                 INVREC."Inventory Account (Interim)" := '12090100';
-                if INVREC.Insert then;
+                if INVREC.Insert() then;
             end;
         }
     }
 
     requestpage
     {
-
         layout
         {
         }
@@ -72,4 +71,3 @@ report 86666 "REPORT DDD"
         Inventory_Posting_GroupCaptionLbl: Label 'Inventory Posting Group';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
 }
-

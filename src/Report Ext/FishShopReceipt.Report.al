@@ -6,7 +6,6 @@ report 50173 "Fish Shop Receipt"
     RDLCLayout = './src/reportrdlc/FishShopReceipt.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
-
     Caption = 'Order Confirmation';
 
     dataset
@@ -43,10 +42,10 @@ report 50173 "Fish Shop Receipt"
                         begin
                             if Number = 1 then begin
                                 if not DocDim1.Find('-') then
-                                    CurrReport.Break;
+                                    CurrReport.Break();
                             end else
                                 if not Continue then
-                                    CurrReport.Break;
+                                    CurrReport.Break();
 
                             Clear(DimText);
                             Continue := false;
@@ -65,13 +64,13 @@ report 50173 "Fish Shop Receipt"
                                     Continue := true;
                                     exit;
                                 end;
-                            until (DocDim1.Next = 0);
+                            until (DocDim1.Next() = 0);
                         end;
 
                         trigger OnPreDataItem()
                         begin
                             if not ShowInternalInfo then
-                                CurrReport.Break;
+                                CurrReport.Break();
                         end;
                     }
                     dataitem("Sales Line"; "Sales Line")
@@ -82,7 +81,7 @@ report 50173 "Fish Shop Receipt"
 
                         trigger OnPreDataItem()
                         begin
-                            CurrReport.Break;
+                            CurrReport.Break();
                         end;
                     }
                     dataitem(RoundLoop; "Integer")
@@ -183,10 +182,10 @@ report 50173 "Fish Shop Receipt"
                             begin
                                 if Number = 1 then begin
                                     if not DocDim2.Find('-') then
-                                        CurrReport.Break;
+                                        CurrReport.Break();
                                 end else
                                     if not Continue then
-                                        CurrReport.Break;
+                                        CurrReport.Break();
 
                                 Clear(DimText);
                                 Continue := false;
@@ -205,13 +204,13 @@ report 50173 "Fish Shop Receipt"
                                         Continue := true;
                                         exit;
                                     end;
-                                until (DocDim2.Next = 0);
+                                until (DocDim2.Next() = 0);
                             end;
 
                             trigger OnPreDataItem()
                             begin
                                 if not ShowInternalInfo then
-                                    CurrReport.Break;
+                                    CurrReport.Break();
 
                                 DocDim2.SetRange("Dimension Set ID", DATABASE::"Sales Line");
                                 DocDim2.SetRange("Dimension Value ID", "Sales Line"."Document Type");
@@ -225,7 +224,7 @@ report 50173 "Fish Shop Receipt"
                             if Number = 1 then
                                 SalesLine.Find('-')
                             else
-                                SalesLine.Next;
+                                SalesLine.Next();
                             "Sales Line" := SalesLine;
 
                             // IF (SalesLine.Type = SalesLine.Type::"G/L Account") AND (NOT ShowInternalInfo) THEN
@@ -234,7 +233,7 @@ report 50173 "Fish Shop Receipt"
 
                         trigger OnPostDataItem()
                         begin
-                            SalesLine.DeleteAll;
+                            SalesLine.DeleteAll();
                         end;
 
                         trigger OnPreDataItem()
@@ -246,7 +245,7 @@ report 50173 "Fish Shop Receipt"
                             do
                                 MoreLines := SalesLine.Next(-1) <> 0;
                             if not MoreLines then
-                                CurrReport.Break;
+                                CurrReport.Break();
                             SalesLine.SetRange("Line No.", 0, SalesLine."Line No.");
                             SetRange(Number, 1, SalesLine.Count);
                             CurrReport.CreateTotals(SalesLine."Line Amount", SalesLine."Inv. Discount Amount");
@@ -264,7 +263,7 @@ report 50173 "Fish Shop Receipt"
                         trigger OnPreDataItem()
                         begin
                             if VATAmount = 0 then
-                                CurrReport.Break;
+                                CurrReport.Break();
                             SetRange(Number, 1, VATAmountLine.Count);
                             CurrReport.CreateTotals(
                               VATAmountLine."Line Amount", VATAmountLine."Inv. Disc. Base Amount",
@@ -288,7 +287,7 @@ report 50173 "Fish Shop Receipt"
                         trigger OnPreDataItem()
                         begin
                             if not ShowShippingAddr then
-                                CurrReport.Break;
+                                CurrReport.Break();
                         end;
                     }
                 }
@@ -299,15 +298,15 @@ report 50173 "Fish Shop Receipt"
                 begin
                     Clear(SalesLine);
                     Clear(SalesPost);
-                    VATAmountLine.DeleteAll;
+                    VATAmountLine.DeleteAll();
                     SalesPost.GetSalesLines("Sales Header", SalesLine, 0);
                     SalesLine.CalcVATAmountLines(0, "Sales Header", SalesLine, VATAmountLine);
                     SalesLine.UpdateVATOnLines(0, "Sales Header", SalesLine, VATAmountLine);
-                    VATAmount := VATAmountLine.GetTotalVATAmount;
-                    VATBaseAmount := VATAmountLine.GetTotalVATBase;
+                    VATAmount := VATAmountLine.GetTotalVATAmount();
+                    VATBaseAmount := VATAmountLine.GetTotalVATBase();
                     VATDiscountAmount :=
                       VATAmountLine.GetTotalVATDiscount("Sales Header"."Currency Code", "Sales Header"."Prices Including VAT");
-                    TotalAmountInclVAT := VATAmountLine.GetTotalAmountInclVAT;
+                    TotalAmountInclVAT := VATAmountLine.GetTotalAmountInclVAT();
 
                     if Number > 1 then
                         CopyText := Text003;
@@ -371,13 +370,13 @@ report 50173 "Fish Shop Receipt"
                 FormatAddr.SalesHeaderBillTo(CustAddr, "Sales Header");
 
                 if "Payment Terms Code" = '' then
-                    PaymentTerms.Init
+                    PaymentTerms.Init()
                 else
                     PaymentTerms.Get("Payment Terms Code");
 
                 if "Shipment Method Code" = '' then   //AAA - MAR 18 2003 -Modified
                 begin
-                    ShipmentMethod.Init;
+                    ShipmentMethod.Init();
                     "Shipment Text" := '';
                 end
                 else begin
@@ -394,19 +393,17 @@ report 50173 "Fish Shop Receipt"
                 /*// IF NOT CurrReport.PREVIEW THEN
                   SegManagement.LogDocument(
                      3,"No.",DATABASE::Customer,"Bill-to Customer No.","Salesperson Code","Posting Description") */
-
             end;
 
             trigger OnPreDataItem()
             begin
-                CompanyInfo.Get;
+                CompanyInfo.Get();
             end;
         }
     }
 
     requestpage
     {
-
         layout
         {
         }
@@ -422,7 +419,7 @@ report 50173 "Fish Shop Receipt"
 
     trigger OnInitReport()
     begin
-        GLSetup.Get;
+        GLSetup.Get();
     end;
 
     var
@@ -431,7 +428,6 @@ report 50173 "Fish Shop Receipt"
         Text002: Label 'Total %1 Incl. VAT';
         Text003: Label 'COPY';
         Text004: Label 'THE FISH SHOP';
-        Text005: Label 'Page %1';
         Text006: Label 'Total %1 Excl. VAT';
         GLSetup: Record "General Ledger Setup";
         ShipmentMethod: Record "Shipment Method";
@@ -443,10 +439,8 @@ report 50173 "Fish Shop Receipt"
         DocDim1: Record "Dimension Set Entry";
         DocDim2: Record "Dimension Set Entry";
         RespCenter: Record "Responsibility Center";
-        Language: Record Language;
         SalesCountPrinted: Codeunit "Sales-Printed";
         FormatAddr: Codeunit "Format Address";
-        SegManagement: Codeunit SegManagement;
         CustAddr: array[8] of Text[50];
         ShipToAddr: array[8] of Text[50];
         CompanyAddr: array[8] of Text[50];
@@ -470,10 +464,6 @@ report 50173 "Fish Shop Receipt"
         VATBaseAmount: Decimal;
         VATDiscountAmount: Decimal;
         TotalAmountInclVAT: Decimal;
-        "-------------": Integer;
-        PrePrinted: Boolean;
-        Signature: Boolean;
-        Countz: Integer;
         Text501: Label 'Goods once sold cannot be taken back. Untill fully paid for, the title of goods does not pass to the buyer. Interest of 12% p.a will be charged from the date of delivery till payment';
         "Shipment Text": Text[30];
         Text502: Label 'PRIM 7* STARS';
@@ -487,4 +477,3 @@ report 50173 "Fish Shop Receipt"
         SubtotalCaptionLbl: Label 'Subtotal';
         Line_DimensionsCaptionLbl: Label 'Line Dimensions';
 }
-

@@ -12,6 +12,7 @@ page 50126 "Approved DPS For Processing"
                             Approved = CONST(true));
     UsageCategory = Lists;
     ApplicationArea = All, Basic, Suites;
+    Caption = 'Approved DPS For Processing';
     layout
     {
         area(content)
@@ -100,4 +101,3 @@ page 50126 "Approved DPS For Processing"
         Rec.FilterGroup(2);
     end;
 }
-

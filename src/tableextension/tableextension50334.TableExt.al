@@ -86,4 +86,3 @@ tableextension 50334 "tableextension50334" extends "General Ledger Setup"
         }
     }
 }
-

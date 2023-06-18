@@ -6,7 +6,7 @@ page 50119 "Dynamics Procurement Subpage"
     MultipleNewLines = true;
     PageType = ListPart;
     SourceTable = "Dynamics Procurement Register";
-
+    Caption = 'Dynamics Procurement Subpage';
     layout
     {
         area(content)
@@ -222,7 +222,7 @@ page 50119 "Dynamics Procurement Subpage"
 
                 trigger OnAction()
                 begin
-                    Rec.CreatePurchInv;
+                    Rec.CreatePurchInv();
                 end;
             }
             action("Create Purchase Register")
@@ -231,10 +231,9 @@ page 50119 "Dynamics Procurement Subpage"
 
                 trigger OnAction()
                 begin
-                    Rec.UpdatePurReq;
+                    Rec.UpdatePurReq();
                 end;
             }
         }
     }
 }
-

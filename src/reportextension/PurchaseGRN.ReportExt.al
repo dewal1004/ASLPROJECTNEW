@@ -1,10 +1,7 @@
 reportextension 55000 "PurchaseGRN" extends "Purchase Document - Test"
 {
-
     // RDLCLayout = './src/reportrdlc/PurchaseDocumentTest.rdlc';
     RDLCLayout = './src/reportextension/PurchaseDocumentTest.rdlc';
-
-
 
     dataset
     {
@@ -15,7 +12,6 @@ reportextension 55000 "PurchaseGRN" extends "Purchase Document - Test"
             column(Approved_By; "Approved By") { IncludeCaption = true; }
             column(Signature; Signature) { }
         }
-
 
         add(RoundLoop)
         {
@@ -55,11 +51,5 @@ reportextension 55000 "PurchaseGRN" extends "Purchase Document - Test"
         Signature: Label 'Signature: ';
         PreparedBy: Label 'Prepared By: ';
         S_No: integer;
-        UOM: Code[20];
-        Unit_Rate: Decimal;
-        SalesPurchPerson: Record "Salesperson/Purchaser";
-        PurchaserText: Text;
-        Name: Text[30];
-        Users: Record User;
         SumOutstadingAmountLCY: Decimal;
 }

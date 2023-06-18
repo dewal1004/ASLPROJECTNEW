@@ -2,7 +2,7 @@ report 99192 "Vessel Performance Consolidax2"
 {
     // "Period Start":=010103D; "Period End":= 010503D;
     // "Period Start":=CALCDATE('CM-2M+1D',030503D);  "Period End":=CALCDATE('CM-1M',030503D);//020503D;//
-    // 
+    //
     // A:: Actual B:: Budget C:: Variance
     // SubHdr1A:: Skipper
     // SubHdr2A:: Endurance   VessEndr:: Vessel Endurance
@@ -10,16 +10,15 @@ report 99192 "Vessel Performance Consolidax2"
     // SubHdr4A:: Fishing Day
     // SubHdr5A:: Lost at Sea
     // SubHdr6A:: Port Day
-    // 
+    //
     // Name
-    // 
+    //
     // CellDefLn :: Cell Definition Line
     // CellDefVT :: Cell Definition Value Totals
     // CellDefHd :: Cell Definition Headers
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/VesselPerformanceConsolidax2.rdlc';
-
-
+    Caption = 'Vessel Performance Consolidax2';
     dataset
     {
         dataitem(Jobss; Job)
@@ -31,7 +30,7 @@ report 99192 "Vessel Performance Consolidax2"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -45,19 +44,15 @@ report 99192 "Vessel Performance Consolidax2"
             }
             column(Text27; Text27)
             {
-
             }
             column(Text26; Text26)
             {
-
             }
             column(Text25; Text25)
             {
-
             }
             column(Text24; Text24)
             {
-
             }
             column(Text23; Text23)
             {
@@ -95,19 +90,15 @@ report 99192 "Vessel Performance Consolidax2"
             }
             column(PortDay; PortDay)
             {
-
             }
             column(LostDay; LostDay)
             {
-
             }
             column(FishgDay; FishgDay)
             {
-
             }
             column(CycleDay; CycleDay)
             {
-
             }
             column(Jobss__Ending_Date_; "Ending Date")
             {
@@ -142,19 +133,15 @@ report 99192 "Vessel Performance Consolidax2"
             }
             column(PortDay_Control1000000239; PortDay)
             {
-
             }
             column(LostDay_Control1000000240; LostDay)
             {
-
             }
             column(FishgDay_Control1000000241; FishgDay)
             {
-
             }
             column(CycleDay_Control1000000242; CycleDay)
             {
-
             }
             column(TotalFor___FIELDCAPTION_Vessel_; TotalFor + FieldCaption(Vessel))
             {
@@ -183,19 +170,15 @@ report 99192 "Vessel Performance Consolidax2"
             }
             column(PortDay_Control1000000228; PortDay)
             {
-
             }
             column(LostDay_Control1000000229; LostDay)
             {
-
             }
             column(FishgDay_Control1000000230; FishgDay)
             {
-
             }
             column(CycleDay_Control1000000231; CycleDay)
             {
-
             }
             column(Coutry_Name; Coutry.Name)
             {
@@ -265,111 +248,84 @@ report 99192 "Vessel Performance Consolidax2"
             }
             column(SubHdr6A_5_; SubHdr6A[5])
             {
-
             }
             column(SubHdr5A_5_; SubHdr5A[5])
             {
-
             }
             column(SubHdr4A_5_; SubHdr4A[5])
             {
-
             }
             column(SubHdr3A_5_; SubHdr3A[5])
             {
-
             }
             column(SubHdr2A_5_; SubHdr2A[5])
             {
-
             }
             column(SubHdr2A_4_; SubHdr2A[4])
             {
-
             }
             column(SubHdr3A_4_; SubHdr3A[4])
             {
-
             }
             column(SubHdr4A_4_; SubHdr4A[4])
             {
-
             }
             column(SubHdr5A_4_; SubHdr5A[4])
             {
-
             }
             column(SubHdr6A_4_; SubHdr6A[4])
             {
-
             }
             column(SubHdr1A_4_; SubHdr1A[4])
             {
-
             }
             column(SubHdr1A_5_; SubHdr1A[5])
             {
-
             }
             column(SubHdr1A_3_; SubHdr1A[3])
             {
-
             }
             column(SubHdr2A_3_; SubHdr2A[3])
             {
-
             }
             column(SubHdr3A_3_; SubHdr3A[3])
             {
-
             }
             column(SubHdr4A_3_; SubHdr4A[3])
             {
-
             }
             column(SubHdr5A_3_; SubHdr5A[3])
             {
-
             }
             column(SubHdr6A_3_; SubHdr6A[3])
             {
-
             }
             column(SubHdr1A_2_; SubHdr1A[2])
             {
-
             }
             column(SubHdr2A_2_; SubHdr2A[2])
             {
-
             }
             column(SubHdr3A_2_; SubHdr3A[2])
             {
-
             }
             column(SubHdr5A_2_; SubHdr5A[2])
             {
-
             }
             column(SubHdr4A_2_; SubHdr4A[2])
             {
-
             }
             column(SubHdr6A_2_; SubHdr6A[2])
             {
-
             }
             column(PortDay_Control1000000609; PortDay)
             {
-
             }
             column(LostDay_Control1000000611; LostDay)
             {
-
             }
             column(FishgDay_Control1000000613; FishgDay)
             {
-
             }
             column(ETACons; ETACons)
             {
@@ -379,7 +335,6 @@ report 99192 "Vessel Performance Consolidax2"
             }
             column(SeaRange_1_; SeaRange[1])
             {
-
             }
             column(CurrReport_PAGENOCaption; CurrReport_PAGENOCaptionLbl)
             {
@@ -669,9 +624,8 @@ report 99192 "Vessel Performance Consolidax2"
                 Job2.SetRange(Job2.Vessel, Vessel);    //Find last voyage
                 if Job2.Next(-1) <> 0 then
                     ETA2 := Job2."Ending Date"
-                else begin
+                else
                     if Loc.Get(Vessel) then ETA2 := Loc."Begining ETA" else ETA2 := 20030101D;
-                end;
 
                 if "Cycle Day (Manual)" <> 0 then
                     CycleDay := "Cycle Day (Manual)"
@@ -695,12 +649,11 @@ report 99192 "Vessel Performance Consolidax2"
                     PortDay := CycleDay - (FishgDay + LostDay);
                 SeaDay := FishgDay + LostDay;
 
-
                 //Creating Sub Header for the columns
                 Countx := MaxCount;
                 repeat
                     if Vessel = SeaRange[Countx] then begin
-                        CellDefHd;
+                        CellDefHd();
                         ColumnNo := Countx * 3;
                         SubHdr2A[Countx] := Loc."Vessel Endurance";
                         EnterCell(8, ColumnNo, Format(SubHdr2A[Countx]), false, false, false);
@@ -724,7 +677,6 @@ report 99192 "Vessel Performance Consolidax2"
                 HDT[5] := HDT[5] + LostDay;
                 HDT[6] := HDT[6] + PortDay;
 
-
                 //Find Total Tonnage of Export
                 //   SETFILTER("Task Filter",'SHR');
                 CalcFields("Product Quantity", "Points Actual");
@@ -744,8 +696,7 @@ report 99192 "Vessel Performance Consolidax2"
                 Validate("Net Incentive Actual");
                 DataStor[3] := "Net Incentive Actual";
 
-
-                JobSetUp.Get;
+                JobSetUp.Get();
                 a := 100;
 
                 //Calculate the Fixed Salaries
@@ -806,10 +757,9 @@ report 99192 "Vessel Performance Consolidax2"
 
                 CurrExc.SetRange(CurrExc."Currency Code", 'USD');
                 CurrExc.SetRange(CurrExc."Starting Date", 0D, ETA);
-                if CurrExc.Find('+') then begin
-                    CurrRate := CurrExc."Relational Exch. Rate Amount";
-                    //MESSAGE('EXCHANGE VALUE IS %1',CurrExc."Relational Exch. Rate Amount")
-                end
+                if CurrExc.Find('+') then
+                    CurrRate := CurrExc."Relational Exch. Rate Amount"
+                //MESSAGE('EXCHANGE VALUE IS %1',CurrExc."Relational Exch. Rate Amount")
                 else
                     CurrRate := 1;
                 PntStor[7] := CurrRate;
@@ -863,7 +813,7 @@ report 99192 "Vessel Performance Consolidax2"
                         EnterCell(4, Countx * 3, SeaRange[Countx], false, false, false);
                         Countx := Countx + 1;
                     end;
-                until locate.Next = 0;
+                until locate.Next() = 0;
 
                 MaxCount := Countx;
                 repeat
@@ -952,7 +902,7 @@ report 99192 "Vessel Performance Consolidax2"
                 trigger OnAfterGetRecord()
                 begin
                     "Marked Rec" := true;
-                    Modify;
+                    Modify();
                 end;
             }
             dataitem(JbCatchMark; "Job catch Default")
@@ -999,7 +949,7 @@ report 99192 "Vessel Performance Consolidax2"
                 trigger OnAfterGetRecord()
                 begin
                     "Marked Rec" := true;
-                    Modify;
+                    Modify();
                 end;
             }
             dataitem(ValEntMark; "Value Entry")
@@ -1046,7 +996,7 @@ report 99192 "Vessel Performance Consolidax2"
                 trigger OnAfterGetRecord()
                 begin
                     "Marked Rec" := true;
-                    Modify;
+                    Modify();
                 end;
             }
 
@@ -1060,7 +1010,6 @@ report 99192 "Vessel Performance Consolidax2"
 
     requestpage
     {
-
         layout
         {
         }
@@ -1076,7 +1025,7 @@ report 99192 "Vessel Performance Consolidax2"
 
     trigger OnInitReport()
     begin
-        GLSetup.Get;
+        GLSetup.Get();
     end;
 
     trigger OnPostReport()
@@ -1086,25 +1035,17 @@ report 99192 "Vessel Performance Consolidax2"
 
     trigger OnPreReport()
     begin
-        TempExcelBuffer.DeleteAll;
+        TempExcelBuffer.DeleteAll();
         Clear(TempExcelBuffer);
         cnt := 13;
     end;
 
     var
         LastFieldNo: Integer;
-        FooterPrinted: Boolean;
         TotalFor: Label 'Total';
-        "---": Integer;
-        Job: Record Job;
         Job2: Record Job;
-        JobRange: Record Job;
-        JobETA: Record Job;
-        Itempr: Record "Sales Price";
         CurrExc: Record "Currency Exchange Rate";
         ProdPostGrp: Record "Gen. Product Posting Group";
-        InvtPostGrp: Record "Inventory Posting Group";
-        JobLedgerGrpSort: Record "Job Ledger Entry";
         JobSetUp: Record "Jobs Setup";
         JBudLn: Record "Job Planning Line";
         Employee: Record Employee;
@@ -1112,41 +1053,9 @@ report 99192 "Vessel Performance Consolidax2"
         Coutry: Record "Country/Region";
         GLEntry: Record "G/L Entry";
         Res: Record Resource;
-        "Job led": Record "Job Ledger Entry";
-        "job cath": Record "Job catch Default";
-        "Val Ent": Record "Value Entry";
         GLSetup: Record "General Ledger Setup";
-        Prc: Decimal;
-        PrcB: Decimal;
-        PrdPrc: Decimal;
-        PrdPrcB: Decimal;
-        PrdPrcBu: Decimal;
-        PrdPrcBX: Decimal;
-        PrdPrc2: Decimal;
-        PrdPrc2X: Decimal;
-        PrdPrc2B: Decimal;
         CurrRate: Decimal;
-        NairaVal: Decimal;
-        NairaValB: Decimal;
-        NairaValBX: Decimal;
-        NairaVal2: Decimal;
-        NairaVal2X: Decimal;
-        NairaVal2B: Decimal;
-        Qty: Decimal;
-        QtyB: Decimal;
-        QtyX: Decimal;
-        QtyBX: Decimal;
-        GPPGDesc: Text[30];
         DataStor: array[15] of Decimal;
-        TotalForX: Label 'Total Exports';
-        TotalFory: Label 'Total Local';
-        Text03: Label 'Catch Incentive';
-        Text04: Label 'Salaries & Wages';
-        Text05: Label 'Travelling Expenses';
-        Text06: Label 'License Fees';
-        Text07: Label 'Insurance';
-        Text08: Label 'Clearing & FWRD. & NPA';
-        Text09: Label 'Total Direct Expenses';
         PntStor: array[8] of Decimal;
         ETD: Date;
         ETA: Date;
@@ -1163,20 +1072,8 @@ report 99192 "Vessel Performance Consolidax2"
         expcntTot: Integer;
         PeopleOnVoy: Integer;
         ResCount: Integer;
-        Text10: Label 'Gross Margin';
-        Text11: Label '% Of Revenue';
-        Text12: Label 'Shore Overheads';
-        Text13: Label 'Depreciation';
-        Text14: Label 'Interest';
-        Text15: Label 'Net Profit';
-        Text17: Label 'Total Indirect Expenses';
         TotDirExp: Decimal;
-        TotIndirExp: Decimal;
-        GrossMarg: Decimal;
-        GrossPerct: Decimal;
-        NetProfPerct: Decimal;
         TotPrice: Decimal;
-        NetProfit: Decimal;
         ExpTonnage: Decimal;
         Vess: Text[30];
         Text18: Label 'CONSOLIDATED VOYAGE P & L STATEMENT';
@@ -1187,71 +1084,39 @@ report 99192 "Vessel Performance Consolidax2"
         Text25: Label 'Avg. Fish Points';
         Text26: Label 'Avg. Total Points';
         Text27: Label 'Exchange Rate';
-        A1: array[5] of Decimal;
-        A2: array[5] of Decimal;
-        B1: array[5] of Decimal;
-        B2: array[5] of Decimal;
         UOM: Record "Unit of Measure";
         UOMCd: Code[10];
         ItemVar: Code[10];
         "No.B": Code[10];
-        NOrder: Decimal;
-        ValRate: Decimal;
-        ValQty: Decimal;
         GLStr: array[25] of Decimal;
         "GLGPP Caption": array[25] of Code[10];
         CountGPPG: Integer;
-        CountG: Integer;
-        Flag: Boolean;
-        "----": Integer;
         "Period Start": Date;
         "Period End": Date;
-        FishingCount: Code[30];
         FC: Code[10];
         VesselSel: Code[25];
         JobsNo: Code[250];
         ResourceOn: Code[30];
         VoyageFilter: Code[1024];
         Countrs: Integer;
-        "----------------": Integer;
         locate: Record Location;
         Countx: Integer;
         level: Integer;
-        LocGroup: Integer;
         TotLoc: Integer;
         MaxCount: Integer;
         SeaRangeC: array[100] of Decimal;
-        SeaRangeC1: array[100] of Decimal;
-        SeaRangeC2: array[100] of Decimal;
-        SeaRangeC3: array[100] of Decimal;
         SeaRangeCBud: array[100] of Decimal;
-        SeaRangeCBud1: array[100] of Decimal;
-        SeaRangeCBud2: array[100] of Decimal;
-        SeaRangeCBud3: array[100] of Decimal;
         SeaRangeCVar: array[100] of Decimal;
-        SeaRangeCVar1: array[100] of Decimal;
-        SeaRangeCVar2: array[100] of Decimal;
-        SeaRangeCVar3: array[100] of Decimal;
-        T001: Text[80];
         SeaRange: array[100] of Text[30];
-        Cat: Code[15];
-        StoreC: array[100] of Decimal;
-        StoreCBud: array[100] of Decimal;
-        StoreCII: array[100] of Decimal;
-        StoreCBudII: array[100] of Decimal;
-        "------": Integer;
         TempExcelBuffer: Record "Excel Buffer 4 P&L";
         cnt: Integer;
         RowNo: Integer;
         ColumnNo: Integer;
-        ColumnValue: Decimal;
-        ColumnText: Text[50];
         T: array[3] of Decimal;
         VT: array[3, 3] of Decimal;
         HDT: array[6] of Decimal;
         HDTd: array[1] of Date;
         RwLabel: Text[50];
-        "-------------": Integer;
         SubHdr1A: array[120] of Text[30];
         SubHdr2A: array[120] of Decimal;
         SubHdr3A: array[120] of Date;
@@ -1362,7 +1227,7 @@ report 99192 "Vessel Performance Consolidax2"
 
     local procedure EnterCell(RowNo: Integer; ColumnNo: Integer; CellValue: Text[50]; Bold: Boolean; Italic: Boolean; UnderLine: Boolean)
     begin
-        TempExcelBuffer.Init;
+        TempExcelBuffer.Init();
         TempExcelBuffer.Validate("Row No.", RowNo);
         TempExcelBuffer.Validate("Column No.", ColumnNo);
         TempExcelBuffer."Cell Value as Text" := CellValue;
@@ -1370,7 +1235,7 @@ report 99192 "Vessel Performance Consolidax2"
         TempExcelBuffer.Bold := Bold;
         TempExcelBuffer.Italic := Italic;
         TempExcelBuffer.Underline := UnderLine;
-        if not TempExcelBuffer.Insert then TempExcelBuffer.Modify;
+        if not TempExcelBuffer.Insert() then TempExcelBuffer.Modify();
     end;
 
     [Scope('OnPrem')]
@@ -1441,4 +1306,3 @@ report 99192 "Vessel Performance Consolidax2"
     begin
     end;
 }
-

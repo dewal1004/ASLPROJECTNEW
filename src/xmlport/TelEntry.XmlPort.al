@@ -1,7 +1,7 @@
 xmlport 50031 "Tel Entry"
 {
     Format = VariableText;
-
+    Caption = 'Tel Entry';
     schema
     {
         textelement(RootNode)
@@ -57,7 +57,6 @@ xmlport 50031 "Tel Entry"
 
     requestpage
     {
-
         layout
         {
         }
@@ -67,4 +66,3 @@ xmlport 50031 "Tel Entry"
         }
     }
 }
-

@@ -33,4 +33,3 @@ tableextension 50204 "tableextension50204" extends "Sales Shipment Header"
         //}
     }
 }
-

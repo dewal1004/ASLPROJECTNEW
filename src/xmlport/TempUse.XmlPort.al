@@ -1,6 +1,6 @@
 xmlport 50035 "Temp Use"
 {
-
+    Caption = 'Temp Use';
     schema
     {
         textelement(RootNode)
@@ -30,7 +30,6 @@ xmlport 50035 "Temp Use"
 
     requestpage
     {
-
         layout
         {
         }
@@ -40,4 +39,3 @@ xmlport 50035 "Temp Use"
         }
     }
 }
-

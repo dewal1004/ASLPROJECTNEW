@@ -2,7 +2,7 @@ report 99997 "Item Category Code No Update"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/ItemCategoryCodeNoUpdate.rdlc';
-
+    Caption = 'Item Category Code No Update';
     dataset
     {
         dataitem(Item; Item)
@@ -14,7 +14,7 @@ report 99997 "Item Category Code No Update"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -63,14 +63,13 @@ report 99997 "Item Category Code No Update"
             trigger OnAfterGetRecord()
             begin
                 if Item."Item Category Code" <> '' then Item.Validate(Item."Item Category Code");
-                Item.Modify;
+                Item.Modify();
             end;
         }
     }
 
     requestpage
     {
-
         layout
         {
         }
@@ -88,4 +87,3 @@ report 99997 "Item Category Code No Update"
         ItemCaptionLbl: Label 'Item';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
 }
-

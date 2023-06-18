@@ -6,8 +6,7 @@ report 50023 "Daily Cash Summary"
     RDLCLayout = './src/reportrdlc/DailyCashSummary.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
-
-
+    Caption = 'Daily Cash Summary';
     dataset
     {
         dataitem("Bank Account Ledger Entry"; "Bank Account Ledger Entry")
@@ -20,7 +19,7 @@ report 50023 "Daily Cash Summary"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -178,7 +177,7 @@ report 50023 "Daily Cash Summary"
                     EmployeeName := Description;
 
                 Print_OK := false;
-                if Loan_Rec.Get("Cust. Ledger Entry"."Loan ID") then begin
+                if Loan_Rec.Get("Cust. Ledger Entry"."Loan ID") then
                     if Loan_Rec."Loan Type" = 1 then begin
                         Loan_Rec.CalcFields(Loan_Rec."Remaining Amount");
                         if Loan_Rec."Remaining Amount" > 0 then begin
@@ -186,7 +185,6 @@ report 50023 "Daily Cash Summary"
                             Total_IOU := Total_IOU + "Cust. Ledger Entry"."Remaining Amt. (LCY)";
                         end;
                     end;
-                end;
             end;
 
             trigger OnPreDataItem()
@@ -222,7 +220,6 @@ report 50023 "Daily Cash Summary"
 
     requestpage
     {
-
         layout
         {
         }
@@ -238,16 +235,13 @@ report 50023 "Daily Cash Summary"
 
     trigger OnInitReport()
     begin
-        "Company Information".Get;
+        "Company Information".Get();
         "Company Information".CalcFields(Picture);
     end;
 
     var
         LastFieldNo: Integer;
-        FooterPrinted: Boolean;
         TotalFor: Label 'Total';
-        "------": Integer;
-        Bank: Record "Bank Account";
         Cust: Record Customer;
         Desc: Text[30];
         BankDesc: Text[30];
@@ -270,4 +264,3 @@ report 50023 "Daily Cash Summary"
         Checked_By_CaptionLbl: Label 'Checked By:';
         Approved_By_CaptionLbl: Label 'Approved By:';
 }
-

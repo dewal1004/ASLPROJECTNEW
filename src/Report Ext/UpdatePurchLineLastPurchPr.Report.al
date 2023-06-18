@@ -2,7 +2,7 @@ report 90004 "Update PurchLine Last Purch Pr"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/UpdatePurchLineLastPurchPr.rdlc';
-
+    Caption = 'Update PurchLine Last Purch Pr';
     dataset
     {
         dataitem("Purch. Inv. Line"; "Purch. Inv. Line")
@@ -14,7 +14,7 @@ report 90004 "Update PurchLine Last Purch Pr"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -57,7 +57,6 @@ report 90004 "Update PurchLine Last Purch Pr"
         }
         dataitem("Purch. Rcpt. Line"; "Purch. Rcpt. Line")
         {
-
             trigger OnAfterGetRecord()
             begin
                 if itemrec.Get("Purch. Rcpt. Line"."No.") then
@@ -67,7 +66,6 @@ report 90004 "Update PurchLine Last Purch Pr"
         }
         dataitem("Purchase Line"; "Purchase Line")
         {
-
             trigger OnAfterGetRecord()
             begin
                 if itemrec.Get("Purchase Line"."No.") then
@@ -79,7 +77,6 @@ report 90004 "Update PurchLine Last Purch Pr"
 
     requestpage
     {
-
         layout
         {
         }
@@ -95,9 +92,6 @@ report 90004 "Update PurchLine Last Purch Pr"
 
     var
         itemrec: Record Item;
-        PurRec: Record "Purch. Rcpt. Line";
-        PurOrd: Record "Purchase Line";
         Purch__Inv__LineCaptionLbl: Label 'Purch. Inv. Line';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
 }
-

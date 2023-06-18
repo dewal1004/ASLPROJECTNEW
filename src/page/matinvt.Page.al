@@ -6,7 +6,7 @@ page 95001 "mat invt"
 
     PageType = Card;
     SourceTable = Item;
-
+    Caption = 'mat invt';
     layout
     {
     }
@@ -14,8 +14,4 @@ page 95001 "mat invt"
     actions
     {
     }
-
-    var
-        Loc: Record Location;
 }
-

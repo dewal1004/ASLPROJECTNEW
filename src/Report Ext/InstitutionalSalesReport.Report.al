@@ -3,8 +3,7 @@ report 50234 "Institutional Sales Report"
     //   "Sea Food categories"
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/InstitutionalSalesReport.rdlc';
-
-
+    Caption = 'Institutional Sales Report';
     dataset
     {
         dataitem("Sea Food categories"; "Sea Food categories")
@@ -17,7 +16,7 @@ report 50234 "Institutional Sales Report"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(FORMAT_TODAY_0_4_; Format(Today, 0, 4))
@@ -125,7 +124,7 @@ report 50234 "Institutional Sales Report"
                     TotSales := TotSales + "Sales (LCY)";
 
                     if not FooterPrinted then
-                        LastFieldNo := CurrReport.TotalsCausedBy;
+                        LastFieldNo := CurrReport.TotalsCausedBy();
                     CurrReport.ShowOutput(not FooterPrinted);
                     FooterPrinted := true;
 
@@ -137,7 +136,7 @@ report 50234 "Institutional Sales Report"
                 begin
                     LastFieldNo := FieldNo("No. 2");
                     if GetFilter("Date Filter") = '' then
-                        SetRange("Date Filter", CalcDate('-1D', WorkDate));
+                        SetRange("Date Filter", CalcDate('-1D', WorkDate()));
                     SetRange("SF Cat", CopyStr("Sea Food categories"."Sea food code", 5));
                     RepFilter := GetFilters;
                 end;
@@ -152,7 +151,6 @@ report 50234 "Institutional Sales Report"
 
     requestpage
     {
-
         layout
         {
         }
@@ -183,4 +181,3 @@ report 50234 "Institutional Sales Report"
         COPYSTR__Sea_food_code__5_CaptionLbl: Label 'Label1000000007';
         Total_SalesCaptionLbl: Label 'Total Sales';
 }
-

@@ -6,8 +6,7 @@ report 50076 "Short Supply by Vessel"
     RDLCLayout = './src/reportrdlc/ShortSupplybyVessel.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
-
-
+    Caption = 'Short Supply by Vessel';
     dataset
     {
         dataitem("Transfer Line"; "Transfer Line")
@@ -20,7 +19,7 @@ report 50076 "Short Supply by Vessel"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -150,7 +149,6 @@ report 50076 "Short Supply by Vessel"
 
     requestpage
     {
-
         layout
         {
         }
@@ -166,12 +164,9 @@ report 50076 "Short Supply by Vessel"
 
     var
         LastFieldNo: Integer;
-        FooterPrinted: Boolean;
         TotalFor: Label 'Total for ';
-        Shorts: Boolean;
         Short_Supply_by_VesselCaptionLbl: Label 'Short Supply by Vessel';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
         Transfer_Line_QuantityCaptionLbl: Label 'Quantity Approved';
         Transfer_Line__Qty__Reqd__CaptionLbl: Label 'Quantity Requested';
 }
-

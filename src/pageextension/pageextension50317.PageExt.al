@@ -11,4 +11,3 @@ pageextension 50317 "pageextension50317" extends "FA Posting Groups"
         }
     }
 }
-

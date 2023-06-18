@@ -2,7 +2,7 @@ report 99981 "Modify Vendor No"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/ModifyVendorNo.rdlc';
-
+    Caption = 'Modify Vendor No';
     dataset
     {
         dataitem(Vendor; Vendor)
@@ -19,7 +19,6 @@ report 99981 "Modify Vendor No"
 
     requestpage
     {
-
         layout
         {
         }
@@ -37,4 +36,3 @@ report 99981 "Modify Vendor No"
         Vend: Record Vendor;
         StFrom: Code[20];
 }
-

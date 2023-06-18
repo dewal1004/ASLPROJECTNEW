@@ -2,7 +2,7 @@ table 50005 "Loan."
 {
     DataCaptionFields = "Loan ID";
     LookupPageID = "Loan List";
-
+    Caption = 'Loan.';
     fields
     {
         field(1; "Loan ID"; Code[10])
@@ -16,7 +16,7 @@ table 50005 "Loan."
             trigger OnValidate()
             begin
                 StaffRec.Get("Staff No.");
-                "Staff Name" := StaffRec.FullName;
+                "Staff Name" := StaffRec.FullName();
                 "Job Title" := StaffRec."Job Title";
                 Department := StaffRec."Global Dimension 1 Code";
                 "Date of Joining" := StaffRec."Employment Date";
@@ -85,7 +85,7 @@ table 50005 "Loan."
                 if ("Loan Amount" > "AnnualBasic(1/2)") then
                     Message('The Loan is more than 1/2 of employee Annual Basic!');
                 if ("Number of Payments" <> 0) then
-                    "Monthly Repayment" := Round(LPlusInt / "Number of Payments", 0.01, '>')
+                    "Monthly Repayment" := Round(LPlusInt() / "Number of Payments", 0.01, '>')
                 else
                     "Monthly Repayment" := 0;
             end;
@@ -101,18 +101,17 @@ table 50005 "Loan."
             trigger OnValidate()
             begin
                 if ("Number of Payments" <> 0) then
-                    "Monthly Repayment" := Round(LPlusInt / "Number of Payments", 0.01, '>')
+                    "Monthly Repayment" := Round(LPlusInt() / "Number of Payments", 0.01, '>')
                 else
                     "Monthly Repayment" := 0;
             end;
         }
         field(13; "Monthly Repayment"; Decimal)
         {
-
             trigger OnValidate()
             begin
                 if ("Monthly Repayment" <> 0) then
-                    "Number of Payments" := Round(LPlusInt / "Monthly Repayment", 1, '>')
+                    "Number of Payments" := Round(LPlusInt() / "Monthly Repayment", 1, '>')
                 else
                     "Number of Payments" := 0;
             end;
@@ -168,7 +167,7 @@ table 50005 "Loan."
             trigger OnValidate()
             begin
                 if ("Number of Payments" <> 0) then
-                    "Monthly Repayment" := Round(LPlusInt / "Number of Payments", 0.01, '>')
+                    "Monthly Repayment" := Round(LPlusInt() / "Number of Payments", 0.01, '>')
                 else
                     "Monthly Repayment" := 0;
             end;
@@ -191,10 +190,9 @@ table 50005 "Loan."
         }
         field(50023; "MD. Approved"; Boolean)
         {
-
             trigger OnValidate()
             begin
-                PaySetup.Reset;
+                PaySetup.Reset();
                 PaySetup.Find('-');
                 if (UserId <> PaySetup."MD ID") and
                   (UserId <> PaySetup."Accountant 1") and
@@ -232,6 +230,9 @@ table 50005 "Loan."
 
     fieldgroups
     {
+        fieldgroup(DropDown; Description)
+        {
+        }
     }
 
     trigger OnDelete()
@@ -243,7 +244,7 @@ table 50005 "Loan."
     trigger OnInsert()
     begin
         if "Loan ID" = '' then begin
-            PaySetup.Reset;
+            PaySetup.Reset();
             PaySetup.Find('-');
             PaySetup.TestField(PaySetup."Loan Nos.");
             NoSeriesMgt.InitSeries(PaySetup."Loan Nos.", PaySetup."Loan Nos.", 0D, "Loan ID", PaySetup."Loan Nos.");
@@ -266,12 +267,11 @@ table 50005 "Loan."
 
         userrec.Get(UserId);
 
-        if "Loan Created" and (not userrec."Create Loan") then begin
+        if "Loan Created" and (not userrec."Create Loan") then
             if ("Loan Amount" <> xRec."Loan Amount") or
                ("Start Period" <> xRec."Start Period") or
                ("Interest Percent" <> xRec."Interest Percent") then
                 Error('You Cannot MODIFY a Created Loan!');
-        end;
     end;
 
     var
@@ -280,15 +280,11 @@ table 50005 "Loan."
         EDRec: Record "Payroll-E/D Codes.";
         GlRec: Record "Gen. Journal Line";
         GlRec1: Record "Gen. Journal Line";
-        ACSETREC: Record "General Ledger Setup";
         LoanRec: Record "Loan.";
         Genbatch: Record "Gen. Journal Batch";
         PaySetup: Record "ASL Payroll Setup";
         Payrec: Record "Payroll-Employee Group Header.";
-        VendRec: Record Vendor;
         CustRec: Record Customer;
-        EmGrospay: Decimal;
-        EmGrade: Code[10];
         userrec: Record "User Setup";
 
     //[Scope('OnPrem')]
@@ -296,7 +292,7 @@ table 50005 "Loan."
     begin
         userrec.Get(UserId);
         if not userrec."Create Loan" then Error('You may not create Loan');
-        ApprovedLoan;
+        ApprovedLoan();
         TestField("Loan ID");
         TestField("Staff No.");
         //SETFILTER();
@@ -308,15 +304,15 @@ table 50005 "Loan."
         StaffRec.Get("Staff No.");
         TestField("Journal Batch");
         if not Genbatch.Get('GENERAL', "Journal Batch") then begin
-            Genbatch.Init;
+            Genbatch.Init();
             Genbatch."Journal Template Name" := 'GENERAL';
             Genbatch.Name := "Journal Batch";
             Genbatch."Shortcut Dimension 1 Code" := StaffRec."Global Dimension 1 Code";
             Genbatch."Shortcut Dimension 2 Code" := StaffRec."Region Code";
-            Genbatch.Insert;
+            Genbatch.Insert();
         end;
 
-        GlRec.Init;
+        GlRec.Init();
         GlRec."Loan ID" := "Loan ID";
 
         /*Transfer Loan Amount*/
@@ -346,7 +342,7 @@ table 50005 "Loan."
         GlRec.Validate(Amount, "Loan Amount");
         GlRec."Shortcut Dimension 2 Code" := StaffRec."Global Dimension 2 Code";
 
-        GlRec.Insert;
+        GlRec.Insert();
 
         /*Transfer Interest Amount*/
         if "Interest Percent" <> 0 then begin
@@ -372,32 +368,31 @@ table 50005 "Loan."
             GlRec.Validate("Shortcut Dimension 1 Code", StaffRec."Global Dimension 1 Code");
             GlRec.Validate("Document No.", "Voucher No. for Loan");
             GlRec.Description := 'Interest for Loan ' + "Loan ID";
-            GlRec.Validate(Amount, LPlusInt - "Loan Amount");
+            GlRec.Validate(Amount, LPlusInt() - "Loan Amount");
 
             /*Get the Interest Account*/
-            PaySetup.Reset;
+            PaySetup.Reset();
             PaySetup.Find('-');
             GlRec.Validate("Bal. Account Type", GlRec."Bal. Account Type"::"G/L Account");
             GlRec.Validate("Bal. Account No.", PaySetup."Staff Loans Interest Account");
             GlRec."Shortcut Dimension 2 Code" := StaffRec."Global Dimension 2 Code";
             GlRec."Loan ID" := "Loan ID";
-            GlRec.Insert;
+            GlRec.Insert();
         end;
 
         "Loan Created" := true;
-        Modify;
-
+        Modify();
     end;
 
     //[Scope('OnPrem')]
     procedure AssistEdit(LRec: Record "Loan."): Boolean
     begin
         LoanRec := Rec;
-        PaySetup.Get;
+        PaySetup.Get();
         PaySetup.TestField(PaySetup."Loan Nos.");
         if NoSeriesMgt.SelectSeries(PaySetup."Loan Nos.", PaySetup."Loan Nos.", PaySetup."Loan Nos.")
         then begin
-            PaySetup.Get;
+            PaySetup.Get();
             PaySetup.TestField(PaySetup."Loan Nos.");
             NoSeriesMgt.SetSeries(LoanRec."Loan ID");
             Rec := LoanRec;
@@ -422,4 +417,3 @@ table 50005 "Loan."
         end;
     end;
 }
-

@@ -4,6 +4,7 @@ page 50003 "ED Codes."
     SourceTable = "Payroll-E/D Codes.";
     UsageCategory = Lists;
     ApplicationArea = All, Basic;
+    Caption = 'ED Codes.';
     layout
     {
         area(content)
@@ -179,4 +180,3 @@ page 50003 "ED Codes."
         }
     }
 }
-

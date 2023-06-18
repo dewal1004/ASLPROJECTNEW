@@ -4,7 +4,7 @@ report 50131 "FIsh And Shop"
     RDLCLayout = './src/reportrdlc/FIshAndShop.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
-
+    Caption = 'FIsh And Shop';
     dataset
     {
         dataitem("Sales Line"; "Sales Line")
@@ -32,7 +32,6 @@ report 50131 "FIsh And Shop"
 
     requestpage
     {
-
         layout
         {
         }
@@ -45,13 +44,4 @@ report 50131 "FIsh And Shop"
     labels
     {
     }
-
-    var
-        LastFieldNo: Integer;
-        FooterPrinted: Boolean;
-        "-----": Integer;
-        Emp: Record Employee;
-        TotRem: Decimal;
-        TotAmt: Decimal;
 }
-

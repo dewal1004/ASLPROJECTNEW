@@ -2,22 +2,18 @@ tableextension 50273 "tableextension50273" extends "Purchase Header"
 {
     fields
     {
-
         //Unsupported feature: Property Modification (Data type) on ""Pay-to Name 2"(Field 6)".
-
 
         //Unsupported feature: Property Modification (Data type) on ""Pay-to City"(Field 9)".
 
         modify("Your Reference")
         {
-
             //Unsupported feature: Property Modification (Data type) on ""Your Reference"(Field 11)".
 
             Description = 'Text30';
         }
 
         //Unsupported feature: Property Modification (Data type) on ""Ship-to City"(Field 17)".
-
 
         //Unsupported feature: Property Insertion (NotBlank) on ""Shortcut Dimension 2 Code"(Field 30)".
 
@@ -68,7 +64,6 @@ tableextension 50273 "tableextension50273" extends "Purchase Header"
         */
         //end;
 
-
         //Unsupported feature: Code Modification on ""Posting Date"(Field 20).OnValidate".
 
         //trigger OnValidate()
@@ -100,7 +95,6 @@ tableextension 50273 "tableextension50273" extends "Purchase Header"
           JobUpdatePurchLines(SkipJobCurrFactorUpdate);
         */
         //end;
-
 
         //Unsupported feature: Code Modification on ""Shortcut Dimension 2 Code"(Field 30).OnValidate".
 
@@ -138,6 +132,7 @@ tableextension 50273 "tableextension50273" extends "Purchase Header"
                                                         "G/L Account No." = FILTER('12090030')));
             Description = 'BPR1.00,LC';
             FieldClass = FlowField;
+            Editable = false;
         }
         field(50002; "Total Amount Item (LCY)"; Decimal)
         {
@@ -160,6 +155,7 @@ tableextension 50273 "tableextension50273" extends "Purchase Header"
                                                                                 Type = FILTER("G/L Account")));
             Description = 'BPR1.00,LC';
             FieldClass = FlowField;
+            Editable = false;
         }
         field(50012; "Total Amt. Item to Rec. (LCY)"; Decimal)
         {
@@ -168,6 +164,7 @@ tableextension 50273 "tableextension50273" extends "Purchase Header"
                                                                                "Outstanding Quantity" = FILTER(<> 0)));
             Description = 'BPR1.00,LC';
             FieldClass = FlowField;
+            Editable = false;
         }
         field(50015; "Waybill No."; Code[10])
         {
@@ -189,7 +186,6 @@ tableextension 50273 "tableextension50273" extends "Purchase Header"
         }
         field(50310; "Totat Freight"; Decimal)
         {
-
             trigger OnValidate()
             begin
                 if "Currency Factor" <> 0 then
@@ -201,7 +197,6 @@ tableextension 50273 "tableextension50273" extends "Purchase Header"
         }
         field(50311; "Total Ancillary Charges"; Decimal)
         {
-
             trigger OnValidate()
             begin
                 if "Currency Factor" <> 0 then
@@ -213,7 +208,6 @@ tableextension 50273 "tableextension50273" extends "Purchase Header"
         }
         field(50312; "Clearing(LCY)"; Decimal)
         {
-
             trigger OnValidate()
             begin
                 TestField("Currency Code");
@@ -221,7 +215,6 @@ tableextension 50273 "tableextension50273" extends "Purchase Header"
         }
         field(50313; "Interest Expense(LCY)"; Decimal)
         {
-
             trigger OnValidate()
             begin
                 TestField("Currency Code");
@@ -410,6 +403,7 @@ tableextension 50273 "tableextension50273" extends "Purchase Header"
             CalcFormula = Sum("Purchase Line"."Quantity Received" WHERE("Document Type" = FIELD("Document Type"),
                                                                          "Document No." = FIELD("No.")));
             FieldClass = FlowField;
+            Editable = false;
         }
         field(50370; "Line Amount"; Decimal)
         {
@@ -486,6 +480,7 @@ tableextension 50273 "tableextension50273" extends "Purchase Header"
                                                         "External Document No." = FIELD("No."),
                                                         "Reason Code" = FIELD("Reason Code Filter")));
             FieldClass = FlowField;
+            Editable = false;
         }
         field(50399; "Reason Code Filter"; Code[10])
         {
@@ -537,7 +532,6 @@ tableextension 50273 "tableextension50273" extends "Purchase Header"
             OptionMembers = " ","Local",Foreign;
         }
     }
-
 
     //Unsupported feature: Code Modification on "OnDelete".
 
@@ -684,7 +678,6 @@ tableextension 50273 "tableextension50273" extends "Purchase Header"
     */
     //end;
 
-
     //Unsupported feature: Code Modification on "OnInsert".
 
     //trigger OnInsert()
@@ -720,10 +713,7 @@ tableextension 50273 "tableextension50273" extends "Purchase Header"
 
     //Unsupported feature: Variable Insertion (Variable: UpdateConfirmed) (VariableCollection) on "UpdatePurchLines(PROCEDURE 15)".
 
-
     //Unsupported feature: Property Modification (Name) on "TriggerOnAfterPostPurchaseDoc(PROCEDURE 116)".
-
-
 
     //Unsupported feature: Code Modification on "TriggerOnAfterPostPurchaseDoc(PROCEDURE 116)".
 
@@ -749,13 +739,4 @@ tableextension 50273 "tableextension50273" extends "Purchase Header"
     begin
         PurchPost.OnAfterPostPurchaseDoc(Rec, GenJnlPostLine, PurchRcpHdrNo, RetShptHdrNo, PurchInvHdrNo, PurchCrMemoHdrNo, false);
     end;
-
-    //Unsupported feature: Insertion (FieldGroupCollection) on "(FieldGroup: Drilldown)".
-
-
-    var
-        "------": Text[30];
-        PurhOrd: Record "Purchase Header";
-        PurhOrdx: Record "Purch. Rcpt. Header";
 }
-

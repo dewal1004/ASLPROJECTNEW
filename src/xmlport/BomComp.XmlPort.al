@@ -2,7 +2,7 @@ xmlport 50005 "BomComp"
 {
     Direction = Import;
     Format = VariableText;
-
+    Caption = 'BomComp';
     schema
     {
         textelement(ROOT)
@@ -35,7 +35,6 @@ xmlport 50005 "BomComp"
 
     requestpage
     {
-
         layout
         {
         }
@@ -45,4 +44,3 @@ xmlport 50005 "BomComp"
         }
     }
 }
-

@@ -1,16 +1,13 @@
 tableextension 50247 "tableextension50247" extends "Job Journal Batch"
 {
-
     //Unsupported feature: Property Insertion (Permissions) on ""Job Journal Batch"(Table 237)".
 
     fields
     {
-
         //Unsupported feature: Property Modification (Data type) on ""Journal Template Name"(Field 1)".
 
         modify(Name)
         {
-
             //Unsupported feature: Property Modification (Data type) on "Name(Field 2)".
 
             TableRelation = IF ("Journal Template Name" = CONST('RECURRING')) Location WHERE("Location Type" = CONST(Vessel));
@@ -33,12 +30,11 @@ tableextension 50247 "tableextension50247" extends "Job Journal Batch"
         }
         field(50301; "Catch Date"; Date)
         {
-
             trigger OnValidate()
             begin
                 //Report Daily Variables
                 if "Catch Date" > Today then Error('Catch date cannot be in the future');
-                OPDailyRad.Init;
+                OPDailyRad.Init();
                 OPDailyRad.Date := "Catch Date";
                 OPDailyRad.Name := Name;
                 OPDailyRad.Description := Description;
@@ -52,15 +48,14 @@ tableextension 50247 "tableextension50247" extends "Job Journal Batch"
                 OPDailyRad."Fish Hold Temp" := "Fish Hold Temp";
                 OPDailyRad."Fuel Balance" := "Fuel Balance";
                 OPDailyRad."R.P.M." := "R.P.M.";
-                if jobs.Get("Job No.") then begin
+                if jobs.Get("Job No.") then
                     OPDailyRad."Catch Sea Days" := "Catch Date" - jobs."Starting Date";
-                end;
 
-                if not OPDailyRad.Insert then OPDailyRad.Modify;
+                if not OPDailyRad.Insert() then OPDailyRad.Modify();
 
                 //No Catch Reports Skipper
-                if JLedEntry.FindLast then "LastNo." := JLedEntry."Entry No.";
-                JLedEntry.Init;
+                if JLedEntry.FindLast() then "LastNo." := JLedEntry."Entry No.";
+                JLedEntry.Init();
                 JLedEntry."Job No." := "Job No.";
                 JLedEntry."Posting Date" := "Catch Date";
                 JLedEntry."Document No." := Name + Format("Catch Date");
@@ -80,9 +75,8 @@ tableextension 50247 "tableextension50247" extends "Job Journal Batch"
                 JLedEntry."Entry Type" := 0;
                 JLedEntry."Entry No." := "LastNo." + 1;
                 JLedEntry."Phase Code" := "Fishing Ground";
-                if jobs.Get("Job No.") then begin
+                if jobs.Get("Job No.") then
                     JLedEntry."Catch Sea Days" := "Catch Date" - jobs."Starting Date";
-                end;
                 //JLedEntry."Step Code":=FORMAT("Sea Temperature");
                 JLedEntry2.SetRange(JLedEntry2."Job No.", "Job No.");
                 JLedEntry2.SetRange(JLedEntry2."Posting Date", "Catch Date");
@@ -90,13 +84,13 @@ tableextension 50247 "tableextension50247" extends "Job Journal Batch"
                 if JLedEntry2.Find('-') then begin
                     if JLedEntry3.Get(JLedEntry3."Entry No.") then
                         JLedEntry3."Entry No." := JLedEntry2."Entry No.";
-                    if not JLedEntry.Modify then Message('System in Use by other users, request them to shut down');
+                    if not JLedEntry.Modify() then Message('System in Use by other users, request them to shut down');
                 end
                 else
-                    JLedEntry.Insert;
+                    JLedEntry.Insert();
 
                 locat.SetRange(locat.Code, Rec.Name);
-                if locat.FindFirst then
+                if locat.FindFirst() then
                     locat."Catch Date" := Rec."Catch Date";
             end;
         }
@@ -146,11 +140,10 @@ tableextension 50247 "tableextension50247" extends "Job Journal Batch"
                     if Evaluate("Sea Temperature", JobsRec."Sea Temperature") then;
                 end;
                 locat.SetRange(locat.Code, Rec.Name);
-                if locat.FindFirst then
+                if locat.FindFirst() then
                     locat."Catch Date" := Rec."Catch Date";
                 /*IF NOT locat.MODIFY(TRUE) THEN
                   locat.INSERT;*///nitin
-
             end;
         }
         field(50317; "Global Dimension 2 Code"; Code[20])
@@ -166,7 +159,6 @@ tableextension 50247 "tableextension50247" extends "Job Journal Batch"
         }
         field(50320; "Fish Hold Temp"; Decimal)
         {
-
             trigger OnValidate()
             begin
                 //"Catch Date":=TODAY;
@@ -174,23 +166,20 @@ tableextension 50247 "tableextension50247" extends "Job Journal Batch"
         }
         field(50322; "Fuel Balance"; Decimal)
         {
-
             trigger OnValidate()
             begin
                 //"Catch Date":=TODAY;
                 if JobsRec.Get("Job No.") then
                     if JobsRec."Voyage Ended" then Message('You may not post on Ended Voyage');
                 locat.SetRange(locat.Code, Rec.Name);
-                if locat.FindFirst then
+                if locat.FindFirst() then
                     locat."Catch Date" := Rec."Catch Date";
                 /*IF NOT locat.MODIFY(TRUE) THEN
                   locat.INSERT;*///nitin
-
             end;
         }
         field(50323; "R.P.M."; Decimal)
         {
-
             trigger OnValidate()
             begin
                 //"Catch Date":=TODAY;
@@ -214,7 +203,6 @@ tableextension 50247 "tableextension50247" extends "Job Journal Batch"
         }
     }
 
-
     //Unsupported feature: Code Modification on "OnInsert".
 
     //trigger OnInsert()
@@ -234,18 +222,13 @@ tableextension 50247 "tableextension50247" extends "Job Journal Batch"
     //end;
 
     var
-        "------": Integer;
         User: Record "User Setup";
         JobsRec: Record Job;
         jobs: Record Job;
         JLedEntry: Record "Job Ledger Entry";
         JLedEntry2: Record "Job Ledger Entry";
         JLedEntry3: Record "Job Ledger Entry";
-        FA: Record "Fixed Asset";
         OPDailyRad: Record "Operation Daily Radio";
         "LastNo.": Integer;
         locat: Record Location;
-        Res: Record Resource;
-        g_Name: Text;
 }
-

@@ -5,8 +5,7 @@ report 50229 "SURULERE Fish Shop SalesReport"
     RDLCLayout = './src/reportrdlc/SURULEREFishShopSalesReport.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
-
-
+    Caption = 'SURULERE Fish Shop SalesReport';
     dataset
     {
         dataitem("Sea Food categories"; "Sea Food categories")
@@ -17,7 +16,7 @@ report 50229 "SURULERE Fish Shop SalesReport"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(FORMAT_TODAY_0_4_; Format(Today, 0, 4))
@@ -112,7 +111,6 @@ report 50229 "SURULERE Fish Shop SalesReport"
 
     requestpage
     {
-
         layout
         {
         }
@@ -132,8 +130,6 @@ report 50229 "SURULERE Fish Shop SalesReport"
     end;
 
     var
-        LastFieldNo: Integer;
-        FooterPrinted: Boolean;
         TotalFor: Label 'Total for ';
         RepFilter: Text[120];
         TotSales: Decimal;
@@ -143,4 +139,3 @@ report 50229 "SURULERE Fish Shop SalesReport"
         COPYSTR__Sea_food_code__5_CaptionLbl: Label 'Label1000000007';
         Total_SalesCaptionLbl: Label 'Total Sales';
 }
-

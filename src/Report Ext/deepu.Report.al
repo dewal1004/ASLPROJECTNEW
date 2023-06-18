@@ -3,8 +3,7 @@ report 51000 "deepu"
     // CVXV
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/deepu.rdlc';
-
-
+    Caption = 'deepu';
     dataset
     {
         dataitem(Item; Item)
@@ -15,7 +14,7 @@ report 51000 "deepu"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -51,7 +50,7 @@ report 51000 "deepu"
                     jourrec."Entry Type" := 2;
                     jourrec."Document No." := '123';
                     jourrec.Validate("Item No.", Item."No.");
-                    jourrec.Insert;
+                    jourrec.Insert();
                 end;
             end;
 
@@ -67,7 +66,6 @@ report 51000 "deepu"
 
     requestpage
     {
-
         layout
         {
         }
@@ -87,4 +85,3 @@ report 51000 "deepu"
         ItemCaptionLbl: Label 'Item';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
 }
-

@@ -4,7 +4,7 @@ page 50061 "Fishshop Daily sales"
     SourceTable = "Fish Shop Daily Sales";
     UsageCategory = Lists;
     ApplicationArea = All;
-
+    Caption = 'Fishshop Daily sales';
     layout
     {
         area(content)
@@ -79,4 +79,3 @@ page 50061 "Fishshop Daily sales"
         }
     }
 }
-

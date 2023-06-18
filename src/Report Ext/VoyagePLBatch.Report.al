@@ -5,7 +5,7 @@ report 50028 "Voyage P & L Batch"
     Permissions = TableData "Job Ledger Entry" = rimd;
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
-
+    Caption = 'Voyage P & L Batch';
     dataset
     {
         dataitem(Job; Job)
@@ -18,7 +18,7 @@ report 50028 "Voyage P & L Batch"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -125,12 +125,11 @@ report 50028 "Voyage P & L Batch"
                 trigger OnAfterGetRecord()
                 begin
                     //Prepare data for Sorting
-                    if InvtPostGrp.Get("Job Posting Group") then begin
-                        GroupSort := InvtPostGrp.Category;
-                        //MESSAGE(' %1 IS %2',"Job Posting Group",InvtPostGrp.Category);
-                    end
+                    if InvtPostGrp.Get("Job Posting Group") then
+                        GroupSort := InvtPostGrp.Category
+                    //MESSAGE(' %1 IS %2',"Job Posting Group",InvtPostGrp.Category);
                     else //MESSAGE('POSTING GROUP %1 NOT FOUND',"Job Posting Group");
-                        Modify;
+                        Modify();
                 end;
             }
 
@@ -150,7 +149,6 @@ report 50028 "Voyage P & L Batch"
 
     requestpage
     {
-
         layout
         {
         }
@@ -165,7 +163,6 @@ report 50028 "Voyage P & L Batch"
     }
 
     var
-        JobLedgerGrpSort: Record "Job Ledger Entry";
         InvtPostGrp: Record "Inventory Posting Group";
         JobCaptionLbl: Label 'Job';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
@@ -174,4 +171,3 @@ report 50028 "Voyage P & L Batch"
         res: Record Resource;
         Skipper: Text[30];
 }
-

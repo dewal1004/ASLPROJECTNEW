@@ -1,6 +1,6 @@
 // table 50006 "Payroll-Payslip Lines."
 // {
-//     // This code requires refactoring 
+//     // This code requires refactoring
 //     DrillDownPageID = "Payslip Lines.";
 
 //     fields
@@ -193,7 +193,6 @@
 //         }
 //         field(7; Flag; Boolean)
 //         {
-
 //             trigger OnValidate()
 //             begin
 //                 /* If Period+Employee has already been closed then stop edit */
@@ -211,7 +210,6 @@
 //         }
 //         field(8; Amount; Decimal)
 //         {
-
 //             trigger OnValidate()
 //             begin
 //                 /* If Period+Employee has already been closed then stop edit */
@@ -454,7 +452,6 @@
 
 //     end;
 
-
 //     var
 //         "E/DFileRec": Record "Payroll-E/D Codes.";
 //         ConstEDFileRec: Record "Payroll-E/D Codes.";
@@ -530,7 +527,6 @@
 //         if ("Employee No" <> '') then BasicPay := EmployeeRec.GetBasic("Employee No");
 //     end;
 
-
 //     procedure ChkRoundMaxMin(EDRecord: Record "Payroll-E/D Codes."; TheAmount: Decimal): Decimal
 //     begin
 //         /*”””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””
@@ -582,12 +578,11 @@
 //             exit;
 
 //         /* If Period+Employee has already been closed then stop edit */
-//         if Checkclosed1 then  //from fn call  
+//         if Checkclosed1 then  //from fn call
 //             Error('Entries for Employee %1 for period %2 ' +
 //                    'have already been closed.', "Employee No", "Payroll Period");
 
 //     end;
-
 
 //     procedure CalcAmount(EDFileRec: Record "Payroll-E/D Codes."; EntryLineRec: Record "Payroll-Payslip Lines."; EntryLineAmount: Decimal; EDCode: Code[20]): Decimal
 //     begin
@@ -722,7 +717,6 @@
 //             END;
 //     END;
 
-
 //     procedure CalcCompute(EntryRecParam: Record "Payroll-Payslip Lines."; AmountInLine: Decimal; "CalledFromEdCode?": Boolean; EDCode: Code[20])
 //     begin
 //         /*”””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””
@@ -808,7 +802,6 @@
 //         ProllEntryRec.SetRange("Employee No");
 //     end;
 
-
 //     procedure CalcFactor1(CurrentEntryLine: Record "Payroll-Payslip Lines.")
 //     begin
 //         /*””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””
@@ -849,7 +842,6 @@
 //         Commit;
 
 //     end;
-
 
 //     procedure "CalcFactor1.1"(CurrLineRec: Record "Payroll-Payslip Lines."; LineToChangeRec: Record "Payroll-Payslip Lines."; EDFileRec: Record "Payroll-E/D Codes."): Decimal
 //     begin
@@ -967,7 +959,6 @@
 //                 LookLinesRec.Reset
 //             end;
 
-
 //         /* Adjust amount as per maximum/minimum set in the E/D file. This will overide
 //           any max/min. values set in the Table Lookup Header file*/
 //         ReturnAmount := ChkRoundMaxMin(EDFileRec, ReturnAmount);
@@ -975,7 +966,6 @@
 //         exit(ReturnAmount);
 
 //     end;
-
 
 //     procedure ChangeAllOver(CurrentRec: Record "Payroll-Payslip Lines."; CurrWasDeleted: Boolean)
 //     begin
@@ -1029,7 +1019,6 @@
 //         exit;
 
 //     end;
-
 
 //     procedure ComputeAgain(ParamLine: Record "Payroll-Payslip Lines."; CurrentRec: Record "Payroll-Payslip Lines."; CurrWasDeleted: Boolean)
 //     begin
@@ -1140,7 +1129,6 @@
 
 //     end;
 
-
 //     procedure CalcFactorAgain(ParamLine: Record "Payroll-Payslip Lines."; CurrentRec: Record "Payroll-Payslip Lines."; CurrWasDeleted: Boolean)
 //     begin
 //         /*””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””
@@ -1193,7 +1181,6 @@
 //         ProllEntryRec.Reset;
 
 //     end;
-
 
 //     procedure ResetChangeFlags(CurrentRec: Record "Payroll-Payslip Lines.")
 //     begin
@@ -1278,7 +1265,6 @@
 //         /////////** End  Cummulative Tax Calculation **/////////
 //     end;
 
-
 //     procedure EDAmountToDate(EmpNo: Code[10]; CurPeriod: Code[10]; EDCode: Code[10]): Decimal
 //     var
 //         AmountBack: Decimal;
@@ -1302,7 +1288,6 @@
 //         AmountBack := EmployeeRec.EDAmount;
 //         exit(AmountBack);
 //     end;
-
 
 //     procedure CalcGraduated(var WantedLookRec: Record "Payroll-Lookup Lines."; InputToTable: Decimal): Decimal
 //     begin
@@ -1332,7 +1317,6 @@
 //     end;
 
 // }
-
 
 //MESSAGE('TaxYTD: ' + FORMAT(TaxYTD) + '  ReturnAmount_before : ' +FORMAT(ReturnAmount));
 
@@ -1448,7 +1432,7 @@
 // end;
 
 // //[Scope('OnPrem')]
-// local var 
+// local var
 // procedure CheckClosed(): Boolean
 // begin
 //     /*””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””””
@@ -1824,7 +1808,6 @@
 //              LookLinesRec.Reset
 //           end;
 
-
 //         /* Adjust amount as per maximum/minimum set in the E/D file. This will overide
 //           any max/min. values set in the Table Lookup Header file*/
 //         ReturnAmount := ChkRoundMaxMin (EDFileRec, ReturnAmount);
@@ -2117,7 +2100,7 @@
 
 //     end;
 
-//     
+//
 
 //     [Scope('Onprem')]
 //     procedure EDAmountToDate(EmpNo: Code[10];CurPeriod: Code[10];EDCode: Code[10]): Decimal

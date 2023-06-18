@@ -3,7 +3,6 @@ report 50036 "Purc Variance on Good Received"
     //  "Quantity Ordered"
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/PurcVarianceonGoodReceived.rdlc';
-
     Caption = 'Purchase - Receipt';
 
     dataset
@@ -103,10 +102,10 @@ report 50036 "Purc Variance on Good Received"
                         begin
                             if Number = 1 then begin
                                 if not PostedDocDim1.Find('-') then
-                                    CurrReport.Break;
+                                    CurrReport.Break();
                             end else
                                 if not Continue then
-                                    CurrReport.Break;
+                                    CurrReport.Break();
 
                             Clear(DimText);
                             Continue := false;
@@ -125,13 +124,13 @@ report 50036 "Purc Variance on Good Received"
                                     Continue := true;
                                     exit;
                                 end;
-                            until (PostedDocDim1.Next = 0);
+                            until (PostedDocDim1.Next() = 0);
                         end;
 
                         trigger OnPreDataItem()
                         begin
                             if not ShowInternalInfo then
-                                CurrReport.Break;
+                                CurrReport.Break();
                         end;
                     }
                     dataitem("Purch. Rcpt. Line"; "Purch. Rcpt. Line")
@@ -204,10 +203,10 @@ report 50036 "Purc Variance on Good Received"
                             begin
                                 if Number = 1 then begin
                                     if not PostedDocDim2.Find('-') then
-                                        CurrReport.Break;
+                                        CurrReport.Break();
                                 end else
                                     if not Continue then
-                                        CurrReport.Break;
+                                        CurrReport.Break();
 
                                 Clear(DimText);
                                 Continue := false;
@@ -226,13 +225,13 @@ report 50036 "Purc Variance on Good Received"
                                         Continue := true;
                                         exit;
                                     end;
-                                until (PostedDocDim2.Next = 0);
+                                until (PostedDocDim2.Next() = 0);
                             end;
 
                             trigger OnPreDataItem()
                             begin
                                 if not ShowInternalInfo then
-                                    CurrReport.Break;
+                                    CurrReport.Break();
                             end;
                         }
 
@@ -261,7 +260,7 @@ report 50036 "Purc Variance on Good Received"
                             while MoreLines and (Description = '') and ("No." = '') and (Quantity = 0) do
                                 MoreLines := Next(-1) <> 0;
                             if not MoreLines then
-                                CurrReport.Break;
+                                CurrReport.Break();
                             SetRange("Line No.", 0, "Line No.");
                         end;
                     }
@@ -272,7 +271,7 @@ report 50036 "Purc Variance on Good Received"
                         trigger OnPreDataItem()
                         begin
                             if "Purch. Rcpt. Header"."Buy-from Vendor No." = "Purch. Rcpt. Header"."Pay-to Vendor No." then
-                                CurrReport.Break;
+                                CurrReport.Break();
                         end;
                     }
                     dataitem(Total2; "Integer")
@@ -310,15 +309,14 @@ report 50036 "Purc Variance on Good Received"
                     FormatAddr.RespCenter(CompanyAddr, RespCenter);
                     CompanyInfo."Phone No." := RespCenter."Phone No.";
                     CompanyInfo."Fax No." := RespCenter."Fax No.";
-                end else begin
+                end else
                     FormatAddr.Company(CompanyAddr, CompanyInfo);
-                end;
 
                 // PostedDocDim1.SETRANGE("Table ID",DATABASE::"Purch. Rcpt. Header"); //& u
                 // PostedDocDim1.SETRANGE("Document No.","Purch. Rcpt. Header"."No.");  // & u
 
                 if "Purchaser Code" = '' then begin
-                    SalesPurchPerson.Init;
+                    SalesPurchPerson.Init();
                     PurchaserText := '';
                 end else begin
                     SalesPurchPerson.Get("Purchaser Code");
@@ -335,23 +333,21 @@ report 50036 "Purc Variance on Good Received"
                 /*IF NOT CurrReport.PREVIEW THEN
                   SegManagement.LogDocument(
                     15,"No.",DATABASE::Vendor,"Buy-from Vendor No.","Purchaser Code","Posting Description");;
-                
+
                 PurInvHd.SETCURRENTKEY(PurInvHd."Order No.");
                 PurInvHd.SETRANGE(PurInvHd."Order No.","Purch. Rcpt. Header"."Order No.");
                 IF PurInvHd.FIND('-') THEN;*/// & u
-
             end;
 
             trigger OnPreDataItem()
             begin
-                CompanyInfo.Get;
+                CompanyInfo.Get();
             end;
         }
     }
 
     requestpage
     {
-
         layout
         {
         }
@@ -369,15 +365,12 @@ report 50036 "Purc Variance on Good Received"
         Text000: Label 'Purchaser';
         Text001: Label 'COPY';
         Text002: Label 'Variance On Goods Received %1';
-        Text003: Label 'Page %1';
         CompanyInfo: Record "Company Information";
         SalesPurchPerson: Record "Salesperson/Purchaser";
         PostedDocDim1: Record "Dimension Set Entry";
         PostedDocDim2: Record "Dimension Set Entry";
-        Language: Record Language;
         RespCenter: Record "Responsibility Center";
         RcptCountPrinted: Codeunit "Purch.Rcpt.-Printed";
-        SegManagement: Codeunit SegManagement;
         VendAddr: array[8] of Text[50];
         ShipToAddr: array[8] of Text[50];
         CompanyAddr: array[8] of Text[50];
@@ -392,8 +385,6 @@ report 50036 "Purc Variance on Good Received"
         OldDimText: Text[75];
         ShowInternalInfo: Boolean;
         Continue: Boolean;
-        "-------": Integer;
-        LetterHd: Boolean;
         PurInvLine: Record "Purch. Inv. Line";
         PurInvHd: Record "Purch. Inv. Header";
         ItemRec: Record Item;
@@ -411,4 +402,3 @@ report 50036 "Purc Variance on Good Received"
         Header_DimensionsCaptionLbl: Label 'Header Dimensions';
         Line_DimensionsCaptionLbl: Label 'Line Dimensions';
 }
-

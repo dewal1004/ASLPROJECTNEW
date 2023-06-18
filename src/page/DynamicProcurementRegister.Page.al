@@ -8,7 +8,7 @@ page 50121 "Dynamic Procurement Register"
     SourceTable = "Dynamics Procurement Header";
     UsageCategory = Lists;
     ApplicationArea = All, Basic;
-
+    Caption = 'Dynamic Procurement Register';
     layout
     {
         area(content)
@@ -79,4 +79,3 @@ page 50121 "Dynamic Procurement Register"
     {
     }
 }
-

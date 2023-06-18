@@ -7,8 +7,7 @@ report 50016 "Periodic Landing Report"
     // -> new report
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/PeriodicLandingReport.rdlc';
-
-
+    Caption = 'Periodic Landing Report';
     dataset
     {
         dataitem(Job; Job)
@@ -21,7 +20,7 @@ report 50016 "Periodic Landing Report"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -168,7 +167,6 @@ report 50016 "Periodic Landing Report"
 
     requestpage
     {
-
         layout
         {
         }
@@ -260,4 +258,3 @@ report 50016 "Periodic Landing Report"
         exit(xlColID);
     end;
 }
-

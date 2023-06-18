@@ -4,7 +4,7 @@ report 50144 "Journal Register"
     RDLCLayout = './src/reportrdlc/JournalRegister.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
-
+    Caption = 'Journal Register';
     dataset
     {
         dataitem("G/L Entry"; "G/L Entry")
@@ -18,7 +18,7 @@ report 50144 "Journal Register"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -129,7 +129,6 @@ report 50144 "Journal Register"
 
     requestpage
     {
-
         layout
         {
         }
@@ -145,7 +144,6 @@ report 50144 "Journal Register"
 
     var
         LastFieldNo: Integer;
-        FooterPrinted: Boolean;
         TotalFor: Label 'Total for ';
         Vname: Text[150];
         VendorRec: Record Vendor;
@@ -156,4 +154,3 @@ report 50144 "Journal Register"
         CurrReport_PAGENOCaptionLbl: Label 'Page';
         Source_No_DescriptionCaptionLbl: Label 'Source No Description';
 }
-

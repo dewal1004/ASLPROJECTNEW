@@ -4,7 +4,6 @@ report 50074 "Inventory - Transaction -test"
     // "Print Bin Card"
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/InventoryTransactiontest.rdlc';
-
     Caption = 'Inventory - Transaction Detail';
 
     dataset
@@ -153,18 +152,17 @@ report 50074 "Inventory - Transaction -test"
                         DecreasesQty := Abs(Quantity);
                     if "Print Bin Card" then begin
                         ItLentry.CopyFilters("Item Ledger Entry");
-                        if ItLentry.FindLast then
+                        if ItLentry.FindLast() then
                             LastrecEntNo := ItLentry."Entry No.";
                         ItLentry.Next(-2);
                         SetRange("Entry No.", ItLentry."Entry No.", LastrecEntNo);
-
                     end;
                     test := StockOnHand + ItemOnHand;
                     //MESSAGE('%1',test);
 
                     "Item Ledger Entry".SetFilter("Posting Date", ItemDateFilter);
 
-                    if InvtSetUp.Get then;
+                    if InvtSetUp.Get() then;
                     TransTo := '';
                     TransFr := '';
                     JbNos := '';
@@ -180,21 +178,19 @@ report 50074 "Inventory - Transaction -test"
                                 TransFr := InvtSetUp."Default Store";
                             end;
                         4:
-                            begin
-                                if TransShip.Get("Document No.") then begin
-                                    TransTo := TransShip."Transfer-to Code";
-                                    TransFr := TransShip."Transfer-from Code";
-                                    if TransShip."Transfer To Voy. No." <> '' then TransToVoy := TransShip."Transfer To Voy. No.";
-                                    if TransShip."Transfer From Voy. No." <> '' then TransFrVoy := TransShip."Transfer From Voy. No.";
-                                end else
-                                    if TransRecpt.Get("Document No.") then begin
-                                        TransTo := TransRecpt."Transfer-to Code";
-                                        TransFr := TransRecpt."Transfer-from Code";
-                                        if TransRecpt."Transfer To Voy. No." <> '' then TransToVoy := TransRecpt."Transfer To Voy. No.";
-                                        if TransRecpt."Transfer From Voy. No." <> '' then TransFrVoy := TransRecpt."Transfer From Voy. No.";
-                                    end;
 
-                            end;
+                            if TransShip.Get("Document No.") then begin
+                                TransTo := TransShip."Transfer-to Code";
+                                TransFr := TransShip."Transfer-from Code";
+                                if TransShip."Transfer To Voy. No." <> '' then TransToVoy := TransShip."Transfer To Voy. No.";
+                                if TransShip."Transfer From Voy. No." <> '' then TransFrVoy := TransShip."Transfer From Voy. No.";
+                            end else
+                                if TransRecpt.Get("Document No.") then begin
+                                    TransTo := TransRecpt."Transfer-to Code";
+                                    TransFr := TransRecpt."Transfer-from Code";
+                                    if TransRecpt."Transfer To Voy. No." <> '' then TransToVoy := TransRecpt."Transfer To Voy. No.";
+                                    if TransRecpt."Transfer From Voy. No." <> '' then TransFrVoy := TransRecpt."Transfer From Voy. No.";
+                                end;
                     end;
 
                     PurchRec.SetRange(PurchRec."No.", "Document No.");
@@ -261,7 +257,6 @@ report 50074 "Inventory - Transaction -test"
                     RecordNo := RecordNo + 1;
 
                 StockOnHand := StockOnHand + "Net Change";
-
             end;
 
             trigger OnPreDataItem()
@@ -333,7 +328,6 @@ report 50074 "Inventory - Transaction -test"
         DecreasesQtyCaptionLbl: Label 'Decreases';
         ItemOnHandCaptionLbl: Label 'Inventory';
         ContinuedCaptionLbl: Label 'Continued';
-        "--------------": Integer;
         TransShip: Record "Transfer Shipment Header";
         TransRecpt: Record "Transfer Receipt Header";
         InvtSetUp: Record "Inventory Setup";
@@ -345,10 +339,7 @@ report 50074 "Inventory - Transaction -test"
         LastrecEntNo: Integer;
         "Print Bin Card": Boolean;
         StockOnHand: Decimal;
-        items2: Record Item;
-        BinOp: Decimal;
         HandQty: Decimal;
-        g_EntryFound: Boolean;
         g_DateFilter: Date;
         Vend: Record Vendor;
         Cust: Record Customer;
@@ -365,4 +356,3 @@ report 50074 "Inventory - Transaction -test"
         PrintOnlyOnePerPage := NewPrintOnlyOnePerPage;
     end;
 }
-

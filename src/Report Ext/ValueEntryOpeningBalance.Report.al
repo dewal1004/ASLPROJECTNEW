@@ -2,7 +2,7 @@ report 99987 "Value Entry Opening Balance"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/ValueEntryOpeningBalance.rdlc';
-
+    Caption = 'Value Entry Opening Balance';
     dataset
     {
         dataitem("Value Entry"; "Value Entry")
@@ -15,7 +15,7 @@ report 99987 "Value Entry Opening Balance"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -82,7 +82,6 @@ report 99987 "Value Entry Opening Balance"
 
     requestpage
     {
-
         layout
         {
         }
@@ -100,4 +99,3 @@ report 99987 "Value Entry Opening Balance"
         Value_EntryCaptionLbl: Label 'Value Entry';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
 }
-

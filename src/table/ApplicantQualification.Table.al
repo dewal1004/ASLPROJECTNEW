@@ -3,7 +3,7 @@ table 50019 "Applicant Qualification"
     DataCaptionFields = "Employee No.";
     DrillDownPageID = "Qualified Employees";
     LookupPageID = "Employee Qualifications";
-
+    Caption = 'Applicant Qualification';
     fields
     {
         field(1; "Employee No."; Code[20])
@@ -78,6 +78,9 @@ table 50019 "Applicant Qualification"
 
     fieldgroups
     {
+        fieldgroup(DropDown; Description)
+        {
+        }
     }
 
     trigger OnDelete()
@@ -96,4 +99,3 @@ table 50019 "Applicant Qualification"
         Qualification: Record Qualification;
         Employee: Record Employee;
 }
-

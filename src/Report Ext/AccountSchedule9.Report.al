@@ -3,7 +3,6 @@ report 50129 "Account Schedule 9"
     // // Text004 //AAA
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/AccountSchedule9.rdlc';
-
     Caption = 'Account Schedule';
 
     dataset
@@ -23,7 +22,7 @@ report 50129 "Account Schedule 9"
                 column(Text004_PeriodText; Text004 + PeriodText)
                 {
                 }
-                column(CurrReport_PAGENO; CurrReport.PageNo)
+                column(CurrReport_PAGENO; CurrReport.PageNo())
                 {
                 }
                 column(COMPANYNAME; CompanyName)
@@ -179,7 +178,7 @@ report 50129 "Account Schedule 9"
                     trigger OnPreDataItem()
                     begin
                         if not ShowAccSchedSetup then
-                            CurrReport.Break;
+                            CurrReport.Break();
                     end;
                 }
                 dataitem(PageBreak; "Integer")
@@ -188,13 +187,13 @@ report 50129 "Account Schedule 9"
 
                     trigger OnAfterGetRecord()
                     begin
-                        CurrReport.NewPage;
+                        CurrReport.NewPage();
                     end;
 
                     trigger OnPreDataItem()
                     begin
                         if not ShowAccSchedSetup then
-                            CurrReport.Break;
+                            CurrReport.Break();
                     end;
                 }
                 dataitem("Acc. Schedule Line"; "Acc. Schedule Line")
@@ -470,11 +469,11 @@ report 50129 "Account Schedule 9"
             begin
                 //MESSAGE('Current Filter is%1',GETFILTER(Name));
                 CurrReport.PageNo := 1;
-                GLSetup.Get;
-                if "Analysis View Name" <> '' then begin
-                    AnalysisView.Get("Analysis View Name");
-                end else begin
-                    AnalysisView.Init;
+                GLSetup.Get();
+                if "Analysis View Name" <> '' then
+                    AnalysisView.Get("Analysis View Name")
+                else begin
+                    AnalysisView.Init();
                     AnalysisView."Dimension 1 Code" := GLSetup."Global Dimension 1 Code";
                     AnalysisView."Dimension 2 Code" := GLSetup."Global Dimension 2 Code";
                 end;
@@ -490,14 +489,13 @@ report 50129 "Account Schedule 9"
 
             trigger OnPreDataItem()
             begin
-                if GLSetup.Get then SetFilter(Name, GLSetup."Schedule Name 9");
+                if GLSetup.Get() then SetFilter(Name, GLSetup."Schedule Name 9");
             end;
         }
     }
 
     requestpage
     {
-
         layout
         {
         }
@@ -526,7 +524,6 @@ report 50129 "Account Schedule 9"
         GLSetup: Record "General Ledger Setup";
         AccSchedManagement: Codeunit AccSchedManagement;
         ColumnLayoutName: Code[10];
-        ColumnLayoutNameHidden: Code[10];
         StartDate: Date;
         EndDate: Date;
         ShowDivideError: Boolean;
@@ -548,7 +545,6 @@ report 50129 "Account Schedule 9"
         StDat: Text[10];
         EnDat: Text[10];
         DatFilt: Text[30];
-        Text005: Label ' AS AT ';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
         AnalysisView_CodeCaptionLbl: Label 'Analysis View';
         Account_ScheduleCaptionLbl: Label 'Account Schedule';
@@ -596,7 +592,7 @@ report 50129 "Account Schedule 9"
                     end;
                 end;
                 NoOfCols := NoOfCols + 1;
-            until (i >= MaxColumnsDisplayed) or (ColLayoutTmp.Next = 0);
+            until (i >= MaxColumnsDisplayed) or (ColLayoutTmp.Next() = 0);
             MaxColumnsDisplayed := i;
         end;
     end;
@@ -622,7 +618,7 @@ report 50129 "Account Schedule 9"
                     i := i + 1;
                     ColumnValuesDisplayed[i] :=
                       AccSchedManagement.CalcCell("Acc. Schedule Line", ColLayoutTmp, UseAmtsInAddCurr);
-                    if AccSchedManagement.GetDivisionError then begin
+                    if AccSchedManagement.GetDivisionError() then begin
                         if ShowDivideError then
                             ColumnValuesAsText[i] := Text002
                         else
@@ -633,7 +629,7 @@ report 50129 "Account Schedule 9"
                           AccSchedManagement.FormatCellAsText(ColLayoutTmp, ColumnValuesDisplayed[i], true);
                     end;
                 end;
-            until (i >= MaxColumnsDisplayed) or (ColLayoutTmp.Next = 0);
+            until (i >= MaxColumnsDisplayed) or (ColLayoutTmp.Next() = 0);
         exit(NonZero);
     end;
 
@@ -648,10 +644,9 @@ report 50129 "Account Schedule 9"
             exit(false);
         if "Acc. Schedule Line".Italic <> Italic then
             exit(false);
-        NonZero := CalcColumns;
+        NonZero := CalcColumns();
         if "Acc. Schedule Line".Show = "Acc. Schedule Line".Show::"If Any Column Not Zero" then
             exit(NonZero);
         exit(true);
     end;
 }
-

@@ -1,6 +1,7 @@
 table 60029 "Educational Institute NU*"
 {
     DataCaptionFields = "Institute Code", "Institute Name";
+    Caption = 'Educational Institute NU*';
     // DrillDownPageID = 60042;
     // LookupPageID = 60042;  ****
 
@@ -25,8 +26,6 @@ table 60029 "Educational Institute NU*"
                 EduRec.SetCurrentKey("Institute Grp");
                 EduRec.SetFilter(EduRec."Institute Grp", GrpNo);
 
-
-
                 if EduRec.Find('+') then begin
                     "Institute Grp" := GrpNo;
                     EduNo := IncStr(EduRec."Institute Code");
@@ -50,6 +49,7 @@ table 60029 "Educational Institute NU*"
             BlankZero = true;
             CalcFormula = Count("Employee Qualification" WHERE("Institution/Company" = FIELD("Institute Code")));
             FieldClass = FlowField;
+            Editable = false;
         }
     }
 
@@ -74,4 +74,3 @@ table 60029 "Educational Institute NU*"
         EduNo: Code[6];
         GrpNo: Code[4];
 }
-

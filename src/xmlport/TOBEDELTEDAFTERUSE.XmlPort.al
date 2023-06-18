@@ -1,7 +1,7 @@
 xmlport 66677 "TO BE DELTED AFTER USE"
 {
     Format = VariableText;
-
+    Caption = 'TO BE DELTED AFTER USE';
     schema
     {
         textelement(Rootnode)
@@ -35,7 +35,6 @@ xmlport 66677 "TO BE DELTED AFTER USE"
 
     requestpage
     {
-
         layout
         {
         }
@@ -45,4 +44,3 @@ xmlport 66677 "TO BE DELTED AFTER USE"
         }
     }
 }
-

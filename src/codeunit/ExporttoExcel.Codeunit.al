@@ -1,6 +1,5 @@
 codeunit 50007 "Export to Excel"
 {
-
     trigger OnRun()
     begin
     end;
@@ -9,7 +8,6 @@ codeunit 50007 "Export to Excel"
         recExcelBuffer: Record "Excel Buffer" temporary;
         intLoop: Integer;
         intArrayLength: Integer;
-        txtTestArray: array[255] of Text[250];
 
     [Scope('OnPrem')]
     procedure ExportToExcel(txtExportValue: array[255] of Text[250]; intColumnCount: Integer; intRowNo: Integer; blnBold: Boolean; blnUnderline: Boolean)
@@ -21,7 +19,7 @@ codeunit 50007 "Export to Excel"
             recExcelBuffer.Validate(recExcelBuffer."Row No.", intRowNo);
             recExcelBuffer.Validate(recExcelBuffer."Column No.", intLoop);
             recExcelBuffer."Cell Value as Text" := txtExportValue[intLoop];
-            recExcelBuffer.Insert;
+            recExcelBuffer.Insert();
         end;
     end;
 
@@ -29,7 +27,7 @@ codeunit 50007 "Export to Excel"
     procedure CreateWorkbook(txtSheetName: Text[250]; txtDescription: Text[250])
     begin
         //recExcelBuffer.CreateBook('Sheet1');
-        // recExcelBuffer.CreateBookAndOpenExcel(txtSheetName, txtSheetName, txtDescription, CompanyName, UserId);  //Export to Excel currently exist in other form ***AA       
+        // recExcelBuffer.CreateBookAndOpenExcel(txtSheetName, txtSheetName, txtDescription, CompanyName, UserId);  //Export to Excel currently exist in other form ***AA
         //recExcelBuffer.CreateSheet(txtSheetName, txtDescription, COMPANYNAME, USERID);
         //recExcelBuffer.UpdateBookStream;
     end;
@@ -44,12 +42,10 @@ codeunit 50007 "Export to Excel"
     begin
         // recExcelBuffer.OpenBook(txtFileName, txtSheetName);//***  //Outofscope Other Fns available for Exporrt to Excel
         //recExcelBuffer.CreateSheet(txtSheetName, txtDescription, COMPANYNAME, USERID);    //to be checked
-        if txtSaveFileName <> '' then begin
-            //recExcelBuffer.SaveBook(txtSaveFileName);        //to be chcked
-            // recExcelBuffer.OpenBook(txtSaveFileName, 'Data');  *** //Out of scope New export mehtopd exist.
-        end;
+        if txtSaveFileName <> '' then;
+        //recExcelBuffer.SaveBook(txtSaveFileName);        //to be chcked
+        // recExcelBuffer.OpenBook(txtSaveFileName, 'Data');  *** //Out of scope New export mehtopd exist.
 
         //recExcelBuffer.UpdateBookStream;
     end;
 }
-

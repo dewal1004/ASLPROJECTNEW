@@ -15,4 +15,3 @@ pageextension 50328 "pageextension50328" extends "Posted Transfer Receipts"
         }
     }
 }
-

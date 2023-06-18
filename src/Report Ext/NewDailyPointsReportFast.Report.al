@@ -6,7 +6,6 @@ report 50001 "New Daily Points Report Fast"
     RDLCLayout = './src/reportrdlc/NewDailyPointsReportFast.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
-
     Caption = 'New Daily Points Report';
 
     dataset
@@ -28,14 +27,14 @@ report 50001 "New Daily Points Report Fast"
                     JobsPointVal.SetFilter(JobsPointVal."Posting Date Filter", '%1..%2', 19800101D, Today);
 
                 //MESSAGE('Report Date is %1',RepDate);
-                if JobsPointVal.FindFirst then
+                if JobsPointVal.FindFirst() then
                     repeat
                         //JobsPointVal.CALCFIELDS(JobsPointVal.Points);
                         //IF JobsPointVal.Points <>0 THEN ; //MESSAGE('Val is %1',JobsPointVal.Points);
                         JobsPointVal."Points Sort Bay" := JobsPointVal.PointZ(JobsPointVal."No.", '',
                            JobsPointVal.GetFilter("Posting Date Filter"), '', '', '', JobsPointVal.Vessel);//JobsPointVal.Points;
                         JobsPointVal.Modify();
-                    until JobsPointVal.Next = 0;
+                    until JobsPointVal.Next() = 0;
             end;
 
             trigger OnPreDataItem()
@@ -52,7 +51,7 @@ report 50001 "New Daily Points Report Fast"
             column(Consolidated_Daily_Points_Report_As_On_____FORMAT_Workdat_0_4_; 'Consolidated Daily Points Report As On : ' + Format(Workdat, 0, 4))
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -84,125 +83,96 @@ report 50001 "New Daily Points Report Fast"
             }
             column(pts_1_; pts[1])
             {
-
             }
             column(pts_3_; pts[3])
             {
-
             }
             column(pts_2_; pts[2])
             {
-
             }
             column(pts_7_; pts[7])
             {
-
             }
             column(pts_8_; pts[8])
             {
-
             }
             column(pts_9_; pts[9])
             {
-
             }
             column(pts_4_; pts[4])
             {
-
             }
             column(pts_5_; pts[5])
             {
-
             }
             column(pts_6_; pts[6])
             {
-
             }
             column(SeaDays; SeaDays)
             {
             }
             column(TotPts_1_; TotPts[1])
             {
-
             }
             column(TotPts_2_; TotPts[2])
             {
-
             }
             column(TotPts_3_; TotPts[3])
             {
-
             }
             column(TotPts_4_; TotPts[4])
             {
-
             }
             column(TotPts_5_; TotPts[5])
             {
-
             }
             column(TotPts_6_; TotPts[6])
             {
-
             }
             column(TotPts_7_; TotPts[7])
             {
-
             }
             column(TotPts_8_; TotPts[8])
             {
-
             }
             column(TotPts_9_; TotPts[9])
             {
-
             }
             column(TotPtsA_1_; TotPtsA[1])
             {
-
             }
             column(TotPtsA_2_; TotPtsA[2])
             {
-
             }
             column(TotPtsA_3_; TotPtsA[3])
             {
-
             }
             column(TotPtsA_4_; TotPtsA[4])
             {
-
             }
             column(TotPtsA_5_; TotPtsA[5])
             {
-
             }
             column(TotPtsA_6_; TotPtsA[6])
             {
-
             }
             column(TotPtsA_7_; TotPtsA[7])
             {
-
             }
             column(TotPtsA_8_; TotPtsA[8])
             {
-
             }
             column(TotPtsA_9_; TotPtsA[9])
             {
-
             }
             column(SeaDaysTot; SeaDaysTot)
             {
-
             }
             column(SeaTempA; SeaTempA)
             {
             }
             column(SeaDayA; SeaDayA)
             {
-
             }
             column(OperationCaption; OperationCaptionLbl)
             {
@@ -312,7 +282,7 @@ report 50001 "New Daily Points Report Fast"
 
             trigger OnAfterGetRecord()
             begin
-                HistoricalData.Reset;
+                HistoricalData.Reset();
                 //MESSAGE('%1',Historical);
                 //IF CurrReport.SHOWOUTPUT THEN BEGIN
                 //MESSAGE('TEST',Historical);
@@ -331,10 +301,10 @@ report 50001 "New Daily Points Report Fast"
                     HistoricalData."Avg Shrimp Pts" := pts[8];
                     HistoricalData."Total Avg Pts" := pts[9];
                     //MESSAGE('Modify %1',RepDate);
-                    HistoricalData.Modify;
+                    HistoricalData.Modify();
                 end else begin
                     //MESSAGE('Insert %1',RepDate);
-                    HistoricalData.Init;
+                    HistoricalData.Init();
                     HistoricalData."Report Type" := HistoricalData."Report Type"::Points;
                     HistoricalData.Date := RepDate;
                     HistoricalData.Vessel := Desc;
@@ -355,9 +325,6 @@ report 50001 "New Daily Points Report Fast"
                     HistoricalData.Insert(true);
                 end;
                 //END;
-
-
-
 
                 /*IF Loc.GET(Vessel) THEN
                   Desc := Loc.Name;*/  //#1
@@ -383,15 +350,13 @@ report 50001 "New Daily Points Report Fast"
                 JobLdgr.SetFilter(JobLdgr."Job No.", job1."No.");
                 JobLdgr.SetRange(JobLdgr."Posting Date", Workdat);
                 JobLdgr.SetRange(JobLdgr.Type, 0, 1);
-                if JobLdgr.FindLast then begin
+                if JobLdgr.FindLast() then begin
                     //SeTemp:= JobLdgr."Step Code"; #1 //No comment in 3.0
                     SeArea := JobLdgr."Phase Code";
                     "Sno." += 1;
                     Desc := '';
-                end else begin
-
-                    CurrReport.Skip;
-                end;
+                end else
+                    CurrReport.Skip();
 
                 // Cumulative
                 //MESSAGE('Date is %1',Workdat);
@@ -406,7 +371,6 @@ report 50001 "New Daily Points Report Fast"
                 job1.SetFilter(job1."Task Filter", 'FIS');
                 //job1.CALCFIELDS(job1.Points);
                 pts[4] := job1.PointZ(job1."No.", '', job1.GetFilter("Posting Date Filter"), '', 'FIS', '', job1.Vessel); //job1.Points;
-
 
                 TotPts[4] += pts[4];
                 TotPts[5] += pts[5];
@@ -423,7 +387,7 @@ report 50001 "New Daily Points Report Fast"
                     pts[7] := pts[4] / SeaDays
                 end;
                 AvgPtSortBay := pts[9];
-                Modify;
+                Modify();
 
                 //Daily
                 job1.SetFilter(job1."Posting Date Filter", '=%1', Workdat);
@@ -467,7 +431,6 @@ report 50001 "New Daily Points Report Fast"
                 if Loc.Get(JobLdgr."Location Code") then
                     Desc := Loc.Name;
 
-
                 Eval := Evaluate(SeTempVal, SeTemp);
                 SeaTemp := SeaTemp + SeTempVal;
                 if Resource.Get(Job."Person Responsible") then
@@ -505,7 +468,6 @@ report 50001 "New Daily Points Report Fast"
                 g_NewCount[2] := "Sno." - g_No[2];
                 g_NoTot[2] := Round(TotPts[2] / g_NewCount[2], 2);
 
-
                 g_NoTot[3] := g_NoTot[1] + g_NoTot[2];
 
                 g_NoTot[4] := 0;
@@ -535,7 +497,6 @@ report 50001 "New Daily Points Report Fast"
                 g_NoTot[8] := Round(TotPts[8] / g_NewCount[8], 2);
 
                 g_NoTot[9] := g_NoTot[7] + g_NoTot[8];
-
             end;
 
             trigger OnPostDataItem()
@@ -558,10 +519,7 @@ report 50001 "New Daily Points Report Fast"
                 //MESSAGE('Voyages are %1 and %2',MednVoy[1],MednVoy[2])
                 */
 
-
-
                 //Message('Total Sea Temp is %1, Counter is %2',SeaTemp,Countz);
-
             end;
 
             trigger OnPreDataItem()
@@ -575,7 +533,7 @@ report 50001 "New Daily Points Report Fast"
                     repeat
                         AvgPtSortBay := 0;
                         Modify();
-                    until Next = 0;
+                    until Next() = 0;
                 SetFilter(AvgPtSortBay, '');
                 if Find('-') then;
                 if ((pts[1] = 0) and (pts[2] = 0) and (not NoCatch)) then
@@ -592,9 +550,6 @@ report 50001 "New Daily Points Report Fast"
                     //MESSAGE('Value for row %1 Col %2 is %3',Countz,I,CountCum[I]);
                     until I = 9;
                 end;
-
-
-
 
                 g_No[1] := 0;
                 g_No[2] := 0;
@@ -627,39 +582,30 @@ report 50001 "New Daily Points Report Fast"
             }
             column(pts_1__Control1000000064; pts[1])
             {
-
             }
             column(pts_2__Control1000000065; pts[2])
             {
-
             }
             column(pts_3__Control1000000066; pts[3])
             {
-
             }
             column(pts_4__Control1000000067; pts[4])
             {
-
             }
             column(pts_5__Control1000000068; pts[5])
             {
-
             }
             column(pts_6__Control1000000069; pts[6])
             {
-
             }
             column(pts_7__Control1000000070; pts[7])
             {
-
             }
             column(pts_8__Control1000000071; pts[8])
             {
-
             }
             column(pts_9__Control1000000072; pts[9])
             {
-
             }
             column(UPPERCASE_FishCountry_; UpperCase(FishCountry))
             {
@@ -669,43 +615,33 @@ report 50001 "New Daily Points Report Fast"
             }
             column(pts_1__Control1000000051; pts[1])
             {
-
             }
             column(pts_2__Control1000000052; pts[2])
             {
-
             }
             column(pts_3__Control1000000053; pts[3])
             {
-
             }
             column(pts_4__Control1000000054; pts[4])
             {
-
             }
             column(pts_5__Control1000000055; pts[5])
             {
-
             }
             column(pts_6__Control1000000056; pts[6])
             {
-
             }
             column(pts_7__Control1000000057; pts[7])
             {
-
             }
             column(pts_8__Control1000000058; pts[8])
             {
-
             }
             column(pts_9__Control1000000059; pts[9])
             {
-
             }
             column(pts_10_; pts[10])
             {
-
             }
             column(AverageCaption_Control1000000075; AverageCaption_Control1000000075Lbl)
             {
@@ -737,7 +673,6 @@ report 50001 "New Daily Points Report Fast"
                     j := j + 1;
                 until j = 11;
 
-
                 job3.Get(Job2."No.");
                 job3.SetRange(job3."Task Filter");
                 job3.SetRange(job3."Posting Date Filter");
@@ -746,22 +681,19 @@ report 50001 "New Daily Points Report Fast"
                 JobLdgr.SetFilter(JobLdgr."Job No.", job3."No.");
                 JobLdgr.SetRange(JobLdgr."Posting Date", 0D, Workdat);
                 JobLdgr.SetRange(JobLdgr.Type, 0, 1);
-                if JobLdgr.Find('+') then begin
+                if JobLdgr.Find('+') then
                     //SeTemp:= JobLdgr."Step Code";#1 // no comment in 3.0
-                    SeArea := JobLdgr."Phase Code";
-                end
+                    SeArea := JobLdgr."Phase Code"
                 else begin
                     SeTemp := '';
                     SeArea := '';
                 end;
-
 
                 // Cumulative
                 //MESSAGE('Date is %1',Workdat);
                 job3.SetRange(job3."Posting Date Filter", 0D, Workdat);
                 //job3.CALCFIELDS(job3.Points);
                 pts[6] := job3.PointZ(job3."No.", '', job3.GetFilter("Posting Date Filter"), '', '', '', job3.Vessel);//job3.Points;
-
 
                 job3.SetFilter(job3."Task Filter", 'SHR');
                 //job3.CALCFIELDS(job3.Points);
@@ -770,7 +702,6 @@ report 50001 "New Daily Points Report Fast"
                 job3.SetFilter(job3."Task Filter", 'FIS');
                 //job3.CALCFIELDS(job3.Points);
                 pts[4] := job3.PointZ(job3."No.", '', job3.GetFilter("Posting Date Filter"), '', 'FIS', '', job3.Vessel);//job3.Points;
-
 
                 //Average
                 //AAA* IF  job3."Starting Date"<>0D THEN SeaDays:=TODAY-job3."Starting Date" ELSE SeaDays:=0;
@@ -802,7 +733,7 @@ report 50001 "New Daily Points Report Fast"
                 //job3.CALCFIELDS(job3.Points);
                 pts[1] := job3.PointZ(job3."No.", '', job3.GetFilter("Posting Date Filter"), '', 'FIS', '', job3.Vessel);//job3.Points;
 
-                if pts[3] = 0 then CurrReport.Skip;
+                if pts[3] = 0 then CurrReport.Skip();
 
                 //No Catch Record Exist
                 job3.SetRange(job3."Task Filter");
@@ -826,10 +757,8 @@ report 50001 "New Daily Points Report Fast"
                 j := 1;
                 repeat CurrReport.CreateTotals(pts[j]); j := j + 1; until j = 11;
 
-
-
-                HistoricalData.Reset;
-                if CurrReport.ShowOutput and (CountJ <> 0) then begin
+                HistoricalData.Reset();
+                if CurrReport.ShowOutput() and (CountJ <> 0) then begin
                     HistoricalData.SetRange(HistoricalData."Report Type", HistoricalData."Report Type"::Points);
                     HistoricalData.SetRange(HistoricalData.Date, RepDate);
                     HistoricalData.SetRange(HistoricalData.Country, FishCountry);
@@ -846,9 +775,9 @@ report 50001 "New Daily Points Report Fast"
                         HistoricalData."Avg Shrimp Pts" := pts[8];
                         HistoricalData."Total Avg Pts" := pts[9];
                         HistoricalData."Sea Days" := pts[10];
-                        HistoricalData.Modify;
+                        HistoricalData.Modify();
                     end else begin
-                        HistoricalData.Init;
+                        HistoricalData.Init();
                         HistoricalData."Report Type" := HistoricalData."Report Type"::Points;
                         HistoricalData.Date := RepDate;
                         HistoricalData.Type := HistoricalData.Type::Average;
@@ -866,7 +795,6 @@ report 50001 "New Daily Points Report Fast"
                         HistoricalData.Insert(true);
                     end;
                 end;
-
             end;
         }
         dataitem(VoyMedian; Job)
@@ -889,75 +817,57 @@ report 50001 "New Daily Points Report Fast"
             }
             column(pts_1__Control1000000082; pts[1])
             {
-
             }
             column(pts_2__Control1000000083; pts[2])
             {
-
             }
             column(pts_3__Control1000000084; pts[3])
             {
-
             }
             column(pts_4__Control1000000085; pts[4])
             {
-
             }
             column(pts_5__Control1000000086; pts[5])
             {
-
             }
             column(pts_6__Control1000000087; pts[6])
             {
-
             }
             column(pts_7__Control1000000088; pts[7])
             {
-
             }
             column(pts_8__Control1000000089; pts[8])
             {
-
             }
             column(pts_9__Control1000000090; pts[9])
             {
-
             }
             column(pts_1__Control1000000091; pts[1])
             {
-
             }
             column(pts_2__Control1000000092; pts[2])
             {
-
             }
             column(pts_3__Control1000000093; pts[3])
             {
-
             }
             column(pts_4__Control1000000094; pts[4])
             {
-
             }
             column(pts_5__Control1000000095; pts[5])
             {
-
             }
             column(pts_6__Control1000000096; pts[6])
             {
-
             }
             column(pts_7__Control1000000097; pts[7])
             {
-
             }
             column(pts_8__Control1000000098; pts[8])
             {
-
             }
             column(pts_9__Control1000000099; pts[9])
             {
-
             }
             column(Median_NigeriaCaption; Median_NigeriaCaptionLbl)
             {
@@ -991,7 +901,7 @@ report 50001 "New Daily Points Report Fast"
                 JobLdgr.SetFilter(JobLdgr."Job No.", job1."No.");
                 JobLdgr.SetRange(JobLdgr."Posting Date", 0D, Workdat);
                 JobLdgr.SetRange(JobLdgr.Type, 0, 1);
-                CurrReport.Skip;
+                CurrReport.Skip();
                 /*IF JobLdgr.FIND('+') THEN
                 BEGIN
                   //SeTemp:= JobLdgr."Step Code"; #1
@@ -1041,8 +951,6 @@ report 50001 "New Daily Points Report Fast"
                 //job1.CALCFIELDS(job1.Points);
                 pts[1] := job1.PointZ(job1."No.", '', job1.GetFilter("Posting Date Filter"), '', 'FIS', '', job1.Vessel);//job1.Points;
 
-
-
                 if Count < 2 then
                     CurrReport.ShowOutput(false) else begin
                     j := 1;
@@ -1060,7 +968,6 @@ report 50001 "New Daily Points Report Fast"
                     Skipper := Resource.Name
                 else
                     Skipper := VoyMedian."Person Responsible";
-
             end;
 
             trigger OnPreDataItem()
@@ -1074,10 +981,8 @@ report 50001 "New Daily Points Report Fast"
                     j := j + 1;
                 until j = 10;
 
-
-
-                HistoricalData.Reset;
-                if CurrReport.ShowOutput then begin
+                HistoricalData.Reset();
+                if CurrReport.ShowOutput() then begin
                     HistoricalData.SetRange(HistoricalData."Report Type", HistoricalData."Report Type"::Points);
                     HistoricalData.SetRange(HistoricalData.Date, RepDate);
                     HistoricalData.SetRange(HistoricalData.Vessel, Desc);
@@ -1092,9 +997,9 @@ report 50001 "New Daily Points Report Fast"
                         HistoricalData."Avg Fish Pts" := pts[7];
                         HistoricalData."Avg Shrimp Pts" := pts[8];
                         HistoricalData."Total Avg Pts" := pts[9];
-                        HistoricalData.Modify;
+                        HistoricalData.Modify();
                     end else begin
-                        HistoricalData.Init;
+                        HistoricalData.Init();
                         HistoricalData."Report Type" := HistoricalData."Report Type"::Points;
                         HistoricalData.Date := RepDate;
                         HistoricalData.Vessel := Desc;
@@ -1121,7 +1026,6 @@ report 50001 "New Daily Points Report Fast"
 
     requestpage
     {
-
         layout
         {
             area(content)
@@ -1138,7 +1042,7 @@ report 50001 "New Daily Points Report Fast"
                         else begin
                             DOTrec.Date := RepDate;
                             DOT := ' ';
-                            DOTrec.Insert;
+                            DOTrec.Insert();
                         end;
                     end;
                 }
@@ -1151,12 +1055,12 @@ report 50001 "New Daily Points Report Fast"
 
                         if DOTrec.Get(RepDate) then begin
                             DOTrec."Day of tide" := DOT;
-                            DOTrec.Modify;
+                            DOTrec.Modify();
                         end
                         else begin
                             DOTrec.Date := RepDate;
                             DOTrec."Day of tide" := DOT;
-                            DOTrec.Insert;
+                            DOTrec.Insert();
                         end;
                     end;
                 }
@@ -1198,7 +1102,6 @@ report 50001 "New Daily Points Report Fast"
         pts: array[10] of Decimal;
         TotPts: array[9] of Decimal;
         TotPtsA: array[9] of Decimal;
-        TotPtsAvg: array[9] of Decimal;
         SeaDaysTot: Decimal;
         SeaDayA: Integer;
         CountCum: array[9] of Decimal;
@@ -1212,17 +1115,12 @@ report 50001 "New Daily Points Report Fast"
         DOT: Code[15];
         Workdat: Date;
         RepDate: Date;
-        "------------": Integer;
         Country: Record "Country/Region";
         job3: Record Job;
-        LastFieldNo: Integer;
-        FooterPrinted: Boolean;
         FishCountry: Text[100];
         Medn: Decimal;
         MednVoy: array[2] of Code[10];
         CountJ: Integer;
-        CountJx: Integer;
-        PntsAvg: Decimal;
         Historical: Boolean;
         HistoricalData: Record "ASL Entry/Exit Point";
         OperationCaptionLbl: Label 'Operation';
@@ -1260,4 +1158,3 @@ report 50001 "New Daily Points Report Fast"
         g_NoTot: array[10] of Integer;
         g_NewCount: array[10] of Integer;
 }
-

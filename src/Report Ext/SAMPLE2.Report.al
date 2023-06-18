@@ -2,7 +2,7 @@ report 99509 "SAMPLE 2"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/SAMPLE2.rdlc';
-
+    Caption = 'SAMPLE 2';
     dataset
     {
         dataitem("Inventory Posting Group"; "Inventory Posting Group")
@@ -15,7 +15,7 @@ report 99509 "SAMPLE 2"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -79,7 +79,6 @@ report 99509 "SAMPLE 2"
 
     requestpage
     {
-
         layout
         {
         }
@@ -95,9 +94,7 @@ report 99509 "SAMPLE 2"
 
     var
         LastFieldNo: Integer;
-        FooterPrinted: Boolean;
         TotalFor: Label 'Total for ';
         Inventory_Posting_GroupCaptionLbl: Label 'Inventory Posting Group';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
 }
-

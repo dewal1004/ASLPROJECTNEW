@@ -5,7 +5,7 @@ page 50068 "Payroll-Payslip Header List"
     UsageCategory = Lists;
     ApplicationArea = all;
     CardPageId = "Payslip Header Card.";
-
+    Caption = 'Payroll-Payslip Header List';
     layout
     {
         area(content)
@@ -116,4 +116,3 @@ page 50068 "Payroll-Payslip Header List"
     {
     }
 }
-

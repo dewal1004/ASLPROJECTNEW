@@ -2,7 +2,7 @@ report 66666 "DELETE"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/DELETE.rdlc';
-
+    Caption = 'DELETE';
     dataset
     {
         dataitem(Item; Item)
@@ -39,7 +39,7 @@ report 66666 "DELETE"
                         "Value Entry"."Cost Posted to G/L (ACY)" := 0;
                         "Value Entry"."Cost per Unit (ACY)" := 0;
                         if "Value Entry"."Gen. Prod. Posting Group" <> 'FIS' then Error('STOP');
-                        "Value Entry".Modify;
+                        "Value Entry".Modify();
                     end;
                 end;
             }
@@ -48,7 +48,6 @@ report 66666 "DELETE"
 
     requestpage
     {
-
         layout
         {
         }
@@ -65,4 +64,3 @@ report 66666 "DELETE"
     var
         OLD_VAL: Decimal;
 }
-

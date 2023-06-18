@@ -2,7 +2,6 @@ pageextension 50211 "pageextension50211" extends "Comment Sheet"
 {
     layout
     {
-
         //Unsupported feature: Property Modification (ImplicitType) on "Comment(Control 4)".
 
         addafter("Code")
@@ -22,7 +21,6 @@ pageextension 50211 "pageextension50211" extends "Comment Sheet"
         }
     }
 
-
     //Unsupported feature: Code Modification on "OnNewRecord".
 
     //trigger OnNewRecord(BelowxRec: Boolean)
@@ -40,4 +38,3 @@ pageextension 50211 "pageextension50211" extends "Comment Sheet"
     */
     //end;
 }
-

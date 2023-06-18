@@ -3,7 +3,7 @@ page 50004 "Payroll ED Survey."
     Editable = false;
     PageType = Card;
     SourceTable = "Payroll-E/D Codes.";
-
+    Caption = 'Payroll ED Survey.';
     layout
     {
         area(content)
@@ -90,4 +90,3 @@ page 50004 "Payroll ED Survey."
     {
     }
 }
-

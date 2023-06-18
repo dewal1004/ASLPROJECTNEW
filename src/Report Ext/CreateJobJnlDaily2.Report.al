@@ -2,7 +2,7 @@ report 90012 "CreateJobJnl Daily2"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/CreateJobJnlDaily2.rdlc';
-
+    Caption = 'CreateJobJnl Daily2';
     dataset
     {
         dataitem("Job Ledger Entry"; "Job Ledger Entry")
@@ -38,7 +38,7 @@ report 90012 "CreateJobJnl Daily2"
                 JobJnlLine."Gen. Bus. Posting Group" := "Gen. Bus. Posting Group";
                 JobJnlLine."Gen. Prod. Posting Group" := "Gen. Prod. Posting Group";
                 JobJnlLine."Reason Code" := "Reason Code";
-                if not JobJnlLine.Insert then JobJnlLine.Modify;
+                if not JobJnlLine.Insert() then JobJnlLine.Modify();
                 LineNo := LineNo + 10;
             end;
 
@@ -59,7 +59,6 @@ report 90012 "CreateJobJnl Daily2"
 
     requestpage
     {
-
         layout
         {
         }
@@ -80,7 +79,7 @@ report 90012 "CreateJobJnl Daily2"
 
         JobJnlBatch."Journal Template Name" := 'JOB2';
         JobJnlBatch.Name := 'CATCH';
-        if JobJnlBatch.Insert then;
+        if JobJnlBatch.Insert() then;
     end;
 
     var
@@ -91,4 +90,3 @@ report 90012 "CreateJobJnl Daily2"
         FromDate: Date;
         ToDate: Date;
 }
-

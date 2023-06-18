@@ -7,7 +7,7 @@ page 50074 "Employee Material Issue"
     SourceTable = "Store Requisition Line New";
     UsageCategory = Lists;
     ApplicationArea = All;
-
+    Caption = 'Employee Material Issue';
     layout
     {
         area(content)
@@ -60,4 +60,3 @@ page 50074 "Employee Material Issue"
     {
     }
 }
-

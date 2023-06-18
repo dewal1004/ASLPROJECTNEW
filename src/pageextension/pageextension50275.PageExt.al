@@ -2,7 +2,6 @@ pageextension 50275 "pageextension50275" extends "Issued Finance Charge Memo"
 {
     actions
     {
-
         //Unsupported feature: Code Modification on ""Send by &Email"(Action 3).OnAction".
 
         //trigger OnAction()
@@ -25,4 +24,3 @@ pageextension 50275 "pageextension50275" extends "Issued Finance Charge Memo"
         //end;
     }
 }
-

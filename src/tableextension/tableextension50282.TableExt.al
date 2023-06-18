@@ -39,7 +39,6 @@ tableextension 50282 "tableextension50282" extends "Alternative Address"
         */
         //end;
 
-
         //Unsupported feature: Code Modification on ""Post Code"(Field 8).OnValidate".
 
         //trigger OnValidate()
@@ -64,8 +63,4 @@ tableextension 50282 "tableextension50282" extends "Alternative Address"
             OptionMembers = " ",Applicant;
         }
     }
-
-    var
-        Applicant: Record Applicants;
 }
-

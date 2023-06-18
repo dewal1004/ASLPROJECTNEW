@@ -1,6 +1,5 @@
 tableextension 50261 "tableextension50261" extends "Reminder Header"
 {
-
     //Unsupported feature: Code Modification on "InsertLines(PROCEDURE 3)".
 
     //procedure InsertLines();
@@ -33,4 +32,3 @@ tableextension 50261 "tableextension50261" extends "Reminder Header"
     */
     //end;
 }
-

@@ -2,7 +2,7 @@ report 50174 "Import for a period 2 VJ"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/Importforaperiod2VJ.rdlc';
-
+    Caption = 'Import for a period 2 VJ';
     dataset
     {
         dataitem("Vendor Ledger Entry"; "Vendor Ledger Entry")
@@ -13,7 +13,7 @@ report 50174 "Import for a period 2 VJ"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(Vendor_Ledger_Entry__Posting_Date_; "Posting Date")
@@ -87,7 +87,6 @@ report 50174 "Import for a period 2 VJ"
 
     requestpage
     {
-
         layout
         {
         }
@@ -102,10 +101,8 @@ report 50174 "Import for a period 2 VJ"
     }
 
     var
-        Vend: Record Vendor;
         Name: Text[250];
         Vendor_Ledger_EntryCaptionLbl: Label 'Vendor Ledger Entry';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
         Vendor_NameCaptionLbl: Label 'Vendor Name';
 }
-

@@ -10,8 +10,7 @@ report 60041 "Prim*7 Report List"
     // END;
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/Prim7ReportList.rdlc';
-
-
+    Caption = 'Prim*7 Report List';
     dataset
     {
         dataitem(Item; Item)
@@ -31,7 +30,7 @@ report 60041 "Prim*7 Report List"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -105,7 +104,6 @@ report 60041 "Prim*7 Report List"
 
     requestpage
     {
-
         layout
         {
         }
@@ -120,13 +118,7 @@ report 60041 "Prim*7 Report List"
     }
 
     var
-        LastFieldNo: Integer;
-        FooterPrinted: Boolean;
-        "---": Text[30];
         Colum: array[3] of Decimal;
-        RespCenter: Record "Responsibility Center";
-        CompanyInfo: Record "Company Information";
-        FormatAddr: Codeunit "Format Address";
         TotalFor: Label 'Total for ';
         ItemCaptionLbl: Label 'Item';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
@@ -134,4 +126,3 @@ report 60041 "Prim*7 Report List"
         V1_KGCaptionLbl: Label '1 KG';
         V0_5_KGCaptionLbl: Label '0.5 KG';
 }
-

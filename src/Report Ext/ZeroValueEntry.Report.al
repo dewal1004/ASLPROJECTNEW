@@ -2,7 +2,7 @@ report 99979 "Zero Value Entry"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/ZeroValueEntry.rdlc';
-
+    Caption = 'Zero Value Entry';
     dataset
     {
         dataitem("G/L Entry"; "G/L Entry")
@@ -15,7 +15,7 @@ report 99979 "Zero Value Entry"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -117,7 +117,7 @@ report 99979 "Zero Value Entry"
 
                 trigger OnAfterGetRecord()
                 begin
-                    if "Sales Amount (Actual)" = 0 then CurrReport.Skip;
+                    if "Sales Amount (Actual)" = 0 then CurrReport.Skip();
                     "Sales Amount (Actual)" := 0;
                     "Cost Amount (Actual) (ACY)" := 0;
                     "Cost Posted to G/L (ACY)" := 0;
@@ -146,7 +146,7 @@ report 99979 "Zero Value Entry"
 
                 trigger OnAfterGetRecord()
                 begin
-                    if "Cost Amount (Actual)" = 0 then CurrReport.Skip;
+                    if "Cost Amount (Actual)" = 0 then CurrReport.Skip();
                     "Cost Amount (Actual)" := 0;
                     Modify();
                 end;
@@ -164,7 +164,6 @@ report 99979 "Zero Value Entry"
 
     requestpage
     {
-
         layout
         {
         }
@@ -182,4 +181,3 @@ report 99979 "Zero Value Entry"
         G_L_EntryCaptionLbl: Label 'G/L Entry';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
 }
-

@@ -7,8 +7,8 @@ codeunit 50103 "Cust. Entry-Edit."
     trigger OnRun()
     begin
         CustLedgEntry := Rec;
-        CustLedgEntry.LockTable;
-        CustLedgEntry.Find;
+        CustLedgEntry.LockTable();
+        CustLedgEntry.Find();
         CustLedgEntry."On Hold" := Rec."On Hold";
         if CustLedgEntry.Open then begin
             CustLedgEntry."Due Date" := Rec."Due Date";
@@ -19,7 +19,7 @@ codeunit 50103 "Cust. Entry-Edit."
             CustLedgEntry."Applies-to ID" := Rec."Applies-to ID";
             CustLedgEntry.Validate("Original Pmt. Disc. Possible", Rec."Original Pmt. Disc. Possible");
         end;
-        CustLedgEntry.Modify;
+        CustLedgEntry.Modify();
         Rec := CustLedgEntry;
     end;
 
@@ -27,4 +27,3 @@ codeunit 50103 "Cust. Entry-Edit."
         CustLedgEntry: Record "Cust. Ledger Entry";
         DtldCustLedgEntry: Record "Detailed Cust. Ledg. Entry";
 }
-

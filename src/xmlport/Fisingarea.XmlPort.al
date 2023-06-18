@@ -1,6 +1,6 @@
 xmlport 50007 "Fising area"
 {
-
+    Caption = 'Fising area';
     schema
     {
         textelement(RootNode)
@@ -20,7 +20,6 @@ xmlport 50007 "Fising area"
 
     requestpage
     {
-
         layout
         {
         }
@@ -30,4 +29,3 @@ xmlport 50007 "Fising area"
         }
     }
 }
-

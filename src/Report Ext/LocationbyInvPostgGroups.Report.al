@@ -4,7 +4,7 @@ report 50246 "Location by Inv. Postg Groups"
     RDLCLayout = './src/reportrdlc/LocationbyInvPostgGroups.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
-
+    Caption = 'Location by Inv. Postg Groups';
     dataset
     {
         dataitem(Location; Location)
@@ -34,7 +34,6 @@ report 50246 "Location by Inv. Postg Groups"
 
     requestpage
     {
-
         layout
         {
         }
@@ -47,10 +46,4 @@ report 50246 "Location by Inv. Postg Groups"
     labels
     {
     }
-
-    var
-        InvSetUp: Record "Inventory Posting Setup";
-        val: Code[10];
-        CompanyInformation: Record "Company Information";
 }
-

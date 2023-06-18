@@ -2,7 +2,7 @@ page 50110 "deposits"
 {
     PageType = Card;
     SourceTable = DEPOSIT;
-
+    Caption = 'deposits';
     layout
     {
         area(content)
@@ -54,4 +54,3 @@ page 50110 "deposits"
     {
     }
 }
-

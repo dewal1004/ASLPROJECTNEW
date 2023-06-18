@@ -2,7 +2,7 @@ report 50042 "Voyage P&L LedgerLineBatchTest"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/VoyagePLLedgerLineBatchTest.rdlc';
-
+    Caption = 'Voyage P&L LedgerLineBatchTest';
     dataset
     {
         dataitem("Main Job"; Job)
@@ -28,7 +28,7 @@ report 50042 "Voyage P&L LedgerLineBatchTest"
                 column(FORMAT_TODAY_0_4_; Format(Today, 0, 4))
                 {
                 }
-                column(CurrReport_PAGENO; CurrReport.PageNo)
+                column(CurrReport_PAGENO; CurrReport.PageNo())
                 {
                 }
                 column(a; a)
@@ -48,19 +48,15 @@ report 50042 "Voyage P&L LedgerLineBatchTest"
                 }
                 column(CycleDay; CycleDay)
                 {
-
                 }
                 column(FishgDay; FishgDay)
                 {
-
                 }
                 column(LostDay; LostDay)
                 {
-
                 }
                 column(PortDay; PortDay)
                 {
-
                 }
                 column(Vess; Vess)
                 {
@@ -76,19 +72,15 @@ report 50042 "Voyage P&L LedgerLineBatchTest"
                 }
                 column(Text24; Text24)
                 {
-
                 }
                 column(Text25; Text25)
                 {
-
                 }
                 column(Text26; Text26)
                 {
-
                 }
                 column(Text27; Text27)
                 {
-
                 }
                 column(PntStor_1_; PntStor[1])
                 {
@@ -123,7 +115,6 @@ report 50042 "Voyage P&L LedgerLineBatchTest"
                 }
                 column(Loc__Vessel_Endurance_; Loc."Vessel Endurance")
                 {
-
                 }
                 column(Job_Ledger_Entry__Work_Type_Code_; "Work Type Code")
                 {
@@ -239,7 +230,6 @@ report 50042 "Voyage P&L LedgerLineBatchTest"
                     /*Qty:=Quantity*-1;
                     PrdPrc:=Qty*GetItPrice("Job No.","No.","Posting Date");
                     *////AAA
-
                 end;
 
                 trigger OnPreDataItem()
@@ -247,7 +237,6 @@ report 50042 "Voyage P&L LedgerLineBatchTest"
                     /*LastFieldNo := FIELDNO("Work Type Code");
                     CurrReport.CREATETOTALS(PrdPrc,NairaVal,Qty);
                     *////AAA
-
                 end;
             }
             dataitem("Sea Food categories"; "Sea Food categories")
@@ -416,7 +405,6 @@ report 50042 "Voyage P&L LedgerLineBatchTest"
                         /*Qty:=Quantity*-1;
                         Prc:=GetItPrice("Job No.","No.","Posting Date");
                         *////AAA
-
                     end;
 
                     trigger OnPreDataItem()
@@ -426,7 +414,6 @@ report 50042 "Voyage P&L LedgerLineBatchTest"
                         CurrReport.CREATETOTALS(PrdPrc2,NairaVal2,Qty);
                         SETRANGE("Job No.",JB);
                         *////AAA
-
                     end;
                 }
                 dataitem("Job catch Default"; "Job catch Default")
@@ -467,7 +454,6 @@ report 50042 "Voyage P&L LedgerLineBatchTest"
                         QtyB:="Budget Quantity";
                         PrdPrcB:=QtyB*GetItPrice("No.","No.B",ETA);
                          *////AAA
-
                     end;
 
                     trigger OnPreDataItem()
@@ -477,7 +463,6 @@ report 50042 "Voyage P&L LedgerLineBatchTest"
                         CurrReport.CREATETOTALS(PrdPrcB,NairaValB,QtyB);
                         SETRANGE("No.",JB);
                          *////AAA
-
                     end;
                 }
 
@@ -486,7 +471,6 @@ report 50042 "Voyage P&L LedgerLineBatchTest"
                     /*A1[1]:=0;A1[2]:=0;A1[3]:=0;A1[4]:=0;
                     A2[1]:=0;A2[2]:=0;A2[3]:=0;A2[4]:=0;
                     *////AAA
-
                 end;
 
                 trigger OnPreDataItem()
@@ -494,7 +478,6 @@ report 50042 "Voyage P&L LedgerLineBatchTest"
                     /*CurrReport.CREATETOTALS(PrdPrc2,NairaVal2,Qty);
                     CurrReport.CREATETOTALS(PrdPrcB,NairaValB,QtyB);
                     *////AAA
-
                 end;
             }
             dataitem("Value Entry"; "Value Entry")
@@ -506,7 +489,6 @@ report 50042 "Voyage P&L LedgerLineBatchTest"
                     /*//"Job Ledger Entry".COPYFILTER("Job Ledger Entry"."Job No.","Value Entry"."Document No.");
                     SETRANGE("Document No.",JB);
                     *////AAA
-
                 end;
             }
             dataitem("Integer"; "Integer")
@@ -523,7 +505,6 @@ report 50042 "Voyage P&L LedgerLineBatchTest"
 
     requestpage
     {
-
         layout
         {
         }
@@ -540,86 +521,39 @@ report 50042 "Voyage P&L LedgerLineBatchTest"
     trigger OnInitReport()
     begin
         //JobSetUp.GET; ///AAA
-        Company_Info.Get;
+        Company_Info.Get();
     end;
 
     var
-        LastFieldNo: Integer;
-        FooterPrinted: Boolean;
         TotalFor: Label 'Total';
-        "---": Integer;
         Job: Record Job;
-        Job2: Record Job;
-        Itempr: Record "Sales Price";
-        CurrExc: Record "Currency Exchange Rate";
-        ProdPostGrp: Record "Gen. Product Posting Group";
-        InvtPostGrp: Record "Inventory Posting Group";
-        JobSetUp: Record "Jobs Setup";
-        RateSetUp: Record "P & L Rates";
-        JBudLn: Record "Job Ledger Entry";
-        Employee: Record Employee;
         Loc: Record Location;
         Coutry: Record "Country/Region";
-        GLEntry: Record "G/L Entry";
         Res: Record Resource;
-        Prc: Decimal;
-        PrcB: Decimal;
         PrdPrc: Decimal;
         PrdPrcB: Decimal;
         PrdPrc2: Decimal;
         PrdPrcBX: Decimal;
         PrdPrc2X: Decimal;
-        PrdPrc2B: Decimal;
-        CurrRate: Decimal;
         NairaVal: Decimal;
         NairaValB: Decimal;
         NairaValBX: Decimal;
         NairaVal2: Decimal;
         NairaVal2X: Decimal;
-        NairaVal2B: Decimal;
         Qty: Decimal;
         QtyB: Decimal;
         QtyX: Decimal;
         QtyBX: Decimal;
-        GPPGDesc: Text[30];
-        DataStor: array[15] of Decimal;
         TotalForX: Label 'Total Exports';
         TotalFory: Label 'Total Local';
-        Text03: Label 'Catch Incentive';
-        Text04: Label 'Salaries & Wages';
-        Text05: Label 'Travelling Expenses';
-        Text06: Label 'License Fees';
-        Text07: Label 'Insurance';
-        Text08: Label 'Clearing & FWRD. & NPA';
-        Text09: Label 'Total Direct Expenses';
         PntStor: array[8] of Decimal;
         ETD: Date;
         ETA: Date;
-        ETA2: Date;
         CycleDay: Decimal;
         PortDay: Decimal;
         LostDay: Decimal;
-        SeaDay: Decimal;
         FishgDay: Decimal;
         a: Decimal;
-        expcnt: Integer;
-        PeopleOnVoy: Integer;
-        ResCount: Integer;
-        Text10: Label 'Gross Margin';
-        Text11: Label '% Of Revenue';
-        Text12: Label 'Shore Overheads';
-        Text13: Label 'Depreciation';
-        Text14: Label 'Interest';
-        Text15: Label 'Net Profit';
-        Text17: Label 'Total Indirect Expenses';
-        TotDirExp: Decimal;
-        TotIndirExp: Decimal;
-        GrossMarg: Decimal;
-        GrossPerct: Decimal;
-        NetProfPerct: Decimal;
-        TotPrice: Decimal;
-        NetProfit: Decimal;
-        ExpTonnage: Decimal;
         Vess: Text[30];
         Text18: Label 'VOYAGE PROFIT AND LOSS STATEMENT';
         Text21: Label 'Shrimp Points';
@@ -631,22 +565,7 @@ report 50042 "Voyage P&L LedgerLineBatchTest"
         Text27: Label 'Exchange Rate';
         A1: array[5] of Decimal;
         A2: array[5] of Decimal;
-        UOM: Record "Unit of Measure";
-        UOMCd: Code[10];
-        ItemVar: Code[10];
         "No.B": Code[10];
-        JB: Code[10];
-        NOrder: Decimal;
-        ValRate: Decimal;
-        ValQty: Decimal;
-        GLStr: array[25] of Decimal;
-        "GLGPP Caption": array[25] of Code[10];
-        CountGPPG: Integer;
-        CountG: Integer;
-        Flag: Boolean;
-        RevTable: Record "Revenue Table VJ";
-        ER: Decimal;
-        LR: Decimal;
         CurrReport_PAGENOCaptionLbl: Label 'Page';
         QtyCaptionLbl: Label 'Quantity';
         EmptyStringCaptionLbl: Label '$';
@@ -676,13 +595,10 @@ report 50042 "Voyage P&L LedgerLineBatchTest"
         ItemVar:=FORMAT(Cd)+UOMCd+COPYSTR(Br,1,1);    //Requip Code Name
         "No.B":=ItemVar;
         *////AAA
-
     end;
 
     [Scope('OnPrem')]
     procedure GetItPrice(JNos: Code[20]; Nos: Code[20]; PDays: Date): Decimal
-    var
-        job3: Record Job;
     begin
         /*IF job3.GET(JNos) THEN;
         Itempr.SETRANGE(Itempr."Item No.",Nos);
@@ -699,7 +615,6 @@ report 50042 "Voyage P&L LedgerLineBatchTest"
          END;
         EXIT(Prc);
          *////AAA
-
     end;
 
     [Scope('OnPrem')]
@@ -707,4 +622,3 @@ report 50042 "Voyage P&L LedgerLineBatchTest"
     begin
     end;
 }
-

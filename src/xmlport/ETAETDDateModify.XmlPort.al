@@ -1,6 +1,6 @@
 xmlport 50054 "ETA/ETD Date Modify"
 {
-
+    Caption = 'ETA/ETD Date Modify';
     schema
     {
         textelement(RootNode)
@@ -23,7 +23,6 @@ xmlport 50054 "ETA/ETD Date Modify"
 
     requestpage
     {
-
         layout
         {
         }
@@ -33,4 +32,3 @@ xmlport 50054 "ETA/ETD Date Modify"
         }
     }
 }
-

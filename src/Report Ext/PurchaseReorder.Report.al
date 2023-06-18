@@ -2,7 +2,7 @@ report 50038 "Purchase Re-order"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/PurchaseReorder.rdlc';
-
+    Caption = 'Purchase Re-order';
     dataset
     {
         dataitem(Item; Item)
@@ -15,7 +15,7 @@ report 50038 "Purchase Re-order"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -108,7 +108,6 @@ report 50038 "Purchase Re-order"
                   END;
                  END;
                  *////AAA
-
             end;
 
             trigger OnPreDataItem()
@@ -120,7 +119,6 @@ report 50038 "Purchase Re-order"
 
     requestpage
     {
-
         layout
         {
         }
@@ -135,29 +133,7 @@ report 50038 "Purchase Re-order"
     }
 
     var
-        "Req.Ln": Record "Requisition Line";
-        K: Integer;
-        SalesLine: Record "Sales Line";
-        ProdOrderComponent: Record "Prod. Order Component";
-        ReqTemplate: Record "Req. Wksh. Template";
-        ReqWkshName: Record "Requisition Wksh. Name";
-        ReqLine: Record "Requisition Line";
-        ReservEntry: Record "Reservation Entry";
-        AvailableMgt: Codeunit "Available Management";
-        ReserveSalesLine: Codeunit "Sales Line-Reserve";
-        ReserveProdOrderComp: Codeunit "Prod. Order Comp.-Reserve";
-        ReservMgt: Codeunit "Reservation Management";
-        Window: Dialog;
-        ReorderQty: Decimal;
-        EndingDate: Date;
-        PeriodStartingDate: Date;
-        PeriodEndingDate: Date;
-        FullAutoReservation: Boolean;
-        FirstPeriod: Boolean;
-        QtyOnHand: Decimal;
         ExpArrDate: Date;
-        "------": Text[30];
-        GLSetUp: Record "General Ledger Setup";
         Suggested_Items_For_Re_order_List_CaptionLbl: Label 'Suggested Items For Re-order List ';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
         Expected_Arrival_DateCaptionLbl: Label 'Expected Arrival Date';
@@ -168,4 +144,3 @@ report 50038 "Purchase Re-order"
         //ReqLine := NewReqWkshLine;  ///AAA
     end;
 }
-

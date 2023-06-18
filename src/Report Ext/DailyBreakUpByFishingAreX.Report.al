@@ -3,8 +3,7 @@ report 91044 "Daily Break Up By Fishing AreX"
     // Invt[1]
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/DailyBreakUpByFishingAreX.rdlc';
-
-
+    Caption = 'Daily Break Up By Fishing AreX';
     dataset
     {
         dataitem(Item; Item)
@@ -17,7 +16,7 @@ report 91044 "Daily Break Up By Fishing AreX"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -260,14 +259,13 @@ report 91044 "Daily Break Up By Fishing AreX"
                 repeat
                     SeaRange[Countx] := locate.Code;
                     Countx := Countx + 1;
-                until locate.Next = 0;
+                until locate.Next() = 0;
             end;
         }
     }
 
     requestpage
     {
-
         layout
         {
         }
@@ -283,14 +281,8 @@ report 91044 "Daily Break Up By Fishing AreX"
 
     var
         LastFieldNo: Integer;
-        FooterPrinted: Boolean;
         TotalFor: Label 'Total for ';
-        "---": Text[30];
         Colum: array[3] of Decimal;
-        RespCenter: Record "Responsibility Center";
-        CompanyInfo: Record "Company Information";
-        FormatAddr: Codeunit "Format Address";
-        I: Integer;
         locate: Record Location;
         SeaRange: array[100] of Text[30];
         SeaRangeC: array[100] of Decimal;
@@ -300,4 +292,3 @@ report 91044 "Daily Break Up By Fishing AreX"
         ItemCaptionLbl: Label 'Item';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
 }
-

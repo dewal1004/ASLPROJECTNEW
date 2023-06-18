@@ -2,7 +2,7 @@ page 99990 "xxyz"
 {
     PageType = Card;
     SourceTable = "G/L Entry";
-
+    Caption = 'xxyz';
     layout
     {
     }
@@ -10,8 +10,4 @@ page 99990 "xxyz"
     actions
     {
     }
-
-    var
-        a1: Integer;
 }
-

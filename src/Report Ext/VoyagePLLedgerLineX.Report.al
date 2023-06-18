@@ -4,8 +4,7 @@ report 60151 "Voyage P&L Ledger LineX"
     // expcnt  //
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/VoyagePLLedgerLineX.rdlc';
-
-
+    Caption = 'Voyage P&L Ledger LineX';
     dataset
     {
         dataitem("Job Ledger Entry"; "Job Ledger Entry")
@@ -18,7 +17,7 @@ report 60151 "Voyage P&L Ledger LineX"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -363,7 +362,6 @@ report 60151 "Voyage P&L Ledger LineX"
 
     requestpage
     {
-
         layout
         {
         }
@@ -379,21 +377,11 @@ report 60151 "Voyage P&L Ledger LineX"
 
     var
         LastFieldNo: Integer;
-        FooterPrinted: Boolean;
         TotalFor: Label 'Total';
-        "---": Integer;
         Job: Record Job;
         Itempr1: Record Item;
-        CurrExc: Record "Currency Exchange Rate";
-        ProdPostGrp: Record "Gen. Product Posting Group";
-        InvtPostGrp: Record "Inventory Posting Group";
-        JobSetUp: Record "Jobs Setup";
-        JBudLn: Record "Job Ledger Entry";
-        Employee: Record Employee;
-        Loc: Record Location;
         Prc: Decimal;
         PrdPrc: Decimal;
-        CurrRate: Decimal;
         NairaVal: Decimal;
         GPPGDesc: Text[30];
         DataStor: array[15] of Decimal;
@@ -422,8 +410,6 @@ report 60151 "Voyage P&L Ledger LineX"
         TotDirExp: Decimal;
         TotIndirExp: Decimal;
         GrossPerct: Decimal;
-        NetProfPerct: Decimal;
-        TotPrice: Decimal;
         NetProfit: Decimal;
         Job_Ledger_EntryCaptionLbl: Label 'Job Ledger Entry';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
@@ -438,4 +424,3 @@ report 60151 "Voyage P&L Ledger LineX"
         PortDayCaptionLbl: Label 'Port Day';
         Itempr: Record "Item Ledger Entry";
 }
-

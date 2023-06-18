@@ -10,7 +10,7 @@ page 50102 "Store Req.  Rejected"
     SourceTable = "Store Requisition Header New";
     SourceTableView = WHERE("Send for Approval" = CONST(true),
                             Rejected = CONST(true));
-
+    Caption = 'Store Req.  Rejected';
     layout
     {
         area(content)
@@ -77,4 +77,3 @@ page 50102 "Store Req.  Rejected"
     {
     }
 }
-

@@ -2,7 +2,7 @@ page 50200 "permission rangess"
 {
     PageType = List;
     SourceTable = "Permission Range";
-
+    Caption = 'permission rangess';
     layout
     {
         area(content)
@@ -57,4 +57,3 @@ page 50200 "permission rangess"
     {
     }
 }
-

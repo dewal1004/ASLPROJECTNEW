@@ -2,7 +2,7 @@ report 99801 "Print Inventory"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/PrintInventory.rdlc';
-
+    Caption = 'Print Inventory';
     dataset
     {
         dataitem(Item; Item)
@@ -14,7 +14,7 @@ report 99801 "Print Inventory"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -55,7 +55,6 @@ report 99801 "Print Inventory"
 
     requestpage
     {
-
         layout
         {
         }
@@ -73,4 +72,3 @@ report 99801 "Print Inventory"
         ItemCaptionLbl: Label 'Item';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
 }
-

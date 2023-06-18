@@ -6,7 +6,7 @@ report 50012 "Daily BreakUp by Vess Summary"
     RDLCLayout = './src/reportrdlc/DailyBreakUpbyVessSummary.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
-
+    Caption = 'Daily BreakUp by Vess Summary';
     dataset
     {
         dataitem("Inventory Posting G Cat Tot"; "Inventory Posting Group")
@@ -701,13 +701,13 @@ report 50012 "Daily BreakUp by Vess Summary"
                 DateFilter := "Inventory Posting G Cat Tot".GetFilter("Date Filter");
 
                 if DateFilter = '' then begin
-                    SetRange("Date Filter", WorkDate);
+                    SetRange("Date Filter", WorkDate());
                     DateFilter := GetFilter("Date Filter");
                 end;
-                locate2.Reset;
+                locate2.Reset();
                 locate2.SetRange("Location Type", 1);
                 locate2.SetFilter("date filter", '%1', GetRangeMax("Date Filter"));
-                if locate2.FindFirst then
+                if locate2.FindFirst() then
                     repeat
                         locate2."Last Rep Operation No. Val" := locate2.LastRepOpNo(locate2.Code, locate2.GetFilter("date filter"));
                         locate2.VSDVal := locate2.VoySeaAnyTime(LastRepOptNo, locate2.Code, locate2.GetFilter("date filter"));
@@ -720,9 +720,9 @@ report 50012 "Daily BreakUp by Vess Summary"
                         locate2."Fishing Area" := Operatn.FishingArea(Operatn."No.", locate2.Code, locate2.GetFilter("date filter"), '', '', '', Operatn.Vessel);
                         Operatn.SetRange(Operatn."Task Filter");
                         locate2.Modify();
-                    until locate2.Next = 0;
+                    until locate2.Next() = 0;
 
-                locate.Reset;
+                locate.Reset();
                 locate.SetRange("Location Type", 1);
                 TotLoc := locate.Count;
                 if ArrangeBy = 0 then
@@ -735,9 +735,8 @@ report 50012 "Daily BreakUp by Vess Summary"
 
                 //locate.SETFILTER(locate."Catch Date",DateFilter);
 
-
                 TotLoc := locate.Count;
-                if locate.FindFirst then
+                if locate.FindFirst() then
                     repeat
                         if locate.VSDVal <> 0 then begin
                             SeaRange[Countx] := locate.Code;
@@ -760,8 +759,7 @@ report 50012 "Daily BreakUp by Vess Summary"
                                 VesselCounter += 1;
                             Countx := Countx + 1;
                         end
-                    until locate.Next = 0;
-
+                    until locate.Next() = 0;
             end;
         }
         dataitem("Inventory Posting Group"; "Inventory Posting Group")
@@ -1646,7 +1644,7 @@ report 50012 "Daily BreakUp by Vess Summary"
                           locate2.GetFilter("date filter"), '', 'SHR', '', Operatn.Vessel); //Operatn.Points;
                         Operatn.SetRange(Operatn."Task Filter");
                         locate2.Modify();
-                    until locate2.Next = 0;
+                    until locate2.Next() = 0;
 
                 //AAA - June 2002 Sort Entries accordg to SeaDays
                 locate.SetRange(locate."Location Type", 1);
@@ -1680,11 +1678,11 @@ report 50012 "Daily BreakUp by Vess Summary"
 
                             Countx := Countx + 1;
                         end;
-                    until locate.Next = 0;
+                    until locate.Next() = 0;
                 TotLoc := Countx - 1;
 
                 if locate.VSDVal = 0 then
-                    CurrReport.Skip;
+                    CurrReport.Skip();
             end;
         }
         dataitem("Inventory Posting Group 2"; "Inventory Posting Group")
@@ -2660,7 +2658,6 @@ report 50012 "Daily BreakUp by Vess Summary"
                     end;
                 end;
 
-
                 while level > 0 do begin
                     SetFilter("Location Filter", SeaRange[level]);
                     CalcFields(Inventory1, Inventory2);
@@ -2699,10 +2696,10 @@ report 50012 "Daily BreakUp by Vess Summary"
                 TotLoc := 0;
                 VesselCounter := 0;
                 CopyFilters("Inventory Posting G Cat Tot");
-                locate2.Reset;
+                locate2.Reset();
                 locate2.SetRange("Location Type", 1);
                 locate2.SetFilter("date filter", '%1', GetRangeMax("Date Filter"));
-                if locate2.FindFirst then
+                if locate2.FindFirst() then
                     repeat
                         locate2."Last Rep Operation No. Val" := locate2.LastRepOpNo(locate2.Code, locate2.GetFilter("date filter"));
                         locate2.VSDVal := locate2.VoySeaAnyTime(LastRepOptNo, locate2.Code, locate2.GetFilter("date filter"));
@@ -2715,13 +2712,12 @@ report 50012 "Daily BreakUp by Vess Summary"
                         Operatn.SetRange(Operatn."Task Filter");
 
                         locate2.Modify();
-                    until locate2.Next = 0;
+                    until locate2.Next() = 0;
 
                 /*IF SeaRange[33]='' THEN
                   CurrReport.SKIP;*/
 
-
-                locate.Reset;
+                locate.Reset();
                 locate.SetRange("Location Type", 1);
                 TotLoc := locate.Count;
                 if ArrangeBy = 0 then
@@ -2734,7 +2730,7 @@ report 50012 "Daily BreakUp by Vess Summary"
 
                 //locate.SETFILTER(locate."Catch Date",DateFilter);
                 TotLoc := locate.Count;
-                if locate.FindFirst then
+                if locate.FindFirst() then
                     repeat
                         if locate.VSDVal <> 0 then begin
                             SeaRange[Countx] := locate.Code;
@@ -2765,15 +2761,14 @@ report 50012 "Daily BreakUp by Vess Summary"
                                 VesselCounter += 1;
                             Countx := Countx + 1;
                         end;
-                    until locate.Next = 0;
+                    until locate.Next() = 0;
 
                 if locate.VSDVal = 0 then
-                    CurrReport.Skip;
+                    CurrReport.Skip();
                 //InvtTot := 0;
                 TESTING123 := 0;
                 //CLEAR(TestC);
                 //CLEAR(SeaRangeC);
-
             end;
         }
     }
@@ -2856,4 +2851,3 @@ report 50012 "Daily BreakUp by Vess Summary"
         SearangeVal: Decimal;
         Caterec: Code[20];
 }
-

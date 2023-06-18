@@ -2,7 +2,7 @@ page 50066 "MR Detailed Cardpart"
 {
     PageType = CardPart;
     SourceTable = "Store Requisition Header New";
-
+    Caption = 'MR Detailed Cardpart';
     layout
     {
         area(content)
@@ -94,4 +94,3 @@ page 50066 "MR Detailed Cardpart"
     {
     }
 }
-

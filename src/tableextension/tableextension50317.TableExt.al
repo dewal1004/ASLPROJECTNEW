@@ -2,7 +2,6 @@ tableextension 50317 "tableextension50317" extends "Return Receipt Line"
 {
     keys
     {
-
         //Unsupported feature: Deletion (KeyCollection) on ""Document No.","Line No."(Key)".
 
         key(ASLKey1; "Document No.", "Line No.", "Return Order No.")
@@ -10,7 +9,6 @@ tableextension 50317 "tableextension50317" extends "Return Receipt Line"
             // Clustered = true;
         }
     }
-
 
     //Unsupported feature: Code Modification on "InsertInvLineFromRetRcptLine(PROCEDURE 2)".
 
@@ -47,10 +45,7 @@ tableextension 50317 "tableextension50317" extends "Return Receipt Line"
 
     //Unsupported feature: Property Insertion (Local) on "ShowItemSalesCrMemoLines(PROCEDURE 9)".
 
-
     //Unsupported feature: Property Insertion (Local) on "ShowLineComments(PROCEDURE 5)".
-
-
 
     //Unsupported feature: Code Modification on "ShowLineComments(PROCEDURE 5)".
 
@@ -69,4 +64,3 @@ tableextension 50317 "tableextension50317" extends "Return Receipt Line"
     */
     //end;
 }
-

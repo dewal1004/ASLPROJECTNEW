@@ -3,7 +3,6 @@ report 50124 "Account Schedule CAP MMT"
     //  //Text004 //AAA
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/AccountScheduleCAPMMT.rdlc';
-
     Caption = 'Account Schedule';
 
     dataset
@@ -23,7 +22,7 @@ report 50124 "Account Schedule CAP MMT"
                 column(Text004_PeriodText; Text004 + PeriodText)
                 {
                 }
-                column(CurrReport_PAGENO; CurrReport.PageNo)
+                column(CurrReport_PAGENO; CurrReport.PageNo())
                 {
                 }
                 column(COMPANYNAME; CompanyName)
@@ -179,7 +178,7 @@ report 50124 "Account Schedule CAP MMT"
                     trigger OnPreDataItem()
                     begin
                         if not ShowAccSchedSetup then
-                            CurrReport.Break;
+                            CurrReport.Break();
                     end;
                 }
                 dataitem(PageBreak; "Integer")
@@ -188,13 +187,13 @@ report 50124 "Account Schedule CAP MMT"
 
                     trigger OnAfterGetRecord()
                     begin
-                        CurrReport.NewPage;
+                        CurrReport.NewPage();
                     end;
 
                     trigger OnPreDataItem()
                     begin
                         if not ShowAccSchedSetup then
-                            CurrReport.Break;
+                            CurrReport.Break();
                     end;
                 }
                 dataitem("Acc. Schedule Line"; "Acc. Schedule Line")
@@ -471,11 +470,11 @@ report 50124 "Account Schedule CAP MMT"
             begin
                 //MESSAGE('Current Filter is%1',GETFILTER(Name));
                 CurrReport.PageNo := 1;
-                GLSetup.Get;
-                if "Analysis View Name" <> '' then begin
-                    AnalysisView.Get("Analysis View Name");
-                end else begin
-                    AnalysisView.Init;
+                GLSetup.Get();
+                if "Analysis View Name" <> '' then
+                    AnalysisView.Get("Analysis View Name")
+                else begin
+                    AnalysisView.Init();
                     AnalysisView."Dimension 1 Code" := GLSetup."Global Dimension 1 Code";
                     AnalysisView."Dimension 2 Code" := GLSetup."Global Dimension 2 Code";
                 end;
@@ -491,14 +490,13 @@ report 50124 "Account Schedule CAP MMT"
 
             trigger OnPreDataItem()
             begin
-                if GLSetup.Get then SetFilter(Name, GLSetup."Schedule Name 4");
+                if GLSetup.Get() then SetFilter(Name, GLSetup."Schedule Name 4");
             end;
         }
     }
 
     requestpage
     {
-
         layout
         {
         }
@@ -514,7 +512,7 @@ report 50124 "Account Schedule CAP MMT"
 
     trigger OnPreReport()
     begin
-        InitAccSched;
+        InitAccSched();
     end;
 
     var
@@ -549,7 +547,6 @@ report 50124 "Account Schedule CAP MMT"
         StDat: Text[10];
         EnDat: Text[10];
         DatFilt: Text[30];
-        Text005: Label ' AS AT ';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
         AnalysisView_CodeCaptionLbl: Label 'Analysis View';
         Account_ScheduleCaptionLbl: Label 'Account Schedule';
@@ -598,7 +595,7 @@ report 50124 "Account Schedule CAP MMT"
                     end;
                 end;
                 NoOfCols := NoOfCols + 1;
-            until (i >= MaxColumnsDisplayed) or (ColLayoutTmp.Next = 0);
+            until (i >= MaxColumnsDisplayed) or (ColLayoutTmp.Next() = 0);
             MaxColumnsDisplayed := i;
         end;
     end;
@@ -623,7 +620,7 @@ report 50124 "Account Schedule CAP MMT"
                     i := i + 1;
                     ColumnValuesDisplayed[i] :=
                       AccSchedManagement.CalcCell("Acc. Schedule Line", ColLayoutTmp, UseAmtsInAddCurr);
-                    if AccSchedManagement.GetDivisionError then begin
+                    if AccSchedManagement.GetDivisionError() then begin
                         if ShowDivideError then
                             ColumnValuesAsText[i] := Text002
                         else
@@ -634,14 +631,12 @@ report 50124 "Account Schedule CAP MMT"
                           AccSchedManagement.FormatCellAsText(ColLayoutTmp, ColumnValuesDisplayed[i], true);
                     end;
                 end;
-            until (i >= MaxColumnsDisplayed) or (ColLayoutTmp.Next = 0);
+            until (i >= MaxColumnsDisplayed) or (ColLayoutTmp.Next() = 0);
         exit(NonZero);
     end;
 
     [Scope('OnPrem')]
     procedure ShowLine(Bold: Boolean; Italic: Boolean): Boolean
-    var
-        NonZero: Boolean;
     begin
         /*
         IF "Acc. Schedule Line".Show = "Acc. Schedule Line".Show::No THEN
@@ -655,7 +650,5 @@ report 50124 "Account Schedule CAP MMT"
           EXIT(NonZero);
         EXIT(TRUE);
         */
-
     end;
 }
-

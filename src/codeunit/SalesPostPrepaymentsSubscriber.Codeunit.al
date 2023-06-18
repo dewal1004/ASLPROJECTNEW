@@ -5,11 +5,7 @@ codeunit 50020 "SalesPostPrepaymentsSubscriber"
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Sales-Post Prepayments", 'OnAfterCheckPrepmtDoc', '', true, true)]
     local procedure MyProcedure()
     begin
-
     end;
-
-
-
 }
 
 // OBJECT Modification "Sales-Post Prepayments"(Codeunit 442)
@@ -88,9 +84,7 @@ codeunit 50020 "SalesPostPrepaymentsSubscriber"
 //   }
 //   CODE
 //   {
-
 //     BEGIN
 //     END.
 //   }
 // }
-

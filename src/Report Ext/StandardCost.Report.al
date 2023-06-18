@@ -1,7 +1,7 @@
 report 50002 "Standard Cost"
 {
     ProcessingOnly = true;
-
+    Caption = 'Standard Cost';
     dataset
     {
         dataitem("Purchase Header"; "Purchase Header")
@@ -49,8 +49,6 @@ report 50002 "Standard Cost"
                         "Purchase Line"."Total Overhead(LCY)" := "Purchase Line"."LandedAmount(LCY)" - J;
                         if J <> 0 then
                             "Purchase Line"."Indirect Cost %" := ("Purchase Line"."Total Overhead(LCY)" / J) * 100;
-
-
                     end;
                     if "Purchase Line".Type = "Purchase Line".Type::Item then
                         "Purchase Line".Validate("Purchase Line"."Indirect Cost %");
@@ -62,7 +60,7 @@ report 50002 "Standard Cost"
             begin
                 "Purchase Header".CalcFields("Purchase Header"."Total Amount Item (LCY)");
                 "Purchase Header".CalcFields("Purchase Header"."Total Amt. Item to Rec. (LCY)");
-                PurcSetup.Get;
+                PurcSetup.Get();
 
                 //Standard Cost
                 F := "Purchase Header"."Total Freight (LCY)";
@@ -77,7 +75,6 @@ report 50002 "Standard Cost"
 
     requestpage
     {
-
         layout
         {
         }
@@ -92,28 +89,13 @@ report 50002 "Standard Cost"
     }
 
     var
-        v: Record "G/L Entry";
-        GITRec: Record "Reason Code";
         PurcSetup: Record "Purchases & Payables Setup";
-        TotalCost: Decimal;
-        TotalValue: Decimal;
-        TotalQty: Decimal;
-        TotalWeight: Decimal;
-        LandedAmount: Decimal;
-        xTotalQty: Integer;
-        A: Decimal;
-        B: Decimal;
-        C: Decimal;
-        D: Decimal;
-        E: Decimal;
         F: Decimal;
         G: Decimal;
         H: Decimal;
         I: Decimal;
         J: Decimal;
         X: Decimal;
-        Y: Decimal;
-        Z: Decimal;
         FOBx: Decimal;
         LandExtra: Decimal;
         Vatables: Decimal;
@@ -124,4 +106,3 @@ report 50002 "Standard Cost"
     begin
     end;
 }
-

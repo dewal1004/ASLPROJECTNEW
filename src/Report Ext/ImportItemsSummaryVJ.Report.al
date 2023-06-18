@@ -2,7 +2,7 @@ report 50121 "Import Items Summary VJ"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/ImportItemsSummaryVJ.rdlc';
-
+    Caption = 'Import Items Summary VJ';
     dataset
     {
         dataitem("Value Entry"; "Value Entry")
@@ -13,7 +13,7 @@ report 50121 "Import Items Summary VJ"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -78,7 +78,6 @@ report 50121 "Import Items Summary VJ"
 
     requestpage
     {
-
         layout
         {
         }
@@ -93,12 +92,7 @@ report 50121 "Import Items Summary VJ"
     }
 
     var
-        LastFieldNo: Integer;
-        FooterPrinted: Boolean;
-        TotalFor: Label 'Total for ';
-        ItemDescription: Text[30];
         ItemTable: Record Item;
-        ItemNo: Code[20];
         Import_Items_for_a_PeriodCaptionLbl: Label 'Import Items for a Period';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
         GroupCaptionLbl: Label 'Group';
@@ -108,4 +102,3 @@ report 50121 "Import Items Summary VJ"
         Item_DescriptionCaptionLbl: Label 'Item Description';
         TotalCaptionLbl: Label 'Total';
 }
-

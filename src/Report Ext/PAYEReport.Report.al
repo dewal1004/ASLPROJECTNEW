@@ -12,8 +12,7 @@ report 50064 "PAYE Report"
     RDLCLayout = './src/reportrdlc/PAYEReport.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
-
-
+    Caption = 'PAYE Report';
     dataset
     {
         dataitem("Payroll-Payslip Lines."; "Payroll-Payslip Lines.")
@@ -34,7 +33,7 @@ report 50064 "PAYE Report"
             column(EmplHeadTxt; EmplHeadTxt)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(DELCHR__EmployeeName_______; DelChr(EmployeeName, '<>'))
@@ -191,7 +190,6 @@ report 50064 "PAYE Report"
                         EDAmountsArray[11] := Amount;
                     RequestEDsArray[ArrayTop]."E/D Code":
                         EDAmountsArray[ArrayTop] := Amount
-
                 end;
             end;
 
@@ -204,8 +202,7 @@ report 50064 "PAYE Report"
                                  EDAmountsArray[10]);
                 /***  EDAmountsArray[11], EDAmountsArray[12]);*/
 
-
-                CompanyData.Get;
+                CompanyData.Get();
                 if GetFilter("Employee No") <> '' then
                     EmplHeadTxt := 'Employees Nos.: ' + GetFilter("Employee No")
                 else
@@ -232,30 +229,25 @@ report 50064 "PAYE Report"
                     end;
                 end;
 
-
                 /*IF EmplCount = 0 THEN
                    UNDEFINED('genSELECTLINES',2);*/
 
-
                 if EmployeeRec.Get("Employee No") then
-                    EmployeeName := EmployeeRec.FullName;
+                    EmployeeName := EmployeeRec.FullName();
                 ArrayIndex := 1;
                 ArrayTop := 12;
                 for ArrayIndex := 1 to ArrayTop do
                     EDAmountsArray[ArrayIndex] := 0;
 
-
                 /*IF EmplCount <> 0 THEN
                   UNDEFINED('genSELECTLINES', 1);
                  */
-
             end;
         }
     }
 
     requestpage
     {
-
         layout
         {
         }
@@ -278,7 +270,6 @@ report 50064 "PAYE Report"
         "Payroll-Payslip Lines.".CopyFilter("Payroll Period", PeriodRec."Period Code");
         if PeriodRec.Count > 1 then
             PeriodTxt := StrSubstNo('(#1 periods)', PeriodRec.Count);
-
     end;
 
     var
@@ -324,4 +315,3 @@ report 50064 "PAYE Report"
         SIGNED_______________________________________RANK___________________________________CaptionLbl: Label 'SIGNED_______________________________________RANK___________________________________';
         DATE__________________________________________USE_SEPERATE_SHEETS_WHERE_NECESSARY_CaptionLbl: Label 'DATE_________________________________________ USE SEPERATE SHEETS WHERE NECESSARY.';
 }
-

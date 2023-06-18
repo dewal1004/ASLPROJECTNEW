@@ -56,8 +56,6 @@ tableextension 50305 "tableextension50305" extends "Transfer Receipt Header"
             TableRelation = "Gen. Product Posting Group";
 
             trigger OnValidate()
-            var
-                GenProdPostingGrp: Record "Gen. Product Posting Group";
             begin
             end;
         }
@@ -109,4 +107,3 @@ tableextension 50305 "tableextension50305" extends "Transfer Receipt Header"
     var
         Jobs: Record Job;
 }
-

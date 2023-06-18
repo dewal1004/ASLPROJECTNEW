@@ -2,7 +2,7 @@ report 66778 "to be deleted after use"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/tobedeletedafteruse.rdlc';
-
+    Caption = 'to be deleted after use';
     dataset
     {
         dataitem("Value Entry"; "Value Entry")
@@ -15,7 +15,7 @@ report 66778 "to be deleted after use"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -43,7 +43,6 @@ report 66778 "to be deleted after use"
             trigger OnAfterGetRecord()
             begin
 
-
                 "Value Entry"."Cost per Unit" := 0;
                 "Value Entry"."Sales Amount (Actual)" := 0;
                 "Value Entry"."Discount Amount" := 0;
@@ -52,10 +51,10 @@ report 66778 "to be deleted after use"
                 "Value Entry"."Cost Amount (Actual) (ACY)" := 0;
                 "Value Entry"."Cost Posted to G/L (ACY)" := 0;
                 "Value Entry"."Cost per Unit (ACY)" := 0;
-                "Value Entry".Modify;
+                "Value Entry".Modify();
                 if ITEM_REC.Get("Value Entry"."Item No.") then begin
                     ITEM_REC."Unit Cost" := 0;
-                    ITEM_REC.Modify;
+                    ITEM_REC.Modify();
                 end;
             end;
         }
@@ -63,7 +62,6 @@ report 66778 "to be deleted after use"
 
     requestpage
     {
-
         layout
         {
         }
@@ -82,4 +80,3 @@ report 66778 "to be deleted after use"
         Value_EntryCaptionLbl: Label 'Value Entry';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
 }
-

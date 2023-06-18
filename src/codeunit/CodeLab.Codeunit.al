@@ -1,6 +1,5 @@
 codeunit 70000 "CodeLab"
 {
-
     local procedure MyProcedure()
     var
         Customers: record Customer;

@@ -4,7 +4,7 @@ report 50041 "Prim7* Reporting List"
     RDLCLayout = './src/reportrdlc/Prim7ReportingList.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
-
+    Caption = 'Prim7* Reporting List';
     dataset
     {
         dataitem(Item; Item)
@@ -17,7 +17,7 @@ report 50041 "Prim7* Reporting List"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -114,7 +114,6 @@ report 50041 "Prim7* Reporting List"
 
     requestpage
     {
-
         layout
         {
         }
@@ -130,18 +129,11 @@ report 50041 "Prim7* Reporting List"
 
     var
         LastFieldNo: Integer;
-        FooterPrinted: Boolean;
         TotalFor: Label 'Total for ';
-        "---": Text[30];
         Colum: array[3] of Decimal;
-        RespCenter: Record "Responsibility Center";
-        CompanyInfo: Record "Company Information";
-        FormatAddr: Codeunit "Format Address";
-        I: Integer;
         ItemCaptionLbl: Label 'Item';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
         V0_5_KGCaptionLbl: Label '0.5 KG';
         V1_KGCaptionLbl: Label '1 KG';
         V2_KGCaptionLbl: Label '2 KG';
 }
-

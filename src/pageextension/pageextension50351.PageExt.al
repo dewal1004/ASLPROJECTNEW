@@ -39,4 +39,3 @@ pageextension 50351 "pageextension50351" extends "Resource List"
         }
     }
 }
-

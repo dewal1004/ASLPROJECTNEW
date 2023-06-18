@@ -2,8 +2,7 @@ page 50163 "Purchase&Pay-Reports"
 {
     UsageCategory = Administration;
     ApplicationArea = all;
-
-
+    Caption = 'Purchase&Pay-Reports';
     layout
     {
     }
@@ -94,4 +93,3 @@ page 50163 "Purchase&Pay-Reports"
         }
     }
 }
-

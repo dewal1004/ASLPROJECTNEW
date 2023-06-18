@@ -1,7 +1,7 @@
 page 50135 "Payroll-Lookup Header list"
 {
     SourceTable = "Payroll-Lookup Header.";
-
+    Caption = 'Payroll-Lookup Header list';
     layout
     {
         area(content)
@@ -57,4 +57,3 @@ page 50135 "Payroll-Lookup Header list"
     {
     }
 }
-

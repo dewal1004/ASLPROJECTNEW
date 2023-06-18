@@ -12,8 +12,7 @@ report 50181 "Packing By Export Variance"
     // 10 :: Inventory
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/PackingByExportVariance.rdlc';
-
-
+    Caption = 'Packing By Export Variance';
     dataset
     {
         dataitem(Location; Location)
@@ -28,7 +27,7 @@ report 50181 "Packing By Export Variance"
             column(USERID; UserId)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(Location_Code; Code)
@@ -36,23 +35,18 @@ report 50181 "Packing By Export Variance"
             }
             column(Stor_5_; Stor[5])
             {
-
             }
             column(Stor_10_; Stor[10])
             {
-
             }
             column(Stor_4_; Stor[4])
             {
-
             }
             column(Stor_1__Stor_2__Stor_3_; Stor[1] + Stor[2] + Stor[3])
             {
-
             }
             column(Inventory_Posting_Group__Inventory_Stor_10_; "Inventory Posting Group".Inventory - Stor[10])
             {
-
             }
             column(Location_Code_Control1000000022; Code)
             {
@@ -62,35 +56,27 @@ report 50181 "Packing By Export Variance"
             }
             column(StorP_2_; StorP[2])
             {
-
             }
             column(Stor_1__Stor_2__Stor_3__Control1000000038; Stor[1] + Stor[2] + Stor[3])
             {
-
             }
             column(StorP_3_; StorP[3])
             {
-
             }
             column(StorP_1_; StorP[1])
             {
-
             }
             column(Stor_4__Control1000000037; Stor[4])
             {
-
             }
             column(VarCP_2_; VarCP[2])
             {
-
             }
             column(VarCP_1_; VarCP[1])
             {
-
             }
             column(Inventory_Posting_Group__Inventory_Stor_10__Control1000000039; "Inventory Posting Group".Inventory - Stor[10])
             {
-
             }
             column(Location_Name_Control1000000060; Name)
             {
@@ -161,35 +147,27 @@ report 50181 "Packing By Export Variance"
                 }
                 column(Inventory_Stor_10_; Inventory - Stor[10])
                 {
-
                 }
                 column(Stor_1__Stor_2__Stor_3__Control1000000007; Stor[1] + Stor[2] + Stor[3])
                 {
-
                 }
                 column(Stor_4__Control1000000025; Stor[4])
                 {
-
                 }
                 column(Stor_5__Control1000000026; Stor[5])
                 {
-
                 }
                 column(Stor_10__Control1000000028; Stor[10])
                 {
-
                 }
                 column(Stor_2_; Stor[2])
                 {
-
                 }
                 column(Stor_3_; Stor[3])
                 {
-
                 }
                 column(Stor_6_; Stor[6])
                 {
-
                 }
                 column(Inventory_Posting_Group__Statistics_Group_Caption; FieldCaption("Statistics Group"))
                 {
@@ -272,7 +250,6 @@ report 50181 "Packing By Export Variance"
 
     requestpage
     {
-
         layout
         {
         }
@@ -288,12 +265,10 @@ report 50181 "Packing By Export Variance"
 
     var
         LastFieldNo: Integer;
-        FooterPrinted: Boolean;
         TotalFor: Label 'Total for ';
         Stor: array[10] of Decimal;
         StorP: array[5] of Decimal;
         VarCP: array[2] of Decimal;
-        StatG: Integer;
         I: Integer;
         Packing_By_Export_VarianceCaptionLbl: Label 'Packing By Export Variance';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
@@ -308,4 +283,3 @@ report 50181 "Packing By Export Variance"
         BCaptionLbl: Label 'B';
         TotalCaptionLbl: Label 'Total';
 }
-

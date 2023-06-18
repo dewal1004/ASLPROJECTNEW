@@ -4,7 +4,6 @@ report 59704 "Inventory - Transaction 123"
     // "Print Bin Card"
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/InventoryTransaction123.rdlc';
-
     Caption = 'Inventory - Transaction Detail';
 
     dataset
@@ -145,8 +144,7 @@ report 59704 "Inventory - Transaction 123"
                         end;
                         "Item Ledger Entry".SetFilter("Posting Date", ItemDateFilter);
 
-
-                        if InvtSetUp.Get then;
+                        if InvtSetUp.Get() then;
                         TransTo := '';
                         TransFr := '';
                         case "Entry Type" of
@@ -161,16 +159,15 @@ report 59704 "Inventory - Transaction 123"
                                     TransFr := InvtSetUp."Default Store";
                                 end;
                             4:
-                                begin
-                                    if TransShip.Get("Document No.") then begin
-                                        TransTo := TransShip."Transfer-to Code";
-                                        TransFr := TransShip."Transfer-from Code";
-                                    end else
-                                        if TransRecpt.Get("Document No.") then begin
-                                            TransTo := TransRecpt."Transfer-to Code";
-                                            TransFr := TransRecpt."Transfer-from Code";
-                                        end;
-                                end;
+
+                                if TransShip.Get("Document No.") then begin
+                                    TransTo := TransShip."Transfer-to Code";
+                                    TransFr := TransShip."Transfer-from Code";
+                                end else
+                                    if TransRecpt.Get("Document No.") then begin
+                                        TransTo := TransRecpt."Transfer-to Code";
+                                        TransFr := TransRecpt."Transfer-from Code";
+                                    end;
                         end;
 
                         PurchRec.SetRange(PurchRec."No.", "Document No.");
@@ -199,7 +196,6 @@ report 59704 "Inventory - Transaction 123"
 
                 if PrintOnlyOnePerPage then
                     RecordNo := RecordNo + 1;
-
 
                 //SETRANGE("Date Filter",0D,GETRANGEMAX("Date Filter"));
                 CalcFields("Net Change");
@@ -267,7 +263,6 @@ report 59704 "Inventory - Transaction 123"
         DecreasesQtyCaptionLbl: Label 'Decreases';
         ItemOnHandCaptionLbl: Label 'Inventory';
         ContinuedCaptionLbl: Label 'Continued';
-        "--------------": Integer;
         TransShip: Record "Transfer Shipment Header";
         TransRecpt: Record "Transfer Receipt Header";
         InvtSetUp: Record "Inventory Setup";
@@ -279,8 +274,6 @@ report 59704 "Inventory - Transaction 123"
         LastrecEntNo: Integer;
         "Print Bin Card": Boolean;
         StockOnHand: Decimal;
-        items2: Record Item;
-        BinOp: Decimal;
 
     [Scope('OnPrem')]
     procedure InitializeRequest(NewPrintOnlyOnePerPage: Boolean)
@@ -288,4 +281,3 @@ report 59704 "Inventory - Transaction 123"
         PrintOnlyOnePerPage := NewPrintOnlyOnePerPage;
     end;
 }
-

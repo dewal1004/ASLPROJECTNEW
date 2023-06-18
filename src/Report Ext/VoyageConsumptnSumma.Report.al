@@ -4,7 +4,7 @@ report 50048 "Voyage Consumptn Summa"
     RDLCLayout = './src/reportrdlc/VoyageConsumptnSumma.rdlc';
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All, Basic, Suite;
-
+    Caption = 'Voyage Consumptn Summa';
     dataset
     {
         dataitem(Job; Job)
@@ -23,7 +23,7 @@ report 50048 "Voyage Consumptn Summa"
                 column(COMPANYNAME; CompanyName)
                 {
                 }
-                column(CurrReport_PAGENO; CurrReport.PageNo)
+                column(CurrReport_PAGENO; CurrReport.PageNo())
                 {
                 }
                 column(USERID; UserId)
@@ -148,13 +148,13 @@ report 50048 "Voyage Consumptn Summa"
                     CurrReport.CreateTotals(UnitC, Amount);
 
                     Icount[2] := Icount[2] + 10;
-                    JobJl.Init;
+                    JobJl.Init();
                     JobJl."Journal Template Name" := 'JOB';
                     JobJl."Journal Batch Name" := Job."No." + 'CONS';
                     JobJl."Line No." := Icount[2];
                     JobJl."Posting Date" := Today;
                     JobJl."Document Date" := Today;
-                    JobJLX.Init;
+                    JobJLX.Init();
 
                     //JobJL.SetUpNewLine(JobJL);
                     JobJl."Document No." := Job."No.";
@@ -166,7 +166,7 @@ report 50048 "Voyage Consumptn Summa"
                     //  JobJL.VALIDATE(JobJL."Unit Cost",("Adjusted Cost"/Quantity));
                     JobJl."Location Code" := Job.Vessel;
                     JobJl."External Document No." := Job."Voyage No.";
-                    if not JobJl.Insert then JobJl.Modify;
+                    if not JobJl.Insert() then JobJl.Modify();
                 end;
 
                 trigger OnPreDataItem()
@@ -176,13 +176,13 @@ report 50048 "Voyage Consumptn Summa"
                     SetRange("Posting Date", 0D, Job."Ending Date");
                     SetRange("Location Code", Job.Vessel);
 
-                    JobJB.Init;
+                    JobJB.Init();
                     JobJB."Journal Template Name" := 'JOB';
                     JobJB.Name := Job."No." + 'CONS';
                     JobJB."Voyage No." := Job."Voyage No.";
                     JobJB."Job No." := Job.Vessel;
                     JobJB."No. Series" := '';
-                    if not JobJB.Insert then JobJB.Modify;
+                    if not JobJB.Insert() then JobJB.Modify();
                 end;
             }
 
@@ -197,7 +197,6 @@ report 50048 "Voyage Consumptn Summa"
 
     requestpage
     {
-
         layout
         {
         }
@@ -213,9 +212,7 @@ report 50048 "Voyage Consumptn Summa"
 
     var
         LastFieldNo: Integer;
-        FooterPrinted: Boolean;
         TotalFor: Label 'Total for ';
-        Itemis: Record Item;
         UnitC: Decimal;
         Amount: Decimal;
         JobJB: Record "Job Journal Batch";
@@ -227,4 +224,3 @@ report 50048 "Voyage Consumptn Summa"
         CurrReport_PAGENOCaptionLbl: Label 'Page';
         Unit_CostCaptionLbl: Label 'Unit Cost';
 }
-

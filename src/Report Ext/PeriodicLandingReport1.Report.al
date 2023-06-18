@@ -2,7 +2,7 @@ report 50335 "Periodic Landing Report1"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/PeriodicLandingReport1.rdlc';
-
+    Caption = 'Periodic Landing Report1';
     dataset
     {
         dataitem("Job Ledger Entry"; "Job Ledger Entry")
@@ -62,7 +62,6 @@ report 50335 "Periodic Landing Report1"
 
     requestpage
     {
-
         layout
         {
         }
@@ -79,6 +78,4 @@ report 50335 "Periodic Landing Report1"
     var
         cmpny: Record "Company Information";
         Text001: Label 'Landing For the Period';
-        ETA: Code[10];
 }
-

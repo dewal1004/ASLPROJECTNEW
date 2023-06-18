@@ -7,8 +7,7 @@ report 50177 "Purchase Requisition Approval"
     // Item."CRM / STR"
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/PurchaseRequisitionApproval.rdlc';
-
-
+    Caption = 'Purchase Requisition Approval';
     dataset
     {
         dataitem("Requisition Wksh. Name"; "Requisition Wksh. Name")
@@ -39,7 +38,7 @@ report 50177 "Purchase Requisition Approval"
                 column(Requisition_Line__Requisition_Line___Journal_Batch_Name_; "Requisition Line"."Journal Batch Name")
                 {
                 }
-                column(CurrReport_PAGENO; CurrReport.PageNo)
+                column(CurrReport_PAGENO; CurrReport.PageNo())
                 {
                 }
                 column(TODAY; Today)
@@ -197,9 +196,7 @@ report 50177 "Purchase Requisition Approval"
                         Item2.Get("Requisition Line"."No.");
                         Item2.SetRange(Item2."Date Filter", 0D, PrPurDate);
                         Item2.CalcFields(Item2.Inventory, Item2."Qty. on Purch. Order", Item2."CRM / STR");
-
                     end;
-
                 end;
             }
 
@@ -215,7 +212,6 @@ report 50177 "Purchase Requisition Approval"
 
     requestpage
     {
-
         layout
         {
         }
@@ -231,7 +227,7 @@ report 50177 "Purchase Requisition Approval"
 
     trigger OnPreReport()
     begin
-        CompanyInfo.Get;
+        CompanyInfo.Get();
         CompanyInfo.CalcFields(CompanyInfo.Picture);
 
         JTempNm := "Requisition Line".GetFilter("Requisition Line"."Worksheet Template Name");
@@ -241,22 +237,11 @@ report 50177 "Purchase Requisition Approval"
     var
         Text004: Label 'Purchase Requisition Approval';
         CompanyInfo: Record "Company Information";
-        RespCenter: Record "Responsibility Center";
-        Language: Record Language;
-        FormatAddr: Codeunit "Format Address";
-        CompanyAddr: array[8] of Text[50];
-        BuyFromAddr: array[8] of Text[50];
-        ReqNo: Text[50];
-        dato: Text[50];
         CopyText: Text[50];
-        "-------": Text[30];
         ItemLedg: Record "Item Ledger Entry";
         PurcRecpHd: Record "Purch. Rcpt. Header";
         VendTab: Record Vendor;
-        LetterHd: Boolean;
         ReqStrId: Code[20];
-        Text000: Label 'The key was successfully selected! ';
-        Text001: Label 'Sorry, the key could not be found.. ';
         PrPurDate: Date;
         PrPurQty: Decimal;
         PrPurPri: Decimal;
@@ -267,8 +252,6 @@ report 50177 "Purchase Requisition Approval"
         Filt: array[2] of Code[20];
         JTempNm: Code[20];
         JBatcNm: Code[20];
-        "------": Text[30];
-        RespCent: Record "Responsibility Center";
         Requisition_No___CaptionLbl: Label 'Requisition No. :';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
         Date_CaptionLbl: Label 'Date:';
@@ -286,4 +269,3 @@ report 50177 "Purchase Requisition Approval"
         Container_CapacityCaptionLbl: Label 'Container Capacity';
         Checked_and_Approved__By_CaptionLbl: Label 'Checked and Approved  By:';
 }
-

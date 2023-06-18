@@ -2,7 +2,7 @@ page 50015 "Employee Group Header."
 {
     PageType = Card;
     SourceTable = "Payroll-Employee Group Header.";
-
+    Caption = 'Employee Group Header.';
     layout
     {
         area(content)
@@ -58,4 +58,3 @@ page 50015 "Employee Group Header."
         }
     }
 }
-

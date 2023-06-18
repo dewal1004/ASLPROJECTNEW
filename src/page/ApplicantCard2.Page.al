@@ -4,6 +4,7 @@ page 60122 "Applicant Card2"
     SourceTable = Applicants;
     UsageCategory = Documents;
     ApplicationArea = All, Basic, Suites;
+    Caption = 'Applicant Card2';
     layout
     {
         area(content)
@@ -246,4 +247,3 @@ page 60122 "Applicant Card2"
         }
     }
 }
-

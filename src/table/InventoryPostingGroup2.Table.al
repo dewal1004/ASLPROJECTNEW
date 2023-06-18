@@ -200,6 +200,7 @@ table 50094 "Inventory Posting Group2"
                                                                       "Source No." = FIELD("Source No.  Filter"),
                                                                       "Valued Quantity" = FILTER(< 0)));
             FieldClass = FlowField;
+            Editable = false;
         }
         field(55433; "Inventory total3"; Decimal)
         {
@@ -215,6 +216,7 @@ table 50094 "Inventory Posting Group2"
                                                                       "Source Code" = FILTER(<> ''),
                                                                       "Valued Quantity" = FILTER(< 0)));
             FieldClass = FlowField;
+            Editable = false;
         }
     }
 
@@ -243,6 +245,8 @@ table 50094 "Inventory Posting Group2"
 
     fieldgroups
     {
+        fieldgroup(DropDown; Description)
+        {
+        }
     }
 }
-

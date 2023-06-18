@@ -2,7 +2,7 @@ page 60100 "Date"
 {
     PageType = Card;
     SourceTable = Date;
-
+    Caption = 'Date';
     layout
     {
         area(content)
@@ -26,4 +26,3 @@ page 60100 "Date"
     {
     }
 }
-

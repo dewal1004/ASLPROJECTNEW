@@ -1,5 +1,6 @@
 table 60033 "Scholarship Payment NU*"
 {
+    Caption = 'Scholarship Payment NU*';
     //***DrillDownPageID = 60050;
     //***LookupPageID = 60050;
 
@@ -49,7 +50,6 @@ table 60033 "Scholarship Payment NU*"
 
                         Amount := Ramt + xRec.Amount;
                     end;
-
                 end;
             end;
         }
@@ -109,10 +109,7 @@ table 60033 "Scholarship Payment NU*"
         SchPayRec: Record "Scholarship Payment NU*";
         RecNo: Integer;
         RegRec: Record "Scholarship Register NU*";
-        PayRec: Record "Scholarship Payment NU*";
         Ramt: Decimal;
-        AutAmt: Decimal;
         AmtPaid: Decimal;
         Diff: Decimal;
 }
-

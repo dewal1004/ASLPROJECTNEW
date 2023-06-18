@@ -2,7 +2,7 @@ report 50188 "Historical Daily Points Rep!"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/HistoricalDailyPointsRep.rdlc';
-
+    Caption = 'Historical Daily Points Rep!';
     dataset
     {
         dataitem("Integer"; "Integer")
@@ -26,7 +26,7 @@ report 50188 "Historical Daily Points Rep!"
                         JobsPointVal."Points Sort Bay" := JobsPointVal.PointZ(JobsPointVal."No.", '',
                            JobsPointVal.GetFilter("Posting Date Filter"), '', '', '', JobsPointVal.Vessel);//JobsPointVal.Points;
                         JobsPointVal.Modify();
-                    until JobsPointVal.Next = 0;
+                    until JobsPointVal.Next() = 0;
             end;
         }
         dataitem(Job; Job)
@@ -38,7 +38,7 @@ report 50188 "Historical Daily Points Rep!"
             column(Consolidated_Daily_Points_Report_As_On_____FORMAT_Workdat_0_4_; 'Consolidated Daily Points Report As On : ' + Format(Workdat, 0, 4))
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -286,7 +286,6 @@ report 50188 "Historical Daily Points Rep!"
                     SeArea := '';
                 end;
 
-
                 // Cumulative
                 //MESSAGE('Date is %1',Workdat);
                 job1.SetRange(job1."Posting Date Filter", 0D, Workdat);
@@ -337,7 +336,6 @@ report 50188 "Historical Daily Points Rep!"
 
     requestpage
     {
-
         layout
         {
         }
@@ -354,26 +352,16 @@ report 50188 "Historical Daily Points Rep!"
     var
         job1: Record Job;
         JobLdgr: Record "Job Ledger Entry";
-        DOTrec: Record "Day of Tide";
         JobsPointVal: Record Job;
-        Resource: Record Resource;
-        Loc: Record Location;
         NoCatch: Boolean;
-        Eval: Boolean;
         SeaDays: Integer;
-        I: Integer;
         j: Integer;
-        k: Integer;
         Countz: Integer;
         pts: array[9] of Decimal;
         TotPts: array[9] of Decimal;
         TotPtsA: array[9] of Decimal;
-        TotPtsAvg: array[9] of Decimal;
         SeaDaysTot: Decimal;
-        CountCum: array[9] of Decimal;
-        SeaTemp: Decimal;
         SeaTempA: Decimal;
-        SeTempVal: Decimal;
         Skipper: Text[30];
         Desc: Text[30];
         SeTemp: Code[10];
@@ -405,4 +393,3 @@ report 50188 "Historical Daily Points Rep!"
         AVERAGECaption_Control1000000043Lbl: Label 'AVERAGE';
         TOTALCaptionLbl: Label 'TOTAL';
 }
-

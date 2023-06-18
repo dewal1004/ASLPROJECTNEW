@@ -2,7 +2,7 @@ report 99973 "Update ETD, ETA"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/UpdateETDETA.rdlc';
-
+    Caption = 'Update ETD, ETA';
     dataset
     {
         dataitem(Location; Location)
@@ -13,7 +13,7 @@ report 99973 "Update ETD, ETA"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -57,7 +57,6 @@ report 99973 "Update ETD, ETA"
 
     requestpage
     {
-
         layout
         {
         }
@@ -75,4 +74,3 @@ report 99973 "Update ETD, ETA"
         LocationCaptionLbl: Label 'Location';
         CurrReport_PAGENOCaptionLbl: Label 'Page';
 }
-

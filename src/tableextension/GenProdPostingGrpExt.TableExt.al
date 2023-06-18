@@ -34,4 +34,3 @@ tableextension 50253 "Gen. Prod Posting Grp Ext" extends "Gen. Product Posting G
         }
     }
 }
-

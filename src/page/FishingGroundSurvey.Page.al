@@ -2,7 +2,7 @@ page 50079 "Fishing Ground Survey"
 {
     PageType = List;
     SourceTable = "Job Task";
-
+    Caption = 'Fishing Ground Survey';
     layout
     {
         area(content)
@@ -33,4 +33,3 @@ page 50079 "Fishing Ground Survey"
         }
     }
 }
-

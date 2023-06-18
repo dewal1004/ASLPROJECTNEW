@@ -13,7 +13,7 @@ page 50064 "Store Req. Ready for Final App"
                             "Final Approved" = FILTER(<> Approved),
                             "Document No." = FILTER(''),
                             Rejected = CONST(false));
-
+    Caption = 'Store Req. Ready for Final App';
     layout
     {
         area(content)
@@ -89,4 +89,3 @@ page 50064 "Store Req. Ready for Final App"
         Rec.SetFilter("Final Approval to", '%1', UserId);
     end;
 }
-

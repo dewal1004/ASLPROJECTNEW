@@ -2,7 +2,7 @@ report 55151 "Voyage P&L Ledger Linexc"
 {
     DefaultLayout = RDLC;
     RDLCLayout = './src/reportrdlc/VoyagePLLedgerLinexc.rdlc';
-
+    Caption = 'Voyage P&L Ledger Linexc';
     dataset
     {
         dataitem("Job Ledger Entry"; "Job Ledger Entry")
@@ -15,7 +15,7 @@ report 55151 "Voyage P&L Ledger Linexc"
             column(COMPANYNAME; CompanyName)
             {
             }
-            column(CurrReport_PAGENO; CurrReport.PageNo)
+            column(CurrReport_PAGENO; CurrReport.PageNo())
             {
             }
             column(USERID; UserId)
@@ -41,19 +41,15 @@ report 55151 "Voyage P&L Ledger Linexc"
             }
             column(CycleDay; CycleDay)
             {
-
             }
             column(FishgDay; FishgDay)
             {
-
             }
             column(LostDay; LostDay)
             {
-
             }
             column(PortDay; PortDay)
             {
-
             }
             column(Vess; Vess)
             {
@@ -69,19 +65,15 @@ report 55151 "Voyage P&L Ledger Linexc"
             }
             column(Text24; Text24)
             {
-
             }
             column(Text25; Text25)
             {
-
             }
             column(Text26; Text26)
             {
-
             }
             column(Text27; Text27)
             {
-
             }
             column(PntStor_1_; PntStor[1])
             {
@@ -116,7 +108,6 @@ report 55151 "Voyage P&L Ledger Linexc"
             }
             column(Loc__Vessel_Endurance_; Loc."Vessel Endurance")
             {
-
             }
             column(Job_Ledger_Entry__Work_Type_Code_; "Work Type Code")
             {
@@ -237,7 +228,6 @@ report 55151 "Voyage P&L Ledger Linexc"
                 END;
                 PrdPrc:=Qty*Prc;
                 */ //#1
-
             end;
 
             trigger OnPreDataItem()
@@ -412,7 +402,6 @@ report 55151 "Voyage P&L Ledger Linexc"
                     Itempr.SETRANGE(Itempr."Starting Date",0D,"Posting Date");
                     IF Itempr.FIND('+') THEN Prc:=Itempr."Unit Price" ELSE Prc:=0;
                     */  //#1
-
                 end;
 
                 trigger OnPreDataItem()
@@ -464,7 +453,6 @@ report 55151 "Voyage P&L Ledger Linexc"
                     IF Itempr.FIND('+') THEN PrcB:=Itempr."Unit Price" ELSE PrcB:=0;
                     PrdPrcB:=QtyB*PrcB;
                     */  //#1
-
                 end;
 
                 trigger OnPostDataItem()
@@ -481,8 +469,7 @@ report 55151 "Voyage P&L Ledger Linexc"
                       PrdPrcB:=0;
                     END;
                     CurrReport.SHOWOUTPUT(FALSE);
-                    
-                    
+
                     //IF EVALUATE(NOrder,COPYSTR(GroupSort,1,1)) THEN;
                     IF EVALUATE(NOrder,COPYSTR(GroupSort,2,2)) THEN;
                     //MESSAGE('Value is OF %1 = %2',GroupSort,NOrder);
@@ -494,7 +481,6 @@ report 55151 "Voyage P&L Ledger Linexc"
                         NairaValBX:=NairaValBX+NairaValB;
                      END;
                      */  //#1
-
                 end;
 
                 trigger OnPreDataItem()
@@ -508,17 +494,15 @@ report 55151 "Voyage P&L Ledger Linexc"
                     A2[3] := NairaValB;
                     A2[4] := A1[3] - A2[3];
 
-
                     if A1[1] <> 0 then A1[4] := A1[2] / A1[1];
 
                     if A1[1] <> 0 then
                         // IF NOrder<4 THEN
                         if NOrder < 8 then
                             A1[4] := A1[2] / A1[1]
-                        else begin
+                        else
                             A1[4] := A1[3] / A1[1];
-                            //MESSAGE('Value is OF %1 = %2 FOR %3 AND %4',"Sea food code",NOrder,A1[3],A1[1]);
-                        end;
+                    //MESSAGE('Value is OF %1 = %2 FOR %3 AND %4',"Sea food code",NOrder,A1[3],A1[1]);
                 end;
             }
 
@@ -709,7 +693,6 @@ report 55151 "Voyage P&L Ledger Linexc"
 
     requestpage
     {
-
         layout
         {
         }
@@ -725,37 +708,21 @@ report 55151 "Voyage P&L Ledger Linexc"
 
     var
         LastFieldNo: Integer;
-        FooterPrinted: Boolean;
         TotalFor: Label 'Total';
-        "---": Integer;
         Job: Record Job;
-        Job2: Record Job;
-        Itempr: Record "Item Ledger Entry";
-        CurrExc: Record "Currency Exchange Rate";
-        ProdPostGrp: Record "Gen. Product Posting Group";
-        InvtPostGrp: Record "Inventory Posting Group";
-        JobSetUp: Record "Jobs Setup";
-        JBudLn: Record "Job Ledger Entry";
-        Employee: Record Employee;
         Loc: Record Location;
         Coutry: Record "Country/Region";
-        GLEntry: Record "G/L Entry";
         Res: Record Resource;
-        Prc: Decimal;
-        PrcB: Decimal;
         PrdPrc: Decimal;
         PrdPrcB: Decimal;
         PrdPrc2: Decimal;
         PrdPrcBX: Decimal;
         PrdPrc2X: Decimal;
-        PrdPrc2B: Decimal;
-        CurrRate: Decimal;
         NairaVal: Decimal;
         NairaValB: Decimal;
         NairaValBX: Decimal;
         NairaVal2: Decimal;
         NairaVal2X: Decimal;
-        NairaVal2B: Decimal;
         Qty: Decimal;
         QtyB: Decimal;
         QtyX: Decimal;
@@ -774,11 +741,9 @@ report 55151 "Voyage P&L Ledger Linexc"
         PntStor: array[8] of Decimal;
         ETD: Date;
         ETA: Date;
-        ETA2: Date;
         CycleDay: Decimal;
         PortDay: Decimal;
         LostDay: Decimal;
-        SeaDay: Decimal;
         FishgDay: Decimal;
         a: Decimal;
         expcnt: Integer;
@@ -817,11 +782,6 @@ report 55151 "Voyage P&L Ledger Linexc"
         NOrder: Decimal;
         ValRate: Decimal;
         ValQty: Decimal;
-        GLStr: array[25] of Decimal;
-        "GLGPP Caption": array[25] of Code[10];
-        CountGPPG: Integer;
-        CountG: Integer;
-        Flag: Boolean;
         CurrReport_PAGENOCaptionLbl: Label 'Page';
         QtyCaptionLbl: Label 'Quantity';
         EmptyStringCaptionLbl: Label '$';
@@ -875,7 +835,5 @@ report 55151 "Voyage P&L Ledger Linexc"
         ELSE
           ValQty:=0;
         */
-
     end;
 }
-

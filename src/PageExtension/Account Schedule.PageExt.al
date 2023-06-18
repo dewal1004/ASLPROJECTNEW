@@ -1,6 +1,5 @@
 pageextension 50206 "pageextension50206" extends "Account Schedule"
 {
-
     //Unsupported feature: Code Modification on "SetupAccSchedLine(PROCEDURE 3)".
 
     //procedure SetupAccSchedLine();
@@ -32,4 +31,3 @@ pageextension 50206 "pageextension50206" extends "Account Schedule"
     */
     //end;
 }
-
