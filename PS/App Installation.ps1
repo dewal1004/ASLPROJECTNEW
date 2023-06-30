@@ -7,6 +7,6 @@ Publish-NAVApp -ServerInstance BC180 -Path "C:\ASLHO\ASLPROJECTNEW\SSNL_ASL Upgr
 
 Install-NAVApp -ServerInstance BC180 -Name "ASL Upgrade Operation" -Version 14.5.1.24
 Start-NAVAppDataUpgrade 
-Sync-NAVApp -ServerInstance BC180 -Name "ASL Upgrade Operation" -Version 14.5.1.24
+-NAVApp -ServerInstance BC180 -Name "ASL Upgrade Operation" -Version 14.5.1.24
 Import-NavserverLicense -LicenseFile C:\LIC\Ssnl041122.flf -ServerInstance BC180
 Restart-NAVServerInstance BC180

@@ -87,8 +87,7 @@ Sync-NAVApp -ServerInstance BC180 -Tenant default -Name "Application" -Version 1
 Get-NAVAppInfo -ServerInstance BC180  | Where-Object {$_.Version -eq '18.5.29545.0'} | ForEach-Object { Sync-NAVApp -ServerInstance BC180 -Name $_.Name -Version $_.Version }
 ##14.5: Customization extensions
 Sync-NAVApp -ServerInstance BC180 -Name "ASL Upgrade Operation" -Version 18.5.1.98
-##14.6: Second version of the table migration extension (empty version)
-Sync-NAVApp -ServerInstance BC180 -Name "bc14baseapptablesonly" -Version 14.0.0.1
+##14.6: Second version of the table migration extension (empty vers-NAVApp -ServerInstance BC180 -Name "bc14baseapptablesonly" -Version 14.0.0.1
 
 ##15: Upgrade empty table migration extension
 Start-NAVAppDataUpgrade -ServerInstance BC180 -Name "bc14baseapptablesonly" -version 14.0.0.1

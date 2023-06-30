@@ -1,4 +1,7 @@
-permissionset 50000 GeneratedPermission
+/// <summary>
+/// Unknown GeneratedPermission (ID 50001).
+/// </summary>
+permissionset 50001 GeneratedPermission
 {
     Assignable = true;
     Permissions = tabledata "AGO Table" = RIMD,
@@ -877,6 +880,5 @@ permissionset 50000 GeneratedPermission
         page "Utilities." = X,
         page "Voyage Catch Default" = X,
         page "Voyage Catch Default List" = X,
-        page xxyz = X,
         query "Production Report" = X;
 }
