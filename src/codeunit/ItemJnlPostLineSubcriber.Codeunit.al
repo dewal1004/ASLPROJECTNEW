@@ -2,34 +2,34 @@ codeunit 50028 "ItemJnlPostLineSubcriber"
 {
     EventSubscriberInstance = StaticAutomatic;
 
-    // [EventSubscriber(ObjectType::Codeunit, Codeunit::"Item Jnl.-Post Line", 'OnBeforePostItem', '', true, true)]
-    // local procedure ItemJnlPostLineOnBeforePostItem(var ItemJournalLine: Record "Item Journal Line")
-    // var
-    //     ItemAvailability: Codeunit "Item-Check Avail.";
-    //     text001: Label 'ENU="%1 is Insurficient in Line %2   "';
-    // begin
-    //     IF ItemJournalLine."Entry Type" = ItemJournalLine."Entry Type"::Transfer THEN
-    //         IF ItemAvailability.ItemJnlCheckLine(ItemJournalLine) THEN //IF ItemAvailability.ItemJnlCheckLinePost(ItemJnlLine) THEN
-    //             ERROR(text001, ItemJournalLine."Item No.", ItemJournalLine."Line No.");
-    // end;
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Item Jnl.-Post Line", 'OnBeforePostItem', '', true, true)]
+    local procedure ItemJnlPostLineOnBeforePostItem(var ItemJournalLine: Record "Item Journal Line")
+    var
+        ItemAvailability: Codeunit "Item-Check Avail.";
+        text001: Label 'ENU="%1 is Insurficient in Line %2   "';
+    begin
+        IF ItemJournalLine."Entry Type" = ItemJournalLine."Entry Type"::Transfer THEN
+            IF ItemAvailability.ItemJnlCheckLine(ItemJournalLine) THEN //IF ItemAvailability.ItemJnlCheckLinePost(ItemJnlLine) THEN
+                ERROR(text001, ItemJournalLine."Item No.", ItemJournalLine."Line No.");
+    end;
 
-    // [EventSubscriber(ObjectType::Codeunit, Codeunit::"Item Jnl.-Post Line", 'OnAfterUpdateUnitCost', '', true, true)]
-    // local procedure ItemJnlPostLineOnAfterUpdateUnitCost(ItemJournalLine: Record "Item Journal Line"; ValueEntry: Record "Value Entry"; LastDirectCost: Decimal)
-    // var
-    //     Item: Record Item;
-    //     CompanyInfo: Record "Company Information";
-    // begin
-    //     if (ValueEntry."Valued Quantity" > 0) and
-    //       (ItemJournalLine.Amount + ItemJournalLine."Discount Amount" > 0) and
-    //       not (ValueEntry."Expected Cost" or ItemJournalLine.Adjustment) then begin
-    //         item.Get(ItemJournalLine."No.");
-    //         if (ItemJournalLine."Indirect Cost %" >= CompanyInfo."Min Foreign Indirect Cost %") then
-    //             Item."Last Imported Cost" := LastDirectCost
-    //         else
-    //             Item."Last Local Cost" := LastDirectCost;
-    //         Item.Modify;
-    //     end
-    // end;
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Item Jnl.-Post Line", 'OnAfterUpdateUnitCost', '', true, true)]
+    local procedure ItemJnlPostLineOnAfterUpdateUnitCost(ItemJournalLine: Record "Item Journal Line"; ValueEntry: Record "Value Entry"; LastDirectCost: Decimal)
+    var
+        Item: Record Item;
+        CompanyInfo: Record "Company Information";
+    begin
+        if (ValueEntry."Valued Quantity" > 0) and
+          (ItemJournalLine.Amount + ItemJournalLine."Discount Amount" > 0) and
+          not (ValueEntry."Expected Cost" or ItemJournalLine.Adjustment) then begin
+            item.Get(ItemJournalLine."No.");
+            if (ItemJournalLine."Indirect Cost %" >= CompanyInfo."Min Foreign Indirect Cost %") then
+                Item."Last Imported Cost" := LastDirectCost
+            else
+                Item."Last Local Cost" := LastDirectCost;
+            Item.Modify;
+        end
+    end;
 
     [EventSubscriber(ObjectType::Codeunit, Codeunit::"Item Jnl.-Post Line", 'OnAfterInitItemLedgEntry', '', true, true)]
     local procedure ItemJnlPostLineOnAfterInitItemLedgEntry(var NewItemLedgEntry: Record "Item Ledger Entry"; var ItemJournalLine: Record "Item Journal Line")
@@ -44,12 +44,12 @@ codeunit 50028 "ItemJnlPostLineSubcriber"
         end;
     end;
 
-    // [EventSubscriber(ObjectType::Codeunit, Codeunit::"Item Jnl.-Post Line", 'OnBeforePostInventoryToGL', '', true, true)]
-    // local procedure ItemJnlPostLineOnBeforePostInventoryToGL(var ValueEntry: Record "Value Entry"; var IsHandled: Boolean)
-    // begin
-    //     if ValueEntry."Item Ledger Entry Type" = ValueEntry."Item Ledger Entry Type"::Transfer then
-    //         IsHandled := true;
-    // end;
+    [EventSubscriber(ObjectType::Codeunit, Codeunit::"Item Jnl.-Post Line", 'OnBeforePostInventoryToGL', '', true, true)]
+    local procedure ItemJnlPostLineOnBeforePostInventoryToGL(var ValueEntry: Record "Value Entry"; var IsHandled: Boolean)
+    begin
+        if ValueEntry."Item Ledger Entry Type" = ValueEntry."Item Ledger Entry Type"::Transfer then
+            IsHandled := true;
+    end;
 
     // [EventSubscriber(ObjectType::Codeunit, Codeunit::"Item Jnl.-Post Line", 'OnAfterInitValueEntry', '', true, true)]
     // local procedure ItemJnlPostLineOnAfterInitValueEntry(var ValueEntry: Record "Value Entry"; ItemJournalLine: Record "Item Journal Line")
@@ -137,8 +137,8 @@ codeunit 50028 "ItemJnlPostLineSubcriber"
 
 //                          ModifiedCode=BEGIN
 
-//                                         //IF CONFIRM('Insert Value %1  of %2',FALSE, ValueEntry."Item Ledger Entry Type",ValueEntry."Source Code") THEN
-//                                         if (ValueEntry."Item Ledger Entry Type" = ValueEntry."Item Ledger Entry Type"::Transfer) and (ValueEntry."Source Code" = 'INVTADJMT') then exit;//inserted by SHOD 01/08/18
+//                 //IF CONFIRM('Insert Value %1  of %2',FALSE, ValueEntry."Item Ledger Entry Type",ValueEntry."Source Code") THEN
+//       if (ValueEntry."Item Ledger Entry Type" = ValueEntry."Item Ledger Entry Type"::Transfer) and (ValueEntry."Source Code" = 'INVTADJMT') then exit;//inserted by SHOD 01/08/18
 //                                         #96..111
 //                                       END;
 
@@ -221,8 +221,8 @@ codeunit 50028 "ItemJnlPostLineSubcriber"
 //                                         if ItemLedgEntryType = ValueEntry."Item Ledger Entry Type"::" " then
 //                                           exit;
 //                                         if Adjustment then
-//                                           if not (ItemLedgEntryType in [ValueEntry."Item Ledger Entry Type"::Output,
-//                                                                         ValueEntry."Item Ledger Entry Type"::"Assembly Output"])
+//                        if not (ItemLedgEntryType in [ValueEntry."Item Ledger Entry Type"::Output,
+//                                           ValueEntry."Item Ledger Entry Type"::"Assembly Output"])
 //                                           then
 //                                             exit;
 
@@ -234,8 +234,8 @@ codeunit 50028 "ItemJnlPostLineSubcriber"
 
 //                          ModifiedCode=BEGIN
 //                                         #1..4
-//                                                                         ValueEntry."Item Ledger Entry Type"::"Assembly Output",
-//                                                                         ValueEntry."Item Ledger Entry Type"::Transfer]) // Inserted by Shod 01/08/18
+//                           ValueEntry."Item Ledger Entry Type"::"Assembly Output",
+//                           ValueEntry."Item Ledger Entry Type"::Transfer]) // Inserted by Shod 01/08/18
 //                                         #6..25
 //                                       END;
 
